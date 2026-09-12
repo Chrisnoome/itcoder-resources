@@ -302,6 +302,13 @@ Secrets live in `config/config.php` in each project (never in this folder). On
   `https://itcoder.co.za/auth.php?action=callback` (same in v1 and v2). Consent
   screen is External and still needs publishing (open item).
 - **The server:** see [vps-access.md](vps-access.md).
+- **GitHub (Chris's account, `Chrisnoome`):** both project folders are private
+  repos, pushed 12 September 2026 for off-machine backup - see README.md,
+  "What lives elsewhere, and why". This machine's `~/.ssh/id_ed25519` (public
+  key already added under github.com/settings/keys) authenticates pushes;
+  there is no `gh` CLI installed here, so a new repo is created on
+  github.com/new first, then added as a remote and pushed to, not created
+  from the command line.
 
 ## Local testbeds (Chris's Windows machine)
 

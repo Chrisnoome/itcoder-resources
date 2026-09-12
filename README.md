@@ -58,6 +58,7 @@ Everything the first chat knew is in this folder.
 | Pupil backups | `Projects/AIWebCourse/backups` - personal data, kept out of here on purpose |
 | Secrets | `config/config.php` in each project; the server key at `C:\Users\chris\.ssh\gnomemedia_vps` |
 | Future courses | `Projects/AITheory`, `Projects/AIQuestionDatabase` - empty so far |
+| Git history / off-machine backup | Private GitHub repos under Chris's account (`Chrisnoome`) - [github.com/Chrisnoome/itcoder-platform](https://github.com/Chrisnoome/itcoder-platform) (`AIPascalCourse`) and [github.com/Chrisnoome/itcoder-resources](https://github.com/Chrisnoome/itcoder-resources) (this folder, including `vps-access.md` - a deliberate choice, made 12 September 2026, for a complete backup rather than a partial one). `config/config.php` stays out of `itcoder-platform` via `.gitignore` - it is not a backup gap, it just isn't a secret worth putting in git history when `config.sample.php` already documents its shape. Push with plain `git push` once a remote is set - see platform.md, "Keys and accounts", for how this machine authenticates. |
 
 ## State of play, 11 September 2026
 
