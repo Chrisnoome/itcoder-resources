@@ -1,0 +1,3 @@
+# Server IP, root user, and SSH key path - kept out of history at Chris's
+# request, even though this repo is local-only (no remote configured).
+/vps-access.md
