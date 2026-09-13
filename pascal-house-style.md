@@ -49,6 +49,9 @@ Parameters do not need the `const` keyword.
 - 1-based arrays throughout.
 - Procedures must not produce output directly; functions return values, and the main program (or calling code) is what calls `Writeln`.
 - Avoid long, complex lines. Break a complex expression into several simple steps, introducing extra variables where that makes the logic clearer.
+- **Never put more than one instruction on a line** (Chris, 2026-09-13), even
+  two short ones separated by a semicolon (`Write ('H'); Delay (200);` is
+  wrong - each goes on its own line, however trivial either statement is).
 
 ## 6. Object-oriented conventions
 
@@ -115,6 +118,7 @@ End; // TStopwatch.GetElapsed
 - [ ] No `Break` anywhere
 - [ ] `//` comments only, and every `End` line says what it closes
 - [ ] Long lines broken into simple steps with extra variables
+- [ ] Never more than one instruction on a line
 - [ ] Procedures don't output; functions return, caller writes
 - [ ] Classes `T`-prefixed; constructors call `Inherited Create` first
 - [ ] Only first-principles data structures/techniques used

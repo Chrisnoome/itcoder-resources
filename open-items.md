@@ -28,14 +28,70 @@ and restyle - in progress, not pushed live. Full status in
 
 ## Platform
 
-- **Compile subsystem** for Pascal - `code` block, compile queue, sandboxed worker,
-  API endpoint. Sandbox design tested and validated against the live server,
-  11 September 2026 - see [compile-subsystem-design.md](compile-subsystem-design.md).
-  Nothing built yet. Still open within it: fork-bomb/`TasksMax=` behaviour
-  (blocked by Claude Code's own permission classifier, needs a chat or Chris
-  authorised to run it directly), output-size capping, concurrency under a
-  class burst, and whether compiling is gated like AI marking or open to
-  everyone signed in.
+- **Compile subsystem** for Pascal - **built 12 September 2026, not deployed.**
+  `codeSubmissions` table, `bin/compile-sandbox.sh`, `lib/compile.php`,
+  `bin/compilequeue.php`, two API endpoints and the `code` block type, with two
+  blocks in `content/pascal/proofoflife.php` using it. Tested end to end
+  locally; the sandbox itself re-validated against the live server, where it
+  now also blocks reading `/var/www` (the lesson files, i.e. every quiz answer
+  in the course - a hole the original design left open). Full write-up in
+  [compile-subsystem-design.md](compile-subsystem-design.md). Settled while
+  building: compiling is open to everyone signed in and enrolled, not gated
+  like AI marking (Chris, 12 September 2026). Still open within it:
+  - **Deployed to the test deployment (port 8082) on 12 September 2026** and
+    verified end to end there, including through the cron worker. **Live is
+    still untouched** - deploying it there is Chris's call; commands in the
+    design file. Note it needs two privileged pieces a normal deploy does NOT
+    install: the root-owned sandbox script at `/usr/local/bin/` and the
+    `/etc/sudoers.d/itcoder-compile` rule (both already on the box, shared
+    with live when it goes up), because `systemd-run` cannot be called by
+    `www-data` at all.
+  - **The fork-bomb / `TasksMax=` test**, for Chris to run directly - Claude
+    Code's permission classifier refuses it even with Chris's authorisation
+    (given 12 September 2026). Paste-ready command in the design file.
+  - **Concurrency under a lockstep class burst** - still arithmetic, not a
+    measurement.
+  - **Marked code questions** - the block is deliberately unmarked for now.
+    Two different scoring shapes, neither built; see the design file.
+- **Study notes, performance evaluation and lesson bookmarks** - **built 13
+  September 2026, not deployed anywhere.** Four things landed together
+  (platform.md decisions 18-21):
+  - a `study` block ("what to study") with a PDF of the same summary, written
+    by a hand-rolled `lib/pdf.php` - on **every lesson of the Pascal course**
+    (Chris asked for lessons 1 and 2, then for all of them, the same day),
+    opt-in everywhere else;
+  - an "evaluate my performance" panel on **every** lesson with questions, in
+    every course, queued through `bin/markqueue.php`;
+  - "carry on where you left off?", system wide;
+  - an `important` block, used for the "programming is a practical subject"
+    notice at the top of every Pascal lesson
+    (`PracticalSubjectNotice()` in `lib/content.php`).
+
+  Still open within it:
+  - **Two new tables** - `lessonPositions` and `performanceReviews`. Any
+    deployment needs `sudo -u www-data php <root>/bin/setup.php` run once
+    after the upload, or the evaluate panel and the bookmark both fail on
+    every page load. A normal file deploy does NOT do this.
+  - **On the test deployment since 13 September 2026; live still untouched**
+    (`/var/www/itcoder` has no `lib/pdf.php`). Only `lib/`, `bin/`, `content/`
+    and `public/` were uploaded, never `config/` or `data/` - that keeps the
+    test deployment's own hand-written config out of range entirely, rather
+    than copying it aside and putting it back the way the compile deploy had
+    to. Both new tables created there, both sites still serving 200. The
+    existing `markqueue.php` cron line now writes reviews as well; it needed
+    no crontab change.
+  - Tested end to end locally first: all three PDFs generated and read back,
+    the review written for real through the API against a seeded "rushing"
+    profile (both of Chris's rules fired), and the bookmark saved, offered,
+    taken and cleared.
+  - **A PDF icon had to be made.** `Logos and icons/` has csv, docx, txt, xlsx
+    and zip but no pdf. One was derived from `txt.png` - same artwork, red
+    badge - and saved to both that folder and
+    `public/assets/icons/pdf.png`. Swap in a better one if there is a real
+    one somewhere; nothing else needs to change.
+  - **The register of the review's voice has only been read by Claude.** It
+    tells a pupil plainly that they are rushing. Worth reading one against a
+    real pupil's marks before a class sees it.
 - **Subscription purchase flow** - the gating exists (`subscriptionExpiresAt`,
   `CanUseMarking()`), but dates are set by hand; nobody can pay yet.
 - **Google OAuth** - the consent screen is External and needs **Publish app**
@@ -59,8 +115,9 @@ and restyle - in progress, not pushed live. Full status in
   commands, answer key, fallback if a demo dies); **assessment weight** (marked or
   enrichment; is lesson 8 a test); **lesson 8 timing** (four videos plus a 5-mark
   capstone in one period).
-- Pascal: lessons 3 onward; the "Proof of life" lesson (in discussion - don't
-  build until Chris confirms).
+- Pascal: lessons 3 onward. **"Proof of life" is built** (not just discussed -
+  see [courses/pascal-course.md](courses/pascal-course.md)), still awaiting
+  only a final lesson number.
 - **Three quote portraits not in the corpus - resolved 2026-09-13.** Deming
   (AI lesson 6), Ken Olsen (AI lesson 8) and this second Wirth quote (Pascal
   lesson 2, "Algorithms + Data Structures = Programs" - distinct from the

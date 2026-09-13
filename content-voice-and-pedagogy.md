@@ -18,8 +18,21 @@ of video/animation.
 Everything [writing-style.md](writing-style.md) already says still holds: plain conversational
 English, direct address ("you"), short sentences, bulleted lists for anything
 enumerable, hyphens not em dashes, local examples, no unexplained jargon,
-never talk down. Read that section before writing a line. What the old corpus
-adds on top of it:
+never talk down. Read that section before writing a line.
+
+**Reminder (Chris, 2026-09-13, caught after a rubric line read "a
+mechanical, syntax-level checklist, not a holistic judgement"): every piece
+of text a pupil reads - prose, a prompt, an explain, a pupil-visible
+rubric, feedback - has to sound like it's talking to an actual 15-year-old
+who has never programmed before, not to a teacher or another developer.**
+That applies even to marking/assessment language, which is where jargon
+creeps in easiest ("holistic", "criterion", "band", "checklist") - say the
+plain-English version instead, or don't mention the marking mechanics to
+the pupil at all if they don't need to know. If a sentence would need
+explaining to a first-year Grade 10 pupil before they could use it, rewrite
+it rather than footnote it.
+
+What the old corpus adds on top of the base rules:
 
 - **Vivid, everyday analogies, pushed further than feels natural at first.**
   *"It's like if your head is the chip and the CPU is the brain - with 2 cores
@@ -261,6 +274,22 @@ September 2026):**
   `w1FinalAssessment` in lesson08 is the model to match for a question at
   or above this threshold.
 
+  **A rubric shown to the pupil must never spell out the literal expected
+  answer (Chris, 2026-09-13).** Whether it's per-idea checklist or banded,
+  `rubric` (and anything else `showRubric` displays) should describe what's
+  being checked in terms a pupil can use to guide their effort, never hand
+  over the exact shape of a correct response - e.g. "1 mark for formatting
+  that matches what you've been taught, 13 marks for working code, losing 1
+  for each mistake" is fine to show; a line-by-line breakdown of the exact
+  keywords and punctuation expected is not, because it stops being a test
+  once the pupil can just copy the checklist. When the real marking
+  genuinely needs that precision (checking for specific tokens, syntax, or
+  wording), set **`markerRubric`** to the exact, detailed version instead -
+  `bin/markqueue.php` sends `markerRubric` to the AI marker when present,
+  falling back to `rubric` when it isn't. `markerRubric` is never displayed
+  to a pupil under any circumstance, so it can be as technical and exact as
+  the marking actually requires.
+
   **Format each band as its own bullet, `mark` or `low-high` then a colon**
   (`- 5-6: description`, `- 0: description`) - `RubricListHtml()` in
   `lib/content.php` detects a block where every bullet matches
@@ -275,9 +304,20 @@ September 2026):**
 **Code-writing questions and house style (2026-09-11):** any question that
 asks the pupil to write actual Pascal - not just explain something in prose -
 is marked against `AIResources/pascal-house-style.md` as well as
-correctness, from the very first such question in the course (lesson 2,
-"Proof of life") onward. "Even simple code must meet conventions" - this
-starts on day one, not once the code gets complicated enough to need it.
+correctness, from the very first such question in the course ("Proof of
+life") onward. Even simple code must meet these standards - this starts on
+day one, not once the code gets complicated enough to need it.
+
+**Never say "house style" or "convention" to a pupil (Chris, 2026-09-13).**
+Those are our internal terms - this file, `pascal-house-style.md`, and
+rubrics written for the marker can keep using them freely. But any text a
+pupil actually reads - prose, a prompt, a pupil-visible rubric, feedback -
+must instead say something to this effect: "on how you format and lay out
+your code - it must match what you have been taught and shown. This is not
+because it is Pascal rules but because we are trying to teach you good
+programming habits." Adapt the wording to fit the sentence, but keep both
+halves: what's being checked (formatting/layout matching what's been
+taught), and why (a habit being built, not an arbitrary Pascal rule).
 
 The house-style penalty is a single **flat 1-mark deduction**, applied once
 per question if the code breaks house style in any way - never cumulative,
@@ -293,14 +333,15 @@ feedback even though the numeric penalty is small** - the mark is a nudge,
 the feedback is the actual teaching.
 
 What counts as "house style" for this deduction grows as the course teaches
-more Pascal - only grade a question against conventions for material already
-taught by that point, never retroactively. Lesson 2 ("Proof of life") can
-only reasonably grade indentation, `//` comments, and program structure
-(name-matches-file, one `Begin … End.` block) - it doesn't yet teach
-variables, so single-letter variable names aren't yet a thing to catch.
-Once a lesson introduces variables (lesson 3, "Every box needs a label"),
-meaningful variable naming (`pascal-house-style.md` §2 - never a single
-letter) joins the graded set from then on; procedure/function naming and
+more Pascal - only grade a question against material already taught by that
+point, never retroactively. "Proof of life" can only reasonably grade
+indentation and program structure (a meaningful program name, one
+`Begin … End.` block) - it doesn't teach comments or variables at all, so
+neither belongs in that question's marking yet. "Every box needs a label"
+introduces variables next, so meaningful variable naming
+(`pascal-house-style.md` §2 - never a single letter) joins the graded set
+from there; `//` comments join whichever later lesson actually teaches
+them - not before. Procedure/function naming and
 structure join once those are taught, and so on - the checklist accumulates,
 lesson by lesson, matching `pascal-house-style.md`'s own "Quick checklist".
 
@@ -404,9 +445,15 @@ than publish a face next to the wrong name.
 - [ ] A written question with `markMax >= 10` has `showRubric => true`, and
       its rubric is written as IEB SAGS-style bands (`- 5-6: ...`), not a
       per-idea checklist
+- [ ] A rubric shown to the pupil never spells out the literal expected
+      answer - exact/technical marking detail goes in `markerRubric` instead
 - [ ] Every question's total mark allocation (`marks` doubled, or `markMax`)
       is an even number - no question anywhere should be able to resolve to a
       half mark
+- [ ] Every pupil-facing sentence (prose, prompt, explain, visible rubric,
+      feedback) reads like it's talking to a 15-year-old who has never
+      programmed before - no marking jargon ("holistic", "criterion"), no
+      "house style" or "convention" (say what it actually means instead)
 - [ ] No meta-commentary about the page itself, no "back to top" nav text, no
       raw widget config left in
 - [ ] Serious topics stated as plainly and vividly as fun ones - no change in

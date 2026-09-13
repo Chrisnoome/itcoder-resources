@@ -65,9 +65,19 @@ project folder, or move it.
   housekeeping" has the exact commands, crontab line and ufw rule included.
 - PHP-FPM: one pool, `www`, `pm.max_children = 40`, sized for this hardware by
   `bin/tune-fpm.sh` (in both v1 and v2).
-- www-data's crontab:
+- www-data's crontab - **every line's log file must already exist, owned by
+  www-data.** `/var/log` is `drwxrwxr-x root:syslog`, so www-data cannot create
+  a file there: a cron line redirecting to a log that does not exist fails in
+  the shell before PHP is ever started, and fails **silently**, because the
+  error has nowhere to go. That is exactly what happened to the test
+  deployment's marking worker - added 11 September 2026, never once ran, found
+  12 September when marking "wasn't finishing". Create the log first:
+  `touch /var/log/NAME.log && chown www-data:www-data /var/log/NAME.log`.
   - `* * * * *` `/var/www/itcoder/bin/markqueue.php` - the marking worker
   - `30 2 * * *` `/var/www/itcoder/bin/backup.php` - the nightly backup
+  - `* * * * *` `/var/www/itcoder-v2-test/bin/compilequeue.php` - the Pascal
+    compile worker for the test deployment, added 12 September 2026, logging to
+    `/var/log/itcoder-v2-test-compile.log`. Remove at teardown.
   - `* * * * *` `/var/www/itcoder-v2-test/bin/markqueue.php` - added 11
     September 2026, marks written answers submitted on the test deployment
     (it has no worker of its own otherwise - the first test submission sat
@@ -76,8 +86,21 @@ project folder, or move it.
 - `/var/backups/itcoder` - verified, gzipped snapshots, 14 daily plus 12
   monthly. Pulled down to Dropbox every evening by the Windows scheduled task
   **itcoder backup pull** (`tools/pull-backups.py` in this folder).
+- `/usr/local/bin/itcoder-compile-sandbox.sh` - **root:root, 755, outside the
+  web root on purpose** (added 12 September 2026). The Pascal compile sandbox.
+  `systemd-run` cannot be called by an unprivileged user - as `www-data` it
+  fails with "Interactive authentication required" - so
+  `/etc/sudoers.d/itcoder-compile` (440) allows exactly
+  `www-data ALL=(root) NOPASSWD: /usr/local/bin/itcoder-compile-sandbox.sh`.
+  It lives outside `/var/www` because a deploy chowns everything there to
+  `www-data`, which would let the account the sandbox contains rewrite the
+  script sudo runs as root. **A deploy does not update it** - re-run the
+  `install` line in [compile-subsystem-design.md](compile-subsystem-design.md)
+  whenever `bin/compile-sandbox.sh` changes. Removing that sudoers file is the
+  clean way to switch compiling off.
 - Logs: `/var/log/itcoder-marking.log`, `/var/log/itcoder-backup.log`,
-  `/var/log/itcoder-v2-test-marking.log` (test deployment only).
+  `/var/log/itcoder-v2-test-marking.log` and
+  `/var/log/itcoder-v2-test-compile.log` (test deployment only).
 
 Backups and restoring: [backups.md](backups.md). The rest of the platform:
 [platform.md](platform.md).
@@ -180,11 +203,28 @@ findings.** Bubblewrap-style unprivileged namespaces are indeed blocked
 full compile-and-run - isolated, no network, config.php unreadable
 (including via Pascal's own `{$I}` include directive), memory and wall-clock
 limits both enforced - was proven working end to end with real FPC 3.2.2.
-`fp-compiler` is now installed on this server as part of that test. Not yet
-tested: fork-bomb/`TasksMax=` behaviour (Claude Code's own permission
-classifier refuses to run that test even sandboxed - run it directly, or see
-the design doc for the exact command) and concurrency under a lockstep class
-burst.
+`fp-compiler` is now installed on this server as part of that test.
+
+**Built 12 September 2026 and re-validated against this server**, including two
+things the 11 September design missed - see
+[compile-subsystem-design.md](compile-subsystem-design.md), "What building it
+changed". The one that matters here: **`ProtectSystem=strict` makes the
+filesystem read-only, not unreadable.** A pupil's Pascal program was confirmed
+reading `/var/www/itcoder/content/pascal/lesson02.php` - every quiz answer in
+the course - because those files are chmod 644 and the sandbox's dynamic uid
+counts as "other". Closed with `InaccessiblePaths=/var/www` (plus
+`/var/backups`, `/var/log`). `config/` and `data/` were never exposed; they are
+750 owned by `www-data`, which is exactly why the house rules below insist on
+those permissions after every deploy.
+
+Nothing is deployed yet - nothing under `/var/www` has been changed. The deploy
+commands, including the new crontab line for `bin/compilequeue.php`, are at the
+bottom of the design file.
+
+Still not tested: fork-bomb/`TasksMax=` behaviour (Claude Code's own permission
+classifier refuses to run that test even sandboxed and even with Chris's
+explicit authorisation, given 12 September 2026 - run it directly; the exact
+command is in the design doc) and concurrency under a lockstep class burst.
 
 ## Carried into AIPascalCourse on 11 September 2026
 
@@ -194,9 +234,23 @@ nothing v1 had. Don't undo them:
 - **`bin/backup.php`** - v1's nightly backup, with the table list changed to
   v2's (`pupils`, `enrolments`, ...). Tested against your local database. The
   02:30 cron already calls `/var/www/itcoder/bin/backup.php`, so it takes over
-  the night you deploy. **If you add or rename a table in `schema.sql`, change
-  `$expected` in `bin/backup.php` and `SCHEMAS['v2']` in
-  `AIResources/tools/pull-backups.py` to match**, or every backup is refused.
+  the night you deploy.
+
+  **If you RENAME or remove a table in `schema.sql`, change `$expected` in
+  `bin/backup.php` and `SCHEMAS['v2']` in `AIResources/tools/pull-backups.py`
+  to match**, or every backup is refused.
+
+  **Adding a table is different, and the rule above used to get it wrong**
+  (corrected 12 September 2026, while adding `codeSubmissions`). `backup.php`
+  snapshots with `VACUUM INTO`, which copies the whole database, new tables
+  included - `$expected` is the *verification* list, not the selection, so
+  forgetting to add a new table there loses nothing, it just means the backup
+  does not check that table arrived. Add it anyway. But do **not** add it to
+  `SCHEMAS['v2']` in `pull-backups.py`: that check is `set(need) <= tables`, so
+  naming a table there that older snapshots do not contain would make the pull
+  reject **every backup taken before today** - 14 daily and 12 monthly of them.
+  The shape-detection there only needs enough tables to tell v1 from v2, and
+  `pupils` + `enrolments` already do that.
 - **`bin/tune-fpm.sh`** - sizes the PHP-FPM pool from the real CPU and RAM.
   Unchanged from v1; how to use it is in its own header comment.
 - **`lib/db.php`** - three PRAGMAs v1 gained after the server upgrade:

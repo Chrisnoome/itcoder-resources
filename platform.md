@@ -95,9 +95,21 @@ v2 layout:
   `PupilAutoMarkedTotal()`/`CourseAutoMarkedWeights()`) must go through now -
   none of them may call `QuizMarkEarned()` on a `match` row directly, since
   that would silently mark it all-or-nothing again. Inside prose, `Gloss($term, $def)` and `Aside($marker, $text)` make
-  tap-to-open popups (glossary vs joke or anecdote). A `code` block that
-  compiles and runs real Pascal is planned - see
-  [courses/pascal-course.md](courses/pascal-course.md).
+  tap-to-open popups (glossary vs joke or anecdote). `code` (2026-09-12) is
+  an editable Pascal box with a Run button: the source is queued, real `fpc`
+  compiles and runs it inside a systemd sandbox on the server, and the pupil
+  gets back genuine compiler errors or their program's genuine output. **How
+  the code is laid out is checked first** (`lib/codestyle.php`) and a program
+  that fails is refused before it reaches the compiler - but only ever for
+  things `fpc` itself would accept, and only against what that lesson has
+  already taught. It
+  carries **no marks** and is deliberately excluded from
+  `LessonAutoMarkedQuestions()` - it is a practice box, not an assessment, and
+  putting it in that pool without a scoring rule would make a lesson report a
+  larger "out of" than any pupil could reach. Compiling is open to everyone
+  signed in and enrolled, unlike AI marking, because it spends this server's
+  CPU rather than Anthropic tokens. See
+  [compile-subsystem-design.md](compile-subsystem-design.md).
 
 ## Decisions that must not be undone
 
@@ -106,11 +118,36 @@ not a tidy-up.
 
 **1. Written answers are queued, never marked in the web request.**
 `api/submit-written.php` writes to the queue and returns at once; `bin/markqueue.php`
-runs from cron every minute and calls the Claude API one answer at a time. On the
+is started from cron every minute and calls the Claude API one answer at a time. On the
 original 1-core server that was survival. Since the upgrade it still stands:
 holding a web worker idle through seconds of network wait is waste; one-at-a-time
 keeps spend and rate limits predictable; and the daily cap is enforced around the
 queue. Don't "simplify" it into a synchronous call.
+
+**The worker loops through the minute rather than doing one pass per tick**
+(12 September 2026). Cron can only start something once a minute, so a
+one-pass worker left every answer waiting an average of thirty seconds before
+anything looked at it - far more than the API call itself (measured at 3-14
+seconds) and by far the largest part of what a pupil experienced as slow
+marking. Chris went looking for that delay in the browser's polling; it was
+never there. `markqueue.php` now behaves like `bin/compilequeue.php`: same
+cron line, same `flock`, but it checks for work every 250ms until 45 seconds
+in, then exits. Measured after: **picked up in 0.32s, marked in 2.9s total.**
+None of the above changes - still queued, still off the web request, still one
+answer at a time, still capped per pupil per day.
+
+Two things that follow from it, worth keeping straight:
+
+- **The worker body is behind `RunMarkQueue()` and a "run directly" guard**, so
+  requiring the file for `MarkOneAnswer()` (the marking tests do) cannot start
+  a three-quarter-minute loop as a side effect of an include.
+- **A whole class handing in at once is still slow, and no poll setting fixes
+  it.** Marking is serial: thirty answers at ~10s each is ~5 minutes of queue
+  however promptly it starts. What that needed was the client's give-up cap
+  raising (`PollForFeedback`, now ~12 minutes) so the pupils at the back stop
+  being told "taking longer than usual" when nothing is wrong. The real lever
+  is parallel marking, on the backlog in [open-items.md](open-items.md) - not
+  worth reaching for until a real class has been watched doing it.
 
 **2. SQLite settings in `lib/db.php`.** WAL mode and a 5-second busy timeout -
 without them, 30 pupils saving at once hit `SQLITE_BUSY`. Plus
@@ -253,6 +290,211 @@ of this - `RubricCriteria()` returns an empty array, `$hasCriteria` is
 false, and marking falls back to the original plain-mark-and-feedback shape
 exactly as before.
 
+**15. Pupils' Pascal only ever runs inside the sandbox, and "read-only" is not
+the same as "secret" (12 September 2026).** `bin/compile-sandbox.sh` runs every
+compile and every resulting program in a transient `systemd-run` unit with
+`DynamicUser`, no network, no writable filesystem, hard memory, time and
+process limits. Three things about it are load-bearing and must not be trimmed
+as belt-and-braces:
+
+- **`InaccessiblePaths=/var/www`** (plus `/var/backups` and `/var/log`).
+  `ProtectSystem=strict` makes the filesystem read-only, **not unreadable**,
+  and the sandbox's dynamic uid counts as "other" for Unix permissions.
+  `config/` and `data/` were already safe at chmod 750, but everything else
+  under `/var/www` is 644 - and a pupil's Pascal program was confirmed reading
+  `content/pascal/lesson02.php`, which is every quiz answer, every rubric and
+  every explanation in the course. Tested on the live server; closed at the
+  mount level rather than by trusting file permissions to stay right forever.
+- **The source arrives on stdin, never as a file path.** `DynamicUser` implies
+  `PrivateTmp`, so a file staged anywhere by the caller simply is not there
+  inside the unit. Two other approaches were tried and failed - see
+  [compile-subsystem-design.md](compile-subsystem-design.md).
+- **The sandbox is only exercised on the server.** Windows has no systemd, so
+  the testbed compiles with no isolation at all, chosen by `$isLocal` in
+  `config.php`. That switch must stay `$isLocal` and never become a setting:
+  running untrusted Pascal unsandboxed is safe for exactly one person, on his
+  own laptop, running code he typed himself. It also means local testing can
+  never prove the isolation - every change to the sandbox has to be re-checked
+  against the server. The same goes for `'compileInRequest' => $isLocal`: the
+  testbed has no cron, so it compiles in the request instead of through the
+  queue, which means the cron worker is a second thing local testing cannot
+  prove.
+
+Related, and general enough to apply beyond compiling: **a guard that depends
+on a background worker being alive must have a timeout.** The "one compile in
+flight per pupil" check started as an unbounded "does this pupil have anything
+queued?", which turned any worker outage into a permanent lock-out - every
+retry refused, including the one that would have recovered. It is bounded to 30
+seconds now. `markqueue.php`'s equivalent recovery sweep has the same shape and
+the same reason.
+
+**16. A question answered correctly on the FIRST attempt is congratulated, in
+varying words (Chris, 12 September 2026).** Platform-wide and course-neutral:
+`CelebrationForAnswer()` in `lib/content.php` is called by all five auto-marked
+endpoints (`answer`, `typed-answer`, `order-answer`, `select-answer`,
+`match-answer`), so nothing has to be added per lesson or per course, and
+`app.js` renders it through one shared `FillVerdict()` that all five types now
+use rather than each building its own verdict HTML.
+
+- **First attempt only, and that is the point.** Right on the second go still
+  earns half marks and still says so - it is not the same achievement, and
+  cheering both equally would flatten the distinction the marks already draw.
+  `MaxQuizAttempts()` gives two goes because this is a tutorial, not because
+  both are equal.
+- **For the four single-answer types the celebration replaces the plain
+  "Correct."**, which it says more warmly. `match` keeps its own headline on
+  top of it, because that one carries how many lines were right and what they
+  earned - information, not decoration.
+- **Live only, not on a reload.** `lesson.php` renders a prior verdict with the
+  plain headline. A lesson with fifteen right answers would otherwise reopen as
+  fifteen stacked banners, which turns a celebration into wallpaper. (The
+  `code` block is the exception and does show its celebration on reload -
+  there are only ever one or two of those on a page.)
+- **Not used for `written`.** There is no first attempt there - a pupil hands
+  in once - and the mark is a judgement out of `markMax` rather than right or
+  wrong, so there is no moment this would be true of.
+- The wording lives in `AnswerCelebrations()`, separate from
+  `CodeCelebrations()` in `lib/compile.php`, because "it ran, and it printed"
+  means nothing about a multiple-choice answer. Both lists are about half South
+  African, split roughly evenly between Afrikaans-rooted ("lekker", "mooi",
+  "klaar", "kwaai") and township English ("sharp sharp", "aweh", "yoh",
+  "hundreds"): a De La Salle class is not one language group, and leaning
+  entirely on either would quietly speak to half the room. Replace any phrase
+  that starts sounding dated - stale slang reads worse than plain English.
+
+**17. Code answers are marked strictly, at `temperature` 0, and the marker is
+shown the original broken code (Chris, 12 September 2026).** Found when a pupil
+handed in a fix-the-code answer **completely unchanged** and was given 2 out of
+4 - with both marks explained in confident, specific detail. Neither fix
+existed. Three separate causes, all now fixed in `bin/markqueue.php`:
+
+- **No `temperature` was ever sent**, so the API's default of 1.0 applied.
+  Marking is not creative writing: the same answer must earn the same mark
+  every time, or two pupils who hand in identical work get different results
+  and neither can be told why. Now `0`, for every question - verified by
+  marking one borderline answer four times and getting the same mark each time.
+- **The marker was never shown the code the pupil started from.** It saw the
+  question, the rubric and the answer, and nothing to compare against - so on
+  "fix the mistakes" it guessed which had been fixed. `MarkOneAnswer()` now
+  sends `starterText` as "THE BROKEN CODE THE PUPIL WAS GIVEN TO FIX", with the
+  instruction that anything still identical to it earns nothing.
+- **The shared prompt said "never deduct marks for punctuation"** - correct for
+  an essay, actively wrong for Pascal, where a missing semicolon, bracket or
+  full stop *is* the mistake being marked. Code marking now says the opposite
+  in as many words, plus: award a mark only for characters you can point at,
+  never assume a fix because the question asked for one, and name the exact
+  thing in the answer that earned each mark.
+
+`IsCodeMarking()` decides which prompt a question gets: anything with
+`starterText` (a pupil handed a program to change) is code by definition, and
+anything else wanting strict marking sets `'codeAnswer' => true`. Questions
+that ask a pupil to *explain* an error message in prose deliberately stay on
+the prose path - the strictness is about marking characters, not about the
+subject being code.
+
+**18. A lesson's "what to study" summary is authored ONCE and rendered twice
+(Chris, 13 September 2026).** The `study` block at the foot of a lesson holds
+structured data - sections, points, key terms - not html. `StudyNotesHtml()`
+renders it for the page and `StudyNotesPdfBlocks()` renders the same block for
+the downloadable PDF, both in `lib/content.php`. Authoring html would render on
+screen and be useless to the PDF writer, and the two would drift apart the
+first time a lesson was edited between periods - leaving the pupil revising
+from paper studying something different to the pupil revising from the screen.
+Point text carries exactly two pieces of markup, `**bold**` and `` `code` ``,
+because every piece of markup has to work in both renderings.
+
+The PDF itself is built by `lib/pdf.php`, which is **written out by hand and
+must stay small**. This platform has no package manager (see "The stack, and
+why it is so plain"), so pulling in FPDF or Dompdf for one sheet of A4 would
+be the project's first dependency, complete with a vendor folder to deploy and
+keep updated. What is there covers A4, page breaks, three of the fourteen
+fonts every reader has built in, headings, bullets, rules and a footer. If a
+study sheet ever genuinely needs images, tables or links, that is the moment
+to reconsider a library - not the moment to grow that file.
+
+**Every lesson in the Pascal course gets a study block** (Chris, 13 September
+2026, revising the same day's "only where I ask for one" - he asked for
+lessons 1 and 2 first, then for all of them). So a new Pascal lesson is not
+finished until it has one. Other courses stay opt-in: `LessonStudyNotes()`
+returns null where there is no block, which the page and the PDF endpoint both
+handle.
+
+The "evaluate my performance" panel below it is the opposite of opt-in in
+every course - `lesson.php` appends it automatically wherever a lesson has
+questions, and nothing is authored for it.
+
+**19. "Evaluate my performance" does its arithmetic in PHP and hands the model
+the conclusion, never the counting (Chris, 13 September 2026).** System wide:
+`public/lesson.php` appends the panel to every lesson with questions in it, in
+every course. It unlocks only when every question is settled AND every written
+answer has come back from marking - a review written while two answers are
+still in the queue is a review of a smaller lesson, and the pupil has no way
+of knowing that.
+
+`LessonPerformanceFacts()` in `lib/review.php` counts what happened;
+`ReviewSignals()` turns those counts into the points the review MUST make; the
+model only writes them up in the course's voice, naming the actual topics.
+This is decision 17's lesson applied again: give the model the evidence and
+the rule, not the judgement. A pupil can check the counts against the marks on
+their own screen in four seconds, so a model that counted for itself would be
+caught being wrong by the person least able to argue with it.
+
+Chris's two rules, both thresholds rather than impressions so that two pupils
+with the same marks are told the same thing:
+
+- **more than half the settled questions right only on the second attempt** ->
+  talk about slowing down, reading the whole question and every option, and
+  checking the answer before committing it. Say plainly that it is a pace
+  problem, not an ability problem.
+- **written answers under 60%, on at least half of those marked, with at least
+  two marked** -> talk about the writing: more detail, complete (every part of
+  the question answered), and precise (the lesson's own terms, not vague
+  ones), quoting what the marker actually said. One weak answer among good
+  ones is explicitly NOT this, and the review is told to say so.
+
+Gated exactly like written marking - `CanUseMarking()`, the per-pupil daily API
+cap - because it is the same thing: a paid API call on a pupil's behalf.
+Queued the same way too, and written by `bin/markqueue.php`, which claims
+written answers first and only looks for a review when the marking queue is
+empty. `temperature` is 0, for decision 17's reason: asking twice must not
+produce a different verdict.
+
+**20. A lesson remembers where a pupil got to, on the server, and offers to
+take them back (Chris, 13 September 2026).** `public/lesson.php` renders a
+zero-height `.block-anchor` span before every block; `app.js` writes the
+topmost visible one to `lessonPositions` as they scroll, and on the next visit
+the page offers "carry on where you left off?" with a plain `<a href="#bN">`,
+so taking the offer works with scripting off.
+
+Three things it must keep doing:
+
+- **Nothing is written until the pupil has genuinely scrolled.** Opening a
+  lesson, glancing at it and closing it must never overwrite a real bookmark
+  with 0.
+- **"No, start at the top" clears the bookmark**, or the same jump is offered
+  again next time, which is the opposite of what was just asked for.
+- **Server-side, not `localStorage`.** The case this is for is starting a
+  lesson in the computer lab and finishing it at home.
+
+A lesson edited since a pupil was last in it shifts their bookmark by however
+many blocks were inserted above it. That is tolerated deliberately - the offer
+is a convenience, a block or two out costs nothing, and anchoring to question
+ids would only work for the minority of blocks that have one. `lesson.php`
+ignores an index past the end of the lesson, which is the only way it can
+actually go wrong.
+
+**21. Every block that can carry a `.block-icon` must be in the
+`position: relative` list in `style.css` (found 13 September 2026).** Miss one
+and the icon does not sit slightly wrong - it escapes to the top-left of the
+PAGE, because an absolutely positioned element with no positioned ancestor
+falls back to the initial containing block. Both new icons piled up in the
+masthead until `.important-block` and `.study-block` were added to that rule.
+
+The `important` block's three colours are Chris's, to the hex: background
+`#FFE8A3`, border `#FFB300`, header `#8A5200`. The `study` block deliberately
+reuses `.learn-memorise`'s amber and its icon, because it makes the same
+promise - this is the part you are expected to know.
+
 ## Sign-in, marking and privacy (v2, 11 September 2026 - load-bearing)
 
 - **Sign-in is open to any Google account.** Chris has no Workspace admin rights
@@ -342,6 +584,9 @@ Secrets live in `config/config.php` in each project (never in this folder). On
   changed marks-carrying element against `QuizMarkEarned()`
   (quiz/typed/order/select), `MatchMarkEarned()` (match - scored per line,
   not all-or-nothing), or `markMax` (written) before shipping it.
+- Any new block type that shows a `.block-icon`: its class is in the
+  `position: relative` list in `style.css` (decision 21) - check the icon
+  actually sits on its own block's header bar, not in the masthead.
 - After any upload to the server: the ownership and permission lines in
   [vps-access.md](vps-access.md).
 
