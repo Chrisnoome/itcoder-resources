@@ -78,6 +78,32 @@ its old platform that are not part of the voice:
 - Typos and half-finished sentences (*"yo understand"*, *"Returm"*, *"the
   the"*). This was unedited working manuscript.
 
+### A question's own prompt must be broken up, not one dense paragraph
+
+Made a rule 13 September 2026 (Chris, caught on a Pascal `code` prompt that
+crammed three separate expressions and an instruction into one run-on
+sentence, `2 + 3 * 4`, `(2 + 3) * 4` and `10 / 2 * 5` all inline with the
+prose around them - hard to actually read, even though every word in it was
+correct). This applies to any `prompt` field of any length, not just
+`code` blocks:
+
+- **A list of separate things - separate expressions, separate steps,
+  separate items to tick or match - goes in an actual `<ul>`/`<li>` list,
+  never run together inline in one sentence.** Compare "Fill in the gaps to
+  print the answers to these three expressions, one per line, each with a
+  label: `2 + 3 * 4`, `(2 + 3) * 4`, and `10 / 2 * 5`..." (hard to parse)
+  against the same three items as three `<li>`s (obvious at a glance).
+- **A prompt that mixes an instruction with a code sample and then more
+  instruction** gets a paragraph break (`</p><p>`) between them, not all
+  three squeezed onto one line - the code needs room to be read as code, not
+  skimmed past as part of a sentence.
+- This is exactly the same instinct §7's `contents` block and the rest of
+  this file already apply to lesson prose - a wall of text is a symptom, and
+  the fix is almost always a `<ul>` or a paragraph break, not shorter words.
+  Applies equally to `quiz`/`typed`/`select`/`match` prompts, which are
+  allowed the same HTML as anything else even though most of them are short
+  enough not to need it.
+
 ## 2. Popups: acronyms, commands, glossary terms, humour and anecdotes
 
 **The old site's instinct was already right** - it had click-to-toggle
@@ -419,7 +445,107 @@ Linder in the quote text itself, but the row's `Author`/`Image` columns point
 at Neil Gaiman. When they disagree, trust the text and drop the image rather
 than publish a face next to the wrong name.
 
-## 7. Quick checklist
+## 7. Every lesson has a `contents` block - this is a rule, not a convention
+
+Started 13 September 2026 as a per-lesson convention (lesson 3's `Crt`
+commands, lesson 4's variable types); **made a firm rule the same day**
+(Chris: "we need to make a rule that all lessons have the same"), after the
+masthead's "Lesson contents" menu (below) started depending on it. Every
+lesson - not just ones with an obvious run of parallel sub-topics - opens
+with exactly one `contents` block, right after its opening quote/notice:
+
+```php
+[
+    'type'  => 'contents',
+    'intro' => 'Getting there takes a few steps, each one building on the last:', // optional
+    'items' => [
+        ['anchor' => 'crtClrScr', 'label' => 'ClrScr', 'note' => 'wipe the whole screen blank'],
+        ['anchor' => 'crtColour', 'label' => 'TextColor and TextBackground', 'note' => 'choose the colour...'],
+        // one entry per major stop in the lesson
+    ],
+],
+```
+
+`lib/content.php`'s `LessonContentsBlock()` finds it (the first block of
+type `contents`); `public/lesson.php`'s `case 'contents':` renders it as the
+same bulleted jump-list this section always described; and
+`LessonContentsMenuItems()` turns the same `items` array into the masthead's
+"Lesson contents" dropdown (§ below) - **one list, authored once, powering
+both**. `title` defaults to "What's in this lesson" if omitted.
+
+Two ways to place the `<span id="...">` a `contents` item's anchor points
+to, both valid, both checked by `bin/check-lesson-contents.php`:
+
+1. **A generic `'anchor' => '...'` field on the block itself** (added 13
+   September 2026, retrofitting the AI course, which leans heavily on
+   `video` and `activity` blocks that have no `html` field to hand-write a
+   span into). `public/lesson.php` renders it automatically, right before
+   the block, for **any** block type:
+   ```php
+   ['type' => 'activity', 'anchor' => 'beatTheModel', 'title' => 'Beat the model', ...],
+   ```
+   **Prefer this for anything that isn't a plain `prose` block** - it's the
+   only option for `video`/`activity`/`quiz`/etc., and works identically
+   for `prose` too if you'd rather not hand-write a span.
+2. **A hand-written `<span class="block-anchor" id="...">`** at the very top
+   of a `prose` block's own `html` (or a `reveal`'s `prompt`/`explain`) - the
+   original form, still fine for `prose`:
+   ```html
+   <span class="block-anchor" id="crtClrScr"></span>
+
+   <p>ClrScr wipes the entire screen blank...</p>
+   ```
+   **The `class="block-anchor"` is required, not decorative** - found live,
+   13 September 2026, after "Readln" in the masthead dropdown jumped to a
+   spot where the heading itself was invisible, hidden behind the sticky
+   masthead. A bare `<span id>` has no `scroll-margin-top`, so the browser
+   scrolls it flush to the very top of the viewport - exactly where the bar
+   sits. `.block-anchor` already carries the correct offset (platform.md
+   decision 22), tuned for this exact bar; reusing it is what keeps the
+   jump landing below the bar instead of behind it. The generic `'anchor'`
+   field above adds this class automatically - only a hand-written span
+   needs it typed out.
+
+Either way, **never** a second visible heading - the block's own `title`
+already renders one. Both piggyback on `public/lesson.php`'s existing
+`.block-anchor` / `data-block-index` spans (the same mechanism "carry on
+where you left off" already uses) rather than inventing a second addressing
+scheme - a named `id` and the auto-generated `id="bN"` on the block wrapper
+coexist without conflict (two elements may share a class; only the `id`
+itself has to stay unique), so both a same-page jump link and a
+lesson-progress bookmark can land in the same place.
+
+Not every heading in a lesson needs an `items` entry - a short transitional
+example or aside can carry its own anchor (or none at all) without being
+promoted to a "major stop" in the list. The rule is that the block itself
+must exist on every lesson, not that every single heading is listed in it.
+
+**Why it's worth the extra markup**: these are exactly the stretches of a
+lesson a pupil is most likely to skim past looking for one specific thing
+("wait, which one was `GotoXY` again?") rather than read start to finish -
+`course.php` navigation gets you to the right *lesson*; this gets you to the
+right *paragraph* inside it, both from the top of the lesson and now from
+anywhere on the page via the masthead.
+
+Retrofitted 13 September 2026 to every lesson that existed by then
+(`lesson01.php`, `proofoflife.php`, `lesson02.php`, `lesson03.php`) - a
+lesson actively being written by another chat at the time (`lesson05.php`)
+was deliberately left alone to avoid a real collision, and should get one
+before or shortly after it ships.
+
+## 7a. The masthead's "Lesson contents" menu
+
+Added 13 September 2026, the same day the masthead itself became a shared
+function (`RenderMasthead()` in `lib/masthead.php` - see platform.md,
+"Decisions that must not be undone"). On any lesson page, the item right
+after "All lessons" is a dropdown built from that lesson's own `contents`
+block via `LessonContentsMenuItems()`. A lesson with no `contents` block
+(shouldn't happen once § 7 above is followed everywhere, but the code does
+not assume it) simply doesn't get the dropdown item - `RenderMasthead()`
+skips any nav item whose `items` list is empty, rather than showing an
+empty menu.
+
+## 8. Quick checklist
 
 - [ ] Short sentences, direct address, hyphens not em dashes, local (SA)
       examples - itcoder's existing rules, unchanged
@@ -435,7 +561,14 @@ than publish a face next to the wrong name.
 - [ ] Every quiz/typed/written/order question checked against the prose
       above it - the word or fact it tests is readable in plain text, not
       only inside a popup or a `reveal`'s hidden `explain`
+- [ ] Every question/code `prompt` that names more than one separate item
+      (expressions, steps, options) uses a real `<ul>`/`<li>` list, and a
+      prompt mixing instruction with a code sample gets a paragraph break -
+      never one dense run-on sentence
 - [ ] A video per subtopic that has one worth showing, not just one per lesson
+- [ ] The lesson has exactly one `contents` block (§7 - a rule for every
+      lesson, not just one with an obvious run of parallel sub-topics) - its
+      anchors are bare `<span id>`s, never a second visible heading
 - [ ] Before another multiple-choice question - checked whether a `typed`
       one (scramble, blank, complete, exact) would test the recall better
 - [ ] Every `quiz`/`typed` question declares `marks` deliberately, not left to

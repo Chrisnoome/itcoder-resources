@@ -11,10 +11,10 @@ Pascal chat's notes on v2. Facts about the code were checked against
 IT teacher at De La Salle Holy Cross College, Johannesburg. Built first for his
 own classes, and open to outside subscribers too.
 
-| Course id | Course | Status (11 Sep 2026, post-cutover) |
+| Course id | Course | Status (13 Sep 2026) |
 |---|---|---|
-| `ai` | How AI really works - Grade 9, eight lessons | `draft` on the live site (teacher preview only) - content not yet ported/restyled, see [courses/ai-course.md](courses/ai-course.md) |
-| `pascal` | Programming in Pascal - IEB IT, Grades 10-12 | `open` and live, two lessons - see [courses/pascal-course.md](courses/pascal-course.md) |
+| `ai` | How AI really works - Grade 9, eight lessons | `open` and live since 13 September 2026 - activities ported, restyle still on the backlog but no longer a gate; see [courses/ai-course.md](courses/ai-course.md) |
+| `pascal` | Programming in Pascal - IEB IT, Grades 10-12 | `open` and live, seven lessons, with live compiling - see [courses/pascal-course.md](courses/pascal-course.md) |
 | - | Theory, SQL, Java | Planned. `Projects/AITheory` exists, empty |
 
 **Cutover happened 11 September 2026.** v2 now runs at `/var/www/itcoder`,
@@ -495,6 +495,68 @@ The `important` block's three colours are Chris's, to the hex: background
 reuses `.learn-memorise`'s amber and its icon, because it makes the same
 promise - this is the part you are expected to know.
 
+**22. The masthead is pinned, and "All courses" is on every signed-in page's
+menu (Chris, 13 September 2026).** `position: sticky` rather than `fixed`, so
+it stays in flow and nothing has to be padded out from under it. Same
+`z-index` as `.lesson-toolbar` at the other end of the screen; both must sit
+over the 96px block icons, which protrude above their blocks and would
+otherwise scroll across the bar.
+
+Adding "All courses" was not free: it is the fifth item in the menu, and below
+620px it pushes the nav onto a second line, taking the bar from 58px to about
+81px. Since the bar is now permanently on screen, that breakpoint tightens the
+masthead's padding and nav font to keep the cost down.
+
+**`.block-anchor`'s `scroll-margin-top` is coupled to the bar's height and has
+to be re-measured whenever the bar changes.** The sum is: bar height + 10px of
+daylight + the icon's 52px overhang - the 20px between an anchor and its
+block. That gives 100px wide and 123px narrow, both verified by measuring the
+icon's position after a jump rather than by eye.
+
+Two traps found doing it:
+
+- The narrow-screen `scroll-margin-top` override **cannot live in the
+  `@media (max-width: 620px)` block** in the middle of `style.css`. The base
+  `.block-anchor` rule is further down the file, so at equal specificity it
+  wins and the override silently does nothing. It sits in its own media query
+  immediately after the rule it overrides.
+- Before the bar was pinned, `scroll-margin-top` was 86px, which left the top
+  4px of every block icon tucked behind it after a "carry on where you left
+  off" jump - invisible unless you go looking.
+
+**23. The masthead is one shared function, and every lesson exposes its own
+contents through it (Chris, 13 September 2026).** Before this, the masthead's
+HTML was copy-pasted into all ten `public/*.php` pages, each with a slightly
+different nav built by hand - exactly how decision 22's "All courses" ended
+up missing from two of them for a day. `RenderMasthead()` in
+`lib/masthead.php` is now the only place that markup exists; every page
+builds its own list of nav items (which links, whether "Class results" shows
+for a teacher, which item is `current`) and hands it to the same function.
+**A system-wide masthead change is now a one-file edit**, not a search
+across ten.
+
+`lesson.php` adds one more item no other page has: a **"Lesson contents"**
+dropdown, right after "All lessons", built from `LessonContentsMenuItems()`
+in `lib/content.php` - which reads the SAME `contents` block that also
+renders the lesson's own in-page jump-list (content-voice-and-pedagogy.md
+§7, now a rule for every lesson, not just a convention for ones with an
+obvious run of sub-topics). One list, authored once in the lesson file,
+powers both the in-page list and the masthead menu - never two lists that
+could drift apart. A lesson with no `contents` block (none should exist
+after the retrofit below, but the code does not assume it) simply gets no
+dropdown item: `RenderMasthead()` skips any nav entry whose `items` list is
+empty rather than rendering an empty one.
+
+The dropdown itself is a plain `<details>`/`<summary>` pair, deliberately -
+no JavaScript, works with the keyboard for free, and degrades to "a
+clickable label" rather than to nothing if its CSS fails to load.
+
+**Retrofitted the same day** to every lesson that existed at the time
+(`lesson01.php`, `proofoflife.php`, `lesson02.php`, `lesson03.php`) -
+`lesson05.php` was being actively written by a different chat at that exact
+moment, so it was deliberately left alone rather than risking a collision;
+it needs a `contents` block before the rule above is actually universal.
+
 ## Sign-in, marking and privacy (v2, 11 September 2026 - load-bearing)
 
 - **Sign-in is open to any Google account.** Chris has no Workspace admin rights
@@ -570,12 +632,30 @@ Secrets live in `config/config.php` in each project (never in this folder). On
   `D:\xampp\itcoder-tools-venv` (used by the backup pull).
 - Free Pascal 3.2.2 (with Lazarus) at `C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe` -
   the same version apt installs on the server.
+- **Windows has no cron, so the scheduled task `itcoder-markqueue` stands in for
+  the server's marking cron line**, every minute. It must launch the worker
+  through `D:\xampp\itcoder-platform-data\run-markqueue-hidden.vbs` (via
+  `wscript.exe //B //Nologo`), never `run-markqueue.cmd` directly. A `.cmd`
+  started by Task Scheduler for a logged-on user always gets a console window,
+  and since the worker loops for ~45 seconds of every minute that meant a new
+  window stealing keyboard focus once a minute - keystrokes vanished mid-typing,
+  and Chris's own Ctrl+C presses landed in the console and killed the worker
+  (they are in `markqueue.log` as `^C`). Fixed 13 September 2026 and verified:
+  the scheduler's own run goes wscript -> cmd -> php with no visible window, and
+  the task still refuses to start a second copy over a running one
+  (`IgnoreNew`). The daily `itcoder backup pull` task launches a `.cmd` the same
+  way - one window a day rather than one a minute, so it has been left alone.
 
 ## Checks to run
 
 - `php -l` on every PHP file you touch.
 - `php bin/check-popup-spacing.php` after touching any content that calls
   `Gloss()` or `Aside()` - a popup glued to the next word has recurred many times.
+- `php bin/check-lesson-contents.php` after touching any lesson's `contents`
+  block or its anchors - confirms every lesson has exactly one `contents`
+  block (content-voice-and-pedagogy.md §7) and every bookmark in it actually
+  lands on a real `<span id>` sitting in a block that has a heading, not a
+  dead link or a jump to nowhere visible.
 - `node tests/tokeniser.test.js` (v1 today; it must move with the token counter
   when the AI course is ported) after touching `SplitIntoTokens`.
 - Every `written` question's `markMax` is even.

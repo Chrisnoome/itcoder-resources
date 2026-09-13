@@ -7,8 +7,24 @@ September 2026. Moved here from itcoder v1's CLAUDE.md on 11 September 2026.
 lesson map (v1 had no such file - its map was hardcoded in `lib/content.php`)
 were mechanically copied into `Projects/AIPascalCourse/content/ai/` on 11
 September 2026, right after cutover. `tests/tokeniser.test.js` was copied too.
-**Still `draft` - not restyled, not live.** Two things remain, tracked in
-`open-items.md`:
+**OPEN, AND OPEN ON LIVE, since 13 September 2026 (Chris).** It was `draft` for the two reasons
+below. The first is done - all six activities are ported and wired up in
+`public/assets/app.js`. The second is not, and Chris opened it anyway: the
+lessons work, they just still look like v1. **The restyle is still on the
+backlog - it is no longer a gate on pupils seeing the course.** All eight
+lessons were re-checked through v2's current `lesson.php` on the day it
+opened (every one renders clean, and each now carries the system-wide
+"evaluate my performance" panel and the lesson bookmark).
+
+Opening it on live was done as a **single-file change** - `lib/course.php`,
+diffed against the live copy first to confirm the status line was the only
+difference, with the old file kept aside as a `.bak-`. It needed nothing else:
+live already had all eight lessons in `content/ai/` and the code to render
+them (checked before flipping - all 8 load). So the AI course being open on
+live is INDEPENDENT of the big pending deploy in `open-items.md`, which is
+still waiting to be run.
+
+The two things that were the reasons:
 
 1. **Port the six activities** - v1's original source stays at
    `Projects/AIWebCourse/itcoder/` (`public/assets/app.js`, `public/lesson.php`'s

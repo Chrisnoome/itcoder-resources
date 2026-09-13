@@ -34,6 +34,7 @@ Everything the first chat knew is in this folder.
 | File | What it holds |
 |---|---|
 | [platform.md](platform.md) | The platform: purpose, audience, stack, v2 architecture, **the decisions that must not be undone**, sign-in and privacy rules, keys, local testbeds, checks to run |
+| [publishing.md](publishing.md) | **How to put work on the test site and the live site** - the two scripts, in order, their exact commands, and what to do when one fails. Read before publishing anything |
 | [vps-access.md](vps-access.md) | The server: how to reach it, what is on it, house rules, installing Free Pascal, sandboxing pupil code, cutover |
 | [compile-subsystem-design.md](compile-subsystem-design.md) | The Pascal compile subsystem: sandboxing tested and validated against the live server, what worked and what didn't, suggested shape for the queue - handoff for whoever builds it |
 | [backups.md](backups.md) | Server backups, restoring, the Dropbox pull and its staleness alarm |
@@ -45,6 +46,7 @@ Everything the first chat knew is in this folder.
 | [sags-topic4-syllabus.md](sags-topic4-syllabus.md) | IEB SAGs Topic 4 as a teaching checklist |
 | [courses/ai-course.md](courses/ai-course.md) | The Grade 9 AI course: lesson order, scope, activities and what they must never break |
 | [courses/pascal-course.md](courses/pascal-course.md) | The Pascal course - kept by the Pascal chat |
+| `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php` | Publishing, test then live ([publishing.md](publishing.md)) |
 | `tools/vps.py` | Run commands on the server and upload files ([vps-access.md](vps-access.md)) |
 | `tools/pull-backups.py`, `.cmd` | The nightly Dropbox pull ([backups.md](backups.md)) |
 | `word documents/`, `Quote images/`, `Logos and icons/`, the SAGS PDF | Source material |

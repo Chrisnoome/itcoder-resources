@@ -20,17 +20,120 @@ here, not only in chat memory.
    everything" (jam-sandwich reveal). Selection is the same idea in Pascal,
    Python and JavaScript, just different syntax. Languages are built for a
    purpose - Pascal was built purely to teach. Feynman quote.
-2. **Every box needs a label** - variables and data types (SAGs 10.4.3). Wirth
+2. **Proof of Life / Output - WriteLn and Write** - output as proof a program
+   ran (SAGs 10.4.1, IPO's "O"), the Program/Begin/End. shell, naming rules,
+   Write vs Writeln, reading real compiler errors, the `:width:decimals`
+   trick, the doubled apostrophe and `#9`. Two live `code` blocks compiled by
+   real `fpc`.
+3. **Making it pretty** - enrichment, not SAGs content, will never be tested,
+   and carries no marks anywhere in it (Chris, 13 September 2026 - every
+   `quiz`/`typed`/`reveal` question was removed on request, so it is pure
+   prose, examples and runnable `code` blocks). Units/libraries as an idea
+   every language has, under a different name each time, taught via Pascal's
+   `Uses` clause; then the `Crt` unit's `ClrScr`, `TextColor`/
+   `TextBackground`, `GotoXY`, `WhereX`/`WhereY` and `Delay`. Newton
+   "shoulders of giants" portrait quote, plus an anonymous "first
+   impressions" quote before the Crt section framing text-mode UI (greet the
+   pupil, clear prompts, a goodbye message, make it beautiful). Three
+   runnable `code` playgrounds (colour, GotoXY, and a closing one combining
+   all five commands) - real `fpc` compiling into the virtual-terminal
+   display (platform.md decision 15, the Crt auto-detection). `Delay`
+   carries an explicit note that its pause never shows on this site, since a
+   `code` block only ever displays a finished run, not a live one - it only
+   shows in Lazarus, locally.
+4. **Every box needs a label** - variables and data types (SAGs 10.4.3). Wirth
    quote, a type-mismatch compile error, `Div` vs `/`, Y2K aside, the
    ID-number-as-a-string written question.
+5. **Getting input - Readln, Read, ReadKey and KeyPressed** (SAGs 10.4.1,
+   IPO's "I") - new 13 September 2026. Four commands, same underlying shape
+   pair-wise: `Readln`/`Read` are ordinary Pascal I/O and the exact same
+   relationship as `Write`/`Writeln` on the way out (`Read` leaves the rest of
+   the line for whatever reads next; `Readln` throws it away) - a deliberate
+   callback, not a new idea dressed up as one. `ReadKey`/`KeyPressed` are
+   Crt's single-keypress pair from lesson 3: `ReadKey` waits for one key and
+   never echoes it, `KeyPressed` only checks whether one is waiting, without
+   blocking or consuming it - so one is for "stop and ask", the other for
+   "keep going unless interrupted". Julian Treasure quote ("we will just talk
+   to our computers... why would we not?") framing the keyboard as one input
+   method among others, not the only one there will ever be.
 
-**Built, not yet numbered: "Proof of life"** (`content/pascal/proofoflife.php`,
-title confirmed by Chris). Meant to sit before lesson 2, which would then be
-renumbered - final numbering is still Chris's call and not yet given, so it's
-registered in `content/pascal/index.php` as a placeholder lesson 0 rather than
-actually renumbered. Built out fully, in local XAMPP, across several sessions
-in September 2026 - not a stub. Don't treat anything below as still "to be
-decided"; it's a description of what the file actually contains.
+   **Only `Readln` is exam content (Chris, 13 September 2026).** An `important`
+   block says so explicitly, early in the lesson, before any of the four are
+   taught in depth: for tests, exams and almost everything a pupil writes in
+   this course, `Readln` is the one to actually know - `Read`/`ReadKey`/
+   `KeyPressed` are real, useful commands for later projects, not syllabus
+   content, and the lesson's own depth follows that split (Readln gets the
+   crash-examples table and the bulk of the questions; the other three get a
+   lighter, "know it exists" treatment). The **"What to study" summary
+   mirrors this on purpose** - it does not re-teach Read/ReadKey/KeyPressed at
+   revision depth, only names them as tools that exist for tasks and projects,
+   because a revision sheet should reflect what is actually examined, not
+   everything a lesson happened to mention. Apply the same split to any later
+   lesson that teaches both syllabus and enrichment material side by side.
+
+   **A `Readln`'s variable does two jobs, and typing the wrong type crashes it
+   - taught with a genuine crash-examples table**, every row copied from an
+   actual run against real fpc 3.2.2 (not invented): `Integer` + letters or a
+   decimal both crash with `Runtime error 106`; `Integer` + an empty line does
+   NOT crash, it silently leaves the variable at 0; `String` never crashes,
+   whatever is typed. This is the same discipline as the compile subsystem's
+   own rule (compile-subsystem-design.md) applied to a runtime result instead
+   of a compiler one - verify a genuine behaviour before teaching it as fact.
+   Ends with a
+   `markMax => 10`, band-rubric written question asking when each of the four
+   is the right choice - the capstone Chris asked for.
+
+6. **Processing - basic maths.** File `lesson06.php`. BODMAS, real division
+   vs `Div`/`Mod`, `Round`/`Trunc`, and `Abs`/`Sqr`/`Sqrt`/`Power`/`Min`/`Max`
+   (the `Math` unit). Built 13 September 2026 - see the file's own docblock
+   for the genuine `fpc` gotchas found while writing it (`Div`/`Mod`
+   truncate toward zero on negatives; `Round` is round-half-to-even).
+7. **Type conversion.** File `lesson07.php`. New 13 September 2026, first
+   content for "lesson 6 onward" (open-items.md); rewritten the same day
+   after Chris's own voice/pedagogy edit pass. Covers all four SAGs 4.3
+   conversion pairs: `IntToStr`/`StrToInt` (String<->Integer, new),
+   `Chr`/`Ord` (Char<->Integer, new), Char->String (free, new) vs
+   String->Char (taught directly via `word1[1]` indexing, not deferred),
+   and Real<->Integer (a refresher of lesson 6's `Round`/`Trunc` and lesson
+   4's free Integer-into-Real, not re-taught from scratch). The throughline:
+   Pascal never silently converts a value's type except a genuinely free
+   assignment; everything else needs an explicit, named function - which is
+   also why `Round`/`Trunc` exist, tying back to lesson 6.
+   **"Widening"/"narrowing" and "crossing" are deliberately not used as
+   terms anywhere in the pupil-facing text** (Chris, 13 September 2026 -
+   too technical for a 15-year-old newbie, and lesson 4 never used the word
+   "widening" either); the lesson says "fits in with no fuss" / "needs a
+   function" / "conversion" instead. Every paragraph was also split down to
+   one idea each after Chris flagged the first draft as too dense.
+   **`FloatToStr`/`StrToFloat`/`Format` are taught as genuinely
+   locale-dependent** (confirmed comma-decimal on the Windows testbed; the
+   server's locale is still unverified), paired with the actual fix Chris
+   asked for: copying `DefaultFormatSettings` into a `TFormatSettings`
+   variable, overriding `DecimalSeparator`, and passing it to those three
+   functions - verified genuinely forcing a point on the same comma-locale
+   machine. Flagged as relevant again once a dates lesson exists, since
+   `TFormatSettings` controls date formatting too. Every other
+   genuine-output claim was compiled for real against `fpc` 3.2.2 first,
+   including the `StrToInt` crash (`EConvertError`, not `Runtime error 106`
+   - a different failure mode worth knowing about) and the
+   `String`-into-`Char` compile error.
+
+**Numbering settled 13 September 2026 (Chris, definite): "Proof of life" is
+lesson 2, "Making it pretty" is a new lesson 3, "Every box needs a label"
+moved from 3 to 4, and "Getting input" is the new lesson 5.** None of these
+are drafts.
+
+**The file names deliberately do not match the numbers.** `proofoflife.php` is
+lesson 2, `lesson03.php` is lesson 3, `lesson02.php` is lesson 4, and the new
+`lesson05.php` is lesson 5 - none of them should be renamed to match. The
+array key in
+`content/pascal/index.php` is the lessonId, and that id is a database key in
+six tables - `quizResponses`, `writtenAnswers`, `codeSubmissions`,
+`activityState`, `lessonPositions` and `performanceReviews`. Renaming the
+files would orphan every answer, mark and bookmark stored against the old
+ids, and it would do it silently: nothing errors, pupils just find their work
+gone. The number is a label, the id is an identity, and they are allowed to
+disagree.
 
 Content, as built:
 - **Core thesis, meant to recur across later lessons, not just this one:**
@@ -79,6 +182,17 @@ Content, as built:
 
 ## Decisions
 
+- **Every lesson has exactly one `contents` block - this is a rule, not a
+  convention** (Chris, 13 September 2026). It renders the in-page jump-list
+  AND feeds the masthead's "Lesson contents" dropdown, from the same
+  `items` array - see content-voice-and-pedagogy.md §7 for the full shape
+  (`anchor`/`label`/`note` per item, plus the generic `'anchor' => '...'`
+  field any block can carry for the ones with no `html` field to hand-write
+  a span into). Run `php bin/check-lesson-contents.php` after touching any
+  lesson's `contents` block or its anchors - it fails loudly if a lesson has
+  none, has more than one, or a bookmark points at a dead anchor or a block
+  with no heading. Every Pascal lesson through lesson 6 has one and passes;
+  keep it that way for every lesson after.
 - **Code compiles and runs on the server, with real `fpc`** (settled 11 September
   2026). The lessons teach reading genuine compiler errors, so the text must be
   real `fpc` output - which rules out a browser-side compiler. It means a `code`
@@ -192,6 +306,19 @@ Content, as built:
 - **No question totals an odd number of marks** (see platform.md, decision 8).
 - **Run `php bin/check-popup-spacing.php`** after touching any `Gloss()` or
   `Aside()`.
+- **A `code` block can now simulate keyboard input** (13 September 2026, built
+  for lesson 5): `'takesInput' => true` adds a second box - "What will you
+  type when this runs?" - fed to the compiled program's own stdin, so a real
+  `Readln`/`Read` reads back exactly what the pupil typed there. Proven
+  against real fpc locally; the sandboxed (server) path's framing is written
+  but **not yet re-tested on the actual server** - see
+  [../compile-subsystem-design.md](../compile-subsystem-design.md), "Simulated
+  input for Readln/Read", before trusting it live. `ReadKey`/`KeyPressed`
+  deliberately do NOT get a live `takesInput` demo yet - whether a simulated
+  keypress can reach a Crt call expecting a real terminal is still an open
+  question there, so lesson 5 teaches those two through quiz/typed/reveal
+  instead, the way lesson 3 taught `Delay`/`Sound` honestly as "compiles and
+  runs here, but you cannot observe the real effect on this site."
 
 ## Resolved
 

@@ -60,6 +60,35 @@ Parameters do not need the `const` keyword.
 - `Inherited Create` is always the first line of a constructor.
 - Code should be written so it is reusable in both GUI and CLI contexts — keep logic out of event handlers where practical, so it can be called from either.
 
+## 6a. Verified type-mismatch error text (FPC 3.2.2, default mode)
+
+Found and corrected 13 September 2026: an earlier lesson had **invented**
+`Incompatible types: got "Double" expected "Longint"` for `Integer := 3.5;`
+without compiling it - real output on this project's fpc (identical on the
+Windows testbed and the Linux server) is `got "Single" expected
+"SmallInt"`. Every type name below was compiled for real, on both
+machines, before being put in front of a pupil - never guess these, they
+are easy to get wrong and pupils will paste the mismatch between what a
+lesson says and what their own screen shows straight back at you.
+
+| Assignment | Genuine `fpc` error |
+|---|---|
+| `Integer := 3.5` (a Real literal) | `Incompatible types: got "Single" expected "SmallInt"` |
+| `Integer := 'ten'` (a String literal) | `Incompatible types: got "Constant String" expected "SmallInt"` |
+| `Boolean := 1` | `Incompatible types: got "ShortInt" expected "Boolean"` |
+| `Char := 'AB'` (2+ characters) | `Incompatible types: got "Constant String" expected "Char"` |
+| `String := 5` | `Incompatible types: got "ShortInt" expected "ShortString"` |
+| `Real := 5` (an Integer literal) | Compiles fine - Integer widens into Real with nothing lost |
+
+Note the plain type names this course teaches (`Integer`, `String`) are not
+what the compiler itself says back (`SmallInt`, `ShortString`,
+`ShortInt`) - `Integer` is an alias for `SmallInt` in this project's
+default mode, confirmed by `Low(Integer)`/`High(Integer)` returning
+-32768/32767 on both machines. A lesson can teach "Integer" throughout and
+still be honest, since that is the genuine declared type - just don't be
+surprised when a genuine compiler message uses the alias's underlying name
+instead.
+
 ## 7. Worked example
 
 ```pascal

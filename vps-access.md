@@ -75,6 +75,10 @@ project folder, or move it.
   `touch /var/log/NAME.log && chown www-data:www-data /var/log/NAME.log`.
   - `* * * * *` `/var/www/itcoder/bin/markqueue.php` - the marking worker
   - `30 2 * * *` `/var/www/itcoder/bin/backup.php` - the nightly backup
+  - `* * * * *` `/var/www/itcoder/bin/compilequeue.php` - the Pascal compile
+    worker for LIVE, added 13 September 2026 by `tools/deploy-live.py`,
+    logging to `/var/log/itcoder-compile.log` (created first, owned by
+    www-data). It logs nothing on an idle minute, so an empty log is normal.
   - `* * * * *` `/var/www/itcoder-v2-test/bin/compilequeue.php` - the Pascal
     compile worker for the test deployment, added 12 September 2026, logging to
     `/var/log/itcoder-v2-test-compile.log`. Remove at teardown.
@@ -90,15 +94,22 @@ project folder, or move it.
   web root on purpose** (added 12 September 2026). The Pascal compile sandbox.
   `systemd-run` cannot be called by an unprivileged user - as `www-data` it
   fails with "Interactive authentication required" - so
-  `/etc/sudoers.d/itcoder-compile` (440) allows exactly
-  `www-data ALL=(root) NOPASSWD: /usr/local/bin/itcoder-compile-sandbox.sh`.
+  `/etc/sudoers.d/itcoder-compile` (440) allows exactly two forms and nothing
+  else - the script with no arguments, and the script with `--tty`
+  (checked on the box 13 September 2026). A new command-line argument would
+  need that rule changed, which is Chris's call.
   It lives outside `/var/www` because a deploy chowns everything there to
   `www-data`, which would let the account the sandbox contains rewrite the
-  script sudo runs as root. **A deploy does not update it** - re-run the
-  `install` line in [compile-subsystem-design.md](compile-subsystem-design.md)
-  whenever `bin/compile-sandbox.sh` changes. Removing that sudoers file is the
-  clean way to switch compiling off.
+  script sudo runs as root. **It is SHARED by live and test.** Since
+  13 September 2026 it is installed only by `tools/publish-test.py`, which
+  copies `bin/compile-sandbox.sh` here whenever it changes and then proves it
+  with `tools/sandbox-check.php`; the sha256 of the proven version is kept in
+  `/root/itcoder-sandbox-validated.sha256`, and `tools/deploy-live.py` refuses
+  to run unless local, installed and proven all match. Never edit the
+  installed copy by hand - see [publishing.md](publishing.md). Removing the
+  sudoers file is still the clean way to switch compiling off.
 - Logs: `/var/log/itcoder-marking.log`, `/var/log/itcoder-backup.log`,
+  `/var/log/itcoder-compile.log` (live, from 13 September 2026),
   `/var/log/itcoder-v2-test-marking.log` and
   `/var/log/itcoder-v2-test-compile.log` (test deployment only).
 

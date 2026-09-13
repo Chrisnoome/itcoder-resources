@@ -357,6 +357,177 @@ must not be able to disagree about whether a run was a success. The phrase
 itself is not stored, so a reload can show a different one - deliberate, and
 harmless.
 
+### A `Crt` program shows NO output at all on the Windows testbed - not just uncoloured
+
+Found 13 September 2026, building lesson 3 ("Making it pretty", the `Crt`
+enrichment lesson). The design note above says a `Crt` call down a plain pipe
+is "a *silent* no-op - the text appears, uncoloured" - true on the server's
+Linux sandbox, where this was verified. **On Chris's Windows testbed it is
+worse: nothing prints at all, not even the plain `Writeln` lines either side
+of the `Crt` calls**, whenever the program's stdout is redirected rather than
+a real console.
+
+Confirmed independently of the site - three plain `fpc.exe` runs, no PHP or
+web layer involved: a `Uses Crt;` program piped to a file (`p.exe > out.txt`)
+produced an empty file both in Git Bash and in PowerShell (`& .\p.exe 2>&1`
+came back `[]`); the same program with `Uses Crt;` removed printed normally
+under identical redirection. So this is FPC 3.2.2's Windows `Crt` unit
+detecting a non-console stdout and suppressing the run's entire output, not a
+bug in `CompileWithoutSandbox()`, `RunBounded()`, or anything else in this
+codebase - `CompileWithoutSandbox()` always redirects to a file (`RunBounded`
+runs the binary with its output piped so it can be captured and bounded), so
+every `Crt` code block hits this every time, with no exception.
+
+**What this means in practice: any lesson's `code` block that uses `Crt`
+cannot be verified locally at all.** `compileOk` still comes back `true` and
+`exitCode` `0` - the program ran and exited cleanly - but `runOutput` is
+always `''`, so there is no way to eyeball whether the pupil's actual output
+is right from the Windows testbed. This is a sharper version of platform.md
+decision 15's "local testing cannot prove the isolation" - here it cannot
+even prove the *output*. Testing a `Crt` code block for real means the
+server's test deployment (`/var/www/itcoder-v2-test`), not `localhost:8081`.
+
+### `Sound`/`NoSound` do not work through this site, and never can
+
+Tested 13 September 2026, prompted by a direct question ("does sound in
+browser work as expected?") after lesson 3 mentioned `Sound` in passing as
+an unexplored extra. Two separate reasons, either one enough on its own:
+
+1. **`Sound` is a silent no-op on this server, even outside any sandboxing.**
+   A plain `Uses Crt;` program calling `Sound (1000); Delay (500); NoSound;`
+   between two `Writeln`s was compiled and run directly on the VPS - once
+   down an ordinary pipe, once under `script -qec` (the same pty mechanism
+   `--tty` uses for colour and `GotoXY`). Both runs exited 0 with both
+   `Writeln` lines printed and produced no `chr(7)`/BEL byte, no error, no
+   difference in output at all with `Sound` in the program or without it.
+   Free Pascal's Linux `Crt` unit implements `Sound` via a `KIOCSOUND` ioctl,
+   which only works on a real Linux virtual console (a physical or kernel
+   `tty`) - a pty, which is what both a plain pipe and `script` provide, is
+   not one, so the ioctl has nothing to act on and the call does nothing,
+   silently, with no error surfaced either way.
+2. **Even if it worked, nothing here could deliver it.** The whole compile
+   subsystem - `--tty`, `TerminalScreen()`, the `data-screen` it produces -
+   only ever carries the program's *screen*: text, colour, cursor position.
+   There is no audio channel anywhere in this design, so a genuine beep on
+   the server has no path to a pupil's speakers regardless of the ioctl
+   question above.
+
+So `Sound`/`NoSound` join `Delay` as Crt commands lesson 3 teaches honestly
+as "compiles and runs here, but you will not see/hear the actual effect on
+this site" - `Delay`'s pause is swallowed because a `code` block only ever
+shows a finished run (design note above), `Sound`'s beep is swallowed for
+the two independent reasons here. Both point pupils at Lazarus / Delphi to
+actually experience them.
+
+## Simulated input for Readln/Read (2026-09-13)
+
+Built for the Pascal course's new Input lesson, at Chris's choice: rather than
+teach `Readln`/`Read`/`ReadKey`/`KeyPressed` only through trace questions
+("what would this print"), a `code` block can now declare `'takesInput' =>
+true` (`lib/content.php`) and gets a second box under the editor - "What will
+you type when this runs?" - whose contents are fed to the compiled program's
+own stdin, so a genuine `Readln` in the pupil's program reads back exactly
+what they typed there.
+
+**The hard part is that compile and run already shared one stdin pipe.**
+`bin/compile-sandbox.sh` runs both inside one `systemd-run` unit -
+`cat > p.pas && fpc ... && ./p` - because the compiled binary lives in that
+unit's own private `/tmp` and cannot be handed to a second process. So there
+was only ever one stdin stream available, and now two things need to travel
+down it: the source, and what the program should read once it's running.
+
+**The fix is a length-prefixed protocol, not a delimiter** - the same
+reasoning the sandbox's own OUTPUT framing already uses (see "OUTPUT FRAMING"
+above): a pupil's source or typed input can legitimately contain anything we
+might pick as a separator, but neither can change a byte count our own PHP
+computes before sending. `FrameSandboxStdin()` in `lib/compile.php` writes:
+
+    <sourceBytes>\n<source bytes><inputBytes>\n<input bytes>
+
+and `bin/compile-sandbox.sh` reads it back with `read -r` for each length
+line (safe on a pipe - bash's `read` takes one byte at a time up to the
+newline, so it cannot consume into the payload that follows) and
+`dd bs=<n> count=1 iflag=fullblock` for exactly that many payload bytes.
+**`iflag=fullblock` is not optional**: a single read() on a pipe can return
+fewer bytes than asked for well before EOF, and `dd` without it would hand
+back that short read as if it were everything. This is also why the SOURCE
+side changed from the original design's bare `head -c $SOURCE_LIMIT_BYTES` -
+GNU `head` reading from a pipe is free to pull a whole internal buffer ahead
+in one syscall and silently discard whatever it did not print, which would
+have ripped bytes out of the payload sitting right behind it. Explicit
+lengths remove the ambiguity entirely.
+
+**Verified, locally, against real fpc 3.2.2** (`CompileWithoutSandbox()` -
+compile and run are already two separate `proc_open()` calls there, each
+with its own stdin pipe, so the local path needed nothing but passing the
+pupil's typed text straight to the run step's stdin - no framing required):
+
+| Program | Simulated input | Result |
+|---|---|---|
+| `Readln (playerName); Readln (age);` | `Thabo\n16\n` | `Hello, Thabo! In 5 years you will be 21.` - correct |
+| `Read (a); Read (b);` | `3\n4\n` | `Sum: 7` - correct; `Read` happily crosses the line break looking for the next value |
+| `Read (a);` then `Readln (name);` right after | `5\nThabo\n` | `Got number 5 and name []` - **`name` comes back empty.** `Read (a)` stops the instant it has a whole number and leaves the rest of that line - just the newline - sitting in the buffer; the `Readln` immediately after reads THAT (empty) remainder, not the next line down, so `Thabo` is never reached. This is the exact "same shape as Write vs Writeln" trap the lesson teaches, reproduced with genuine fpc, not invented. |
+| `Readln (a);` | *(nothing typed)* | `Got 0` - reading an Integer from an already-closed/empty stdin does not raise a runtime error on this fpc; the variable is simply left at its default 0. Genuine, but a corner case the lesson does not need to lean on. |
+
+**VALIDATED ON THE REAL SERVER, 13 September 2026 - after it found a bug.**
+The first run through `systemd-run` failed every input check: the script set
+`INPUT_LIMIT_BYTES` but never passed it into the unit with `--setenv` like
+the other limits, so inside the unit it was blank, `head -c ''` refused, and
+every program read empty input - while plain compiling kept working. Fixed
+with the missing `--setenv` line. Re-run on the test deployment, all three
+programs in the table above, plus input that looks like a length header and
+source whose first line is digits, gave exactly the output in the table.
+Security checks unchanged: no `{$I}` of any config, no program can open any
+site's config or lesson files. **Under `--tty`, `Readln` and `ReadKey` both
+receive the typed text but then wait until the run is killed** - so the open
+question below is answered "no, not as it stands"; no lesson relies on it.
+
+This proof is automated now rather than a checklist:
+`tools/publish-test.py` runs `tools/sandbox-check.php` on every publish to
+test, and `tools/deploy-live.py` refuses to ship a sandbox that has not passed
+it - see [publishing.md](publishing.md). The notes below are kept as the
+record of what was checked and why.
+
+**NOT yet validated against the real server.** The two-length framing in
+`bin/compile-sandbox.sh` has not been run through `systemd-run` for real -
+only reasoned through and pattern-matched against the sandbox's existing
+output-framing discipline. Before this goes anywhere near a pupil:
+
+- Re-run the same three programs above through the actual sandbox path
+  (`/var/www/itcoder-v2-test`, the way every other sandbox change has been
+  checked - platform.md decision 15) and confirm identical output to the
+  table above.
+- **`ReadKey`/`KeyPressed` are a separate, harder, and still-open question.**
+  They are Crt unit calls, not plain Pascal I/O - Free Pascal's Linux Crt
+  implementation puts the terminal into raw mode via `tcgetattr`/`tcsetattr`
+  and expects to read single keypresses off an actual tty, not a line-
+  buffered redirect. `--tty` mode already gives the program a real pty
+  (`script -qec`, for `GotoXY`/`TextColor`/etc - see "The virtual DOS
+  terminal" above), and this feature now feeds `stdin.txt` into `script`'s
+  own stdin on the theory that `script` relays it into the pty the way a
+  real keystroke would - **but that relaying behaviour is untested**, and it
+  is entirely possible `ReadKey` behaves correctly, hangs for the run-time
+  limit and then times out, or reads something subtly wrong (an echoed
+  character, an extra newline). Test explicitly with a small `ReadKey`
+  program before any lesson content claims it works. If it does not, the
+  honest fallback - matching how `Delay` and `Sound` are already taught - is
+  telling pupils plainly that `ReadKey`/`KeyPressed` compile and run here but
+  their live keypress behaviour cannot be demonstrated on this site, and to
+  try them for real in Lazarus/Delphi.
+- `codeSubmissions.simulatedInput` (schema.sql, `bin/setup.php`'s `$wanted`
+  array) needs the same one-off `sudo -u www-data php bin/setup.php` any new
+  column does before deploying - see open-items.md.
+
+## Two Reads, one line, and the trap it sets
+
+Worth stating plainly since it now has genuine fpc output behind it (table
+above): `Read` and `Readln` differ only in what happens to the REST of the
+line once a value has been read - `Read` leaves it sitting in the buffer,
+`Readln` throws it away and moves on. This is exactly the same relationship
+as `Write` and `Writeln` on the way out (`courses/pascal-course.md`'s "Proof
+of life" already teaches that pairing), which makes it a genuine callback
+rather than a new idea dressed up as one - see `content/pascal/lesson05.php`.
+
 ### Still not tested
 
 - **Fork-bomb / `TasksMax=` behaviour.** Chris authorised this on 12 September

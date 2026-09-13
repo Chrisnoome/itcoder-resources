@@ -53,6 +53,28 @@ and restyle - in progress, not pushed live. Full status in
     measurement.
   - **Marked code questions** - the block is deliberately unmarked for now.
     Two different scoring shapes, neither built; see the design file.
+  - **Simulated input for Readln/Read - built 13 September 2026, for the new
+    Input lesson, NOT yet validated against the real server.** A `code` block
+    can now declare `'takesInput' => true` and gets a second box for what the
+    pupil would type; `FrameSandboxStdin()` in `lib/compile.php` and the
+    matching two-length-prefix read in `bin/compile-sandbox.sh` carry it down
+    to the compiled program's own stdin. Proven against real fpc 3.2.2 on the
+    local (unsandboxed) path - including reproducing the genuine "Read leaves
+    the line's remainder for the next Readln to find, empty" trap. **The
+    sandboxed path's own two-length framing has never been run through
+    systemd-run for real** - re-test on `/var/www/itcoder-v2-test` before this
+    reaches a pupil, and see compile-subsystem-design.md, "Simulated input for
+    Readln/Read", for exactly what to check.
+  - **ReadKey/KeyPressed under simulated input - open question, not answered.**
+    Unlike plain `Readln`/`Read`, these are Crt calls expecting a real
+    terminal in raw mode, not a line-buffered redirect. Whether `script`'s pty
+    relaying (used for `--tty` mode's colour/cursor support already) makes a
+    simulated keypress actually reach `ReadKey` the way a real one would is
+    untested. `content/pascal/lesson05.php` deliberately does not offer a live
+    `code` block claiming this works yet - teaches the two functions through
+    quiz/typed/reveal instead, the way lesson 3 taught `Delay`/`Sound` as
+    "compiles and runs here, but you cannot observe the real effect on this
+    site." for now.
 - **Study notes, performance evaluation and lesson bookmarks** - **built 13
   September 2026, not deployed anywhere.** Four things landed together
   (platform.md decisions 18-21):
@@ -72,14 +94,22 @@ and restyle - in progress, not pushed live. Full status in
     deployment needs `sudo -u www-data php <root>/bin/setup.php` run once
     after the upload, or the evaluate panel and the bookmark both fail on
     every page load. A normal file deploy does NOT do this.
-  - **On the test deployment since 13 September 2026; live still untouched**
-    (`/var/www/itcoder` has no `lib/pdf.php`). Only `lib/`, `bin/`, `content/`
-    and `public/` were uploaded, never `config/` or `data/` - that keeps the
-    test deployment's own hand-written config out of range entirely, rather
-    than copying it aside and putting it back the way the compile deploy had
-    to. Both new tables created there, both sites still serving 200. The
-    existing `markqueue.php` cron line now writes reviews as well; it needed
-    no crontab change.
+  - **PUBLISHED TO LIVE, 13 September 2026 - test first, then live, both
+    through the scripts in [publishing.md](publishing.md).** Live received
+    everything at once: the compile subsystem (its four config settings, the
+    `compilequeue.php` cron line and log), the three new tables plus
+    `codeSubmissions.simulatedInput`, study notes, reviews, bookmarks, the
+    shared masthead, Pascal lessons 1-7 in their new numbering, and the AI
+    course (already opened on live earlier that day as a one-file change).
+    Both runs ended ALL STEPS OK, and `tools/sandbox-check.php` passed against
+    live's own code: real compiles, simulated input, the Crt terminal,
+    timeouts, and no program able to read any site's config or lessons.
+    Publishing to test first caught a real bug that would otherwise have gone
+    straight to live: the new sandbox never passed `INPUT_LIMIT_BYTES` into
+    its systemd unit, so every program read empty input
+    ([compile-subsystem-design.md](compile-subsystem-design.md)). Still open
+    from it: `Readln`/`ReadKey` under `--tty` time out - no lesson relies on
+    either.
   - Tested end to end locally first: all three PDFs generated and read back,
     the review written for real through the API against a seeded "rushing"
     profile (both of Chris's rules fired), and the bookmark saved, offered,
@@ -100,6 +130,11 @@ and restyle - in progress, not pushed live. Full status in
 - **API spend limit** - marking is gated and capped per pupil per day, but there
   is no global daily cap and no spend limit on the Anthropic workspace. Set a
   limit in the Anthropic console before real outside traffic.
+- **AI course restyle** - opened to pupils on 13 September 2026 without it
+  (Chris), so this is now polish rather than a gate: the eight lessons are
+  still v1's copy - no `Gloss()`/`Aside()` popups, no `reveal` blocks, no
+  mixed question types, no house-style deduction. Lesson by lesson, see
+  [courses/ai-course.md](courses/ai-course.md).
 - **Teacher dashboard: per-question view across a class** - seeing that 70% got
   the VRAM question wrong *before* teaching lesson 5. More useful than the current
   per-pupil view.
@@ -115,9 +150,27 @@ and restyle - in progress, not pushed live. Full status in
   commands, answer key, fallback if a demo dies); **assessment weight** (marked or
   enrichment; is lesson 8 a test); **lesson 8 timing** (four videos plus a 5-mark
   capstone in one period).
-- Pascal: lessons 3 onward. **"Proof of life" is built** (not just discussed -
-  see [courses/pascal-course.md](courses/pascal-course.md)), still awaiting
-  only a final lesson number.
+- Pascal: **lesson 8 onward.** Lessons 1-7 are now written - lesson 6
+  ("Processing - basic maths") and lesson 7 ("Type conversion") both landed
+  13 September 2026, in addition to the lessons 1-5 renumbering from earlier
+  that day. Both have their own content-summary section in
+  [courses/pascal-course.md](courses/pascal-course.md). Note that a new
+  lesson is not finished until it has a study block.
+  - **`FloatToStr`/`StrToFloat`/`Format` are locale-dependent - found 13
+    September 2026, verified on the Windows testbed only.** `FloatToStr
+    (49.9)` and `Format ('%.2f', [49.9])` both genuinely printed a comma,
+    not a point, and `StrToFloat` genuinely crashes on the wrong symbol for
+    the machine. The **server's locale has never been checked**, so whether
+    a live pupil would see a point or a comma by default is unverified.
+    Lesson 7 (`content/pascal/lesson07.php`, "Real and String" section)
+    teaches the genuine comma output honestly labelled "on this course's
+    own dev machine," then teaches the actual fix Chris asked for -
+    `DefaultFormatSettings` copied into a `TFormatSettings` variable,
+    `DecimalSeparator` overridden, passed as an extra argument - verified
+    genuinely forcing a point on that same comma-locale machine regardless
+    of the OS setting. No quiz asks a pupil to predict the default
+    separator, only the fix. `TFormatSettings` also governs date formatting,
+    flagged in the lesson as relevant again once a dates lesson exists.
 - **Three quote portraits not in the corpus - resolved 2026-09-13.** Deming
   (AI lesson 6), Ken Olsen (AI lesson 8) and this second Wirth quote (Pascal
   lesson 2, "Algorithms + Data Structures = Programs" - distinct from the
