@@ -303,6 +303,23 @@ Content, as built:
   until it has one** - it is not optional here the way it is in other courses.
   The "evaluate my performance" panel below it needs nothing authored: it
   appears on every lesson with questions, automatically.
+- **In a "Learn / Memorise this" block, every instruction is shown in full -
+  with its parameters and what it gives back** (Chris, 17 September 2026).
+  Never a bare `Round` or `ReadKey`: write `Round (x)` gives back an Integer
+  (`Round (2.6)` is `3`), `choice := ReadKey;` gives back a Char,
+  `Readln (name);` gives nothing back itself but fills `name`. Applies to the
+  Gloss() term text inside the block too (`Gloss ('Ord (c)', ...)`). All
+  existing blocks in lessons 2-7 were brought into line that day.
+- **A question about code shows a whole, formatted program** (Chris,
+  17 September 2026). Any question asking what code prints, holds or does, or
+  whether it compiles, puts the complete program (`Program` line, `Uses`/`Var`
+  if needed, `Begin ... End.`, house-style layout) in the question's `'code'`
+  field, which shows as a code panel. `'prompt'` holds only the question. Compile
+  and run every one with real fpc before it goes in. This came from lesson 7,
+  where a one-line fragment (`Var total : Integer; ... average := total;`)
+  expected "Yes", but as shown it could not compile. All 31 such questions in
+  lessons 2 and 4-7 were rewritten that day, with their ids kept because the
+  answers were unchanged.
 - **No question totals an odd number of marks** (see platform.md, decision 8).
 - **Run `php bin/check-popup-spacing.php`** after touching any `Gloss()` or
   `Aside()`.

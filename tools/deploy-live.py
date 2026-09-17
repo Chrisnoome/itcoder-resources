@@ -45,9 +45,16 @@ sys.path.insert(0, r'D:/DB Sync/Dropbox/Projects/AIResources/tools')
 # before anything has touched the server, so a wrong-python run changes nothing.
 try:
     import paramiko  # noqa: F401 - vps.py needs it; checked here to explain
-except ImportError:
-    print('This Python has no paramiko:')
+except ImportError as error:
+    # Say what really failed - a paramiko that is installed but cannot load
+    # (a broken dependency, user site-packages switched off) raises the same
+    # ImportError as one that is missing.
+    import site
+    print('This Python could not load paramiko:')
     print('    ' + sys.executable)
+    print('    error: %s' % error)
+    print('    user site-packages: %s (%s)' % (site.getusersitepackages(),
+          'on' if site.ENABLE_USER_SITE else 'OFF'))
     print('Run it with the interpreter that does:')
     print(r'    & "C:\Python314\python.exe" -X utf8 '
           r'"D:/DB Sync/Dropbox/Projects/AIResources/tools/deploy-live.py"')

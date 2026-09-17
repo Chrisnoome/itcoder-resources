@@ -46,7 +46,7 @@ Everything the first chat knew is in this folder.
 | [sags-topic4-syllabus.md](sags-topic4-syllabus.md) | IEB SAGs Topic 4 as a teaching checklist |
 | [courses/ai-course.md](courses/ai-course.md) | The Grade 9 AI course: lesson order, scope, activities and what they must never break |
 | [courses/pascal-course.md](courses/pascal-course.md) | The Pascal course - kept by the Pascal chat |
-| `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php` | Publishing, test then live ([publishing.md](publishing.md)) |
+| `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php`, `tools/marking-check.php` | Publishing, test then live ([publishing.md](publishing.md)) |
 | `tools/vps.py` | Run commands on the server and upload files ([vps-access.md](vps-access.md)) |
 | `tools/pull-backups.py`, `.cmd` | The nightly Dropbox pull ([backups.md](backups.md)) |
 | `word documents/`, `Quote images/`, `Logos and icons/`, the SAGS PDF | Source material |

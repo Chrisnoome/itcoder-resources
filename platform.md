@@ -74,7 +74,23 @@ v2 layout:
   (teacher preview only).
 - **Pages:** `/` public landing -> `/courses.php` catalogue -> `/course.php?c=ID`
   -> `/lesson.php?c=ID&id=LESSON`; `/scores.php?c=ID`; `/teacher.php?c=ID`
-  with course, class and year filters.
+  with course, class and year filters. A pupil's total on `teacher.php` opens
+  `/pupil-work.php?c=ID&p=PUPIL` (17 September 2026): every marked question in
+  the course with their answer, the right answer, the mark and the feedback
+  they saw - teachers only, school pupils only, and its back button keeps the
+  class and year filters. Its totals are computed the same way as
+  `teacher.php`'s, so the number clicked is the number shown. `/admin.php` is
+  for re-marking (decision 23). **Class results and pupil-work list pupils
+  only** - `IsPupilAccount()` in `lib/auth.php`: a `students.dlshcch.co.za`
+  address and not a teacher (17 September 2026); staff and subscribers never
+  appear.
+- **Everything a pupil finished is shown again when they come back**
+  (Chris, 17 September 2026): every question type, written answers and
+  feedback, code boxes, the performance review, and saved activity scores.
+  A reloaded self-marked verdict carries the same celebration and
+  "X out of Y marks." line as when first answered
+  (`ReloadedVerdictExtras()` in `lib/content.php`; the celebration is seeded
+  so it does not change between visits). Any new block type must do the same.
 - **Open self-enrolment:** any signed-in pupil can join any open course.
 - **Content blocks:** `prose`, `video`, `activity`, `quiz`, `written`,
   `reveal` (a "do this" prompt with a hidden explanation), plus `typed`,
@@ -556,6 +572,40 @@ clickable label" rather than to nothing if its CSS fails to load.
 `lesson05.php` was being actively written by a different chat at that exact
 moment, so it was deliberately left alone rather than risking a collision;
 it needs a `contents` block before the rule above is actually universal.
+
+**23. Marking replies use structured outputs, a failure hands the question
+back, and one administrator can re-run marking (Chris, 17 September 2026).**
+After the first week of real classes, 8 of 91 written answers on live had
+failed with "Could not read the marking response" - the prompt only asked for
+JSON, and some replies were not valid JSON - and the pupils were left staring
+at a disabled Hand it in button.
+
+- **Marking and reviews send `output_config.format` with a JSON schema**
+  (`MarkReplySchema()` in `bin/markqueue.php`; the review's in
+  `lib/review.php`), so the API guarantees the shape. The only remaining
+  failures are a cut-off or refused reply, and the reason says which. The API
+  call itself lives once, in `CallClaude()` in `lib/claude.php`.
+- **Every failure's reason is stored** in `writtenAnswers.failReason`.
+- **A failed answer is handed back**: `lesson.php` shows it editable with the
+  Hand it in button live and "Failed - resubmit."; `app.js` does the same
+  live when its poll sees the failure. Resubmitting a failed answer is not
+  charged against the daily cap - the failure was ours. `submit-written.php`
+  refuses to re-hand-in anything already queued, being marked or marked.
+- **`/admin.php`** lists failed and stuck answers with their reasons, re-marks
+  one or all, retries failed reviews, and shows the marking log. It is for
+  `AdminEmails()` in `lib/auth.php` only (default `cnoome@dlshcch.co.za`,
+  override with `adminEmails` in config) - not every teacher, because
+  re-running paid marking is one person's call.
+- **The admin check reads how THIS session signed in**
+  (`$_SESSION['signedInWith']`), not the account's `googleSub`: a dev login
+  keeps an existing `googleSub` (`SignIn()`'s COALESCE), so on the test site,
+  where dev login is on, anyone could otherwise type Chris's address and get
+  the page. Verified on test: dev login as Chris gets 403 and no Admin link.
+  Sessions from before this change must sign out and in once.
+- **The marking worker survives a busy database.** One uncaught "database is
+  locked" on 16 September killed it for a minute; now it pauses and carries on.
+- `tools/marking-check.php` makes one real marking call on an invented answer
+  through a site's own code - run it after publishing when marking changes.
 
 ## Sign-in, marking and privacy (v2, 11 September 2026 - load-bearing)
 

@@ -122,6 +122,16 @@ and restyle - in progress, not pushed live. Full status in
   - **The register of the review's voice has only been read by Claude.** It
     tells a pupil plainly that they are rushing. Worth reading one against a
     real pupil's marks before a class sees it.
+- **8 written answers on live failed marking before 17 September 2026** (7 of
+  them AI course lesson 1-2, mostly `w1ExplainToGogo`) and 1 review. The fix
+  is live (platform.md decision 23); Chris re-marks them from `/admin.php`
+  ("Re-mark all failed", then "Retry failed reviews"). Sign out and back in
+  first - older sessions do not get the Admin link. Their old failure reason
+  is not recorded; any new failure's is.
+- **Dev login is on for the public test site** (port 8082), so anyone who can
+  reach it can sign in as any pupil there. Admin is now guarded against it,
+  but the rest of the test site is not. Worth switching off, or restricting
+  8082 to Chris's own IP, while real pupils' names are in its database.
 - **Subscription purchase flow** - the gating exists (`subscriptionExpiresAt`,
   `CanUseMarking()`), but dates are set by hand; nobody can pay yet.
 - **Google OAuth** - the consent screen is External and needs **Publish app**
