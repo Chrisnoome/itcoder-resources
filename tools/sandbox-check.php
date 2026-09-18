@@ -96,11 +96,16 @@ $checks = [
      'secret'],
 
     ['SECURITY a program cannot open any site\'s config or lessons', true, false, '',
-     "Program Peek;\nVar\n  f : Text;\n\nProcedure Try (aPath : String);\nBegin\n  Assign (f, aPath);\n"
+     // 'Try' as a procedure name was fine under fpc's legacy default mode,
+     // but compile-sandbox.sh started passing -Mobjfpc (Chris, 18 September
+     // 2026, to match what Lazarus actually gives a pupil) and Try is a
+     // reserved word there (Try/Except/Finally) - renamed to TryPath so
+     // this fixture keeps compiling under either mode.
+     "Program Peek;\nVar\n  f : Text;\n\nProcedure TryPath (aPath : String);\nBegin\n  Assign (f, aPath);\n"
      . "  {\$I-} Reset (f); {\$I+}\n  If IOResult = 0 Then Begin Writeln ('READABLE ', aPath); Close (f); End\n"
-     . "  Else Writeln ('BLOCKED');\nEnd;\n\nBegin\n  Try ('/var/www/itcoder/config/config.php');\n"
-     . "  Try ('/var/www/itcoder-v2-test/config/config.php');\n  Try ('/var/www/itcoder/content/pascal/lesson01.php');\n"
-     . "  Try ('/var/backups/itcoder');\nEnd.\n",
+     . "  Else Writeln ('BLOCKED');\nEnd;\n\nBegin\n  TryPath ('/var/www/itcoder/config/config.php');\n"
+     . "  TryPath ('/var/www/itcoder-v2-test/config/config.php');\n  TryPath ('/var/www/itcoder/content/pascal/lesson01.php');\n"
+     . "  TryPath ('/var/backups/itcoder');\nEnd.\n",
      fn ($r) => $r['compileOk'] && substr_count ($r['runOutput'], 'BLOCKED') === 4
                 && !str_contains ($r['runOutput'], 'READABLE'),
      'secret'],

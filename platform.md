@@ -14,7 +14,7 @@ own classes, and open to outside subscribers too.
 | Course id | Course | Status (13 Sep 2026) |
 |---|---|---|
 | `ai` | How AI really works - Grade 9, eight lessons | `open` and live since 13 September 2026 - activities ported, restyle still on the backlog but no longer a gate; see [courses/ai-course.md](courses/ai-course.md) |
-| `pascal` | Programming in Pascal - IEB IT, Grades 10-12 | `open` and live, seven lessons, with live compiling - see [courses/pascal-course.md](courses/pascal-course.md) |
+| `pascal` | Programming in Pascal - IEB IT, Grades 10-12 | `open` and live, eleven lessons, with live compiling - see [courses/pascal-course.md](courses/pascal-course.md) |
 | - | Theory, SQL, Java | Planned. `Projects/AITheory` exists, empty |
 
 **Cutover happened 11 September 2026.** v2 now runs at `/var/www/itcoder`,
@@ -607,6 +607,58 @@ at a disabled Hand it in button.
 - `tools/marking-check.php` makes one real marking call on an invented answer
   through a site's own code - run it after publishing when marking changes.
 
+**24. The compile pipeline runs fpc as `-Mobjfpc`, not fpc's own legacy
+default mode (Chris caught it, 18 September 2026).** `lib/compile.php`
+(the local testbed) and `bin/compile-sandbox.sh` (the server) both called
+`fpc -O1 p.pas` with no `-M` flag - which invokes fpc's own backward-
+compatible default mode, where `Integer` is an alias for `SmallInt`
+(16-bit, -32768..32767). That is real, compiled fpc behaviour, which is
+exactly how the type-mismatch-error table in `pascal-house-style.md` §6a
+and the Integer range fact in lessons 2, 6, 7 and 9 came to be verified
+and shipped that way - but it is **not** what a pupil sees anywhere else:
+Lazarus IDE inserts `{$mode objfpc}` in every new project, and Delphi has
+used a 32-bit `Integer` (an alias for `LongInt`, -2147483648..2147483647)
+for decades. A pupil compiling the exact same program in the Lazarus IDE
+they actually use for projects, or sitting the real IEB practical, would
+see a completely different range - and a completely different type name
+in a mismatch error (`LongInt`, not `SmallInt`).
+
+Both compile paths now pass `-Mobjfpc`, matching Lazarus/Delphi. Checked
+directly against fpc 3.2.2 before and after, so this is stated as fact,
+not assumed:
+- **Only `Integer`'s size, and the `SmallInt`/`LongInt` wording in a
+  type-mismatch error, change.** `Div`/`Mod` truncation-toward-zero,
+  `Round`'s round-half-to-even, every `Boolean`/`Char`/`String` mismatch
+  message, and every already-taught `If`/`Else`/`Case` construct compile
+  and run identically either way - re-verified line by line, not assumed
+  from reading fpc's changelog.
+- **A literal too big for a `LongInt` still gets a compile-time warning**
+  (`range check error while evaluating constants`) - same mechanism, new
+  numbers (`2147483648` now, not `40000`).
+- **A *computed* overflow (multiplying two Integer variables, say) still
+  gets no warning at all, at any size** - fpc cannot see a runtime
+  calculation coming (`200 * 200` no longer overflows a 32-bit `Integer` -
+  `50000 * 50000` does, verified to wrap to `-1794967296`, if this is ever
+  taught again).
+
+Lesson 9 originally taught Integer overflow using this fact, rebuilt for
+the new 32-bit range - then CUT entirely the same day (Chris, 18 September
+2026: not needed for this lesson). The Integer range itself is still
+taught, and still matters -
+just in lesson 4 (`lesson02.php`), not lesson 9. Every dependent fact was
+re-verified and rewritten the day of the `-Mobjfpc` change: the Integer
+range (lessons 2, 6's Round/Trunc cross-reference, 7 - 9 no longer states
+it, having lost the section that needed it), every `SmallInt`-quoting
+compiler-error example across those same lessons (now `LongInt` where the
+mismatch is against an `Integer` - `ShortInt`/`ShortString`, for
+`Boolean`/`String` mismatches, are unaffected and unchanged), and
+`pascal-house-style.md` §6a's whole table. See `courses/pascal-course.md`
+for the lesson-by-lesson list. **If a future lesson states an `Integer`
+range, a `SmallInt`/`LongInt` compiler message, or an overflow example,
+verify it against `-Mobjfpc` specifically** - running fpc with no mode
+flag, out of habit, will silently reproduce this
+exact bug again.
+
 ## Sign-in, marking and privacy (v2, 11 September 2026 - load-bearing)
 
 - **Sign-in is open to any Google account.** Chris has no Workspace admin rights
@@ -681,7 +733,19 @@ Secrets live in `config/config.php` in each project (never in this folder). On
 - Python 3.14 with paramiko at `C:\Python314`; a clean venv with paramiko at
   `D:\xampp\itcoder-tools-venv` (used by the backup pull).
 - Free Pascal 3.2.2 (with Lazarus) at `C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe` -
-  the same version apt installs on the server.
+  the same version apt installs on the server. **Confirmed working, 17
+  September 2026 - it is not on PATH in a Claude Code bash session, but the
+  full path above runs fine via PowerShell.** Don't spend a turn checking
+  whether fpc exists before compile-testing a lesson's code samples - it
+  does; just call the full path. The same session also confirmed, for
+  writing/checking lesson content without opening the app: `php.exe` at
+  `D:\xampp\php\php.exe` (for `php -l` and running one-off check scripts
+  against `lib/content.php`, e.g. `LessonAutoMarkedMax()`), and
+  `pdftotext.exe` at `C:\Program Files\Git\mingw64\bin\pdftotext.exe`
+  (bundled with Git for Windows - `-layout` for text that should keep its
+  visual columns, `-raw` for a multi-column PDF like the SAGs' Appendix G,
+  where content-stream reading order groups each column's text together far
+  more cleanly than `-layout`'s position-based heuristic does).
 - **Windows has no cron, so the scheduled task `itcoder-markqueue` stands in for
   the server's marking cron line**, every minute. It must launch the worker
   through `D:\xampp\itcoder-platform-data\run-markqueue-hidden.vbs` (via

@@ -44,8 +44,10 @@ Everything the first chat knew is in this folder.
 | [pascal-house-style.md](pascal-house-style.md) | How Pascal code is written |
 | [marking-house-style.md](marking-house-style.md) | How practical exams and programming submissions are marked |
 | [sags-topic4-syllabus.md](sags-topic4-syllabus.md) | IEB SAGs Topic 4 as a teaching checklist |
+| [sags-2025.md](sags-2025.md) | The rest of the SAGs (exam structure, taxonomies, SBA/PAT rules, Topics 1-3 in full) as clean markdown - a token-cheap reference, not a teaching document |
 | [courses/ai-course.md](courses/ai-course.md) | The Grade 9 AI course: lesson order, scope, activities and what they must never break |
 | [courses/pascal-course.md](courses/pascal-course.md) | The Pascal course - kept by the Pascal chat |
+| [courses/pascal-lesson10-draft-prime-check.md](courses/pascal-lesson10-draft-prime-check.md) | Prime-checking content cut from lesson 9 - consumed by lesson 10 (18 September 2026), kept as a historical record, not reused verbatim |
 | `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php`, `tools/marking-check.php` | Publishing, test then live ([publishing.md](publishing.md)) |
 | `tools/vps.py` | Run commands on the server and upload files ([vps-access.md](vps-access.md)) |
 | `tools/pull-backups.py`, `.cmd` | The nightly Dropbox pull ([backups.md](backups.md)) |

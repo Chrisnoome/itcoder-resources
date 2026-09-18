@@ -34,6 +34,35 @@ Parameters do not need the `const` keyword.
 - Space before `(` — e.g. `FormatDuration (aSeconds : Integer)`.
 - Space after `)`.
 - Spaces around operators (`:=`, `+`, `<`, `Div`, `Mod`, etc.).
+- **`>=` and `<=` are always the two literal ASCII characters, never a single
+  Unicode glyph (`≥`, `≤`) (Chris, 17 September 2026, site-wide rule — not
+  Pascal-course-specific).** A comparison operator in this language is
+  always exactly two characters. The Unicode "nicer-looking" glyph is not a
+  font substitution the IDE or `fpc` recognises — code containing it simply
+  fails to compile, and a pupil who typed it (or pasted it from somewhere
+  that auto-converted it) has no obvious reason why. Never write `≥`/`≤`
+  anywhere a pupil might copy it into an editor: not in prose, not in a
+  table cell, not in a `Gloss()` definition, not in a code sample. This
+  applies everywhere on the site, in every course, not only to genuine
+  Pascal code blocks.
+
+  **Found live, 17 September 2026: the source text was never the
+  problem - the font was.** A pupil's screenshot showed `(age >= 18) And
+  hasID` rendering as `(age ≥ 18) And hasID`, a single merged glyph, even
+  though the underlying HTML/PHP source genuinely was the correct two
+  ASCII characters throughout (checked - no Unicode `≥`/`≤` anywhere in
+  content). The cause: JetBrains Mono, the code font used everywhere on
+  the site, ships a `>=` programming ligature, and browsers apply that
+  kind of ligature (`calt`) by default unless a stylesheet turns it off -
+  which this one never did. **Fixed in `public/assets/style.css`**: `body`
+  now sets `font-variant-ligatures: none` and `font-feature-settings:
+  "liga" 0, "calt" 0`, inherited everywhere, with the same declared again
+  directly on `code, pre` and `.code-editor` (the pupil's own typing box)
+  as belt-and-braces, since form controls do not always reliably inherit
+  font-feature-settings in every browser. So: two real, separate risks
+  guarded against now - never author the Unicode glyph by hand (above),
+  and never let a code font silently re-draw the correct ASCII as one
+  anyway (this fix). Check both if this bug is ever reported again.
 
 ## 4. Comments
 
@@ -60,34 +89,50 @@ Parameters do not need the `const` keyword.
 - `Inherited Create` is always the first line of a constructor.
 - Code should be written so it is reusable in both GUI and CLI contexts — keep logic out of event handlers where practical, so it can be called from either.
 
-## 6a. Verified type-mismatch error text (FPC 3.2.2, default mode)
+## 6a. Verified type-mismatch error text (FPC 3.2.2, `-Mobjfpc`)
 
 Found and corrected 13 September 2026: an earlier lesson had **invented**
 `Incompatible types: got "Double" expected "Longint"` for `Integer := 3.5;`
-without compiling it - real output on this project's fpc (identical on the
-Windows testbed and the Linux server) is `got "Single" expected
-"SmallInt"`. Every type name below was compiled for real, on both
-machines, before being put in front of a pupil - never guess these, they
-are easy to get wrong and pupils will paste the mismatch between what a
-lesson says and what their own screen shows straight back at you.
+without compiling it - checked against real output on this project's fpc
+instead. Every type name below was compiled for real, on both machines,
+before being put in front of a pupil - never guess these, they are easy to
+get wrong and pupils will paste the mismatch between what a lesson says and
+what their own screen shows straight back at you.
 
-| Assignment | Genuine `fpc` error |
+**Revised 18 September 2026 (Chris caught it): `Integer` is 32-bit here,
+not 16-bit.** The table below stood for five days with `Integer` aliased to
+`SmallInt` (16-bit, -32768..32767) - true of fpc's own legacy default mode,
+which is what `bin/compile-sandbox.sh` and `lib/compile.php` were actually
+invoking (`fpc -O1`, no mode flag), but NOT true of Lazarus (every new
+project starts `{$mode objfpc}`) or Delphi, where `Integer` has been an
+alias for `LongInt` (32-bit, -2147483648..2147483647) for decades. A pupil
+compiling the exact same program in the Lazarus IDE they actually use for
+projects, or sitting the real IEB practical, would see a completely
+different number. Both compile paths now pass `-Mobjfpc` - see the comments
+at the fpc invocation in each file. Checked: this changes ONLY `Integer`'s
+size and the `SmallInt`/`LongInt` wording below - `Div`/`Mod` truncation,
+`Round`'s round-half-to-even, and every `Boolean`/`Char`/`String` mismatch
+message in the table are identical either way.
+
+| Assignment | `fpc` error (`-Mobjfpc`) |
 |---|---|
-| `Integer := 3.5` (a Real literal) | `Incompatible types: got "Single" expected "SmallInt"` |
-| `Integer := 'ten'` (a String literal) | `Incompatible types: got "Constant String" expected "SmallInt"` |
+| `Integer := 3.5` (a Real literal) | `Incompatible types: got "Single" expected "LongInt"` |
+| `Integer := 'ten'` (a String literal) | `Incompatible types: got "Constant String" expected "LongInt"` |
 | `Boolean := 1` | `Incompatible types: got "ShortInt" expected "Boolean"` |
 | `Char := 'AB'` (2+ characters) | `Incompatible types: got "Constant String" expected "Char"` |
 | `String := 5` | `Incompatible types: got "ShortInt" expected "ShortString"` |
 | `Real := 5` (an Integer literal) | Compiles fine - Integer widens into Real with nothing lost |
 
 Note the plain type names this course teaches (`Integer`, `String`) are not
-what the compiler itself says back (`SmallInt`, `ShortString`,
-`ShortInt`) - `Integer` is an alias for `SmallInt` in this project's
-default mode, confirmed by `Low(Integer)`/`High(Integer)` returning
--32768/32767 on both machines. A lesson can teach "Integer" throughout and
-still be honest, since that is the genuine declared type - just don't be
-surprised when a genuine compiler message uses the alias's underlying name
-instead.
+always what the compiler itself says back (`LongInt`, `ShortString`,
+`ShortInt`) - `Integer` is an alias for `LongInt` under `-Mobjfpc`,
+confirmed by `Low(Integer)`/`High(Integer)` returning
+-2147483648/2147483647 on both machines. `String` still means
+`ShortString` (255 characters, `SizeOf` 256) under `-Mobjfpc` with no other
+switch set - that part is unaffected by the mode change. A lesson can teach
+"Integer" throughout and still be honest, since that is the genuine
+declared type - just don't be surprised when a compiler message uses the
+alias's underlying name instead.
 
 ## 7. Worked example
 

@@ -251,6 +251,37 @@ declared `marks => 3` is worth 6 on the first attempt, 3 on the second. Set
 one-line recall check - not as a rule of thumb, a considered choice per
 question.
 
+**Every written question's `prompt` must be unambiguous about what a good
+answer covers (Chris, 17 September 2026 - applies to every course, every
+lesson, going forward).** Found from a real pupil answer: AI lesson 1's
+`w1ExplainToGogo` ("explain ChatGPT to your gogo") was marked down for
+using technical language, but nothing in the pupil-facing prompt actually
+told them to avoid it - the constraint only lived in the rubric, which the
+pupil never sees. That's not a fair test; it's a test of guessing what the
+rubric wants. From now on, every written `prompt` needs both of these,
+where they're genuinely relevant to that question (not padding a
+one-line factual-recall prompt that doesn't need either):
+
+- **Explicit guidance on what to avoid**, stated plainly, when the
+  question is testing something a pupil could easily miss by defaulting
+  to the "safe" technical answer - e.g. "Explain this without using the
+  words X, Y or Z" for a plain-language/audience-appropriate question, or
+  "you don't need to mention every detail, just the ones that matter
+  here" for a question that's really testing judgement about what's
+  important, not exhaustive recall.
+- **A short bulleted list of what the answer should cover**, inside the
+  prompt itself, not buried in the rubric alone - 2-4 bullets is normal,
+  naming the ideas without spelling out the exact wording (the same
+  "never hand over the literal expected answer" rule the rubric-format
+  guidance below already applies to `rubric`/`showRubric` applies here
+  too - bullets name what to address, not what to say about it).
+
+This doesn't replace `rubric`/`markerRubric` - those still carry the exact
+marking detail for the AI marker. It means the pupil-facing `prompt` and
+the marker-facing rubric should never disagree about what's actually being
+asked for, and a pupil should never lose marks for a constraint they were
+never told about.
+
 **Written questions are unaffected by the doubling mechanic above** -
 `markMax` and quality-judged partial credit (0..markMax, by the AI marker or a
 teacher override) already worked this way and still does - **but they are not
@@ -378,6 +409,54 @@ formative in-course practice questions. Deliberately different, not in
 conflict: the course-work builds the habit of clean code before a candidate
 ever sits the real exam, where style rightly isn't examined at all.
 
+## 4a. AI marking: flexibility and feedback format (Chris, 17 September 2026)
+
+Found via a real pupil answer: lesson 7's conversion capstone asks for "at
+least two different conversions from this lesson (`IntToStr`, `StrToInt`,
+`Ord`, `Chr`, or a Real/Integer conversion)" - a pupil used `Chr` correctly
+(converting an Integer to a Char, then concatenating that Char onto a
+String, which is genuinely free per that lesson's own conversion table) and
+the AI marker docked marks for "not using `IntToStr`." `Chr` was one of the
+explicitly listed acceptable conversions; the marker just didn't treat the
+list as a genuine choice.
+
+**The rule going forward: when a rubric offers a choice - "either A or B",
+"any two of X/Y/Z" - award full credit for ANY qualifying option actually,
+correctly present in the pupil's code, never only the specific example used
+to illustrate the rubric.** `bin/markqueue.php`'s system prompt (both the
+shared strict-marking block and each course's own intro) must say this
+explicitly, not leave it implied by the rubric text alone.
+
+**More broadly: if the pupil's code would genuinely work and produce the
+right result, it earns full marks - even when it isn't the exact approach
+the rubric-writer had in mind**, provided it still satisfies whatever the
+rubric is actually checking for (which conversions were used, whether a
+branch was taken, etc.). Strict marking means *marking only what is
+actually there, not giving credit for a near-miss* - it does not mean
+*penalising a correct answer for taking a different, equally valid, correct
+route to it.* Both halves matter and are not in tension once stated this
+way; the marking prompt should say both, together, not just the stricter
+half.
+
+**Feedback format (Chris, 17 September 2026):** AI-marked feedback (written
+and code questions alike) must now be structured, not one plain paragraph:
+
+1. A short general comment first - one or two sentences, what the answer
+   got right and the overall impression.
+2. A blank line.
+3. **Where you lost marks:** (bold heading) followed by a bulleted list,
+   one bullet per thing that cost marks - concise, one line each where
+   possible.
+4. If nothing was lost, say so plainly instead of forcing an empty list -
+   "Full marks - nothing to flag here" or similar, no heading needed.
+
+This replaces the previous "plain text only, no markdown, no bullet points"
+instruction in `bin/markqueue.php` - that instruction is now wrong and
+should be removed, not just relaxed, everywhere it appears in the marking
+prompt. Feedback stays warm, plain South African English otherwise - short,
+concrete bullets, not a wall of prose repeating the rubric back at the
+pupil.
+
 ## 5. Video links and animated explanations
 
 The old site put a curated video section under *every* major subtopic, not
@@ -408,6 +487,22 @@ None of this is built yet as a distinct block type - for now, drop an SVG or
 `<video>`/`<img>` straight into a `prose` block's HTML. A dedicated
 `animation` block type is worth adding once there's a real pattern to
 generalise from, not before.
+
+**Flowchart SVGs (Chris, 17 September 2026, site-wide rule): adjacent boxes
+always need a visible gap between them.** Two shapes sharing an edge (e.g. a
+decision's Yes-branch and No-branch output boxes sitting side by side) must
+never touch - leave at least ~20px of background between them, with the
+connecting lines/arrowheads adjusted to match, not just the boxes shifted
+until they overlap the diamond or run off the canvas. Checked visually
+(screenshot or browser render) after any resize, not just eyeballed in the
+SVG source.
+
+**Never use `textLength`/`lengthAdjust` to force text into a shape.**
+Tried once in lesson08's flowcharts to stop text overflowing a diamond/box,
+and it non-uniformly stretches the glyphs the moment the natural text width
+doesn't match the forced value - visibly warped, wide-looking letters. If
+text doesn't fit, widen the shape, shrink `font-size`, or split across two
+`<tspan>` lines instead - never force-fit by stretching.
 
 ## 6. Quotes, with the speaker's portrait
 

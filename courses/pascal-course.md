@@ -117,6 +117,277 @@ here, not only in chat memory.
    including the `StrToInt` crash (`EConvertError`, not `Runtime error 106`
    - a different failure mode worth knowing about) and the
    `String`-into-`Char` compile error.
+8. **Decisions / Branching.** File `lesson08.php`, added 17 September 2026.
+   Comparison operators, why a comparison IS a Boolean, `If`/`Then`/`Else`,
+   chained `Else If`, combining conditions with `And`/`Or`/`Not` (taught
+   with clickable AND/OR/NOT logic-gate circuit diagrams), `Case ... Of`,
+   and a rule for choosing between `If` and `Case`. Looping (`For`/`While`/
+   `Repeat`) is deliberately NOT this lesson's job - SAGs 4.8 lists it
+   separately, and it isn't taught anywhere in the course yet (still true as
+   of lesson 9 below). Quote: James Gleick, portrait via Wikimedia Commons.
+9. **Division - Div, Mod, Trunc and Round.** File `lesson09.php`, added 17
+   September 2026. Not a re-teach of lesson 6's mechanics - it recaps them
+   briefly, then covers the one thing lesson 6 left alone: `Div`/`Mod`
+   only becoming useful once paired with an `If` from lesson 8 (the "how
+   many buses" worked example: plain `Div` under-counts, `If pupils Mod
+   busCapacity > 0` fixes it). Builds two named algorithms this way -
+   odd/even and factor-checking. Quote: Donald Knuth ("An algorithm must
+   be seen to be believed," verified on Wikiquote), portrait via Wikimedia
+   Commons (CC BY-SA 2.5, cropped from a Jacob Appelbaum Flickr photo). 50
+   marks exactly - not padded past the minimum Chris asked for.
+
+   **Two things cut after first shipping, both the same week, neither
+   discarded outright:**
+   - **Integer overflow** - cut 18 September 2026 (Chris: not needed for
+     this lesson), right after platform.md decision 24's `-Mobjfpc`
+     compile-pipeline fix required rebuilding the example for a 32-bit
+     `Integer` (`50000 * 50000` wrapping to `-1794967296`). Genuinely
+     discarded, not saved anywhere - the Integer range fact itself is
+     unaffected and still taught in lesson 4 (`lesson02.php`).
+   - **Prime-checking, the third algorithm** - cut 18 September 2026
+     (Chris: "prime needs a loop take it out for now - will use in loop
+     lesson (lesson 10). don't discard"). Unlike the overflow cut, this
+     one is preserved verbatim -
+     [pascal-lesson10-draft-prime-check.md](pascal-lesson10-draft-prime-check.md)
+     has the full `algorithm` block, its `code` block and all three
+     questions, plus a note on what has to change to make it a genuine
+     loop-based check (test every factor up to `Trunc (Sqrt (n))`, not
+     just 2/3/5) once lesson 10 exists. Whoever builds lesson 10: read
+     that file before writing a prime-check algorithm from scratch.
+   - Between the two cuts, six marks needed replacing to hold the lesson
+     at 50: a real-division-type question (`q0RecapRealDivisionType`), a
+     fourth `divBuses` prediction (`t4BusesPredict59`), a second factor
+     check (`t5bFactorCheck12of96`), a chained Div-then-Mod digit question
+     (`t7bSecondDigit`) and a checkerboard-pattern question
+     (`q7CheckerboardRow`) - five 2-mark questions for the six marks two
+     cut questions and one cut question each carried, since the overflow
+     cut cost 4 and the prime cut cost 6, ten total, replaced by five new
+     ones at 2 marks each.
+
+   **New block type: `algorithm`** (lib/content.php needs no dedicated
+   builder for it - a plain `['type' => 'algorithm', 'title' => ...,
+   'html' => ...]` block, same shape as `important`/`study`). Rendered by
+   `public/lesson.php`'s `case 'algorithm':`, styled in
+   `public/assets/style.css` (teal, matching video/reveal/code's bar
+   colour - this is worked teaching material, not a warning or a revision
+   summary), icon at `public/assets/block-icons/algorithm.svg` - an SVG,
+   not a PNG like every other block icon, since no image-generation tool
+   was available that session; a matching PNG could replace it later
+   without any code change. Holds the problem statement, an inline SVG
+   flowchart and a pseudocode panel; the runnable, partially-completed
+   Pascal program that follows is a SEPARATE, ordinary `code` block placed
+   right after (not nested), so it keeps the compile subsystem for free and
+   stays out of `LessonAutoMarkedQuestions()` like every other `code`
+   block. A flowchart/pseudocode pair must show the SAME method the
+   runnable code actually implements - the odd/even and factor blocks that
+   shipped in lesson 9 both follow this; the prime-check block that
+   originally shipped alongside them, showing a 3-check version (not a
+   general loop, since loops weren't taught yet), was cut the same day -
+   see lesson 9's entry above and lesson 10's entry below. Don't let a
+   lesson's diagram and its code disagree.
+
+10. **Repeating instructions the easy and efficient way - For loops.** File
+    `lesson10.php`, added 18 September 2026. SAGs 4.8's counting-loop half
+    of "for vs while" - `For`/`Downto` only; `While`/`Repeat` (condition
+    loops) are deliberately left for a later lesson, the same way lesson 8
+    held looping back for lesson 9 to teach Div/Mod first. Covers: basic
+    counting and `Downto`; the inclusive-endpoints trap (`5 To 10` runs SIX
+    times, and both a backwards `To` range and a wrong-direction `Downto`
+    run ZERO); why `Illegal assignment to for-loop variable` is a genuine
+    compile error and what it implies (no built-in step-by-2); accumulators
+    (running totals and counts, an `If`+`Mod` combination lifted from
+    lesson 9); nested loops with independent counters (SAGs 4.8's own
+    phrase), including a real 4x4 checkerboard built from
+    `(row + column) Mod 2` - lesson 9's `divEverywhere` section only ever
+    described this idea for a single row, never built it in two dimensions.
+    Quote: Larry Wall ("...laziness, impatience, and hubris," Programming
+    Perl, 1996), portrait via Wikimedia Commons (CC BY-SA 2.0, Randal
+    Schwartz). 100 marks, at Chris's own ask for this lesson (roughly double
+    lesson 9's 50).
+
+    **Delivers the prime-check algorithm lesson 9 couldn't finish, but
+    NOT as a "lesson 9 left this unfinished" callback to the pupil** -
+    lesson 9's three-check version was cut the same day it was drafted,
+    17-18 September 2026, before it ever reached a real pupil (see lesson
+    9's entry above and `pascal-lesson10-draft-prime-check.md`), so a pupil
+    reading both lessons in order never actually saw a prime-checking
+    attempt before this one. Lesson 10's `algIsPrime` block is written as a
+    fresh problem, framed as the natural next question after lesson 9's
+    real factor-checking algorithm (which pupils DID see): factor-checking
+    answers one candidate at a time, prime-checking needs every candidate
+    checked, which is exactly the repeated job a loop is for. Only the
+    lesson's own internal docblock and this file reference the cut/draft
+    history - keep it that way if this lesson is touched again.
+
+    **Followed the draft file's brief, not a straight reskin.** The draft
+    explicitly warned against "just reskin[ning] the 3-check version with a
+    For around it" and asked for the loop to test up to (at least)
+    `n Div 2`, or better, `Trunc (Sqrt (n))`. Lesson 10 uses
+    `Trunc (Sqrt (number))` (a separate `upperBound` variable, matching the
+    house style's "introduce extra variables" rule) - confirmed against
+    real fpc to correctly handle 2, 3, 5 and 49 (= 7 x 7, which the old
+    6-to-48 shortcut could never have caught) with no special-case code
+    anywhere, exactly as the draft predicted. It still has ONE honestly-
+    disclosed limitation of its own: `number := 1` gives `Trunc (Sqrt (1))
+    = 1`, so the loop range `2 To 1` runs zero laps and `numberIsPrime`
+    wrongly stays `True`. The loop never stops early once it finds a
+    factor - this course's own `Break` ban (`pascal-house-style.md` §5) has
+    never actually been taught to a pupil in any lesson so far, so lesson
+    10 does NOT frame "no early stop" as "because of the Break rule" to the
+    pupil; it is framed purely as a speed-vs-correctness question a pupil
+    can reason through directly (nothing in the loop body can ever set
+    `numberIsPrime` back to `True`, so extra laps cost time, not
+    correctness).
+
+    `pascal-lesson10-draft-prime-check.md` has now been consumed - its
+    content was NOT reused verbatim (the whole point was to stop reskinning
+    the 3-check version and build a real loop instead), but its brief was
+    followed exactly. Leave the draft file in place as a historical record
+    of why lesson 9 only has two algorithm blocks; don't delete it.
+
+11. **Looped algorithms - totals, averages and shapes.** File `lesson11.php`,
+    added 18 September 2026. Chris's brief, verbatim: "total, average,
+    repeated input, drawing triangle, drawing square, complex triangle where
+    point is in the top middle, (all in text mode), and any other common for
+    loop algorithms - no string handling yet this one is about using a loop
+    as a problem solving tool. that's what the introduction should say" -
+    the opening prose section says exactly this. Teaches **almost no new
+    Pascal** (only `Length (text)`) - every idea reuses lesson10's own For loop, just aimed
+    at real problems: a new algorithm block for total-and-average built on
+    repeated input (`Readln` inside a loop, with the loop's own upper bound
+    read from input before the loop starts - `howMany`/`customerCount`),
+    then three shapes built from nested loops in plain text mode - a square
+    (fixed range both loops, from lesson10), a right-angled triangle, and a
+    centred ("point on top") triangle.
+
+    **The one genuinely new idea: an inner loop's range depending on the
+    OUTER loop's own counter** (`For column := 1 To row Do`), rather than a
+    fixed range every time. Lesson10's own written-capstone rubric
+    (`w1YourOwnCountingLoop`, `markerRubric`) had already named this
+    explicitly as "the one new idea beyond what the lesson showed
+    directly", without teaching it - this lesson is where it is actually
+    taught, in the right-angled-triangle section, not framed as "finishing"
+    anything from lesson10 (the same "introduced fresh, not as a callback"
+    discipline lesson10 itself used for the prime-check algorithm it
+    inherited from lesson9's cut draft).
+
+    **No string handling** (Chris's explicit brief) - every shape is printed
+    by writing characters directly inside a loop, one at a time, exactly as
+    lesson10's TimesTable/Checkerboard did; no `String` concatenation to
+    build a row first. One deliberate exception, asked for by Chris on 18
+    September 2026: the typewriter example indexes a String
+    (`message[position]`, lesson 7) and uses `Length`/`Delay` (lesson 3 - the
+    pause never shows on this site, and the lesson says so).
+
+    **Added 18 September 2026 (Chris):** typewriter output, a times table
+    for any number, factors of a number (looping only to `number Div 2`, then printing the number itself - shown by first running the full range and tabulating the wasted checks), Fibonacci, factorial (keep the
+    number at 12 or lower - 13! verified to wrap to 1932053504, and the
+    lesson says so) and largest-of-many; a "Nested loops, as a concept"
+    section before the shapes (explicitly: no limit to nesting); the square
+    now asks for its side length (the first draft wrongly claimed shapes
+    take no input), plus a hollow box and a rectangle the pupil writes from
+    scratch. **The word is "repetition", never "lap"** in this lesson -
+    lesson10 still says "lap"; changing it there is a separate decision.
+
+    The centred triangle's two formulas - `spacesInRow := rows - row` and
+    `starsInRow := (2 * row) - 1` - need no special case for the final row:
+    `rows - row` reaches `0` there, and `For spaceColumn := 1 To 0 Do`
+    already runs zero times under lesson10's own backward-range rule, the
+    same discipline lesson10's prime-check algorithm relied on for its own
+    small numbers. One question uses the identity that the first `n` odd
+    numbers always sum to `n` squared (a 6-row centred triangle prints 36
+    stars in total) - checked by hand for n = 5 and n = 6, not just assumed
+    from the general identity.
+
+    Quote: Alfred North Whitehead ("Civilization advances by extending the
+    number of important operations which we can perform without thinking
+    about them," *An Introduction to Mathematics*, 1911, ch. 5) - verified
+    on Wikiquote before use. Portrait: Wikimedia Commons, the Wellcome
+    Collection's photograph of Whitehead, CC BY 4.0, downloaded via
+    Special:FilePath (byte-for-byte match against the page's own listed
+    size, 502573 bytes) and cropped to a 256px square face portrait, saved
+    to `public/assets/quotes/whitehead.png` and this folder's "Quote
+    images". No fixed marks target was set for this lesson the way Chris
+    asked for 50 (lesson9) and 100 (lesson10) - it came out to 108 auto-marked
+    (`LessonAutoMarkedMax ('pascal', 'lesson11')`, checked directly) plus a
+    12-mark written capstone, 120 total, following from the content actually
+    needed rather than padding toward a round number.
+
+12. **Flexible loops - While and Repeat.** File `lesson12.php`, added 18
+    September 2026. Chris's brief: "while loops and repeat loops. things to
+    look out for, infinite loops (point out apple address), user controlled
+    input, when to use, multiple quotes, check writing styles, 50 marks
+    minimum, quote images". The condition-loop half that lesson10 left
+    open (SAGs 4.8's counting vs condition loop, pre-check vs post-check).
+    Covers: why a counting loop is not enough; `While` (pre-check, can run
+    zero times, and the three things a While loop needs that For did for
+    you - a start value, a condition, a change inside); `Repeat ... Until`
+    (post-check, at least once, the condition flipped, no `Begin ... End`,
+    closing line commented `// repeat`); a side-by-side flowchart and a
+    predict-first `reveal` (`countdown := 0`: While prints nothing, Repeat
+    prints 0); infinite loops (forgetting the change, changing it the wrong
+    way, stepping over an exact value tested with `<>`/`=`), with a
+    `code` block that is stopped by the site's 5-second limit and the flag
+    idea for loops that are meant to go on; loops the user controls (a stop
+    value that could never be real data, checking input with `Repeat` and a
+    Boolean, play-again, a limited number of tries with `And`); two new
+    `algorithm` blocks - total until a stop value (priming read, `While`,
+    guarded average) and sum of the digits (`Mod 10` / `Div 10`, lesson 9's
+    tools inside a `While`); and a For/While/Repeat decision rule.
+
+    **Apple's address is a visible callout, not a popup** (Chris asked for it
+    to be pointed out): 1 Infinite Loop, Cupertino - the street is a loop,
+    named after the programming term; Apple's head office 1997-2017, still an
+    Apple site (Wikipedia, "Apple Infinite Loop campus", checked 18 September
+    2026).
+
+    **Three quotes, each verified.** Robert Frost, "...it goes on" (top;
+    Wikiquote lists it as *attributed*, from Ray Josephs, 1959, so the cite
+    says "as reported in 1959"; portrait already in the platform). The
+    "insanity is doing the same thing over and over" line, shown with the
+    **anonymous placeholder and no face**, because it is wrongly credited to
+    Einstein - earliest known print is a 1981 newspaper report of an Al-Anon
+    meeting (Quote Investigator). Never put Einstein's portrait next to it.
+    Douglas Adams, *Mostly Harmless* (1992), on foolproofing - for the
+    input-checking section. **New portrait:** Wikimedia Commons,
+    `File:Douglas_adams_portrait_cropped.jpg`, Michael Hughes via Flickr,
+    CC BY-SA 2.0, 32915 bytes (matched to the file page), cropped to a 256px
+    square, saved to `public/assets/quotes/douglas_adams.png` and this
+    folder's "Quote images".
+
+    **Marks:** 96 auto-marked plus an 8-mark written capstone (a per-idea
+    rubric, since it is under 10) - 104, from a brief of 50 minimum. The
+    written question lets the pupil pick a stop-value till or a 3-tries
+    password check and accepts any loop they can justify. The word is
+    "repetition", never "lap" (lesson11's decision).
+
+    **Code blocks:** every example compiled and run with fpc 3.2.2
+    (`-Mobjfpc -O1`), input piped in where a program reads any. A nested
+    `Else If` with no `Begin ... End` trips `lib/codestyle.php`'s indent
+    check (it counts `Begin`/`Repeat` depth only), so the guessing game wraps
+    its inner `If` in `Begin ... End; // else` - which is also what the
+    course teaches. A new shared flowchart builder (`$whileFlowchart`, a
+    closure at the top of the lesson file) draws the two algorithm diagrams
+    so they keep the 20px-gap rule without hand-placing coordinates.
+
+**Mid-lesson quotes added to lessons 1, 3, 4, 5 and 7 (Chris, 18 September
+2026).** Each opens the section it fits, as its own quote card: lesson 1, Steve
+Jobs on simple instructions at huge speed (before the CPU video; verified on
+Wikiquote, *Playboy* interview, February 1985); lesson 3, Bill Gates on
+artistry and engineering (top of "Meet the Crt unit"); lesson 4 (`lesson02.php`),
+Gates's "640 KB" line (top of "Memory is one huge, featureless space"),
+labelled as attributed and denied by Gates - Wikiquote lists it as disputed,
+and the lesson text says so; lesson 5, Douglas Adams on the computer terminal
+(*Mostly Harmless*; "The other half of IPO"); lesson 7, Adams on "turn numbers
+into letters with ASCII" (top of "Chr and Ord"). **Sourcing caveats:** the Adams
+ASCII line and the Gates "artistry" line are NOT on Wikiquote - both are
+widely repeated but only secondary sources were found (Wikiquote's talk page
+notes the Adams line is a condensed form of a longer passage in *The Salmon of
+Doubt*), and the Adams terminal line was confirmed only through quote
+databases, not the book. Swap them if a primary source turns up. Portraits:
+`gates.png` (DFID, CC BY 2.0, `Bill_Gates_July_2014.jpg`, size matched to the
+Commons record), `douglas_adams.png` (Michael Hughes, CC BY-SA 2.0, made for
+lesson 12), `jobs.png` (Matthew Yohe, CC BY-SA 3.0, from the AI course).
 
 **Numbering settled 13 September 2026 (Chris, definite): "Proof of life" is
 lesson 2, "Making it pretty" is a new lesson 3, "Every box needs a label"
