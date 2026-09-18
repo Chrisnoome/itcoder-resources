@@ -37,6 +37,7 @@ Everything the first chat knew is in this folder.
 | [publishing.md](publishing.md) | **How to put work on the test site and the live site** - the two scripts, in order, their exact commands, and what to do when one fails. Read before publishing anything |
 | [vps-access.md](vps-access.md) | The server: how to reach it, what is on it, house rules, installing Free Pascal, sandboxing pupil code, cutover |
 | [compile-subsystem-design.md](compile-subsystem-design.md) | The Pascal compile subsystem: sandboxing tested and validated against the live server, what worked and what didn't, suggested shape for the queue - handoff for whoever builds it |
+| [live-console-design.md](live-console-design.md) | The live console (branch `FullConsole`, started 18 September 2026): real interactive Pascal, multi-file projects, data files, Java-ready executor. Design only so far |
 | [backups.md](backups.md) | Server backups, restoring, the Dropbox pull and its staleness alarm |
 | [open-items.md](open-items.md) | The backlog for the whole project |
 | [writing-style.md](writing-style.md) | Base rules for lesson prose, calibrated against Chris's own writing |
