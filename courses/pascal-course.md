@@ -370,6 +370,67 @@ here, not only in chat memory.
     closure at the top of the lesson file) draws the two algorithm diagrams
     so they keep the 20px-gap rule without hand-placing coordinates.
 
+13. **Working with text - String handling.** File `lesson13.php`, added 18
+    September 2026, built and checked locally, then **published to the test
+    site and to live the same day** (both runs ALL STEPS OK). Chris's brief: "all intricacies of
+    strings - including processing with for loops, reversing, encryption, case
+    insensitive comparison, replacing parts of a text, parsing into separate
+    vars (delimiters), the format command, outputting columnised displays, and
+    any other common algorithm examples. quotes, pictures, 70 marks minimum.
+    lots of practical exercises." Covers, in order: a String as a row of Chars
+    numbered from 1 (with a picture); the three loop patterns over a string
+    (count, build a new string, count words); reversing (a new `algorithm`
+    block, `DownTo`) and palindromes; upper/lower case and case-insensitive
+    comparison (`UpCase`, `UpperCase`, `LowerCase`, `SameText`, and why
+    `'Zulu' < 'apple'` is True); a Caesar cipher (`Ord`/`Chr`/`Mod 26`, its
+    `algorithm` block, the negative-`Mod` trap from lessons 6 and 9, brute-force
+    cracking, and an optional keyword-cipher challenge); the toolbox (`Copy`,
+    `Pos`, `Delete`, `Insert`, `Trim`); replacing (once, all, `StringReplace`,
+    by index); splitting at a delimiter (`algorithm` block; `Pos` + `Copy` +
+    `Delete` in a `While`); `Format`; columns (width on `Write`, `%-12s`,
+    `StringOfChar`, a till slip and a times grid); and four more algorithms
+    (password strength with Boolean flags, South African ID number details,
+    initials/title case with a start-of-word flag, run-length squashing).
+    Nothing new is needed from the platform.
+
+    **Marks and exercises:** 128 auto-marked (55 questions) plus a 12-mark
+    written capstone (banded rubric, `showRubric`, `codeAnswer` - parse a
+    `surname,first name,mark` line, tidy the names, print in two columns) = 140,
+    against a minimum of 70. 36 `code` blocks are the practical exercises, all
+    unmarked. If it needs trimming, the questions are safe to cut freely; only
+    keep every mark total even.
+
+    **Free Pascal facts found by compiling, all in the lesson:** `%05d` in
+    `Format` does NOT zero-pad (it pads with spaces) - `%.5d` does; a wrong
+    `Format` specifier or too few values all crash with the misleading
+    `EConvertError: Invalid argument index in format`; `Pos` is case-sensitive
+    and gives 0 for "not found"; deleting-and-inserting in place to replace
+    every match runs for ever when the replacement contains the search text
+    (`cat` -> `cats`); `Copy` past the end is forgiven; `%f` follows the
+    computer's decimal setting (lesson 7), so column examples use
+    `:width:decimals`, which always prints a point. The `Case` layout bug
+    found while building it is under Decisions below.
+
+    **Four quotes, each verified, each with a portrait** (Wikimedia Commons,
+    all saved to `public/assets/quotes/` and "Quote images"): Wittgenstein,
+    "The limits of my language mean the limits of my world" (*Tractatus* 5.6;
+    photo Moritz Nahr, public domain); Mark Twain, the lightning-bug line (letter
+    to George Bainton, 15 October 1888; A.F. Bradley, public domain);
+    Suetonius on Caesar's cipher (Alexander Thomson's translation, Wikisource;
+    the portrait is the Vatican Museum marble bust, public domain); Bruce
+    Schneier, "Anyone... can create an algorithm that he himself can't break"
+    (Cryptogram, 15 October 1998; `Bruce_Schneier_1.jpg` by sfllaw, CC BY-SA
+    2.0, 528509 bytes matched). File names: `wittgenstein.png`, `twain.png`,
+    `julius_caesar.png`, `schneier.png`.
+
+    **Deliberately not done:** no `TStringList`/arrays (house style: first
+    principles only, and arrays are not taught yet), so nothing counts letter
+    frequencies or splits into a list; the Luhn check digit of an ID number is
+    mentioned, not built. Both are good material for a later lesson. The two
+    flowchart closures at the top of the lesson file (`$loopFlowchart`, a copy of
+    lesson 12's `$whileFlowchart`; `$stringPicture`; `$mirrorPicture`) are local
+    to the file.
+
 **Mid-lesson quotes added to lessons 1, 3, 4, 5 and 7 (Chris, 18 September
 2026).** Each opens the section it fits, as its own quote card: lesson 1, Steve
 Jobs on simple instructions at huge speed (before the CPU video; verified on
@@ -502,6 +563,18 @@ Content, as built:
   already taught, per block. Capitalising reserved words is implemented but
   off until a lesson actually teaches it. Detail in
   [../compile-subsystem-design.md](../compile-subsystem-design.md).
+- **The layout check understands `Case ... Of` (fixed 18 September 2026,
+  found while building lesson 13).** `lib/codestyle.php` counted a `Case`'s
+  closing `End;` but never counted the `Case` opening, so every correct `Case`
+  program - lesson 8's own exercise included - was refused for "wrong
+  indentation". A `Case ... Of` now opens a level exactly like `Begin`, and a
+  Case's own `Else` is accepted either lined up with the `Case` (lesson 8's
+  style) or lined up with its labels. Compared old and new checker over every
+  prose program and starter in all Pascal lessons: only false refusals went
+  away, nothing new appeared. **Published to live with lesson 13, 18
+  September 2026.** Still open, known and unchanged: a
+  nested `Else If` with no `Begin ... End` trips the indent check (lesson 8's
+  `GradeBand` example, lesson 12's guessing game workaround).
 - **A `code` block carries no marks** (12 September 2026). It is a practice box
   for reading real compiler output, not an assessment, and it is deliberately
   kept out of `LessonAutoMarkedQuestions()` so no lesson reports an "out of" a

@@ -14,7 +14,7 @@ own classes, and open to outside subscribers too.
 | Course id | Course | Status (13 Sep 2026) |
 |---|---|---|
 | `ai` | How AI really works - Grade 9, eight lessons | `open` and live since 13 September 2026 - activities ported, restyle still on the backlog but no longer a gate; see [courses/ai-course.md](courses/ai-course.md) |
-| `pascal` | Programming in Pascal - IEB IT, Grades 10-12 | `open` and live, eleven lessons, with live compiling - see [courses/pascal-course.md](courses/pascal-course.md) |
+| `pascal` | Programming in Pascal - IEB IT, Grades 10-12 | `open` and live, with live compiling - thirteen lessons (13 published 18 September 2026) - see [courses/pascal-course.md](courses/pascal-course.md) |
 | - | Theory, SQL, Java | Planned. `Projects/AITheory` exists, empty |
 
 **Cutover happened 11 September 2026.** v2 now runs at `/var/www/itcoder`,
