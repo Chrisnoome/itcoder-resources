@@ -195,6 +195,58 @@ every new property; do not weaken the gate.
 6. Load test with a scripted class of 30; record numbers here.
 7. Only then: deploy live, via the normal two-script publish.
 
+## Built and proved: the sandbox layer (19 September 2026)
+
+Step 1 of the build order is done and **proved on the real server** (Ubuntu
+24.04, systemd 255, Python 3.12.3, fpc 3.2.2), through real `systemd-run`, as
+root over SSH from a throwaway copy in `/opt/itcoder-livetest` - nothing under
+`/usr/local`, `/etc` or `/var/www` was touched. **21 of 21 checks pass**
+(`tools/live-check.py`):
+
+live `Readln` (the prompt shows before anything is typed), live `ReadKey`, Crt
+escape sequences, a compile error reported with nothing run, a pupil's own unit
+used by a main program, reading a supplied text file, writing a text file and
+reading it back, `Now`/`Random`/`Delay`, stop (`X`), an endless loop, endless
+output cut off, `config.php` and a lesson file unreadable, a runaway file write
+stopped, bad and upper-case file names refused, a vanished daemon ending the
+session, and no unit left behind.
+
+**Two decisions that changed from the sketch above, both because of what
+building it showed:**
+
+1. **A Python supervisor inside the unit replaces `script` and a bash relay**
+   (`bin/live/supervisor.py`). It owns the pty, so it can carry `K` keystrokes,
+   `Z` resize and `X` stop on the same pipe, and it frames every byte the
+   program prints so nothing can forge a frame. The wire format is now
+   `<TAG> <ARG> <LENGTH>\n<bytes>` in both directions; the tags are in the
+   supervisor's header comment, which is the single source of truth.
+2. **Stop is by unit name.** The unprivileged daemon cannot signal a root-owned
+   `sudo`/`systemd-run`, so `bin/live-sandbox.sh` gives each session a unit
+   `itcoder-live-<16 hex>` and offers `stop <id>`, which only ever accepts a
+   16-hex-digit id - it can stop one of these units and nothing else on the box.
+   `sudoers` can only match the script and its first words, so **the script is
+   the second lock** and validates every argument itself.
+
+**Answers to the open questions:**
+
+- **Q1 - live `ReadKey` works.** A single live keystroke reaches `ReadKey`
+  through the supervisor's pty. The earlier failure was the piped file hitting
+  EOF, exactly as suspected.
+- **Q2 - window size:** the supervisor sets 80x25 before the program starts and
+  again on any `Z` frame (validated: 20-250 columns, 5-100 rows).
+- **Q3 - still open.** `TasksMax`/`CPUQuota` under a live CPU-burning program
+  has not been measured yet, and `TemporaryFileSystem=/tmp` (a small tmpfs so a
+  program cannot fill the real disk) is **not in the launcher yet** - the disk
+  check passes today only because of the per-file `RLIMIT_FSIZE` (256 KB) in the
+  supervisor. Test it before relying on it.
+- **Not yet proved:** the `itcoder-pupils.slice` ceiling (the slice file is a
+  deploy step and does not exist), `sudo` as the daemon user, and behaviour under
+  many sessions at once.
+
+**Still on the server from testing:** `/opt/itcoder-livetest/` - three files,
+mine, safe to remove (`rm -r /opt/itcoder-livetest`). Left in place while this
+is iterated on; remove it before publishing.
+
 ## Server sizing note (for later, from 18 September 2026)
 
 Estimates, not measurements: at ~4,000 registered pupils assume 10-15% online at
