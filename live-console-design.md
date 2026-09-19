@@ -329,6 +329,94 @@ Not worth doing before real usage says so.
 Compile burst (30 at once) is still not measured; the semaphore of 4 exists
 because 30 x 128 MB would not fit.
 
+## The console beside the lesson - the design as built (19 September 2026)
+
+**Chris's design change, 19 September 2026:** instead of a Run button inside each
+lesson exercise, a **"Show / hide console" item in the top toolbar** opens a
+**panel to the right of the lesson** (the model is OnlineGDB: file tabs, an
+editor, Run, a black terminal underneath). **Every code section in a lesson gets
+a "Copy to console" button**; if the console is hidden when it is pressed, it
+appears. The lesson's own Run box goes away. This also delivers the two-tab
+editor (main program + a unit) - tabs are simply the project's files.
+
+Built on branch `FullConsole`. Files: `public/assets/console.js` and
+`console.css` (the panel), `vendor/xterm/` (xterm.js 6.0.0, see its README for
+hashes), `lib/console.php` (workspace, file limits, unit detection),
+`public/api/console-save.php`, `live-start.php`, `live-result.php`,
+`live-stop.php`, and a `consoleWorkspaces` table. **Everything is behind
+`'liveConsole' => true` in `config.php`; with it false (the default) every page
+is exactly as before** - checked, 19 September: no panel, no assets loaded, the
+old editors and Run buttons back.
+
+**Decisions made while building it - Chris to overrule any of them:**
+
+1. **Which listings get a "Copy to console" button.** Every `<pre>` that is a
+   *whole program or unit* (has a `Program`/`Unit` header, or a `Begin ... End.`),
+   found by `LooksRunnable()` in `console.js`. **Not** on fragments
+   (`score := score + 1;` can never compile alone), sample output
+   (`Hello, world!`), or `algorithm-pseudocode`. 158 of the 216 `<pre>` blocks
+   in the Pascal lessons *look like* code by a crude test; the console's own
+   test is stricter, so expect fewer. An exercise's starter always gets one,
+   even if empty. To include fragments too, change that one function.
+   Authors can opt a listing out with `class="no-console"`.
+2. **Copying never silently overwrites work.** Into an untouched console it just
+   goes in; otherwise the pupil chooses *Replace / Open in a new tab / Cancel*.
+   A unit copies to `<unitname>.pas`.
+3. **The layout check applies only to exercises.** Copying a `code` exercise
+   remembers it (`origin`); Run then applies *that block's* rules
+   (`checkStyle`/`styleRules`) to the main program, as the old Run did. Free
+   code and copied examples are **not** layout-checked, so a lesson example that
+   shows a compiler error on purpose can still be run and a pupil can play. This
+   is a change of behaviour from "every code box is checked" - say if you want
+   the check on everything.
+4. **Exercise runs are still recorded** (`codeSubmissions`, via `live-start.php`
+   and `live-result.php`), because "Evaluate my performance" (`lib/review.php`)
+   counts how many code boxes a pupil got to compile and would have read zero.
+   The browser reports one boolean (did it compile) - acceptable for a summary
+   sentence, and marks never depend on it (marked work still goes through the
+   queue path, which believes nothing the browser says).
+5. **The workspace is saved server-side per pupil** (autosave ~1 s after typing),
+   not in browser storage: shared lab machines would hand one pupil's work to the
+   next, and it must follow them home. Whether the console is open is saved too,
+   so it opens on the first paint. (Only the panel *width* is in `localStorage` -
+   a screen convenience, not the pupil's.)
+6. **Terminal: fixed 80 x 25** like the existing virtual DOS terminal, VGA
+   palette, font scaled to the panel (min 9 px, max 16 px). A 360 px-wide panel
+   is legible but tight. Panel width is draggable (min 360 px, max 70% of the
+   window). Below 900 px wide the console covers the lesson instead of sitting
+   beside it.
+7. **A unit's file must be named after it** (`Unit Shapes;` lives in
+   `shapes.pas`) - checked *before* running, in plain words, so the pupil is not
+   left with fpc's "Can't find unit". File names are lower-case only. Up to 8
+   files; `.pas`/`.pp` code, `.txt`/`.dat`/`.csv`/`.inc` data.
+8. **Run with no daemon** (or the daemon refusing) shows a plain message in the
+   terminal. There is no queued fallback: a queue cannot take a keyboard.
+
+**Known consequences and gaps:**
+
+- The `code` blocks' old stored **results** (output, compiler text, celebration,
+  AI style comment) are no longer produced while the console is on: it shows the
+  program's real live output instead. **The "well done" celebrations and the AI
+  house-style note are not in the console yet** - they hang off the queue result.
+  If you want them back for exercise runs, they need a hook on the `compile`
+  message / end-of-run; a follow-up, not built.
+- **No syntax highlighting** (a plain textarea with line numbers, on purpose:
+  what they type is exactly what is sent, nothing between them and their code).
+  A highlighter is a possible later addition; the screenshot has one.
+- The console is offered only in the **Pascal** course (`ConsoleAvailable()`).
+- xterm.js is 489 KB, not the ~300 KB estimated before it was fetched.
+
+**How it was tested (local, Windows, real PHP, real browser; no daemon exists
+here so the WebSocket was scripted):** 7 Node tests for the logic (`node
+public/assets/console.test.js`); 14 browser flows (copy into an empty console, copy
+over own work, new tab, Run -> prompt -> typing -> answer -> end, Stop, layout
+problems, a refusal, a wrongly named unit, a dropped connection); 11 requests
+through the real endpoints (validation, wrong course, oversized, exercise vs free
+layout rules, recording); persistence across a reload; layout geometry at
+1400x900 (lesson and its bottom bar sit beside the panel, no horizontal scroll).
+**Not yet tested against the real daemon through a browser** - that needs the
+branch on the test site.
+
 ## Installed and proved on the test deployment (19 September 2026)
 
 `install-live.sh test` was run by Chris on the test deployment
