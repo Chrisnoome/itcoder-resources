@@ -650,6 +650,42 @@ not assume it) simply doesn't get the dropdown item - `RenderMasthead()`
 skips any nav item whose `items` list is empty, rather than showing an
 empty menu.
 
+## 7b. Every code listing can be run - this is a rule (Chris, 19 September 2026)
+
+Every code listing in a lesson gets a **Copy to console** button, so a pupil can
+run what they are reading. The button is added by `console.js` to any `<pre>`
+that holds a **whole program**: a `Program ...;` line, or `Begin ... End.`. A
+piece of one - `score := score + 1;`, a loop with no `Var` above it - gets
+no button, and to the pupil that looks like a listing somebody forgot. (Found
+on lesson 12, where the two loops in "what does each print?" were fragments.)
+
+So when you write a listing:
+
+1. **Write a whole program.** Program name, `Var` if it needs one, `Begin`, the
+   lines, `End.`. A one-line idea is still a whole program: `Program Apostrophe;
+   Begin Writeln ('It''s alive!'); End.` If the listing shows a program broken on
+   purpose, it is still a whole program - the compiler's error is the lesson.
+2. **Or mark it `<pre class="no-console">`**, on purpose, when it cannot be a
+   program on its own: the *shape* of a statement with placeholders
+   (`While condition Do`), pseudocode, another language, a fragment that only
+   makes sense inside the program just above it. Use it sparingly. If it can be a
+   whole program, make it one.
+3. **Sample output and compiler messages are not code** and need nothing.
+
+What the pupil copies must then *run*, so the console's layout check applies to it
+(the everyday rules plus **no single-letter names**), and a code exercise's
+`starter` is held to that block's own rules plus single letters from lesson 4 on.
+Use full names in every listing - `number`, not `n`; `firstNumber`, not `a`.
+Add `Uses SysUtils;` (or `Crt`, `Math`) whenever the program needs it, and never
+name the program the same as a variable (`Program IsOldEnough;` with a variable
+`isOldEnough` does not compile).
+
+**Check it:** `php bin/check-code-blocks.php` lists every listing that is neither a
+whole program nor marked, every copied program the console would refuse, and every
+starter it would refuse. Add `--compile` to also compile each whole program with
+the local Free Pascal (a few fail on purpose; read the list, do not chase it to
+zero). Run it after writing or editing any listing.
+
 ## 8. Quick checklist
 
 - [ ] Short sentences, direct address, hyphens not em dashes, local (SA)
@@ -657,6 +693,8 @@ empty menu.
 - [ ] Every block title is a label, not a sentence: 55 visible characters at
       most (`php bin/check-titles.php`; Chris, 19 September 2026). A "Good to
       Know - " prefix counts toward the 55.
+- [ ] Every code listing is a whole program (or marked no-console on purpose),
+      with full variable names: `php bin/check-code-blocks.php` (section 7b)
 - [ ] At least one vivid physical/everyday analogy per new concept
 - [ ] A real-world worked example where one exists (a system the learner has
       actually used), narrated step by step
