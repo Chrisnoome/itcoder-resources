@@ -152,6 +152,42 @@ and restyle - in progress, not pushed live. Full status in
   Staff Other`).
 - Optional: log `SQLITE_BUSY` if it ever appears; parallel marking in
   `markqueue.php` if the queue ever lags.
+- **Interactive Pascal console (asked for 18 September 2026, not started -
+  Chris is doing it in a new chat, on the `next-work` branch in both
+  `AIPascalCourse` and `AIResources`, because the changes are to the Pascal
+  engine and may need reverting).** Brief, Chris's words: "change the pascal
+  to an interactive console where readln works like a real program as well as
+  now and random". Read that as: a `code` block gets a console where a pupil
+  types at `Readln` while the program is running, like a real program, **as
+  well as** the current fixed-input behaviour (`'takesInput' => true`, the
+  second "What will you type when this runs?" box), not instead of it - both
+  must keep working, since lesson 5 and lessons 10-12 use the fixed box.
+  The last word, "random", is unclear from the message alone - most likely
+  Random/Randomize output must also behave in the console (a fresh sequence
+  each run), or a random-input mode; **ask Chris what he meant before
+  building.** What the current code does, so the next chat does not have to
+  rediscover it:
+  - The compile and run steps share ONE stdin pipe inside a single
+    `systemd-run` unit (the binary lives in that unit's private `/tmp`), so
+    source and simulated input travel together, each announced by its byte
+    length. `FrameSandboxStdin()` in `lib/compile.php` and the matching read
+    in `bin/compile-sandbox.sh` must always change together.
+  - A `code` block runs to completion and shows a finished result; there is
+    no live session. A truly interactive console needs a long-lived process
+    the browser can talk to (WebSocket or long-poll), which the queue and
+    cron worker design (`bin/compilequeue.php`) does not have.
+  - `sandbox-check.php` reports `Readln` and `ReadKey` under `--tty` as
+    NOTE lines that time out (`Session terminated, killing shell`) - that is
+    the behaviour a live console has to get past. The Crt virtual terminal
+    (80x25, real DOS colours) already exists for output.
+  - Limits today: 5-second run, 64 KB output, 128M memory, one compile in
+    flight per pupil (`CompileLimits()`). A console that waits for a person
+    typing needs a different clock - an idle limit and an overall cap.
+  - The sudoers rule allows exactly two forms of the sandbox call (no
+    arguments, and `--tty`); a new argument needs Chris.
+  - **A sandbox change on test is a sandbox change on live** (shared
+    installed script), and the fork-bomb / `TasksMax=` test still needs
+    Chris to run it himself. Publish via `publishing.md`, test first.
 
 ## Content
 

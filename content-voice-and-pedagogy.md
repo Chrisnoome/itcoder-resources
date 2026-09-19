@@ -566,7 +566,17 @@ type `contents`); `public/lesson.php`'s `case 'contents':` renders it as the
 same bulleted jump-list this section always described; and
 `LessonContentsMenuItems()` turns the same `items` array into the masthead's
 "Lesson contents" dropdown (§ below) - **one list, authored once, powering
-both**. `title` defaults to "What's in this lesson" if omitted.
+both**. `title` defaults to "Lesson Contents" if omitted (leave it off - it
+was "What's in this lesson" until 2026-09-19).
+
+**It renders as its own boxed block** (Chris, 2026-09-19): a **cobalt** header
+(`#274690`, border `#5C7CC4`, wash `#E6ECF8`) and its own `contents.png`
+icon, so it reads as navigation, not lesson prose. Cobalt because every other
+hue already means something - amber "must know", teal watch/try, green
+question, cream optional, plum "good to know", pale blue quote. The class is
+in the `position: relative` list in `style.css` (platform.md decision 21).
+Because it is the block type that carries the look, every lesson in every
+course got it at once - no lesson file changed.
 
 Two ways to place the `<span id="...">` a `contents` item's anchor points
 to, both valid, both checked by `bin/check-lesson-contents.php`:
@@ -644,6 +654,9 @@ empty menu.
 
 - [ ] Short sentences, direct address, hyphens not em dashes, local (SA)
       examples - itcoder's existing rules, unchanged
+- [ ] Every block title is a label, not a sentence: 55 visible characters at
+      most (`php bin/check-titles.php`; Chris, 19 September 2026). A "Good to
+      Know - " prefix counts toward the 55.
 - [ ] At least one vivid physical/everyday analogy per new concept
 - [ ] A real-world worked example where one exists (a system the learner has
       actually used), narrated step by step

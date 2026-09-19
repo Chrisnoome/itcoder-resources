@@ -98,7 +98,15 @@ v2 layout:
   fewer), `match` (match two columns via a dropdown per row) and
   `enrichment` (2026-09-13 - a boxed, warm-cream group of optional extra
   videos/links at the bottom of a lesson, visually distinct from the
-  required material above it). `quiz`, `typed`, `order`,
+  required material above it), and `goodtoknow` (Chris, 2026-09-19 - fields
+  `title` (the whole header, e.g. "Good to Know - ASCII table") and `html`:
+  reference material worth having to hand but NOT examined, first used for
+  the full ASCII table in Pascal lesson 4. **Plum** (`#EFE9F5` wash, `#8A6BB0`
+  border, `#5B4380` header) with its own `good-to-know.png` icon, chosen
+  because every other colour already means something - amber "you must know
+  this", teal watch/try, green question, cream optional, blue quote - so
+  plum must stay reserved for "not examined, but useful". Its class is in
+  the `position: relative` list in `style.css` (decision 21)). `quiz`, `typed`, `order`,
   `select` and `match` all share one table (`quizResponses`), but not one
   scoring rule: `quiz`/`typed`/`order`/`select` are all-or-nothing
   (`QuizMarkEarned()`), while `match` scores **per line** (Chris, 2026-09-12 -
@@ -772,6 +780,10 @@ Secrets live in `config/config.php` in each project (never in this folder). On
   dead link or a jump to nowhere visible.
 - `node tests/tokeniser.test.js` (v1 today; it must move with the token counter
   when the AI course is ported) after touching `SplitIntoTokens`.
+- `php bin/check-titles.php` after writing or renaming any block title - no
+  heading over 55 visible characters (Chris, 19 September 2026; video titles,
+  which are a real YouTube video's name, are exempt). The limit is one constant
+  at the top of the script.
 - Every `written` question's `markMax` is even.
 - Any mark count shown in the UI matches what the scoring engine actually
   awards, not a question's raw declared field (decision 12) - check a new or

@@ -63,6 +63,14 @@ sentence. Never use "genuinely", "genuine", "for real", or "binds"
 anywhere in lesson copy, going forward, and strip them from existing
 lessons when you touch them.
 
+**Also banned: "reach for" / "reaches for" / "reached for" in the sense of
+"choose" or "use" (Chris, 19 September 2026, caught on lesson 5: "the one
+you'll reach for most").** It is a writerly, figurative way of saying "use",
+and a fifteen-year-old beginner reads it as a physical action. Say "use"
+("the one you'll use most"). This does not ban the plain verb "reach" meaning
+arrive at (a loop that "reaches 0", a line "never reached") - that is
+literal and stays.
+
 Two traps found removing "genuine" the first time, worth watching for
 next time: **article agreement** ("a genuine Integer" → "an Integer", not
 "a Integer" - check what the following word actually starts with, don't
