@@ -379,7 +379,12 @@ here, not only in chat memory.
     any other common algorithm examples. quotes, pictures, 70 marks minimum.
     lots of practical exercises." Covers, in order: a String as a row of Chars
     numbered from 1 (with a picture); the three loop patterns over a string
-    (count, build a new string, count words); reversing (a new `algorithm`
+    (count, build a new string, count words); **underlining a string** (added
+    19 September 2026 at Chris's ask: write the string, then a loop writes one
+    underline character per character on the next line - a `Write` loop
+    then a plain `Writeln;`, a `Length + 2` variant, a user-chosen character,
+    over-and-under, and a skip-the-spaces challenge; `StringOfChar` in the
+    columns section is pointed back to it as the one-line version); reversing (a new `algorithm`
     block, `DownTo`) and palindromes; upper/lower case and case-insensitive
     comparison (`UpCase`, `UpperCase`, `LowerCase`, `SameText`, and why
     `'Zulu' < 'apple'` is True); a Caesar cipher (`Ord`/`Chr`/`Mod 26`, its
@@ -391,12 +396,15 @@ here, not only in chat memory.
     `StringOfChar`, a till slip and a times grid); and four more algorithms
     (password strength with Boolean flags, South African ID number details,
     initials/title case with a start-of-word flag, run-length squashing).
-    Nothing new is needed from the platform.
+    "Which tool for which job?" (the toolbox table and the count/build/split
+    patterns) is a `goodtoknow` box, "Good to Know - Which tool?" (19 September
+    2026, Chris) - reference, not examined. Nothing else new is needed from the
+    platform.
 
-    **Marks and exercises:** 128 auto-marked (55 questions) plus a 12-mark
+    **Marks and exercises:** 136 auto-marked (59 questions) plus a 12-mark
     written capstone (banded rubric, `showRubric`, `codeAnswer` - parse a
-    `surname,first name,mark` line, tidy the names, print in two columns) = 140,
-    against a minimum of 70. 36 `code` blocks are the practical exercises, all
+    `surname,first name,mark` line, tidy the names, print in two columns) = 148,
+    against a minimum of 70. 40 `code` blocks are the practical exercises, all
     unmarked. If it needs trimming, the questions are safe to cut freely; only
     keep every mark total even.
 
