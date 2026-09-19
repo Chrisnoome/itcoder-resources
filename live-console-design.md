@@ -759,3 +759,38 @@ look and work as before. To switch it on later: install the daemon for live
 `'liveConsole' => true` and `'liveControl'` to the live config - with Chris's say-so.
 
 FullConsole has not been merged into main or next-work.
+
+## Switched on for live - 19 September 2026
+
+Chris asked for it ("add the console to live"), so, in this order:
+
+1. `bash /var/www/itcoder/bin/live/deploy/install-live.sh live` (root, on the server): the
+   `itcoder-live@live` daemon (port 8771, control socket
+   `/run/itcoder-live-live/control.sock`), its env file and the nginx snippet. Its own
+   smoke test: **10/10** (direct to the daemon).
+2. The one include line, `include snippets/itcoder-live-live.conf;`, added by hand to
+   `sites-available/itcoder` (the 443 block), before `location /assets/`. Backup
+   `itcoder.bak-2026-09-19-130042`, `nginx -t` clean, reload. (It landed between the
+   `/assets/` comment and its block - harmless, cosmetic.)
+3. The smoke test again through the public route, `wss://itcoder.co.za` with
+   Origin `https://itcoder.co.za`: **10/10**. Runner, supervisor and launcher on the server
+   are the same three files (sha256 `a4701c76`, `d9671d01`, `9b97bdd5`) that passed
+   `live-check.py` 20/20 on test.
+4. `'liveConsole' => true` and `'liveControl' => 'unix:/run/itcoder-live-live/control.sock'`
+   appended to the live `config.php` (backup `config.php.bak-2026-09-19-before-console`,
+   permissions kept 640 www-data).
+
+**`live-check.py` was NOT re-run on live**: the permission classifier refused the step
+(upload to `/opt/itcoder-livetest` and run it through `sudo -u itcoder-live`). The launcher it
+tests is the shared, byte-identical copy already proven on test, so nothing new is untested,
+but re-run it when convenient:
+
+    sudo -u itcoder-live python3 live-check.py sudo -n /usr/local/bin/itcoder-live-sandbox.sh run pascal
+
+Checked after: the site 200, `/api/live-start.php` answers 401 without a session (the PHP
+route is live), `/live/...` reaches the daemon (426 without a WebSocket upgrade), both
+daemons and nginx/PHP-FPM active, error logs quiet. **Not seen: a real pupil session in a
+signed-in browser on live** - sign-in there is Google only. Try one Run yourself.
+
+To switch it off: `'liveConsole' => false` in the live `config.php`. To remove it:
+`systemctl disable --now itcoder-live@live` and delete the include line.
