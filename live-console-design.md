@@ -550,6 +550,98 @@ shown as text and never run, failure wording), splitter by real mouse drag and
 keyboard, the terminal wheel, geometry, and a 13-check regression of everything
 from before, with screenshots. **Not yet tested on the test server.**
 
+### Third round (Chris, 19 September 2026): light/dark, files, Help
+
+Asked for: a light/dark toggle, where *"list [light] should resemble Lazarus IDE
+style code formatting"*; the ability to save and load / download files; and a
+Help button explaining how the console works, the formatting precheck ("not
+standard for normal IDEs") and code completion. (I read "list" as "light".)
+
+**Themes.** Every colour in `console.css` is now a variable (`--k-*` panel,
+`--hl-*` code) on `.console-panel`; `data-theme="light"` overrides them. The
+choice is remembered **in this browser** (`localStorage`), like the panel's width
+- a preference for a screen, not something that follows a pupil. Dark is the
+default and looks exactly as before.
+- **The light theme is Lazarus's own, read from its install, not remembered:**
+  `C:\lazarus\ide\ColorDefault.xml` ("Default"). White editor, reserved words
+  **bold** black, comments blue *italic*, strings blue, numbers navy, symbols
+  (`; := ( ) , .`) red, directives red italic, and identifiers - including
+  `Integer` and `Writeln` - plain black, light grey gutter, navy selection.
+  (The other schemes it ships - Twilight, Ocean, Delphi, Pascal Classic - are in
+  the same folder if you ever want more themes; one block of variables each.)
+- **One assumption to check against your Lazarus:** the scheme file marks
+  comments `Style="fsBold"` while Lazarus's highlighter itself defaults them to
+  italic. I could not confirm from the source how the two combine, so comments
+  are **blue italic, not bold** (which is also what I remember seeing). If yours
+  are bold, it is one variable: `--hl-c` weight.
+- **Bold and italic are safe for alignment only because the font is monospace.**
+  Measured, not assumed: 121 sampled letters in the light theme sit within
+  0.30px of the textarea's grid, and a bold `Program` is exactly 7 characters
+  wide. Do not change the editor font to a proportional one without redoing this.
+- **The black output screen stays black in both themes**: `Crt` colours were made
+  for a black screen (light text on a white screen would be unreadable).
+- **Contrast checked by computing it**, both themes, every text/background pair
+  (WCAG 4.5:1). Four fell short and were nudged just enough: dark active tab
+  (4.3 -> 5.8), dark gutter numbers (4.0 -> 4.9), light gutter numbers (3.5 -> 5.0;
+  Lazarus's `#808080` is too faint) and Lazarus's pure red `#FF0000`, which is
+  only 4.0:1 on white - the light theme uses `#E00000`, the same red to the eye.
+- **Cost:** the light theme draws a span per symbol, twice the dark theme's spans.
+  At the largest file allowed (32 KB, 420 lines) a keystroke redraws in ~36 ms
+  (dark ~27 ms); a typical 40-line pupil program takes under 1 ms.
+
+**Files.** A **Files** menu (replaces the old ⋮): New, **Open from my
+computer**, **Download this file**, **Download all files (.zip)**, Rename, Delete.
+- **Saving was already automatic** (server-side, per pupil). Now it is visible: a
+  "✓ Saved" tick disappears the moment something changes and returns when the
+  server has it, so nobody goes looking for a Save button. **Ctrl+S** (Cmd+S) saves
+  immediately and stops the browser's own "save page" dialog.
+- **Open** (button, or drag files onto the editor): names are tidied into valid
+  ones (`My Program.PAS` -> `my_program.pas`, a Windows path is stripped, `.lpr`
+  and `.dpr` -> `.pas`), and each file is checked for type, being text, and the
+  same size caps the server enforces. **Nothing is guessed:** `picture.png` is
+  refused in plain words. A name that clashes asks *Replace / Keep both / Skip*
+  (Keep both makes `name2.pas`); an identical file is not added twice; Windows
+  line breaks are tidied; the 8-file cap holds; an untouched "Hello, world"
+  starter is removed when their own code arrives. Anything refused is listed at
+  the end, never dropped silently.
+- **Download all builds a real .zip in the browser with no library** (a small
+  writer in `console.js`, stored not compressed). **Bug found by testing it:** the
+  first version measured the central-directory size in the middle of writing the
+  end record and came out 12 bytes too big; an independent reader caught it.
+  Fixed, and the bytes the *browser* produced were then opened with Python's
+  `zipfile` (every CRC good, empty file, accented name and euro sign included).
+- **Not built:** files a *program writes* (`Rewrite`) live only for that run and
+  cannot be downloaded yet - that is the "phase two" return-the-files step from the
+  original design.
+
+**Help.** A **?** button covers the whole panel with a scrolling Help page (Esc,
+the ×, or hiding the console closes it; Tab stays inside while it is open).
+- **The words are in `content/console/help.php`**, like lesson content, rendered by
+  `ConsoleHelpHtml()` (everything escaped first; only `**bold**`, `` `code` `` and
+  `[[Key]]` become markup). Seven sections: the console in one minute; your files;
+  **the layout check**; code completion; Analysis; colours and space; keys.
+- **The layout check section says plainly it is not standard:** programs like
+  Lazarus run untidy code without complaint, this does not, on purpose - then what
+  is checked, *why* (people read your code; it is a habit; Pascal itself does not
+  care), that the **Layout fixes** tab opens by itself, that **Check layout**
+  checks without running, that it never hides a real compiler error, and that an
+  exercise is only checked for what has been taught.
+- **Voice:** written to writing-style.md and content-voice-and-pedagogy.md §1 -
+  short sentences, "you", bullets, hyphens; no "house style", "convention",
+  "genuine", "for real", "binds" or dashes (checked by test).
+- **It states facts that can go stale** - 15 minutes and 5 minutes (the
+  launcher's limits), 8 files, the layout rules. The file's header lists where
+  each comes from: change the console and change the help in the same commit.
+- **Not done:** Help does not open by itself the first time; easy to add if you
+  want it (it would need remembering per pupil, not per browser).
+
+**Tested this round:** Node 16 (console logic incl. zip) + 20 (syntax); PHP
+`bin/check-codestyle.php` 35; in a real browser: light/dark colours and 121-point
+alignment (17), Help (20), files - menu, download, open, refusals, clashes, cap
+(18), Saved tick, Ctrl+S, drag-and-drop, reload from server (13), and the whole
+earlier regression in **both** themes (24); contrast for every pair; screenshots.
+**Not yet on the test server.**
+
 **Known consequences and gaps:**
 
 - The `code` blocks' old stored **results** (output, compiler text, celebration,
