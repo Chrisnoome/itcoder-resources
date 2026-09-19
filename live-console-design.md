@@ -247,6 +247,53 @@ building it showed:**
 mine, safe to remove (`rm -r /opt/itcoder-livetest`). Left in place while this
 is iterated on; remove it before publishing.
 
+## Built and tested locally: the runner daemon and PHP hand-off (19 September 2026)
+
+Steps 2 and 3 of the build order are written and tested **locally only** -
+the daemon has not been run on the server, and real WebSockets have not been
+exercised at all (the `websockets` package is not installed there; see below).
+
+- `bin/live/runner.py` - the daemon. asyncio, one process, no threads. Session
+  manager, **fair FIFO compile queue** (a session holds a slot only while
+  compiling - a program waiting at `Readln` releases it), one session per pupil
+  (a new Run replaces the old, stopping the old unit by name), a session cap,
+  unclaimed-session expiry, per-message and per-second limits on keystrokes,
+  a watchdog that stops a unit by name if the supervisor's own limit somehow
+  fails, and `GET /stats` for the load test. Browsers connect to
+  `/live/<32 hex>` (a one-use capability); PHP talks to a local control socket
+  (`unix:` on the server, `tcp:` for tests, mode 0660 group www-data, so file
+  permissions are the authentication).
+- `bin/live/test_runner.py` - 18 tests, fake sandbox and fake browser socket,
+  run anywhere: `python -m unittest discover -s bin/live -p "test_*.py" -v`.
+  **Checked for real, not just green:** five deliberate bugs (LIFO queue, slot
+  never released, no per-pupil replacement, no key rate limit, no wake-on-finish)
+  were each introduced in a scratch copy and each made tests fail.
+- `lib/live.php`, `public/api/live-start.php`, `public/api/live-stop.php` - the
+  PHP side. Same gate as `api/compile.php` (sign-in, enrolment, block exists,
+  byte caps, layout check). **Dark by default:** `'liveConsole' => false` in
+  `config.sample.php`; absent means every Run behaves exactly as before.
+  Verified against the daemon's real control handler from real PHP, including
+  accents and quotes in source, refusals, and daemon-down (`[0, null]`, which
+  the endpoint turns into a `fallback` reply so the page can use the queue path).
+
+**Not built yet:** the browser side (xterm.js console in the `code` block, Stop
+button, queue message, falling back to the queue path on `fallback`); the
+two-tab editor; the sandbox check in `tools/publish-test.py`; the slice file; the
+deploy/`systemd` unit for the daemon; the load test. `codeSubmissions` is not yet
+written by a live run, so a reload shows the last queue-path result, not the last
+live run - decide when the front end lands.
+
+**What is waiting on Chris (server changes and one download):**
+
+1. `apt install python3-websockets` (Ubuntu candidate 10.4-1; the daemon uses
+   the library's `serve(handler, host, port, origins=...)`, which 10.4 has).
+2. A `sudoers` file for the daemon's user - a dedicated `itcoder-live` user, not
+   `www-data` - allowing exactly the launcher's `run *` and `stop *` forms.
+3. An nginx `location /live/` block: proxy to `127.0.0.1:8770` with the
+   WebSocket upgrade headers, on both the live server block and the test one.
+4. A systemd service for the daemon and the `itcoder-pupils.slice`.
+5. Fetching xterm.js (and its fit addon) from jsdelivr into `public/assets/`.
+
 ## Server sizing note (for later, from 18 September 2026)
 
 Estimates, not measurements: at ~4,000 registered pupils assume 10-15% online at
