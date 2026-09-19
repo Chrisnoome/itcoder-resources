@@ -202,6 +202,41 @@ with a line saying why. Not in activity boxes, which exist to have text pasted
 into them. A deterrent, not a lock: it removes the thoughtless route, which is
 the one that gets used.
 
+**6b. ...and a paste that gets round that is caught and cut (Chris, 19 September
+2026).** The page keeps a record of how the text got into the box - characters
+typed, active typing time, characters that arrived some other way, refused
+paste attempts - and sends it with every draft save and with the hand-in.
+`lib/typing.php` (`TypingVerdict`) weighs it on the server against the length of
+the answer handed in. Flagged when: the answer is much longer than the
+characters typed; more than 60 characters arrived other than by typing (one
+typing event may carry at most 30); typing was faster than 15 characters a
+second over 100+ characters; or a 60+ character answer came with no record at
+all (straight to the API). Limits are generous on purpose - a wrongly flagged
+pupil is the expensive mistake. **The record comes from the pupil's own browser,
+so a pupil who forges it beats this**; it catches the ones who don't.
+
+A flagged answer is marked as normal, then `bin/markqueue.php` stores a third of
+the mark (rounded down, `FlaggedMark()`) and keeps the real one in
+`markBeforeFlag`. The pupil sees `FlagNotice()` in red under the mark; the lesson's
+NB list carries a red warning that bypassing "no paste" will be detected.
+Teachers see a red flag in the class marks view (a "Show only flagged work"
+button filters to those pupils) and on `pupil-work.php`, where the typing record
+is shown and **Clear the flag** gives the mark straight back (`flagCleared` stops
+it being raised again). A teacher can also **Flag as pasted** by hand. A teacher's
+own `teacherMark` still overrides everything. Checks: `bin/check-typing.php`.
+
+**6c. Site-hardening headers (19 September 2026).** `SendSecurityHeaders()` in
+`lib/db.php` sends `Content-Security-Policy` (this site plus Google Fonts and
+YouTube no-cookie only; no plugins; no framing; `script-src` still allows
+`'unsafe-inline'` because the lessons use inline scripts), `Permissions-Policy`
+(no camera, microphone, location or payments) and, over https only,
+`Strict-Transport-Security: max-age=15552000` (no includeSubDomains/preload -
+hard to undo). nginx already sends `X-Content-Type-Options`, `X-Frame-Options`
+and `Referrer-Policy`, so they are not repeated. If a page change ever trips the
+CSP, `'cspReportOnly' => true` in `config.php` makes the browser log instead of
+block. **Not done, needs a server edit:** nginx `server_tokens off` (the
+`Server:` header shows the nginx version).
+
 **7. Rubrics are written for the marker.** Every rubric says: award marks for
 correct ideas, never deduct for spelling, grammar or informal language - how
 Chris marks practicals. Every rubric also justifies its mark allocation
