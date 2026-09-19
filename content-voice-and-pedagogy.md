@@ -457,6 +457,29 @@ prompt. Feedback stays warm, plain South African English otherwise - short,
 concrete bullets, not a wall of prose repeating the rubric back at the
 pupil.
 
+**The shape is not optional, and is enforced (Chris, 19 September 2026).** Real
+feedback came back as one wall of text, and with the heading inline in the middle
+of a sentence ("...explain why. **Where you lost marks:** - You did not... - You
+did not..."). The rule, for every AI-written feedback and analysis:
+
+- The general comment is **paragraphs of one or two sentences**, never one
+  dense block.
+- The bold heading (**Where you lost marks:**, and for an analysis **Things to
+  check:** / **Ways to improve it:**) is **always on a line of its own**, with a
+  blank line above it.
+- **Every bullet is on its own line**, starting `- `. Never run together.
+- Hyphens with a space each side, never em dashes; no "genuine/genuinely",
+  "for real", "lean on", "reach for".
+
+It is enforced in code, not left to the model: `lib/feedback.php`
+`NormaliseFeedback()` puts any feedback into that shape (it changes shape only,
+never a fact, and is idempotent). It runs when feedback is stored
+(`bin/markqueue.php`, `lib/analyse.php`), and whenever it is shown - the lesson
+page, the polling APIs and the teacher's `pupil-work.php` - so old text is
+tidied as it is read. `bin/reformat-feedback.php --apply` rewrites what is already
+stored. Checks: `php bin/check-feedback-format.php`. The marking prompt states the
+shape with an example; if you change the prompt, keep the example.
+
 ## 5. Video links and animated explanations
 
 The old site put a curated video section under *every* major subtopic, not

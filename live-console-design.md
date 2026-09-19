@@ -794,3 +794,31 @@ signed-in browser on live** - sign-in there is Google only. Try one Run yourself
 
 To switch it off: `'liveConsole' => false` in the live `config.php`. To remove it:
 `systemctl disable --now itcoder-live@live` and delete the include line.
+
+## The Analysis tab's rules (Chris, 19 September 2026)
+
+`lib/analyse.php`. The analysis judges the code **on its own**, and its emphasis
+is readable code:
+
+1. **No analysis until the layout passes.** `api/console-analyse.php` runs the
+   console's layout check first; code that would not get past Run (no program
+   name, single-letter names, two instructions on a line) is not sent to the AI.
+   The pupil is taken to the Layout fixes tab, and no paid call is made.
+2. **What it weighs, in order:** one concept per line; don't repeat yourself (loops,
+   procedures, functions - **only once a lesson has taught them**); comments on
+   complex code; meaningful names; the layout of what the program prints; **an empty
+   line between steps** (it names the line to add it after); does it do what its
+   names and comments say; things that could go wrong in the code as written.
+3. **Building a string in a variable before displaying it is praised**, never
+   "improved away".
+4. **It must not:** comment on a variable's type (an age being an Integer) unless it
+   causes a real problem; talk about what would happen if the program did something
+   else (asking for input); suggest features; say the code will not compile, or is
+   wrong, because it uses something the lessons have not covered. The "taught so far"
+   list limits what it may RECOMMEND, it is never a test of what the pupil wrote.
+5. **House rules apply to everything it writes:** any code it quotes or names it
+   suggests follows the house style, as far as it has been taught.
+6. **In the browser:** pressing Analyse clears the box and shows "Working" with
+   animated dots until the answer replaces it.
+7. Analyses stored before the prompt changed are not reused for identical code
+   (`AnalysisPromptSince()`); they are asked again.
