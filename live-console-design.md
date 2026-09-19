@@ -329,6 +329,39 @@ Not worth doing before real usage says so.
 Compile burst (30 at once) is still not measured; the semaphore of 4 exists
 because 30 x 128 MB would not fit.
 
+## Installed and proved on the test deployment (19 September 2026)
+
+`install-live.sh test` was run by Chris on the test deployment
+(`/var/www/itcoder-v2-test`, port 8082). Checked afterwards by Claude, read-only
+plus test runs:
+
+- `itcoder-live@test` **active and enabled**, running as `itcoder-live`; control
+  socket `/run/itcoder-live-test/control.sock` is `srw-rw---- itcoder-live:www-data`
+  in a `0750` directory, as designed; websockets 10.4; `nginx -t` clean with the
+  one `include` line (backup `itcoder-v2-test.bak-2026-09-19-061716` kept); live
+  site and test site both still answer 200.
+- The three installed root-owned files are **byte-identical to the repo** (same
+  sha256 as `bin/live/runner.py`, `supervisor.py`, `live-sandbox.sh` on the
+  test site).
+- **`smoke.py`: 10/10** - a live `Readln` conversation through nginx and a real
+  WebSocket, a used session id refused, an unknown one refused, a foreign Origin
+  refused (403), Stop ends a runaway program, nothing left behind. Mean compile
+  0.24 s.
+- **`live-check.py` as `itcoder-live` through the real `sudo` path and the
+  installed launcher: 20/20.** (Earlier notes say 21: one check that could never
+  fail was removed on 19 September, so 20 is the honest count.)
+- **Slice confirmed:** a session's unit is in `itcoder-pupils.slice` with
+  `CPUQuota=50%`, `MemoryMax=128M`, `TasksMax=32`, `RuntimeMax=16min`; the slice
+  itself is `MemoryMax=1.5G`, `MemoryHigh=1.25G`, `CPUQuota=200%`, `TasksMax=512`.
+
+**Still NOT proven:** whether the CPU quota actually holds under a program that
+burns CPU for a long time (the `stop` test proves it can be killed, not that it
+is throttled); `TemporaryFileSystem` (not used - see the launcher); the compile
+burst of a class at once; nothing has been run from a browser, because there is
+no browser console yet. `/opt/itcoder-livetest/` (my throwaway test copies) is
+still on the server; it holds a superseded launcher and is safe to remove once
+the load test is done.
+
 ## Installing on the server
 
 Everything is in `bin/live/deploy/`, uploaded with the rest of `bin/` by
