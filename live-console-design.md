@@ -392,6 +392,56 @@ old editors and Run buttons back.
 8. **Run with no daemon** (or the daemon refusing) shows a plain message in the
    terminal. There is no queued fallback: a queue cannot take a keyboard.
 
+**Syntax highlighting and Ctrl+Space suggestions (Chris, 19 September 2026).**
+Built by hand rather than with an editor library (Ace, CodeMirror): no download,
+no build step, no third-party code between a pupil and what is sent, and the
+suggestions can insert **house style**. Files: `public/assets/pascal-syntax.js`
+(tokenizer, name collection, suggestions - no DOM, tested in Node),
+`console.js` (drawing and the popup), `console.css`.
+
+- **Highlighting** works by a coloured copy laid exactly *under* a transparent
+  textarea: the textarea is still what they type in and what is sent; the copy
+  is `aria-hidden` decoration. Colours only - **never bold or italic**, which can
+  change a letter's width and push the copy out of line. Reserved words orange,
+  types blue, built-in routines yellow, strings green, numbers purple, comments
+  and `{$directives}` muted. `.pas/.pp/.inc` are coloured; `.txt` is plain.
+- **Ctrl+Space** opens a list at the caret (arrows, Enter/Tab accept, Esc
+  closes, typing narrows it, clicking a row works). Exactly one match after some
+  typing completes at once. **Suggestions come from every file in the project**,
+  so the main program completes a procedure declared in the unit tab. Ranking:
+  the pupil's own names (variables, procedures, functions, parameters,
+  constants, types, units) -> reserved words -> the library -> other words in
+  their code. Each shows a one-line plain-words description.
+- **It inserts house style** (pascal-house-style.md): typing `wri` gives
+  `Writeln`, `beg` gives `Begin`, `int` offers `Integer`; a name they declared
+  is inserted as they declared it.
+- **Two bugs found only by looking at the page**, both worth remembering:
+  (1) `app.js` rewrites *every* `<pre>` into numbered lines, which wiped the
+  first version of the highlight layer - it is a `<div>` now, and any future
+  element in the console must not be a `<pre>`; (2) the site's global `code`
+  styling gave the layer 6px of padding and shifted every colour 6.8px right -
+  found by measuring, fixed by resetting it. After the fixes the coloured copy
+  sits within **0.06px** of the letters, unscrolled and scrolled.
+- **Tested:** 20 Node tests (the tokenizer is checked to be *lossless* over
+  every code listing in the real lessons and 3,000 random garbage strings -
+  half-typed code can be anything); 27 real-keyboard-event checks in the browser
+  (list, arrows, Enter, house-style insertion, own names first, a name from the
+  unit tab, narrowing, Escape, no-match message, mouse, `.txt` files, Enter still
+  keeping indent); the earlier 10 end-to-end console flows re-run with no
+  regression; a screenshot of the colours and of the list.
+- **Speed:** at the largest file allowed (32 KB, 420 lines) a keystroke redraws
+  in ~19 ms (0.7 ms of that is tokenizing; the rest is rebuilding the coloured
+  DOM); a typical pupil file is a few KB and takes about a millisecond.
+- **Choices to review:** the suggestion list offers the *whole* vocabulary, not
+  only what the course has taught by that lesson (content-voice-and-pedagogy.md §4
+  governs *marking*, not tools, but a pupil may find `Format` before it is
+  taught - the list is one array in `pascal-syntax.js` if you want it gated).
+  **Ctrl+Space can be intercepted** by an operating system or input-method
+  editor on some machines (macOS uses it to switch input source); if lab
+  machines do that, a second shortcut is a one-line addition. Lesson code
+  *listings* are not coloured - only the console; colouring them is a small
+  follow-up if wanted.
+
 **Known consequences and gaps:**
 
 - The `code` blocks' old stored **results** (output, compiler text, celebration,
@@ -400,7 +450,7 @@ old editors and Run buttons back.
   house-style note are not in the console yet** - they hang off the queue result.
   If you want them back for exercise runs, they need a hook on the `compile`
   message / end-of-run; a follow-up, not built.
-- **No syntax highlighting** (a plain textarea with line numbers, on purpose:
+- ~~No syntax highlighting~~ (superseded the same day - see above) (a plain textarea with line numbers, on purpose:
   what they type is exactly what is sent, nothing between them and their code).
   A highlighter is a possible later addition; the screenshot has one.
 - The console is offered only in the **Pascal** course (`ConsoleAvailable()`).
