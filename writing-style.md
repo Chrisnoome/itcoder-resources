@@ -71,6 +71,13 @@ and a fifteen-year-old beginner reads it as a physical action. Say "use"
 arrive at (a loop that "reaches 0", a line "never reached") - that is
 literal and stays.
 
+**Also banned: "lean on" / "leans on" / "leaning on" in the sense of "use" or
+"depend on" (Chris, 19 September 2026, caught on lesson 5: "most programs you
+write from here on will lean on Readln").** Same reason: a figurative way of
+saying something plain, and a beginner pictures a person leaning on a wall.
+Say "use". A literal "leaning on" (a pupil leaning on the Run button, in a
+comment about load) is not lesson copy and stays.
+
 Two traps found removing "genuine" the first time, worth watching for
 next time: **article agreement** ("a genuine Integer" → "an Integer", not
 "a Integer" - check what the following word actually starts with, don't
