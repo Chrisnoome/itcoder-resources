@@ -744,3 +744,18 @@ program can never touch marks or sign-in: the daemon is already a separate
 service, so the site talking to it over the network is a config change, not a
 redesign. Marking (serial, one answer at a time) and SQLite write contention
 become the bottlenecks before the executor does.
+
+## Published to live - 19 September 2026
+
+The whole FullConsole branch (console code, layout precheck, analysis queue, themes,
+files, Help, the "+" button, and the content edits other chats made) went out with
+`publish-test.py` then `deploy-live.py`. Both finished ALL STEPS OK; sandbox checks
+passed on test and live.
+
+The console is **still OFF on live**: `config.php` there has no `liveConsole` key and
+the `itcoder-live@live` daemon is not installed (the deploy scripts do neither). Pages
+look and work as before. To switch it on later: install the daemon for live
+(`bin/live/deploy/install-live.sh`), prove it with `tools/live-check.py`, then add
+`'liveConsole' => true` and `'liveControl'` to the live config - with Chris's say-so.
+
+FullConsole has not been merged into main or next-work.
