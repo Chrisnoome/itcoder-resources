@@ -362,13 +362,9 @@ old editors and Run buttons back.
 2. **Copying never silently overwrites work.** Into an untouched console it just
    goes in; otherwise the pupil chooses *Replace / Open in a new tab / Cancel*.
    A unit copies to `<unitname>.pas`.
-3. **The layout check applies only to exercises.** Copying a `code` exercise
-   remembers it (`origin`); Run then applies *that block's* rules
-   (`checkStyle`/`styleRules`) to the main program, as the old Run did. Free
-   code and copied examples are **not** layout-checked, so a lesson example that
-   shows a compiler error on purpose can still be run and a pupil can play. This
-   is a change of behaviour from "every code box is checked" - say if you want
-   the check on everything.
+3. ~~**The layout check applies only to exercises.**~~ **REVERSED the same day by
+   Chris - see "Second round" below: the layout check now runs on everything in
+   the console, and includes "no single letters".**
 4. **Exercise runs are still recorded** (`codeSubmissions`, via `live-start.php`
    and `live-result.php`), because "Evaluate my performance" (`lib/review.php`)
    counts how many code boxes a pupil got to compile and would have read zero.
@@ -441,6 +437,118 @@ suggestions can insert **house style**. Files: `public/assets/pascal-syntax.js`
   machines do that, a second shortcut is a one-line addition. Lesson code
   *listings* are not coloured - only the console; colouring them is a small
   follow-up if wanted.
+
+### Second round (Chris, 19 September 2026): layout check back, tabs, splitter, AI analysis
+
+Asked for, in order: (1) *"resume check for house style, indentation, etc
+before compiling ... include no single letters"*; (2) scrollbars only when there
+is not enough space; (3) a resize bar between the code and the output; (4) the
+console in a tab, another tab where the AI analyses the code and suggests
+improvements (an "Analyse" button and a display), and a third tab of layout
+fixes that the console **switches to when the precheck fails**.
+
+**The layout check (reverses decision 3 above).**
+- **Every run** is checked before anything compiles: `ConsoleLayoutProblems()` in
+  `lib/console.php`, called from `api/live-start.php`. Free code and copied
+  examples get `ConsoleStyleRules()` = the everyday set + the new
+  **`noSingleLetters`** rule (`lib/codestyle.php`). Code copied from an exercise
+  gets *that block's* rules, as before, **plus single letters once the exercise
+  is from lesson number 4 or later** (variables are taught in lesson 4,
+  "How to remember"; §4 of the pedagogy notes says never grade what has not been
+  taught). A block with `checkStyle => false` is not checked at all.
+- **`noSingleLetters`** flags a single-letter *name* once, on the line it first
+  appears, listing every line it is used on. It works on the whole file so a
+  `{ multi-line comment }` is not mistaken for code, and it deliberately ignores
+  everything that only *looks* like a letter: strings, comments, `$F`, `1E5`,
+  `#13`, `%101`, and anything after a dot (a field, or the `n` in `1..n` - the
+  name is flagged where it is declared). Wording is plain ("The name n is only
+  one letter, so it does not say what it holds. Give it a name that does - like
+  playerScore or lineCount"), and never says "house style".
+- **It is NOT in `DefaultStyleRules()`**, on purpose: that is what the lesson
+  `code` blocks run when they name no rules, and adding it there would grade the
+  early lessons on something they have not taught.
+- **Units get a smaller set** (`UnitStyleRules()`: tabs, one instruction per
+  line, single letters). *Measured, not assumed:* the everyday `indent` and
+  `programHeader` rules gave **8 false problems on a correct house-style unit**
+  (`indent` does not understand Interface/Implementation or a Record's End; a
+  unit has no Program line), and refusing a correct unit is the worst thing this
+  checker can do. The three chosen rules give none on the correct unit and each
+  catches a real fault in a faulty one.
+- **The checker's one rule is intact:** the deliberately broken "Fix the errors"
+  starter (missing `End.` and a semicolon) still reaches the compiler, as its own
+  exercise and pasted in as free code - tested through the real endpoint.
+- **Content flag for Chris - not changed by me:** three *whole-program* listings
+  in the lessons use single-letter variables and would be refused if copied to
+  the console: **lesson05.php twice (`a`, `b`)** and **lesson07.php (`n`)**. (Five
+  other listings contain a single letter but are sample output or fragments and
+  get no Copy button.) Renaming them is your call - they are lesson content.
+
+**Tabs, splitter, scrollbars.**
+- The lower half of the panel is now three tabs: **Console** (the terminal),
+  **Analysis**, **Layout fixes** (with a count badge). A failed precheck fills the
+  Layout fixes tab and switches to it; pressing Run switches back to Console. Each
+  problem is a button that takes the pupil to the right *file*, selects the *line*
+  and scrolls to it. **Check layout** runs the same check without running
+  anything (`live-start.php` with `layoutOnly`).
+- A **draggable splitter** (a grip between the editor and the output) - mouse,
+  touch and keyboard (arrows; Shift for bigger steps; `role="separator"`). Floor
+  110px for the output, and the editor always keeps room. Height is remembered in
+  this browser only (like the panel width).
+- **Scrollbars only when needed.** Measured, not guessed: xterm forces
+  `overflow-y: scroll` on its own viewport (a permanent scrollbar with nothing
+  behind it), and its `.xterm` box keeps a stale first-render height that made the
+  pane scroll for no reason. Both fixed in `console.css`. xterm 6 draws its own
+  thin scrollbar which appears only once output has scrolled off; **checked with a
+  real mouse wheel** (3 notches = 3 lines). Everything else was already `auto`.
+- **Narrow windows (under 900px):** the console now covers the whole screen,
+  including the masthead and the lesson's bottom bar, which had been floating over
+  its tabs and terminal.
+
+**Analysis (the AI tab).** `lib/analyse.php`, `api/console-analyse.php`,
+`console-analyse-result.php`, table `codeAnalyses`, worker hook in
+`bin/markqueue.php`.
+- **Queued like every other AI call here** (platform.md decision 1): the request
+  writes a row and returns; `markqueue.php` writes the analysis when no written
+  answer is waiting (before a performance review - the pupil is watching a button
+  they just pressed); the console polls. One row per pupil, replaced each time.
+- **Gated like marking:** `CanUseMarking()` (school pupils, staff, subscribers) and
+  the shared daily cap (`apiUsage`). An identical request is answered from the
+  stored result with **no second paid call** (proved: usage counter unchanged).
+  A duplicate press while one is in flight queues nothing; after 2 minutes a pupil
+  may ask again, so a dead worker cannot lock them out.
+- **What it is told** (the prompt is the product - read `AnalysisSystemPrompt()`):
+  only talk about lessons already taught (their titles are listed to it); never
+  teach a later technique, only say "you will meet a tidier way later"; do not
+  suggest a check or a loop unless a lesson on decisions/loops has been taught;
+  **do not comment on layout** (already enforced); say what the code "looks like it
+  does" - it cannot run it; describe fixes in words, never rewrite their program;
+  about 200 words, in a fixed shape (`**Things to check:**`, `**Ways to improve
+  it:**`) that the console turns into headings and bullets with `textContent` only.
+- **A factual error was caught by reading the first real output**, and fixed: it
+  said a non-number typed into `Readln` "fails silently" - lesson 5 teaches that
+  it crashes with Runtime error 106. The prompt now carries **facts verified
+  against the real compiler** (3.2.2): letters or a decimal into `Readln` -> 106
+  (an empty line -> the variable becomes 0); `Div`/`Mod` by zero -> 200; `/` by
+  zero and `Sqrt` of a negative -> a runtime error; integer overflow wraps
+  *silently*; array bounds are *not* checked; and "if unsure, say try it and see".
+  Re-run: correct.
+- **Cost:** one small Haiku call, about 5 seconds and ~200 words. Tested for real:
+  fresh code, identical code (cached), changed code, at the daily cap (429), too
+  much code, blank code, wrong course, unknown lesson, bad file name, the
+  in-flight guard, and a stale row after a dead worker.
+- **Bug found by the first real call:** the worker function `echo`es a log line
+  (right under cron, wrong in a web request); on the Windows testbed, where the
+  request does the work itself, that text landed in front of the JSON reply.
+  Output buffering now discards it there. The server path is unaffected.
+- **Not built:** the analysis is not stored per exercise or shown to teachers.
+
+**Tested this round:** `php bin/check-codestyle.php` (35 checks, incl. every lesson
+listing and units), `node public/assets/console.test.js` (11), `pascal-syntax.test.js`
+(20), the daemon's 18; in a real browser: 19 layout-tab checks against the real
+server code, 15 analysis-UI checks (polling, rendering, stale note, hostile text
+shown as text and never run, failure wording), splitter by real mouse drag and
+keyboard, the terminal wheel, geometry, and a 13-check regression of everything
+from before, with screenshots. **Not yet tested on the test server.**
 
 **Known consequences and gaps:**
 
