@@ -91,7 +91,7 @@ today). A **profile** says how to compile and run:
 | Source files | `*.pas`, `*.pp`, `*.inc` | `*.java` |
 | Compile | `fpc -Mobjfpc -O1 <main>` | `javac` |
 | Run | `./<main>` | `java -Xmx64m -XX:+UseSerialGC <Main>` |
-| Rough live cost | ~5 MB, ~0.3 s compile | ~60-80 MB, ~1.5 s compile |
+| Rough live cost | **~12 MB measured** (see "Measured cost of a session"), ~0.3 s compile | ~60-80 MB *estimated* plus the same ~12 MB overhead, ~1.5 s compile |
 
 Rules that hold for every profile: file names are validated by a strict regex
 in the script itself (PHP checks first; the script is the lock that cannot be
@@ -180,8 +180,10 @@ every new property; do not weaken the gate.
    still un-run for the same reason.)
 4. Real numbers: peak concurrent sessions, per-session RSS, compile burst for a
    class of 30. Log them from day one so sizing (see the 4,000-user discussion,
-   18 September 2026) rests on data. **Expect** ~5 MB per idle Pascal session
-   and ~0.3 s per compile; these are estimates until measured.
+   18 September 2026) rests on data. **First measurement done, 19 September
+   2026 - see "Measured cost of a session" - and the ~5 MB estimate written on
+   18 September was wrong by 2-3x.** Compile time under a class-sized burst is
+   still unmeasured.
 
 ## Build order
 
@@ -294,7 +296,74 @@ live run - decide when the front end lands.
 4. A systemd service for the daemon and the `itcoder-pupils.slice`.
 5. Fetching xterm.js (and its fit addon) from jsdelivr into `public/assets/`.
 
+## Measured cost of a session (19 September 2026)
+
+Eight idle sessions, each parked at a `Readln`, on the real server (4 vCPU,
+3.9 GB): system memory in use rose **645 MB -> 738 MB, i.e. +93 MB, about 12 MB
+per session**. Where it goes:
+
+| Process | Each (RSS, before shared pages are de-duplicated) |
+|---|---|
+| Pascal program waiting at `Readln` | 0.2 MB |
+| Python supervisor inside the unit | ~10-13 MB |
+| `systemd-run --pipe --wait` client | ~7 MB |
+| `sudo` (sits between the daemon and the launcher) | ~7 MB |
+
+The unit itself (supervisor + program) is **~6.6 MB in the slice's accounting**
+(`MemoryCurrent` of `itcoder-pupils.slice`, 52.6 MB for 8). The `sudo` and
+`systemd-run` clients live in the **daemon's** cgroup, which is why the daemon's
+memory limit is 640 MB, not the 256 MB first written - that guess would have
+killed the daemon, and every session with it, at roughly 20 pupils. Both were
+cleaned up afterwards (no units left).
+
+**What this changes.** The 18 September sizing note (below) assumed ~5 MB per
+Pascal session; use **~12-15 MB**. 200 concurrent Pascal sessions is therefore
+~2.5-3 GB, not ~1 GB. Still comfortable on a bigger server, and the design's
+shape (separate executor, capped slice) is unaffected - but at 4,000 users the
+executor wants ~8 GB, not 4. `MAX_SESSIONS` defaults to 60 for the current box.
+If it ever matters, the levers are: `python3 -I -S` for the supervisor, dropping
+`sudo` from the path (only possible if the daemon itself runs as root, which is
+a bigger trade), and one shared supervisor for many programs (much more work).
+Not worth doing before real usage says so.
+
+Compile burst (30 at once) is still not measured; the semaphore of 4 exists
+because 30 x 128 MB would not fit.
+
+## Installing on the server
+
+Everything is in `bin/live/deploy/`, uploaded with the rest of `bin/` by
+`tools/publish-test.py`. **Dry-run-checked on the real server on 19 September
+2026, nothing installed:** the installer's shell syntax, `visudo -cf` on the
+sudoers file, `systemd-analyze verify` on the slice and the service, and the
+nginx edit applied to a copy of the real test block (exactly one added line,
+nothing else changed). **The installer itself has not been run**; run it, then
+read its smoke-test output.
+
+    # 1. put the branch on the test site (Chris's Windows machine)
+    & "C:\Python314\python.exe" -X utf8 "D:/DB Sync/Dropbox/Projects/AIResources/tools/publish-test.py"
+
+    # 2. on the server (ssh gnomemedia), as root
+    bash /var/www/itcoder-v2-test/bin/live/deploy/install-live.sh test
+
+Then the sandbox gate as the daemon's user, through the real `sudo` path (the
+one thing the smoke test does not do):
+
+    cd /opt/itcoder-livetest   # or wherever live-check.py has been copied
+    sudo -u itcoder-live python3 live-check.py sudo -n /usr/local/bin/itcoder-live-sandbox.sh run pascal
+
+`live` is the same with `live` for the instance, and prints the one nginx line
+to add by hand (it never edits the live server block). Nothing is visible to
+pupils until `'liveConsole' => true` is put in that deployment's `config.php`.
+
+**Still to do in the publishing tools:** `tools/publish-test.py` does not yet
+install/prove the live files or record their hashes the way it does the compile
+sandbox, and `deploy-live.py` has no gate for them. Until that exists, the
+installer above is the only path, and it is manual on purpose.
+
 ## Server sizing note (for later, from 18 September 2026)
+
+**Superseded in part - see "Measured cost of a session" above: Pascal sessions
+cost ~12 MB, not ~5.** The rest of this note stands.
 
 Estimates, not measurements: at ~4,000 registered pupils assume 10-15% online at
 peak and ~40% of those with a console open, i.e. 150-250 live sessions. Pascal
