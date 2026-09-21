@@ -276,8 +276,10 @@ here, not only in chat memory.
     lesson10's TimesTable/Checkerboard did; no `String` concatenation to
     build a row first. One deliberate exception, asked for by Chris on 18
     September 2026: the typewriter example indexes a String
-    (`message[position]`, lesson 7) and uses `Length`/`Delay` (lesson 3 - the
-    pause never shows on this site, and the lesson says so).
+    (`message[position]`, lesson 7) and uses `Length`/`Delay` (lesson 3). Chris
+    (19 September 2026) said the old "the pause never shows on this site" note is
+    no longer true, so lesson 11 does not carry it; lesson 3's callout and the
+    lesson 3 entry above still do and need the same check.
 
     **Added 18 September 2026 (Chris):** typewriter output, a times table
     for any number, factors of a number (looping only to `number Div 2`, then printing the number itself - shown by first running the full range and tabulating the wasted checks), Fibonacci, factorial (keep the
@@ -287,7 +289,7 @@ here, not only in chat memory.
     now asks for its side length (the first draft wrongly claimed shapes
     take no input), plus a hollow box and a rectangle the pupil writes from
     scratch. **The word is "repetition", never "lap"** in this lesson -
-    lesson10 still says "lap"; changing it there is a separate decision.
+    lesson10 was changed to "repetition" too on 19 September 2026 (Chris), so no lesson says "lap" now.
 
     The centred triangle's two formulas - `spacesInRow := rows - row` and
     `starsInRow := (2 * row) - 1` - need no special case for the final row:
