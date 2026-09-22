@@ -97,6 +97,12 @@ plainly ("This shape of loop is called a counting loop..."). Citing
 rendered to a pupil - the rule is about `'prompt'`, `'html'`, `'intro'`,
 `'explain'` and every other pupil-facing string.
 
+**One exception, added by Chris on 21 September 2026:** the Pascal course
+page lists, under each lesson, which parts of the SAGs that lesson covers -
+grade and topic - and names the SAGs there. That is the course page
+(`content/pascal/sags.php`, shown by `public/course.php`), not lesson copy.
+Inside a lesson the rule is unchanged: never name it.
+
 ## Two standing cautions
 
 **Numbers go stale fast.** GPU prices, token prices and data centre figures move

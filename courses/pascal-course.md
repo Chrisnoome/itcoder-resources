@@ -674,6 +674,14 @@ Content, as built:
   expected "Yes", but as shown it could not compile. All 31 such questions in
   lessons 2 and 4-7 were rewritten that day, with their ids kept because the
   answers were unchanged.
+- **Every lesson shows which parts of the SAGs it covers** (Chris,
+  21 September 2026), under its summary on the course page. The lines live in
+  `content/pascal/sags.php` - lessonId => [grade, subtopic, what], with the
+  subtopic names in the same file - and `LessonSyllabus()` in
+  `lib/content.php` builds them into "Gr 10 · 4.3 Data and data structures -
+  ...". Lesson 3 is marked `'enrichment' => true` and says so instead. A new
+  lesson needs a `sags.php` entry, checked against
+  [../sags-topic4-syllabus.md](../sags-topic4-syllabus.md).
 - **No question totals an odd number of marks** (see platform.md, decision 8).
 - **Run `php bin/check-popup-spacing.php`** after touching any `Gloss()` or
   `Aside()`.

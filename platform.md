@@ -554,8 +554,9 @@ The `important` block's three colours are Chris's, to the hex: background
 reuses `.learn-memorise`'s amber and its icon, because it makes the same
 promise - this is the part you are expected to know.
 
-**22. The masthead is pinned, and "All courses" is on every signed-in page's
-menu (Chris, 13 September 2026).** `position: sticky` rather than `fixed`, so
+**22. The masthead is pinned, and every signed-in page can get anywhere from
+it (Chris, 13 September 2026; the menu itself moved into the hamburger on
+21 September 2026 - decision 25).** `position: sticky` rather than `fixed`, so
 it stays in flow and nothing has to be padded out from under it. Same
 `z-index` as `.lesson-toolbar` at the other end of the screen; both must sit
 over the 96px block icons, which protrude above their blocks and would
@@ -649,6 +650,37 @@ at a disabled Hand it in button.
   locked" on 16 September killed it for a minute; now it pauses and carries on.
 - `tools/marking-check.php` makes one real marking call on an invented answer
   through a site's own code - run it after publishing when marking changes.
+
+**25. Subjects are the top layer, and the hamburger menu is how you move
+between them (Chris, 21-22 September 2026).** The site is subject → course →
+lesson. `SubjectIndex()` in `lib/course.php` holds the subjects (General
+Computing, Information Technology, Computer Applications Technology,
+Mathematics, Maths Literacy, Physical Science); every course names its
+subject. `subjects.php` is the first page after signing in - `auth.php` and
+`index.php` both send a signed-in pupil there, not to the catalogue any more.
+`courses.php` groups courses under their subject and takes `?s=<subjectId>`
+for one subject on its own.
+
+A third course status joins 'open' and 'draft': **'soon'** - listed for
+everyone, with no content, no Join button and no way in (`RequireEnrolment()`
+turns it away, `courses.php` refuses the POST). `ActiveCourses()` is
+everything except those, and is what class results, admin and the checkers
+work over. A subject with no courses at all still shows, as coming soon.
+
+The menu before the wordmark (`SiteMenuHtml()` in `lib/sitemenu.php`, rendered
+by `RenderMasthead()`'s third argument) holds exactly three links: All
+subjects, this subject's courses, this course's lessons. The first version
+listed every subject, course and lesson inside it and Chris cut it back the
+next day. "All courses" and "All lessons" left the per-page nav when this
+landed. Two things it got wrong first time, both worth remembering:
+
+- The panel was a `<nav>`, inside `.masthead`. `.masthead nav` is a flex row
+  with its own pale link colours, so the menu rendered as a line of links
+  across the bar. It is a `<div>` now, and every property it needs is set
+  under `.masthead .site-menu-panel`.
+- `list-style: none` on the `<summary>` does not remove Chrome's disclosure
+  triangle - `display: block` does. Both, plus `::marker` and
+  `::-webkit-details-marker`, are set.
 
 **24. The compile pipeline runs fpc as `-Mobjfpc`, not fpc's own legacy
 default mode (Chris caught it, 18 September 2026).** `lib/compile.php`
