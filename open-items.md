@@ -191,6 +191,16 @@ and restyle - in progress, not pushed live. Full status in
 
 ## Content
 
+- **Published live 23 September 2026** (commit 9998342 on `expansion`): code-aware typed marking with AI fallback, one-word hint fix, wider answer box, unit comments in the Implementation (lesson 14 updated), Ctrl+Shift+C class-name fix, no-Implementation error and pop-up, console tab close and .pas auto-add, contents menu click-away, Pascal video placeholders removed. Also carried lesson 17 (the other chat's, in progress). Sandbox checks passed on test and live.
+
+- **Published live 23 September 2026** (commit 9b112a6 on `expansion`): try-its and diagrams for lessons 1-14, lessons 14-16 in the course list, the YouTube CSP fix, My marks percentages, the comparison-bracket rule. Test and live sandbox checks all passed.
+
+- **For the chat writing lessons 15 and 16 (23 September 2026):** remove the
+  blank `video` blocks (no `youtubeId`) from both - blank video blocks are
+  no longer allowed (content-voice-and-pedagogy.md §5). Also check them for
+  try-its and diagrams (same section - no limit per lesson) and for
+  brackets round each comparison joined by And/Or/Not (live-console-design.md).
+
 - AI course: **worksheets** (one page a lesson - VRAM and cost sums, demo
   observation, debate prep); **teacher pack** (demo run sheet with exact
   commands, answer key, fallback if a demo dies); **assessment weight** (marked or

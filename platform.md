@@ -237,6 +237,15 @@ CSP, `'cspReportOnly' => true` in `config.php` makes the browser log instead of
 block. **Not done, needs a server edit:** nginx `server_tokens off` (the
 `Server:` header shows the nginx version).
 
+**YouTube needs `https://www.google.com` in `frame-src` (23 September 2026).**
+The YouTube player frames a www.google.com page, and without it every embedded
+video showed as blocked (Chris's own channel - oEmbed confirmed the videos are
+embeddable, so the block was this site's CSP, not YouTube). Added in
+`SendSecurityHeaders()`.
+
+**My marks shows percentages (23 September 2026).** Each lesson total and the
+course total on `scores.php` read "got / out of (NN%)" - `MarksPercent()`.
+
 **7. Rubrics are written for the marker.** Every rubric says: award marks for
 correct ideas, never deduct for spelling, grammar or informal language - how
 Chris marks practicals. Every rubric also justifies its mark allocation

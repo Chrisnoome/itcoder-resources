@@ -14,6 +14,13 @@
   (the final `End` takes a full stop, not a semicolon - it closes the
   program, not a block within it).
 - Indentation is 2 spaces per nesting level. No tabs.
+- **A blank line between the sections of a program** (Chris, 22 September
+  2026): after the `Program`/`Unit` line, after the `Uses` block, between
+  procedures and functions, before the main program's `Var`, and between the
+  main `Var` block and its `Begin`. A procedure's own `Var` and `Begin` stay
+  together. Lesson 14's listings follow it; earlier lessons do not yet - if
+  they are changed, recompile every error example, because the line numbers
+  in their quoted compiler messages move.
 
 ## 2. Naming conventions
 
@@ -69,6 +76,31 @@ Parameters do not need the `const` keyword.
 - Use `//` line comments exclusively. Brace comments (`{ }`) are not used anywhere.
 - Code must be commented — explain what non-obvious lines and blocks do.
 - Every closing `End` line carries a comment naming the block it closes: `End; // end for`, `End; // FormatDuration`, `End; // else`.
+- **Every procedure, function, constructor and destructor has a comment
+  block directly above its declaration** (Chris, 22 September 2026; taught in
+  lesson 14; enforced by the console's layout check, `lib/routines.php`):
+
+  ```pascal
+  // What it does (one or more lines).
+  // aFirst  - what the first parameter is for
+  // aSecond - what the second parameter is for
+  // Gives back: what the answer means     (functions only, always last)
+  ```
+
+  One line per parameter, in the heading's order; no `Gives back` line on a
+  procedure; no blank line between the block and the heading. It is written
+  **once**. In a program: above the routine, and for a class, on the method's
+  declaration inside the class (not on `TThing.Method`'s body). **In a unit:
+  above each body in the Implementation, never in the Interface** - not even
+  for a class the Interface declares, whose `TThing.Method` bodies then carry
+  the comments (Chris, 23 September 2026: "the comments do not belong in the
+  interface section, only in the implementation section"). The layout check
+  reports a comment block left in a unit's Interface; Ctrl+Shift+C moves one
+  it finds down to the code.
+- **A class method's body is always named `TThing.Method`** - the class
+  name and a full stop in front of the method name. Ctrl+Shift+C writes it
+  that way, including for a class declared as `Type TThing = Class` on one
+  line (Chris, 23 September 2026: it had been leaving `TThing.` off there).
 
 ## 5. Control flow and structure
 
@@ -76,7 +108,7 @@ Parameters do not need the `const` keyword.
 - No semicolon before `Else`.
 - Never use `Break`. Loop conditions and flags control termination instead.
 - 1-based arrays throughout.
-- Procedures must not produce output directly; functions return values, and the main program (or calling code) is what calls `Writeln`.
+- Procedures must not produce output directly; functions return values, and the main program (or calling code) is what calls `Writeln`. *(Open, 22 September 2026: lesson 14 lets a procedure write when drawing on screen IS its one job - `WriteHeading`, `DrawBox` - see courses/pascal-course.md, lesson 14. Chris to settle which wording stands.)* *A class's methods never read or write at all (lesson 16, 23 September 2026) - ToString gives the text back and the caller writes it.*
 - Avoid long, complex lines. Break a complex expression into several simple steps, introducing extra variables where that makes the logic clearer.
 - **Never put more than one instruction on a line** (Chris, 2026-09-13), even
   two short ones separated by a semicolon (`Write ('H'); Delay (200);` is
@@ -87,6 +119,21 @@ Parameters do not need the `const` keyword.
 - Class names take a `T` prefix.
 - Class fields start lowercase; methods start with a capital.
 - `Inherited Create` is always the first line of a constructor.
+- **A constructor with parameters fills its fields through the setters**,
+  never by assigning the fields directly (Chris, 22 September 2026):
+  `SetTitle (aTitle);`, not `title := aTitle;`.
+- A getter gives back its field (`Result := title;`); a setter stores its
+  parameter in its field (`title := aTitle;`). Named `GetX`/`IsX`/`HasX` and
+  `SetX` for a field `x`.
+- **A class that keeps an array of objects frees them in its destructor**:
+  a loop over `Low (list) To High (list)` that does `list[index].Free;` then
+  `list[index] := Nil;`, then `Inherited Destroy;` (declared
+  `Destructor Destroy; Override;`).
+- Every function sets `Result` (`Result := ...;`) - never the old
+  `FunctionName := ...;` form. The console refuses a function with no
+  `Result :=` line.
+- The console's Ctrl+Shift+C / **Update code** writes all of this for a
+  pupil (`public/assets/pascal-complete.js`) - change the two together.
 - Code should be written so it is reusable in both GUI and CLI contexts — keep logic out of event handlers where practical, so it can be called from either.
 
 ## 6a. Verified type-mismatch error text (FPC 3.2.2, `-Mobjfpc`)

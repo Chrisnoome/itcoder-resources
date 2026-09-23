@@ -240,6 +240,21 @@ creates a box; spaces in `display` are stripped for spacing only and never
 create a box of their own, so `h _ r _ e _ s` and `h_r_e_s` behave
 identically - use whichever is easier for you to read while writing it.
 
+**A typed answer that is code is marked like code (Chris, 23 September
+2026, after `Writeln('You have ',5,' apples');` was marked wrong).** When an
+accepted answer is Pascal code (`TypedAnswerIsCode()` in `lib/content.php`:
+an assignment, a call, a comparison, a heading...), the pupil's answer is
+compared with the spacing the compiler ignores taken out, capitals ignored and
+the final `;` optional - text inside quotes still has to match. A code answer
+that matches no listed wording then goes to the AI checker
+(`CheckCodeAnswer()`, as `checkedcode` does), so a correct but differently
+written line is not marked wrong; if that check fails, the exact-match verdict
+stands. Still list the likely wordings in `answer` - the AI is the fallback.
+The hint under the box follows the answer: "Only one word needed!" only when
+the main answer is one plain word; code gets "Type the Pascal code - spacing
+and a missing ; do not matter."; anything else (a phrase, a line of output)
+gets no hint.
+
 **Scoring, for both `quiz` and `typed` (2026-09-11):** every question declares
 `marks` - its base value, minimum 1. The engine doubles it so a second attempt
 can earn exactly half without ever using a fraction: right first attempt earns
@@ -488,9 +503,15 @@ just once per lesson - `bc_define_ict` alone has seven ("Supercomputers",
 one-video-per-lesson norm: **a short video per subtopic that has one to
 show**, not a single video bolted onto the top of the lesson.
 
-The mechanics are unchanged from itcoder: a `video` block per spot, `youtubeId`
-left blank until a real video is vetted (a blank one renders an amber
-search-link box - see `lib/content.php`). Never invent an id.
+The mechanics are unchanged from itcoder: a `video` block per spot, with a
+vetted `youtubeId`. Never invent an id.
+
+**Pascal course: no video placeholders - a rule for the Pascal course only
+(Chris, 23 September 2026).** In the Pascal course, never write a `video`
+block with an empty `youtubeId` (the amber search-link box). Chris names any
+video worth adding; until then there is no block at all. Every blank one was
+removed from lessons 1-17, and `php bin/check-videos.php` fails if one comes
+back. Other courses (the AI course) may still use placeholders.
 
 **Animated explanations** are new: a short, looping visual for a mechanism
 that is genuinely hard to picture from text alone - a sort dragging elements
@@ -505,6 +526,60 @@ table, parameters being passed into a method. Options, cheapest first:
 - A `video` block pointed at a short, vetted animation someone else made
   (many exist for sorting algorithms and CPU cycles) - cheapest, but still
   needs vetting like any other video link.
+
+**"Try this" interactives (22 September 2026, Chris asked for them):**
+`public/assets/pascal-tryit.js`. Put `<div class="tryit" data-tryit="NAME"></div>`
+in a prose block (title it "Try this: ...") and the script builds it - no
+server, nothing saved, no marks. Built so far, all in lesson 14:
+`callStepper` (step through calls, with the line running, where Pascal is,
+local variables appearing and vanishing, and the screen so far),
+`parameterMachine` (DrawLine's values landing in its parameter slots, plus the
+real errors for swapped or missing values) and `functionMachine` (a value in,
+one typed answer out). Added the same day for the earlier lessons, one or
+two per lesson: `writeOrWriteln` (lesson 2), `crtColours` (3), `swapBoxes`
+(4, memory boxes through a swap), `readlnTester` (5 - every type x input
+result copied from a real run, including the surprise that `12 apples` into
+an Integer stores 12), `divModSweets` and `roundTrunc` (6), `asciiExplorer`
+(7), `gradeBand` (8), `busPlanner` (9), `forCounter` (10), `shapeDrawer`
+(11), `whileVsRepeat` (12), `stringBoxes` and `caesarWheel` (13), and
+`objectFactory` (16, 23 September 2026 - create TPupil objects, call their
+methods, free them, watch the static count), and `fileModes` (17, 23 September 2026 -
+Reset/Rewrite/Append/Readln/Writeln/Flush/CloseFile on one file, showing the
+disk, the buffer and Eof; in `pascal-tryit-files.js`). Each sits
+in a "Try this: ..." prose block right after the section it belongs to. Add a
+new one as another builder in that file. Every
+output or error it shows must be one compiled for real first.
+
+**Try-its and diagrams wherever they add value - a rule for every lesson
+(Chris, 23 September 2026).** There is no limit per lesson: when writing or
+revising a lesson, look at every explanation and ask whether a try-it would
+let the pupil see it happen, or a diagram would make it clearer - and add it.
+Chris checks them and asks for any to be removed or changed. Typical spots:
+a value being stored or changed (memory boxes), a condition being worked out,
+a loop or decision running (a step-through flowchart), a function or
+conversion (a machine: value in, answer or real error out), a format or
+screen position.
+
+More builders live in `public/assets/pascal-tryit-more.js`, which registers
+them with `PascalTryit.register (name, fn)` (loaded after `pascal-tryit.js`) -
+new ones go there:
+- `flowStepper` - a flowchart that lights up shape by shape, with the
+  variables, the output and a note for each step. The prose block holds
+  `<div class="tryit" data-tryit="flowStepper" data-trace="JSON">` +
+  `Figure (Flowchart (...))` + `</div>`. Give each shape the step visits an
+  `'id' => 'name'` in `Flowchart ()` (Start and End are always `start` and
+  `end`). The JSON is `{vars, steps: [{node, vars, out, note}]}`, or
+  `{vars, inputLabel, scenarios: {label: [steps]}}` for a choice of runs.
+  Scenario labels must not be bare numbers - JavaScript sorts those keys,
+  so write `n = 17`, not `17`. Every trace is checked against a real run.
+- `memoryBox` - statements run one at a time, boxes showing the old value
+  struck through and the new one: `data-config` `{vars, actions, start?}`.
+- `mathsLab`, `conversionLab`, `charPicker`, `comparisonLab` (`data-mode`
+  text or number), `logicLab`, `formatLab` (`:width:decimals`, rounding
+  half up like fpc) and `gotoGrid` (the 80 x 25 screen).
+
+Diagrams are inline SVGs in `Figure ()` using the colour tokens
+(`var(--ink)`, `var(--card)`, `var(--heat)`), so they follow dark mode.
 
 None of this is built yet as a distinct block type - for now, drop an SVG or
 `<video>`/`<img>` straight into a `prose` block's HTML. A dedicated
@@ -526,6 +601,33 @@ and it non-uniformly stretches the glyphs the moment the natural text width
 doesn't match the forced value - visibly warped, wide-looking letters. If
 text doesn't fit, widen the shape, shrink `font-size`, or split across two
 `<tspan>` lines instead - never force-fit by stretching.
+
+## 5a. Every illustration is in a box, with a caption under it - a rule (Chris, 23 September 2026)
+
+"Put all illustrations in a box with a caption underneath the box. This makes
+the text look and flow better - all lessons and a rule." Every diagram,
+flowchart, picture or photo in lesson prose goes through `Figure ()` in
+`lib/content.php`:
+
+```php
+. Figure ($loopFlowchart (...), 'Flowchart: reversing text')
+. Figure ('<img src="..." alt="...">', 'A graphics card with the cooler lifted off.')
+```
+
+It renders `<figure class="figure"><div class="figure-box">` (the picture, in a
+white bordered box) `</div><figcaption>` (the caption, under the box, outside
+it) `</figcaption></figure>`. Inside a heredoc, where no function can be
+called, write that same markup by hand. The caption is plain words for a
+pupil: an algorithm's flowchart is captioned "Flowchart: " and what it does;
+any other picture says in one or two short sentences what to notice. Never put
+the caption inside the SVG itself.
+
+Not illustrations, so not boxed: quote portraits, block icons, the diagram
+inside a question (the question is its caption), and interactive widgets
+(lesson 8's circuits, the flowchart-shape legend in its Learn / Memorise box,
+the array demos). **Check:** `php bin/check-figures.php` - fails on any
+`<svg>`/`<img>` outside a boxed, captioned figure. Applied to every lesson on
+23 September 2026 (51 figures, all courses).
 
 ## 6. Quotes, with the speaker's portrait
 
@@ -709,6 +811,92 @@ starter it would refuse. Add `--compile` to also compile each whole program with
 the local Free Pascal (a few fail on purpose; read the list, do not chase it to
 zero). Run it after writing or editing any listing.
 
+## 7c. Every Pascal listing is coloured like the console's editor - a rule (Chris, 22 September 2026)
+
+Every Pascal code listing on a lesson page is drawn in exactly the colours of
+the console's editor: the same tokenizer (`public/assets/pascal-syntax.js`,
+now loaded on every lesson page), the same `.hl-*` classes, and the same
+palette. It follows the console's **Light / Dark** button (dark until a pupil
+picks light), so a listing and the code a pupil copies from it into the
+console always look the same. This is automatic - `app.js`'s
+`LooksLikePascal()` / `ColourPascal()` do it when they number the lines - so
+**never hand-colour a listing** and never put `<span>`s in a `<pre>`. What
+stays plain: sample output, compiler messages (a first line like
+`name.pas(3,3) Error:`), `algorithm-pseudocode`, `code-output`,
+`terminal-plain`, and every course but Pascal. A listing is treated as code
+when it starts with a `Program`/`Unit`/routine heading, a section word on its
+own (`Var`, `Begin`...), or a `//` comment, or when any line has `:=` or ends
+in `;` - so sample output never needs a class, but check the page if a
+listing of output ever contains a semicolon.
+
+The palette lives twice - `console.css` (`.console-panel`, and
+`[data-theme="light"]`) and `style.css` (`pre.pascal-code`). **Change both
+together.** Copying from a listing now keeps its line breaks (the numbered
+lines are grid cells, and the browser used to join them into one line).
+
+## 7d. Every list of error messages is a Common errors block - a rule (Chris, 22 September 2026)
+
+Wherever a lesson shows more than one error message together - a table of
+compiler errors, a list of crashes, "three mistakes" - it goes in an
+`errors` block: light red, its own icon (`block-icons/errors.svg`), header
+"Common errors - ..." (the `title`). One card per error:
+
+```php
+[
+    'type'  => 'errors',
+    'title' => 'Common errors - a call that does not match',
+    'intro' => '<p>optional HTML before the cards</p>',
+    'items' => [
+        [
+            'title'   => 'Too few values',          // optional, short
+            'code'    => 'DrawLine (10);',            // what was written - plain text, one line or a whole program
+            'message' => 'Error: Wrong number of ...', // EXACTLY what Free Pascal printed - compiled, never invented
+            'why'     => '<p>What is wrong</p>',     // HTML
+            'fix'     => '<p>How to fix it</p>',     // HTML, optional
+        ],
+    ],
+    'html'  => '<p>optional HTML after the cards</p>',
+],
+```
+
+`code` is coloured like every listing; a one-line piece gets no line numbers
+(a whole program keeps them, so a message's line number can be found). The
+listing check compiles each card's `code` but does not style-check it -
+error examples are wrong on purpose. A single error in the middle of an
+explanation can stay in the prose; two or more together become a block.
+**A message on a card must be copied from a real compile or run** - found on
+22 September 2026: lesson 13 claimed three Format mistakes all print `"%d"`,
+but each message quotes its own pattern.
+
+## 7e. Every algorithm is an algorithm block, with a flowchart and pseudocode - a rule (Chris, 22 September 2026)
+
+When a lesson teaches an algorithm - a method for solving a problem that the
+pupil is meant to reuse (buses, factors, Fibonacci, a shape, a password check,
+run-length squashing...) - it gets an `algorithm` block: the problem in one
+sentence, a flowchart, and pseudocode in the course's style (`START` ...
+`END`, `GET`, `PRINT`, `FOR x FROM a TO b` ... `END FOR`, `WHILE` ... `END
+WHILE`, `REPEAT` ... `UNTIL`, `IF ... THEN` ... `ELSE` ... `END IF`; lesson 14
+adds `PROCEDURE`/`FUNCTION ... RETURNS`). The Pascal program can stay in the
+prose around it. **The flowchart, the pseudocode and the code must be the same
+method** - write both from the lesson's own code, step for step.
+
+Draw flowcharts with `Flowchart ()` from `lib/flowchart.php` (the lesson file
+does `require_once dirname (__DIR__, 2) . '/lib/flowchart.php';`): a list of
+`['step', lines]`, `['if', condition, yes, no]`, `['while', condition, body]`
+(a For is a While with the counter set before it and increased at the end of
+the body) and `['repeat', body, condition]`, nested as deep as needed. It
+lays everything out and keeps the 20px gap rule. The older per-lesson
+closures (`$whileFlowchart`, `$loopFlowchart`) still work; use `Flowchart ()`
+for anything new. Look at every new chart before shipping it: render it with
+headless Chrome (`chrome --headless=new --screenshot=out.png file.html`) when
+the browser pane cannot screenshot.
+
+Audit, 22 September 2026: 12 blocks already had both; 19 were added (lessons
+9-13: buses, running total, counting, factors, Fibonacci, factorial, square,
+hollow box, right-angled and centred triangles, guess the number, title case,
+palindrome, cracking Caesar, replace-all, password check, ID number,
+initials, run-length squashing) - 31 in all.
+
 ## 8. Quick checklist
 
 - [ ] Short sentences, direct address, hyphens not em dashes, local (SA)
@@ -718,6 +906,17 @@ zero). Run it after writing or editing any listing.
       Know - " prefix counts toward the 55.
 - [ ] Every code listing is a whole program (or marked no-console on purpose),
       with full variable names: `php bin/check-code-blocks.php` (section 7b)
+- [ ] Every algorithm taught is an `algorithm` block with a flowchart
+      (`Flowchart ()`) and pseudocode that match the code (section 7e)
+- [ ] Two or more error messages together are a Common errors block
+      (section 7d), each message copied from a real compile
+- [ ] Every illustration is in `Figure ()` - a box, with a caption under
+      it: `php bin/check-figures.php` (section 5a; Chris, 23 September 2026)
+- [ ] Listings are coloured automatically like the console (section 7c) -
+      look at the page and check code is coloured and output is not
+- [ ] The lesson has its SAGs coverage in `content/<course>/sags.php` (or
+      `'enrichment' => true`): `php bin/check-sags.php` (Chris, 22 September
+      2026 - a requirement for every lesson)
 - [ ] At least one vivid physical/everyday analogy per new concept
 - [ ] A real-world worked example where one exists (a system the learner has
       actually used), narrated step by step
@@ -734,7 +933,15 @@ zero). Run it after writing or editing any listing.
       (expressions, steps, options) uses a real `<ul>`/`<li>` list, and a
       prompt mixing instruction with a code sample gets a paragraph break -
       never one dense run-on sentence
-- [ ] A video per subtopic that has one worth showing, not just one per lesson
+- [ ] A video per subtopic that has one worth showing, not just one per
+      lesson - and, in the Pascal course, no video placeholders:
+      `php bin/check-videos.php` (§5; Chris, 23 September 2026)
+- [ ] Every explanation checked for a try-it or a diagram that would make it
+      clearer - no limit per lesson; each algorithm that loops or decides
+      considered for a `flowStepper` (§5; Chris, 23 September 2026)
+- [ ] Every variable given a starting value before it is used, in every
+      listing - and the lesson says so where it matters (Chris, 23 September
+      2026: "must always be done")
 - [ ] The lesson has exactly one `contents` block (§7 - a rule for every
       lesson, not just one with an obvious run of parallel sub-topics) - its
       anchors are bare `<span id>`s, never a second visible heading

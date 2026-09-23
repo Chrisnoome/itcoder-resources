@@ -822,3 +822,84 @@ is readable code:
    animated dots until the answer replaces it.
 7. Analyses stored before the prompt changed are not reused for identical code
    (`AnalysisPromptSince()`); they are asked again.
+
+## Comment blocks, Result, and code completion (22 September 2026)
+
+Chris asked for four things with lesson 14 (procedures, functions, units):
+
+1. **The layout check now checks every procedure/function's comment block**
+   (rule `routineComments`) **and that every function has `Result :=`**
+   (`functionResult`), before running. Code in `lib/routines.php`, called from
+   `CheckPascalStyle()`. Both are in `ConsoleStyleRules()` and
+   `UnitStyleRules()`; an exercise gets them only from lesson 14 on
+   (`public/api/live-start.php`, mirrored in `bin/check-code-blocks.php`).
+   The block's shape and where it goes are in pascal-house-style.md §4. A
+   `...` left in a block is refused - that is what makes the templates below
+   something a pupil has to finish, not just accept.
+2. **Comment** button (toolbar): writes the block above the routine the
+   cursor is in, only if there is no `//` line directly above it. On a unit
+   body or a `TThing.Method` body it writes it on the declaration instead.
+   Selects the first `...`.
+3. **Ctrl+Shift+C** (Lazarus's key for the same job): for every routine
+   declared in a unit's Interface or in a class with no body yet, writes the
+   body (and a comment block on the declaration if missing). Functions always
+   get `Result :=`. Getters/setters come out working; a constructor with
+   parameters calls the setters (a missing setter is declared and written); a
+   class with an array of objects gets `Destructor Destroy; Override;` that
+   frees and Nils each one. Checked in the real browser: Chrome does not
+   swallow Ctrl+Shift+C while the editor has focus.
+4. **Update code** button: Ctrl+Shift+C plus - each body heading is rewritten
+   to match its declaration (the declaration wins), and a method written only
+   in the implementation is declared in its class. A unit routine only in the
+   Implementation is a private helper and is left alone. **Nothing is ever
+   deleted.**
+
+The logic is `public/assets/pascal-complete.js` (no DOM; 21 Node tests in
+`pascal-complete.test.js`; `--write DIR` saves the completed programs). The
+generated class unit, a program using it, and a program with classes and an
+array of objects were **compiled and run with fpc 3.2.2** and **passed the
+layout check with zero problems** (after filling in the `...` lines).
+`console.js` applies each result as one `setRangeText` of the smallest
+changed span. Help has a new "Writing code for you" section and the key.
+
+**Found and fixed on the way, in `lib/codestyle.php`:** the indent rule did
+not understand a class or record declared in a program's Type section
+(members one step in, `private`/`public`/`End;` lined up with the class) or
+method bodies after it; and `Destructor Destroy; Override;` was "two things
+on a line". Both would have refused any pupil's class. Tests in
+`bin/check-codestyle.php`; every existing lesson listing still passes.
+
+## Brackets round comparisons joined by And/Or/Not (Chris, 23 September 2026)
+
+New layout-check rule **`comparisonBrackets`**: in an `If ... Then`,
+`While ... Do`, `Until ...;` or an assignment, when comparisons are joined by
+`And`, `Or`, `Xor` or put after `Not`, each comparison must be in its own
+brackets - `If (age >= 18) And (isCitizen) Then`. Without them Pascal reads
+`age >= 18 And isCitizen` as `age >= (18 And isCitizen)`, a compile error
+pupils cannot read. Code: `ComparisonBracketProblem()` in `lib/codestyle.php`,
+returned by `DecisionStyleRules()`, in `ConsoleStyleRules()` and
+`UnitStyleRules()`; an exercise gets it from lesson 8 on (where And/Or/Not
+are taught) - `public/api/live-start.php`, mirrored in
+`bin/check-code-blocks.php`. Tests in `bin/check-codestyle.php`.
+
+## Ctrl+Shift+C in units, closing tabs, file names (Chris, 23 September 2026)
+
+- **Unit comments live in the Implementation.** The layout check
+  (`lib/routines.php`) and Ctrl+Shift+C / Comment / Update code
+  (`public/assets/pascal-complete.js`) now put a unit's comment blocks above
+  each body in the Implementation, never in the Interface - see
+  pascal-house-style.md §4. Ctrl+Shift+C moves a block it finds in the
+  Interface down to the code; the layout check reports one left there.
+- **A unit with no Implementation** is an error: Ctrl+Shift+C writes nothing
+  and says to type `Implementation` after the Interface part.
+- **`Type TThing = Class` on one line** is now read as a class by both, so
+  method bodies are written `TThing.Method` (before, in a unit's Interface,
+  they came out without `TThing.`).
+- **A pop-up says what Ctrl+Shift+C / Update code did** (or why it could
+  not - red edge), over the editor for a few seconds; click it to dismiss.
+- **Each file tab has an x** (when there is more than one file). A file lives
+  only in the console, so closing the tab removes the file - the question
+  says so and points at Files > Download this file.
+- **New file / Rename: typing .pas is optional.** No extension means .pas is
+  added; a typed one is never doubled; the name is made lower-case.
+Tests: `node public/assets/pascal-complete.test.js`, `php bin/check-codestyle.php`.

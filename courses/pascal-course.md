@@ -43,7 +43,18 @@ here, not only in chat memory.
    shows in Lazarus, locally.
 4. **Every box needs a label** - variables and data types (SAGs 10.4.3). Wirth
    quote, a type-mismatch compile error, `Div` vs `/`, Y2K aside, the
-   ID-number-as-a-string written question.
+   ID-number-as-a-string written question. **Constants added 23 September
+   2026** (Chris: "check if constants are in the variables lesson. if not, add
+   them. update title and sags"): a "Constants: values that never change"
+   section after calculations (anchor `memConst`) - `Const` above `Var`, `=` not
+   `:=`, no type, camelCase names; TuckShopVat (`vatRate = 0.15`, VAT 3.75,
+   total 28.75) and SchoolWeek, both compiled; the real errors
+   `Variable identifier expected` (assigning a constant) and
+   `Syntax error, "=" expected but ":=" found`; whiteboard vs painted sign; a
+   Learn / Memorise box; four questions (`q20ConstOrVar`, `s1ConstOrVarWhich`,
+   `q21ConstSign`, `t20ConstError`) and a `code` exercise. Title is now "How to
+   remember - Variables and constants"; the course-page syllabus line lists
+   constants versus variables. Lesson 15 now refers back to it.
 5. **Getting input - Readln, Read, ReadKey and KeyPressed** (SAGs 10.4.1,
    IPO's "I") - new 13 September 2026. Four commands, same underlying shape
    pair-wise: `Readln`/`Read` are ordinary Pascal I/O and the exact same
@@ -441,6 +452,287 @@ here, not only in chat memory.
     lesson 12's `$whileFlowchart`; `$stringPicture`; `$mirrorPicture`) are local
     to the file.
 
+14. **Making your own commands - procedures, functions, parameters and
+    units.** File `lesson14.php`, added 22 September 2026, built and checked
+    locally, **not yet published**. Chris's brief: start with "Keeping it DRY"
+    (a loop handles repetition in one place; steps repeated in different
+    places go into a procedure or function); procedures do work and send
+    nothing back, functions always send an answer back and have a type; both
+    add commands to Pascal and make a program easier to read, debug and
+    maintain (decomposition); examples in the main program first, then units
+    for teamwork and reuse; one job each, no input or output, only parameters
+    for input; a comment above each (what it does, each parameter, what comes
+    back); **no Const/Var parameters in the lesson** - a "Good to Know" at the
+    end explains Var parameters and says plainly they are not needed for
+    exams; a `MyUtils` unit with `WriteHeading`, `CountVowels`,
+    `RemoveVowels` (vowels to `*`), `DrawBox` (hollow, left/top/width/height/
+    text colour/background) and more (`IsVowel`, `ReverseText`, `IsPrime`,
+    `RandomBetween`); quotes with images; 50 marks minimum.
+
+    Covers, in order: DRY (WetSlip vs DrySlip); decomposition (braai
+    analogy, a structure chart SVG); first procedure (program starts at the
+    main Begin, must be written above its call, local variables);
+    parameters (count/type/order, three real mismatch errors, argument vs
+    parameter, `a` prefix, same-type sharing `(aLeft, aTop : Integer)`);
+    functions (`Result`, called where a value goes, `Length`/`Round` etc. as
+    functions and `Writeln`/`ClrScr` as procedures, three mistakes: unset
+    Result is only a *warning*, an answer thrown away, type mismatch); the
+    rules; a whole decomposed program (MarkSlip: `WriteHeading`,
+    `Percentage`, `Symbol` via `Case` ranges); units (Interface = menu,
+    Implementation = kitchen, file name = unit name, `Can't find unit`, off
+    the menu = `Identifier not found`); the full MyUtils unit and a test
+    program; procedure-or-function rule; Var parameters as Good to Know.
+
+    **Layout decision: procedures and functions go ABOVE the main program's
+    `Var`**, so they cannot see the main program's variables (a real
+    `Identifier not found`) - the compiler then enforces "everything comes in
+    through a parameter". Every later lesson should keep this order.
+
+    **Open for Chris - "no output inside" vs the brief's own examples.**
+    `WriteHeading` and `DrawBox` exist only to write to the screen, and
+    `pascal-house-style.md` §5 says "Procedures must not produce output
+    directly". The lesson teaches: never `Readln` inside; a function never
+    writes; a procedure writes only when writing is its one job. If Chris
+    wants §5 kept strictly, `WriteHeading`/`DrawBox` need rethinking (e.g. a
+    function giving back the underline string); if not, §5 should be reworded
+    to match the lesson.
+
+    **Marks:** 104 auto-marked (38 questions, `LessonAutoMarkedMax` checked)
+    plus a 4-mark fix-the-code written question (`w1FixTooManyJobs`,
+    per-idea) and a 12-mark banded capstone (`w2TemperatureProgram`, two
+    functions and a procedure) = 120, against a minimum of 50. 9 `code`
+    exercises, unmarked.
+
+    **Quotes, each checked:** Descartes, Discourse on the Method (1637), Part
+    II, second rule (Veitch translation, Gutenberg #59), portrait after Frans
+    Hals (public domain); Hunt and Thomas's DRY statement (no portrait);
+    Martin Fowler, Refactoring (1999) p. 15, portrait Webysther Nunes CC BY-SA
+    4.0; Dijkstra, EWD249 (1970) - shortened to "The art of programming is the
+    art of organizing complexity." - portrait Hamilton Richards CC BY-SA 3.0.
+    Files `descartes.png`, `fowler.png`, `dijkstra.png` (256px crops, Commons
+    byte counts matched), in `public/assets/quotes/` and "Quote images".
+
+    **Changed 22 September 2026 (Chris's review):** the tuck-shop program is
+    `TillSlip` (was WetSlip); the four definitions at the top and the "four
+    things" list are Learn / Memorise boxes; the first-procedure box says
+    local variables exist only inside the procedure, with a compiled
+    `Identifier not found "position"` example and a scrap-paper analogy; the
+    Hunt and Thomas quote has both portraits (`hunt.png`, Kittie Rue, CC BY-SA
+    3.0; `thomas.png`, Augie De Blieck, CC BY 2.0, Commons
+    `Dave_Thomas_(programmer,_2014,_cropped).jpg`); a Note gives what an unset
+    Result came back as, compiled and run on the testbed and the server:
+    Integer 21418212 / 4394040 (7 without -O1), Boolean TRUE, Char random,
+    Real 0.00 and String empty by luck.
+
+    **Second review, 22 September 2026:** blank lines between program
+    sections in every listing (TooLate's error moved to `toolate.pas(4,3)`,
+    recompiled); "DRY: Don't Repeat Yourself." on a line of its own
+    (`.big-rule`); algorithm blocks with flowchart and pseudocode for
+    WriteHeading (a PROCEDURE), CountVowels (with a 'Bok bok' trace table)
+    and RemoveVowels (FUNCTION ... RETURNS); a call diagram (call / back
+    arrows) and three "Try this" interactives - call stepper, DrawLine
+    machine, function machine. Comments in the dark code theme are now blue
+    `#82aaff` (5.5:1 on the editor's #333), in console.css and style.css.
+
+    **Found while building it:** `Double` is a type name, so a function
+    called `Double` silently became a type conversion - examples use `Twice`.
+    DrawBox's drawing was checked on the server under `script` (Crt output
+    cannot be captured down a pipe on Windows, and the local console has no
+    runner). Two tool fixes, below under Decisions.
+
+15. **Remembering a whole list - Arrays.** File `lesson15.php`, added 22-23
+    September 2026, built and checked locally, **not yet published**. Chris's
+    brief: what an array is, how data is stored and accessed, the definition "a
+    finite collection of elements of the same type" with every part explained,
+    an animated step-by-step interactive demo, why arrays (data no longer
+    vanishes, one name replaces many variables), arrays are rarely full so a
+    `noOfElements` counter always goes with one, For loops over arrays, sum,
+    average, biggest, smallest, quotes, flowcharts and pseudocode, selection and
+    bubble sort, sorting text is NOT case-sensitive, searching to produce a
+    list, sequential and binary search giving back an index (-1 if not found),
+    and any other array concepts in the syllabus.
+
+    Covers, in order: VanishingMarks (why), the definition as a table (lockers
+    analogy), declaring and how it is stored (side by side, one sum finds any
+    element), using one element, out of range, For loops (RememberedMarks
+    answers the opening question), not full (`noOfElements`, and `Const`
+    - taught in lesson 4 since 23 September 2026 - as `maxElements`), sum/average and
+    biggest/smallest `algorithm` blocks, parallel arrays (keep the index,
+    `bestAt`), search to a list (a `foundOne` flag), sequential search, binary
+    search (trace table, 10/1000/1000000 comparison), swapping (BadSwap reveal,
+    holder), selection sort, improved selection sort, bubble sort, bubble sort
+    with a flag (`Repeat ... Until Not swapped`), sorting text with `UpperCase`
+    and swapping parallel arrays together, insert/delete (why insert runs
+    `DownTo`) and remove duplicates; two Good to Know boxes (an array passed to
+    a function via a `Type` - Grade 12; dynamic arrays - theory only).
+
+    **Rules the lesson states:** every loop that visits every element is a
+    For; a loop that may stop early (the two searches) is a While with a
+    condition, never `Break`. Arrays start at 1. The variable is written
+    `noOfElements` (Chris wrote NoOfElements; variables are camelCase).
+
+    **Interactive demos (new, reusable):** `public/assets/array-demo.js`, any
+    `<div class="array-demo" data-demo="explorer|total|biggest|sequential|
+    binary|selection|bubble" data-values="..." data-target="...">`. The
+    explorer stores/looks up by index (and says what an out-of-range index
+    does); the others record frames and step Back/Next/Play through them with
+    the Pascal line being run highlighted and the variables shown. Logic tested
+    with `node public/assets/array-demo.test.js` (300 random arrays: sorts end
+    sorted, searches agree with indexOf). Styles `.array-demo` in `style.css`.
+    No `<pre>` inside the widget on purpose (app.js colours every `<pre>`).
+
+    **Free Pascal facts found by compiling:** an out-of-range FIXED index is
+    only a *warning* ("range check error while evaluating constants") and the
+    program still runs; a VARIABLE index gives no message at all (the site does
+    not compile with `-Cr`), so the lesson says checking the index is your job
+    and promises nothing about what gets overwritten. **Checked 23 September
+    2026 at Chris's ask ("pascal programs crash when referring to elements
+    outside the array bounds"), on the testbed and the server, same on both:**
+    a small overrun (`marks[6]` of 5) runs silently; a far one
+    (`marks[100000000]`) crashes with `Runtime error 216`; with range checking
+    on (`-Cr` or `{$R+}`), `marks[6]` stops at once with `Runtime error 201`.
+    The lesson now says all three, recommends switching range checking on in
+    Lazarus/Delphi while testing, and asks for 201 (`t4bRangeCheckError`).
+    Added the same day: a Good to Know on any index range (`[2015..2024]`,
+    `[-10..0]`, `Low`/`High`/`Length`, and why the course keeps to 1). Lesson
+    15 is now 144 auto-marked + 16 written = 160. "Linked arrays" is taught as another name for parallel arrays (Chris: "often used interchangeably"; `t10bLinkedArrays`). `Writeln (marks)` is
+    "Can't read or write variables of this type". A program may not share its
+    name with a variable (`Program Rainfall` with `rainfall` - Duplicate
+    identifier; caught in a quiz's code field, which `check-code-blocks.php`
+    does not compile - only `<pre>` listings).
+
+    **Quotes:** Wirth's book title (wirth.png), Torvalds (git mailing list,
+    2006; `torvalds.png`, Krd, CC BY-SA), Knuth (TAOCP vol. 3 preface; knuth.png),
+    Obama at Google 2007 on bubble sort (`obama.png`, Pete Souza, public domain,
+    1276121 bytes matched). **Marks:** 140 auto-marked plus a 4-mark
+    fix-the-bubble-sort written question and a 12-mark banded capstone (class
+    results: read until XXX, average, top/lowest, sort descending) = 156. No
+    minimum was set. 10 `code` exercises, unmarked. Two `video` blocks left
+    blank for Chris to vet.
+
+    **Lesson 11 got a biggest-and-smallest `algorithm` block the same day**
+    (Chris: "add biggest and smallest to ... loop algorithms"): anchor
+    `algBiggestSmallest`, hand-drawn flowchart, pseudocode, FindBiggestSmallest,
+    and two new questions (`t18bSmallestOfFour`, `q14bSmallestStartsAtZero`) -
+    lesson 11 is now 112 auto-marked + 12 written. Needs publishing with lesson 15.
+
+16. **Smart data - Classes and objects.** File `lesson16.php`, added 23
+    September 2026, built and checked locally, **not yet published**. Chris's
+    brief: what a class is, encapsulation, access modifiers, fields
+    (attributes, properties) and methods (behaviours), an object as a smart
+    structure that knows how to work with its own data, constructor,
+    destructor, getters (accessors) and setters (mutators), dot notation,
+    toString (the IEB prefers it), overloading ("catering for every option"),
+    no input or output in methods, illustrations and activities, UML class
+    diagrams only, static fields and methods, anything else in the syllabus -
+    **no overriding, inheritance or polymorphism** (a later lesson) - and
+    point out what must be known for theory.
+
+    Covers, in order: lunchbox vs prepaid electricity meter (Chris: vending machines are not common in SA); class vs object (housing
+    estate plan: a blueprint-to-houses figure, then a class-to-objects figure); declare / instantiate / instance; fields and
+    methods; TPupil line by line (Type, `Class (TObject)`, private/public,
+    `TPupil.GetMark` bodies, comment blocks on the declarations); dot notation
+    (a typed method in output, condition, assignment) and a Common errors
+    block; encapsulation (capsule figure, access modifier table); constructors
+    (`Inherited Create` first, fields through the setters, Runtime error 216
+    before Create); getters/setters with validation and a private helper;
+    ToString (and a `#`-separated cousin); the no-input/output rule
+    (frontend/backend, restaurant); overloaded constructors; static
+    (`Class Var`, `Class Function`, a constant field); destructors (`Free`,
+    `Destructor Destroy; Override;`); a "Try this" widget; UML class diagrams
+    (figure drawn by a local `$classDiagram` closure); an array of objects vs
+    parallel arrays (lesson 15 promised it); scope and lifetime; a theory
+    summary (advantages of OOP, why the standard methods exist).
+
+    **Theory is marked in the lesson:** every "Learn / Memorise this - theory"
+    box (a local `$theory` closure, same look as Learn / Memorise) is what the
+    pupil must be able to explain in words.
+
+    **The no-I/O rule is strict for classes:** a class's methods never read
+    or write; ToString gives text back. This matches pascal-house-style.md
+    section 5 and is stricter than lesson 14 (still open for procedures).
+
+    **Free Pascal facts found by compiling (all quoted in the lesson):**
+    `Function ToString : String;` warns "An inherited method is hidden by
+    "ToString:ShortString;"" and runs; adding `Override` is an error without
+    `{$H+}`, so the lesson keeps the warning and explains it. Pascal's
+    `private` does NOT protect a field from code in the same file
+    (`thabo.mark := 99` compiled); `strict private`, or the class in its own
+    unit, gives "identifier idents no member". A field declared below
+    `Class Var` is shared too (67/82 printed 82 82). `Destructor Destroy;`
+    without `Override` only warns, and Free never calls it (2 2 2).
+    `Overload` is optional in -Mobjfpc but written everywhere (Delphi needs
+    it). Using an object never created: warning, then Runtime error 216
+    (checked on the testbed only, not the server).
+
+    **Quotes:** Steve Jobs, "Objects are like people..." (Rolling Stone, Jeff
+    Goodell, 1994; `jobs.png`); Alan Kay, "I made up the term
+    'object-oriented'..." (OOPSLA 1997, Wikiquote; `kay.png`, Commons
+    `Alan_Kay_(3097597186)_(cropped).jpg`, Marcin Wichary, CC BY 2.0, 364129
+    bytes matched).
+
+    **Marks:** 178 auto-marked plus three written questions - a 4-mark
+    fix-the-I/O (`w1FixInAndOut`), a 6-mark theory answer on encapsulation
+    (`w2ExplainEncapsulation`) and a 12-mark banded TTaxi capstone
+    (`w3TaxiClass`, model answer compiled) = 200. No minimum was set. 7 `code`
+    exercises (TPlayer, TTaxi, TDataBundle from a diagram, a team sheet array
+    of objects), unmarked. Two `video` blocks left blank for Chris to vet.
+    New widget: `objectFactory` in `public/assets/pascal-tryit.js`.
+
+17. **Persistence - Text files.** File `lesson17.php`, added 23 September
+    2026, built and checked locally, **not yet published**. Chris's brief: what
+    persistence is and why text files; reading; CSV and delimiters; parsing;
+    the parser in the class as `Create (aLine : String)`; loading an array of
+    objects; a `StringForFile` method giving back the line for the file;
+    Rewrite; Append and when to use it; flushing and CloseFile; anything else
+    in the syllabus for text files.
+
+    Covers, in order: persistence (RAM volatile, waiter's head vs notepad);
+    why text files (advantages/disadvantages, sequential access); the file
+    variable and four steps (AssignFile, open, use, CloseFile; Assign/Close
+    named as the old forms); reading with `While Not Eof`; CSV, record, field,
+    delimiter, header lines; parsing inline (lesson 13); the parser moved into
+    TPupil as an overloaded constructor; loading an array of objects (a
+    `maxPupils` check in the loop); StringForFile vs ToString; Rewrite (load,
+    change, save everything); Append (log, new record) with a Reset/Rewrite/
+    Append table; buffer and CloseFile (minibus-taxi analogy); a Try this
+    widget; FileExists and Try ... Except; messy data (Trim, blank lines, a bad
+    value caught per line); a file with different kinds of line (C/P codes);
+    a Common errors block (2, 102-105, EConvertError); theory; a Good to Know
+    on JSON (Grade 12 theory). Three algorithm blocks: read every line, load
+    into an array of objects, save an array of objects.
+
+    **Free Pascal facts found by compiling (quoted in the lesson, listed in
+    its docblock):** no CloseFile after Rewrite + two Writelns leaves an EMPTY
+    file with no error; 1000 Writelns without CloseFile kept 987 lines, cut
+    mid-word; Flush then Writeln kept only the flushed line; Append onto a
+    file with no final end-of-line joins the lines (`Aisha,10B,91Lwazi,...`);
+    a blank last line crashes a parse with `EConvertError: "" is an invalid
+    integer`; Reset/Rewrite/Append on an open file closes it first (buffer
+    saved); Readln past the end gives '', no error. Runtime errors 2/102/103/
+    104/105 become `EInOutError` messages with SysUtils. **Checked on the
+    Windows testbed only** - run NoClose/BigWrite on the server once.
+
+    **Layout check fixed the same day:** `lib/codestyle.php` did not know
+    `Try ... Except/Finally ... End` and refused every line inside a Try. It
+    now nests like Begin, with Except/Finally lined up with Try; three tests
+    added to `bin/check-codestyle.php` (all pass). **Needs publishing with
+    lesson 17.**
+
+    **Quotes:** "The palest ink is better than the best memory" (Chinese
+    proverb) and "I/O, I/O, it's off to disk I go" (author unknown, from
+    `_ALL_QUOTES.docx`) - no portraits.
+
+    **Marks:** 66 auto-marked (27 questions) plus a 4-mark fix-the-save
+    (`w1FixTheSave`: Rewrite to Append, add CloseFile), a 6-mark theory answer
+    (`w2ExplainTextFiles`) and a 12-mark banded tuck-shop capstone
+    (`w3TuckShop`, model answer compiled and run twice) = 88. 5 `code`
+    exercises, unmarked; each makes its own file first, because a file a
+    program writes lasts only for that run. No video blocks (Chris removed them, 23 September 2026).
+    New widget: `fileModes` in its own file, `public/assets/pascal-tryit-files.js`
+    (loaded by `public/lesson.php`), so it does not collide with
+    `pascal-tryit-more.js`.
+
 **Mid-lesson quotes added to lessons 1, 3, 4, 5 and 7 (Chris, 18 September
 2026).** Each opens the section it fits, as its own quote card: lesson 1, Steve
 Jobs on simple instructions at huge speed (before the CPU video; verified on
@@ -522,8 +814,41 @@ Content, as built:
   teaches: indentation, program structure. No variables yet, so no variable-
   naming check here, and comments aren't taught here either.
 
+**Course-wide pass, 22-23 September 2026 (Chris's review of lesson 14):**
+- Every Pascal listing is coloured like the console (content-voice §7c); an
+  exercise starter was unreadable (`console.css` gave `pre.code-starter` a
+  white background over the dark theme) - fixed, and every lesson measured
+  at 4.5:1 or better. Lesson 1's JavaScript and Scheme listings are marked
+  `not-pascal`.
+- Common errors blocks (content-voice §7d): lesson 4's type-mismatch table,
+  lesson 5's Readln crash table, lesson 14's call/function/unit errors, and
+  new recaps in lessons 2 (the three errors met), 8 (semicolon before Else,
+  missing brackets) and 13 (Format). **Lesson 13 was wrong:** it said three
+  Format mistakes all print `Invalid argument index in format "%d"`; each
+  message quotes its own pattern - corrected from real runs.
+- Algorithm audit (content-voice §7e): 19 new algorithm blocks in lessons
+  9-13, all drawn with `lib/flowchart.php`. Lesson 10's "counts multiples of
+  3 between 1 and 30" line now says to change the 20 to 30 as well.
+- 14 new "Try this" widgets across lessons 2-13 (content-voice §5).
+
 ## Decisions
 
+- **Every illustration is in a box, with a caption under it** (Chris, 23
+  September 2026, all lessons and all courses) - `Figure ()`,
+  content-voice-and-pedagogy.md section 5a, checked by
+  `php bin/check-figures.php`. Algorithm flowcharts are captioned
+  "Flowchart: ..."; the string and array pictures (lessons 13 and 15) no longer
+  draw a caption inside the SVG. Lesson 8's question diagrams, circuits and
+  shape legend are deliberately left as they were.
+- **Every lesson has its SAGs coverage - a requirement, like `contents`**
+  (Chris, 22 September 2026, after lesson 14 shipped without one). An entry
+  in `content/pascal/sags.php` (grade, topic, what) or `'enrichment' => true`;
+  it shows under the lesson on the course page. `php bin/check-sags.php`
+  fails if any lesson is missing, names a topic not in the list, or a grade
+  other than 10-12. A new lesson is not finished until it passes. Lesson 14's
+  entry added topic 4.6 ("Passing data between methods") to the list.
+- **Every Pascal listing is coloured like the console's editor, automatically**
+  (Chris, 22 September 2026) - content-voice-and-pedagogy.md §7c.
 - **Every lesson has exactly one `contents` block - this is a rule, not a
   convention** (Chris, 13 September 2026). It renders the in-page jump-list
   AND feeds the masthead's "Lesson contents" dropdown, from the same
@@ -585,6 +910,18 @@ Content, as built:
   September 2026.** Still open, known and unchanged: a
   nested `Else If` with no `Begin ... End` trips the indent check (lesson 8's
   `GradeBand` example, lesson 12's guessing game workaround).
+- **The layout check allows semicolons inside brackets (fixed 22 September
+  2026, found building lesson 14).** `lib/codestyle.php`'s
+  one-instruction-per-line rule refused every procedure or function heading
+  with two parameters (`(aLength : Integer; aCharacter : Char)`), in the
+  console and in exercises. Brackets are now emptied before looking for code
+  after a semicolon; two regression tests added to `bin/check-codestyle.php`
+  (all pass). Same day: `bin/check-code-blocks.php --compile` now compiles
+  with `-Mobjfpc` like the real pipeline (without it every `Result` was
+  "Identifier not found"), checks a unit listing with the console's unit
+  rules, and saves a unit under its own name so a program listed after it
+  can use it. **Needs publishing** with lesson 14 - until then live refuses
+  lesson 14's parameter headings.
 - **A `code` block carries no marks** (12 September 2026). It is a practice box
   for reading real compiler output, not an assessment, and it is deliberately
   kept out of `LessonAutoMarkedQuestions()` so no lesson reports an "out of" a
@@ -698,6 +1035,23 @@ Content, as built:
   question there, so lesson 5 teaches those two through quiz/typed/reveal
   instead, the way lesson 3 taught `Delay`/`Sound` honestly as "compiles and
   runs here, but you cannot observe the real effect on this site."
+
+- **Initialise every variable, and say so (Chris, 23 September 2026: "must
+  always be done").** Lesson 4 has an NB block after Inc/Dec: a variable
+  starts with whatever is in that piece of memory. Proved with fpc: a main
+  program's variables happened to start at 0 (with a warning), but a
+  procedure's local variable picked up 1234 left by an earlier call and a
+  sum printed 1240 instead of 6 - on Windows and on the server. Every
+  listing sets a starting value before use.
+- **Lesson 10: a For loop's counter is never changed inside the loop, and
+  never a single letter (Chris, 23 September 2026).** Both are NB blocks.
+  The earlier note wrongly suggested the counter need not be declared; it is
+  declared in `Var` like any other variable.
+- **Repeat in lesson 12 prints 0, not -1 (23 September 2026).** Chris asked
+  whether the repeat loop should print -1. Checked with fpc: counting down
+  from 0, a Repeat loop prints 0 once (its body always runs), and afterwards
+  `countdown` holds -1. The `whileVsRepeat` try-it now shows the value left
+  in `countdown` after each loop.
 
 ## Resolved
 
