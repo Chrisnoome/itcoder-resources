@@ -740,6 +740,20 @@ exact bug again.
   over `dlshcch.co.za`, so the OAuth consent screen cannot be Internal, and an
   External app cannot be domain-restricted by Google. v2 stopped trying.
   (v1 did restrict sign-in to school domains.)
+- **One account, one session at a time (Chris, 23 September 2026: "if user is
+  working no one can login with same name").** `pupils.sessionId` /
+  `sessionSeenAt` hold whichever PHP session has the account, and how recently
+  it asked for anything. `SignIn()` refuses a second sign-in while that
+  session is live (`$aRefusal === 'busy'`, and `public/auth.php` says so on
+  the sign-in page); `CurrentPupil()` signs a session out the moment the row
+  names a different one, so a taken-over session dies on its next request.
+  `SignOut()` releases the account. A session quiet for longer than
+  `SessionIdleMinutes()` (config `sessionIdleMinutes`, default 20) counts as
+  finished, so a closed browser frees the account by itself; `app.js` pings
+  `api/heartbeat.php` every four minutes on lesson pages so reading quietly
+  is not mistaken for leaving, and tells the pupil once if their session has
+  ended elsewhere. Admin → Users has a **Free session** button for "I closed
+  the tab and now it won't let me in".
 - **AI marking is what is restricted.** `CanUseMarking()` = `IsSchoolPupil()`
   (email domain in `config['schoolEmailDomains']`: `students.dlshcch.co.za`,
   `dlshcch.co.za`) or `HasActiveSubscription()` (`subscriptionExpiresAt` today or
@@ -847,6 +861,9 @@ Secrets live in `config/config.php` in each project (never in this folder). On
   dead link or a jump to nowhere visible.
 - `node tests/tokeniser.test.js` (v1 today; it must move with the token counter
   when the AI course is ported) after touching `SplitIntoTokens`.
+- `php bin/check-figures.php` after adding or changing any diagram, flowchart
+  or picture - every one sits in `Figure ()`, a box with a caption under it
+  (Chris, 23 September 2026; content-voice-and-pedagogy.md section 5a).
 - `php bin/check-titles.php` after writing or renaming any block title - no
   heading over 55 visible characters (Chris, 19 September 2026; video titles,
   which are a real YouTube video's name, are exempt). The limit is one constant
@@ -869,3 +886,16 @@ Pre-install and pre-pull everything. Pinokio downloads gigabytes on first run an
 the school line will not cooperate at 09:20. Record a three-minute screen capture
 of each demo working as a fallback - with a class of fourteen-year-olds, dead air
 is fatal.
+
+## The hamburger menu: Teacher options and Admin (22 September 2026)
+
+Chris: "for teachers add 'Teacher options' to the hamburger menu and put
+'Class results' in as a sub menu. For me put admin under hamburger menu as
+well." `SiteMenuHtml()` (`lib/sitemenu.php`) adds a **Teacher options** group
+with **Class results** (to `/teacher.php`, for this course when on a course
+page) for anyone with `isTeacher`, and an **Admin** group (Admin, Users) when
+`IsAdmin()`. Both were taken OFF the masthead bar on the lesson, course,
+scores, courses, subjects and class-results pages so the bar stays short. The
+admin pages and a pupil's work page keep their own bar links (they are where
+a teacher is already working). Put either back on the bar if it is missed.
+
