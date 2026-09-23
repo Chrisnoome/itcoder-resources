@@ -1,84 +1,53 @@
-# De La Salle Pascal Coding House Style
+# De La Salle Pascal coding house style
 
-**Scope:** All Pascal/Delphi/Lazarus code written for teaching, WebQuests, exam papers, and marking memos at De La Salle Holy Cross College. Code follows first-principles data structures and techniques appropriate to Grades 10–12 — no advanced features (e.g. no ArrayLists, StringLists, generics) unless the curriculum explicitly calls for them.
+**Scope:** all Pascal/Delphi/Lazarus code for teaching, exams and memos at De
+La Salle Holy Cross College. First-principles data structures and techniques
+for Grades 10-12 - no ArrayLists, StringLists or generics unless the
+curriculum calls for them. The console's layout check (`lib/codestyle.php`,
+`lib/routines.php`) enforces much of this - see live-console-design.md.
 
 ## 1. Program structure
 
-- Every standalone program's declared name matches its source file name (e.g.
-  `hello.pas` starts `Program Hello;`). Free Pascal does not enforce this -
-  the compiled executable is named after the *file*, not the declared program
-  name - so this is taught as discipline, not as a compiler rule: matching
-  them avoids exactly the kind of confusion a beginner hits when the two
-  drift apart.
-- Every program's executable statements sit inside one `Begin … End.` block
-  (the final `End` takes a full stop, not a semicolon - it closes the
-  program, not a block within it).
-- Indentation is 2 spaces per nesting level. No tabs.
-- **A blank line between the sections of a program** (Chris, 22 September
-  2026): after the `Program`/`Unit` line, after the `Uses` block, between
-  procedures and functions, before the main program's `Var`, and between the
-  main `Var` block and its `Begin`. A procedure's own `Var` and `Begin` stay
-  together. Lesson 14's listings follow it; earlier lessons do not yet - if
-  they are changed, recompile every error example, because the line numbers
-  in their quoted compiler messages move.
+- A program's name matches its file (`hello.pas` -> `Program Hello;`) - taught
+  as discipline; fpc doesn't enforce it.
+- Executable statements in one `Begin ... End.` (full stop on the last `End`).
+- 2 spaces per level, no tabs.
+- **A blank line between sections**: after `Program`/`Unit`, after `Uses`,
+  between routines, before the main `Var`, between the main `Var` and `Begin`.
+  A routine's own `Var` and `Begin` stay together. (Lesson 14 on follows it;
+  if earlier lessons are changed, recompile every error example - quoted line
+  numbers move.)
 
-## 2. Naming conventions
+## 2. Naming
 
 | Element | Rule | Example |
 |---|---|---|
-| Method / function / procedure names | Start with a capital, CamelCase | `FormatDuration`, `GetCategory` |
-| Field names (class fields) | Start lowercase, camelCase | `elapsedSeconds`, `studentName` |
-| Ordinary variables (incl. loop variables) | camelCase, meaningful — never a single letter | `index`, `bestIndex`, `outer`, `inner`, `minutesPart` |
-| Parameters | `a` + Type name, camelCase after the prefix | `aString`, `aSeconds`, `aStudentRecord` |
-| Classes | `T` prefix | `TStopwatch`, `TBookArray` |
-| Reserved words | Capitalised | `Begin`, `End`, `While`, `For`, `If`, `Then`, `Else`, `Var`, `Function`, `Procedure`, `Div`, `Mod` |
-
-Parameters do not need the `const` keyword.
+| Methods, functions, procedures | Capital, CamelCase | `FormatDuration` |
+| Class fields | lowercase camelCase | `elapsedSeconds` |
+| Variables, including loop counters | camelCase, meaningful - **never a single letter** (not `i`, `j`, `k`) | `index`, `outer`, `inner` |
+| Parameters | `a` + name, no `const` | `aSeconds`, `aStudentRecord` |
+| Classes | `T` prefix | `TStopwatch` |
+| Reserved words | Capitalised | `Begin`, `End`, `If`, `Then`, `Div`, `Mod` |
 
 ## 3. Whitespace
 
-- Space before `:` — in variable declarations and return-type declarations (`minutesPart : Integer`, `Function GetElapsed : Integer`).
-- Space before `(` — e.g. `FormatDuration (aSeconds : Integer)`.
-- Space after `)`.
-- Spaces around operators (`:=`, `+`, `<`, `Div`, `Mod`, etc.).
-- **`>=` and `<=` are always the two literal ASCII characters, never a single
-  Unicode glyph (`≥`, `≤`) (Chris, 17 September 2026, site-wide rule — not
-  Pascal-course-specific).** A comparison operator in this language is
-  always exactly two characters. The Unicode "nicer-looking" glyph is not a
-  font substitution the IDE or `fpc` recognises — code containing it simply
-  fails to compile, and a pupil who typed it (or pasted it from somewhere
-  that auto-converted it) has no obvious reason why. Never write `≥`/`≤`
-  anywhere a pupil might copy it into an editor: not in prose, not in a
-  table cell, not in a `Gloss()` definition, not in a code sample. This
-  applies everywhere on the site, in every course, not only to genuine
-  Pascal code blocks.
-
-  **Found live, 17 September 2026: the source text was never the
-  problem - the font was.** A pupil's screenshot showed `(age >= 18) And
-  hasID` rendering as `(age ≥ 18) And hasID`, a single merged glyph, even
-  though the underlying HTML/PHP source genuinely was the correct two
-  ASCII characters throughout (checked - no Unicode `≥`/`≤` anywhere in
-  content). The cause: JetBrains Mono, the code font used everywhere on
-  the site, ships a `>=` programming ligature, and browsers apply that
-  kind of ligature (`calt`) by default unless a stylesheet turns it off -
-  which this one never did. **Fixed in `public/assets/style.css`**: `body`
-  now sets `font-variant-ligatures: none` and `font-feature-settings:
-  "liga" 0, "calt" 0`, inherited everywhere, with the same declared again
-  directly on `code, pre` and `.code-editor` (the pupil's own typing box)
-  as belt-and-braces, since form controls do not always reliably inherit
-  font-feature-settings in every browser. So: two real, separate risks
-  guarded against now - never author the Unicode glyph by hand (above),
-  and never let a code font silently re-draw the correct ASCII as one
-  anyway (this fix). Check both if this bug is ever reported again.
+- Space before `:` (`minutesPart : Integer`, `Function GetElapsed : Integer`).
+- Space before `(` and after `)`: `FormatDuration (aSeconds : Integer)`.
+- Spaces around operators (`:=`, `+`, `<`, `Div`, `Mod`).
+- **`>=` and `<=` are always two ASCII characters**, never `≥`/`≤`, anywhere a
+  pupil might copy from (prose, tables, popups, code) - site-wide. The code
+  font's ligatures are switched off in `style.css` (`font-variant-ligatures:
+  none; font-feature-settings: "liga" 0, "calt" 0` on `body`, and again on
+  `code, pre`, `.code-editor`) so JetBrains Mono never draws `>=` as one glyph.
 
 ## 4. Comments
 
-- Use `//` line comments exclusively. Brace comments (`{ }`) are not used anywhere.
-- Code must be commented — explain what non-obvious lines and blocks do.
-- Every closing `End` line carries a comment naming the block it closes: `End; // end for`, `End; // FormatDuration`, `End; // else`.
-- **Every procedure, function, constructor and destructor has a comment
-  block directly above its declaration** (Chris, 22 September 2026; taught in
-  lesson 14; enforced by the console's layout check, `lib/routines.php`):
+- `//` only - never `{ }`.
+- Comment non-obvious lines and blocks.
+- Every `End` says what it closes: `End; // for`, `End; // FormatDuration`,
+  `End; // else`.
+- **Every procedure, function, constructor and destructor has a comment block
+  directly above it** (enforced by the layout check):
 
   ```pascal
   // What it does (one or more lines).
@@ -87,99 +56,72 @@ Parameters do not need the `const` keyword.
   // Gives back: what the answer means     (functions only, always last)
   ```
 
-  One line per parameter, in the heading's order; no `Gives back` line on a
-  procedure; no blank line between the block and the heading. It is written
-  **once**. In a program: above the routine, and for a class, on the method's
-  declaration inside the class (not on `TThing.Method`'s body). **In a unit:
-  above each body in the Implementation, never in the Interface** - not even
-  for a class the Interface declares, whose `TThing.Method` bodies then carry
-  the comments (Chris, 23 September 2026: "the comments do not belong in the
-  interface section, only in the implementation section"). The layout check
-  reports a comment block left in a unit's Interface; Ctrl+Shift+C moves one
-  it finds down to the code.
-- **A class method's body is always named `TThing.Method`** - the class
-  name and a full stop in front of the method name. Ctrl+Shift+C writes it
-  that way, including for a class declared as `Type TThing = Class` on one
-  line (Chris, 23 September 2026: it had been leaving `TThing.` off there).
+  One line per parameter in heading order; no `Gives back` on a procedure; no
+  blank line before the heading. Written **once**:
+  - **program:** above the routine; a class's methods on their declaration
+    inside the class (not on `TThing.Method`'s body);
+  - **unit:** above each body in the Implementation, **never in the
+    Interface** - including methods of a class the Interface declares (their
+    `TThing.Method` bodies carry the comments). The layout check reports a
+    block left in the Interface; Ctrl+Shift+C moves it down.
+- **A method body is always named `TThing.Method`.**
 
-## 5. Control flow and structure
+## 5. Control flow
 
-- Every `If`, `For`, and `While` — every branch of every one — uses `Begin … End`, even for a single statement.
+- Every branch of every `If`, `For`, `While` uses `Begin ... End`, even for one
+  statement.
 - No semicolon before `Else`.
-- Never use `Break`. Loop conditions and flags control termination instead.
-- 1-based arrays throughout.
-- Procedures must not produce output directly; functions return values, and the main program (or calling code) is what calls `Writeln`. *(Open, 22 September 2026: lesson 14 lets a procedure write when drawing on screen IS its one job - `WriteHeading`, `DrawBox` - see courses/pascal-course.md, lesson 14. Chris to settle which wording stands.)* *A class's methods never read or write at all (lesson 16, 23 September 2026) - ToString gives the text back and the caller writes it.*
-- Avoid long, complex lines. Break a complex expression into several simple steps, introducing extra variables where that makes the logic clearer.
-- **Never put more than one instruction on a line** (Chris, 2026-09-13), even
-  two short ones separated by a semicolon (`Write ('H'); Delay (200);` is
-  wrong - each goes on its own line, however trivial either statement is).
+- **Brackets round each comparison joined by `And`/`Or`/`Xor` or after `Not`**:
+  `If (age >= 18) And (isCitizen) Then` (without them it is a compile error).
+- Never `Break` - conditions and flags end loops.
+- **Never change a For loop's counter inside the loop** (fpc refuses it).
+- **Give every variable a starting value before using it** - a routine's local
+  variable starts with whatever was in memory.
+- 1-based arrays.
+- **One instruction per line** - never `Write ('H'); Delay (200);`.
+- Break long expressions into simple steps with extra variables.
+- **Procedures don't produce output; functions return values; the caller
+  writes.** **Exception (Chris, 23 September 2026): a procedure or function may
+  do input or output when that is its very specific purpose** - its one job -
+  e.g. `WriteHeading`, `DrawBox` (lesson 14), `ReadInt`, `ReadBoolean` (lesson
+  18). A routine whose job is something else (an average, a count) never reads
+  or writes.
+  **A class's methods never read or write at all** - `ToString` gives the text
+  back and the caller writes it.
 
 ## 6. Object-oriented conventions
 
-- Class names take a `T` prefix.
-- Class fields start lowercase; methods start with a capital.
-- `Inherited Create` is always the first line of a constructor.
-- **A constructor with parameters fills its fields through the setters**,
-  never by assigning the fields directly (Chris, 22 September 2026):
-  `SetTitle (aTitle);`, not `title := aTitle;`.
-- A getter gives back its field (`Result := title;`); a setter stores its
-  parameter in its field (`title := aTitle;`). Named `GetX`/`IsX`/`HasX` and
-  `SetX` for a field `x`.
-- **A class that keeps an array of objects frees them in its destructor**:
-  a loop over `Low (list) To High (list)` that does `list[index].Free;` then
-  `list[index] := Nil;`, then `Inherited Destroy;` (declared
-  `Destructor Destroy; Override;`).
-- Every function sets `Result` (`Result := ...;`) - never the old
-  `FunctionName := ...;` form. The console refuses a function with no
-  `Result :=` line.
-- The console's Ctrl+Shift+C / **Update code** writes all of this for a
-  pupil (`public/assets/pascal-complete.js`) - change the two together.
-- Code should be written so it is reusable in both GUI and CLI contexts — keep logic out of event handlers where practical, so it can be called from either.
+- `T` prefix; fields lowercase, methods capitalised.
+- `Inherited Create` is a constructor's first line.
+- **A constructor with parameters fills fields through the setters**
+  (`SetTitle (aTitle);`, not `title := aTitle;`).
+- Getter `GetX`/`IsX`/`HasX` gives back its field (`Result := title;`); setter
+  `SetX` stores its parameter (`title := aTitle;`).
+- **A class holding an array of objects frees them in its destructor**
+  (`Destructor Destroy; Override;`): loop `Low (list) To High (list)`,
+  `list[index].Free;`, `list[index] := Nil;`, then `Inherited Destroy;`.
+- Every function sets `Result := ...;` (never `FunctionName := ...`); the
+  console refuses a function without it.
+- Ctrl+Shift+C / **Update code** (`public/assets/pascal-complete.js`) writes all
+  of this - change the two together.
+- Keep logic out of event handlers so it works in GUI and CLI.
 
-## 6a. Verified type-mismatch error text (FPC 3.2.2, `-Mobjfpc`)
+## 6a. Verified type-mismatch errors (FPC 3.2.2, `-Mobjfpc`)
 
-Found and corrected 13 September 2026: an earlier lesson had **invented**
-`Incompatible types: got "Double" expected "Longint"` for `Integer := 3.5;`
-without compiling it - checked against real output on this project's fpc
-instead. Every type name below was compiled for real, on both machines,
-before being put in front of a pupil - never guess these, they are easy to
-get wrong and pupils will paste the mismatch between what a lesson says and
-what their own screen shows straight back at you.
+Never guess compiler messages - compile them. Under `-Mobjfpc` (what the site
+uses; Lazarus and Delphi agree) `Integer` = `LongInt`, 32-bit
+(-2147483648..2147483647); `String` = `ShortString` (255 chars, `SizeOf` 256).
 
-**Revised 18 September 2026 (Chris caught it): `Integer` is 32-bit here,
-not 16-bit.** The table below stood for five days with `Integer` aliased to
-`SmallInt` (16-bit, -32768..32767) - true of fpc's own legacy default mode,
-which is what `bin/compile-sandbox.sh` and `lib/compile.php` were actually
-invoking (`fpc -O1`, no mode flag), but NOT true of Lazarus (every new
-project starts `{$mode objfpc}`) or Delphi, where `Integer` has been an
-alias for `LongInt` (32-bit, -2147483648..2147483647) for decades. A pupil
-compiling the exact same program in the Lazarus IDE they actually use for
-projects, or sitting the real IEB practical, would see a completely
-different number. Both compile paths now pass `-Mobjfpc` - see the comments
-at the fpc invocation in each file. Checked: this changes ONLY `Integer`'s
-size and the `SmallInt`/`LongInt` wording below - `Div`/`Mod` truncation,
-`Round`'s round-half-to-even, and every `Boolean`/`Char`/`String` mismatch
-message in the table are identical either way.
-
-| Assignment | `fpc` error (`-Mobjfpc`) |
+| Assignment | fpc error |
 |---|---|
-| `Integer := 3.5` (a Real literal) | `Incompatible types: got "Single" expected "LongInt"` |
-| `Integer := 'ten'` (a String literal) | `Incompatible types: got "Constant String" expected "LongInt"` |
+| `Integer := 3.5` | `Incompatible types: got "Single" expected "LongInt"` |
+| `Integer := 'ten'` | `Incompatible types: got "Constant String" expected "LongInt"` |
 | `Boolean := 1` | `Incompatible types: got "ShortInt" expected "Boolean"` |
-| `Char := 'AB'` (2+ characters) | `Incompatible types: got "Constant String" expected "Char"` |
+| `Char := 'AB'` | `Incompatible types: got "Constant String" expected "Char"` |
 | `String := 5` | `Incompatible types: got "ShortInt" expected "ShortString"` |
-| `Real := 5` (an Integer literal) | Compiles fine - Integer widens into Real with nothing lost |
+| `Real := 5` | Compiles - Integer widens into Real |
 
-Note the plain type names this course teaches (`Integer`, `String`) are not
-always what the compiler itself says back (`LongInt`, `ShortString`,
-`ShortInt`) - `Integer` is an alias for `LongInt` under `-Mobjfpc`,
-confirmed by `Low(Integer)`/`High(Integer)` returning
--2147483648/2147483647 on both machines. `String` still means
-`ShortString` (255 characters, `SizeOf` 256) under `-Mobjfpc` with no other
-switch set - that part is unaffected by the mode change. A lesson can teach
-"Integer" throughout and still be honest, since that is the genuine
-declared type - just don't be surprised when a compiler message uses the
-alias's underlying name instead.
+Lessons say `Integer`/`String`; the compiler says the underlying names.
 
 ## 7. Worked example
 
@@ -208,7 +150,10 @@ Type
   private
     elapsedSeconds : Integer;
   public
+    // Makes a stopwatch at zero.
     Constructor Create;
+    // Gives back the seconds counted.
+    // Gives back: the elapsed seconds
     Function GetElapsed : Integer;
   End; // TStopwatch
 
@@ -223,23 +168,3 @@ Begin
   Result := elapsedSeconds;
 End; // TStopwatch.GetElapsed
 ```
-
-## 8. Quick checklist
-
-- [ ] Program name matches its source file name
-- [ ] Executable statements sit in one `Begin … End.` block, full stop on the last `End`
-- [ ] 2-space indentation, no tabs
-- [ ] Method names capitalised CamelCase; fields lowercase camelCase
-- [ ] Loop and other variables are meaningful words, never single letters
-- [ ] Parameters use the `a` + Type naming pattern, no `const`
-- [ ] Reserved words capitalised
-- [ ] Space before `:`, space before `(`, space after `)`
-- [ ] Every `If` / `For` / `While` branch wrapped in `Begin … End`
-- [ ] No semicolon before `Else`
-- [ ] No `Break` anywhere
-- [ ] `//` comments only, and every `End` line says what it closes
-- [ ] Long lines broken into simple steps with extra variables
-- [ ] Never more than one instruction on a line
-- [ ] Procedures don't output; functions return, caller writes
-- [ ] Classes `T`-prefixed; constructors call `Inherited Create` first
-- [ ] Only first-principles data structures/techniques used
