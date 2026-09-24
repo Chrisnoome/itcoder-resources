@@ -345,6 +345,20 @@ site's code - run after publishing a marking change.
   its groups' accepted members, first-accepted first up to its seats
   (`GroupCoverage()` in `Entitlements()`). No emails yet (Brevo, step 5).
   Check: `php bin/check-groups.php` (local database, rolled back).
+- **Notifications (step 3, 24 September 2026)** - `lib/notifications.php`,
+  table `notifications` (dedupeKey unique per person). A bell with an unread
+  count on every signed-in page (`RenderMasthead` draws it when the nav has
+  Sign out); `notifications.php` lists them all, `?open=N` marks one read and
+  follows its link (site paths only). Added by: markqueue (answer marked,
+  links to the question's `#bN` block; a re-mark refreshes the same notice),
+  the review worker (summary ready, `#review`), `InviteToGroup` (only when the
+  invitation is really opened), pupil-work reset and flag/clear, and
+  `SubscriptionReminders()` - 30 and 7 days before a subscription ends,
+  checked lazily when the bell is drawn (no cron). `Notify()` never throws: a
+  notice must not break what caused it. **Carry on where you were** on
+  Subjects: the newest `lessonPositions` row still in an enrolled course; the
+  lesson page then offers the exact place. No emails yet (Q14, Brevo step 5).
+  Check: `php bin/check-notifications.php` (local database, rolled back).
 - **Every AI call is costed:** `CallClaude()` records tokens and cost in
   `aiUsage` against `SetAiUsageContext()` (marking, analysis, review,
   codecheck, style). Prices `AiPriceTable()` (Haiku 4.5 $1/$5 per M tokens;
@@ -409,6 +423,7 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-code-blocks.php [--compile]` - every listing runnable or
   marked no-console.
 - `php bin/check-groups.php` - groups, invitations, who a teacher sees, seats (local only).
+- `php bin/check-notifications.php` - notices, dedupe, open/read, invitation and reminder notices (local only).
 - `php bin/check-output-programs.php` - every output has its main program
   shown above it (content-voice-and-pedagogy.md §7b).
 - `php bin/check-codestyle.php`, `php bin/check-typing.php`,

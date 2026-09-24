@@ -1,6 +1,6 @@
 # Platform roadmap - teachers, subscriptions, landing page
 
-**Status: all 25 questions answered 24 September 2026 (see the end). Steps 1 and 2 BUILT the same day** - see platform.md, "Access is decided by Entitlements()", "Billing" and "Teacher groups". Next: step 3, notifications and carry-on-where-you-left-off. (drafted 24 September 2026 from Chris's brief of
+**Status: all 25 questions answered 24 September 2026 (see the end). Steps 1, 2 and 3 BUILT the same day** - see platform.md, "Access is decided by Entitlements()", "Billing", "Teacher groups" and "Notifications". Next in the order below: step 4, the landing page and About. The IEB / CAPS / neither choice at enrolment (Q23) is not in that order yet - Chris to place it. (drafted 24 September 2026 from Chris's brief of
 the same day). Answer the questions marked **Q** and this file becomes the
 spec; once a part is built, move its rules into platform.md and delete them
 here. Facts about outside services (gateways, fees, VAT) were NOT checked

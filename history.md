@@ -71,3 +71,4 @@ pre-compaction files).
 - 09-24 {$H+} in every program in every lesson (not only lessons with classes), the console default and templates; quoted error positions recompiled; lesson 2 explains it. SAGs lines on the course page fold (closed by default).
 - 09-24 Lessons 22 (text UI) and 23 (GUI design) built; real Crt screens (.ans from server pty runs) and real Lazarus screenshots introduced, tools in tools/ui-screens; try-it file pascal-tryit-ui.js.
 - 09-24 Teacher groups (step 2): teachers see only pupils who accepted their invitation; admin grants teachers, approves domains, turns classes into groups; teacher plans cover their groups' marking up to seats.
+- 09-24 Notifications (step 3): a bell on every signed-in page (answer marked, summary ready, invitation, teacher reset or flag, subscription ending in 30/7 days), notifications.php, and Carry on where you were on Subjects.
