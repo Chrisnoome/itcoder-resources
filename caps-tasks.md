@@ -57,21 +57,56 @@ is inside the CAPS PAT (Phase 1 Task 5 and the Phase 2 input marks).
   line.
 - Declarations: help received (Annexure B) and authenticity (Annexure C).
 
-## For the Pascal course (proposal - Chris to decide)
+## The Grade 10 and 11 PATs (2025 guidelines, seen 25 September 2026)
 
-1. **Lesson 28 - CAPS PAT, Phase 1:** the eight Phase 1 tasks, with the
-   rubric discussed and a planned example; pre-check upload of the Phase 1
-   document (PDF), reusing lib/tasks.php.
-2. **Lesson 29 - CAPS PAT, Phase 2 and the interview:** building to the
-   rubric, project notes, testing, preparing to explain every line;
-   pre-check upload of the code (the database and SQL parts point to the
-   SQL course, as lesson 24 does).
-3. **Optional lesson 30 - the CAPS alternative task:** how case studies and
-   integrated tasks are set and answered (no DBE rubric to pre-check
-   against).
+Same shape as Grade 12 - 150 marks, phases, an interview - scaled down:
 
-Points to settle: the DBE rubric changes every year (the theme too), so
-the lessons teach the stable structure and the pre-check needs the current
-year's rubric typed in each January; the Gr 12 CAPS PAT is Delphi GUI and
-database heavy, beyond this console course - lessons 23 (GUI) and the SQL
-course carry it.
+- **Grade 10:** Phase 1 (tasks 1-5, 64): task definition and user story,
+  acceptance test, navigation between screens, GUI design, IPO table with
+  data validation. Phase 2 (tasks 6-9, 70): two Delphi screens, HCI
+  principles, code (20), testing and validation, documentation. Phase 3
+  (task 10, 16): documentation and interview. Moderated at PLC, district
+  and province level.
+- **Grade 11:** a DBE-style theme (2025: a "Personal Smart School
+  Assistant"); Phase 1 analysis and design 48, Phase 2 coding and testing
+  86, final product and impression 16. A database built from the Phase 1
+  plan and used through code (CAPS Gr 11 Term 3: one table, multi-form GUI).
+
+So the structure is stable across grades and years; the theme, the exact
+task list and the rubric change every year (and Gr 10-11 can differ by
+province).
+
+## Lesson plan for the CAPS projects (drafted 25 September 2026 - Chris to decide)
+
+One set of lessons for all three grades, with a grade-by-grade table where
+they differ - the phases and the skills are the same, only the size grows.
+
+1. **28 - The CAPS PAT: how it works.** Phases and marks per grade, due
+   dates, the interview (code you cannot explain earns nothing), the 10%
+   limit and the two declarations, what stays the same each year and what
+   the theme changes, choosing a topic inside the theme.
+2. **29 - Phase 1: analysis and design.** Scenario and scope; user
+   requirements (table or use case diagram); user stories and acceptance
+   tests (Gr 10); the database design (tables, keys, relationships,
+   normalised); the class diagram; where the text file and the array fit;
+   the navigation diagram; the GUI design by HCI principles; IPO tables with
+   validation and error messages. Pre-check of the Phase 1 document (PDF).
+3. **30 - Phase 2: building and testing.** Building to the Phase 1 plan:
+   at least three forms (two in Gr 10), the class, the text file, the array,
+   defensive programming, project notes (help, tooltips, comments), testing
+   with typical, erroneous and boundary data. The database through code and
+   SQL is taught in the SQL course; this lesson shows where it plugs in.
+   Pre-check of the code (source files).
+4. **31 - The demonstration and the final product.** The 15-minute demo and
+   questions, the 16 marks for the final product and impression, a
+   checklist for the last week.
+5. **Optional 32 - The alternative task** (case study, integrated task,
+   open book) - how they are set and answered; no pre-check (no national
+   rubric).
+
+**Needs from Chris:** all grades or Grade 12 only; whether database
+programming through code (ADO components, data-aware grids) is taught in
+the SQL course or needs a lesson here; pre-check for Grade 12 only (the one
+national rubric, retyped each January) or also Gr 10-11; the alternative
+task lesson or not; examples on the current theme (fashion, 2026) or
+theme-free.
