@@ -165,7 +165,7 @@ marking-house-style.md (style never marked) is deliberately different.
   - `mathsLab`, `conversionLab`, `charPicker`, `comparisonLab` (`data-mode`
     text/number), `logicLab`, `formatLab` (`:width:decimals`, half up like
     fpc), `gotoGrid` (80 x 25).
-- **Screens and screenshots** (24 September 2026): a Crt screen is a real server run saved as `content/pascal/screens/<lesson>-*.ans` and drawn with TerminalScreen() inside `Figure ()`; a window is a real Lazarus screenshot in `public/assets/lessons/pascal/` (`.shot` + numbered `.shot-badge`s for callouts). How: `tools/ui-screens/README.md`.
+- **Screens and screenshots** (24 September 2026): a Crt screen is a real server run saved as `content/pascal/screens/<lesson>-*.ans` and drawn with TerminalScreen() inside `Figure ()` (`.figure-box .terminal` is left-aligned and the box is 80 JetBrains Mono columns - Chris, 24 Sep 2026: centred rows broke the columns); a window is a real Lazarus screenshot in `public/assets/lessons/pascal/` (`.shot` + numbered `.shot-badge`s for callouts). How: `tools/ui-screens/README.md`.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
   keep a ~20px gap; never `textLength`/`lengthAdjust` (warps glyphs) - widen,

@@ -1,0 +1,280 @@
+[
+ [
+  "Sans-serif - for forms and screens",
+  [
+   [
+    "Arial",
+    "arial"
+   ],
+   [
+    "Bahnschrift",
+    "bahnschrift"
+   ],
+   [
+    "Calibri",
+    "calibri"
+   ],
+   [
+    "Candara",
+    "candara"
+   ],
+   [
+    "Corbel",
+    "corbel"
+   ],
+   [
+    "Franklin Gothic Medium",
+    "franklin-gothic-medium"
+   ],
+   [
+    "Lucida Sans Unicode",
+    "lucida-sans-unicode"
+   ],
+   [
+    "Microsoft Sans Serif",
+    "microsoft-sans-serif"
+   ],
+   [
+    "Segoe UI",
+    "segoe-ui"
+   ],
+   [
+    "Segoe UI Variable",
+    "segoe-ui-variable"
+   ],
+   [
+    "Tahoma",
+    "tahoma"
+   ],
+   [
+    "Trebuchet MS",
+    "trebuchet-ms"
+   ],
+   [
+    "Verdana",
+    "verdana"
+   ]
+  ]
+ ],
+ [
+  "Serif - for printed pages and long reading",
+  [
+   [
+    "Cambria",
+    "cambria"
+   ],
+   [
+    "Constantia",
+    "constantia"
+   ],
+   [
+    "Georgia",
+    "georgia"
+   ],
+   [
+    "Palatino Linotype",
+    "palatino-linotype"
+   ],
+   [
+    "Sitka",
+    "sitka"
+   ],
+   [
+    "Sylfaen",
+    "sylfaen"
+   ],
+   [
+    "Times New Roman",
+    "times-new-roman"
+   ]
+  ]
+ ],
+ [
+  "Monospace - for code and columns of figures",
+  [
+   [
+    "Cascadia Code",
+    "cascadia-code"
+   ],
+   [
+    "Cascadia Mono",
+    "cascadia-mono"
+   ],
+   [
+    "Consolas",
+    "consolas"
+   ],
+   [
+    "Courier New",
+    "courier-new"
+   ],
+   [
+    "Lucida Console",
+    "lucida-console"
+   ]
+  ]
+ ],
+ [
+  "Display and handwriting - titles and fun, never a whole form",
+  [
+   [
+    "Arial Black",
+    "arial-black"
+   ],
+   [
+    "Comic Sans MS",
+    "comic-sans-ms"
+   ],
+   [
+    "Gabriola",
+    "gabriola"
+   ],
+   [
+    "Impact",
+    "impact"
+   ],
+   [
+    "Ink Free",
+    "ink-free"
+   ],
+   [
+    "MV Boli",
+    "mv-boli"
+   ],
+   [
+    "Segoe Print",
+    "segoe-print"
+   ],
+   [
+    "Segoe Script",
+    "segoe-script"
+   ]
+  ]
+ ],
+ [
+  "Other languages - they have Latin letters too",
+  [
+   [
+    "Ebrima",
+    "ebrima"
+   ],
+   [
+    "Gadugi",
+    "gadugi"
+   ],
+   [
+    "Javanese Text",
+    "javanese-text"
+   ],
+   [
+    "Leelawadee UI",
+    "leelawadee-ui"
+   ],
+   [
+    "Malgun Gothic",
+    "malgun-gothic"
+   ],
+   [
+    "Microsoft Himalaya",
+    "microsoft-himalaya"
+   ],
+   [
+    "Microsoft JhengHei",
+    "microsoft-jhenghei"
+   ],
+   [
+    "Microsoft New Tai Lue",
+    "microsoft-new-tai-lue"
+   ],
+   [
+    "Microsoft PhagsPa",
+    "microsoft-phagspa"
+   ],
+   [
+    "Microsoft Tai Le",
+    "microsoft-tai-le"
+   ],
+   [
+    "Microsoft YaHei",
+    "microsoft-yahei"
+   ],
+   [
+    "Microsoft Yi Baiti",
+    "microsoft-yi-baiti"
+   ],
+   [
+    "MingLiU-ExtB",
+    "mingliu-extb"
+   ],
+   [
+    "Mongolian Baiti",
+    "mongolian-baiti"
+   ],
+   [
+    "MS Gothic",
+    "ms-gothic"
+   ],
+   [
+    "Myanmar Text",
+    "myanmar-text"
+   ],
+   [
+    "Nirmala UI",
+    "nirmala-ui"
+   ],
+   [
+    "Segoe UI Historic",
+    "segoe-ui-historic"
+   ],
+   [
+    "SimSun",
+    "simsun"
+   ],
+   [
+    "Yu Gothic",
+    "yu-gothic"
+   ]
+  ]
+ ],
+ [
+  "Symbols and icons - pictures, not letters",
+  [
+   [
+    "Cambria Math",
+    "cambria-math"
+   ],
+   [
+    "Marlett",
+    "marlett"
+   ],
+   [
+    "Segoe Fluent Icons",
+    "segoe-fluent-icons"
+   ],
+   [
+    "Segoe MDL2 Assets",
+    "segoe-mdl2-assets"
+   ],
+   [
+    "Segoe UI Emoji",
+    "segoe-ui-emoji"
+   ],
+   [
+    "Segoe UI Symbol",
+    "segoe-ui-symbol"
+   ],
+   [
+    "Symbol",
+    "symbol"
+   ],
+   [
+    "Webdings",
+    "webdings"
+   ],
+   [
+    "Wingdings",
+    "wingdings"
+   ]
+  ]
+ ]
+]

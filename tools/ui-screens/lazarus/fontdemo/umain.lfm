@@ -1,0 +1,30 @@
+object frmMain: TfrmMain
+  Left = 300
+  Height = 150
+  Top = 200
+  Width = 420
+  Caption = 'Tuck shop'
+  ClientHeight = 150
+  ClientWidth = 420
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object lblTitle: TLabel
+    Left = 20
+    Height = 40
+    Top = 20
+    Width = 300
+    Caption = 'Tuck shop order - pies R18.50'
+    Font.Height = -26
+    ParentFont = False
+  end
+  object lblMessage: TLabel
+    Left = 20
+    Height = 15
+    Top = 100
+    Width = 300
+    Caption = ''
+  end
+end

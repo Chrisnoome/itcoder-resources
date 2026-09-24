@@ -240,6 +240,17 @@ begin
   f.Free;
 end;
 
+procedure SceneImage;
+var f: TForm; im: TImage;
+begin
+  f := NewForm('Image', 300, 200);
+  im := TImage.Create(f); Place(im, f, 'imgLogo', 20, 20, 120); im.Height := 120;
+  im.Picture.LoadFromFile('D:/DB Sync/Dropbox/Projects/AIPascalCourse/public/assets/logo-120.png');
+  im.Stretch := True; im.Proportional := True;
+  ShowAndShoot(f, 'image');
+  f.Free;
+end;
+
 procedure SceneBad;
 var f: TForm; l: TLabel; e: TEdit; b: TButton; m: TMemo;
 begin
@@ -280,4 +291,5 @@ begin
   SceneFont('font-installed', 'Agency FB');
   SceneFont('font-missing', 'Agency FB Condensed Pro');
   SceneBad;
+  SceneImage;
 end.

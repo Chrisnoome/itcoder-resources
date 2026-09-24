@@ -1,4 +1,4 @@
-object frmBooking: TfrmBooking
+object frmMain: TfrmMain
   Left = 300
   Height = 400
   Top = 200

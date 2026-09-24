@@ -1,4 +1,4 @@
-Unit uBookingForm;
+Unit uMain;
 
 {$H+}
 
@@ -14,7 +14,7 @@ Const
 Type
   TBookingArray = Array [1..maxBookings] Of TBooking;
 
-  TfrmBooking = Class (TForm)
+  TfrmMain = Class (TForm)
     pnlTop       : TPanel;
     lblTitle     : TLabel;
     gbxBooking   : TGroupBox;
@@ -45,10 +45,10 @@ Type
     count    : Integer;
     Procedure ShowTotal;
     Procedure ShowMessageLine (aMessage : String; aColour : TColor);
-  End; // TfrmBooking
+  End; // TfrmMain
 
 Var
-  frmBooking : TfrmBooking;
+  frmMain : TfrmMain;
 
 Implementation
 
@@ -56,15 +56,15 @@ Implementation
 
 // Starts with no bookings and the total for one standard seat.
 // Sender - the form
-Procedure TfrmBooking.FormCreate (Sender : TObject);
+Procedure TfrmMain.FormCreate (Sender : TObject);
 Begin
   count := 0;
   ShowTotal;
-End; // TfrmBooking.FormCreate
+End; // TfrmMain.FormCreate
 
 // Frees every booking when the form closes.
 // Sender - the form
-Procedure TfrmBooking.FormDestroy (Sender : TObject);
+Procedure TfrmMain.FormDestroy (Sender : TObject);
 Var
   index : Integer;
 Begin
@@ -72,31 +72,31 @@ Begin
   Begin
     bookings[index].Free;
   End; // for
-End; // TfrmBooking.FormDestroy
+End; // TfrmMain.FormDestroy
 
 // F1 shows the help, wherever the cursor is.
 // Sender - the form
 // Key    - the key pressed
 // Shift  - Shift, Ctrl or Alt held down
-Procedure TfrmBooking.FormKeyDown (Sender : TObject; Var Key : Word; Shift : TShiftState);
+Procedure TfrmMain.FormKeyDown (Sender : TObject; Var Key : Word; Shift : TShiftState);
 Begin
   If Key = VK_F1 Then
   Begin
     ShowMessage ('Fill in the name, the cell number and the number of tickets, choose the seats, then click Book (or press Enter). Esc clears the form.');
   End; // if
-End; // TfrmBooking.FormKeyDown
+End; // TfrmMain.FormKeyDown
 
 // Writes a message under the form in a colour.
 // aMessage - the words to show
 // aColour  - clRed for a problem, clGreen for good news
-Procedure TfrmBooking.ShowMessageLine (aMessage : String; aColour : TColor);
+Procedure TfrmMain.ShowMessageLine (aMessage : String; aColour : TColor);
 Begin
   lblMessage.Font.Color := aColour;
   lblMessage.Caption := aMessage;
-End; // TfrmBooking.ShowMessageLine
+End; // TfrmMain.ShowMessageLine
 
 // Shows what the chosen seats cost - the class works it out, not the form.
-Procedure TfrmBooking.ShowTotal;
+Procedure TfrmMain.ShowTotal;
 Var
   booking : TBooking;
 Begin
@@ -105,26 +105,26 @@ Begin
   booking.SetIsVip (rgpSeats.ItemIndex = 1);
   lblTotal.Caption := 'R' + IntToStr (booking.GetTotal);
   booking.Free;
-End; // TfrmBooking.ShowTotal
+End; // TfrmMain.ShowTotal
 
 // A new number of tickets - show the new total.
 // Sender - the spin edit
-Procedure TfrmBooking.sedTicketsChange (Sender : TObject);
+Procedure TfrmMain.sedTicketsChange (Sender : TObject);
 Begin
   ShowTotal;
-End; // TfrmBooking.sedTicketsChange
+End; // TfrmMain.sedTicketsChange
 
 // Other seats - show the new total.
 // Sender - the radio group
-Procedure TfrmBooking.rgpSeatsClick (Sender : TObject);
+Procedure TfrmMain.rgpSeatsClick (Sender : TObject);
 Begin
   ShowTotal;
-End; // TfrmBooking.rgpSeatsClick
+End; // TfrmMain.rgpSeatsClick
 
 // Reads the form into a new booking. The class checks every value; if it
 // refuses one, its message is shown and the cursor goes back to that box.
 // Sender - the Book button
-Procedure TfrmBooking.btnBookClick (Sender : TObject);
+Procedure TfrmMain.btnBookClick (Sender : TObject);
 Var
   booking : TBooking;
   box     : TWinControl;
@@ -160,17 +160,17 @@ Begin
       End; // on
     End; // try
   End; // else
-End; // TfrmBooking.btnBookClick
+End; // TfrmMain.btnBookClick
 
 // Empties the form for a new booking.
 // Sender - the Clear button, or Esc
-Procedure TfrmBooking.btnClearClick (Sender : TObject);
+Procedure TfrmMain.btnClearClick (Sender : TObject);
 Begin
   edtName.Clear;
   medCell.Clear;
   sedTickets.Value := 1;
   rgpSeats.ItemIndex := 0;
   edtName.SetFocus;
-End; // TfrmBooking.btnClearClick
+End; // TfrmMain.btnClearClick
 
 End.

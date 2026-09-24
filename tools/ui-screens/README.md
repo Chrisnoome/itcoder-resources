@@ -24,3 +24,15 @@ PrintWindow, so pictures are at the screen's scaling (125% on Chris's machine -
 lessons show them at 80%). Copy to `public/assets/lessons/pascal/lesson23-*.png`.
 `masktest` types into a real TMaskEdit and prints Text/EditText/ValidateEdit;
 `pascal-tryit-ui.test.js` holds its results.
+
+## fonts/ and the font demos (lesson 23)
+
+`fontsheet.py` draws a sample of every Windows 11 font into
+`public/assets/lessons/pascal/fonts/`; `lazarus/fontpic` (GDI) drew Symbol,
+Marlett, Webdings and Wingdings, which Pillow can't (text in `sym-*.txt`, as
+U+F0xx for the symbol fonts). `lazarus/fontdemo` is the FreeSerif private-font
+program: run `fontdemo.exe font-private` with FreeSerif.ttf beside it and
+`fontdemo.exe font-nofile` without. The component pictures in the prefix table
+(`lesson23-comp-*.png`) are cut from the scene screenshots with the `.json`
+control positions (a TGroupBox/TRadioGroup's position is its inside - start 26
+pixels higher to include the caption).
