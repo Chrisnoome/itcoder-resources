@@ -138,36 +138,40 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
 Not in this course: data representation (binary, hex, bits, signed/unsigned,
 overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
 
-## Glossary and index (plan, Chris 24 September 2026 - not built yet)
+## Glossary and index (Chris, 24 September 2026 - built)
 
-**Glossary** - one data file, `content/pascal/glossary.php`: term,
-definition, grade (10/11/12), examined or not, optional illustration, and
-where it is taught (lessonId + anchor).
-- **One definition per term:** lesson `Gloss()` popups read their text from
-  the glossary (a popup worded only for its spot in a lesson gets reworded).
-- First draft from the lessons' ~110 popup terms and ~185 study key terms,
-  deduplicated to about 250. **Every term goes in**; terms that are not
-  examined are shown in **plum** (the "not examined but useful" colour).
-- **Illustrations may mostly be blank** - they matter when the glossary is
-  reused in the theory lessons. Use the real Lazarus pictures of GUI
-  components (lesson 23) where they fit.
-- **Grade per term** (a lesson spans grades - see `sags.php` - so each term
-  gets its own grade), with **grade checkboxes** (Gr 10, 11, 12) to filter,
-  plus a search box and A-Z jump bar. Table: Term | Definition |
-  Illustration | Taught in (link to the section).
-- **Place:** an unnumbered "Glossary" entry after the last lesson (after 26
-  once built), no marks, no study/SAGs/CAPS boxes.
-- **PDF:** the glossary has a download (hand-written `lib/pdf.php`, no
-  library), following the grade filter chosen.
+**Glossary** - `content/pascal/glossary.php` (one row per term: term,
+grade, examined, lessonId, anchor, definition, extras `also`/`image`/`url`;
+the format is described at the top of the file), read by `lib/glossary.php`.
+- **One definition per term:** `Gloss()` shows the glossary's definition
+  whenever its term, or one of its `also` names (plural "s" ignored), is in
+  the glossary; the definition written in the lesson is only a fallback for
+  a term the glossary lacks (only "hubris" today). Definitions are plain
+  text - no HTML, bold or code (popups escape them, the PDF can't show it).
+- **Every term is in** (276, drafted from every popup and study key term);
+  not examined = **plum** (`is-not-examined`, "not examined" in the PDF).
+  **Grades and plum marks are a first draft for Chris to check.**
+- **Grade per term** (10/11/12, from the SAGs line it belongs to - a lesson
+  spans grades), with grade checkboxes, a search box and an A-Z bar on
+  `glossary.php?c=pascal`. Table: Term | Definition | Illustration | Taught
+  in (link to the lesson section).
+- **Illustrations mostly blank**; the 19 GUI components use lesson 23's real
+  Lazarus pictures. They matter when the glossary is reused in theory.
+- **Place:** an unnumbered "A-Z Glossary" row after the last lesson on the
+  course page, shown when the course has a glossary file.
+- **PDF:** `glossary-pdf.php?c=&g=10,11` (the grades ticked), `lib/pdf.php`.
+- Check: `php bin/check-glossary.php` (taught-in place real, grade, plain
+  text, no name used twice, pictures exist; notes popups not in it).
 
-**Index** - **every course gets its own**, opened from the top bar.
-- A **popup window with a search box and a Cancel button** (not a
-  dropdown list): type, pick a match, go straight to the lesson section.
-- Entries are built from the lessons: glossary terms, section names
-  (contents), algorithms, commands and functions, error messages - so a new
-  lesson is indexed with no extra work. No grades in the index, **no PDF**.
-- A check makes sure every entry lands on a real lesson and anchor
-  (like `bin/check-lesson-links.php`).
+**Index** - every course has its own (`lib/courseindex.php`), from **Index**
+in the top bar of the course, lesson and glossary pages: a `<dialog>` popup
+with a search box and a Cancel button (`assets/course-index.js`); Enter or a
+click goes straight to the place. Built from the lessons, so new lessons are
+indexed automatically: lesson titles, contents sections, algorithm blocks,
+`errors` block titles and their messages (file position and memory address
+removed), glossary terms (where taught), and popup terms the glossary lacks.
+No grades, **no PDF**. Fetched from `api/course-index.php` when first
+opened; cached in the temp folder until any content file changes.
 
 ## Course decisions
 

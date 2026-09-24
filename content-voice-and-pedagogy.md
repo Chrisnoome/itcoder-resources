@@ -225,6 +225,20 @@ list, two uses. Leave `title` off (defaults to "Lesson Contents"). Anchors:
 Never a second visible heading. Not every heading needs an entry.
 Check: `php bin/check-lesson-contents.php`.
 
+## 7a. "Lesson N" is a link (Chris, 24 September 2026)
+
+Wherever a Pascal lesson mentions another lesson, the words are a link to
+the exact section meant, not just the lesson:
+`<a class="lesson-link" href="/lesson.php?c=pascal&amp;id=lesson07#convIntStr">lesson 7</a>`.
+Use the **lessonId** (lesson 4 is `lesson02`) and one of the target's
+contents anchors; no `#` when the whole lesson is meant. Same tab - Back
+returns to the place. Left as plain text, because a link can't work there:
+study blocks (bold/code markup and a PDF), written questions (sent to the
+marker), titles, contents notes, `Gloss()`/`Aside()` text and the prompts
+of quiz/typed/checkedcode/order/select/match/gridtyped (escaped). Check:
+`php bin/check-lesson-links.php` (dead links fail; unlinked mentions are
+listed as notes).
+
 ## 7b. Every code listing can be run
 
 `console.js` adds **Copy to console** to any `<pre>` holding a whole program

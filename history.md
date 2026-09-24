@@ -77,3 +77,4 @@ pre-compaction files).
 - 09-24 Pascal lessons: every "lesson N" reference is a link to the section meant (297 links, `bin/check-lesson-links.php`, content-voice-and-pedagogy.md §7a). Proof of life's "a box, which lesson 3 teaches" corrected to lesson 4.
 - 09-24 Plan for a Pascal glossary (all terms, plum = not examined, grade checkboxes, PDF, popups read from it) and a per-course searchable index popup (no PDF) - courses/pascal-course.md.
 - 09-25 Lessons 26 (data validation task) and 27 (PAT) with AI pre-checks of uploaded parts (lib/tasks.php, never a mark); questions fold, headers show earned marks, Hide questions for syllabus 'none', tooltips on the top bar and console; CAPS tasks researched (caps-tasks.md).
+- 09-24 Built the Pascal glossary (276 terms, grade filter, plum = not examined, PDF; Gloss() popups now read the glossary) and a per-course Index popup (search + Cancel) on course, lesson and glossary pages - courses/pascal-course.md.

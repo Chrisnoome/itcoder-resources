@@ -57,7 +57,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `bin/markqueue.php`.
 - **Pages:** `/` landing; after sign-in `subjects.php` (the first page);
   `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
-  `lesson.php?c=&id=`; `scores.php?c=` (My marks - lesson and course totals as
+  `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `scores.php?c=` (My marks - lesson and course totals as
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year
   filters); `pupil-work.php?c=&p=` (teachers only: every marked question, the
   answer, right answer, mark and feedback; same totals as `teacher.php`);
@@ -106,7 +106,8 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   (`MatchCorrectLines()`, `MatchMarkEarned()`). Every totalling page goes
   through `AutoMarkedEarned()` (`PupilAutoMarkedTotal()`,
   `CourseAutoMarkedWeights()`) - never `QuizMarkEarned()` on a match row.
-- **Popups:** `Gloss($term, $def)` (glossary) and `Aside($marker, $text)` (joke,
+- **Popups:** `Gloss($term, $def)` (glossary - shows the course glossary's
+  definition when the term is in it, `lib/glossary.php`) and `Aside($marker, $text)` (joke,
   anecdote) in `lib/content.php`.
 - **`code` blocks:** an editable Pascal box with Run; real fpc in the sandbox
   (decision 15), genuine errors and output. Layout is checked first
@@ -439,6 +440,8 @@ Secrets live in `config/config.php` per project, never here.
 
 - `php -l` on every PHP file touched.
 - `php bin/check-popup-spacing.php` - after any `Gloss()`/`Aside()` change.
+- `php bin/check-glossary.php` - glossary terms: plain, graded, named once,
+  taught somewhere real (courses/pascal-course.md).
 - `php bin/check-lesson-links.php` - every "lesson N" link lands on a real
   lesson and anchor (content-voice-and-pedagogy.md §7a).
 - `php bin/check-lesson-contents.php` - one `contents` block per lesson, every
