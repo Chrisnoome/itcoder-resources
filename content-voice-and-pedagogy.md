@@ -151,7 +151,7 @@ marking-house-style.md (style never marked) is deliberately different.
   `gradeBand`, `busPlanner`, `forCounter`, `shapeDrawer`, `whileVsRepeat`,
   `stringBoxes`, `caesarWheel`, `objectFactory`), `pascal-tryit-files.js`
   (`fileModes`), `pascal-tryit-errors.js` (lesson 18: `exceptionJump`,
-  `validationLab`, `checkDigitLab`, `guiForm`), `pascal-tryit-dates.js` (lesson 19: `dateNumber`, `dateFormatLab`, `ageLab`, `leapYearLab`, `idDateLab`; checked against fpc output by `pascal-tryit-dates.test.js`), `pascal-tryit-manager.js` (lesson 20: `managerLab`, TPupilManager's model checked by `pascal-tryit-manager.test.js`), `pascal-tryit-inherit.js` (lesson 21: `bindingLab`, Virtual/static binding checked against 8 fpc runs by `pascal-tryit-inherit.test.js`) and `pascal-tryit-more.js`. **New builders register with
+  `validationLab`, `checkDigitLab`, `guiForm`), `pascal-tryit-dates.js` (lesson 19: `dateNumber`, `dateFormatLab`, `ageLab`, `leapYearLab`, `idDateLab`; checked against fpc output by `pascal-tryit-dates.test.js`), `pascal-tryit-manager.js` (lesson 20: `managerLab`, TPupilManager's model checked by `pascal-tryit-manager.test.js`), `pascal-tryit-inherit.js` (lesson 21: `bindingLab`, Virtual/static binding checked against 8 fpc runs by `pascal-tryit-inherit.test.js`), `pascal-tryit-ui.js` (lessons 22-23: `readKeyLab`, `colourWheel`, `maskEditLab` - the mask checked against 23 Lazarus TMaskEdit runs by `pascal-tryit-ui.test.js`) and `pascal-tryit-more.js`. **New builders register with
   `PascalTryit.register (name, fn)` in their own file**, loaded after
   `pascal-tryit.js`. In `pascal-tryit-more.js`:
   - `flowStepper` - a flowchart lit shape by shape with variables, output and a
@@ -165,6 +165,7 @@ marking-house-style.md (style never marked) is deliberately different.
   - `mathsLab`, `conversionLab`, `charPicker`, `comparisonLab` (`data-mode`
     text/number), `logicLab`, `formatLab` (`:width:decimals`, half up like
     fpc), `gotoGrid` (80 x 25).
+- **Screens and screenshots** (24 September 2026): a Crt screen is a real server run saved as `content/pascal/screens/<lesson>-*.ans` and drawn with TerminalScreen() inside `Figure ()`; a window is a real Lazarus screenshot in `public/assets/lessons/pascal/` (`.shot` + numbered `.shot-badge`s for callouts). How: `tools/ui-screens/README.md`.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
   keep a ~20px gap; never `textLength`/`lengthAdjust` (warps glyphs) - widen,

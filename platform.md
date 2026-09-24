@@ -324,6 +324,27 @@ site's code - run after publishing a marking change.
   what the person may use and why, and a code box (10 tries an hour). Invoice
   seller details come from config `invoiceSeller` (name, address, email, phone,
   bank) - **not set yet**.
+- **Teacher groups (step 2, 24 September 2026)** - `lib/groups.php`, tables
+  `teachingGroups`, `groupTeachers`, `groupMembers`, `groupInvites`,
+  `teacherDomains`, `schools` (for later). **A teacher sees a pupil's work only
+  after the pupil ACCEPTS an invitation to one of the teacher's groups, and only
+  in that group's course** (`TeacherCanSee()`); admins still see every school
+  pupil. Teachers: **My groups** (`groups.php`, `group.php`) - make a group,
+  paste addresses (on itcoder -> invited at once; not yet -> the invitation
+  waits and is matched when they open Subjects or My account), tick to invite
+  again or remove, invite pupils from an approved school domain, archive.
+  Pupils: an invitations box on Subjects and My account (Join / No thanks;
+  joining enrols them), and Leave under Your groups (`invitation.php`). Admin >
+  **Teachers and groups** (`admin-teachers.php`): make a teacher
+  (`pupils.teacherGrantedAt` - sign-in no longer resets it; config
+  `teacherEmails` still works), approve school domains (they only help find
+  pupils), turn a year's classes into groups (pupils accepted, Staff/Other
+  left out, safe to re-run), put teachers on groups. Class results: a
+  non-admin teacher sees only a group's accepted members; an admin can pick a
+  group or keep the class/year view. A **teacher plan covers AI marking** for
+  its groups' accepted members, first-accepted first up to its seats
+  (`GroupCoverage()` in `Entitlements()`). No emails yet (Brevo, step 5).
+  Check: `php bin/check-groups.php` (local database, rolled back).
 - **Every AI call is costed:** `CallClaude()` records tokens and cost in
   `aiUsage` against `SetAiUsageContext()` (marking, analysis, review,
   codecheck, style). Prices `AiPriceTable()` (Haiku 4.5 $1/$5 per M tokens;
@@ -387,6 +408,7 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-figures.php` - every illustration in `Figure ()`.
 - `php bin/check-code-blocks.php [--compile]` - every listing runnable or
   marked no-console.
+- `php bin/check-groups.php` - groups, invitations, who a teacher sees, seats (local only).
 - `php bin/check-output-programs.php` - every output has its main program
   shown above it (content-voice-and-pedagogy.md §7b).
 - `php bin/check-codestyle.php`, `php bin/check-typing.php`,
