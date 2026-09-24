@@ -50,6 +50,13 @@ for code ("look up two RAM prices, work out cost per GB, then reveal").
     ['type' => 'reveal', 'prompt' => '<p>Run this ... What does it print?</p>', 'explain' => '<p>It prints ...</p>'],
 
 Quizzes test recall and judgement; `reveal` teaches through doing.
+
+The button reads **"What happens next? Show me"**: big, orange, full width,
+pulsing until pressed, with "Make your guess first..." above it (Chris, 25
+September 2026: many pupils skipped it). An opened reveal stays open on that
+browser (`localStorage`, nothing marked), and a pupil who scrolls past a closed
+one gets a bar at the bottom: "You scrolled past a ... button" with **Take me
+back** / **Not now** (`app.js`, `SetUpReveal`/`DrawRevealBar`).
 **A question may never test a word or fact that isn't in always-visible prose**
 - not only in a popup or a reveal's hidden `explain`.
 
@@ -226,12 +233,33 @@ Check: `php bin/check-lesson-contents.php`.
 2. Otherwise mark `<pre class="no-console">` on purpose (a statement's shape
    with placeholders, pseudocode, a fragment of the program above). Sparingly.
 3. Sample output and compiler messages need nothing.
+4. **Output always has its main program right above it** (Chris, 25 September
+   2026). A class or a method alone never produces output - so wherever a
+   lesson shows what a program prints, the listing above it must include the
+   main program (a whole program, or a `no-console` fragment ending in
+   `Begin ... End.`, saying which classes go above it). When the whole
+   program is long, show the main program again on its own just above the
+   output. A "what if" variant (a line left out) shows the changed code AND a
+   main program. A `<pre>` that is not output of a program (a file's contents,
+   a data format) is marked `class="no-program"`. Check:
+   `php bin/check-output-programs.php` (a reveal counts the last program with a
+   main in the blocks above it).
+5. **Code that fails says so next to it**: a fragment shown to produce an
+   error carries a comment on the line (`// ERROR - will not compile`,
+   `// ERROR when it runs - ...`) and the prose says which of the two it is
+   before the message is shown.
 
 What is copied must pass the console's layout check (no single-letter names,
 full names like `firstNumber`), with `Uses SysUtils;`/`Crt`/`Math` when needed,
 and a program never named like a variable. A code exercise's `starter` is held
 to that block's rules. Check: `php bin/check-code-blocks.php` (`--compile`
 also compiles; a few fail on purpose).
+
+**Long listings start folded** (Chris, 24 September 2026): a Pascal listing
+over 15 lines shows its first lines under a fade, with a "Show the whole
+program (N lines)" bar (`app.js` `FoldLongListing`). When the part that
+matters is at the end of a long program (a main program), show that part on
+its own first, then the whole program.
 
 ## 7c. Listings are coloured like the console
 
@@ -242,6 +270,16 @@ in a `<pre>`.** Plain: output, compiler messages, `algorithm-pseudocode`,
 if it starts with a heading, a section word, `//`, or any line has `:=` or
 ends in `;` - check output that contains a semicolon. The palette lives in
 `console.css` and `style.css` (`.pascal-code`) - change both.
+
+**Long lines wrap, never scroll sideways** (Chris, 25 September 2026). Every
+listing, output box, errors card, try-it panel and array demo wraps a line
+too long for the box with a **hanging indent**: the wrapped part lines up one
+place after the line's first `(` - the way a long heading is written by hand -
+or 4 places in from the line's own indent when there is no bracket (2 for
+output). `app.js` `LineHang()`/`HangLine()` (shared as `window.PascalLineHang`
+with `pascal-tryit.js` and `array-demo.js`); CSS `pre-wrap` on
+`.pre-line-text`. Nothing to write in a lesson - it is automatic. Only the DOS
+terminal keeps its fixed 80 columns.
 
 ## 7d. Two or more error messages together -> an `errors` block
 
@@ -281,6 +319,9 @@ chart rendered.
 - [ ] Every listing a whole program or `no-console`, full names, runnable
       (§7b); every error message from a real compile; 2+ together in an
       `errors` block (§7d)
+- [ ] **Every output has its main program shown right above it**; failing
+      code says "will not compile" / "error when it runs" (§7b,
+      `check-output-programs.php`)
 - [ ] **Every variable given a starting value before use**, and the lesson says
       so where it matters (Chris: "must always be done")
 - [ ] Every tested fact is in visible prose; prompts broken into lists

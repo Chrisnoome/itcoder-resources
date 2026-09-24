@@ -40,6 +40,11 @@ curriculum calls for them. The console's layout check (`lib/codestyle.php`,
 - Space before `:` (`minutesPart : Integer`, `Function GetElapsed : Integer`).
 - Space before `(` and after `)`: `FormatDuration (aSeconds : Integer)`.
 - Spaces around operators (`:=`, `+`, `<`, `Div`, `Mod`).
+- **A heading too long for one line** continues on the next line lined up one
+  place after its opening bracket:
+  `Procedure DrawBox (aLeft : Integer;` / `                   aTop : Integer);`.
+  Lessons never need to split a line by hand for the screen: listings wrap long
+  lines the same way automatically (content-voice-and-pedagogy.md §7c).
 - **`>=` and `<=` are always two ASCII characters**, never `≥`/`≤`, anywhere a
   pupil might copy from (prose, tables, popups, code) - site-wide. The code
   font's ligatures are switched off in `style.css` (`font-variant-ligatures:

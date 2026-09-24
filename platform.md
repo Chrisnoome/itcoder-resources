@@ -305,11 +305,32 @@ site's code - run after publishing a marking change.
   the last closes; the next page reclaims the seat 3 s after loading). Browsers
   allow no custom pop-up on close, so a **"Leaving?" pop-up with Sign out**
   shows when the mouse leaves through the top of the window (24 September 2026).
-- **AI marking is what is restricted:** `CanUseMarking()` = `IsSchoolPupil()`
-  (`schoolEmailDomains`: `students.dlshcch.co.za`, `dlshcch.co.za`) or
-  `HasActiveSubscription()` (`subscriptionExpiresAt`, set by hand). Enforced in
-  `api/submit-written.php`. (`checkedcode` and typed-answer AI checks are open
-  to everyone enrolled.)
+- **Access is decided by `Entitlements()` in `lib/billing.php` and nothing
+  else** (24 September 2026). `CanUseMarking (pupil, courseId)` asks it. Sources:
+  a `schoolEmailDomains` address in config (De La Salle, until step 2 turns its
+  classes into groups); the old `pupils.subscriptionExpiresAt`; the person's own
+  active subscription (a pupil plan covers `scope` = all or one course; a
+  teacher plan adds teacher tools); a school licence whose `domains` include the
+  email's domain. The AI daily cap is the plan's `aiDailyCap`, else config
+  `maxApiCallsPerPupilPerDay` (`AiDailyCap()`). Every AI API passes the course.
+- **Billing (step 1, no gateway yet):** tables `plans`, `subscriptions`,
+  `invoices`, `payments`, `accessCodes`, `codeRedemptions`, `aiUsage` (end of
+  `schema.sql`). Money in cents, rand; VAT stored as 0 (not registered).
+  **Admin > Billing** (`admin-billing.php`): plans, give a subscription (by
+  email, or a school licence by domains), invoices (numbered `ITC-YYYY-NNNN`,
+  never reused, cancelled not deleted; PDF at `invoice.php`; Paid with EFT
+  reference; refunds as negative payments), bursary codes, AI costs per kind and
+  per person, and a monthly CSV. **My account** (`account.php`, in the menu):
+  what the person may use and why, and a code box (10 tries an hour). Invoice
+  seller details come from config `invoiceSeller` (name, address, email, phone,
+  bank) - **not set yet**.
+- **Every AI call is costed:** `CallClaude()` records tokens and cost in
+  `aiUsage` against `SetAiUsageContext()` (marking, analysis, review,
+  codecheck, style). Prices `AiPriceTable()` (Haiku 4.5 $1/$5 per M tokens;
+  cache reads counted at the full input price - an overestimate), rand via
+  `ExchangeRate()`: the ECB daily rate from api.frankfurter.dev (free, no key),
+  saved in `exchange-rate.json` beside the database and refreshed when over 12
+  hours old; config `usdToZar` fixes it instead (24 September 2026).
 - **A subscriber's marks are visible only to the subscriber** - `teacher.php`
   drops non-school pupils; `privacy.php`/`terms.php` promise it.
 - **Teachers** = `config['teacherEmails']` (Chris's school and personal).
@@ -366,6 +387,8 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-figures.php` - every illustration in `Figure ()`.
 - `php bin/check-code-blocks.php [--compile]` - every listing runnable or
   marked no-console.
+- `php bin/check-output-programs.php` - every output has its main program
+  shown above it (content-voice-and-pedagogy.md §7b).
 - `php bin/check-codestyle.php`, `php bin/check-typing.php`,
   `php bin/check-sags.php`, `php bin/check-videos.php`.
 - `node tests/tokeniser.test.js`; `node public/assets/*.test.js`.

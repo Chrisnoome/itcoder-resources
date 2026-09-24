@@ -1,6 +1,6 @@
 # Platform roadmap - teachers, subscriptions, landing page
 
-**Status: PLAN, nothing built - all 25 questions answered 24 September 2026 (see the end)** (drafted 24 September 2026 from Chris's brief of
+**Status: all 25 questions answered 24 September 2026 (see the end). Step 1 BUILT the same day** - see platform.md, "Access is decided by Entitlements()" and "Billing". Next: step 2, teacher groups. (drafted 24 September 2026 from Chris's brief of
 the same day). Answer the questions marked **Q** and this file becomes the
 spec; once a part is built, move its rules into platform.md and delete them
 here. Facts about outside services (gateways, fees, VAT) were NOT checked

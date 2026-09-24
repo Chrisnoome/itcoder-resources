@@ -84,7 +84,9 @@ the Windows testbed.
   drag in; names tidied, `.lpr`/`.dpr` -> `.pas`, type/size checked, clashes ask
   Replace / Keep both / Skip, refusals listed), Download this file, Download
   all (.zip written in the browser), Rename, Delete.
-- **Template ▾** (toolbar, 24 September 2026): Program, Unit (Interface,
+- **Template ▾** (toolbar, 24 September 2026; the Program and Unit templates
+  start with `{$H+}` since 25 September 2026, so a class's ToString can say
+  Override - pascal-house-style.md §6): Program, Unit (Interface,
   Implementation and an empty Initialization) or Class (asks for a T name; goes
   into a unit's Interface, or above a program's Var/Begin, with empty private
   and public). A program or unit fills the current file if it is still empty,
