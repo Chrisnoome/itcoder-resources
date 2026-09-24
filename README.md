@@ -43,6 +43,7 @@ this folder's git log.
 | [sags-2025.md](sags-2025.md) | The rest of the SAGs as reference |
 | [ieb-practical-exam-analysis.md](ieb-practical-exam-analysis.md) | Every IEB practical paper analysed: structure, what always appears, marking, exam technique - for lesson 24 |
 | [caps-practical-exam-analysis.md](caps-practical-exam-analysis.md) | Every DBE (CAPS) Paper 1 analysed, Pascal questions only (1, 3, 4): structure, what always appears, marking, technique - for lesson 25 |
+| [caps-tasks.md](caps-tasks.md) | The CAPS school-based tasks (the DBE PAT, the alternative task) and a proposal for lessons 28+ |
 | [caps-2024.md](caps-2024.md) | The DBE CAPS (2024 amendment) as reference: every topic per grade and term, assessment, Paper 1/2 formats |
 | [courses/ai-course.md](courses/ai-course.md) | The Grade 9 AI course |
 | [courses/pascal-course.md](courses/pascal-course.md) | The Pascal course: lessons, decisions, verified facts |

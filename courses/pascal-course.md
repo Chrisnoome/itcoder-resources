@@ -118,12 +118,56 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   [../caps-practical-exam-analysis.md](../caps-practical-exam-analysis.md);
   it must teach reading from and writing to components in click events,
   which the console course otherwise does not.
-- **26 - PAT guidelines** (was 25 until 24 Sep 2026): the 100-mark Grade 12 PAT (may start in Grade 11) -
-  phases, documentation (specification, design, technical, testing), help
-  systems, a multi-table database from code, GUI, what moderators look for.
+- **26 - The data validation task** - BUILT 25 Sep 2026 as lesson26 (Chris:
+  "extract and discuss the rubric, show how to plan and structure the task -
+  add an ability to upload the task for a pre-evaluation ... stress that the
+  final say is the teacher's"). The IEB mark sheet (SAGs Appendix A, 50) line
+  by line, the component table, the eight checks, messages, testing, the
+  document; a `taskreview` block for a PDF pre-check.
+- **27 - The PAT** - BUILT 25 Sep 2026 as lesson27: the IEB 2026 rubric -
+  specifications 15, design 30, code 40, technical and testing 15 - borrowed
+  code and AI (20%), the interview; a `taskreview` block per part (documents
+  as PDF, the code as source files or a PDF).
+- **28 onwards - the CAPS tasks** (Chris, 25 Sep 2026: "they will need to be
+  the lessons that come after the IEB data validation and the IEB PAT").
+  Researched in [../caps-tasks.md](../caps-tasks.md): CAPS has no data
+  validation task; the DBE Grade 12 PAT (two phases, 48 + 86 + 16 = 150,
+  Delphi with a database and SQL) and the yearly alternative task. Proposal
+  there - Chris to decide before building.
 
 Not in this course: data representation (binary, hex, bits, signed/unsigned,
 overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
+
+## Glossary and index (plan, Chris 24 September 2026 - not built yet)
+
+**Glossary** - one data file, `content/pascal/glossary.php`: term,
+definition, grade (10/11/12), examined or not, optional illustration, and
+where it is taught (lessonId + anchor).
+- **One definition per term:** lesson `Gloss()` popups read their text from
+  the glossary (a popup worded only for its spot in a lesson gets reworded).
+- First draft from the lessons' ~110 popup terms and ~185 study key terms,
+  deduplicated to about 250. **Every term goes in**; terms that are not
+  examined are shown in **plum** (the "not examined but useful" colour).
+- **Illustrations may mostly be blank** - they matter when the glossary is
+  reused in the theory lessons. Use the real Lazarus pictures of GUI
+  components (lesson 23) where they fit.
+- **Grade per term** (a lesson spans grades - see `sags.php` - so each term
+  gets its own grade), with **grade checkboxes** (Gr 10, 11, 12) to filter,
+  plus a search box and A-Z jump bar. Table: Term | Definition |
+  Illustration | Taught in (link to the section).
+- **Place:** an unnumbered "Glossary" entry after the last lesson (after 26
+  once built), no marks, no study/SAGs/CAPS boxes.
+- **PDF:** the glossary has a download (hand-written `lib/pdf.php`, no
+  library), following the grade filter chosen.
+
+**Index** - **every course gets its own**, opened from the top bar.
+- A **popup window with a search box and a Cancel button** (not a
+  dropdown list): type, pick a match, go straight to the lesson section.
+- Entries are built from the lessons: glossary terms, section names
+  (contents), algorithms, commands and functions, error messages - so a new
+  lesson is indexed with no extra work. No grades in the index, **no PDF**.
+- A check makes sure every entry lands on a real lesson and anchor
+  (like `bin/check-lesson-links.php`).
 
 ## Course decisions
 

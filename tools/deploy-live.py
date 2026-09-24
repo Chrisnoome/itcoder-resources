@@ -135,6 +135,16 @@ Step('remove the helper', 'rm -f %s/add-compile-keys.php' % LIVE)
 print('\n== 6. the three new tables ==')
 Step('setup.php', 'cd %s && sudo -u www-data php bin/setup.php' % LIVE)
 
+# Uploads for task pre-checks (25 September 2026): nginx must let a 10 MB PDF
+# through (PHP's own limit is public/.user.ini). Changes only that one line,
+# only when it is not already 12m, backs the file up first, tests before reload.
+NGINX_SITE = '/etc/nginx/sites-available/itcoder'
+Step('upload size 12m in nginx',
+     "if grep -q 'client_max_body_size 12m;' {f}; then echo 'already 12m'; "
+     "else cp -a {f} {f}.bak-$(date +%F-%H%M%S) "
+     "&& sed -i 's/client_max_body_size [0-9]*[mM];/client_max_body_size 12m;/' {f} "
+     "&& nginx -t && systemctl reload nginx && grep -n client_max_body_size {f}; fi".format(f=NGINX_SITE))
+
 print('\n== 7. the compile worker: log FIRST, then cron ==')
 Step('create the log', 'touch /var/log/itcoder-compile.log && chown www-data:www-data /var/log/itcoder-compile.log && ls -l /var/log/itcoder-compile.log')
 Step('add the cron line (only if absent)',

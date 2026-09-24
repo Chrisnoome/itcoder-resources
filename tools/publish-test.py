@@ -99,6 +99,16 @@ Step('config/data 750, config.php 640',
 print('\n== 3. tables and columns ==')
 Step('setup.php', 'cd %s && sudo -u www-data php bin/setup.php' % TEST)
 
+# Uploads for task pre-checks (25 September 2026): nginx must let a 10 MB PDF
+# through (PHP's own limit is public/.user.ini). Changes only that one line,
+# only when it is not already 12m, backs the file up first, tests before reload.
+NGINX_SITE = '/etc/nginx/sites-available/itcoder-v2-test'
+Step('upload size 12m in nginx',
+     "if grep -q 'client_max_body_size 12m;' {f}; then echo 'already 12m'; "
+     "else cp -a {f} {f}.bak-$(date +%F-%H%M%S) "
+     "&& sed -i 's/client_max_body_size [0-9]*[mM];/client_max_body_size 12m;/' {f} "
+     "&& nginx -t && systemctl reload nginx && grep -n client_max_body_size {f}; fi".format(f=NGINX_SITE))
+
 print('\n== 4. the root-owned sandbox (shared with live) ==')
 code, out = vps.run('sha256sum %s 2>/dev/null' % INSTALLED)
 installed_sha = out.split()[0] if (code == 0 and out.strip()) else ''

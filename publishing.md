@@ -61,6 +61,11 @@ Both are safe to re-run and never delete anything.
   small uploads, no hand copies). Stop and give Chris the PowerShell command.
 - **`ModuleNotFoundError`** - use the full interpreter path.
 
+**Upload size (25 September 2026):** both scripts make sure the site's nginx
+block has `client_max_body_size 12m` (task pre-checks upload PDFs up to 10 MB;
+PHP's own limit is `public/.user.ini`). Only that line changes, only when it is
+not already 12m, with a dated backup beside it, `nginx -t` before the reload.
+
 ## Rules
 
 - **Only the two scripts publish.** Never upload files by hand. If a script

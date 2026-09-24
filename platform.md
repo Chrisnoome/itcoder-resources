@@ -76,6 +76,23 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `schoolEmailDomains` address -> IEB, anyone else sees none and the course
   page asks once above the lessons. Changed on **My account** ("Exam
   syllabus"); saved by `syllabus.php`. Rules in `lib/syllabus.php`.
+- **Task pre-checks** (Chris, 25 September 2026) - `lib/tasks.php`, table
+  `taskReviews`, block `taskreview` (`'task' => 'dvt'` or `'pat'`). A pupil
+  uploads a part (PDF up to 10 MB / 60 pages; the PAT code as source files or
+  a PDF) to `task-upload.php`; the file is kept (latest per part) in
+  `data/uploads/tasks/<pupilId>/`; markqueue checks it LAST of all its jobs
+  against the IEB rubric (`TaskDefinitions()` - update each year with
+  `TASK_PROMPT_SINCE`), with the earlier documents as context; the pupil is
+  notified. **Always a guide, never a mark** - no mark is written anywhere;
+  the teacher's mark counts. Counts **10** against the daily AI cap; the same
+  file twice is not re-checked. Uploads need `public/.user.ini` (PHP 10M/12M)
+  and nginx `client_max_body_size 12m` (set by both publish scripts).
+- **Question blocks fold** (Chris, 25 September 2026; `app.js`): a settled
+  question's header shows "earned / out of marks"; pupils' settled questions
+  start folded (a live answer stays open); teachers and admins can fold any.
+  Someone whose syllabus is `none` gets **Hide questions** in the top bar
+  (remembered per browser). Every top-bar item, menu item and console button
+  has a hover tooltip (`NavItemTitle()` in `lib/masthead.php`).
 - **Block types:** `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
   `typed`, `checkedcode`, `order`, `select` (tick all correct, no more), `match`
   (dropdown per row), `gridtyped`, `code`, `algorithm`, `errors`, `important`,
@@ -422,6 +439,8 @@ Secrets live in `config/config.php` per project, never here.
 
 - `php -l` on every PHP file touched.
 - `php bin/check-popup-spacing.php` - after any `Gloss()`/`Aside()` change.
+- `php bin/check-lesson-links.php` - every "lesson N" link lands on a real
+  lesson and anchor (content-voice-and-pedagogy.md §7a).
 - `php bin/check-lesson-contents.php` - one `contents` block per lesson, every
   anchor real and under a heading.
 - `php bin/check-titles.php` - titles <= 55 visible characters (Good to Know
