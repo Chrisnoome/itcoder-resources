@@ -104,10 +104,14 @@ curriculum calls for them. The console's layout check (`lib/codestyle.php`,
 ## 6. Object-oriented conventions
 
 - `T` prefix; fields lowercase, methods capitalised.
-- **A program with a class starts with `{$H+}`** on its own line under the
-  Program line, and **ToString is declared `Function ToString : String;
-  Override;`** (Chris, 24 September 2026). `{$H+}` is a compiler switch, not a
-  comment; without it Override on ToString is an error. Lessons 16 on.
+- **Every program starts with `{$H+}`** on its own line under the Program
+  line, with a blank line either side (Chris, 24 September 2026: first for
+  classes, then "add {$H+} everywhere" - every lesson from lesson 2, every
+  starter, every error example, the console's default program and templates).
+  Lesson 2 explains it once as a compiler switch that gives long Strings.
+  Error positions quoted in lessons were recompiled with it. **ToString is
+  declared `Function ToString : String; Override;`** - without `{$H+}`,
+  Override on ToString is an error.
 - `Inherited Create` is a constructor's first line.
 - **A constructor with parameters fills fields through the setters**
   (`SetTitle (aTitle);`, not `title := aTitle;`).
