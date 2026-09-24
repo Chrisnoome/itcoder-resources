@@ -100,7 +100,7 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   steps); events; metaphors and icons; validation components (drop-downs,
   calendars); keeping logic out of event handlers so the same class works in a
   text program.
-- **24 - Practical exam guidelines - IEB**: the paper (text-based, SQL + algorithms +
+- **24 - Practical exam guide - IEB** - BUILT and live 25 Sep 2026 as lesson24: the paper (text-based, SQL + algorithms +
   OOP, 150 -> 100 marks, cognitive levels 30/40/30), how it is marked
   (marking-house-style.md: marks per step, carry-forward, style not marked),
   reading a question, planning, testing, saving, common mark losses.
@@ -108,7 +108,7 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   (24 Sep 2026). **Section B (OOP, 100 marks) only - SQL (Section A, 50
   marks) is a separate course (Chris, 24 Sep 2026)**; lesson 24 names it
   as the other half of the paper and no more.
-- **25 - Practical exam guidelines - CAPS** (Chris, 24 Sep 2026): the DBE
+- **25 - Practical exam guide - CAPS** - BUILT and live 25 Sep 2026 as lesson25 (Chris, 24 Sep 2026): the DBE
   Paper 1 - Delphi GUI, Questions 1 (general, 40), 3 (OOP, 40) and 4
   (problem solving, 30); Question 2 (database, 40) belongs to the SQL
   course. **Stands alone** - a CAPS pupil need not have done lesson 24 - so
@@ -118,13 +118,13 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   [../caps-practical-exam-analysis.md](../caps-practical-exam-analysis.md);
   it must teach reading from and writing to components in click events,
   which the console course otherwise does not.
-- **26 - The data validation task** - BUILT 25 Sep 2026 as lesson26 (Chris:
+- **26 - The data validation task - IEB** (title with IEB, Chris 25 Sep 2026) - BUILT and live 25 Sep 2026 as lesson26 (Chris:
   "extract and discuss the rubric, show how to plan and structure the task -
   add an ability to upload the task for a pre-evaluation ... stress that the
   final say is the teacher's"). The IEB mark sheet (SAGs Appendix A, 50) line
   by line, the component table, the eight checks, messages, testing, the
   document; a `taskreview` block for a PDF pre-check.
-- **27 - The PAT** - BUILT 25 Sep 2026 as lesson27: the IEB 2026 rubric -
+- **27 - The PAT - IEB** (title with IEB, Chris 25 Sep 2026) - BUILT and live 25 Sep 2026 as lesson27: the IEB 2026 rubric -
   specifications 15, design 30, code 40, technical and testing 15 - borrowed
   code and AI (20%), the interview; a `taskreview` block per part (documents
   as PDF, the code as source files or a PDF).

@@ -78,3 +78,4 @@ pre-compaction files).
 - 09-24 Plan for a Pascal glossary (all terms, plum = not examined, grade checkboxes, PDF, popups read from it) and a per-course searchable index popup (no PDF) - courses/pascal-course.md.
 - 09-25 Lessons 26 (data validation task) and 27 (PAT) with AI pre-checks of uploaded parts (lib/tasks.php, never a mark); questions fold, headers show earned marks, Hide questions for syllabus 'none', tooltips on the top bar and console; CAPS tasks researched (caps-tasks.md).
 - 09-24 Built the Pascal glossary (276 terms, grade filter, plum = not examined, PDF; Gloss() popups now read the glossary) and a per-course Index popup (search + Cancel) on course, lesson and glossary pages - courses/pascal-course.md.
+- 09-25 Lessons 24 (practical exam guide - IEB) and 25 (- CAPS) built; 26 and 27 retitled with IEB; 24-27, pre-checks, folding questions and tooltips published to test and live.

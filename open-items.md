@@ -39,9 +39,8 @@ Details live in the linked files.
 - **AI course restyle** - lessons are still v1's copy (no popups, reveals,
   mixed question types). Also worksheets, teacher pack, assessment weight,
   lesson 8 timing. See [courses/ai-course.md](courses/ai-course.md).
-- **Pascal lessons 24, 25 and 28+** (24 IEB practical exam; 25 CAPS practical
-  exam; 28+ the CAPS tasks - proposal in [caps-tasks.md](caps-tasks.md),
-  Chris to decide; 26 data validation task and 27 PAT are BUILT) - what each must
+- **Pascal lessons 28+** (the CAPS tasks - proposal in [caps-tasks.md](caps-tasks.md),
+  Chris to decide; 24-27 are BUILT and live) - what each must
   cover is in [courses/pascal-course.md](courses/pascal-course.md), "Lessons
   still to come". Build only when Chris asks.
 - **For the chat building lesson 18:** the SAGs check (23 Sep 2026) assigned
