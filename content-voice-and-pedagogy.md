@@ -144,7 +144,7 @@ marking-house-style.md (style never marked) is deliberately different.
   `gradeBand`, `busPlanner`, `forCounter`, `shapeDrawer`, `whileVsRepeat`,
   `stringBoxes`, `caesarWheel`, `objectFactory`), `pascal-tryit-files.js`
   (`fileModes`), `pascal-tryit-errors.js` (lesson 18: `exceptionJump`,
-  `validationLab`, `checkDigitLab`, `guiForm`) and `pascal-tryit-more.js`. **New builders register with
+  `validationLab`, `checkDigitLab`, `guiForm`), `pascal-tryit-dates.js` (lesson 19: `dateNumber`, `dateFormatLab`, `ageLab`, `leapYearLab`, `idDateLab`; checked against fpc output by `pascal-tryit-dates.test.js`), `pascal-tryit-manager.js` (lesson 20: `managerLab`, TPupilManager's model checked by `pascal-tryit-manager.test.js`), `pascal-tryit-inherit.js` (lesson 21: `bindingLab`, Virtual/static binding checked against 8 fpc runs by `pascal-tryit-inherit.test.js`) and `pascal-tryit-more.js`. **New builders register with
   `PascalTryit.register (name, fn)` in their own file**, loaded after
   `pascal-tryit.js`. In `pascal-tryit-more.js`:
   - `flowStepper` - a flowchart lit shape by shape with variables, output and a
@@ -185,7 +185,10 @@ A quote at the top of the lesson. With a portrait:
 </div>
 ```
 
-Without one, a plain `<blockquote class="quote">`. Short credit in the `<cite>`.
+**Every quote has an image** (Chris, 23 September 2026). With no portrait
+(an unknown author, a proverb), use a picture that fits the quote - a drawing
+made for the course (lesson 17's `floppy_disk.png`), artwork, or
+`anonymous.svg` - and say what it is in the `<cite>`. Short credit in the `<cite>`.
 Source: `word documents/_ALL_QUOTES.docx` (331 quotes, portraits in
 `word/media/`); save portraits to `public/assets/quotes/<person>.png` and a
 source copy in `Quote images/`. **Trap:** de-duplication left some rows with

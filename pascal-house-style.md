@@ -14,7 +14,13 @@ curriculum calls for them. The console's layout check (`lib/codestyle.php`,
 - 2 spaces per level, no tabs.
 - **A blank line between sections**: after `Program`/`Unit`, after `Uses`,
   between routines, before the main `Var`, between the main `Var` and `Begin`.
-  A routine's own `Var` and `Begin` stay together. (Lesson 14 on follows it;
+  A routine's own `Var` and `Begin` stay together. **Inside a longer block, a
+  blank line between steps too**, each step starting with a `//` comment saying
+  what it does (`// Load`, `// Use the objects`, `// Free every object`)
+  (Chris, 23 September 2026). **The longer the code, the more it needs these
+  open lines** - a wall of code with no gaps is hard to read, however right it
+  is. In a class declaration, a blank line before each of `private` and
+  `public` after the first; between routines, always one. (Lesson 14 on follows it;
   if earlier lessons are changed, recompile every error example - quoted line
   numbers move.)
 
@@ -57,13 +63,14 @@ curriculum calls for them. The console's layout check (`lib/codestyle.php`,
   ```
 
   One line per parameter in heading order; no `Gives back` on a procedure; no
-  blank line before the heading. Written **once**:
-  - **program:** above the routine; a class's methods on their declaration
-    inside the class (not on `TThing.Method`'s body);
-  - **unit:** above each body in the Implementation, **never in the
-    Interface** - including methods of a class the Interface declares (their
-    `TThing.Method` bodies carry the comments). The layout check reports a
-    block left in the Interface; Ctrl+Shift+C moves it down.
+  blank line before the heading. Written **once, above the code** - the
+  routine's body, or the `TThing.Method` body of a class's method.
+- **A unit's Interface and a class declaration are only lists - no comments
+  in them** (Chris, 23 September 2026: "comments not in the interface / class
+  definition section. interface should just be a list. comments above actual
+  methods"). The layout check (`lib/routines.php`) reports a block left in
+  either; the console's Ctrl+Shift+C moves it down to the code
+  (`pascal-complete.js`). Lessons 16 and 17 were converted the same day.
 - **A method body is always named `TThing.Method`.**
 
 ## 5. Control flow
@@ -92,6 +99,10 @@ curriculum calls for them. The console's layout check (`lib/codestyle.php`,
 ## 6. Object-oriented conventions
 
 - `T` prefix; fields lowercase, methods capitalised.
+- **A program with a class starts with `{$H+}`** on its own line under the
+  Program line, and **ToString is declared `Function ToString : String;
+  Override;`** (Chris, 24 September 2026). `{$H+}` is a compiler switch, not a
+  comment; without it Override on ToString is an error. Lessons 16 on.
 - `Inherited Create` is a constructor's first line.
 - **A constructor with parameters fills fields through the setters**
   (`SetTitle (aTitle);`, not `title := aTitle;`).

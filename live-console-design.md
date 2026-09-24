@@ -84,6 +84,15 @@ the Windows testbed.
   drag in; names tidied, `.lpr`/`.dpr` -> `.pas`, type/size checked, clashes ask
   Replace / Keep both / Skip, refusals listed), Download this file, Download
   all (.zip written in the browser), Rename, Delete.
+- **Template ▾** (toolbar, 24 September 2026): Program, Unit (Interface,
+  Implementation and an empty Initialization) or Class (asks for a T name; goes
+  into a unit's Interface, or above a program's Var/Begin, with empty private
+  and public). A program or unit fills the current file if it is still empty,
+  otherwise a new tab. Every template passes the layout check as written.
+- **Every button says when it has finished** (Chris, 24 September 2026): a
+  toast for Clear, Comment, Update code, New/Rename/Delete file, the templates,
+  and when an analysis is ready (which also switches to the Analysis tab).
+  Clear shows the Console tab and wipes it (or says to Stop first).
 - **Saving:** server-side per pupil (`consoleWorkspaces`, ~1s after typing,
   "✓ Saved", Ctrl+S). Whether the console is open is saved too. Panel width,
   splitter height and theme are per browser (`localStorage`).

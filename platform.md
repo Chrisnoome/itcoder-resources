@@ -56,7 +56,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   marking voice in `CourseMarkStyle()` / `MarkSystemPrompt()` in
   `bin/markqueue.php`.
 - **Pages:** `/` landing; after sign-in `subjects.php` (the first page);
-  `courses.php` (grouped by subject, `?s=` for one); `course.php?c=`;
+  `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + SAGs lines opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
   `lesson.php?c=&id=`; `scores.php?c=` (My marks - lesson and course totals as
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year
   filters); `pupil-work.php?c=&p=` (teachers only: every marked question, the
@@ -124,18 +124,33 @@ lives.
 **5. Written answers look like essays.** Big box; essay mode when `markMax >= 5`.
 
 **6. Pasting is refused in written answers** (paste and drop), with a line
-saying why - not in activity boxes.
+saying why - and, from 24 September 2026, in typed, checked-code and grid
+answers too (`app.js`). Not in activity boxes.
 
 **6b. A paste that gets round it is caught.** The page records typed
 characters, typing time, non-typed characters and refused pastes, sent with
-every save. `TypingVerdict()` (`lib/typing.php`) flags: answer much longer
-than typed; >60 characters not typed (one event may carry 30); >15 chars/s
-over 100+; or a 60+ character answer with no record. Generous on purpose. A
+every save (and on `pagehide`, with keepalive, so closing the tab loses
+nothing; the textarea has `autocomplete="off"`). `TypingVerdict()`
+(`lib/typing.php`) flags: answer much longer than typed (a question's
+`starterText` is not counted against the pupil); >60 characters not typed (one
+event may carry 30); **>15 typing EVENTS/s over 100+ events** (events, not
+characters, since 24 September 2026 - predictive and swipe typing insert a word
+per event and were flagged at 22 and 37 "chars/s"; records from before events
+were counted are never judged on speed); or a 60+ character answer with no
+record. Generous on purpose. A
 flagged answer is marked, then stores a third (`FlaggedMark()`), keeping the
 real mark in `markBeforeFlag`; the pupil sees `FlagNotice()` in red; the NB
 list warns. Teachers see a red flag (filter "Show only flagged work"), the
 typing record on `pupil-work.php`, **Clear the flag** (`flagCleared`) and
 **Flag as pasted**. `teacherMark` overrides all. Check: `bin/check-typing.php`.
+
+**6d. When and how long** (Chris, 24 September 2026). `quizResponses.firstAnsweredAt`
+(set by the trigger `quizResponsesFirstAnswered`, so every answer API gets it)
+and `updatedAt` (last attempt); written answers keep `submittedAt`/`markedAt`,
+plus `workMs` (each gap between inputs counted as at most a minute, summed over
+every sitting) and `workSessions` (page loads that saved). `pupil-work.php`
+shows them under each question, percentages on every total, and **Show all /
+Only flagged / Only 50% or below** filters.
 
 **6c. Security headers** (`SendSecurityHeaders()` in `lib/db.php`): CSP (this
 site, Google Fonts, YouTube and YouTube no-cookie, and `https://www.google.com`
@@ -284,7 +299,12 @@ site's code - run after publishing a marking change.
   names; `SignOut()` releases. Idle longer than `SessionIdleMinutes()` (config
   `sessionIdleMinutes`, default 20) = finished; `app.js` pings
   `api/heartbeat.php` every 4 minutes on lesson pages. Admin > Users has **Free
-  session**.
+  session**. **Closing the last page frees the seat in ~90 s**
+  (`assets/session-release.js`, loaded by `RenderMasthead()` on signed-in pages:
+  a `localStorage` list of open tabs, a beacon to `heartbeat.php?leaving=1` when
+  the last closes; the next page reclaims the seat 3 s after loading). Browsers
+  allow no custom pop-up on close, so a **"Leaving?" pop-up with Sign out**
+  shows when the mouse leaves through the top of the window (24 September 2026).
 - **AI marking is what is restricted:** `CanUseMarking()` = `IsSchoolPupil()`
   (`schoolEmailDomains`: `students.dlshcch.co.za`, `dlshcch.co.za`) or
   `HasActiveSubscription()` (`subscriptionExpiresAt`, set by hand). Enforced in

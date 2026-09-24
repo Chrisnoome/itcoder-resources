@@ -33,6 +33,7 @@ this folder's git log.
 | [live-console-design.md](live-console-design.md) | The live console (interactive Pascal, files, editor, layout check, code completion) |
 | [backups.md](backups.md) | Backups, restore, the Dropbox pull and its alarm |
 | [open-items.md](open-items.md) | The backlog |
+| [platform-roadmap.md](platform-roadmap.md) | PLAN: teachers and classes, subscriptions and payments, the public landing page - with Chris's open questions |
 | [history.md](history.md) | Append-only log of rule, style and engine changes - don't load unless asked why |
 | [writing-style.md](writing-style.md) | Base rules for lesson prose |
 | [content-voice-and-pedagogy.md](content-voice-and-pedagogy.md) | Voice, pedagogy and lesson rules, with the lesson checklist |

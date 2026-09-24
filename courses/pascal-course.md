@@ -36,7 +36,10 @@ lesson 4.
 | 15 | lesson15 | Arrays | Definition, storage, noOfElements, `Const maxElements`, For over arrays, sum/average/biggest/smallest, parallel ("linked") arrays, sequential and binary search (index or -1), swap, selection and bubble sort (with flag), sorting text with UpperCase, insert/delete, duplicates; Good to Know: arrays to functions via `Type`, dynamic arrays, any index range. Array demos (`array-demo.js`). Wirth, Torvalds, Knuth, Obama quotes |
 | 16 | lesson16 | Classes and objects | Class vs object, fields/methods, encapsulation, access modifiers, constructors (setters), getters/setters, ToString, **no I/O in methods**, overloading, static members, destructors, UML class diagrams, array of objects, theory boxes. **No inheritance/polymorphism.** Jobs, Kay quotes |
 | 17 | lesson17 | Persistence - Text files | Persistence, text files, AssignFile/Reset/Rewrite/Append/CloseFile, `While Not Eof`, CSV/delimiters, parsing in `Create (aLine)`, loading an array of objects, `StringForFile`, buffers and Flush, FileExists, Try...Except, messy data, JSON (Gr 12 theory) |
-| 18 | lesson18 | Catching errors - Defensive programming | Syntax/runtime/logic errors, defensive programming (check first vs Try), exception classes, `On problem : Exception Do` + Message (particular handlers first), read a String then convert, **ReadInt / ReadIntInRange / ReadFloat / ReadBoolean** (frontend routines that Writeln/Readln - lesson 14's one-job exception, Chris to confirm), guards, validation vs verification, GIGO, the checks (presence...check sum), good error messages, Luhn check digit on lesson 13's ID, `Raise` in a setter, exceptions travel up, Try ... Finally (Good to Know), standard/extreme/abnormal test data, GUI components and tricks (compiled with lazbuild, no-console). Babbage, Dijkstra quotes |
+| 18 | lesson18 | Catching errors - Defensive programming | Syntax/runtime/logic errors, defensive programming (check first vs Try), exception classes, `On problem : Exception Do` + Message (particular handlers first), read a String then convert, **ReadInt / ReadIntInRange / ReadFloat / ReadBoolean** (I/O is their one job - allowed, see the I/O rule below), guards, validation vs verification, GIGO, the checks (presence...check sum), good error messages, Luhn check digit on lesson 13's ID, `Raise` in a setter, exceptions travel up, Try ... Finally (Good to Know), standard/extreme/abnormal test data, trace tables, generated test data, the debugger (Good to Know, Lazarus keys F5/F9/F7/F8/Ctrl+F5), GUI components and tricks (compiled with lazbuild, no-console). Babbage, Dijkstra quotes |
+| 19 | lesson19 | It's a date - Dates and times | TDateTime (days since 30/12/1899), Now/Date/Time (the console's server is UTC; its DateToStr gives 23-9-26), FormatDateTime codes (**nn** minutes, words in double quotes, `/` = the machine's separator -> TFormatSettings), Encode/Decode (Word), StrToDate/TryStrToDate/IsValidDate, ReadDate, DaysBetween/IncDay/IncMonth, SameDate trap, days to the next birthday and school days to the end of term (While loop over dates - a For gives "Ordinal expression expected"), IncMinute/MinutesBetween (never Trunc: 07:20->08:00 gave 39), timing with Now + MilliSecondsBetween (Int64 introduced; loop to 100 million 254 ms vs formula 0 ms on the server), DayOfWeek (Sunday = 1), leap-year algorithm, **accurate age** (YearsBetween wrong ON the birthday), ID date + century rule + Y2K, yyyy-mm-dd in files, 2038 (Good to Know). Try-its in `pascal-tryit-dates.js`. Adams quote |
+| 20 | lesson20 | Managing a list - the array manager class | **Part 1, exam-style `TPupilList`**: private array + count, named array types (`TPupilArray`, `TMarkArray` - a result type must be a name), constructor sets every place Nil so the destructor can free Low..High; Nil, `= Nil`, `Assigned`, Free on Nil safe, Assigned still TRUE after Free, FreeAndNil; objects as parameters (the same object, not a copy); GetPupil/FindBySurname/GetBest give back an object or Nil, IndexOf -1; **ownership** (the list owns what it is given - Add frees one it has no room for; what it gives back is borrowed); GetMarks/PupilsInClass (first Nil ends the array), an array sent to a function; Remove, SortByMark, RemoveDuplicates (While loops); LoadFromFile (gives back False, no message) / SaveToFile; TSchoolClass (object field that may be Nil, two arrays of different object types, does not own its teacher - has-a); comparing structures. **Part 2, working `TPupilManager`**: `current`, GetCurrent, First/Last/Next/Previous, Find, Add/Insert/Update (replace)/DeleteCurrent, IsFull - every one gives back the current object; CRUD; menu program PupilApp (ReadPupil gives back a new object); buttons as a Good to Know. Try-it `managerLab` (`pascal-tryit-manager.js`, node test against fpc). Hoare "billion-dollar mistake" quote |
+| 21 | lesson21 | Family trees - Inheritance and polymorphism | Running club: `TMember` (ancestor) and `TJunior = Class (TMember)` (guardian, age, pays half). Ancestor/descendant = superclass/subclass = parent/child = base/derived; TObject at the top; advantages; **`Inherited Create (...)`** first line; **protected** in use (helper `GetField (aLine, n)` used by the descendant; plain private/protected not enforced in one file - `strict private` shown); UML hollow triangle at the ancestor; **Virtual/Override** (without them juniors paid R250 - static binding); `Inherited GetMonthlyFee Div 2`, `Inherited ToString + ...`; lesson 16's ToString warning explained and gone (**`{$H+}`** in every listing, TMember.ToString Override); polymorphism, dynamic vs static binding, overriding vs overloading; **Is / As** (Is before As, EInvalidCast; `identifier idents no member`); **file with two kinds of line** - class chosen by number of fields (club) or a code letter (library exercise), descendant's `Create (aLine)` calls `Inherited Create (aLine)` then reads its extra fields, StringForFile Virtual; one array of the ancestor type; two errors blocks; is-a vs has-a (TCar = Class (TEngine) as the mistake); Abstract as a Good to Know. Try-it `bindingLab` (`pascal-tryit-inherit.js`, node test against 8 fpc runs). Exercises: TBook/TTextbook. Joe Armstrong banana/gorilla quote |
 
 Lesson 13 also teaches the ID number **check digit** (Luhn: odd positions as
 they are, even positions doubled minus 9 if over 9, check digit =
@@ -49,7 +52,7 @@ Don't build a lesson until Chris asks; these are the notes for whoever does.
 Each needs everything in content-voice-and-pedagogy.md §8 and a `sags.php`
 entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
 
-- **18 - testing, debugging and exceptions** (another chat is building it).
+- **18 - testing, debugging and exceptions** - BUILT 23 Sep 2026 as lesson18 (see the table); everything below is covered.
   Should cover (SAGs 4.13, 4.14, 4.12 Gr 11): standard, extreme and abnormal
   test data; trace tables as a skill; syntax vs runtime vs logic errors,
   compared; the Lazarus debugger (breakpoints, watches, stepping) - a Good to
@@ -58,7 +61,7 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   presence, range, length, type, uniqueness, check digit (lesson 13 has one),
   checksum - in conditional loops; descriptive error messages that say how to
   fix the problem, and messages built from caught exceptions.
-- **19 - It's a date: working with dates and times** (SAGs 4.3 Gr 11): `TDateTime`
+- **19 - It's a date: working with dates and times** - BUILT 23 Sep 2026 as lesson19 (see the table). (SAGs 4.3 Gr 11): `TDateTime`
   (a Real: days since 30 Dec 1899), `Now`, `Date`, `Time`, `DateToStr`,
   `StrToDate`, `TryStrToDate`/`IsValidDate` for checking input, `EncodeDate`/
   `DecodeDate`, `FormatDateTime` (`'dd/mm/yyyy'`, `'hh:nn'` - `nn` for
@@ -67,7 +70,7 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   (lesson 13) and the 1900/2000 problem; `TFormatSettings` for date formats
   (lesson 7 set this up); leap years as an algorithm. Verify every output with
   fpc - date formats follow the locale.
-- **20 - Array manager class** (SAGs 4.3 Gr 12, 4.5 Gr 12, 4.6 Gr 11-12, 4.8
+- **20 - Array manager class** - BUILT 24 Sep 2026 as lesson20 (see the table), one lesson with both the exam-style and the working-program manager (Chris). (SAGs 4.3 Gr 12, 4.5 Gr 12, 4.6 Gr 11-12, 4.8
   Gr 11): a class whose field is an array of objects plus a count (`TPupilList`
   / `TClassList`) with Add, Find (returns an index or the object), Delete,
   Sort, Remove duplicates of objects, load/save through lesson 17's file
@@ -77,7 +80,7 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   objects; an object as a field of another; an object whose fields are arrays
   of two different object types; comparing data structures (parallel arrays vs
   array of objects vs manager class).
-- **21 - Inheritance and polymorphism** (SAGs 4.1 Gr 12, 4.3 Gr 12, 4.5 Gr
+- **21 - Inheritance and polymorphism** - BUILT 24 Sep 2026 as lesson21 (see the table). (SAGs 4.1 Gr 12, 4.3 Gr 12, 4.5 Gr
   11-12): superclass/subclass (`Class (TPerson)`), `protected` in use,
   `Inherited` in constructors and methods, `Virtual`/`Override`, polymorphism
   and dynamic binding, `Abstract`, an array of inherited objects, type checks
@@ -108,6 +111,15 @@ overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
 
 ## Course decisions
 
+- **Exceptions for school = a plain `Try ... Except`** (Chris, 23 Sep 2026):
+  lesson code uses it; `On problem : Exception Do` + `Message` only where the
+  message is needed (a class's own `Raise`). Exception classes (`EConvertError`
+  etc.), per-class handlers and their order are a Good to Know.
+- **Chris's `>` tip** (23 Sep 2026): for whole numbers he always uses `>` and
+  moves the number (`>= 15` -> `> 14`) - a Good to Know in lesson 18, with the
+  Real caveat. Not a house-style rule; `>=` stays correct.
+- **The validation-check table is Learn / Memorise** (lesson 18); so are the
+  three kinds of test data.
 - **Planned order:** procedures and functions go **above the main program's
   `Var`**, so they can't see its variables - everything comes through
   parameters.
@@ -134,6 +146,8 @@ overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
   (model: `w2FirstProgram` in proofoflife).
 - **Every example and error is compiled with fpc 3.2.2 `-Mobjfpc`**; nothing is
   invented. Crt output can only be checked on the test site.
+- **`{$H+}` and ToString Override (Chris, 24 Sep 2026):** from lesson 16 on, every program with a class starts with `{$H+}` under the Program line (a compiler switch, not a comment - Lazarus puts it in every new project) and declares `Function ToString : String; Override;` - no warning. Without `{$H+}`, Override on ToString is an error. Lesson 16 teaches both as "learn the line as it is" (like `Destructor Destroy; Override;`); lesson 21 explains them. Programs without a class are unchanged. Marker rubrics accept ToString with or without Override and never deduct for `{$H+}`. With `{$H+}` the 255-character String limit is gone (lesson 20's warning about it was removed), and ToString on a freed object stopped with an Access violation instead of printing half a pupil (lesson 20's error item re-run).
+- **Files inside a manager (lesson 20, 24 Sep 2026 - Chris to confirm):** LoadFromFile/SaveToFile live in the manager class; they never talk to the user (LoadFromFile gives back False and the caller writes the message). The "methods never read or write" rule is taken to mean keyboard and screen.
 - **I/O in routines (settled, Chris 23 Sep 2026):** a procedure or function
   may read or write when that is its very specific purpose (`DrawBox`,
   `ReadInt`); otherwise never. Class methods never. See pascal-house-style.md §5.
@@ -166,11 +180,13 @@ overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
   (`marks[6]` of 5), far out crashes 216; with `-Cr`/`{$R+}` -> 201.
   `Writeln (marks)` -> "Can't read or write variables of this type". A program
   can't share its name with a variable.
-- Classes: `Function ToString : String;` warns about hiding the inherited one
-  (Override errors without `{$H+}`); `private` doesn't protect within the same
+- Classes: `Function ToString : String;` without Override warns about hiding
+  the inherited one (`"ToString:AnsiString;"` with `{$H+}`, `ShortString`
+  without); Override errors without `{$H+}`; `private` doesn't protect within the same
   file (`strict private` does); a field below `Class Var` is shared too;
   `Destructor Destroy;` without Override only warns and Free never calls it;
   using an object never created -> 216.
+- Inheritance (lesson 21, `{$H+}`): Override with no Virtual in the ancestor, or a different heading -> `There is no method in an ancestor class to be overridden: "GetMonthlyFee:LongInt;"`; forgotten Override -> `An inherited method is hidden by "GetMonthlyFee:LongInt;"` and the ancestor's method runs; without `{$H+}` ToString Override -> the same error for `"ToString:ShortString;"`. A descendant method through an ancestor variable -> `identifier idents no member "GetGuardian"`; ancestor into descendant variable -> `Incompatible types: got "TMember" expected "TJunior"`; As on the wrong object -> `EInvalidCast: Invalid type cast` (a hard cast `TJunior (member)` printed rubbish endlessly - never taught); Nil Is X -> FALSE; `strict private` used by a descendant -> `Identifier not found "name"`; `Result := ToString + ...` without Inherited -> a managed-result warning and another member's text; Abstract -> `Constructing a class "TShape" with abstract method "GetArea"` then `EAbstractError: Abstract method called`. A Virtual method called from the ancestor's own code runs the descendant's version.
 - Text files: no CloseFile after Rewrite + Writelns leaves an empty file;
   1000 Writelns without CloseFile kept 987 lines; Append onto a file with no
   final end-of-line joins lines; a blank last line crashes a parse
@@ -187,6 +203,7 @@ overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
   `0x1F` (hex), `%101`, `&17`, skips leading tabs; `'2147483648'` wraps to
   -2147483648 with no error. `StrToBool ('yes')` -> EConvertError. A Writeln
   with a failing Div inside prints half a line first.
+- Dates (both machines): the server's DefaultFormatSettings are `d/m/y` with `-` (DateToStr 23-9-26; `'dd/mm/yyyy'` prints 23-09-2026), the Windows testbed `yyyy/MM/dd`; server clock UTC. `mmm` is Sep (server) / Sept (Windows). `'hh mm'` gives the month, `'Born dd'` -> BOR5 23, `'Today is dddd'` -> EConvertError: Illegal character in format string. YearsBetween = Trunc (days / 365.25): 23/09/2012 -> 23/09/2026 gives 13. StrToDate two-digit years: window 50 (75 -> 2075 in 2026). `date := Date` with a variable called date compiles and gives day 0.
 - `Double` is a type name - a function called `Double` becomes a conversion.
 - Repeat counting down from 0 prints 0 and leaves -1.
 

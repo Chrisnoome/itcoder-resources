@@ -57,3 +57,12 @@ pre-compaction files).
 - 09-23 A class's methods never read or write.
 - 09-23 AIResources compacted to current state only; this history file started.
 - 09-23 Pascal plan fixed: 18 testing/exceptions, 19 dates, 20 array manager, 21 inheritance, 22 text UI, 23 GUI, 24 practical exam, 25 PAT; data representation to the theory course.
+- 09-23 House style: blank line between steps inside a longer block, each step opened by a // comment.
+- 09-23 Every quote has an image (a fitting picture when there is no portrait).
+- 09-23 New try-it file pascal-tryit-dates.js (lesson 19), loaded by lesson.php, with a node test against fpc output.
+- 09-24 Layout check: `Result[index] :=` counts as setting Result (functions giving back arrays); new try-it file pascal-tryit-manager.js (lesson 20) with a node test against fpc.
+- 09-24 Typing flags: events/s not chars/s, starterText not counted, save on pagehide; no pasting in typed/checked-code/grid answers; answer timestamps and work time; pupil-work percentages and filters.
+- 09-24 Closing the last page frees the account in ~90 s; "Leaving?" pop-up with Sign out; console Template menu, done-toasts, Clear fixed; empty class sections pass the layout check.
+- 09-24 platform-roadmap.md started: plan and open questions for teacher groups, subscriptions, landing page.
+- 09-24 From lesson 16 on, every program with a class starts with {$H+} and declares ToString with Override (Chris) - lessons 16-20 converted, rubrics accept either; Update code adds Override to a ToString only when {$H+} is there. New try-it file pascal-tryit-inherit.js with a node test against fpc; Flowchart(): an If with an empty No branch now keeps its No line clear of a wide Yes branch (fixed lesson 20's clipped Remove chart).
+- 09-24 Roadmap questions Q1-Q25 answered: invitation-only teacher groups, Brevo later, yearly plans, payer covers group, reminders not auto-renew, IEB/CAPS/neither chosen at enrolment.
