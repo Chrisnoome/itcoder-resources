@@ -1,6 +1,6 @@
 # Platform roadmap - teachers, subscriptions, landing page
 
-**Status: all 25 questions answered 24 September 2026 (see the end). Steps 1, 2 and 3 BUILT the same day** - see platform.md, "Access is decided by Entitlements()", "Billing", "Teacher groups" and "Notifications". Next in the order below: step 4, the landing page and About. The IEB / CAPS / neither choice at enrolment (Q23) is not in that order yet - Chris to place it. (drafted 24 September 2026 from Chris's brief of
+**Status: all 25 questions answered 24 September 2026 (see the end). Steps 1, 2 and 3 BUILT the same day** - see platform.md, "Access is decided by Entitlements()", "Billing", "Teacher groups" and "Notifications". Next in the order below: step 4, the landing page and About. The IEB / CAPS / neither choice (Q23) is BUILT 24 September 2026 - see platform.md, "Syllabus boxes". (drafted 24 September 2026 from Chris's brief of
 the same day). Answer the questions marked **Q** and this file becomes the
 spec; once a part is built, move its rules into platform.md and delete them
 here. Facts about outside services (gateways, fees, VAT) were NOT checked
@@ -283,8 +283,9 @@ Possible sections, top to bottom:
   are checked but not saved, and the console runs with tight limits.
 - **Q23** The site is for anyone. IEB and CAPS notes are extras for South
   Africa. At enrolment, ask **IEB, CAPS or neither**; the syllabus lines shown
-  under each lesson follow that choice (today only the IEB SAGs lines exist in
-  `content/pascal/sags.php` - CAPS lines have to be written).
+  under each lesson follow that choice. BUILT 24 September 2026 (asked on the
+  course page rather than at the Join button; teachers and admins may also
+  pick both) - platform.md, "Syllabus boxes".
 - **Q24/25** The landing page carries Chris's name and teaching background, and
   quotes from De La Salle pupils and teachers (with written consent, no pupil
   surnames).

@@ -41,6 +41,9 @@ this folder's git log.
 | [marking-house-style.md](marking-house-style.md) | How practicals and code submissions are marked |
 | [sags-topic4-syllabus.md](sags-topic4-syllabus.md) | IEB SAGs Topic 4 (programming) as a teaching checklist |
 | [sags-2025.md](sags-2025.md) | The rest of the SAGs as reference |
+| [ieb-practical-exam-analysis.md](ieb-practical-exam-analysis.md) | Every IEB practical paper analysed: structure, what always appears, marking, exam technique - for lesson 24 |
+| [caps-practical-exam-analysis.md](caps-practical-exam-analysis.md) | Every DBE (CAPS) Paper 1 analysed, Pascal questions only (1, 3, 4): structure, what always appears, marking, technique - for lesson 25 |
+| [caps-2024.md](caps-2024.md) | The DBE CAPS (2024 amendment) as reference: every topic per grade and term, assessment, Paper 1/2 formats |
 | [courses/ai-course.md](courses/ai-course.md) | The Grade 9 AI course |
 | [courses/pascal-course.md](courses/pascal-course.md) | The Pascal course: lessons, decisions, verified facts |
 | `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php`, `tools/marking-check.php` | Publishing ([publishing.md](publishing.md)) |

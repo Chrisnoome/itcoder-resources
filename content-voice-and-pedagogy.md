@@ -331,6 +331,6 @@ chart rendered.
       idea, or bands from `markMax` 10 with `showRubric`; exact detail in
       `markerRubric`
 - [ ] Videos only where vetted - no Pascal placeholders
-- [ ] A `study` block (Pascal); SAGs coverage in `content/<course>/sags.php` or
-      `'enrichment' => true` (`php bin/check-sags.php`)
+- [ ] A `study` block (Pascal); SAGs coverage in `content/<course>/sags.php` and
+      CAPS coverage in `caps.php`, or `'enrichment' => true` (`php bin/check-sags.php`)
 - [ ] Run the checks in platform.md, "Checks to run"

@@ -56,7 +56,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   marking voice in `CourseMarkStyle()` / `MarkSystemPrompt()` in
   `bin/markqueue.php`.
 - **Pages:** `/` landing; after sign-in `subjects.php` (the first page);
-  `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + SAGs lines opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
+  `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
   `lesson.php?c=&id=`; `scores.php?c=` (My marks - lesson and course totals as
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year
   filters); `pupil-work.php?c=&p=` (teachers only: every marked question, the
@@ -69,6 +69,13 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   A reloaded self-marked verdict shows the same "X out of Y marks." line
   (`ReloadedVerdictExtras()`). Any new block type must do the same.
 - **Open self-enrolment** in any open course.
+- **Syllabus boxes** (Chris, 24 September 2026): under each lesson on the
+  course page, a folded **SAGs** box (IEB, `content/<course>/sags.php`) and/or
+  a folded **CAPS** box (`caps.php`), per `pupils.syllabus` - `ieb`, `caps`,
+  `none`, or `both` (teachers and admins only). Not chosen: admin -> both, a
+  `schoolEmailDomains` address -> IEB, anyone else sees none and the course
+  page asks once above the lessons. Changed on **My account** ("Exam
+  syllabus"); saved by `syllabus.php`. Rules in `lib/syllabus.php`.
 - **Block types:** `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
   `typed`, `checkedcode`, `order`, `select` (tick all correct, no more), `match`
   (dropdown per row), `gridtyped`, `code`, `algorithm`, `errors`, `important`,

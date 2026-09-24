@@ -39,14 +39,22 @@ Details live in the linked files.
 - **AI course restyle** - lessons are still v1's copy (no popups, reveals,
   mixed question types). Also worksheets, teacher pack, assessment weight,
   lesson 8 timing. See [courses/ai-course.md](courses/ai-course.md).
-- **Pascal lessons 18-25** (18 testing/debugging/exceptions - being built by
+- **Pascal lessons 18-26** (18 testing/debugging/exceptions - being built by
   another chat; 19 dates and times; 20 array manager class; 21 inheritance and
-  polymorphism; 22 text UI; 23 GUI; 24 practical exam; 25 PAT) - what each must
+  polymorphism; 22 text UI; 23 GUI; 24 IEB practical exam; 25 CAPS practical
+  exam; 26 PAT) - what each must
   cover is in [courses/pascal-course.md](courses/pascal-course.md), "Lessons
   still to come". Build only when Chris asks.
 - **For the chat building lesson 18:** the SAGs check (23 Sep 2026) assigned
   testing and validation to it - see that plan (test data, trace tables,
   syntax/runtime/logic errors, debugger, validation checks, exceptions).
+- **CAPS gaps in the Pascal course** (found mapping `caps.php`, 24 Sep 2026):
+  LCM and GCD (Gr 10 T3); Polya's problem-solving steps, user stories,
+  noun-verb analysis and acceptance tests (Gr 10 T2); 2-D arrays with row and
+  column totals (Gr 12 T2); a database through code, datasets and SQL (Gr 11
+  T3, Gr 12 T1); multiple forms and dynamic instantiation of components
+  (Gr 11). Inheritance and polymorphism (lesson 21) go beyond CAPS. Chris to
+  decide what to add.
 - **Theory course:** SAGs 4.2 data representation (binary, hex, bits,
   signed/unsigned, overflow, Real storage) belongs there, not in Pascal.
 - Anonymous quotes (AI lessons 4, 5, 7) keep the question-mark placeholder

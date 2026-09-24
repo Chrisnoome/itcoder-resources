@@ -100,11 +100,25 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   steps); events; metaphors and icons; validation components (drop-downs,
   calendars); keeping logic out of event handlers so the same class works in a
   text program.
-- **24 - Practical exam guidelines**: the paper (text-based, SQL + algorithms +
+- **24 - Practical exam guidelines - IEB**: the paper (text-based, SQL + algorithms +
   OOP, 150 -> 100 marks, cognitive levels 30/40/30), how it is marked
   (marking-house-style.md: marks per step, carry-forward, style not marked),
   reading a question, planning, testing, saving, common mark losses.
-- **25 - PAT guidelines**: the 100-mark Grade 12 PAT (may start in Grade 11) -
+  Built from [../ieb-practical-exam-analysis.md](../ieb-practical-exam-analysis.md)
+  (24 Sep 2026). **Section B (OOP, 100 marks) only - SQL (Section A, 50
+  marks) is a separate course (Chris, 24 Sep 2026)**; lesson 24 names it
+  as the other half of the paper and no more.
+- **25 - Practical exam guidelines - CAPS** (Chris, 24 Sep 2026): the DBE
+  Paper 1 - Delphi GUI, Questions 1 (general, 40), 3 (OOP, 40) and 4
+  (problem solving, 30); Question 2 (database, 40) belongs to the SQL
+  course. **Stands alone** - a CAPS pupil need not have done lesson 24 - so
+  it may repeat lesson 24's general technique (only answer what is asked,
+  any data, first-principles sorts, comment out broken code, match the
+  output). Built from
+  [../caps-practical-exam-analysis.md](../caps-practical-exam-analysis.md);
+  it must teach reading from and writing to components in click events,
+  which the console course otherwise does not.
+- **26 - PAT guidelines** (was 25 until 24 Sep 2026): the 100-mark Grade 12 PAT (may start in Grade 11) -
   phases, documentation (specification, design, technical, testing), help
   systems, a multi-table database from code, GUI, what moderators look for.
 
@@ -132,7 +146,9 @@ overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
   `(true)` short). Change the wording only there.
 - **Every lesson has:** one `contents` block, a `study` block (PDF too), SAGs
   coverage in `content/pascal/sags.php` (lessonId => [grade, subtopic, what];
-  lesson 3 `'enrichment' => true`; `bin/check-sags.php`), and the checks in
+  lesson 3 `'enrichment' => true`), CAPS coverage in `content/pascal/caps.php`
+  (lessonId => [grade, term, what], from the 2024 CAPS amendment's Section 3;
+  `bin/check-sags.php` checks both), and the checks in
   content-voice-and-pedagogy.md §8.
 - **Study notes follow what's examined**, not everything mentioned (lesson 5's
   split between Readln and the rest is the model for any syllabus/enrichment

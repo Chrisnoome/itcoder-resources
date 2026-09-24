@@ -39,8 +39,8 @@ builds on these. Calibrated against Chris's own notes (`word documents/hw_*.docx
 - **Never name the SAGs** (or the syllabus) anywhere a pupil sees it in a
   lesson - prompts, html, intro, explain. State the fact without the citation.
   Lesson-file doc comments may cite it. **Exception:** the Pascal course page
-  lists each lesson's SAGs coverage (`content/pascal/sags.php`, shown by
-  `course.php`).
+  lists each lesson's SAGs and CAPS coverage (`content/pascal/sags.php` and
+  `caps.php`, shown by `course.php`).
 
 ## Standing cautions
 
