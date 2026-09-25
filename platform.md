@@ -174,6 +174,11 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   audio is deleted at once. About 1 s per word. No microphone, no HTTPS, or
   no whisper (the local testbed) = the honour system ("Back to the honour
   system for you!"), which pupils can also choose.
+  The mic can be tapped (stops when they stop talking) or held while
+  speaking (Space too).
+- **Crossword hints:** 💡 fills the lit word's next letter (gold, locked);
+  every word through that square then earns half XP, a hinted round is not
+  "perfect", and hinted words count as missed for spaced repetition.
 - pupils columns `displayName`, `avatar`, `avatarColour`, `practiceHidden`, `practiceGrade`.
 
 ## Stream-only lessons (Chris, 25 Sep 2026)
@@ -345,7 +350,7 @@ top-left.
 `.lesson-toolbar`, above the 96px block icons). `.block-anchor`
 `scroll-margin-top` = bar height + 10 + 52 icon overhang - 20 = 100px wide,
 123px narrow; the narrow override sits in its own media query right after the
-base rule (in the 620px block it loses). Re-measure when the bar changes.
+base rule (in the 620px block it loses). Re-measure when the bar changes. On lesson pages the E look (decision 27) hides the icons and uses 88px.
 
 **23. One masthead function.** `RenderMasthead()` in `lib/masthead.php`; each
 page passes its nav items. `lesson.php` adds a **Lesson contents** dropdown
@@ -380,6 +385,23 @@ log. **The admin check reads `$_SESSION['signedInWith']`**, not `googleSub`,
 so a dev login as Chris on test gets 403. The worker survives "database is
 locked". `tools/marking-check.php` makes one real marking call through a
 site's code - run after publishing a marking change.
+
+**27. Every lesson page has the "E" look** (Chris, 25 September 2026; every
+course, new ones included). `lib/design.php` (`DesignEOn()`),
+`public/assets/design-e.css` loaded after `style.css`/`console.css` with every
+rule under `body.design-e`, `design-e.js`. White page, white masthead, Figtree
+headings over a reading font (Atkinson Hyperlegible Next at line-height 1.5 -
+Figtree at 1.65 was too loose to read; `?font=source|literata|figtree` to
+compare), the lesson outline down the left (`.e-rail`, from the `contents`
+block), questions numbered "8.3" in green panels, figures numbered the same
+way, no block icons. **The right-hand margin is for fun, extras and related
+facts - never the glossary**; margin items are floats with a negative right
+margin so they can **never push the text apart** (rules:
+content-voice-and-pedagogy.md §5b). Layout follows a container query on the
+space the lesson really has (an open console counts): outline + text + margin
+from 1188px, text + margin from 944px, text only below. The block colours keep
+their meanings. `?design=classic` shows the old look to one browser for now;
+other pages (subjects, courses, marks) still have the old masthead.
 
 ## Sign-in, marking and privacy (load-bearing)
 
