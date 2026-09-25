@@ -57,7 +57,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `bin/markqueue.php`.
 - **Pages:** `/` landing; after sign-in `subjects.php` (the first page);
   `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
-  `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `scores.php?c=` (My marks - lesson and course totals as
+  `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `practice.php?c=` (**Practice**, right after the glossary on the course page - see below); `scores.php?c=` (My marks - lesson and course totals as
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year
   filters); `pupil-work.php?c=&p=` (teachers only: every marked question, the
   answer, right answer, mark and feedback; same totals as `teacher.php`);
@@ -120,6 +120,39 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   answer is also compared with compiler-ignored spacing removed and the final
   `;` optional, and an unmatched code answer gets an AI second opinion
   (`CheckCodeAnswer()`). Details: content-voice-and-pedagogy.md §4.
+
+## Practice - word games from the glossary (Chris, 25 Sep 2026)
+
+- `practice.php?c=` (any course with a glossary), `assets/practice.js`,
+  `lib/practice.php`, `api/practice-start.php` / `api/practice-finish.php`,
+  table `practiceRounds`.
+- Four games - **flash cards, hangman, word search, crossword** - built from the
+  glossary's single-word terms (letters only, 3-14; the definition is the clue
+  with the word blanked). **Every round is 20 words** (word search and
+  crossword score out of the words that fit). Missed words are listed with
+  their meanings at the end.
+- The server picks the words and issues a one-time round token; the page
+  reports which words were right; the server caps the score at the round's
+  words and refuses impossibly fast rounds. XP per word: flash cards 1,
+  word search 2, hangman 3, crossword 4; +10 for a perfect round; double for
+  **today's challenge** (the same 20 words for everyone, seeded by date).
+- **Ranks** Bit, Nibble, Byte, Word, Kilobyte ... Petabyte (0-5000 XP),
+  **badges**, a **day streak**, leaderboards **this week / all time / today's
+  challenge**.
+- **Leaderboards never show real names.** Each pupil has a practice name
+  (default "Coder <1000+id>"; 3-20 characters, unique, checked against
+  `PracticeBadWords()` - English and Afrikaans, leetspeak normalised; words
+  that hide inside innocent ones are whole-word only) and an **emoji icon on a
+  colour** chosen on My account (`#practice`). **No uploaded avatars**
+  (Chris): nothing to moderate. A pupil can leave the leaderboards.
+- pupils columns `displayName`, `avatar`, `avatarColour`, `practiceHidden`.
+
+## Stream-only lessons (Chris, 25 Sep 2026)
+
+- An index.php entry with `'stream' => 'caps'` (and `'badge' => 'CAPS'`) is
+  shown to pupils on that syllabus only (`LessonShownTo()`); staff see all.
+  Such lessons are unnumbered (numbers 101+ internally; `LessonNumberLabel()`
+  / `LessonLabel()` print the badge instead of "Lesson 101").
 
 ## Decisions that must not be undone
 
