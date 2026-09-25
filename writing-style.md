@@ -31,6 +31,10 @@ builds on these. Calibrated against Chris's own notes (`word documents/hw_*.docx
   `<cite>`); bank: `word documents/_ALL_QUOTES.docx` (see
   content-voice-and-pedagogy.md §6 for its data trap).
 - Hyphens, not em dashes.
+- **Book titles in bold italics** (Chris, 25 September 2026), and other named
+  works the same way (a statue, a poem collection): `<strong><em>How to Solve
+  It</em></strong>` in html, quote citations included; `***How to Solve It***`
+  in a `MarginNote()` or `Doodle()` caption (`MarginInline()`, lib/content.php).
 - Local examples: load shedding, Springboks, rands, Afrikaans, Johannesburg.
   Pupils speak English and some Afrikaans - not isiZulu examples.
 - No jargon without unpacking it at once ("X stands for Y").
