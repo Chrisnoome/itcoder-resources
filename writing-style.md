@@ -8,6 +8,17 @@ builds on these. Calibrated against Chris's own notes (`word documents/hw_*.docx
 
 - Plain, conversational English for South African teenagers; direct address
   ("you").
+- **South African English and spelling everywhere** (Chris, 25 September
+  2026: "all language is south african english and spelling") - lessons, the
+  site's own pages and buttons, emails, doodle captions, and every AI prompt
+  (marking, reviews, analyses and tasks already ask for it). Colour, centre,
+  behaviour, favourite, organise, recognise, analyse, practise (verb) /
+  practice (noun), licence (noun), cheque, programme (a TV or school
+  programme) but **program** for software; rand, cents, cell phone,
+  robot (traffic light) where it fits. **Leave as they are:** Pascal and
+  Delphi names (`Color`, `clRed`, `Randomize`, `TextColor`), CSS and HTML,
+  compiler and error messages quoted word for word, product names (Adobe
+  Color), and quotations.
 - **Short sentences, often one per paragraph.** Two clauses joined by a comma?
   Try a full stop.
 - **Bulleted lists for anything enumerable** - Chris lists far more than most.

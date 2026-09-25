@@ -37,7 +37,8 @@ tap, Tab+Enter; click away or Escape closes).
 
 - **`Gloss()`**: every acronym on first use in a lesson, any reserved word or
   command being named, any glossary-worthy term.
-- **`Aside()`**: jokes, puns, anecdotes, "did you know" tangents.
+- **`Aside()`**: jokes, puns, anecdotes, "did you know" tangents. On a wide
+  screen an aside in a paragraph or list sits in the margin (§5b).
 - **Nothing load-bearing in a popup.** Run `php bin/check-popup-spacing.php`.
 
 ## 3. Pedagogy: do this, observe, explain
@@ -82,6 +83,14 @@ than recognising it.
   one plain word; code gets "Type the Pascal code - spacing and a missing ; do
   not matter."; other answers get none. Don't write "one word" in a prompt
   whose answer isn't one.
+- **A `code` block's `'hint'`** (Chris, 25 September 2026: "too difficult to
+  read and follow. if hinting, be more concise and don't use code. explain
+  ways of thinking"): two or three short sentences in plain words, **no code
+  and no Pascal keywords to copy**. Say how to think about the problem - what
+  to work out first, what to keep track of, what to check at the end - never
+  the lines to type. Good: "You need to remember the biggest one seen so far.
+  Start with the first mark, then compare each next one and swap if it is
+  bigger."
 
 **Scoring (quiz, typed, order, select; match per line):** `marks` is the base
 (min 1, declare it deliberately); right first time earns `marks x 2`, second
@@ -164,7 +173,9 @@ marking-house-style.md (style never marked) is deliberately different.
     `data-config` `{vars, actions, start?}`.
   - `mathsLab`, `conversionLab`, `charPicker`, `comparisonLab` (`data-mode`
     text/number), `logicLab`, `formatLab` (`:width:decimals`, half up like
-    fpc), `gotoGrid` (80 x 25).
+    fpc), `gotoGrid` (80 x 25), `array2d` (a 2-D array: pick a row and a
+    column, see the element and both totals; `data-config` `{name, rows,
+    columns, values, row, column}`).
 - **Screens and screenshots** (24 September 2026): a Crt screen is a real server run saved as `content/pascal/screens/<lesson>-*.ans` and drawn with TerminalScreen() inside `Figure ()` (`.figure-box .terminal` is left-aligned and the box is 80 JetBrains Mono columns - Chris, 24 Sep 2026: centred rows broke the columns); a window is a real Lazarus screenshot in `public/assets/lessons/pascal/` (`.shot` + numbered `.shot-badge`s for callouts). How: `tools/ui-screens/README.md`.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
@@ -181,6 +192,58 @@ heredoc). Caption in plain words under the box, never inside the SVG; an
 algorithm's is "Flowchart: " + what it does. Not boxed: quote portraits, block
 icons, a question's own diagram, interactive widgets. Check:
 `php bin/check-figures.php`.
+
+## 5b. The margin (Chris, 25 September 2026)
+
+Every lesson page in every course (Pascal, AI, Java and any later one) has a right-hand margin (`lib/design.php`,
+`public/assets/design-e.css`). It is for **fun, extras and related facts** -
+what makes a lesson worth reading, never what a pupil needs.
+
+- **What goes there:**
+  - `Doodle ('name', 'caption')` - a blue-pen drawing with a one-line joke or
+    pun about the topic (someone deciding about an umbrella, a crocodile eating
+    the bigger number). Drawings live in `public/assets/doodles/<name>.svg`:
+    line art, `stroke="currentColor"`, round caps and joins, words in Kalam,
+    no bigger than about 240 x 170.
+  - `MarginNote ('text')` - "Did you know?" (the default label) for a true,
+    interesting related fact; `MarginNote ('text', 'Extra')` for a little more
+    depth.
+  - `Aside()` jokes and anecdotes written into a paragraph or list move to the
+    margin by themselves; a `code` block's hint sits there too.
+- **Never in the margin:** the glossary (a `Gloss()` word keeps its popup),
+  anything tested, anything needed to answer a question.
+- **Nothing in the margin pushes the text apart.** Notes float beside the text;
+  a crowded margin pushes the next note down, never a paragraph. Keep notes to
+  two or three sentences and spread them out. **Anything tall goes in the
+  text:** `Doodle (..., 'text')` floats in the text column and the paragraphs
+  wrap round it.
+- **Where:** between paragraphs, never inside one - usually straight after a
+  section's `block-anchor` span, so it sits beside the section's opening
+  lines. Break the heredoc: `HTML . Doodle (...) . <<<HTML` (reopen a nowdoc as
+  `<<<'HTML'`).
+- **A drawing that gives the answer away goes inside the answer** (Chris, 25
+  September 2026): put the `Doodle()` or `MarginNote()` at the start of a
+  `reveal` block's `explain` (`'explain' => Doodle (...) . <<<HTML`). It stays
+  hidden with the answer and appears in the margin beside it when the pupil
+  presses the button (`.reveal-body` rule in design-e.css). Model: the jam jar
+  in Pascal lesson 1.
+- **How many:** about one item for every two or three sections - at least three
+  in a full lesson, one or two in the exam guides and task lessons. Never two
+  sections in a row without text between them. Mostly **drawings** (Chris:
+  "sidebars still lack illustrations ... search could have a stick figure with
+  binoculars asking 'where is it???'"): a stick figure, an object or a small
+  scene that makes the concept's joke visible, with a pun or one-liner as its
+  caption. Look for jokes and puns on the section's words; make up your own.
+  Check new drawings on a contact sheet before inserting them.
+- **Facts must be true:** well-known, stable facts; dates rather than prices
+  (numbers go stale); no invented statistics. Unsure? Leave it out.
+- **Jokes** in the lesson's voice: short, kind, local where it fits (Joburg,
+  Eskom, taxis, braais), never at a pupil's expense or about a group of people.
+- With no room for a margin (a phone, or the console open) doodles hide and
+  notes sit in the text as small grey boxes - so a note must read well between
+  two paragraphs.
+- `DesignFigure ('name', 'caption')` is a drawing from `doodles/` in a proper
+  `Figure()` box - an illustration (§5a), not a margin item.
 
 ## 6. Quotes with portraits
 
@@ -320,12 +383,19 @@ chart rendered.
 
 ## 8. Lesson checklist
 
-- [ ] Voice: short sentences, "you", hyphens, SA examples, banned words
+- [ ] Voice: short sentences, "you", hyphens, SA examples, SA English spelling, banned words
       (writing-style.md), no SAGs named, pitched at a 15-year-old beginner
 - [ ] One `contents` block (§7); titles <= 55 characters (Good to Know <= 36)
 - [ ] An analogy per new concept; real-world worked examples where they exist
 - [ ] Acronyms/commands in `Gloss()`, jokes in `Aside()`, nothing load-bearing
       in a popup
+- [ ] The margin (§5b): doodles, "Did you know?" notes and asides spread
+      through the lesson; never the glossary; every fact true
+- [ ] Code hints (§4): short, plain words, a way of thinking - no code
+- [ ] **Whitespace:** look at the rendered page - text never touches the edge
+      of its box (array cells, badges, buttons, table cells); a box grows to
+      fit its longest word rather than squeezing it (Chris, 25 September 2026:
+      "always check for space and whitespace to make text readable")
 - [ ] Explanations of what code does checked for a `reveal` (§3)
 - [ ] **Try-its and diagrams wherever they help** (§5); illustrations in
       `Figure ()` (§5a)

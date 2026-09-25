@@ -25,6 +25,14 @@ lessons show them at 80%). Copy to `public/assets/lessons/pascal/lesson23-*.png`
 `masktest` types into a real TMaskEdit and prints Text/EditText/ValidateEdit;
 `pascal-tryit-ui.test.js` holds its results.
 
+`moreforms` (25 September 2026) is the booking list with a second form
+(ShowModal), a seating plan (Show) whose seat buttons are made in code, a
+TTimer spotlight, InputBox and ShowMessage. `moreforms.exe shots` writes
+`outorms-*.png` (dialogs are caught by a timer while they are modal; the
+native ShowMessage box by GetForegroundWindow). Its three units are pasted
+into lesson 23 as `$moreMainUnit` etc. - change them there too. `eventorder`
+logs which form events fire, in which order, to `events.txt`.
+
 ## fonts/ and the font demos (lesson 23)
 
 `fontsheet.py` draws a sample of every Windows 11 font into

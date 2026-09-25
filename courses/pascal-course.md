@@ -25,7 +25,7 @@ lesson 4.
 | 4 | lesson02 | How to remember - Variables and constants | Memory, names, types, Integer range (32-bit), `Div` vs `/`, type mismatch errors, assignment, Inc/Dec, **NB: always give a variable a starting value** (proved: an uninitialised local printed 1240 instead of 6), Random, **constants** (`Const` above `Var`, `=`, no type; errors `Variable identifier expected`, `"=" expected but ":=" found`). Wirth, Gates "640 KB" (labelled disputed) quotes |
 | 5 | lesson05 | Getting input - Readln, Read, ReadKey and KeyPressed | **Only Readln is exam content** (an `important` block says so; study notes mirror it). Read vs Readln = Write vs Writeln. Readln crash table (Integer + letters/decimal -> 106; empty -> 0; String never crashes; `12 apples` -> 12). Band-rubric capstone (markMax 10). Treasure, Adams quotes |
 | 6 | lesson06 | Processing - basic maths | BODMAS, `/` vs Div/Mod (truncate toward zero), Round (half to even) / Trunc, Abs/Sqr/Sqrt/Power/Max/Min (Math unit), RoundTo |
-| 7 | lesson07 | Type conversion | IntToStr/StrToInt (EConvertError, not 106), Chr/Ord, Char<->String (`word1[1]`), Real<->Integer; FloatToStr/StrToFloat/Format are locale-dependent -> `TFormatSettings` with `DecimalSeparator`. Never say "widening"/"narrowing". Adams quote |
+| 7 | lesson07 | Type conversion | IntToStr/StrToInt (EConvertError, not 106), Chr/Ord, Char<->String (`word1[1]`), Real<->Integer; FloatToStr/StrToFloat/Format are locale-dependent -> `TFormatSettings` with `DecimalSeparator`. Widening/narrowing explained (cup and jug), Ceil/Floor (Chris 25 Sep 2026). Adams quote |
 | 8 | lesson08 | Decisions / Branching | Comparisons as Booleans, If/Then/Else, Else If, And/Or/Not (logic-gate circuits; brackets round each comparison), Case, choosing If vs Case. Gleick quote |
 | 9 | lesson09 | Division - Div, Mod, Trunc and Round | Div/Mod with If (buses), odd/even and factor algorithms. 50 marks. Knuth quote |
 | 10 | lesson10 | For loops | For/DownTo, inclusive ends, zero-run ranges, **never change the counter inside; never single letters**, accumulators, nested loops, checkerboard, prime check to `Trunc (Sqrt (number))` (1 wrongly reports prime - disclosed). "Repetition", never "lap". 100 marks. Larry Wall quote |
@@ -134,6 +134,47 @@ entry. Items marked (SAGs) close gaps found in the 23 September SAGs check.
   validation task; the DBE Grade 12 PAT (two phases, 48 + 86 + 16 = 150,
   Delphi with a database and SQL) and the yearly alternative task. Proposal
   there - Chris to decide before building.
+
+## Gap additions (Chris, 25 September 2026 - BUILT and published to test and live 25 Sep for Chris to test)
+
+From the CAPS/SAGs gap check; each went into an existing lesson, with
+`sags.php`/`caps.php`, study notes and glossary rows. **Chris is testing them
+live.**
+
+- **Lesson 1** `#polya`: Polya's four steps, worked on "biggest of three
+  marks"; order + match questions.
+- **Lesson 4** (lesson02) `#memRandomRange`: RandomRange (Math; upper bound
+  excluded - 100 000 runs of RandomRange (1, 7) gave 1..6).
+- **Lesson 7** `#convRealInt`, `#convCeil`: widening/narrowing (cup and jug),
+  Ceil/Floor (buses: Ceil (130 / 60) = 3), negatives reveal, Good to Know on
+  silent narrowing (Byte := 300 -> 44).
+- **Lesson 8** `#decFourVars`, `#decSearch`, `#decSets`, `#decEnums`: Grade 12
+  4-variable tables (halving pattern) and De Morgan; search engines (Good to
+  Know); In with sets and ranges, enumerated types (TLight, Ord/Succ/Pred,
+  For, Case; poScreenCenter/fsBold as real uses), sets of enums, set
+  operators (Good to Know).
+- **Lesson 12** `#algGcd`: Euclid's GCD (While) and LCM (`a Div gcd * b`),
+  count-up LCM compared in a reveal.
+- **Lesson 13** `#strLeftRight`, `#strBinary`, `#strBinaryBack`:
+  LeftStr/RightStr (StrUtils); binary <-> decimal algorithms; Good to Know
+  on the ready-made tools.
+- **Lesson 14** `#traceCalls`: a trace table with parameter and Result
+  columns (TraceMarks), value parameters are copies (CopyIn).
+- **Lesson 15** `#twoD`, `#twoDTotals`: 2-D arrays - declaring, initialised
+  Var arrays (one line each: the layout check rejects continuation lines),
+  grid display, row/column totals (algorithm block), searching a grid;
+  try-it `array2d` (`pascal-tryit-more.js`).
+- **Lesson 16** `#nounVerb`: noun-verb analysis of a user story -> TItem
+  class diagram.
+- **Lesson 19** `#strToTime`: StrToTime/TryStrToTime/StrToDateTime, the
+  conversions table.
+- **Lesson 23** `#moreForms`, `#formEvents`, `#codeComponents`, `#timer`,
+  `#dialogs`, `#listFiles`: second form (ShowModal/Show/Hide, SetBooking),
+  form events in real order, 24 seat buttons made in code, TTimer spotlight,
+  ShowMessage/InputBox, Items.SaveToFile/LoadFromFile. Code is the compiled
+  `tools/ui-screens/lazarus/moreforms` project, embedded in the lesson;
+  screenshots `lesson23-forms-*.png`. The important block names these as
+  CAPS practical content.
 
 Not in this course: data representation (binary, hex, bits, signed/unsigned,
 overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
@@ -277,6 +318,7 @@ opened; cached in the temp folder until any content file changes.
   with a failing Div inside prints half a line first.
 - Dates (both machines): the server's DefaultFormatSettings are `d/m/y` with `-` (DateToStr 23-9-26; `'dd/mm/yyyy'` prints 23-09-2026), the Windows testbed `yyyy/MM/dd`; server clock UTC. `mmm` is Sep (server) / Sept (Windows). `'hh mm'` gives the month, `'Born dd'` -> BOR5 23, `'Today is dddd'` -> EConvertError: Illegal character in format string. YearsBetween = Trunc (days / 365.25): 23/09/2012 -> 23/09/2026 gives 13. StrToDate two-digit years: window 50 (75 -> 2075 in 2026). `date := Date` with a variable called date compiles and gives day 0.
 - `Double` is a type name - a function called `Double` becomes a conversion.
+- Gap additions (25 Sep 2026): `300 In [0..400]` warns `range check error while evaluating constants (400 must be between 0 and 255)` and is False (sets hold 0..255); `Not answer In [...]` -> `Type mismatch`. Free Pascal Writelns an enum's name; Delphi 13 refuses (`E2054 Illegal type in Write/Writeln statement`). Delphi has no BinStr/IntToBin and `StrToInt ('%1101')` raises EConvertError; both have IntToHex and `'$FF'`. LeftStr/RightStr need StrUtils (`Identifier not found "LeftStr"`). Byte := Integer 300 compiles silently, gives 44. `marks[3, 4]` in [1..4, 1..3] only warns. StrToTime needs `TimeSeparator`; `25:00`, `12:60`, `7h45` -> `EConvertError: "25:00" is not a valid time`. Lazarus 4.2: `OnClick := SeatClick` without @ -> `Wrong number of parameters specified for call to "SeatClick"`; a missing form unit -> `Identifier not found "frmDetails"`. Form events for two ShowModals (eventorder project): OnShow, OnActivate, OnCloseQuery, OnClose, OnHide, OnDeactivate each time, OnDestroy once at the end.
 - Repeat counting down from 0 prints 0 and leaves -1.
 
 ## Quotes and portraits

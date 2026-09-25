@@ -69,3 +69,22 @@ A new course's chat works in `Projects/<name>` with a `CLAUDE.md` pointing here
 (copy `Projects/AITheory`'s). Courses are added to the platform in
 `AIPascalCourse` and get a file in `courses/`. New shared rules go in the
 matching file here; a new file is fine if nothing fits - add it to the table.
+
+**One look for every course** (Chris, 25 September 2026: all design changes
+apply to the Java course - being built now - and to every course created
+later). There is no per-course design. A new course gets, and must keep:
+
+- the E look (platform.md decision 27): the same masthead, fonts, outline
+  rail, margin, numbered questions and figures, and bottom bar. Lesson pages
+  come through `public/lesson.php` and get it automatically; any page of the
+  course's own calls `DesignHeadHtml()` and `DesignBodyAttr()`
+  (lib/design.php). Extra CSS for the course goes under `body.design-e` and
+  uses the design-e.css tokens - never a separate stylesheet or colour scheme;
+- the content rules in content-voice-and-pedagogy.md: margin doodles and
+  "Did you know?" notes (§5b), boxed and captioned figures (§5a), code hints
+  as short ways of thinking with no code (§4), and the whitespace check;
+- South African English (writing-style.md).
+
+A design change made for one course is made for all of them in the same
+commit - in design-e.css, lib/design.php or the shared helpers, not in one
+course's files - and the rule goes into the file here that owns it.

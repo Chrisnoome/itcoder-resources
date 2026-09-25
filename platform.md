@@ -410,7 +410,9 @@ locked". `tools/marking-check.php` makes one real marking call through a
 site's code - run after publishing a marking change.
 
 **27. Every lesson page has the "E" look** (Chris, 25 September 2026; every
-course, new ones included). `lib/design.php` (`DesignEOn()`),
+course, new ones included - **Pascal, AI, the Java course being built and any
+later course share one design, and every design change applies to all of
+them**; README.md, "Adding a course or a chat"). `lib/design.php` (`DesignEOn()`),
 `public/assets/design-e.css` loaded after `style.css`/`console.css` with every
 rule under `body.design-e`, `design-e.js`. White page, white masthead, Figtree
 headings over a reading font (Atkinson Hyperlegible Next at line-height 1.5 -

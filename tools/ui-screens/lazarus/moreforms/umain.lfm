@@ -1,0 +1,93 @@
+object frmMain: TfrmMain
+  Left = 300
+  Height = 340
+  Top = 200
+  Width = 560
+  Caption = 'School play - bookings'
+  ClientHeight = 340
+  ClientWidth = 560
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object pnlTop: TPanel
+    Left = 0
+    Height = 48
+    Top = 0
+    Width = 560
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 560
+    Color = 6240799
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblTitle: TLabel
+      Left = 16
+      Height = 25
+      Top = 11
+      Width = 200
+      Caption = 'Bookings for the school play'
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object lstBookings: TListBox
+    Left = 16
+    Height = 264
+    Top = 60
+    Width = 360
+    ItemHeight = 0
+    TabOrder = 1
+  end
+  object btnDetails: TButton
+    Left = 392
+    Height = 32
+    Top = 60
+    Width = 152
+    Caption = '&Details...'
+    TabOrder = 2
+    OnClick = btnDetailsClick
+  end
+  object btnFind: TButton
+    Left = 392
+    Height = 32
+    Top = 100
+    Width = 152
+    Caption = '&Find...'
+    TabOrder = 3
+    OnClick = btnFindClick
+  end
+  object btnSeats: TButton
+    Left = 392
+    Height = 32
+    Top = 140
+    Width = 152
+    Caption = 'Seating &plan...'
+    TabOrder = 4
+    OnClick = btnSeatsClick
+  end
+  object btnSave: TButton
+    Left = 392
+    Height = 32
+    Top = 252
+    Width = 152
+    Caption = '&Save the list'
+    TabOrder = 5
+    OnClick = btnSaveClick
+  end
+  object btnLoad: TButton
+    Left = 392
+    Height = 32
+    Top = 292
+    Width = 152
+    Caption = '&Load the list'
+    TabOrder = 6
+    OnClick = btnLoadClick
+  end
+end

@@ -1,0 +1,68 @@
+object frmSeats: TfrmSeats
+  Left = 350
+  Height = 330
+  Top = 180
+  Width = 460
+  Caption = 'Seating plan'
+  ClientHeight = 330
+  ClientWidth = 460
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Position = poMainFormCenter
+  OnCreate = FormCreate
+  object pnlStage: TPanel
+    Left = 16
+    Height = 80
+    Top = 16
+    Width = 428
+    BevelOuter = bvNone
+    ClientHeight = 80
+    ClientWidth = 428
+    Color = 3355443
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object shpSpot: TShape
+      Left = 10
+      Height = 60
+      Top = 10
+      Width = 60
+      Brush.Color = 8454143
+      Pen.Style = psClear
+      Shape = stCircle
+    end
+  end
+  object btnSpot: TButton
+    Left = 16
+    Height = 30
+    Top = 104
+    Width = 160
+    Caption = 'Start the spotlight'
+    TabOrder = 1
+    OnClick = btnSpotClick
+  end
+  object pnlSeats: TPanel
+    Left = 16
+    Height = 136
+    Top = 144
+    Width = 428
+    BevelOuter = bvLowered
+    ClientHeight = 136
+    ClientWidth = 428
+    TabOrder = 2
+  end
+  object lblMessage: TLabel
+    Left = 16
+    Height = 15
+    Top = 296
+    Width = 300
+    Caption = 'Click a seat to book it.'
+  end
+  object tmrSpot: TTimer
+    Enabled = False
+    Interval = 30
+    OnTimer = tmrSpotTimer
+    Left = 400
+    Top = 104
+  end
+end
