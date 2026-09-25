@@ -65,6 +65,21 @@ print(vps.run('nginx -t'))
     `itcoder-v2-test/bin/compilequeue.php` -> `itcoder-v2-test-compile.log`
     (remove at teardown)
 
+## whisper.cpp (spoken flash cards, 25 Sep 2026)
+
+- `/opt/whisper.cpp` - v1.9.4 built from source (`build-essential`, `cmake`
+  installed for it), root-owned, world-readable. Binary
+  `build/bin/whisper-cli`; model `models/ggml-base.en.bin` (148 MB, sha256
+  a03779c8...). Shared by live and test; PHP runs it as www-data
+  (`PracticeTranscribe()` in lib/practice.php; paths overridable with
+  `whisperCli` / `whisperModel` in config.php). Measured: ~0.7-1.5 s a word,
+  ~150 MB RAM each, at most 2 at once.
+- Rebuild: `cd /opt/whisper.cpp && git fetch --tags && git checkout <tag> &&
+  cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF &&
+  cmake --build build -j 3 --target whisper-cli`. Removing the folder turns
+  listening off; the site falls back to the honour system.
+- Test clips from the first check are in `/tmp/wtest` (safe to delete).
+
 ## Sandbox facts (why it is built as it is)
 
 Details in [compile-subsystem-design.md](compile-subsystem-design.md).

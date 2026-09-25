@@ -154,7 +154,27 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
 - **Teacher view:** `teacher.php` ends with a Practice section for the pupils
   it already shows - each pupil's practice name, XP this week and in all,
   rounds, last played - and the 25 words those pupils miss most (3+ asks).
-- pupils columns `displayName`, `avatar`, `avatarColour`, `practiceHidden`.
+- **Grade** (`pupils.practiceGrade`, else the "Gr N" class, else the lobby
+  asks): a round draws only words taught up to that grade (Grade 12 has only
+  9 single-word terms of its own, and its exam covers all three years).
+  Today's challenge is per grade (`practiceRounds.grade`).
+- **Look (25 Sep 2026, Chris: "online game style ... FUN"):** `assets/practice.css`
+  (practice page only; Fredoka + Patrick Hand fonts). A lobby with a player
+  card, grade buttons, a daily banner with countdown and themed game tiles;
+  arenas: card table (flash cards), chalkboard (hangman), neon (word search),
+  blueprint (crossword), lightning (speed match). Web Audio sounds (no
+  files, mute button remembered), canvas confetti/bursts, stars and count-up
+  on the result screen. The crossword has no text inputs - the page takes
+  keystrokes and an on-screen keyboard (the old inputs could not be typed in).
+- **Spoken flash cards:** the browser records 16 kHz mono WAV and posts it to
+  `api/practice-speech.php`; **whisper.cpp base.en on the VPS** (`/opt/whisper.cpp`,
+  see vps-access.md) transcribes it with the round's words as `--prompt`
+  (`-ac 384`, 2 threads, at most 2 at once), `PracticeSpokenMatches()` accepts
+  sound-alikes (IntToStr = "int to string", Readln = "read line"), and the
+  audio is deleted at once. About 1 s per word. No microphone, no HTTPS, or
+  no whisper (the local testbed) = the honour system ("Back to the honour
+  system for you!"), which pupils can also choose.
+- pupils columns `displayName`, `avatar`, `avatarColour`, `practiceHidden`, `practiceGrade`.
 
 ## Stream-only lessons (Chris, 25 Sep 2026)
 
