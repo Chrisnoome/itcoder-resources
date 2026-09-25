@@ -15,7 +15,9 @@ open to outside subscribers.
 - Courses (`CourseIndex()`): `ai` (Grade 9 AI, 8 lessons, open -
   [courses/ai-course.md](courses/ai-course.md)); `pascal` (IEB IT Grades
   10-12, open, live compiling - [courses/pascal-course.md](courses/pascal-course.md));
-  others listed as `soon`.
+  `theory10`, `theory11`, `theory12` (IT Theory, one per grade, CAPS and IEB,
+  draft - [courses/theory-course.md](courses/theory-course.md)); others
+  listed as `soon`.
 - Course status: `open` (catalogue), `draft` (teacher preview), `soon` (listed,
   no content, no Join, `RequireEnrolment()` refuses). `ActiveCourses()` = all
   but `soon`; class results, admin and checkers use it.
@@ -96,7 +98,14 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
 - **Block types:** `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
   `typed`, `checkedcode`, `order`, `select` (tick all correct, no more), `match`
   (dropdown per row), `gridtyped`, `code`, `algorithm`, `errors`, `important`,
-  `goodtoknow`, `enrichment`, `contents`, `study`. Colours mean things: amber =
+  `goodtoknow`, `enrichment`, `contents`, `study`; and two wrappers made by
+  helpers, never by hand (25 Sep 2026): `board`/`boardend`
+  (`BoardSection()`, below) and `scenario`/`scenarioend` (`Scenario()` - an
+  exam-style scenario with numbered parts, "multipart" - and `Identify()` - a
+  picture to name and explain; lib/content.php). A scenario's parts are
+  ordinary question blocks numbered 8.3.1, 8.3.2 under one "Question 8.3"
+  whose header shows the engine's total; a written part's marker also gets
+  the scenario (`markerContext`, bin/markqueue.php). Colours mean things: amber =
   must know (`important` `#FFE8A3`/`#FFB300`/`#8A5200`; `study` reuses
   `.learn-memorise`'s amber), teal = watch/try, green = question, cream =
   optional (`enrichment`), blue = quote, **plum = not examined but useful**
@@ -120,6 +129,15 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   answer is also compared with compiler-ignored spacing removed and the final
   `;` optional, and an unmatched code answer gets an AI second opinion
   (`CheckCodeAnswer()`). Details: content-voice-and-pedagogy.md §4.
+  **Theory courses** (Chris, 26 September 2026: "anticipate typical pupil
+  errors that are still correct answers"): `LenientTerms()` (set from
+  `CourseMarkStyle() === 'theory'`) also compares `TheoryTermKey()` - no
+  capitals, punctuation, spaces, leading a/an/the or plural s - so "P O S",
+  "P.O.S." and "point of sales systems" match; anything still unmatched gets
+  an AI second opinion, `CheckTermAnswer()` (spelling slips, acronym or words,
+  extra "system" accepted; a different concept rejected). Like the code check
+  it is costed in `aiUsage` ('termcheck') but does not use the daily cap. The
+  "one word" hint shows only when every accepted wording is one word.
 
 ## Practice - word games from the glossary (Chris, 25 Sep 2026)
 
@@ -158,6 +176,15 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   asks): a round draws only words taught up to that grade (Grade 12 has only
   9 single-word terms of its own, and its exam covers all three years).
   Today's challenge is per grade (`practiceRounds.grade`).
+  **Only in a course whose glossary spans more than one grade**
+  (`PracticeUsesGrades()`). A one-grade course - the Grade 9 AI course
+  (Chris, 25 Sep 2026: "no grade selection - all words for everyone") - has
+  no grade pick: every pupil plays every word, one daily challenge for all
+  (`grade` NULL). The glossary page hides its grade filter the same way.
+- **Each course its own:** its words come from its own `content/<id>/glossary.php`;
+  the symbols drifting behind the lobby title are per course
+  (`PracticeHeroGlyphs()`: Pascal `:=`, `For`...; AI `GPU`, `7B`, `VRAM`...).
+  Glossary grades may be 8-12 (`bin/check-glossary.php`).
 - **Look (25 Sep 2026, Chris: "online game style ... FUN"):** `assets/practice.css`
   (practice page only; Fredoka + Patrick Hand fonts). A lobby with a player
   card, grade buttons, a daily banner with countdown and themed game tiles;
@@ -166,6 +193,8 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   files, mute button remembered), canvas confetti/bursts, stars and count-up
   on the result screen. The crossword has no text inputs - the page takes
   keystrokes and an on-screen keyboard (the old inputs could not be typed in).
+  The course name above "Fun practice" is big (`.hero-eyebrow`, up to 2.6rem;
+  Chris, 25 Sep 2026: "make the course name much bigger").
 - **Spoken flash cards:** the browser records 16 kHz mono WAV and posts it to
   `api/practice-speech.php`; **whisper.cpp base.en on the VPS** (`/opt/whisper.cpp`,
   see vps-access.md) transcribes it with the round's words as `--prompt`
@@ -207,6 +236,34 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   shown to pupils on that syllabus only (`LessonShownTo()`); staff see all.
   Such lessons are unnumbered (numbers 101+ internally; `LessonNumberLabel()`
   / `LessonLabel()` print the badge instead of "Lesson 101").
+
+## Grades, chapters and board sections (Chris, 25 Sep 2026 - the theory courses)
+
+- **A course can include others:** `'includes' => ['theory10', 'theory11']`
+  in `CourseIndex()`. `Enrol()` joins those too (real enrolment rows, so
+  class results, Practice and "carry on" just work) and `EntitledToMarking()`
+  lets a plan for the course cover them. The course page says "Includes ...".
+- **A shared glossary:** `'glossaryFrom' => 'theory10'` (`GlossaryHome()`);
+  a row taught in another course names it with the extras key `'course'`.
+  The glossary page and Index link a term only when the pupil's course is
+  that course or includes it (`GlossaryTaughtLesson()`, labelled "Grade 10,
+  Lesson 7"). lessonIds must be unique across courses sharing a glossary.
+- **Chapters:** `'chapter' => 'Hardware'` on index.php entries; the course
+  page puts a heading where it changes. Lessons stay numbered straight
+  through the course.
+- **Board sections:** content one exam board alone examines, written
+  `...BoardSection ('ieb', 'Title', [blocks], 'note')` (lib/content.php) -
+  every inner block gets `'board'`, and `board`/`boardend` blocks draw a
+  flagged, collapsible section (lesson.php, design-e.css, the last module in
+  app.js). `ExamBoard()` (lib/syllabus.php) = the pupil's board, or `''`
+  (both, neither, not chosen, staff) when everything counts. The other
+  board's section starts folded with "Not in your exam - optional, not
+  counted"; its questions are left out of every total: `CountedQuestions()`
+  / `BlockCounts()` in `LessonAutoMarkedMax()`, `PupilAutoMarkedTotal()`,
+  `PupilLessonProgress()`, scores.php, review.php, teacher.php (per-pupil
+  maximums) and pupil-work.php (shown, marked "optional - not counted");
+  app.js `IsUncounted()` keeps them off the bottom bar. **Folded is height
+  0 with `inert`, never `display: none`**, so question numbers stay the same.
 
 ## Decisions that must not be undone
 
@@ -437,6 +494,34 @@ and - for a pupil who may use AI marking - "AI: n of cap today"
 (`AiCallsToday()` in `lib/billing.php`, `AiDailyCap()`). **Leave room round
 text:** no text touches the edge of its box; boxes grow to fit (the array
 diagrams size each box to its longest value).
+**Show what belongs to what** (Chris, 25 September 2026: "we need a tree or
+indentation here to show what belongs to what"): any list of nested things -
+subject > course > lesson, a heading and its items, a group and its members -
+indents each level under its parent, with a tree line from the parent in
+menus (the site menu's `.site-menu-tree`, lib/sitemenu.php). Never a flat list
+of mixed levels. **Margin photos:** `DoodleWithPhoto()` puts a real photo
+beside a doodle under one caption and a credit line; public domain or openly
+licensed photos only, credited (Pascal lesson 1, The Thinker).
+
+**28. An uncompleted question can never be collapsed** (Chris, 25 September
+2026; **all lessons, all courses**). Wherever the platform lets a question
+block be folded or hidden - now or in any future collapse / "hide answered" /
+expand-all control - a pupil or subscriber may only collapse one that is
+**completed** (settled: right, or out of attempts; a written or code
+question counts once handed in). A question still waiting for an answer
+stays open and its collapse control is absent or disabled, so it cannot be
+skipped past by tucking it away. "Collapse all" collapses completed
+questions only. Teachers and admins are not bound by this. **Built:** the
+caret on each question's header (`.question-fold`, `SetUp()`/`Refresh()` in
+app.js) is hidden until the question is settled, and the "Hide questions"
+menu item (`body.questions-hidden`, style.css) hides only settled questions
+for a pupil - both use `IsSettled()`. Staff (`body[data-staff="1"]`) see the
+caret and hide-all on everything, which is why an unanswered question can
+show a caret on a teacher account. Any new collapse control must obey this
+too. **The one exception** (Chris, 25 September 2026): a board section for
+the OTHER exam board starts folded and may stay folded, because its
+questions are optional and not counted for that pupil. A pupil's own board's
+section folds only once every question in it is settled (app.js).
 
 ## Sign-in, marking and privacy (load-bearing)
 
@@ -462,6 +547,12 @@ diagrams size each box to its longest value).
   teacher plan adds teacher tools); a school licence whose `domains` include the
   email's domain. The AI daily cap is the plan's `aiDailyCap`, else config
   `maxApiCallsPerPupilPerDay` (`AiDailyCap()`). Every AI API passes the course.
+  **The admin's switch** (Chris, 26 September 2026): Admin > Users has **AI
+  on / AI off** per account without a paid subscription, stored in
+  `pupils.aiMarking` (NULL = follow the sources above, 1 = on everywhere, 0 =
+  off even with a school email or a group; the button stores only what differs,
+  so switching back sets NULL). It never switches off a paid subscription
+  (`Entitlements()['paid']`), and those rows have no button.
 - **Billing (step 1, no gateway yet):** tables `plans`, `subscriptions`,
   `invoices`, `payments`, `accessCodes`, `codeRedemptions`, `aiUsage` (end of
   `schema.sql`). Money in cents, rand; VAT stored as 0 (not registered).
@@ -530,7 +621,9 @@ diagrams size each box to its longest value).
   session-based.
 - **Data kept:** name, email, class, courses, answers, marks. Nothing more.
 - **Marking calls send only question, rubric and answer** - never name or email.
-- **Daily cap** `maxApiCallsPerPupilPerDay` = 30.
+- **Daily cap** `maxApiCallsPerPupilPerDay` = 100 (Chris, 26 September 2026; set in config.php on
+  live, test and the testbed - no plan overrides it yet). Only written marking,
+  reviews, analyses and task pre-checks count; code and term checks do not.
 - **Class and year:** `ClassList()` (`9C 9J 9R 9L Gr 10 Gr 11 Gr 12 Staff
   Other`), stored with the year; asked again each January.
 - **Backups leave South Africa** (Chris's machine, Dropbox); `privacy.php` says
