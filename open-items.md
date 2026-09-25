@@ -57,10 +57,6 @@ Details live in the linked files.
   is only partly verified and the Grade 11 one ("Smart Restaurant Solution")
   from secondary sources - Chris to check against the DBE PAT documents
   (`content/pascal/capspat10.php`, `capspat11.php`).
-- **Practice ideas not built yet** (25 Sep 2026): speed match (drag words to
-  meanings against the clock), spaced repetition (words you miss come back
-  more often), a teacher view of which words a class misses, class-vs-class
-  weekly totals.
 - **Theory course:** SAGs 4.2 data representation (binary, hex, bits,
   signed/unsigned, overflow, Real storage) belongs there, not in Pascal.
 - Anonymous quotes (AI lessons 4, 5, 7) keep the question-mark placeholder

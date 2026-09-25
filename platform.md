@@ -126,7 +126,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
 - `practice.php?c=` (any course with a glossary), `assets/practice.js`,
   `lib/practice.php`, `api/practice-start.php` / `api/practice-finish.php`,
   table `practiceRounds`.
-- Four games - **flash cards, hangman, word search, crossword** - built from the
+- Five games - **flash cards, hangman, word search, crossword, speed match** - built from the
   glossary's single-word terms (letters only, 3-14; the definition is the clue
   with the word blanked). **Every round is 20 words** (word search and
   crossword score out of the words that fit). Missed words are listed with
@@ -134,7 +134,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
 - The server picks the words and issues a one-time round token; the page
   reports which words were right; the server caps the score at the round's
   words and refuses impossibly fast rounds. XP per word: flash cards 1,
-  word search 2, hangman 3, crossword 4; +10 for a perfect round; double for
+  word search 2, speed match 2, hangman 3, crossword 4; +10 for a perfect round; double for
   **today's challenge** (the same 20 words for everyone, seeded by date).
 - **Ranks** Bit, Nibble, Byte, Word, Kilobyte ... Petabyte (0-5000 XP),
   **badges**, a **day streak**, leaderboards **this week / all time / today's
@@ -145,6 +145,15 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   that hide inside innocent ones are whole-word only) and an **emoji icon on a
   colour** chosen on My account (`#practice`). **No uploaded avatars**
   (Chris): nothing to moderate. A pupil can leave the leaderboards.
+- **Spaced repetition** (table `practiceWords`, Leitner boxes 0-5, due after
+  0/1/3/7/14/30 days): right moves a word up a box, missed sends it to box 0,
+  due now. A non-daily round takes up to 12 due words, then unmet words, then
+  the rest. The hub shows mastered (box 4+) / learning / not met / due.
+- **Classes** board: XP this week divided by the class's members in the
+  course (school classes from sign-in, not Staff/Other).
+- **Teacher view:** `teacher.php` ends with a Practice section for the pupils
+  it already shows - each pupil's practice name, XP this week and in all,
+  rounds, last played - and the 25 words those pupils miss most (3+ asks).
 - pupils columns `displayName`, `avatar`, `avatarColour`, `practiceHidden`.
 
 ## Stream-only lessons (Chris, 25 Sep 2026)
