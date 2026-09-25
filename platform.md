@@ -158,6 +158,11 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
 
 ## Stream-only lessons (Chris, 25 Sep 2026)
 
+- Pascal: lessons 24 and 25 are SQLite in Delphi and in Lazarus, for everyone
+  (ids `capssqlitedelphi`, `capssqlitelazarus`). The exam guides and the IEB
+  tasks (`lesson24`-`lesson27`) are unnumbered, with an IEB or CAPS badge, and
+  visible to all; the CAPS PAT and alternative-task lessons stay CAPS-only.
+
 - An index.php entry with `'stream' => 'caps'` (and `'badge' => 'CAPS'`) is
   shown to pupils on that syllabus only (`LessonShownTo()`); staff see all.
   Such lessons are unnumbered (numbers 101+ internally; `LessonNumberLabel()`
