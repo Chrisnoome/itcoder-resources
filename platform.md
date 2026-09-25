@@ -181,6 +181,11 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   🏁 Finish and ✕ Quit in the same place. Finishing early asks first, then
   shows the answers (word search circles the missed words in red; the
   crossword fills missing letters in red) before the score.
+- **Rank emblems** (`PracticeRankEmblem()`, SVG): a chip of lit bits that grows
+  1x1 (Bit) to 9x9 (Petabyte) in a frame that morphs circle - hexagon -
+  octagon - starburst, slate to gold, glowing and orbited at the top. Shown
+  beside the XP bar (now and next), on the ranks ladder and on rank-up.
+  Tiles are smooth gradients - no stripes behind text (Chris).
 - **Speed bonus:** x1 at par up to x1.5, par = seconds per word got right
   (`'par'` in PracticeGames(): flash cards 8, hangman 25, word search 12,
   crossword 25, speed match 7), applied before the daily x2.
@@ -206,13 +211,21 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
 ## Decisions that must not be undone
 
 **1. Written answers are queued, never marked in the web request.**
-`api/submit-written.php` queues and returns; `bin/markqueue.php` (cron, every
-minute) marks one answer at a time and enforces the daily cap. The worker loops
-through the minute (checks every 250ms until 45s, `flock`), so pick-up is
-~0.3s. Its body is behind `RunMarkQueue()` and a run-directly guard, so
-requiring the file for `MarkOneAnswer()` never starts the loop. Marking is
-serial: a whole class at once is minutes of queue; `PollForFeedback` waits
-~12 minutes before saying "taking longer". Parallel marking is on the backlog.
+`api/submit-written.php` queues, enforces the daily cap and returns;
+`bin/markqueue.php` (cron, every minute) marks. The worker loops through the
+minute (checks every 250ms until 45s, `flock`), so pick-up is ~0.3s. Its body
+is behind `RunMarkQueue()` and a run-directly guard, so requiring the file for
+`MarkOneAnswer()` never starts the loop. **Parallel since 25 September 2026:**
+the cron run (worker 0) starts workers 1..N-1 (`--slot=N`, own lock file each;
+N = config `markWorkers`, default 4) and waits for them. A worker claims with
+one conditional `UPDATE ... WHERE id = ? AND status = 'queued'` and stamps
+`claimedAt`; the stuck-answer rescue goes by `claimedAt` (5 min), never by
+"no worker alive". Only worker 0 does analyses, reviews and pre-checks and
+their rescues. Measured locally: 6 answers in ~6 s instead of ~40 s. The
+marking call puts the question + rubric in a `cache_control` block and the
+answer after it - but Haiku 4.5 caches only prefixes of 4096+ tokens and a
+marking prompt is ~1,100-1,800, so it rarely caches today; `aiUsage` records
+`cacheWriteTokens`/`cacheReadTokens` and prices them (x1.25 / x0.1).
 
 **2. SQLite settings in `lib/db.php`:** WAL, 5s busy timeout, `synchronous =
 NORMAL`, `mmap_size` 64 MB, `temp_store = MEMORY`. Without them 30 pupils
@@ -410,8 +423,18 @@ margin so they can **never push the text apart** (rules:
 content-voice-and-pedagogy.md §5b). Layout follows a container query on the
 space the lesson really has (an open console counts): outline + text + margin
 from 1188px, text + margin from 944px, text only below. The block colours keep
-their meanings. `?design=classic` shows the old look to one browser for now;
-other pages (subjects, courses, marks) still have the old masthead.
+their meanings. `?design=classic` shows the old look to one browser for now.
+**The pupil pages have it too** (home, sign-in, subjects, courses, a course's
+lesson list, marks, account, notifications, glossary, privacy, terms): they
+call `DesignHeadHtml()` in the head and `DesignBodyAttr()` on the body
+(`body.e-page`, rules under "THE OTHER PAGES" in design-e.css). Admin and
+teacher pages keep the old look. **The bottom bar is style B's** (Chris, 25
+September 2026): TOTAL and the marks, one small square per question filled as
+questions are answered (`design-e.js` builds `.e-grid`), the answered count,
+and - for a pupil who may use AI marking - "AI: n of cap today"
+(`AiCallsToday()` in `lib/billing.php`, `AiDailyCap()`). **Leave room round
+text:** no text touches the edge of its box; boxes grow to fit (the array
+diagrams size each box to its longest value).
 
 ## Sign-in, marking and privacy (load-bearing)
 
@@ -468,6 +491,14 @@ other pages (subjects, courses, marks) still have the old masthead.
   group or keep the class/year view. A **teacher plan covers AI marking** for
   its groups' accepted members, first-accepted first up to its seats
   (`GroupCoverage()` in `Entitlements()`). No emails yet (Brevo, step 5).
+- **Admin > Monitor** (`admin-monitor.php`, 25 September 2026): read-only.
+  Load/memory/disk (Linux only), pupils active (`lastSeenAt`), every queue's
+  depth and oldest wait, the live daemon's `/stats` (sessions vs cap, refused),
+  marking and queued-compile wait/work p50/p90/max for the last hour and day,
+  AI calls/tokens/cache share/cost by kind, and the busiest minute's output
+  tokens (compare with the API tier's OTPM limit). Scaling triggers: marking
+  wait p90 over ~30 s -> raise `markWorkers`; load over cores or memory over
+  85% -> bigger server; any "turned away" -> raise the live session cap.
   Check: `php bin/check-groups.php` (local database, rolled back).
 - **Notifications (step 3, 24 September 2026)** - `lib/notifications.php`,
   table `notifications` (dedupeKey unique per person). A bell with an unread
