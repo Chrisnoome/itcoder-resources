@@ -176,6 +176,16 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   system for you!"), which pupils can also choose.
   The mic can be tapped (stops when they stop talking) or held while
   speaking (Space too).
+- **Every game** (25 Sep 2026): a top bar pinned under the masthead with
+  pips, streak, time, score, ❓ How to play (open the first time per game),
+  🏁 Finish and ✕ Quit in the same place. Finishing early asks first, then
+  shows the answers (word search circles the missed words in red; the
+  crossword fills missing letters in red) before the score.
+- **Speed bonus:** x1 at par up to x1.5, par = seconds per word got right
+  (`'par'` in PracticeGames(): flash cards 8, hangman 25, word search 12,
+  crossword 25, speed match 7), applied before the daily x2.
+- **Word search** drags snap to the nearest of eight directions; diagonals
+  are placed twice as often as before.
 - **Crossword hints:** 💡 fills the lit word's next letter (gold, locked);
   every word through that square then earns half XP, a hinted round is not
   "perfect", and hinted words count as missed for spaced repetition.
