@@ -141,8 +141,12 @@ From the CAPS/SAGs gap check; each went into an existing lesson, with
 `sags.php`/`caps.php`, study notes and glossary rows. **Chris is testing them
 live.**
 
-- **Lesson 1** `#polya`: Polya's four steps, worked on "biggest of three
-  marks"; order + match questions.
+- **Lesson 1** `#polya` ("How to solve a problem"): Polya's four steps (CAPS)
+  and computational thinking (IEB) taught as one method with two sets of names
+  (Chris, 25 Sep 2026) - a two-lane ladder figure, a side-by-side Learn box, the
+  "biggest of three marks" example with both names on every row; order
+  questions for each, a match pairing the IEB stages with the Polya steps, the
+  tuck-shop match; glossary rows Pattern recognition and Abstraction.
 - **Lesson 4** (lesson02) `#memRandomRange`: RandomRange (Math; upper bound
   excluded - 100 000 runs of RandomRange (1, 7) gave 1..6).
 - **Lesson 7** `#convRealInt`, `#convCeil`: widening/narrowing (cup and jug),

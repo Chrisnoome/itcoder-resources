@@ -43,6 +43,13 @@ tap, Tab+Enter; click away or Escape closes).
 
 ## 3. Pedagogy: do this, observe, explain
 
+**CAPS and IEB name one idea differently? Teach it once, both names side by
+side** (Chris, 25 September 2026): one figure or table with a CAPS lane and an
+IEB lane, one worked example carrying both names, a question that pairs the
+names. Never two sections (two methods to learn) or tabs (one set hidden).
+Model: Pascal lesson 1, `#polya` - Polya's four steps and computational
+thinking.
+
 Ask more, tell less. Wherever a paragraph is about to explain what code, a
 calculation or a tool does, use a **`reveal`** block instead: the prompt says
 what to try, the pupil guesses, the button shows the answer and why. Not only
