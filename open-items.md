@@ -5,6 +5,10 @@ Details live in the linked files.
 
 ## Platform
 
+- **Rebrand to bestlessons.co.za** (2026-09-26): logo and icons chosen and
+  made - [brand/bestlessons/](brand/bestlessons/README.md). The site still
+  says itcoder: masthead, favicon, titles, emails, Google OAuth branding,
+  domain and nginx are still to change. Chris says when.
 - **The E look** (2026-09-25, live - platform.md decision 27): admin and
   teacher pages still have the old look; `?design=classic` (the old look for
   one browser) can go once nobody needs it.
