@@ -75,16 +75,20 @@ def save (name, w, h, body, view=None):
 
 
 # ---- the wordmark (E): best / lessons at one width, the line, .co.za under its right end -------------
-def wordmark (ink, pen):
+def wordmark (ink, pen, domain=True):
     best, _, s1 = EXTRA.path ('best', 0, 330, 400, tracking=-0.03, width=920)
     lessons, _, s2 = EXTRA.path ('lessons', 2, 625, 272, tracking=-0.02, width=918)
     tld, _, _ = BOLD.path ('.co.za', 900, 836, 66, tracking=0.01, anchor='end')
     return (f'<path fill="{ink}" d="{best}"/><path fill="{ink}" d="{lessons}"/>'
             f'<path d="M24 752 C250 700 620 686 900 718" stroke="{pen}" stroke-width="22" stroke-linecap="round" fill="none"/>'
-            f'<path fill="{pen}" d="{tld}"/>')
+            + (f'<path fill="{pen}" d="{tld}"/>' if domain else ''))
 
 for name, ink, pen in (('bestlessons-logo.svg', INK, BLUE), ('bestlessons-logo-on-dark.svg', '#ffffff', LIGHT)):
     save (name, 943, 852, wordmark (ink, pen), '-7 5 943 852')   # 20 units clear of the ink all round
+
+# The site header's mark: too small there for .co.za to read, so without it.
+for name, ink, pen in (('bestlessons-mark.svg', INK, BLUE), ('bestlessons-mark-on-dark.svg', '#ffffff', LIGHT)):
+    save (name, 923, 758, wordmark (ink, pen, domain=False), '3 15 923 758')
 
 
 # ---- icon 2: bl and the line --------------------------------------------------------------------------------

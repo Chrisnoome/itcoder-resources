@@ -5,10 +5,18 @@ Details live in the linked files.
 
 ## Platform
 
-- **Rebrand to bestlessons.co.za** (2026-09-26): logo and icons chosen and
-  made - [brand/bestlessons/](brand/bestlessons/README.md). The site still
-  says itcoder: masthead, favicon, titles, emails, Google OAuth branding,
-  domain and nginx are still to change. Chris says when.
+- **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
+  (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
+  lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
+  and www -> 102.214.9.207 (Absolute Hosting DNS Manager), certificate
+  (renewal dry run passed) and nginx 80/443 blocks - https://bestlessons.co.za
+  serves the site; Google OAuth takes both redirects; both domains verified in
+  Search Console and branding submitted for review. **Left:** Google's
+  branding review result; deploy live (the brand code); add bestlessons to the live console's
+  ORIGIN_ARGS in /etc/itcoder-live/live.env and restart itcoder-live@live
+  (drops open console sessions for a few seconds). Later: home
+  page, terms and privacy text written for pupils outside De La Salle; the
+  OAuth consent screen's app name (one name shows on both addresses).
 - **The E look** (2026-09-25, live - platform.md decision 27): admin and
   teacher pages still have the old look; `?design=classic` (the old look for
   one browser) can go once nobody needs it.
@@ -29,7 +37,7 @@ Details live in the linked files.
   are in its database (publishing still needs a way to look at test).
 - **Subscription purchase flow** - gating exists, dates are set by hand.
 - **Google OAuth** - consent screen External; **Publish app** to lift the
-  100-test-user cap; Branding URLs must match live.
+  100-test-user cap (branding submitted for review 26 Sep 2026).
 - **API spend limit** - set one on the Anthropic workspace; no global daily cap.
 - **Review voice** - the "evaluate my performance" review has only been read by
   Claude; read one against a real pupil's marks.

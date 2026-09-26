@@ -41,6 +41,12 @@ print(vps.run('nginx -t'))
   `sites-enabled/itcoder` -> `sites-available/itcoder` (port-80 redirect +
   hand-written SSL block; certbot renews; current cert expires 8 Dec 2026).
   **Never copy `nginx.conf.sample` over it** - that switches off HTTPS.
+- **bestlessons.co.za** (26 Sep 2026) - the same site, `/var/www/itcoder/public`:
+  `sites-enabled/bestlessons` -> `sites-available/bestlessons` (hand-written;
+  www and http go to https://bestlessons.co.za). Its own certbot certificate
+  (nginx plugin, as itcoder's). Keep its 443 block the same as itcoder's apart
+  from the names and certificate. The live console runner lists both domains
+  in `/etc/itcoder-live/live.env` (`install-live.sh` writes the same).
 - `/var/www/itcoder-v2-test` - the test site: own database, nginx block on port
   8082 (`sites-enabled/itcoder-v2-test`), `ufw` open for 8082 ("remove at
   teardown"), dev login on. Teardown commands in [open-items.md](open-items.md).

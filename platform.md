@@ -659,8 +659,23 @@ Secrets live in `config/config.php` per project, never here.
 
 - **Anthropic:** model `claude-haiku-4-5-20251001`; workspace-scoped key, or an
   org key plus `anthropicWorkspaceId`. Workspace spend limit still to set.
-- **Google OAuth:** redirect `https://itcoder.co.za/auth.php?action=callback`;
-  consent screen External, still to publish.
+- **Two addresses, one site** (Chris, 26 September 2026: pupils on itcoder.co.za
+  keep that address; bestlessons.co.za is for going wider). Same code, database
+  and accounts; `lib/brand.php` picks the brand by host (`SiteHosts()`: itcoder or
+  BestLessons - name, header logo, tab icons, titles, home page) and
+  `SiteBaseUrl()` sends Google sign-in back to the address it came from. A Host
+  not on the list is never trusted; the testbed and test site use `baseUrl` and
+  `defaultBrand`, and `?brand=bestlessons` previews there. Sessions are per
+  address, so a pupil signed in on both at once is "busy" on the second. Logo
+  rules: [brand/bestlessons/](brand/bestlessons/README.md).
+- **Google OAuth:** redirects `https://itcoder.co.za/auth.php?action=callback`
+  and `https://bestlessons.co.za/auth.php?action=callback` (both must be listed);
+  consent screen External, still to publish. Both domains are verified in
+  Google Search Console (Chris's account) by `google-site-verification` TXT
+  records at `@` in each DNS Manager zone - leave those records in place, or
+  the verification (and the branding check that needs it) lapses. Branding
+  submitted for Google's review 26 September 2026 (home, privacy and terms on
+  itcoder.co.za).
 - **Server:** [vps-access.md](vps-access.md).
 - **GitHub (`Chrisnoome`):** private repos `itcoder-platform` (AIPascalCourse)
   and `itcoder-resources` (this folder, deliberately including vps-access.md).

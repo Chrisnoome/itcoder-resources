@@ -60,6 +60,7 @@ this folder's git log.
 | Old v1 site (not deployed; AI-course source only) | `Projects/AIWebCourse/itcoder` |
 | Pupil backups (personal data) | `Projects/AIWebCourse/backups` |
 | Secrets | `config/config.php` per project; server key `C:\Users\chris\.ssh\gnomemedia_vps` |
+| Brand: BestLessons logo and icons (bestlessons.co.za) | [brand/bestlessons/](brand/bestlessons/README.md) |
 | Future courses | `Projects/AITheory`, `Projects/AIQuestionDatabase` (empty) |
 | Git remotes | Private GitHub `Chrisnoome/itcoder-platform` (AIPascalCourse), `Chrisnoome/itcoder-resources` (this folder) - see platform.md, "Keys and accounts" |
 
