@@ -57,6 +57,13 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
 - **Courses are code:** a `CourseIndex()` row, a `content/<id>/` folder, and a
   marking voice in `CourseMarkStyle()` / `MarkSystemPrompt()` in
   `bin/markqueue.php`.
+- **Every course gets a glossary, an Index and Fun practice** (Chris, 26 Sep
+  2026: "remember glossary, index, fun as well"). A course - new, or
+  converted from another - is not finished without its own
+  `content/<id>/glossary.php` (or `glossaryFrom`): that file gives it the
+  Glossary page, the popups' shared definitions, the terms in the Index
+  popup and the Practice word games. Also give Practice its own lobby
+  symbols in `PracticeHeroGlyphs()`. Check with `bin/check-glossary.php`.
 - **Pages:** `/` landing; after sign-in `subjects.php` (the first page);
   `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
   `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `practice.php?c=` (**Practice**, right after the glossary on the course page - see below); `scores.php?c=` (My marks - lesson and course totals as
@@ -183,7 +190,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   (`grade` NULL). The glossary page hides its grade filter the same way.
 - **Each course its own:** its words come from its own `content/<id>/glossary.php`;
   the symbols drifting behind the lobby title are per course
-  (`PracticeHeroGlyphs()`: Pascal `:=`, `For`...; AI `GPU`, `7B`, `VRAM`...).
+  (`PracticeHeroGlyphs()`: Pascal `:=`, `For`...; Java `++`, `new`, `->`...; AI `GPU`, `7B`, `VRAM`...).
   Glossary grades may be 8-12 (`bin/check-glossary.php`).
 - **Look (25 Sep 2026, Chris: "online game style ... FUN"):** `assets/practice.css`
   (practice page only; Fredoka + Patrick Hand fonts). A lobby with a player
@@ -538,7 +545,7 @@ section folds only once every question in it is settled (app.js).
   a `localStorage` list of open tabs, a beacon to `heartbeat.php?leaving=1` when
   the last closes; the next page reclaims the seat 3 s after loading). Browsers
   allow no custom pop-up on close, so a **"Leaving?" pop-up with Sign out**
-  shows when the mouse leaves through the top of the window (24 September 2026).
+  shows when the mouse leaves through the top of the window (24 September 2026). It states both cases (Chris, 26 September 2026): closing the tab usually frees the account in a minute or two; if the beacon never arrives (sleep, flat battery, crash) it stays locked for up to `SessionIdleMinutes()`, which `lib/masthead.php` passes to the script as `data-idle-minutes`.
 - **Access is decided by `Entitlements()` in `lib/billing.php` and nothing
   else** (24 September 2026). `CanUseMarking (pupil, courseId)` asks it. Sources:
   a `schoolEmailDomains` address in config (De La Salle, until step 2 turns its
