@@ -1,11 +1,12 @@
 # CAPS (DBE) IT practical exam - analysis, Pascal only
 
 Built 24 September 2026 from every DBE NSC Information Technology Paper 1
-and memo in `CAPS/Caps prac exams` (2016-2026, November and
+and memo in `CAPS/past papers` (2016-2026, November and
 Feb/March and May/June). The twin of
 [ieb-practical-exam-analysis.md](ieb-practical-exam-analysis.md).
 **Pascal only (Chris, 24 September 2026): Question 2 (database and SQL,
-40 marks) is left out** - SQL is a separate course. Syllabus reference:
+40 marks) is left out of §1-8** - SQL is a separate course; §9 analyses
+Question 2 for that course (25 September 2026). Syllabus reference:
 [caps-2024.md](caps-2024.md) (§4.5 gives the official Paper 1 format).
 Detailed counts cover the **15 papers in the current format**, November
 2018 to May/June 2026.
@@ -207,3 +208,100 @@ with a given `Display` procedure to call.
 - **This file is the source for lesson 25, the CAPS practical guide**
   (Chris, 24 September 2026). Lesson 24 is the IEB guide. Lesson 25
   stands alone and may repeat lesson 24's general technique.
+
+## 9. Question 2 - database programming (40 marks) - for the SQL course
+
+Analysed 25 September 2026 from all 15 current-format papers and memos
+(November 2018 - May/June 2026). Not for lessons 24-25; for the SQL
+course ([courses/sql-course.md](courses/sql-course.md)). Dialect facts:
+[sql-dialects.md](sql-dialects.md).
+
+**Shape (fixed):** two tab sheets. **2.1 SQL - always five buttons, 19-25
+marks** (mean 22); **2.2 Delphi - 15-21 marks** (mean 18), "NO marks will
+be awarded for SQL statements in QUESTION 2.2". Always **one Access `.mdb`
+(Jet 4.0) with exactly two tables, one-to-many** with referential
+integrity, a relationship diagram on the data pages, `tbl` prefix,
+PascalCase fields, the foreign key named like the primary key, 10-40
+rows, blanks planted for IS NULL questions. The database is
+password-protected - pupils see the data only through the program's
+grids. A Restore button copies the backup over it.
+
+**How the SQL is delivered:** the pupil only completes a string
+(`sSQL1`..`sSQL5`, a global `sSQL` in 2026) inside a given click event;
+given code runs it through a TADOQuery (Open or ExecSQL) into a DBGrid
+and reports "the database has changed". Pupils never write TADOQuery
+code. The paper names no functions - the wording does: "formatted as
+currency" -> `FORMAT(x, "Currency")`; "rounded to two decimal places" ->
+`ROUND`; "formatted to two decimal places" -> `FORMAT(x, "0.00")`; "in a
+new field called X" -> `AS X`.
+
+**2.1 - what comes up** (papers of 15 whose model answer needs it):
+
+| Feature | Papers | Notes |
+|---|---|---|
+| SELECT fields + WHERE, one comparison | 15 | 2.1.1, 3 marks, always the easiest |
+| Aggregate + AS; GROUP BY | 15; 15 | SUM 7, AVG 5, COUNT 5, MIN/MAX 0; GROUP BY on an expression 2, on two columns 2 |
+| Two-table join | 13 | model answer always `FROM A, B WHERE A.PK = B.FK`, often with table aliases; INNER JOIN accepted |
+| Any UPDATE/DELETE/INSERT | 13 | UPDATE 7, DELETE 5, INSERT ... VALUES 2 (2024); none in 25N, 26 |
+| ORDER BY | 11 | DESC 5; two keys once |
+| Calculated field | 10 | e.g. `(HoursWorked - 8) * HourlyWage * 2` |
+| SELECT * | 9 | "all the details" |
+| Compound AND | 9 | |
+| User input glued into the SQL | 9 | InputBox, combo box, edit box; `"' + sVar + '"` with the SQL literal in double quotes; QuotedStr accepted; numbers bare |
+| `FORMAT(x, "Currency")` | 9 | `FORMAT(x, "0.00")` once |
+| LIKE | 8 | **always `%`** - `*` in no memo; contains 5, ends 2, starts 1 |
+| Yes/No = True/False | 6 | `= Yes`, `= -1`, bare field accepted |
+| HAVING | 6 | |
+| Date functions | 6 | Month 3, Year 2, Date()/Now 2; `#yyyy/mm/dd#` required twice |
+| LEFT / RIGHT | 4 / 1 | MID accepted; LEN never |
+| Bracketed alias with spaces | 3 | `[Total Amount]` |
+| ROUND; IS NULL; OR (with brackets) | 2 each | |
+| INT, DISTINCT, TOP, BETWEEN, `&` | 1 each | `&` or `+` accepted |
+| Subqueries, outer joins, MIN/MAX, IIF, LIMIT | 0 | |
+
+**Order:** 2.1.1 easiest (3) -> 2.1.2-2.1.3 one idea each (LIKE, a date
+function, the user-input item, IS NULL, TOP, a string function) -> 2.1.4
+usually the heavy aggregate (GROUP BY + join + FORMAT + HAVING, 5-9) ->
+2.1.5 usually the change (UPDATE/DELETE/INSERT).
+
+**2.2 - what comes up.** Two global TADOTables, open and on grids. Model
+answers always use `tblX['Field']`; FieldByName only as an alternative.
+
+| Feature | Papers |
+|---|---|
+| `First` / `while not Eof` / `Next` | 15 (from 24N: one mark only if First and Next are both right, per table) |
+| An If inside the loop, output to a RichEdit with `#9` tabs | 13 |
+| Linking the two tables in code (PK = FK) - nested master/detail loops, or find then look up | 10 |
+| Search for a user's value with a flag | 8 (a not-found message twice) |
+| Insert/Append + fields + Post | 7 (none since 23N - INSERT moved to SQL) |
+| Count in a loop | 6 |
+| Copy/Pos/YearOf on field values | 6 |
+| Edit + Post on the record selected in the grid | 5 |
+| Edit/Post inside a loop (bulk change) | 3 - the recent trend (25MJ, 25N, 26) |
+| Delete in a loop ("if match then Delete else Next") | 2 |
+| Sum/average/percentage in a loop; validation; a text file with the database | 2-3 each |
+| Locate, Filter, Lookup, RecordCount, master-detail components | 0 |
+
+**Marking:** one mark per clause (fields, table, join condition, each
+condition, ORDER BY, DESC; for aggregates the function, calculation, AS,
+FORMAT, GROUP BY, HAVING). "Alternate correct solution ... full credit
+unless instructions not followed." Accepted: INNER/LEFT JOIN, QuotedStr,
+`+` for `&`, MID for LEFT, date ranges or Year()/Month() combinations,
+`Year(Now)` or `Date()`, string tests on dates, `= Yes`/`-1`, COUNT(*) or
+COUNT(field), IN for an OR chain, `ISNULL(x)`, DISTINCT or GROUP BY,
+`DELETE * FROM`, ORDER BY a column number. Delphi per construct; Append
+for Insert; any navigation for Post; repeat..until for while.
+
+**Traps:** conditions only in the story (a venue, "more than 8 hours");
+boundary words ("100 or more", "since 2019"); a combo value that is part
+of the field ("TV" in "Smart TV"); OR with AND needs brackets; IS NULL,
+not `= ""`; HAVING vs WHERE; every non-aggregated column in GROUP BY; an
+alias can't be used in WHERE (repeat the expression); `[ ]` round an
+alias with spaces; quotes round text input, none round numbers; missing
+spaces between `'...' + '...'` lines. Delphi: Delete without Next;
+children before the parent; resetting a counter inside the outer loop;
+the not-found message after the loop, from a flag.
+
+**The memos are sloppy** - treat them as concept lists, not runnable SQL
+(20N drops a condition the grid needs; 21N's 2.1.2 has no WHERE; 22MJ has
+`Year = 2002` for 2022).

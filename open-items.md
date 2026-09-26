@@ -11,10 +11,9 @@ Details live in the linked files.
   and www -> 102.214.9.207 (Absolute Hosting DNS Manager), certificate
   (renewal dry run passed) and nginx 80/443 blocks - https://bestlessons.co.za
   serves the site; Google OAuth takes both redirects; both domains verified in
-  Search Console and branding submitted for review. **Left:** Google's
-  branding review result; deploy live (the brand code); add bestlessons to the live console's
-  ORIGIN_ARGS in /etc/itcoder-live/live.env and restart itcoder-live@live
-  (drops open console sessions for a few seconds). Later: home
+  Search Console and branding submitted for review; brand code live and the
+  live console accepts both addresses. **Left:** Google's branding review
+  result. Later: home
   page, terms and privacy text written for pupils outside De La Salle; the
   OAuth consent screen's app name (one name shows on both addresses).
 - **The E look** (2026-09-25, live - platform.md decision 27): admin and
@@ -51,6 +50,11 @@ Details live in the linked files.
 
 ## Content
 
+- **Java course: open and live** (26 Sep 2026, Java in the live console -
+  courses/java-course.md). For Chris: check the glossary's grades and
+  plum marks (a script's first draft); IDE screenshots (lesson 3) and the
+  NetBeans GUI-builder wording (lessons 24, 25, 28 - no IDEs on the testbed).
+
 - **AI course restyle** - lessons are still v1's copy (no popups, reveals,
   mixed question types). Also worksheets, teacher pack, assessment weight,
   lesson 8 timing. See [courses/ai-course.md](courses/ai-course.md).
@@ -69,8 +73,10 @@ Details live in the linked files.
   is only partly verified and the Grade 11 one ("Smart Restaurant Solution")
   from secondary sources - Chris to check against the DBE PAT documents
   (`content/pascal/capspat10.php`, `capspat11.php`).
-- **Theory course:** SAGs 4.2 data representation (binary, hex, bits,
-  signed/unsigned, overflow, Real storage) belongs there, not in Pascal.
+- **Theory course:** plan and Chris's questions in
+  [courses/theory-course.md](courses/theory-course.md) (25 Sep 2026). SAGs
+  4.2 data representation (binary, hex, bits, signed/unsigned, overflow, Real
+  storage) belongs there, not in Pascal.
 - Anonymous quotes (AI lessons 4, 5, 7) keep the question-mark placeholder
   portrait permanently, unless an attributed quote replaces them.
 

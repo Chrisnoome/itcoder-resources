@@ -110,6 +110,45 @@ $checks = [
                 && !str_contains ($r['runOutput'], 'READABLE'),
      'secret'],
 
+    // ---- Java (the Java course, 25 September 2026) ----------------------
+    // The 8th field says the language; the 7th is '' when not secret.
+    ['java: hello world compiles and runs', true, false, '',
+     "public class Hello {\n  public static void main(String[] args) {\n    System.out.println(\"Proof of life\");\n  } // main\n} // class Hello\n",
+     fn ($r) => $r['compileOk'] && str_contains ($r['runOutput'], 'Proof of life'), '', 'java'],
+
+    ['java: a real javac error comes back genuine', true, false, '',
+     "public class Bad {\n  public static void main(String[] args) {\n    total = 3;\n  } // main\n} // class Bad\n",
+     fn ($r) => !$r['compileOk'] && str_contains ($r['compileOutput'], 'cannot find symbol'), '', 'java'],
+
+    ['java: Scanner reads two lines and a decimal prints with a point', true, false, "Thabo\n16\n",
+     "import java.util.Scanner;\n\npublic class Greet {\n  public static void main(String[] args) {\n    Scanner keyboard = new Scanner(System.in);\n"
+     . "    String name = keyboard.nextLine();\n    int age = keyboard.nextInt();\n"
+     . "    System.out.println(\"Hello, \" + name + \"! In 5 years you will be \" + (age + 5) + \". \" + String.format(\"%.2f\", 2.5));\n  } // main\n} // class Greet\n",
+     fn ($r) => str_contains ($r['runOutput'], 'Hello, Thabo! In 5 years you will be 21. 2.50'), '', 'java'],
+
+    ['java: letters for nextInt stop the program with its exception', true, false, "abc\n",
+     "import java.util.Scanner;\n\npublic class Crash {\n  public static void main(String[] args) {\n    Scanner keyboard = new Scanner(System.in);\n"
+     . "    int age = keyboard.nextInt();\n    System.out.println(age);\n  } // main\n} // class Crash\n",
+     fn ($r) => $r['compileOk'] && str_contains ($r['runOutput'], 'java.util.InputMismatchException'), '', 'java'],
+
+    ['java: an endless loop is stopped', true, false, '',
+     "public class Forever {\n  public static void main(String[] args) {\n    while (true) {\n    } // while\n  } // main\n} // class Forever\n",
+     fn ($r) => $r['timedOut'], '', 'java'],
+
+    ['SECURITY java: a program cannot open any site\'s config or lessons', true, false, '',
+     "import java.io.File;\n\npublic class Peek {\n  public static void main(String[] args) {\n"
+     . "    String[] paths = {\"/var/www/itcoder/config/config.php\", \"/var/www/itcoder-v2-test/config/config.php\", "
+     . "\"/var/www/itcoder/content/pascal/lesson01.php\", \"/var/backups/itcoder\"};\n"
+     . "    for (String path : paths) {\n      try {\n        java.nio.file.Files.readAllBytes(new File(path).toPath());\n"
+     . "        System.out.println(\"READABLE \" + path);\n      } catch (Exception error) {\n        System.out.println(\"BLOCKED\");\n      }\n    }\n  }\n}\n",
+     fn ($r) => $r['compileOk'] && substr_count ($r['runOutput'], 'BLOCKED') === 4 && !str_contains ($r['runOutput'], 'READABLE'),
+     'secret', 'java'],
+
+    ['SECURITY java: no network', true, false, '',
+     "public class Net {\n  public static void main(String[] args) {\n    try {\n      new java.net.Socket(\"1.1.1.1\", 80).close();\n"
+     . "      System.out.println(\"CONNECTED\");\n    } catch (Exception error) {\n      System.out.println(\"NO NETWORK\");\n    }\n  }\n}\n",
+     fn ($r) => $r['compileOk'] && str_contains ($r['runOutput'], 'NO NETWORK'), 'secret', 'java'],
+
     // ---- informational: open questions, never gating --------------------
     ['info: Readln with no input typed at all', false, false, '',
      "Program Empty;\nVar\n  a : Integer;\nBegin\n  Readln (a);\n  Writeln ('Got ', a);\nEnd.\n",
@@ -130,9 +169,12 @@ foreach ($checks as $check)
 {
     [$name, $gating, $wantTty, $input, $source, $passes] = $check;
     $isSecret = (($check[6] ?? '') === 'secret');
+    $language = $check[7] ?? 'pascal';
 
     $started = microtime (true);
-    $result  = CompilePascal ($config, $source, $wantTty, $input);
+    $result  = function_exists ('CompileProgram')
+        ? CompileProgram ($config, $language, $source, $wantTty, $input)
+        : CompilePascal ($config, $source, $wantTty, $input);
     $seconds = number_format (microtime (true) - $started, 1);
 
     $ok = (bool) $passes ($result);

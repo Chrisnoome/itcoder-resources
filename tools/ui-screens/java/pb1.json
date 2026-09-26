@@ -1,0 +1,11 @@
+["@@SNAP:menu",
+ "1", "Thabo Mokoena", "082 123 4567", "@@SNAP:cellerror",
+ "0821234567", "two", "@@SNAP:tickerror",
+ "2", "y", "@@SNAP:confirm",
+ "y", "@@SNAP:saved",
+ "1", "Lebo Dlamini", "0719876543", "4", "n", "y",
+ "1", "Pieter van der Merwe", "0835550101", "1", "N", "yes",
+ "2", "@@SNAP:list", "",
+ "x", "@@SNAP:wrongkey",
+ "h", "@@SNAP:help", "",
+ "q", "@@SNAP:quit", "y"]

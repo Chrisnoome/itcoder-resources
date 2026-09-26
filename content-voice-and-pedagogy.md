@@ -228,15 +228,22 @@ what makes a lesson worth reading, never what a pupil needs.
   section's `block-anchor` span, so it sits beside the section's opening
   lines. Break the heredoc: `HTML . Doodle (...) . <<<HTML` (reopen a nowdoc as
   `<<<'HTML'`).
+- **When Chris quotes lesson text and asks for a margin item, the start of the
+  quoted text is the anchor** (Chris, 26 September 2026): put the `Doodle()` or
+  `MarginNote()` immediately before the first quoted paragraph (or list), so
+  it sits beside exactly that text - not at the top of the section. If the
+  quote starts inside a paragraph, place it before that paragraph.
 - **A drawing that gives the answer away goes inside the answer** (Chris, 25
   September 2026): put the `Doodle()` or `MarginNote()` at the start of a
   `reveal` block's `explain` (`'explain' => Doodle (...) . <<<HTML`). It stays
   hidden with the answer and appears in the margin beside it when the pupil
   presses the button (`.reveal-body` rule in design-e.css). Model: the jam jar
   in Pascal lesson 1.
-- **How many:** about one item for every two or three sections - at least three
-  in a full lesson, one or two in the exam guides and task lessons. Never two
-  sections in a row without text between them. Mostly **drawings** (Chris:
+- **How many:** **fill the margin while the lesson is written, not afterwards**
+  (Chris, 26 September 2026: "populate the sidebar when creating the
+  lesson") - aim for an item beside every section of a full lesson, never
+  fewer than one for every two sections; one or two in the exam guides and
+  task lessons. Never two sections in a row without text between them. Mostly **drawings** (Chris:
   "sidebars still lack illustrations ... search could have a stick figure with
   binoculars asking 'where is it???'"): a stick figure, an object or a small
   scene that makes the concept's joke visible, with a pun or one-liner as its
@@ -250,7 +257,9 @@ what makes a lesson worth reading, never what a pupil needs.
   notes sit in the text as small grey boxes - so a note must read well between
   two paragraphs.
 - `DesignFigure ('name', 'caption')` is a drawing from `doodles/` in a proper
-  `Figure()` box - an illustration (§5a), not a margin item.
+  `Figure()` box - an illustration (§5a), not a margin item. It is drawn in
+  the doodles' blue pen (`.figure-art`; Chris, 26 September 2026), so draw it
+  in `currentColor`.
 
 ## 6. Quotes with portraits
 
@@ -361,7 +370,9 @@ listing, output box, errors card, try-it panel and array demo wraps a line
 too long for the box with a **hanging indent**: the wrapped part lines up one
 place after the line's first `(` - the way a long heading is written by hand -
 or 4 places in from the line's own indent when there is no bracket (2 for
-output). `app.js` `LineHang()`/`HangLine()` (shared as `window.PascalLineHang`
+output). **Java pages always use the 4 places**, never the bracket (Chris, 26
+September 2026: bracket alignment left the Java try-it panels one letter per
+line). `app.js` `LineHang()`/`HangLine()` (shared as `window.PascalLineHang`
 with `pascal-tryit.js` and `array-demo.js`); CSS `pre-wrap` on
 `.pre-line-text`. Nothing to write in a lesson - it is automatic. Only the DOS
 terminal keeps its fixed 80 columns.

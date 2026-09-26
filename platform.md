@@ -112,7 +112,9 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   picture to name and explain; lib/content.php). A scenario's parts are
   ordinary question blocks numbered 8.3.1, 8.3.2 under one "Question 8.3"
   whose header shows the engine's total; a written part's marker also gets
-  the scenario (`markerContext`, bin/markqueue.php). Colours mean things: amber =
+  the scenario and the text of its stimulus - a spec table, a figure's
+  caption (`markerContext`, bin/markqueue.php; stimulus added 26 September
+  2026). Colours mean things: amber =
   must know (`important` `#FFE8A3`/`#FFB300`/`#8A5200`; `study` reuses
   `.learn-memorise`'s amber), teal = watch/try, green = question, cream =
   optional (`enrichment`), blue = quote, **plum = not examined but useful**
@@ -145,6 +147,10 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   extra "system" accepted; a different concept rejected). Like the code check
   it is costed in `aiUsage` ('termcheck') but does not use the daily cap. The
   "one word" hint shows only when every accepted wording is one word.
+- **Access SQL answers** (`sqlquery` in Access) are AI-marked the same way -
+  instant, for everyone, costed as 'sqlcheck', no daily cap - but clause by
+  clause, each clause scoring like a match line (sql-runner-design.md,
+  "Access answers, AI-marked").
 
 ## Practice - word games from the glossary (Chris, 25 Sep 2026)
 
@@ -271,6 +277,19 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   maximums) and pupil-work.php (shown, marked "optional - not counted");
   app.js `IsUncounted()` keeps them off the bottom bar. **Folded is height
   0 with `inert`, never `display: none`**, so question numbers stay the same.
+- **SQL dialects and the count key** (Chris, 25-26 Sep 2026 - the SQL
+  course; rules in courses/sql-course.md): a course with `'dialects' => true`
+  has lessons with `'dialect' => 'access'|'mysql'|'javadb'|'sqlite'` in
+  index.php; `LoadLesson()` gives it to every block that names none. What
+  counts for a pupil is now a **count key** - the board, plus the dialect in
+  a dialect course: `'ieb'`, `'ieb:mysql'`, `'caps:access'`
+  (`CountKey($pupil, $courseId)` / `CountKeyById()`, lib/syllabus.php). Every
+  total takes the key where it used to take the board; `BlockCounts()` checks
+  board and dialect (`SqlDialectCounts()`: SQLite never counts). Board
+  sections still compare the board alone (`ExamBoard()`). A practice lesson
+  or question carries `data-uncounted="1"`, which `IsUncounted()` also reads.
+  The lesson toolbar's "out of" and "N of M" now use the key too (they used
+  to include the other board's questions).
 
 ## Decisions that must not be undone
 
@@ -719,6 +738,10 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-notifications.php` - notices, dedupe, open/read, invitation and reminder notices (local only).
 - `php bin/check-output-programs.php` - every output has its main program
   shown above it (content-voice-and-pedagogy.md §7b).
+- `php bin/sql/record-access.php` - after writing or changing an Access SQL
+  block or question, or a sample database: records what real Access gives
+  (Windows with Access only; `--check` lists what is not recorded;
+  sql-runner-design.md, "Access, recorded").
 - `php bin/check-codestyle.php`, `php bin/check-typing.php`,
   `php bin/check-sags.php`, `php bin/check-videos.php`.
 - `node tests/tokeniser.test.js`; `node public/assets/*.test.js`.

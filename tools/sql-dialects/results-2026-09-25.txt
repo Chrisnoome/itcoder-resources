@@ -1,0 +1,450 @@
+
+== t01 Text in double quotes
+  Jet4 OLEDB (CAPS)        Megan Botha | Pieter van Wyk
+  ACE OLEDB                Megan Botha | Pieter van Wyk
+  ACE ODBC                 ERROR: ERROR [07002] [Microsoft][ODBC Microsoft Access Driver] Too few parameters. Expected 1.
+  MariaDB                  Megan Botha | Pieter van Wyk
+  MariaDB, MySQL8 mode     Megan Botha | Pieter van Wyk
+  Java DB (Derby 10.17)    Megan Botha | Pieter van Wyk
+  UCanAccess 5.1.8         Megan Botha | Pieter van Wyk
+  SQLite <- Access form    Megan Botha | Pieter van Wyk
+  SQLite <- MySQL form     Megan Botha | Pieter van Wyk
+  SQLite <- JavaDB form    Megan Botha | Pieter van Wyk
+
+== t02 LIKE with * (Access) / % wildcard
+  Jet4 OLEDB (CAPS)        (no rows)
+  ACE OLEDB                (no rows)
+  ACE ODBC                 (no rows)
+  MariaDB                  Shield Deluxe | Vault Deluxe
+  MariaDB, MySQL8 mode     Shield Deluxe | Vault Deluxe
+  Java DB (Derby 10.17)    Shield Deluxe | Vault Deluxe
+  UCanAccess 5.1.8         Shield Deluxe | Vault Deluxe
+  SQLite <- Access form    (no rows)
+  SQLite <- MySQL form     Shield Deluxe | Vault Deluxe
+  SQLite <- JavaDB form    Shield Deluxe | Vault Deluxe
+
+== t02b LIKE with % in Access
+  Jet4 OLEDB (CAPS)        Shield Deluxe | Vault Deluxe
+  ACE OLEDB                Shield Deluxe | Vault Deluxe
+  ACE ODBC                 Shield Deluxe | Vault Deluxe
+  UCanAccess 5.1.8         Shield Deluxe | Vault Deluxe
+  SQLite <- Access form    Shield Deluxe | Vault Deluxe
+
+== t03 COUNT(*) AS alias
+  Jet4 OLEDB (CAPS)        6
+  ACE OLEDB                6
+  ACE ODBC                 6
+  MariaDB                  6
+  MariaDB, MySQL8 mode     6
+  Java DB (Derby 10.17)    6
+  UCanAccess 5.1.8         6
+  SQLite <- Access form    6
+  SQLite <- MySQL form     6
+  SQLite <- JavaDB form    6
+
+== t04 YEAR(NOW()) - YEAR(date)
+  Jet4 OLEDB (CAPS)        1 | 4 | 6
+  ACE OLEDB                1 | 4 | 6
+  ACE ODBC                 1 | 4 | 6
+  MariaDB                  1 | 4 | 6
+  MariaDB, MySQL8 mode     1 | 4 | 6
+  Java DB (Derby 10.17)    1 | 4 | 6
+  UCanAccess 5.1.8         1 | 4 | 6
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 no such function: YEAR
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: YEAR
+  SQLite <- JavaDB form    ERROR: SQLSTATE[HY000]: General error: 1 no such function: YEAR
+
+== t05 Join in WHERE
+  Jet4 OLEDB (CAPS)        Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  ACE OLEDB                Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  ACE ODBC                 Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  MariaDB                  Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  MariaDB, MySQL8 mode     Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  Java DB (Derby 10.17)    Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  UCanAccess 5.1.8         Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  SQLite <- Access form    Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  SQLite <- MySQL form     Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+  SQLite <- JavaDB form    Thandi Nkosi, 1234567 | Pieter van Wyk, 2345678 | Aisha Patel, 3456789 | Thandi Nkosi, 4567890 | Sipho Dlamini, 5678901 | Pieter van Wyk, 6789012
+
+== t06 3-table INNER JOIN with Access brackets + GROUP BY/HAVING
+  Jet4 OLEDB (CAPS)        Gauteng, 920 | Western Cape, 1050
+  ACE OLEDB                Gauteng, 920 | Western Cape, 1050
+  ACE ODBC                 Gauteng, 920 | Western Cape, 1050
+  MariaDB                  Gauteng, 920 | Western Cape, 1050
+  MariaDB, MySQL8 mode     Gauteng, 920 | Western Cape, 1050
+  Java DB (Derby 10.17)    Gauteng, 920 | Western Cape, 1050
+  UCanAccess 5.1.8         Gauteng, 920 | Western Cape, 1050
+  SQLite <- Access form    Gauteng, 920 | Western Cape, 1050
+  SQLite <- MySQL form     Gauteng, 920 | Western Cape, 1050
+  SQLite <- JavaDB form    Gauteng, 920 | Western Cape, 1050
+
+== t06b 3-table INNER JOIN without brackets
+  Jet4 OLEDB (CAPS)        ERROR: Syntax error (missing operator) in query expression 'tblSales.ClientID = tblClients.ClientID INNER JOIN tblPro
+  ACE OLEDB                ERROR: Syntax error (missing operator) in query expression 'tblSales.ClientID = tblClients.ClientID INNER JOIN tblPro
+  ACE ODBC                 ERROR: ERROR [42000] [Microsoft][ODBC Microsoft Access Driver] Syntax error (missing operator) in query expression 't
+  MariaDB                  Gauteng, 920 | KwaZulu-Natal, 450 | Western Cape, 1050
+  MariaDB, MySQL8 mode     Gauteng, 920 | KwaZulu-Natal, 450 | Western Cape, 1050
+  Java DB (Derby 10.17)    Gauteng, 920 | KwaZulu-Natal, 450 | Western Cape, 1050
+  UCanAccess 5.1.8         Gauteng, 920 | KwaZulu-Natal, 450 | Western Cape, 1050
+  SQLite <- Access form    Gauteng, 920 | KwaZulu-Natal, 450 | Western Cape, 1050
+  SQLite <- MySQL form     Gauteng, 920 | KwaZulu-Natal, 450 | Western Cape, 1050
+  SQLite <- JavaDB form    Gauteng, 920 | KwaZulu-Natal, 450 | Western Cape, 1050
+
+== t07 Subquery against AVG
+  Jet4 OLEDB (CAPS)        Guard Premium | Shield Deluxe | Vault Deluxe
+  ACE OLEDB                Guard Premium | Shield Deluxe | Vault Deluxe
+  ACE ODBC                 Guard Premium | Shield Deluxe | Vault Deluxe
+  MariaDB                  Guard Premium | Shield Deluxe | Vault Deluxe
+  MariaDB, MySQL8 mode     Guard Premium | Shield Deluxe | Vault Deluxe
+  Java DB (Derby 10.17)    Guard Premium | Shield Deluxe | Vault Deluxe
+  UCanAccess 5.1.8         Guard Premium | Shield Deluxe | Vault Deluxe
+  SQLite <- Access form    Guard Premium | Shield Deluxe | Vault Deluxe
+  SQLite <- MySQL form     Guard Premium | Shield Deluxe | Vault Deluxe
+  SQLite <- JavaDB form    Guard Premium | Shield Deluxe | Vault Deluxe
+
+== t08 UPDATE rebuilding text (LEFT, LEN, &)
+  Jet4 OLEDB (CAPS)        changed 0  => after: Shield Deluxe | Shield Basic | Guard Premium | Guard Lite | Vault Deluxe
+  ACE OLEDB                changed 0  => after: Shield Deluxe | Shield Basic | Guard Premium | Guard Lite | Vault Deluxe
+  ACE ODBC                 changed 0  => after: Shield Deluxe | Shield Basic | Guard Premium | Guard Lite | Vault Deluxe
+  MariaDB                  changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  MariaDB, MySQL8 mode     changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  Java DB (Derby 10.17)    changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  UCanAccess 5.1.8         changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "(": syntax error
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 near "(": syntax error
+  SQLite <- JavaDB form    changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+
+== t09 INSERT with random number and date literal
+  Jet4 OLEDB (CAPS)        changed 1  => after: 5, 4  date rows: 1
+  ACE OLEDB                changed 1  => after: 5, 4  date rows: 1
+  ACE ODBC                 changed 1  => after: 5, 4  date rows: 1
+  MariaDB                  changed 1  => after: 5, 4  date rows: 1
+  MariaDB, MySQL8 mode     changed 1  => after: 5, 4  date rows: 1
+  Java DB (Derby 10.17)    changed 1  => after: 5, 4  date rows: 1
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [INSERT INTO tblSales (ClientID, ProdID, License, SaleDate) VALUES (5, 4, INT
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "#2025": syntax error
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: FLOOR
+  SQLite <- JavaDB form    changed 1  => after:   date rows: 1
+
+== t10 Top 3
+  Jet4 OLEDB (CAPS)        Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  ACE OLEDB                Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  ACE ODBC                 Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  MariaDB                  Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  MariaDB, MySQL8 mode     Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  Java DB (Derby 10.17)    Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  UCanAccess 5.1.8         Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "3": syntax error
+  SQLite <- MySQL form     Guard Premium, 600 | Shield Deluxe, 450 | Vault Deluxe, 350
+  SQLite <- JavaDB form    ERROR: SQLSTATE[HY000]: General error: 1 near "FETCH": syntax error
+
+== t11 MID, RIGHT, UCASE, concatenating a number
+  Jet4 OLEDB (CAPS)        123, kosi, GAU-3 | 765,  Wyk, WES-3 | 987, atel, KWA-2 | 555, mini, GAU-1 | NULL, otha, LIM-3
+  ACE OLEDB                123, kosi, GAU-3 | 765,  Wyk, WES-3 | 987, atel, KWA-2 | 555, mini, GAU-1 | NULL, otha, LIM-3
+  ACE ODBC                 123, kosi, GAU-3 | 765,  Wyk, WES-3 | 987, atel, KWA-2 | 555, mini, GAU-1 | NULL, otha, LIM-3
+  MariaDB                  123, kosi, GAU-3 | 765,  Wyk, WES-3 | 987, atel, KWA-2 | 555, mini, GAU-1 | NULL, otha, LIM-3
+  MariaDB, MySQL8 mode     123, kosi, GAU-3 | 765,  Wyk, WES-3 | 987, atel, KWA-2 | 555, mini, GAU-1 | NULL, otha, LIM-3
+  Java DB (Derby 10.17)    123, kosi, GAU-3 | 765,  Wyk, WES-3 | 987, atel, KWA-2 | 555, mini, GAU-1 | NULL, otha, LIM-3
+  UCanAccess 5.1.8         123, kosi, GAU-3 | 765,  Wyk, WES-3 | 987, atel, KWA-2 | 555, mini, GAU-1 | NULL, otha, LIM-3
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "(": syntax error
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 near "(": syntax error
+  SQLite <- JavaDB form    123, kosi, GAU- | 765,  Wyk, WES- | 987, atel, KWA- | 555, mini, GAU- | NULL, otha, LIM-
+
+== t12 ROUND a calculated field
+  Jet4 OLEDB (CAPS)        Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  ACE OLEDB                Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  ACE ODBC                 Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  MariaDB                  Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  MariaDB, MySQL8 mode     Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  Java DB (Derby 10.17)    ERROR: 'ROUND' is not recognized as a function or procedure.
+  UCanAccess 5.1.8         Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  SQLite <- Access form    Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  SQLite <- MySQL form     Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+  SQLite <- JavaDB form    Shield Deluxe, 517.5 | Shield Basic, 138 | Guard Premium, 690 | Guard Lite, 92 | Vault Deluxe, 402.5
+
+== t13 Unmatched rows: NOT IN
+  Jet4 OLEDB (CAPS)        Guard Lite
+  ACE OLEDB                Guard Lite
+  ACE ODBC                 Guard Lite
+  MariaDB                  Guard Lite
+  MariaDB, MySQL8 mode     Guard Lite
+  Java DB (Derby 10.17)    Guard Lite
+  UCanAccess 5.1.8         Guard Lite
+  SQLite <- Access form    Guard Lite
+  SQLite <- MySQL form     Guard Lite
+  SQLite <- JavaDB form    Guard Lite
+
+== t14 Unmatched rows: LEFT JOIN ... IS NULL
+  Jet4 OLEDB (CAPS)        Megan Botha
+  ACE OLEDB                Megan Botha
+  ACE ODBC                 Megan Botha
+  MariaDB                  Megan Botha
+  MariaDB, MySQL8 mode     Megan Botha
+  Java DB (Derby 10.17)    Megan Botha
+  UCanAccess 5.1.8         Megan Botha
+  SQLite <- Access form    Megan Botha
+  SQLite <- MySQL form     Megan Botha
+  SQLite <- JavaDB form    Megan Botha
+
+== t15 INSERT ... SELECT with a date constant
+  Jet4 OLEDB (CAPS)        changed 2  => after: 1 | 4
+  ACE OLEDB                changed 2  => after: 1 | 4
+  ACE ODBC                 changed 2  => after: 1 | 4
+  MariaDB                  changed 2  => after: 1 | 4
+  MariaDB, MySQL8 mode     changed 2  => after: 1 | 4
+  Java DB (Derby 10.17)    changed 2  => after: 1 | 4
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [INSERT INTO tblSales (ClientID, ProdID, License, SaleDate) SELECT ClientID, 
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "#2026": syntax error
+  SQLite <- MySQL form     changed 2  => after: 1 | 4
+  SQLite <- JavaDB form    changed 2  => after: 1 | 4
+
+== t16 DELETE by date
+  Jet4 OLEDB (CAPS)        changed 1  => after: 1 | 2 | 3 | 4 | 6
+  ACE OLEDB                changed 1  => after: 1 | 2 | 3 | 4 | 6
+  ACE ODBC                 changed 1  => after: 1 | 2 | 3 | 4 | 6
+  MariaDB                  changed 1  => after: 1 | 2 | 3 | 4 | 6
+  MariaDB, MySQL8 mode     changed 1  => after: 1 | 2 | 3 | 4 | 6
+  Java DB (Derby 10.17)    changed 1  => after: 1 | 2 | 3 | 4 | 6
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [DELETE FROM tblSales WHERE SaleDate < #2018/01/01#]: unknown token:
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "#2018": syntax error
+  SQLite <- MySQL form     changed 1  => after: 1 | 2 | 3 | 4 | 6
+  SQLite <- JavaDB form    changed 1  => after: 1 | 2 | 3 | 4 | 6
+
+== t17 DISTINCT, BETWEEN, IN
+  Jet4 OLEDB (CAPS)        Gauteng | Limpopo | Western Cape
+  ACE OLEDB                Gauteng | Limpopo | Western Cape
+  ACE ODBC                 Gauteng | Limpopo | Western Cape
+  MariaDB                  Gauteng | Limpopo | Western Cape
+  MariaDB, MySQL8 mode     Gauteng | Limpopo | Western Cape
+  Java DB (Derby 10.17)    Gauteng | Limpopo | Western Cape
+  UCanAccess 5.1.8         Gauteng | Limpopo | Western Cape
+  SQLite <- Access form    Gauteng | Limpopo | Western Cape
+  SQLite <- MySQL form     Gauteng | Limpopo | Western Cape
+  SQLite <- JavaDB form    Gauteng | Limpopo | Western Cape
+
+== t18 Whole number / whole number
+  Jet4 OLEDB (CAPS)        1.2
+  ACE OLEDB                1.2
+  ACE ODBC                 1.2
+  MariaDB                  1.2
+  MariaDB, MySQL8 mode     1.2
+  Java DB (Derby 10.17)    1
+  UCanAccess 5.1.8         1
+  SQLite <- Access form    1
+  SQLite <- MySQL form     1
+  SQLite <- JavaDB form    1
+
+== t19 = with different capitals ('gauteng')
+  Jet4 OLEDB (CAPS)        Sipho Dlamini | Thandi Nkosi
+  ACE OLEDB                Sipho Dlamini | Thandi Nkosi
+  ACE ODBC                 Sipho Dlamini | Thandi Nkosi
+  MariaDB                  Sipho Dlamini | Thandi Nkosi
+  MariaDB, MySQL8 mode     Sipho Dlamini | Thandi Nkosi
+  Java DB (Derby 10.17)    (no rows)
+  UCanAccess 5.1.8         Sipho Dlamini | Thandi Nkosi
+  SQLite <- Access form    (no rows)
+  SQLite <- MySQL form     (no rows)
+  SQLite <- JavaDB form    (no rows)
+
+== t20 LIKE with different capitals
+  Jet4 OLEDB (CAPS)        (no rows)
+  ACE OLEDB                (no rows)
+  ACE ODBC                 (no rows)
+  MariaDB                  Thandi Nkosi
+  MariaDB, MySQL8 mode     Thandi Nkosi
+  Java DB (Derby 10.17)    (no rows)
+  UCanAccess 5.1.8         Thandi Nkosi
+  SQLite <- Access form    (no rows)
+  SQLite <- MySQL form     Thandi Nkosi
+  SQLite <- JavaDB form    Thandi Nkosi
+
+== t21 Days between two dates
+  Jet4 OLEDB (CAPS)        1, 573
+  ACE OLEDB                1, 573
+  ACE ODBC                 1, 573
+  MariaDB                  1, 573
+  MariaDB, MySQL8 mode     1, 573
+  Java DB (Derby 10.17)    1, 573
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [SELECT SaleID, #2026/09/25# - SaleDate AS Days FROM tblSales WHERE SaleID = 
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "#2026": syntax error
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: DATEDIFF
+  SQLite <- JavaDB form    ERROR: SQLSTATE[HY000]: General error: 1 unrecognized token: "{"
+
+== t22 MONTH() and DAY()
+  Jet4 OLEDB (CAPS)        1
+  ACE OLEDB                1
+  ACE ODBC                 1
+  MariaDB                  1
+  MariaDB, MySQL8 mode     1
+  Java DB (Derby 10.17)    1
+  UCanAccess 5.1.8         1
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 no such function: MONTH
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: MONTH
+  SQLite <- JavaDB form    ERROR: SQLSTATE[HY000]: General error: 1 no such function: MONTH
+
+== t23 GROUP BY missing a selected field (exam: error)
+  Jet4 OLEDB (CAPS)        ERROR: You tried to execute a query that does not include the specified expression 'ClientName' as part of an aggrega
+  ACE OLEDB                ERROR: Your query does not include the specified expression 'ClientName' as part of an aggregate function.
+  ACE ODBC                 ERROR: ERROR [42000] [Microsoft][ODBC Microsoft Access Driver] Your query does not include the specified expression '
+  MariaDB                  Gauteng, Thandi Nkosi, 2 | KwaZulu-Natal, Aisha Patel, 1 | Limpopo, Megan Botha, 1 | Western Cape, Pieter van Wyk, 1
+  MariaDB, MySQL8 mode     ERROR: SQLSTATE[42000]: Syntax error or access violation: 1055 't.tblClients.ClientName' isn't in GROUP BY
+  Java DB (Derby 10.17)    ERROR: Column reference 'TBLCLIENTS.CLIENTNAME' is invalid, or is part of an invalid expression. For a SELECT list wi
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [SELECT Province, ClientName, COUNT(*) AS Num FROM tblClients GROUP BY Provin
+  SQLite <- Access form    Gauteng, Thandi Nkosi, 2 | KwaZulu-Natal, Aisha Patel, 1 | Limpopo, Megan Botha, 1 | Western Cape, Pieter van Wyk, 1
+  SQLite <- MySQL form     Gauteng, Thandi Nkosi, 2 | KwaZulu-Natal, Aisha Patel, 1 | Limpopo, Megan Botha, 1 | Western Cape, Pieter van Wyk, 1
+  SQLite <- JavaDB form    Gauteng, Thandi Nkosi, 2 | KwaZulu-Natal, Aisha Patel, 1 | Limpopo, Megan Botha, 1 | Western Cape, Pieter van Wyk, 1
+
+== t24 Alias used in HAVING
+  Jet4 OLEDB (CAPS)        ERROR: No value given for one or more required parameters.
+  ACE OLEDB                ERROR: No value given for one or more required parameters.
+  ACE ODBC                 ERROR: ERROR [07002] [Microsoft][ODBC Microsoft Access Driver] Too few parameters. Expected 1.
+  MariaDB                  Gauteng, 2
+  MariaDB, MySQL8 mode     Gauteng, 2
+  Java DB (Derby 10.17)    ERROR: Column 'NUM' is either not in any table in the FROM list or appears within a join specification and is outside
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [SELECT Province, COUNT(*) AS Num FROM tblClients GROUP BY Province HAVING Nu
+  SQLite <- Access form    Gauteng, 2
+  SQLite <- MySQL form     Gauteng, 2
+  SQLite <- JavaDB form    Gauteng, 2
+
+== t25 Yes/No field = True
+  Jet4 OLEDB (CAPS)        Aisha Patel | Megan Botha | Thandi Nkosi
+  ACE OLEDB                Aisha Patel | Megan Botha | Thandi Nkosi
+  ACE ODBC                 Aisha Patel | Megan Botha | Thandi Nkosi
+  MariaDB                  Aisha Patel | Megan Botha | Thandi Nkosi
+  MariaDB, MySQL8 mode     Aisha Patel | Megan Botha | Thandi Nkosi
+  Java DB (Derby 10.17)    Aisha Patel | Megan Botha | Thandi Nkosi
+  UCanAccess 5.1.8         Aisha Patel | Megan Botha | Thandi Nkosi
+  SQLite <- Access form    Aisha Patel | Megan Botha | Thandi Nkosi
+  SQLite <- MySQL form     Aisha Patel | Megan Botha | Thandi Nkosi
+  SQLite <- JavaDB form    Aisha Patel | Megan Botha | Thandi Nkosi
+
+== t26 IIF / CASE
+  Jet4 OLEDB (CAPS)        Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  ACE OLEDB                Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  ACE ODBC                 Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  MariaDB                  Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  MariaDB, MySQL8 mode     Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  Java DB (Derby 10.17)    Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  UCanAccess 5.1.8         Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  SQLite <- Access form    Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: IF
+  SQLite <- JavaDB form    Thandi Nkosi, Gold | Pieter van Wyk, Gold | Aisha Patel, Other | Sipho Dlamini, Other | Megan Botha, Gold
+
+== t08b UPDATE with % in Access
+  Jet4 OLEDB (CAPS)        changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  ACE OLEDB                changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  ACE ODBC                 changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  UCanAccess 5.1.8         changed 2  => after: Shield Premium | Shield Basic | Guard Premium | Guard Lite | Vault Premium
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "(": syntax error
+
+== t20b LIKE % with different capitals (Access)
+  Jet4 OLEDB (CAPS)        Thandi Nkosi
+  ACE OLEDB                Thandi Nkosi
+  ACE ODBC                 Thandi Nkosi
+  UCanAccess 5.1.8         Thandi Nkosi
+  SQLite <- Access form    Thandi Nkosi
+
+== t35 & to join text
+  Jet4 OLEDB (CAPS)        Thandi Nkosi (Gauteng)
+  ACE OLEDB                Thandi Nkosi (Gauteng)
+  ACE ODBC                 Thandi Nkosi (Gauteng)
+  MariaDB                  Thandi Nkosi (Gauteng)
+  MariaDB, MySQL8 mode     Thandi Nkosi (Gauteng)
+  Java DB (Derby 10.17)    Thandi Nkosi (Gauteng)
+  UCanAccess 5.1.8         Thandi Nkosi (Gauteng)
+  SQLite <- Access form    0
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: CONCAT
+  SQLite <- JavaDB form    Thandi Nkosi (Gauteng)
+
+== t36 INT((date - date) / 365) (CAPS 25N)
+  Jet4 OLEDB (CAPS)        9
+  ACE OLEDB                9
+  ACE ODBC                 9
+  MariaDB                  9
+  MariaDB, MySQL8 mode     9
+  Java DB (Derby 10.17)    9
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [SELECT INT((#2026/09/25# - SaleDate) / 365) AS Yrs FROM tblSales WHERE SaleI
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "#2026": syntax error
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: FLOOR
+  SQLite <- JavaDB form    ERROR: SQLSTATE[HY000]: General error: 1 unrecognized token: "{"
+
+== t27 FORMAT a date
+  Jet4 OLEDB (CAPS)        01/03/2025
+  ACE OLEDB                01/03/2025
+  ACE ODBC                 01/03/2025
+  MariaDB                  01/03/2025
+  MariaDB, MySQL8 mode     01/03/2025
+  Java DB (Derby 10.17)    01/03/2025
+  UCanAccess 5.1.8         01/03/2025
+  SQLite <- Access form    2025-03-01
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: DATE_FORMAT
+  SQLite <- JavaDB form    //ߩ
+
+== t28 Date literal in WHERE
+  Jet4 OLEDB (CAPS)        1 | 4 | 6
+  ACE OLEDB                1 | 4 | 6
+  ACE ODBC                 1 | 4 | 6
+  MariaDB                  1 | 4 | 6
+  MariaDB, MySQL8 mode     1 | 4 | 6
+  Java DB (Derby 10.17)    1 | 4 | 6
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [SELECT SaleID FROM tblSales WHERE SaleDate >= #2025/01/01# ORDER BY SaleID]:
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "#2025": syntax error
+  SQLite <- MySQL form     1 | 4 | 6
+  SQLite <- JavaDB form    1 | 4 | 6
+
+== t29 Text + text with + (Access alternative)
+  Jet4 OLEDB (CAPS)        Thandi Nkosi (Gauteng)
+  ACE OLEDB                Thandi Nkosi (Gauteng)
+  ACE ODBC                 Thandi Nkosi (Gauteng)
+  UCanAccess 5.1.8         ERROR: UCAExc:::5.1.8 Failed to execute [SELECT ClientName + ' (' + Province + ')' AS Label FROM tblClients WHERE Cli
+  SQLite <- Access form    0
+
+== t30 LEN / LENGTH
+  Jet4 OLEDB (CAPS)        Pieter van Wyk | Sipho Dlamini
+  ACE OLEDB                Pieter van Wyk | Sipho Dlamini
+  ACE ODBC                 Pieter van Wyk | Sipho Dlamini
+  MariaDB                  Pieter van Wyk | Sipho Dlamini
+  MariaDB, MySQL8 mode     Pieter van Wyk | Sipho Dlamini
+  Java DB (Derby 10.17)    Pieter van Wyk | Sipho Dlamini
+  UCanAccess 5.1.8         Pieter van Wyk | Sipho Dlamini
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 no such function: LEN
+  SQLite <- MySQL form     Pieter van Wyk | Sipho Dlamini
+  SQLite <- JavaDB form    Pieter van Wyk | Sipho Dlamini
+
+== t31 FORMAT as currency (CAPS 9/15)
+  Jet4 OLEDB (CAPS)        R450,00
+  ACE OLEDB                R450,00
+  ACE ODBC                 ERROR: ERROR [07002] [Microsoft][ODBC Microsoft Access Driver] Too few parameters. Expected 1.
+  MariaDB                  R450.00
+  MariaDB, MySQL8 mode     R450.00
+  Java DB (Derby 10.17)    R450.00
+  UCanAccess 5.1.8         R450,00
+  SQLite <- Access form    450
+  SQLite <- MySQL form     ERROR: SQLSTATE[HY000]: General error: 1 no such function: CONCAT
+  SQLite <- JavaDB form    Rǂ
+
+== t32 DELETE * FROM (Access form)
+  Jet4 OLEDB (CAPS)        changed 1  => after: 5
+  ACE OLEDB                changed 1  => after: 5
+  ACE ODBC                 changed 1  => after: 5
+  UCanAccess 5.1.8         changed 1  => after: 5
+  SQLite <- Access form    ERROR: SQLSTATE[HY000]: General error: 1 near "*": syntax error
+
+== t33 Alias with a space
+  Jet4 OLEDB (CAPS)        1600
+  ACE OLEDB                1600
+  ACE ODBC                 1600
+  MariaDB                  1600
+  MariaDB, MySQL8 mode     1600
+  Java DB (Derby 10.17)    1600
+  UCanAccess 5.1.8         1600
+  SQLite <- Access form    1600
+  SQLite <- MySQL form     1600
+  SQLite <- JavaDB form    1600
+
+== t34 User input glued in with double quotes (CAPS house style)
+  Jet4 OLEDB (CAPS)        Thandi Nkosi
+  ACE OLEDB                Thandi Nkosi
+  ACE ODBC                 ERROR: ERROR [07002] [Microsoft][ODBC Microsoft Access Driver] Too few parameters. Expected 2.
+  UCanAccess 5.1.8         Thandi Nkosi
+  SQLite <- Access form    Thandi Nkosi

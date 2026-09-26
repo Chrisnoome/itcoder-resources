@@ -220,6 +220,16 @@ opened; cached in the temp folder until any content file changes.
 
 ## Course decisions
 
+- **Database programming in Delphi stays in this course** (Chris, 25 Sep
+  2026: "stay in pascal with links"): the SQL course teaches the SQL and
+  links here for the code. The CAPS exam's Question 2.2 code is ADO +
+  Access, not the FireDAC + SQLite of `capssqlitedelphi`: the SQL string in
+  a given click event (double quotes inside Delphi's single quotes, user
+  input glued in, QuotedStr), and a TADOTable walked with
+  First/`while not Eof`/Next, `tblX['Field']`, Edit/Post, Insert, Delete in
+  a loop, two tables linked by PK = FK. Full list:
+  [../caps-practical-exam-analysis.md](../caps-practical-exam-analysis.md)
+  §9. Still to write (a CAPS lesson, or more in `capssqlitedelphi`).
 - **Lessons 22-23 (Chris, 24 Sep 2026):** "test is simple for exams - whole lesson is good to know"; lesson 23 "is mainly for PAT". Each has an `important` block naming the tested part; the study notes follow it. Pictures of Crt screens and windows must come from real runs (see `tools/ui-screens/README.md`), never drawings.
 
 - **Exceptions for school = a plain `Try ... Except`** (Chris, 23 Sep 2026):

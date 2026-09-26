@@ -17,7 +17,7 @@ and port 22 blocked.
 | Key | `C:\Users\chris\.ssh\gnomemedia_vps` (RSA, no passphrase) - load from there only; never print, copy or move it |
 | Python | `C:\Python314\python.exe` or venv `D:\xampp\itcoder-tools-venv\Scripts\python.exe` (both have paramiko) |
 | OS / size | Ubuntu 24.04.5 LTS; 4 vCPU, 3921 MB RAM, 77 GB disk (checked 10 Sep 2026) |
-| Stack | nginx, PHP 8.3-FPM (pool `www`, `pm.max_children = 40` via `bin/tune-fpm.sh`), certbot, cron, fp-compiler 3.2.2 |
+| Stack | nginx, PHP 8.3-FPM (pool `www`, `pm.max_children = 40` via `bin/tune-fpm.sh`), certbot, cron, fp-compiler 3.2.2, openjdk-21-jdk-headless 21.0.12 (installed 25 Sep 2026 for the Java course, `/usr/lib/jvm/java-21-openjdk-amd64`), MySQL 8.0.46 and Apache Derby 10.17.1.0 (25 Sep 2026, for the SQL course - see below), SQLite 3.45.1 (PHP's) |
 
 ## tools/vps.py
 
@@ -85,6 +85,84 @@ print(vps.run('nginx -t'))
   cmake --build build -j 3 --target whisper-cli`. Removing the folder turns
   listening off; the site falls back to the honour system.
 - Test clips from the first check are in `/tmp/wtest` (safe to delete).
+
+## MySQL and Java DB for the SQL course (25 Sep 2026)
+
+Installed for the SQL course's runner (courses/sql-course.md); **nothing
+uses them yet** and they hold no data worth keeping (no backups needed).
+
+- **MySQL 8.0.46** (`mysql-server`, apt, installed with
+  `DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=l`). Tuning in
+  `/etc/mysql/mysql.conf.d/zz-itcoder.cnf`: `127.0.0.1` only, X protocol
+  off, `performance_schema` off, 64 MB buffer pool, 30 connections -
+  about 145 MB RAM. Default `sql_mode` kept (MySQL 8's, with
+  `ONLY_FULL_GROUP_BY` - what pupils meet at school).
+  **`lower_case_table_names = 1`** - table names ignore capitals, as on
+  Windows (Chris's yes, 26 Sep 2026: the data folder was re-initialised
+  for it, since it can only be set then; the old one, holding nothing but
+  MySQL's own schemas, is at `/var/lib/mysql.old-2026-09-26` - safe to
+  delete). **`skip-log-bin`** - no binary log: nothing replicates, and the
+  runner's create-and-drop on every Run would grow it by about a gigabyte
+  a month. After a re-initialise, run
+  `INSTALL PLUGIN auth_socket SONAME 'auth_socket.so'`, set root to
+  `auth_socket`, and recreate `debian-sys-maint` with the password in
+  `/etc/mysql/debian.cnf` (what Ubuntu's installer normally does) - the
+  scripts used are `/root/mysql-reset.sh` and `/root/mysql-reset-accounts.sh`
+  (done; don't run again). MySQL's `root` signs in through the socket as
+  the system root, no password. The runner's own account: see below.
+- **Apache Derby (Java DB) 10.17.1.0** - `/opt/derby` ->
+  `/opt/derby-10.17.1.0` (`derby`, `derbyshared`, `derbytools` jars from
+  Maven Central, SHA-1 checked; root-owned, world-readable), run on the
+  server's Java 21: `java -cp '/opt/derby/*' org.apache.derby.tools.ij`.
+  No service - Derby runs inside whatever Java process uses it. Set
+  `derby.stream.error.file` (or `derby.system.home`), or Derby writes
+  `derby.log` into the current folder.
+- Checked: all 34 MySQL tests in `tools/sql-dialects/` gave the same
+  results as MariaDB in MySQL 8's mode. Safe to delete: `/tmp/sqltest`,
+  `/tmp/sqlbench`, `/tmp/mysql-install.log`, `/root/derby.log` (from the
+  checks).
+
+## Capacity (measured 25 Sep 2026)
+
+**Chris (25 Sep 2026): warn him whenever a plan looks likely to hit the
+server's limits.** The limits: 4 vCPU, 3.9 GB RAM, 2 GB swap (below).
+Idle: ~1 GB used, ~2.9 GB available. One class is ~30 pupils pressing Run
+together.
+
+| One Run of | Time | Memory | 30 at once |
+|---|---|---|---|
+| MySQL (fresh database, 2 tables, 80 rows, a join, drop) | 0.11 s | mysqld grows to ~240 MB, shared | 0.85 s |
+| Java DB, a new Java process per Run | 1.1 s | ~95 MB each | **17.6 s, load 10.6, ~2.85 GB** |
+| javac + java, hello-world size | 0.75 s | ~72 MB each | **8.3 s, ~2.1 GB** |
+
+- **Java DB must not start a Java process per Run** - one class would
+  take almost all free memory and every CPU for ~18 s. Plan: one warm,
+  sandboxed Derby service with a queue (courses/sql-course.md).
+- **Java in the live console:** a running Java program holds ~70 MB for
+  as long as its session lasts; the live slice's 1.5 GB cap fits ~20 at
+  once, well under `MAX_SESSIONS` 60. Compiles queue (4 slots), so a
+  class waits up to ~8 s. live-console-design.md already says Java wants
+  a separate executor server.
+- **Swap (Chris's yes, 25 Sep 2026):** `/swapfile`, 2 GB, root 600, in
+  `/etc/fstab` (old copy `/etc/fstab.bak-2026-09-25`),
+  `vm.swappiness = 10` in `/etc/sysctl.d/99-itcoder-swap.conf` - used only
+  under memory pressure, so a spike means slowness instead of a killed
+  process. If swap is often in use (`free -m`), the server needs more RAM.
+- **Pupils are told Java is slower here** (the console's first Java run,
+  its Help, Java lesson 3): their own computer is the best option; the
+  console is for phones and tablets.
+- If the server is ever rebuilt: the same apt line for `mysql-server`,
+  the same `.cnf`, and the three jars into `/opt/derby-<version>`.
+- **The SQL runner** (26 Sep 2026, [sql-runner-design.md](sql-runner-design.md))
+  uses them: `itcoder-sql@test` is installed and running (user
+  `itcoder-sql`, `/usr/local/lib/itcoder/sql/`, socket
+  `/run/itcoder-sql-test/sql.sock`, MySQL account `itcoder_sql@127.0.0.1`,
+  password in `/etc/itcoder-sql/mysql.password`), and the test site's
+  config has `'sqlRunner'` (backup `config.php.bak-2026-09-25-230318`).
+  Measured on the server: ~105 MB; 30 Runs at once in 1.06 s; systemd
+  exposure 2.9 "OK". **Not on live yet.** Install/update:
+  `bash /var/www/itcoder-v2-test/bin/sql/deploy/install-sql.sh test`
+  (after publish-test.py). It does not use `/opt/derby` (its own jars).
 
 ## Sandbox facts (why it is built as it is)
 

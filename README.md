@@ -30,6 +30,7 @@ this folder's git log.
 | [publishing.md](publishing.md) | **How to publish** to test then live - read before touching the server |
 | [vps-access.md](vps-access.md) | The server: access, what is on it, house rules |
 | [compile-subsystem-design.md](compile-subsystem-design.md) | The Pascal compile sandbox and queue |
+| [sql-runner-design.md](sql-runner-design.md) | The SQL runner: MySQL, Java DB and SQLite for the SQL course's `sql` blocks - guard, limits, sandbox, install |
 | [live-console-design.md](live-console-design.md) | The live console (interactive Pascal, files, editor, layout check, code completion) |
 | [backups.md](backups.md) | Backups, restore, the Dropbox pull and its alarm |
 | [open-items.md](open-items.md) | The backlog |
@@ -38,18 +39,34 @@ this folder's git log.
 | [writing-style.md](writing-style.md) | Base rules for lesson prose |
 | [content-voice-and-pedagogy.md](content-voice-and-pedagogy.md) | Voice, pedagogy and lesson rules, with the lesson checklist |
 | [pascal-house-style.md](pascal-house-style.md) | How Pascal code is written |
+| [java-house-style.md](java-house-style.md) | How Java code is written (the Java course) |
 | [marking-house-style.md](marking-house-style.md) | How practicals and code submissions are marked |
 | [sags-topic4-syllabus.md](sags-topic4-syllabus.md) | IEB SAGs Topic 4 (programming) as a teaching checklist |
 | [sags-2025.md](sags-2025.md) | The rest of the SAGs as reference |
 | [ieb-practical-exam-analysis.md](ieb-practical-exam-analysis.md) | Every IEB practical paper analysed: structure, what always appears, marking, exam technique - for lesson 24 |
 | [caps-practical-exam-analysis.md](caps-practical-exam-analysis.md) | Every DBE (CAPS) Paper 1 analysed, Pascal questions only (1, 3, 4): structure, what always appears, marking, technique - for lesson 25 |
+| [ieb-theory-exam-analysis.md](ieb-theory-exam-analysis.md) | Every IEB theory paper (2009-May 2021) analysed: structure, scenarios, question formats with counts, marking, verbs, recurring topics, technique - and specs for the theory courses' multipart and identify questions |
+| [caps-theory-exam-analysis.md](caps-theory-exam-analysis.md) | Every DBE (CAPS) Paper 2 (2016-May/June 2026, 23 papers) analysed: structure and the 2024-amendment shape, question formats with counts, marking, verbs, recurring topics, technique - and specs for the multipart and identify questions |
 | [caps-tasks.md](caps-tasks.md) | The CAPS school-based tasks (the DBE PAT, the alternative task) and a proposal for lessons 28+ |
 | [caps-2024.md](caps-2024.md) | The DBE CAPS (2024 amendment) as reference: every topic per grade and term, assessment, Paper 1/2 formats |
+| [sql-dialects.md](sql-dialects.md) | Access vs MySQL vs Java DB vs SQLite, tested on real engines - **each dialect runs on its own engine, never imitated**; Access is simulated; the IEB's data files disagree |
 | [courses/ai-course.md](courses/ai-course.md) | The Grade 9 AI course |
+| [courses/ai-yearly-update.md](courses/ai-yearly-update.md) | Facts in the AI course that go stale (prices, products, data centres, company figures, video links), checked every January; add a line whenever a lesson states one |
 | [courses/pascal-course.md](courses/pascal-course.md) | The Pascal course: lessons, decisions, verified facts |
+| [courses/java-course.md](courses/java-course.md) | The Java course (IEB only): Chris's brief, lessons, verified facts |
+| [courses/sql-course.md](courses/sql-course.md) | PLAN: the SQL and databases course - shared theory, SQL lessons per dialect (Access, MySQL, Java DB, SQLite), marks per dialect, the SQL runner, questions for Chris |
+| [courses/theory-course.md](courses/theory-course.md) | PLAN: the IT Theory courses - Chris's decisions, sources (the old textbook), chapter outlines per grade, platform work |
+| [courses/theory-yearly-update.md](courses/theory-yearly-update.md) | Facts in the theory lessons that go stale (brands, statistics, "most"), checked every January; add a line whenever a lesson states one |
+| [course-development.md](course-development.md) | PLAN: researching courses for other subjects (CAT first) in the separate `itcoder-coursedev` repo - scope, subject order, sources and how to get them, outputs |
 | `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php`, `tools/marking-check.php` | Publishing ([publishing.md](publishing.md)) |
 | `tools/vps.py` | Run commands and upload files on the server |
 | `tools/pull-backups.py`, `.cmd` | The daily Dropbox pull |
+| `tools/sql-dialects/` | The SQL dialect test harness and its results ([sql-dialects.md](sql-dialects.md)) |
+| `tools/ui-screens/` | How the lessons' text screens and window screenshots were made (Pascal, Java lesson 23 and 24) - the no-clicks rule is in its README |
+| `tools/access-screens/` | Real Access screenshots and the downloadable TuckShop.mdb for the SQL course's Access lessons - **hands off the keyboard and mouse while it runs** (its README) |
+| `tools/java-packaging/` | The test programs behind Java lesson 28 (JAR files, jpackage) |
+| `tools/java-databases/` | The programs behind Java lessons 25-27 (SQLite, JavaFX tables, Java DB) and their screenshot drivers |
+| `tools/java-ieb/`, `tools/java-glossary/` | The Java IEB lessons' example programs, and the script that drafted the Java glossary |
 | `word documents/`, `Quote images/`, `Logos and icons/`, the SAGS PDF | Source material |
 
 ## Elsewhere
@@ -62,6 +79,7 @@ this folder's git log.
 | Secrets | `config/config.php` per project; server key `C:\Users\chris\.ssh\gnomemedia_vps` |
 | Brand: BestLessons logo and icons (bestlessons.co.za) | [brand/bestlessons/](brand/bestlessons/README.md) |
 | Future courses | `Projects/AITheory`, `Projects/AIQuestionDatabase` (empty) |
+| Research for other subjects' courses | `Projects/itcoder-coursedev` - see [course-development.md](course-development.md) |
 | Git remotes | Private GitHub `Chrisnoome/itcoder-platform` (AIPascalCourse), `Chrisnoome/itcoder-resources` (this folder) - see platform.md, "Keys and accounts" |
 
 ## Adding a course or a chat

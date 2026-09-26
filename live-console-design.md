@@ -41,10 +41,14 @@ the Windows testbed.
   directory, so reading works; writing works within a run but isn't kept.
 - **Cost (measured):** ~12 MB per idle Pascal session (unit ~6.6 MB; `sudo` and
   `systemd-run` clients ~7 MB each, in the daemon's cgroup - hence the daemon's
-  640 MB limit). 200 sessions ~2.5-3 GB. Java later (~60-80 MB each) wants a
-  separate executor server - the daemon already is a separate service.
-- **Language is a parameter** (profile: sources, compile, run); Java to follow,
-  never an in-browser JVM.
+  640 MB limit). 200 sessions ~2.5-3 GB. A running Java program ~70 MB (unit
+  cap 256M, 64 tasks), so the pupils' slice (1.5 GB) holds ~20 at once; a
+  separate executor server if that gets tight.
+- **Language is a parameter** (profile: sources, compile, run) - `pascal` and
+  `java` (installed on test and live 26 September 2026, with the Java course
+  opening; the sudoers line allows `run java *`). Never an in-browser JVM.
+  Java proven through the launcher on both with 7 checks (hello, Scanner, two
+  files, compile error, config unreadable, lower-case class file refused).
 
 ## Installed
 
@@ -69,8 +73,8 @@ the Windows testbed.
 ## The panel (`public/assets/console.js`, `console.css`, `lib/console.php`)
 
 - **Show / hide console** in the lesson toolbar; right-hand panel (draggable
-  360px to 70%; below 900px it covers the screen). Pascal course only
-  (`ConsoleAvailable()`).
+  360px to 70%; below 900px it covers the screen). Courses with a
+  language - Pascal and Java (`ConsoleAvailable()`).
 - **Copy to console** on every `<pre>` holding a whole program or unit
   (`LooksRunnable()`); `class="no-console"` opts out. Into an untouched console
   it just goes in; otherwise Replace / Open in a new tab / Cancel. A unit

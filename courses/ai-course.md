@@ -7,6 +7,10 @@ the current lesson rules (popups, reveals, mixed question types) is not
 finished - the lessons still largely read as v1. Do it lesson by lesson, not
 mechanically. v1's source is `Projects/AIWebCourse/itcoder/` (reference only).
 
+**Dated facts** (prices, products, data centres, company figures) are listed in
+[ai-yearly-update.md](ai-yearly-update.md) and checked every January; add a
+line there whenever a lesson states a new one (Chris, 26 September 2026).
+
 ## Purpose
 
 What AI runs on, what it costs to build and run, and who pays. By lesson 8
@@ -64,6 +68,18 @@ Shape: cost of running -> cost of building -> cost to you -> who pays.
 - **`costPerQuery`** (7) - `SplitIntoTokens` counts the question, priced per
   million tokens in rands; a longer question barely moves the cost (output
   dominates) - the answer to the quiz below it.
+
+## Glossary and Practice (Chris, 25 September 2026)
+
+`content/ai/glossary.php`: 72 terms, all grade 9, all `examined` (no exam,
+so no plum), drafted from the lessons' popups and prose. It feeds the
+Glossary page, the Index, every `Gloss()` popup whose term it has (one
+definition per term), and **Practice** (`practice.php?c=ai`): its 59
+single-word terms are the games' words - **no grade pick, every word for
+every pupil** (Chris: "the how ai works course needs its own implementation
+of the 'fun' activities. no grade selection - all words for everyone").
+A definition is also a game clue with the word blanked, so it must not
+contain the word in another form (the "robota" etymology had to go).
 
 ## Not written yet
 

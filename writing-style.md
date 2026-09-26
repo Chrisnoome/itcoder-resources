@@ -51,6 +51,18 @@ builds on these. Calibrated against Chris's own notes (`word documents/hw_*.docx
   prints..."). Literal "reach" (a loop reaches 0) is fine. When removing one,
   fix the article ("a genuine Integer" -> "an Integer") and match across line
   wraps.
+- **Tells Chris flagged as "your voice" in the Java course** (26 September
+  2026 voice pass, all lessons fixed): the compiler or a method as a person
+  ("Java insists", "javac refuses", "a name it has never heard of", "happily
+  skips", "quietly gives", "compiles without a word", "seems to hate") - say
+  what happens: "Java makes you", "javac stops with", "doesn't know", "with no
+  error"; testing narration ("All four were run", "tested with that setting",
+  "Compiled and run 100 000 times", "Each was compiled on Java 21") - just give
+  the result; meta pointers ("the next section shows", "every trap on this
+  page") - link the anchor instead; cute asides ("the pay-off", "good news",
+  "and friends", "Here's why"). "Refuses" is fine for validation (a setter
+  refuses a mark of 150). Wording carried over word for word from the approved
+  Pascal lessons was left alone.
 - **Never name the SAGs** (or the syllabus) anywhere a pupil sees it in a
   lesson - prompts, html, intro, explain. State the fact without the citation.
   Lesson-file doc comments may cite it. **Exception:** the Pascal course page
