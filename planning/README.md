@@ -42,6 +42,38 @@ Term dates are from the sources below; **every exam window is typical**
 | St Anne's | 12 Jan-19 Mar, 12 Apr-25 Jun, 19 Jul-23 Sep, 5 Oct-26 Nov; half-terms | https://stannes.co.za/calendar-and-dates/ |
 | Uplands | 13 Jan-19 Mar, 13 Apr-25 Jun, 20 Jul-17 Sep, 5 Oct-1 Dec | https://uplands.co.za/2027-term-dates/ |
 
+**De La Salle Holy Cross College** (`dlshcch`, added 27 September 2026): the
+ISASA three-term guideline (Chris: "dlshcch is a standard isasa 3 term
+school").
+
+### What is left of 2026 (`PlannerCalendars2026()`, researched 27 September 2026)
+
+For the term countdown and the Monday nudge only, until the 2027 calendars
+start. Three-term schools: term 3; four-term schools: terms 3 and 4.
+
+| Calendar | 2026 | Source |
+|---|---|---|
+| DBE | 21 Jul-23 Sep, 6 Oct-9 Dec | https://www.education.gov.za/portals/0/documents/publications/2025/Published%202026%20School%20Calendar.pdf (Gazette 52177) |
+| ISASA three-term | 9 Sep-4 Dec; off 24-25 Sep, half-term 22 Oct (noon)-26 Oct | https://www.isasa.org/download/central-region-calendar-2026/ |
+| De La Salle Holy Cross | as ISASA three-term; exams Gr 11 from 31 Oct, Gr 7-10 from 2 Nov | Chris, 27 Sep 2026 |
+| ISASA four-term | 21 Jul-23 Sep, 13 Oct-2 Dec | same PDF |
+| St John's | 9 Sep-4 Dec; off 24-25 Sep, 22-26 Oct | https://www.stjohnscollege.co.za/college/calendar |
+| St Stithians | 7 Sep-4 Dec; off 24-25 Sep, 22 Oct (noon)-26 Oct | https://www.stithian.com/uploads/files/St_Stithians_College_Calendar_2026_-_Approved_March_2025.pdf |
+| St Mary's, Waverley | 2 Sep-2 Dec; off 24-25 Sep, 22-26 Oct | https://www.stmarysschool.co.za/uploads/files/St-Marys-Academic-Calendar-2026-version-2-1.pdf |
+| Brescia House | 7 Sep-4 Dec; off 24-25 Sep, 22 Oct (early)-26 Oct | https://www.brescia.co.za/uploads/files/Calendars/2026.School.Calendar.pdf |
+| St David's Marist | 7 Sep-30 Nov; off 24-25 Sep, 22 Oct (noon)-26 Oct | https://www.stdavids.co.za/uploads/files/2026/UPDATED-FINAL-St-Davids-Marist-Inanda-2026-Calendar.pdf |
+| St Andrew's / DSG | 2 Sep-1 Dec; half-term 7-12 Oct (Balloon Weekend 2-6 Oct left as school days - unclear) | https://www.sacschool.com/wp-content/uploads/sites/6/2025/04/SAC-DSG-Prep_2026-Term-Dates_A4.pdf |
+| Kingswood | 1 Sep-2 Dec; half-term 12 Oct (14:00)-18 Oct | https://kingswoodcollege.com/wp-content/uploads/2025/07/Kingswood-College-Term-Dates-2026-1.pdf |
+| Bishops | 21 Jul-23 Sep, 7 Oct-2 Dec | https://bishopsdev.blob.core.windows.net/college-static-files/Documents/2026TermDates.pdf |
+| Herschel (senior) | 21 Jul-18 Sep, 5 Oct-2 Dec | https://www.herschel.org.za/admissions/term-dates-2026/ |
+| Kearsney | 21 Jul-18 Sep, 6 Oct-27 Nov; Gr 8-11 exams from 9 Nov | https://www.kearsney.com/college/wp-content/uploads/2026/09/term-4-Calendar-print-version.pdf |
+| St Anne's | 21 Jul-23 Sep, 7 Oct-27 Nov; half-term 29 Oct-2 Nov (day girls: the day after the boarders' return) | https://stannes.co.za/wp-content/uploads/2025/11/2026-2027-Term-Dates.pdf |
+| Uplands | 21 Jul-23 Sep, 7 Oct-27 Nov | https://uplands.co.za/wp-content/uploads/2025/10/Uplands-Term-Dates-2026.pdf |
+
+Grade 12 finals 2026: NSC and IEB both from 13 October (NSC timetable Feb
+2026; IEB Circular 38 of 2026). Grade 10-11 finals where a school gave none:
+four weeks before its last day (typical, as the 2027 presets).
+
 Left out (only 2026 dates published): Roedean, St Andrew's School for Girls,
 Hilton, Michaelhouse, Reddam House - add them when their 2027 dates appear.
 No source gives the share of ISASA schools on three vs four terms; the

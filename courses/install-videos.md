@@ -28,6 +28,12 @@ can we create a voice clone for me?"
   sentence at a time** with real gaps - 0.5 s between sentences, 1 s between
   steps (`voice\narrate.py`), because whole paragraphs came out "too rushed
   and close together". An exclamation such as "Right!" gets a pause after it.
+  **Pronunciation list** `voice\pronounce.json` - words the voice says
+  wrong, swapped for a spelling it says right (captions keep the real
+  word). Chris's choices, 27 September 2026, one word at a time: **Pascal ->
+  "Pascle"**, jGRASP -> "J-grasp", Temurin -> "Tem-yoo-rin", DBeaver ->
+  "Dee beaver", SQL -> "sequel", MySQL -> "My sequel", SQLite -> "sequel
+  light", Derby -> "Darby"; Lazarus, Letos and Delphi are right as spelt.
   **Licences:** Qwen3-TTS is Apache 2.0 (commercial use allowed). **Fish
   Speech S2 Pro** (inline tags such as `[excited]`, `[pause]`) is under the
   Fish Audio Research License - research and non-commercial only; use "in
@@ -40,7 +46,19 @@ can we create a voice clone for me?"
   arrows and circles, captions in **Kalam** bold. Drawn as transparent
   overlays and laid over the recording with ffmpeg.
 - **Chris uploads to YouTube**; the lessons then embed them (platform.md,
-  decision 10: never invent YouTube IDs).
+  decision 10: never invent YouTube IDs). The channel is **Pascal Code
+  Singer**, https://www.youtube.com/@PascalCodeSinger.
+- **Opening, ending and waits** (Chris, 27 September 2026): every video
+  opens "Hi, and welcome to BestLessons."; it ends with a sign-off that
+  points to bestlessons.co.za and to Pascal Code Singer on YouTube (no "next
+  video" - each sits in its own lesson). Downloads and install progress are
+  **not waited through**: a 2-3 second fast-forward with a "(sped up)" note
+  and one line, "This takes a few minutes, so I've sped it up." - "don't make
+  them wait".
+- **Narration first:** the voice is made before the recording, one file per
+  step (`scripts\NN-name.md` -> `voice\out\NN-name\`); each step's video is
+  cut or held to fit its audio, so no timings are measured first. A line the
+  real installer proves wrong is re-made on its own.
 
 ## The videos
 

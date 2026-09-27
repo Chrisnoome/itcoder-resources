@@ -913,3 +913,76 @@ is right, and was used thirty-three times across this session.
     (essays and unseen texts). It may be worth doing **one of each kind**
     next - Mathematics and English Home Language - before the remaining
     seven, so the platform work can be planned once rather than three times.
+
+## 7. Building it (Chris, 27 September 2026)
+
+**Where:** a local chat in `Projects/AIPascalCourse`, one chat for CAT only.
+The cloud session planned well but could not see the platform, and its
+pilot lesson showed it: a guessed helper, the wrong model lesson, a voice
+that breaks [writing-style.md](../writing-style.md), marks it could not
+count. The cloud is still the place for reading large sources (the syllabus
+documents, papers, the textbook PDF once it arrives).
+
+**Read first:** this file, [cat-it-theory-reuse.md](../cat-it-theory-reuse.md),
+[writing-style.md](../writing-style.md),
+[content-voice-and-pedagogy.md](../content-voice-and-pedagogy.md) and
+[theory-course.md](theory-course.md) (how the IT Theory lessons are built -
+the CAT theory lessons are built the same way). For each CAT lesson, the IT
+Theory lesson on the same topic (`content/theory10/<id>.php`, listed in
+cat-it-theory-reuse.md) is both the model and the source: rewrite it at CAT
+depth, reuse its drawings, pictures and examples where they fit.
+
+### 7.1 First job: bring the pilot up to standard
+
+The pilot is `content/catpilot/computer.php` (course `catpilot`, `'status'
+=> 'draft'`, `'pilot' => true` - on the test site and the testbed, never
+live; original in `handoff/cat-session/pilot/`). Compared with IT Theory
+Grade 10 lesson 1 (`content/theory10/ict.php`, the same topic), it needs:
+
+- **The definition:** add *multi-purpose* (ict.php's five-part definition).
+  Without it a calculator fits the definition, and the lesson's own "not a
+  computer" answer contradicts it.
+- **The IPO figure:** hand-coded boxes, not the site's blue-pen drawing, and
+  the Communication line runs to Storage, not Processing. Use
+  `DesignFigure ('ipo-cycle', ...)` as ict.php does.
+- **The margin:** 1 doodle and 2 notes against ict.php's 12 doodles, 4 notes
+  and 8 figures. Add 3-4 doodles (its three spare ones - `caps-shouting`,
+  `phishing-hook`, `folder-maze` - belong to later lessons) and a picture or
+  two.
+- **Voice:** writerly lines ("Here is the part of the model people forget",
+  "Read that again and notice what it does not say", "The arithmetic was
+  perfect all the way down"), meta pointers ("which is what the last section
+  was about", "You will meet those properly in Grade 11"), semicolon chains.
+  Short sentences, one idea each.
+- **No exam citations a pupil sees:** "examines ... in Paper II every year"
+  in the board-section note; "both boards expect you to say" with no source.
+- **A Warning callout** for input vs input device (now only in the study
+  block), and a Learn / Memorise table as ict.php has.
+- **The quote** from `word documents/_ALL_QUOTES.docx`, with a portrait.
+- **The NASA note:** the Mars Climate Orbiter, pound-force seconds against
+  newton-seconds.
+- **Syllabus lines:** a `caps.php` and `sags.php` for the course.
+- **Keep:** the section order, the IEB-only algorithms section (taught to
+  all, marked for the IEB), the GIGO section, the Phumlani scenario, and the
+  marker rubrics - those are at the IT Theory standard.
+- Marks as the site counts them (auto-marked doubled): 36 CAPS, 42 IEB -
+  not the 22/26 its README says. Both even.
+
+Chris judges the fixed pilot on test before any more lessons are written.
+
+### 7.2 Then Grade 10, lesson by lesson
+
+- **A draft course** for Grade 10 theory, `'status' => 'draft'` and
+  `'pilot' => true` so it stays on test while it is built (live deploys of
+  other work then carry it safely). Suggested id `cattheory10`, matching
+  `theory10` - the id is a database key, so confirm it with Chris before
+  pupils use it. The `cattheory` 'soon' row stays as the catalogue's
+  placeholder until the course opens.
+- **Its own glossary** from the first lesson (platform.md: every course gets
+  one; it drives the Index and the word games).
+- **Order:** §3.2's Grade 10 table, top to bottom. Each lesson: rewrite from
+  the IT Theory lesson, run the checkers (`bin/check-*.php`, especially
+  `check-popup-spacing.php`), render it on the testbed, publish to test
+  (`tools/publish-test.py`), tell Chris.
+- When the pilot is approved it becomes lesson 1 of the draft course and
+  `catpilot` goes.

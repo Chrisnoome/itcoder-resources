@@ -321,6 +321,33 @@ for teachers. `public/planner.php` (Teacher options - Year planner),
   free), Google's CSV import (US dates, their column names), a spreadsheet
   CSV (one row a week). Milestones: term starts/ends, exam windows, and the
   CAPS Grade 12 PAT phase dates (caps-tasks.md).
+- **Looks like a calendar** (Chris, 27 Sep 2026: "prettify ... look like a
+  calendar, better headings, alternate colours for rows" - he chose date
+  tiles): each term a coloured band (dates, weeks, teaching days), each week
+  a tear-off date tile (month, day range, week number, short weeks, days off
+  with their reason), streams in their own colours, rows alternating, exam
+  weeks red and revision weeks yellow, the holiday between terms shown.
+- **The school's extra days off** (Chris, 27 Sep 2026): a teacher enters
+  sports days, staff development, closures (from / to / reason) on the
+  planner; saved on their account (`pupils.daysOff`, JSON). They count as
+  holidays - a week left with under three teaching days is not a teaching
+  week - in the planner and its downloads, the Monday nudge, the term
+  countdown, and the plans of the pupils in their groups: year plans and
+  completion dates alike (`PupilTeachersDaysOff()`, and the rule-setter's
+  own for a completion date - `RuleDaysOff()`). `lib/progress.php`.
+- **Term countdown** (Chris, 27 Sep 2026: "teaching days this term -
+  countdown at top of teacher page"): on class results, the progress check
+  and the planner - teaching days left in this term by the teacher's saved
+  calendar (school days less public holidays, breaks, their days off and
+  exam days, the count stopping at the first Grade 10/11 final; Grade 12's
+  start is shown), the term's end, exam starts, the next day off; in a
+  holiday, days until the next term. `TermCountdown()` /
+  `TermCountdownHtml()`. **What is left of 2026** is in
+  `PlannerCalendars2026()` (lib/plannercalendars.php) for the countdown and
+  the nudge only, until the 2027 calendars start; the planner stays 2027.
+- **De La Salle Holy Cross College** is a preset (`dlshcch`): the ISASA
+  three-term calendar (Chris: "a standard isasa 3 term school"); 2026 exams
+  from 31 October (Grade 11) and 2 November (Grades 7-10).
 
 ## Progress and ticks for pupils (Chris, 27 Sep 2026)
 
@@ -334,7 +361,7 @@ percentage bar for completed work". His choices (27 Sep 2026):
   **automatic only**: a lesson without questions is never ticked (its tick
   space stays blank). Ticks on every course page (all courses): green tick,
   half ring (started), empty ring; "N of M lessons completed".
-- **Asked once** on a Grade 10+ course page (pascal, java, sql, theory10-12):
+- **(Until 27 Sep 2026, replaced by "Teacher settings" below: pupils now follow their teacher and are not asked.)** Asked once on a Grade 10+ course page (pascal, java, sql, theory10-12):
   grade (not for a theory course - it is one grade) and school calendar -
   a named school with published 2027 dates, the DBE public calendar, ISASA's
   typical three- or four-term calendar, or their own term dates. "Later" puts
@@ -347,6 +374,17 @@ percentage bar for completed work". His choices (27 Sep 2026):
   highlighted, "catch up" on a lesson past its date. Bar 1 **on track**:
   lessons completed vs lessons the plan has finished by today ("N behind /
   ahead"); bar 2 **work done**: this year's questions answered, marks beside.
+  **Current mark dial** (Chris, 27 Sep 2026: "total current marks / total for
+  questions completed as a % ... colour code it ... gamified attractive and
+  collapsible"; he chose marked answers only, and a dial with a level
+  badge): marks earned / marks available over the questions already marked
+  (finished quiz-type questions and marked written answers - one still being
+  marked is left out; `markedEarned`/`markedMax` in `PupilLessonProgress()`),
+  on a gauge in the CAPS level bands (red below 40, orange and yellow, green
+  from 80), a needle that swings to the mark, "Level N - name" with seven
+  stars, "X% to the next level", and a "Level up!" when it rises. Collapsible,
+  open by default; the browser remembers a closed one (`MarkDialHtml()`,
+  `public/assets/mark-dial.js`).
   This year's lessons = those whose first grade (by caps.php/sags.php lines)
   is this one; a lesson revisited from an earlier grade shows in grey and is
   not counted again; a lesson taught in parts is due after its last part.
@@ -391,9 +429,53 @@ calendar for that)". His choices (27 Sep 2026):
   (`PlannerAiPlan()`). The **teacher sets the term per group** (Make a group,
   or the group's page: `teachingGroups.term`); a pupil in no such group picks
   it with their calendar question (`pupils.planTerm`).
+- The nudge and the countdown use the teacher's calendar **as it stands
+  today** (`TeacherCalendarDates()`): 2026's remaining terms until the 2027
+  calendar starts, with their days off.
 - Plans are for 2027: before 13 January 2027 nothing is due.
   `$GLOBALS['plannerToday']` sets "today" for a check script
   (`PlannerToday()`).
+
+## Teacher settings; pupils follow their teacher (Chris, 27 Sep 2026)
+
+Chris: "all settings must be configurable from a single teacher settings
+page, with a sensible, clear app like gui with clear instructions, help,
+tooltips. teacher changes carry through to their pupils. pupils cant make
+changes. pupils without teachers don't get calendars by default."
+
+- **One page:** `public/teacher-settings.php` (Teacher options - Teacher
+  settings; saves in `lib/teachersettings.php`). Numbered cards, a side
+  list showing what is done, a "?" tooltip on every choice and a "How it
+  works" fold: 1 school calendar (preset or own term dates), 2 timetable
+  cycle, 3 extra days off, 4 each group's grade (programming/SQL groups;
+  theory courses have their own) or term (AI), 5 completion dates and
+  reminders to pupils (add/stop), 6 the Monday reminder switch
+  (`pupils.nudgeOff`) and the progress check's default figures
+  (`pupils.checkSettings`), 7 what pupils see. The planner and progress
+  check link here instead of carrying their own forms (the planner keeps
+  "Make this my school's calendar" as a shortcut).
+- **Pupils follow their teacher** (`PupilTeacher()`, lib/progress.php): a
+  teacher of one of their accepted groups (this course's first), else the
+  maker of a completion date that covers them. Their plan uses that
+  teacher's calendar and days off, and the group's grade
+  (`teachingGroups.grade`) or term; pupils are no longer asked anything and
+  cannot change it (My progress says "set by your teacher"). **A pupil with
+  no teacher gets no calendar** - My progress offers "Set up my own plan"
+  (opt-in); no question on the course page.
+- **Timetable cycle** (Chris: "ask the teacher for how many days in a cycle
+  in their timetable. calculate the day number from start of term, term 1
+  with rollover to next term. non academic days cause a skip. same with
+  public holidays, midterm breaks"): `pupils.cycleDays`; Day 1 = the first
+  school day of Term 1, running on through every term and skipping
+  weekends, public holidays, breaks and the teacher's days off; a new year
+  restarts at Day 1. A correction ("on this date it is Day N",
+  `pupils.cycleAnchor`) holds until the next Term 1 - needed for 2026,
+  whose Term 1 the site does not know. `lib/schoolday.php`.
+- **The bottom bar** of every lesson, right-aligned (`SchoolDayBarHtml()`):
+  "Day 3 · 47 days left in Term 3" (school days), "No school · next Day 3
+  (Mon)", or "Holiday · Term 1 starts ..." - the teacher's own, or a
+  pupil's teacher's; nothing for a pupil with no teacher. The lesson's own
+  time hides below 1440px wide to make room.
 
 ## Completion dates and reminders to pupils (Chris, 27 Sep 2026)
 
@@ -621,7 +703,9 @@ pupil, bounded to 30s).
 keeps its headline too); live only, not on reload (except `code`); never for
 `written`. Wording: `AnswerCelebrations()` (and `CodeCelebrations()` in
 `lib/compile.php`) - about half South African, split between Afrikaans-rooted
-and township English. Replace phrases that date.
+and township English. Replace phrases that date. In the E look a right answer's
+cheer, its hand-drawn tick (`doodles/tick.svg`) and its "Correct" line are
+green, #2f7d4f (Chris, 27 September 2026).
 
 **17. Code answers are marked strictly, at `temperature` 0, with the original
 code shown.** Every marking call uses temperature 0. `MarkOneAnswer()` sends
@@ -882,13 +966,21 @@ Secrets live in `config/config.php` per project, never here.
 
 - **Anthropic:** model `claude-haiku-4-5-20251001`; workspace-scoped key, or an
   org key plus `anthropicWorkspaceId`. Workspace spend limit still to set.
-- **Two addresses, one site** (Chris, 26 September 2026: pupils on itcoder.co.za
-  keep that address; bestlessons.co.za is for going wider). Same code, database
-  and accounts; `lib/brand.php` picks the brand by host (`SiteHosts()`: itcoder or
-  BestLessons - name, header logo, tab icons, titles, home page) and
-  `SiteBaseUrl()` sends Google sign-in back to the address it came from. A Host
-  not on the list is never trusted; the testbed and test site use `baseUrl` and
-  `defaultBrand`, and `?brand=bestlessons` previews there. Sessions are per
+- **The site is BestLessons, on both addresses** (Chris, 27 September 2026:
+  "stop referring to itcoder. now changed to BestLessons"; itcoder.co.za
+  "keep it, show BestLessons"). `BrandId()` is always `bestlessons` - name,
+  logo, tab icons, titles, home page, e-mail sender name, invoice and PDF
+  text, the console's `bestlessons-files.zip`. Pupil-visible text never says
+  itcoder; internal names (localStorage keys, server paths such as
+  /var/www/itcoder, socket names) stay, since changing them would reset
+  pupils' saved settings. E-mail and planner links point at
+  bestlessons.co.za.
+- **Two addresses, one site** (26 September 2026). Same code, database and
+  accounts; `SiteHosts()` maps each host to its address key only so that
+  `SiteBaseUrl()` sends Google sign-in back to the address it came from (a
+  pupil on itcoder.co.za stays signed in there). A Host
+  not on the list is never trusted; the testbed and test site use `baseUrl`
+  (the old `defaultBrand` and `?brand=` preview are gone). Sessions are per
   address, so a pupil signed in on both at once is "busy" on the second. Logo
   rules: [brand/bestlessons/](brand/bestlessons/README.md).
 - **Google OAuth:** redirects `https://itcoder.co.za/auth.php?action=callback`

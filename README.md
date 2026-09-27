@@ -21,6 +21,12 @@ this folder's git log.
 6. Write for the next chat, which knows nothing: say why, not just what.
 7. Other chats may be editing the same lessons or files - make small, exact
    edits and never overwrite work you did not read.
+8. **Ask when anything is unclear** (Chris, 27 September 2026: "ask questions
+   whenever anything is unclear - and to do so always in interactive mode").
+   Before building, ask about every choice that would change what gets built,
+   always with the interactive question tool (multiple choice, the
+   recommended option first) - never as questions typed into a reply. If
+   Chris dismisses the questions, stop and wait.
 
 ## Files
 
