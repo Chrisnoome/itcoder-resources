@@ -15,9 +15,12 @@ open to outside subscribers.
 - Courses (`CourseIndex()`): `ai` (Grade 9 AI, 8 lessons, open -
   [courses/ai-course.md](courses/ai-course.md)); `pascal` (IEB IT Grades
   10-12, open, live compiling - [courses/pascal-course.md](courses/pascal-course.md));
+  `java` (IEB IT Grades 10-12, open - [courses/java-course.md](courses/java-course.md));
+  `sql` (SQL and databases, Grades 10-12, open 27 Sep 2026 - [courses/sql-course.md](courses/sql-course.md));
   `theory10`, `theory11`, `theory12` (IT Theory, one per grade, CAPS and IEB,
-  draft - [courses/theory-course.md](courses/theory-course.md)); others
-  listed as `soon`.
+  open 27 Sep 2026 - [courses/theory-course.md](courses/theory-course.md)); others
+  listed as `soon`. No course is `draft` now (Chris, 27 Sep 2026: "take all
+  out of draft status").
 - Course status: `open` (catalogue), `draft` (teacher preview), `soon` (listed,
   no content, no Join, `RequireEnrolment()` refuses). `ActiveCourses()` = all
   but `soon`; class results, admin and checkers use it.
@@ -66,7 +69,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   symbols in `PracticeHeroGlyphs()`. Check with `bin/check-glossary.php`.
 - **Pages:** `/` landing; after sign-in `subjects.php` (the first page);
   `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
-  `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `practice.php?c=` (**Practice**, right after the glossary on the course page - see below); `scores.php?c=` (My marks - lesson and course totals as
+  `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`; its search, A-Z and count stay pinned under the masthead while scrolling - Chris, 27 Sep 2026) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `practice.php?c=` (**Practice**, right after the glossary on the course page - see below); `cite.php?c=` (the **Harvard reference builder**, after Practice on the course page, only for courses with `'citeTool' => true` - IT Theory 10-12 - Chris, 27 Sep 2026: "build a citation creation tool for links and put it in the course contents", Harvard because the IEB requires it. The pupil pastes a link; `api/cite-fetch.php` -> `lib/cite.php` reads the page's own title, author, site and year (meta tags, JSON-LD, `<title>`), public addresses only, 3 redirects, 5 s, 400 KB, 20 look-ups per 10 minutes per session; every field can be typed instead. It builds the reference and the in-text citation, copies them with the title in italics, and keeps a "My reference list" in the browser's localStorage, A-Z. Grade 10 lesson 44 `plagiarism#referencing` links to it); `scores.php?c=` (My marks - lesson and course totals as
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year
   filters); `pupil-work.php?c=&p=` (teachers only: every marked question, the
   answer, right answer, mark and feedback; same totals as `teacher.php`);
@@ -102,6 +105,13 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   Someone whose syllabus is `none` gets **Hide questions** in the top bar
   (remembered per browser). Every top-bar item, menu item and console button
   has a hover tooltip (`NavItemTitle()` in `lib/masthead.php`).
+- **Activities** (`activity` blocks) are hand-built widgets: markup in
+  `public/lesson.php` (`case 'activity'`), behaviour in `app.js`
+  (`SetUp...`), styles in `style.css`. `byteSwitches` and `binarySwitches`
+  (26 Sep 2026, IT Theory lessons 18 and 20): eight clickable switches, one
+  byte, with place values; readouts in binary and as a number, and for
+  byteSwitches the ASCII letter and a shade of grey; the block's `start`
+  key sets the first pattern (default `01010000`).
 - **Block types:** `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
   `typed`, `checkedcode`, `order`, `select` (tick all correct, no more), `match`
   (dropdown per row), `gridtyped`, `code`, `algorithm`, `errors`, `important`,
@@ -238,6 +248,191 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   "perfect", and hinted words count as missed for spaced repetition.
 - pupils columns `displayName`, `avatar`, `avatarColour`, `practiceHidden`, `practiceGrade`.
 
+## Time on the site (Chris, 27 Sep 2026)
+
+Chris: "record time spent on site, per lesson, per course, on fun. teacher gets
+an overview by class and pupil. user gets a total displayed on the bottom bar".
+His choices (27 Sep 2026):
+
+- **What counts:** the page is in front (visible; a window beside an IDE
+  counts) AND something happened on it in the last **3 minutes** - scroll,
+  wheel, key, click, mouse move, typing - or a video is playing (an embedded
+  YouTube frame with focus, up to 15 quiet minutes). Several tabs count once
+  (5-second slots claimed in localStorage). `public/assets/time-tracker.js`,
+  on every signed-in page (`RenderMasthead()`), sends about once a minute and
+  on leaving (sendBeacon) to `api/time.php`, which never grants more seconds
+  than the wall clock allows per session (`timeBankedUntil`, 10-minute
+  look-back).
+- **Where it goes:** a page calls `SetTimeContext($course, $lesson, $kind)`
+  before the masthead - kind `lesson` (lesson.php), `practice` (the word games,
+  practice.php - the "fun"), `other` (course.php, glossary.php, scores.php);
+  everything else is filed under no course. Table `timeSpent` (pupil, SA day,
+  course, lesson, kind, seconds); `lib/timespent.php`.
+- **Pupil:** the lesson's bottom bar shows "On site d:hh:mm - This lesson
+  d:hh:mm" (days:hours:minutes), counting up live; below 620px only the site
+  total.
+- **Teacher:** Class results (teacher.php) gets "Time on the site" under the
+  marks - a by-class table (pupils, course total, average a pupil, this week,
+  practice) and a per-pupil table (a column per lesson, Practice, Other,
+  Course, This week, Whole site; sortable, searchable), hours:minutes. "This
+  week" starts Monday, SA time. A pupil's work page (pupil-work.php) opens
+  with their time course by course (only courses the teacher may see; the
+  whole-site total includes the rest as one number).
+- The privacy policy lists it (27 Sep 2026). Counting started 27 Sep 2026 -
+  nothing before that.
+
+## Year planner (Chris, 27 Sep 2026)
+
+Chris: for all Grade 10+ courses, which lessons in which term for 3- and
+4-term schools, "as a calendar format and spreadsheet that they can easily
+upload to google calendar / ical / outlook". His choices (27 Sep 2026): 2027;
+presets (DBE four terms, a typical ISASA three-term school) plus the
+teacher's own dates; one entry a week; follow the CAPS teaching plan; a page
+for teachers. `public/planner.php` (Teacher options - Year planner),
+`lib/planner.php`, presets and their sources in `lib/plannercalendars.php` and
+[planning/README.md](planning/README.md); ready-made files by
+`bin/planner-export.php` into `planning/2027/`.
+
+- **Nothing is placed by hand.** Each lesson's `caps.php` lines ([grade,
+  term, what]) and `sags.php` lines ([grade, strand, what]) decide the grade
+  (and CAPS term). A shared programming/SQL lesson appears in every grade it
+  has lines for, as a *(part)* with that grade's lines as its focus; split
+  across CAPS terms the same way. A theory lesson is taught once, in its
+  course's grade, at the term most of its lines name. So **keeping caps.php
+  and sags.php right keeps the planner right.**
+- Streams side by side each week: programming (CAPS: Pascal; IEB: Pascal or
+  Java), theory (theory10/11/12), databases (SQL; CAPS Access, IEB's chosen
+  dialect; the Lazarus SQLite lesson is the Delphi one's alternative).
+- **CAPS:** four terms - term to term; otherwise terms 1-2 before the
+  mid-year exams and 3-4 after, split by the teaching plan's weeks (Gr 10
+  10/8/10/7, Gr 11 10/8/10/8, Gr 12 10/8/7/3). Grade 12 finishes terms 1-3
+  before the prelims; term 4 and the exam guides come after them.
+- **IEB:** SAGs has no terms, so each grade runs in course order through the
+  year (Grade 12: before the prelims; its PAT lesson first); its SQL lessons
+  borrow their CAPS terms.
+- **Pace:** each stream moves steadily (programming: the whole course over
+  99 teaching weeks; theory: the grade's course over its weeks; SQL: the
+  whole course over 12 weeks) and a term only squeezes if too short. Weeks
+  with nothing new say "practice, consolidation and PAT work" / "theory
+  revision"; after the last new content, "revision". Exam guides: Grade 12
+  only, after the prelims. Enrichment lessons: "optional extra" beside the
+  lesson before them.
+- Downloads: `.ics` (all-day, Monday-Friday clamped to school days, marked
+  free), Google's CSV import (US dates, their column names), a spreadsheet
+  CSV (one row a week). Milestones: term starts/ends, exam windows, and the
+  CAPS Grade 12 PAT phase dates (caps-tasks.md).
+
+## Progress and ticks for pupils (Chris, 27 Sep 2026)
+
+Chris: "a nice visual tick checklist to the contents ... ask them if they are
+3 or 4 term, give them term dates to choose from ... a progress page for the
+course ... with chapters as tickboxes ... a general progress bar and a
+percentage bar for completed work". His choices (27 Sep 2026):
+
+- **Completed = every question in the lesson answered** (settled, as the
+  teacher's green cell - `LessonState()` over `PupilLessonProgress()`),
+  **automatic only**: a lesson without questions is never ticked (its tick
+  space stays blank). Ticks on every course page (all courses): green tick,
+  half ring (started), empty ring; "N of M lessons completed".
+- **Asked once** on a Grade 10+ course page (pascal, java, sql, theory10-12):
+  grade (not for a theory course - it is one grade) and school calendar -
+  a named school with published 2027 dates, the DBE public calendar, ISASA's
+  typical three- or four-term calendar, or their own term dates. "Later" puts
+  it off until the next sign-in. Board from their syllabus choice (Java: IEB;
+  none/both: CAPS). pupils columns `planGrade`, `planCalendar`, `planDates`
+  (JSON). Listed in the privacy policy.
+- **My progress** (`public/progress.php?c=`, nav link): the teachers' plan
+  (lib/planner.php) for that board, grade and calendar, only this course's
+  stream, week by week per term with each lesson's tick, "this week"
+  highlighted, "catch up" on a lesson past its date. Bar 1 **on track**:
+  lessons completed vs lessons the plan has finished by today ("N behind /
+  ahead"); bar 2 **work done**: this year's questions answered, marks beside.
+  This year's lessons = those whose first grade (by caps.php/sags.php lines)
+  is this one; a lesson revisited from an earlier grade shows in grey and is
+  not counted again; a lesson taught in parts is due after its last part.
+  `lib/progress.php`.
+
+## Progress check for teachers, parent emails, the Monday nudge (Chris, 27 Sep 2026)
+
+Chris: "view pupils falling behind and ... generate an email which they can
+copy paste into their own mail ... login times, time spent and marks for
+parents ... the same for top achievers with an appropriate congratulations
+message. nudge them at the start of a school week (not in holidays, use
+calendar for that)". His choices (27 Sep 2026):
+
+- **Progress check** (`public/progress-check.php`, Teacher options): per
+  course and group (admins: class and year too), **behind** = 2+ lessons
+  behind the pupil's year plan or no work in the course for 2 school weeks;
+  **top** = on track or ahead, highest marks % on started lessons, top 5 -
+  all three numbers adjustable on the page. Each pupil gets a ready email
+  (subject + body, Copy buttons, "Open in my mail app" as a mailto with no
+  address - we hold no parent emails): lessons completed vs the plan,
+  questions answered, marks, last worked, time this week and in the course,
+  days active in the last two weeks with their times, recent sign-ins, the
+  lessons to catch up on (behind) or congratulations (top). Brand and domain
+  follow the address. `lib/classprogress.php` (`ClassLessonStates()` does a
+  class in one pass: each lesson loaded once, two queries).
+- A pupil without their own calendar is measured by the **teacher's saved
+  calendar**, with the grade read off their class ("Gr 11"); still no grade =
+  "no plan", only idle time counts.
+- **Teacher's calendar** is saved on their account (the same `planCalendar`/
+  `planDates` columns): on the progress check, or "Make this my school's
+  calendar" on the year planner (which then opens on it).
+- **Sign-ins recorded** from 27 Sep 2026 (table `signIns`, written in
+  `SignIn()`; in the privacy policy).
+- **Monday nudge:** on a teacher's first page of a teaching week by their
+  saved calendar (never in holidays, exam weeks, or before the term's first
+  day), counts across their groups and leaves a bell notification (dedupe
+  key `progress-week-<Monday>`) plus a banner under the masthead until they
+  open the progress check. Teachers with no calendar or no planner-course
+  group get none. Made lazily from `RenderMasthead()` - no cron.
+- **AI course: one term** (Chris: "the ai course is meant to be only 1 term
+  of work"): its 8 lessons over the teaching weeks of one term
+  (`PlannerAiPlan()`). The **teacher sets the term per group** (Make a group,
+  or the group's page: `teachingGroups.term`); a pupil in no such group picks
+  it with their calendar question (`pupils.planTerm`).
+- Plans are for 2027: before 13 January 2027 nothing is due.
+  `$GLOBALS['plannerToday']` sets "today" for a check script
+  (`PlannerToday()`).
+
+## Completion dates and reminders to pupils (Chris, 27 Sep 2026)
+
+Chris: "apply the tracking and calendar to my pupils for the ai course this
+year, completion date is 18 october. add the option for automatic reminders to
+send pupils mail when they are behind". His choices (27 Sep 2026): each pupil's
+plan starts the day they joined; no days off before 18 Oct; all De La Salle
+pupils in Grades 9-11; email through **Brevo**, plus the bell.
+
+- **Rules** (table `progressRules`, `lib/rules.php`), set in "Completion date
+  and reminders" on the progress check: for one group, or (admins) the
+  school's pupils in chosen grades (`IsPupilAccount()`, grade read off the
+  class: "9C" = 9, "Gr 11" = 11). A **completion date** replaces the pupil's
+  year plan for that course: every lesson in order, by size, over the school
+  days (weekdays minus public holidays, 2026 and 2027 in the code) from their
+  start (the day they joined, or a date) to the date, each lesson with its own
+  due day (`PlannerDeadlinePlan()`). It wins over the year plan and the AI
+  term; nothing is asked. **Reminders**: pupils behind by N+ lessons (default
+  1) get a bell notification and an email once a school week.
+- **`bin/remind.php`**, cron on live only, weekdays 04:30 UTC (06:30 SA):
+  sends on the first school day of the week (a completion-date rule: until its
+  date; a year-plan rule: its maker's teaching weeks). Dedupe key
+  `behind-<rule>-<pupil>-<Monday>` in `mailLog` (and the bell), so it never
+  mails twice. `--dry-run`, `--today=Y-m-d` for checks. Idle time alone sends
+  nothing to pupils.
+- **Email** (`lib/mail.php`): Brevo's API, config `brevoApiKey`, `mailFrom`,
+  `mailFromName`, `mailEnabled` (live only - the test site's database holds
+  real addresses). With sending off, mail is logged as `off`. The key goes
+  to live with `AIResources/tools/set-server-config.py mail` - it asks Chris
+  to paste the key and never stores or prints it. **Brevo account "BestLessons"** (Chris's login): domain
+  **bestlessons.co.za authenticated** 27 Sep 2026 (Chris: "use bestlessons.co.za
+  as the domain") - DNS Manager zone 8236 has `@` TXT `brevo-code:...`, CNAMEs
+  `brevo1._domainkey` / `brevo2._domainkey` -> `b1`/`b2.bestlessons-co-za.dkim.brevo.com`,
+  and `_dmarc` now `v=DMARC1; p=none; rua=mailto:rua@dmarc.brevo.com`; leave
+  them. Sender **`BestLessons <reminders@bestlessons.co.za>`** verified. The
+  domain has no mailbox (no MX), so set `mailReplyTo` for replies.
+- **The AI rule for 2026** (to add on live after the deploy):
+  `php bin/add-progress-rule.php ai 9,10,11 2026-10-18 --remind --by=<admin email>`.
+
 ## Stream-only lessons (Chris, 25 Sep 2026)
 
 - Pascal: lessons 24 and 25 are SQLite in Delphi and in Lazarus, for everyone
@@ -256,6 +451,15 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   in `CourseIndex()`. `Enrol()` joins those too (real enrolment rows, so
   class results, Practice and "carry on" just work) and `EntitledToMarking()`
   lets a plan for the course cover them. The course page says "Includes ...".
+- **Bundles (designed, not built - 27 September 2026):** a grade-aware set
+  of courses a pupil joins once, for subjects split across several courses
+  (CAT across eight, IT across five or six). Horizontal, where `includes` is
+  vertical. See [bundle-design.md](bundle-design.md).
+- **A pilot course:** `'pilot' => true` in `CourseIndex()` keeps a course off
+  the live site (the folder named `itcoder`); it exists on the test site and
+  the testbed only. With `'status' => 'draft'`, teachers and admins see it,
+  pupils do not. First use: `catpilot`, the CAT sample lesson from
+  `handoff/cat-session/pilot/`, for Chris to judge (27 September 2026).
 - **A shared glossary:** `'glossaryFrom' => 'theory10'` (`GlossaryHome()`);
   a row taught in another course names it with the extras key `'course'`.
   The glossary page and Index link a term only when the pupil's course is

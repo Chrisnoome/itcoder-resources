@@ -59,7 +59,7 @@ database key. The ids were chosen to match the first numbering.
 | 7 | lesson07 | Processing - basic maths | lesson06 | built 25 Sep |
 | 8 | lesson08 | Type conversion | lesson07 | built 25 Sep |
 | 9 | lesson09 | Decisions / Branching | lesson08 | built 25 Sep |
-| 10 | lesson10 | Division - / and % | lesson09 | built 25 Sep |
+| 10 | lesson10 | Division - / and % | lesson09 | built 25 Sep; overflow Good to Know cut 27 Sep (matches Pascal, cut 18 Sep) |
 | 11 | lesson11 | For loops | lesson10 | built 25 Sep |
 | 12 | lesson12 | Looped algorithms | lesson11 | built 25 Sep |
 | 13 | lesson13 | Flexible loops - while and do-while | lesson12 | built 25 Sep |
@@ -142,6 +142,22 @@ javac/java run; record the surprising ones here.)
   is already defined`. `do { ... } while (c);` keeps going while c is TRUE (not
   Until's flip); a variable declared inside the do is not visible in its while.
 - `-7 % 2` is -1, so `if (n % 2 == 1)` calls -7 even - test `== 0`.
+
+## Changes from the Java-to-Pascal review (Chris, 27 September 2026)
+
+- **Overflow cut from lesson 10** to match Pascal lesson 9, where Chris cut
+  it on 18 Sep ("not needed for this lesson"; overflow is theory-course
+  content). Lessons 12 (factorial) and 13 (LCM) now point to lesson 5's int
+  range; lesson 8's pointer is gone; the glossary row keeps lesson 10 with no
+  anchor, as Pascal's does; sags.php no longer claims overflow errors.
+- **Lesson 25: your own database and its data** (`#ownDb`, `#fillData`,
+  `#checkData`) - the same three blocks as Pascal lesson 24: DB Browser for
+  SQLite, test data from an AI or a real source, checking it, POPIA and
+  declaring AI use. The locked-file message is JDBC's own, tested with
+  sqlite-jdbc 3.48.0.0: `[SQLITE_BUSY] The database file is locked (database
+  is locked)`.
+- **The debugger is SAGs Grade 11** (4.13), not 10: lesson03's sags line
+  corrected, as in the Pascal IDE lesson.
 
 ## Platform changes made for the Java course (25 September 2026)
 

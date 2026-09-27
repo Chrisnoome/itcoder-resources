@@ -1,0 +1,655 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT IEB Grade 11 - Java - Access - Other four-term independent 
+ school (ISASA guideline)
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 11 T1 W1: Java 3 Where you write Java - IDEs | The motherboar
+ d and data flow
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W1\n\nProgramming:\n- Java 3 (part): Where you wr
+ ite Java - IDEs\n    focus: debugging tools: breakpoints\, stepping through
+  code and watching variables\n    https://itcoder.co.za/lesson.php?c=java&i
+ d=lesson03\n- Java 4: Making it pretty (optional extra)\n    https://itcode
+ r.co.za/lesson.php?c=java&id=lesson04\n- Java 14 (part): Working with text 
+ - Strings\n    focus: String methods: charAt\, substring\, indexOf\, contai
+ ns\, trim\, replace and split\; string algorithms: counting words and vowel
+ s\, reversing\, initials\, and encoding (Caesar cipher)\; validating an ID 
+ number and calculating its check digit\; parsing delimited text by hand and
+  with split\, and formatting output with String.format\n    https://itcoder
+ .co.za/lesson.php?c=java&id=lesson14\n\nTheory:\n- The motherboard and data
+  flow\n    https://itcoder.co.za/lesson.php?c=theory11&id=motherboard11\n- 
+ The clock and the buses\n    https://itcoder.co.za/lesson.php?c=theory11&id
+ =busesclock
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 11: Term 1 starts
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 11 T1 W2: Memory and caching
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W2\n\nProgramming:\n- Java 14 (part): Working wit
+ h text - Strings (continued)\n    https://itcoder.co.za/lesson.php?c=java&i
+ d=lesson14\n\nTheory:\n- The clock and the buses (continued)\n    https://i
+ tcoder.co.za/lesson.php?c=theory11&id=busesclock\n- Memory and caching\n   
+  https://itcoder.co.za/lesson.php?c=theory11&id=caching
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 11 T1 W3: Doing many things at once
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W3\n\nProgramming:\n- Java 14 (part): Working wit
+ h text - Strings (continued)\n    https://itcoder.co.za/lesson.php?c=java&i
+ d=lesson14\n\nTheory:\n- Memory and caching (continued)\n    https://itcode
+ r.co.za/lesson.php?c=theory11&id=caching\n- Doing many things at once\n    
+ https://itcoder.co.za/lesson.php?c=theory11&id=multitasking
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 11 T1 W4: Starting up: BIOS\, UEFI\, CMOS and interrupts
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W4\n\nProgramming:\n- Java 14 (part): Working wit
+ h text - Strings (continued)\n    https://itcoder.co.za/lesson.php?c=java&i
+ d=lesson14\n\nTheory:\n- Doing many things at once (continued)\n    https:/
+ /itcoder.co.za/lesson.php?c=theory11&id=multitasking\n- Starting up: BIOS\,
+  UEFI\, CMOS and interrupts\n    https://itcoder.co.za/lesson.php?c=theory1
+ 1&id=startup
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 11 T1 W5: Java 15 Methods\, parameters and classes of tools |
+  Primary and secondary storage compared
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W5\n\nProgramming:\n- Java 14 (part): Working wit
+ h text - Strings (continued)\n    https://itcoder.co.za/lesson.php?c=java&i
+ d=lesson14\n- Java 15 (part): Methods\, parameters and classes of tools\n  
+   focus: tracing calls to methods with parameters\n    https://itcoder.co.z
+ a/lesson.php?c=java&id=lesson15\n\nTheory:\n- Starting up: BIOS\, UEFI\, CM
+ OS and interrupts (continued)\n    https://itcoder.co.za/lesson.php?c=theor
+ y11&id=startup\n- Primary and secondary storage compared\n    https://itcod
+ er.co.za/lesson.php?c=theory11&id=storagecompared
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270220
+SUMMARY:IT Gr 11 T1 W6: Java 16 Arrays - remembering a whole list | Operati
+ ng systems compared
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W6\n\nProgramming:\n- Java 16 (part): Arrays - re
+ membering a whole list\n    focus: static one-dimensional arrays and parall
+ el arrays\; sequential and binary search\; selection\, improved selection\,
+  bubble and bubble with a flag sorts\; insert and delete an element\; remov
+ e duplicates\n    https://itcoder.co.za/lesson.php?c=java&id=lesson16\n\nTh
+ eory:\n- Primary and secondary storage compared (continued)\n    https://it
+ coder.co.za/lesson.php?c=theory11&id=storagecompared\n- Operating systems c
+ ompared\n    https://itcoder.co.za/lesson.php?c=theory11&id=oscompared
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270222-7@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 11 T1 W7: Virtual memory
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W7\n\nProgramming:\n- Java 16 (part): Arrays - re
+ membering a whole list (continued)\n    https://itcoder.co.za/lesson.php?c=
+ java&id=lesson16\n\nTheory:\n- Virtual memory\n    https://itcoder.co.za/le
+ sson.php?c=theory11&id=virtualmemory\n- Virtualisation and virtual machines
+ \n    https://itcoder.co.za/lesson.php?c=theory11&id=virtualisation
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 11 T1 W8: Java 17 Smart data - Classes and objects | Compiler
+ s\, interpreters and assemblers
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W8\n\nProgramming:\n- Java 16 (part): Arrays - re
+ membering a whole list (continued)\n    https://itcoder.co.za/lesson.php?c=
+ java&id=lesson16\n- Java 17 (part): Smart data - Classes and objects\n    f
+ ocus: fields and methods\, static vs non-static\, access modifiers\, access
+ ors\, mutators\, toString\, encapsulation\, overloading\; arrays of objects
+  vs parallel arrays\; scope and lifetime of variables\, fields and paramete
+ rs\n    https://itcoder.co.za/lesson.php?c=java&id=lesson17\n\nTheory:\n- V
+ irtualisation and virtual machines (continued)\n    https://itcoder.co.za/l
+ esson.php?c=theory11&id=virtualisation\n- Compilers\, interpreters and asse
+ mblers\n    https://itcoder.co.za/lesson.php?c=theory11&id=translators
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 11 T1 W9: Numbers in a fixed number of bits
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W9\n\nProgramming:\n- Java 17 (part): Smart data 
+ - Classes and objects (continued)\n    https://itcoder.co.za/lesson.php?c=j
+ ava&id=lesson17\n\nTheory:\n- Numbers in a fixed number of bits\n    https:
+ //itcoder.co.za/lesson.php?c=theory11&id=fixedbits
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 11 T1 W10: When data goes wrong
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T1 W10\n\nProgramming:\n- Java 17 (part): Smart data
+  - Classes and objects (continued)\n    https://itcoder.co.za/lesson.php?c=
+ java&id=lesson17\n\nTheory:\n- When data goes wrong\n    https://itcoder.co
+ .za/lesson.php?c=theory11&id=dataerrors\n- Databases and the DBMS\n    http
+ s://itcoder.co.za/lesson.php?c=theory11&id=dbms11
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270319-11@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 11: Term 1 ends
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270413-12@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270417
+SUMMARY:IT Gr 11 T2 W1: Java 18 Persistence - Text files | Network hardware
+  and topologies
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W1\n\nProgramming:\n- Java 17 (part): Smart data 
+ - Classes and objects (continued)\n    https://itcoder.co.za/lesson.php?c=j
+ ava&id=lesson17\n- Java 18 (part): Persistence - Text files\n    focus: tex
+ t files: create\, append\, read\; records with fields\; read into an array 
+ of objects\; test whether the file exists - exception handling\; acquire da
+ ta from a text file\; a string with fields separated by a delimiter\n    ht
+ tps://itcoder.co.za/lesson.php?c=java&id=lesson18\n\nTheory:\n- Databases a
+ nd the DBMS (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&id
+ =dbms11\n- Network hardware and topologies\n    https://itcoder.co.za/lesso
+ n.php?c=theory11&id=networkhardware\n\nDatabases:\n- SQL 2 (part): What a d
+ atabase is\n    focus: the purpose and features of a DBMS: security\, integ
+ rity\, backup and recovery\, many users (record locking)\, transactions\n  
+   https://itcoder.co.za/lesson.php?c=sql&id=dbwhat
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270413-13@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270414
+SUMMARY:IT Gr 11: Term 2 starts
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270419-14@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270424
+SUMMARY:IT Gr 11 T2 W2: Addresses\, packets and frames
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W2\n\nProgramming:\n- Java 18 (part): Persistence
+  - Text files (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=l
+ esson18\n\nTheory:\n- Network hardware and topologies (continued)\n    http
+ s://itcoder.co.za/lesson.php?c=theory11&id=networkhardware\n- Addresses\, p
+ ackets and frames\n    https://itcoder.co.za/lesson.php?c=theory11&id=addre
+ ssing
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270426-15@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270501
+SUMMARY:IT Gr 11 T2 W3: Java 19 Catching errors - Defensive programming | P
+ rotocols and wide area networks
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W3\n\nProgramming:\n- Java 18 (part): Persistence
+  - Text files (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=l
+ esson18\n- Java 19 (part): Catching errors - Defensive programming\n    foc
+ us: data validation: reasons\, exception handling\, presence/range/uniquene
+ ss/length/type/logical/check digit checks with conditional loops\; descript
+ ive error messages\; messages based on exceptions caught\; components for v
+ alidation\; validate input such as an ID number\; check digits\n    https:/
+ /itcoder.co.za/lesson.php?c=java&id=lesson19\n\nTheory:\n- Addresses\, pack
+ ets and frames (continued)\n    https://itcoder.co.za/lesson.php?c=theory11
+ &id=addressing\n- Protocols and wide area networks\n    https://itcoder.co.
+ za/lesson.php?c=theory11&id=protocolswan
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270503-16@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 11 T2 W4: Mobile and wireless communication
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W4\n\nProgramming:\n- Java 19 (part): Catching er
+ rors - Defensive programming (continued)\n    https://itcoder.co.za/lesson.
+ php?c=java&id=lesson19\n\nTheory:\n- Protocols and wide area networks (cont
+ inued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=protocolswan\n- 
+ Mobile and wireless communication\n    https://itcoder.co.za/lesson.php?c=t
+ heory11&id=mobilewireless
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270510-17@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 11 T2 W5: Virtual private networks
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W5\n\nProgramming:\n- Java 19 (part): Catching er
+ rors - Defensive programming (continued)\n    https://itcoder.co.za/lesson.
+ php?c=java&id=lesson19\n\nTheory:\n- Mobile and wireless communication (con
+ tinued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=mobilewireless\
+ n- Virtual private networks\n    https://itcoder.co.za/lesson.php?c=theory1
+ 1&id=vpn
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270517-18@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 11 T2 W6: Java 20 It's a date - Dates and times | Streaming a
+ nd compression
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W6\n\nProgramming:\n- Java 20: It's a date - Date
+ s and times\n    focus: language-provided classes to input\, validate\, sto
+ re and output dates and times\; type\, range and logic checks on dates\; va
+ lidate input such as an ID number\n    https://itcoder.co.za/lesson.php?c=j
+ ava&id=lesson20\n\nTheory:\n- Virtual private networks (continued)\n    htt
+ ps://itcoder.co.za/lesson.php?c=theory11&id=vpn\n- Streaming and compressio
+ n\n    https://itcoder.co.za/lesson.php?c=theory11&id=streaming
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270524-19@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 11 T2 W7: How the Web grew up
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W7\n\nProgramming:\n- Java 20: It's a date - Date
+ s and times (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=les
+ son20\n\nTheory:\n- Streaming and compression (continued)\n    https://itco
+ der.co.za/lesson.php?c=theory11&id=streaming\n- How the Web grew up\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory11&id=webgrewup
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270531-20@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270605
+SUMMARY:IT Gr 11 T2 W8: Searching like an expert
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T2 W8\n\nProgramming:\n- Java 20: It's a date - Date
+ s and times (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=les
+ son20\n\nTheory:\n- How the Web grew up (continued)\n    https://itcoder.co
+ .za/lesson.php?c=theory11&id=webgrewup\n- Searching like an expert\n    htt
+ ps://itcoder.co.za/lesson.php?c=theory11&id=expertsearch
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270607-21@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 11: Mid-year exams
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270625-22@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 11: Term 2 ends
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270720-23@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270724
+SUMMARY:IT Gr 11 T3 W1: Java 21 Managing a list - the array manager class |
+  IoT\, 4IR\, location and big data
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W1\n\nProgramming:\n- Java 20: It's a date - Date
+ s and times (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=les
+ son20\n- Java 21 (part): Managing a list - the array manager class\n    foc
+ us: sending an object to a method\, and giving back an object or null\; sea
+ rch\, sort\, delete and removing duplicates\, inside a class that manages a
+ n array of objects\; a text-based menu interface kept separate from the cla
+ ss behind it (navigation and CRUD)\n    https://itcoder.co.za/lesson.php?c=
+ java&id=lesson21\n\nTheory:\n- Searching like an expert (continued)\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory11&id=expertsearch\n- IoT\, 4IR\, lo
+ cation and big data\n    https://itcoder.co.za/lesson.php?c=theory11&id=iot
+ bigdata\n\nDatabases:\n- SQL 1: Good data in a database\n    focus: data-in
+ tegrity management by the DBMS: accurate\, correct\, current\, complete and
+  relevant data\; validation and verification\n    https://itcoder.co.za/les
+ son.php?c=sql&id=dbdata\n- SQL 6 (part): Looking after data\n    focus: sec
+ urity: multi-user access control\, encryption\, SQL injection\; backup\, re
+ covery and management\n    https://itcoder.co.za/lesson.php?c=sql&id=dbcare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270720-24@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:IT Gr 11: Term 3 starts
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270726-25@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270726
+DTEND;VALUE=DATE:20270731
+SUMMARY:IT Gr 11 T3 W2: Threats to a system | SQL 8 Getting started in Acce
+ ss
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W2\n\nProgramming:\n- Java 21 (part): Managing a 
+ list - the array manager class (continued)\n    https://itcoder.co.za/lesso
+ n.php?c=java&id=lesson21\n\nTheory:\n- Threats to a system\n    https://itc
+ oder.co.za/lesson.php?c=theory11&id=threats\n\nDatabases:\n- SQL 8 (part): 
+ Getting started in Access\n    focus: the aggregate function COUNT\n    htt
+ ps://itcoder.co.za/lesson.php?c=sql&id=access00\n- SQL 12: Calculated field
+ s and text\n    focus: calculated fields: mathematical operators including 
+ MOD and integer division\, renaming with AS\, ROUND and INT (and FLOOR and 
+ CEILING in other databases)\, casting\; string functions: LEN\, MID\, LEFT\
+ , RIGHT\, INSTR (the position of a character)\; concatenating fields\n    h
+ ttps://itcoder.co.za/lesson.php?c=sql&id=access04
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270802-26@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 11 T3 W3: Java 22 Family trees - Inheritance and polymorphism
+  | Protecting a system
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W3\n\nProgramming:\n- Java 21 (part): Managing a 
+ list - the array manager class (continued)\n    https://itcoder.co.za/lesso
+ n.php?c=java&id=lesson21\n- Java 22 (part): Family trees - Inheritance and 
+ polymorphism\n    focus: protected members in use\, dynamic binding\, and i
+ nheritance in class diagrams\n    https://itcoder.co.za/lesson.php?c=java&i
+ d=lesson22\n\nTheory:\n- Threats to a system (continued)\n    https://itcod
+ er.co.za/lesson.php?c=theory11&id=threats\n- Protecting a system\n    https
+ ://itcoder.co.za/lesson.php?c=theory11&id=protecting\n\nDatabases:\n- SQL 1
+ 2: Calculated fields and text (continued)\n    https://itcoder.co.za/lesson
+ .php?c=sql&id=access04\n- SQL 13: Dates in Access\n    focus: common date f
+ unctions: NOW\, DATE\, YEAR\, MONTH\, DAY\; date arithmetic\; accurate DATE
+  calculations for age\n    https://itcoder.co.za/lesson.php?c=sql&id=access
+ 05
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270810-27@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270814
+SUMMARY:IT Gr 11 T3 W4: Java 23 Talking to people - Text user interfaces | 
+ Computer crime and social engineering
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W4\n\nProgramming:\n- Java 22 (part): Family tree
+ s - Inheritance and polymorphism (continued)\n    https://itcoder.co.za/les
+ son.php?c=java&id=lesson22\n- Java 23 (part): Talking to people - Text user
+  interfaces\n    focus: descriptive error messages that say how to fix the 
+ problem\, messages from caught exceptions\, de facto standards\, an unclutt
+ ered screen and colour used well\n    https://itcoder.co.za/lesson.php?c=ja
+ va&id=lesson23\n\nTheory:\n- Protecting a system (continued)\n    https://i
+ tcoder.co.za/lesson.php?c=theory11&id=protecting\n- Computer crime and soci
+ al engineering\n    https://itcoder.co.za/lesson.php?c=theory11&id=compcrim
+ e\n\nDatabases:\n- SQL 14: Counting and totals\n    focus: aggregate functi
+ ons SUM\, AVG\, MIN\, MAX\, COUNT\; single-table SQL with GROUP BY and HAVI
+ NG\, and a multi-condition WHERE\n    https://itcoder.co.za/lesson.php?c=sq
+ l&id=access06
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270816-28@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270821
+SUMMARY:IT Gr 11 T3 W5: Java 24 Windows\, buttons and boxes - Swing and Jav
+ aFX | Blockchain
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W5\n\nProgramming:\n- Java 23 (part): Talking to 
+ people - Text user interfaces (continued)\n    https://itcoder.co.za/lesson
+ .php?c=java&id=lesson23\n- Java 24: Windows\, buttons and boxes - Swing and
+  JavaFX\n    focus: metaphors and images\, consistent behaviour and de fact
+ o standards (F1 for help\, Esc to cancel)\, uncluttered screens\, effective
+  use of colour\, and components for validation such as drop-downs\, date pi
+ ckers and masks\; abstraction: the object as a backend kept separate from a
+  graphical user interface - the same class behind a text screen and a windo
+ w\; passing an object from one window to another\; more than one window\, w
+ indow events\, components made in code\, a timer\, and quick dialogs (mostl
+ y for the project)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson24
+ \n\nTheory:\n- Computer crime and social engineering (continued)\n    https
+ ://itcoder.co.za/lesson.php?c=theory11&id=compcrime\n- Blockchain\n    http
+ s://itcoder.co.za/lesson.php?c=theory11&id=blockchain\n\nDatabases:\n- SQL 
+ 15 (part): Changing data: INSERT\, UPDATE and DELETE\n    focus: INSERT wit
+ h limited fields and an autonumber primary key\n    https://itcoder.co.za/l
+ esson.php?c=sql&id=access07\n- SQL 17 (part): Questions inside questions\n 
+    focus: calculated fields: random numbers\n    https://itcoder.co.za/less
+ on.php?c=sql&id=access09
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270823-29@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270828
+SUMMARY:IT Gr 11 T3 W6: Work in a digital world
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W6\n\nProgramming:\n- Java 24: Windows\, buttons 
+ and boxes - Swing and JavaFX (continued)\n    https://itcoder.co.za/lesson.
+ php?c=java&id=lesson24\n\nTheory:\n- Blockchain (continued)\n    https://it
+ coder.co.za/lesson.php?c=theory11&id=blockchain\n- Work in a digital world\
+ n    https://itcoder.co.za/lesson.php?c=theory11&id=digitalwork
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270830-30@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270904
+SUMMARY:IT Gr 11 T3 W7: What location\, IoT and big data do to people
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W7\n\nProgramming:\n- Java 24: Windows\, buttons 
+ and boxes - Swing and JavaFX (continued)\n    https://itcoder.co.za/lesson.
+ php?c=java&id=lesson24\n\nTheory:\n- Work in a digital world (continued)\n 
+    https://itcoder.co.za/lesson.php?c=theory11&id=digitalwork\n- What locat
+ ion\, IoT and big data do to people\n    https://itcoder.co.za/lesson.php?c
+ =theory11&id=iotpeople
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270906-31@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270911
+SUMMARY:IT Gr 11 T3 W8: Arrays\, searching and sorting on paper
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W8\n\nProgramming:\n- Java 24: Windows\, buttons 
+ and boxes - Swing and JavaFX (continued)\n    https://itcoder.co.za/lesson.
+ php?c=java&id=lesson24\n\nTheory:\n- What location\, IoT and big data do to
+  people (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=iot
+ people\n- Arrays\, searching and sorting on paper\n    https://itcoder.co.z
+ a/lesson.php?c=theory11&id=arraystheory
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270913-32@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 11 T3 W9: Classes\, objects and class diagrams
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T3 W9\n\nProgramming:\n- Java 24: Windows\, buttons 
+ and boxes - Swing and JavaFX (continued)\n    https://itcoder.co.za/lesson.
+ php?c=java&id=lesson24\n\nTheory:\n- Arrays\, searching and sorting on pape
+ r (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=arraysthe
+ ory\n- Classes\, objects and class diagrams\n    https://itcoder.co.za/less
+ on.php?c=theory11&id=classes11
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20270917-33@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 11: Term 3 ends
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20271005-34@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 11 T4 W1: Text files
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T4 W1\n\nProgramming:\n- Java 25: Databases from Jav
+ a - SQLite\, JDBC and Swing (optional extra)\n    https://itcoder.co.za/les
+ son.php?c=java&id=lesson25\n\nTheory:\n- Classes\, objects and class diagra
+ ms (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=classes1
+ 1\n- Text files\n    https://itcoder.co.za/lesson.php?c=theory11&id=textfil
+ es
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20271005-35@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271006
+SUMMARY:IT Gr 11: Term 4 starts
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20271011-36@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271016
+SUMMARY:IT Gr 11 T4 W2: Methods and parameters
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T4 W2\n\nProgramming:\n- Java 26: Databases in a Jav
+ aFX window (optional extra)\n    https://itcoder.co.za/lesson.php?c=java&id
+ =lesson26\n- Java 27: Java DB - an alternative to SQLite (optional extra)\n
+     https://itcoder.co.za/lesson.php?c=java&id=lesson27\n\nTheory:\n- Text 
+ files (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=textf
+ iles\n- Methods and parameters\n    https://itcoder.co.za/lesson.php?c=theo
+ ry11&id=methods11
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20271018-37@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271018
+DTEND;VALUE=DATE:20271023
+SUMMARY:IT Gr 11 T4 W3: Java 30 The data validation task - IEB | Validation
+  and testing
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T4 W3\n\nProgramming:\n- Java 28: Making a program o
+ thers can run - JAR files and jpackage (optional extra)\n    https://itcode
+ r.co.za/lesson.php?c=java&id=lesson28\n- Java 30 (part): The data validatio
+ n task - IEB\n    focus: the data validation task: validation checks in cod
+ e\, with exception handling where it fits\, for four kinds of data\; compon
+ ents for validation\, descriptive error messages beside the component\, and
+  a well laid-out window\n    https://itcoder.co.za/lesson.php?c=java&id=dvt
+ ieb\n\nTheory:\n- Methods and parameters (continued)\n    https://itcoder.c
+ o.za/lesson.php?c=theory11&id=methods11\n- Validation and testing\n    http
+ s://itcoder.co.za/lesson.php?c=theory11&id=testing11
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20271025-38@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271030
+SUMMARY:IT Gr 11 T4 W4: Java 31 The PAT - IEB | Designing a good interface
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline) - T4 W4\n\nProgramming:\n- Java 30 (part): The data va
+ lidation task - IEB (continued)\n    https://itcoder.co.za/lesson.php?c=jav
+ a&id=dvtieb\n- Java 31 (part): The PAT - IEB\n    focus: backend classes th
+ at do the work\, designed with class diagrams\; separating the interface fr
+ om the working code\, and designing screens for the user\; functional testi
+ ng\, and a test plan with standard\, extreme and abnormal data\n    https:/
+ /itcoder.co.za/lesson.php?c=java&id=patieb\n\nTheory:\n- Designing a good i
+ nterface\n    https://itcoder.co.za/lesson.php?c=theory11&id=guidesign
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20271101-39@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+SUMMARY:IT Gr 11: Final exams start
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb11-java-access-20271201-40@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271201
+DTEND;VALUE=DATE:20271202
+SUMMARY:IT Gr 11: Term 4 ends
+DESCRIPTION:IEB Grade 11 - Java - Access - Other four-term independent scho
+ ol (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

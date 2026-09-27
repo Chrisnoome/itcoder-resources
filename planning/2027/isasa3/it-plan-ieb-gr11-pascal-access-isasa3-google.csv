@@ -1,0 +1,430 @@
+﻿Subject,"Start Date","End Date","All Day Event",Description,Private
+"IT Gr 11 T1 W1: Pascal 12 Flexible loops - While and Repeat | The motherboard and data flow",01/13/2027,01/15/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W1
+
+Programming:
+- Pascal 12 (part): Flexible loops - While and Repeat
+    focus: range checks in a conditional loop
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson12
+- Pascal 13 (part): Working with text - String handling
+    focus: string methods: isolating, counting, inserting, replacing and deleting; string algorithms: counting words and vowels, initials, and encoding (Caesar cipher); validating an ID number and calculating its check digit; the first and last characters with LeftStr and RightStr
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson13
+
+Theory:
+- The motherboard and data flow
+    https://itcoder.co.za/lesson.php?c=theory11&id=motherboard11
+- The clock and the buses
+    https://itcoder.co.za/lesson.php?c=theory11&id=busesclock",False
+"IT Gr 11: Term 1 starts",01/13/2027,01/13/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 11 T1 W2: Memory and caching",01/18/2027,01/22/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W2
+
+Programming:
+- Pascal 13 (part): Working with text - String handling (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson13
+
+Theory:
+- The clock and the buses (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=busesclock
+- Memory and caching
+    https://itcoder.co.za/lesson.php?c=theory11&id=caching",False
+"IT Gr 11 T1 W3: Doing many things at once",01/25/2027,01/29/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W3
+
+Programming:
+- Pascal 13 (part): Working with text - String handling (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson13
+
+Theory:
+- Memory and caching (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=caching
+- Doing many things at once
+    https://itcoder.co.za/lesson.php?c=theory11&id=multitasking",False
+"IT Gr 11 T1 W4: Starting up: BIOS, UEFI, CMOS and interrupts",02/01/2027,02/05/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W4
+
+Programming:
+- Pascal 13 (part): Working with text - String handling (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson13
+
+Theory:
+- Doing many things at once (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=multitasking
+- Starting up: BIOS, UEFI, CMOS and interrupts
+    https://itcoder.co.za/lesson.php?c=theory11&id=startup",False
+"IT Gr 11 T1 W5: Pascal 14 Making your own commands - procedures, functions, parameters and units | Primary ...",02/08/2027,02/12/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W5
+
+Programming:
+- Pascal 13 (part): Working with text - String handling (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson13
+- Pascal 14 (part): Making your own commands - procedures, functions, parameters and units
+    focus: parameters as abstraction - fewer, more general methods - and the scope of local variables; extracting duplicated code into reusable methods, and removing vowels from a string; trace tables that follow values through parameters and return values
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson14
+
+Theory:
+- Starting up: BIOS, UEFI, CMOS and interrupts (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=startup
+- Primary and secondary storage compared
+    https://itcoder.co.za/lesson.php?c=theory11&id=storagecompared",False
+"IT Gr 11 T1 W6: Pascal 15 Remembering a whole list - Arrays | Operating systems compared",02/15/2027,02/18/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W6
+
+Programming:
+- Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson14
+- Pascal 15 (part): Remembering a whole list - Arrays
+    focus: static one-dimensional arrays and parallel arrays; searching, sorting, calculating over arrays; sequential and binary search, selection and improved selection sort, bubble sort with a flag, inserting, deleting and removing duplicates
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15
+
+Theory:
+- Primary and secondary storage compared (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=storagecompared
+- Operating systems compared
+    https://itcoder.co.za/lesson.php?c=theory11&id=oscompared",False
+"IT Gr 11 T1 W7: Virtual memory",02/23/2027,02/26/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W7
+
+Programming:
+- Pascal 15 (part): Remembering a whole list - Arrays (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15
+
+Theory:
+- Virtual memory
+    https://itcoder.co.za/lesson.php?c=theory11&id=virtualmemory
+- Virtualisation and virtual machines
+    https://itcoder.co.za/lesson.php?c=theory11&id=virtualisation",False
+"IT Gr 11 T1 W8: Pascal 16 Smart data - Classes and objects | Compilers, interpreters and assemblers",03/01/2027,03/05/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W8
+
+Programming:
+- Pascal 15 (part): Remembering a whole list - Arrays (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15
+- Pascal 16 (part): Smart data - Classes and objects
+    focus: classes: fields and methods, private/protected/public, default and parameterised constructors, accessor, mutator and toString, encapsulation and information hiding, overloading, private helper methods, static vs instance, constant fields, class diagrams; parameters into the methods of an object, return types, a string with fields separated by #, and the scope and lifetime of variables, fields and parameters; arrays of objects, compared with parallel arrays; abstraction: designing classes to encapsulate fields and methods, with the object as a backend separate from the user interface; decomposition: finding classes, fields and methods with noun-verb analysis of a user story
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson16
+
+Theory:
+- Virtualisation and virtual machines (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=virtualisation
+- Compilers, interpreters and assemblers
+    https://itcoder.co.za/lesson.php?c=theory11&id=translators",False
+"IT Gr 11 T1 W9: Numbers in a fixed number of bits",03/08/2027,03/12/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W9
+
+Programming:
+- Pascal 16 (part): Smart data - Classes and objects (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson16
+
+Theory:
+- Numbers in a fixed number of bits
+    https://itcoder.co.za/lesson.php?c=theory11&id=fixedbits",False
+"IT Gr 11 T1 W10: When data goes wrong",03/15/2027,03/19/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W10
+
+Programming:
+- Pascal 16 (part): Smart data - Classes and objects (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson16
+
+Theory:
+- When data goes wrong
+    https://itcoder.co.za/lesson.php?c=theory11&id=dataerrors
+- Databases and the DBMS
+    https://itcoder.co.za/lesson.php?c=theory11&id=dbms11",False
+"IT Gr 11 T1 W11: Pascal 17 Persistence - Text files | Network hardware and topologies",03/23/2027,03/25/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W11
+
+Programming:
+- Pascal 16 (part): Smart data - Classes and objects (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson16
+- Pascal 17 (part): Persistence - Text files
+    focus: text files: create, append and read; several lines with fields for the same structure and for different structures; reading into an array of objects; testing whether the file exists, with exception handling; acquiring data from a text file, and parsing a line at a delimiter (CSV); a parameterised constructor that builds an object from one line of a file, and a method that gives the object back as a line for the file
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17
+
+Theory:
+- Databases and the DBMS (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=dbms11
+- Network hardware and topologies
+    https://itcoder.co.za/lesson.php?c=theory11&id=networkhardware
+
+Databases:
+- SQL 2 (part): What a database is
+    focus: the purpose and features of a DBMS: security, integrity, backup and recovery, many users (record locking), transactions
+    https://itcoder.co.za/lesson.php?c=sql&id=dbwhat",False
+"IT Gr 11 T1 W12: Addresses, packets and frames",03/30/2027,04/02/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W12
+
+Programming:
+- Pascal 17 (part): Persistence - Text files (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17
+
+Theory:
+- Network hardware and topologies (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=networkhardware
+- Addresses, packets and frames
+    https://itcoder.co.za/lesson.php?c=theory11&id=addressing",False
+"IT Gr 11 T1 W13: Protocols and wide area networks",04/05/2027,04/09/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W13
+
+Programming:
+- Pascal 17 (part): Persistence - Text files (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17
+
+Theory:
+- Addresses, packets and frames (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=addressing
+- Protocols and wide area networks
+    https://itcoder.co.za/lesson.php?c=theory11&id=protocolswan",False
+"IT Gr 11: Term 1 ends",04/09/2027,04/09/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 11 T2 W1: Pascal 18 Catching errors - Defensive programming | Mobile and wireless communication",05/05/2027,05/07/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W1
+
+Programming:
+- Pascal 17 (part): Persistence - Text files (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17
+- Pascal 18 (part): Catching errors - Defensive programming
+    focus: reasons for validation, exception handling, and presence, range, uniqueness, length, type, logic, check digit and check sum checks with conditional loops; descriptive error messages that indicate a solution, messages based on exceptions caught, and components for validation such as drop-downs and calendars; validating input such as an ID number, and calculating its check digit; data validation at class level: a setter that raises an exception; identifying and correcting syntax, runtime and logic errors; trace tables; the value of generated test data; the debugger - breakpoints, watches and stepping (Good to Know)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson18
+
+Theory:
+- Protocols and wide area networks (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=protocolswan
+- Mobile and wireless communication
+    https://itcoder.co.za/lesson.php?c=theory11&id=mobilewireless",False
+"IT Gr 11: Term 2 starts",05/05/2027,05/05/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 11 T2 W2: Virtual private networks",05/10/2027,05/14/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W2
+
+Programming:
+- Pascal 18 (part): Catching errors - Defensive programming (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson18
+
+Theory:
+- Mobile and wireless communication (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=mobilewireless
+- Virtual private networks
+    https://itcoder.co.za/lesson.php?c=theory11&id=vpn",False
+"IT Gr 11 T2 W3: Pascal 19 It's a date - Dates and times | Streaming and compression",05/17/2027,05/21/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W3
+
+Programming:
+- Pascal 18 (part): Catching errors - Defensive programming (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson18
+- Pascal 19: It's a date - Dates and times
+    focus: using the language's own date and time types and routines to input, validate, store and output dates and times; validating dates: type checks with TryStrToDate and IsValidDate, and range and logic checks on dates; algorithms with dates: leap years, an accurate age, and the date of birth in an ID number; storing a date in a text file as yyyy-mm-dd and reading it back into a TDateTime field; times and date-times from text: StrToTime, StrToDateTime and their safe versions
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson19
+
+Theory:
+- Virtual private networks (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=vpn
+- Streaming and compression
+    https://itcoder.co.za/lesson.php?c=theory11&id=streaming",False
+"IT Gr 11 T2 W4: How the Web grew up",05/24/2027,05/28/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W4
+
+Programming:
+- Pascal 19: It's a date - Dates and times (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson19
+
+Theory:
+- Streaming and compression (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=streaming
+- How the Web grew up
+    https://itcoder.co.za/lesson.php?c=theory11&id=webgrewup",False
+"IT Gr 11 T2 W5: Searching like an expert",05/31/2027,06/04/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W5
+
+Programming:
+- Pascal 19: It's a date - Dates and times (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson19
+
+Theory:
+- How the Web grew up (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=webgrewup
+- Searching like an expert
+    https://itcoder.co.za/lesson.php?c=theory11&id=expertsearch",False
+"IT Gr 11: Mid-year exams",06/07/2027,06/24/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 11 T2 W9: IoT, 4IR, location and big data | SQL 1 Good data in a database",07/05/2027,07/09/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W9
+
+Programming:
+- Pascal 19: It's a date - Dates and times (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson19
+
+Theory:
+- Searching like an expert (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=expertsearch
+- IoT, 4IR, location and big data
+    https://itcoder.co.za/lesson.php?c=theory11&id=iotbigdata
+
+Databases:
+- SQL 1: Good data in a database
+    focus: data-integrity management by the DBMS: accurate, correct, current, complete and relevant data; validation and verification
+    https://itcoder.co.za/lesson.php?c=sql&id=dbdata
+- SQL 6 (part): Looking after data
+    focus: security: multi-user access control, encryption, SQL injection; backup, recovery and management
+    https://itcoder.co.za/lesson.php?c=sql&id=dbcare",False
+"IT Gr 11 T2 W10: Pascal 20 Managing a list - the array manager class | Threats to a system",07/12/2027,07/16/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W10
+
+Programming:
+- Pascal 19: It's a date - Dates and times (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson19
+- Pascal 20 (part): Managing a list - the array manager class
+    focus: sending an object to a method, and giving back an object or null (Nil); search, sort, delete and removing duplicates, inside a class that manages an array of objects; a text-based menu interface kept separate from the class behind it (navigation and CRUD)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+
+Theory:
+- Threats to a system
+    https://itcoder.co.za/lesson.php?c=theory11&id=threats
+
+Databases:
+- SQL 8 (part): Getting started in Access
+    focus: the aggregate function COUNT
+    https://itcoder.co.za/lesson.php?c=sql&id=access00
+- SQL 12: Calculated fields and text
+    focus: calculated fields: mathematical operators including MOD and integer division, renaming with AS, ROUND and INT (and FLOOR and CEILING in other databases), casting; string functions: LEN, MID, LEFT, RIGHT, INSTR (the position of a character); concatenating fields
+    https://itcoder.co.za/lesson.php?c=sql&id=access04",False
+"IT Gr 11 T2 W11: Protecting a system | SQL 13 Dates in Access",07/19/2027,07/23/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W11
+
+Programming:
+- Pascal 20 (part): Managing a list - the array manager class (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+
+Theory:
+- Threats to a system (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=threats
+- Protecting a system
+    https://itcoder.co.za/lesson.php?c=theory11&id=protecting
+
+Databases:
+- SQL 12: Calculated fields and text (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access04
+- SQL 13: Dates in Access
+    focus: common date functions: NOW, DATE, YEAR, MONTH, DAY; date arithmetic; accurate DATE calculations for age
+    https://itcoder.co.za/lesson.php?c=sql&id=access05",False
+"IT Gr 11 T2 W12: Pascal 21 Family trees - Inheritance and polymorphism | Computer crime and social engineering",07/26/2027,07/30/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W12
+
+Programming:
+- Pascal 20 (part): Managing a list - the array manager class (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+- Pascal 21 (part): Family trees - Inheritance and polymorphism
+    focus: protected members in use, dynamic binding, and inheritance in class diagrams; a text file whose lines hold two related structures, with the class chosen from the number of fields or a code at the front
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+
+Theory:
+- Protecting a system (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=protecting
+- Computer crime and social engineering
+    https://itcoder.co.za/lesson.php?c=theory11&id=compcrime
+
+Databases:
+- SQL 14: Counting and totals
+    focus: aggregate functions SUM, AVG, MIN, MAX, COUNT; single-table SQL with GROUP BY and HAVING, and a multi-condition WHERE
+    https://itcoder.co.za/lesson.php?c=sql&id=access06",False
+"IT Gr 11 T2 W13: Pascal 22 Talking to people - Text user interfaces | Blockchain",08/02/2027,08/06/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W13
+
+Programming:
+- Pascal 21 (part): Family trees - Inheritance and polymorphism (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+- Pascal 22 (part): Talking to people - Text user interfaces
+    focus: descriptive error messages that indicate a solution, messages based on exceptions caught, consistent behaviour and de facto standards (F1 for help, Esc to cancel), uncluttered screens and effective use of colour; abstraction: the object as a backend kept separate from the user interface
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22
+
+Theory:
+- Computer crime and social engineering (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=compcrime
+- Blockchain
+    https://itcoder.co.za/lesson.php?c=theory11&id=blockchain
+
+Databases:
+- SQL 15 (part): Changing data: INSERT, UPDATE and DELETE
+    focus: INSERT with limited fields and an autonumber primary key
+    https://itcoder.co.za/lesson.php?c=sql&id=access07
+- SQL 17 (part): Questions inside questions
+    focus: calculated fields: random numbers
+    https://itcoder.co.za/lesson.php?c=sql&id=access09",False
+"IT Gr 11: Term 2 ends",08/06/2027,08/06/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 11 T3 W1: Work in a digital world",09/07/2027,09/10/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W1
+
+Programming:
+- Pascal 22 (part): Talking to people - Text user interfaces (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22
+
+Theory:
+- Blockchain (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=blockchain
+- Work in a digital world
+    https://itcoder.co.za/lesson.php?c=theory11&id=digitalwork",False
+"IT Gr 11: Term 3 starts",09/07/2027,09/07/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 11 T3 W2: Pascal 23 Windows, buttons and boxes - GUI design | What location, IoT and big data do to p...",09/13/2027,09/17/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W2
+
+Programming:
+- Pascal 22 (part): Talking to people - Text user interfaces (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22
+- Pascal 23: Windows, buttons and boxes - GUI design
+    focus: metaphors and images, consistent behaviour and de facto standards (F1 for help, Esc to cancel), uncluttered screens, effective use of colour, and components for validation such as drop-downs, date pickers and masks; abstraction: the object as a backend kept separate from a graphical user interface - the same class behind a text screen and a form; passing an object from one form to another; more than one form, form events, components made in code, a timer, and quick dialogs (mostly for the project)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23
+
+Theory:
+- Work in a digital world (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=digitalwork
+- What location, IoT and big data do to people
+    https://itcoder.co.za/lesson.php?c=theory11&id=iotpeople",False
+"IT Gr 11 T3 W3: Arrays, searching and sorting on paper",09/20/2027,09/23/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W3
+
+Programming:
+- Pascal 23: Windows, buttons and boxes - GUI design (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23
+
+Theory:
+- What location, IoT and big data do to people (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=iotpeople
+- Arrays, searching and sorting on paper
+    https://itcoder.co.za/lesson.php?c=theory11&id=arraystheory",False
+"IT Gr 11 T3 W4: Classes, objects and class diagrams",09/27/2027,10/01/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W4
+
+Programming:
+- Pascal 23: Windows, buttons and boxes - GUI design (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23
+
+Theory:
+- Arrays, searching and sorting on paper (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=arraystheory
+- Classes, objects and class diagrams
+    https://itcoder.co.za/lesson.php?c=theory11&id=classes11",False
+"IT Gr 11 T3 W5: Text files",10/04/2027,10/08/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W5
+
+Programming:
+- Pascal 23: Windows, buttons and boxes - GUI design (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23
+
+Theory:
+- Classes, objects and class diagrams (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=classes11
+- Text files
+    https://itcoder.co.za/lesson.php?c=theory11&id=textfiles",False
+"IT Gr 11 T3 W6: Pascal 26 Where you write Pascal - Lazarus and Delphi | Methods and parameters",10/11/2027,10/15/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W6
+
+Programming:
+- Pascal 23: Windows, buttons and boxes - GUI design (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23
+- Pascal 24: SQLite databases in Delphi (or lesson 25, in Lazarus) (optional extra)
+    https://itcoder.co.za/lesson.php?c=pascal&id=capssqlitedelphi
+- Pascal 26: Where you write Pascal - Lazarus and Delphi
+    focus: debugging tools: breakpoints, stepping through code and watching variables
+    https://itcoder.co.za/lesson.php?c=pascal&id=ides
+
+Theory:
+- Text files (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=textfiles
+- Methods and parameters
+    https://itcoder.co.za/lesson.php?c=theory11&id=methods11",False
+"IT Gr 11 T3 W7: Pascal 29 The data validation task - IEB | Validation and testing",10/18/2027,10/21/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W7
+
+Programming:
+- Pascal 26: Where you write Pascal - Lazarus and Delphi (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=ides
+- Pascal 29 (part): The data validation task - IEB
+    focus: the data validation task: validation checks in code, with exception handling where it fits, for four kinds of data; components for validation, descriptive error messages beside the component, and a well laid-out form
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson26
+
+Theory:
+- Methods and parameters (continued)
+    https://itcoder.co.za/lesson.php?c=theory11&id=methods11
+- Validation and testing
+    https://itcoder.co.za/lesson.php?c=theory11&id=testing11",False
+"IT Gr 11 T3 W8: Pascal 30 The PAT - IEB | Designing a good interface",10/26/2027,10/29/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W8
+
+Programming:
+- Pascal 29 (part): The data validation task - IEB (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson26
+- Pascal 30 (part): The PAT - IEB
+    focus: backend classes that do the work, designed with class diagrams; separating the interface from the working code, and designing screens for the user; functional testing, and a test plan with standard, extreme and abnormal data
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson27
+
+Theory:
+- Designing a good interface
+    https://itcoder.co.za/lesson.php?c=theory11&id=guidesign",False
+"IT Gr 11: Final exams start",11/01/2027,11/01/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 11: Term 3 ends",12/03/2027,12/03/2027,True,"IEB Grade 11 - Pascal - Access - Other three-term independent school (ISASA guideline)",False

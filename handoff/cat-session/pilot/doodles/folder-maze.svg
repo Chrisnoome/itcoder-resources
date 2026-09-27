@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" width="220" height="160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g>
+<path d="M8 20 h18 l5 7 h25 v30 h-48 z"/>
+<path d="M70 12 h18 l5 7 h25 v30 h-48 z"/>
+<path d="M136 26 h18 l5 7 h25 v30 h-48 z"/>
+<path d="M16 108 h18 l5 7 h25 v30 h-48 z"/>
+<path d="M146 112 h18 l5 7 h25 v30 h-48 z"/>
+</g>
+<circle cx="108" cy="92" r="12"/>
+<path d="M108 104 L108 134"/>
+<path d="M108 134 L99 156 M108 134 L117 156"/>
+<path d="M108 112 L88 122 M108 112 L128 122"/>
+<path d="M103 89 l4 0 M113 89 l4 0"/>
+<path d="M103 99 q5 -4 10 0"/>
+<text x="108" y="72" text-anchor="middle" fill="currentColor" stroke="none" style="font-family: 'Kalam', cursive; font-weight: 700; font-size: 22px">???</text>
+</svg>

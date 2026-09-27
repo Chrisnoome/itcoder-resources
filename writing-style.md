@@ -63,6 +63,11 @@ builds on these. Calibrated against Chris's own notes (`word documents/hw_*.docx
   "and friends", "Here's why"). "Refuses" is fine for validation (a setter
   refuses a mark of 150). Wording carried over word for word from the approved
   Pascal lessons was left alone.
+- **"Promise" as a metaphor** (Chris, 27 September 2026, SQL course: "reword
+  promise and keep promise. that is your style"): "a table is a promise about
+  its data", "the database keeps them for you", "a VARCHAR(40) is a promise",
+  "which LIMIT 1 can't promise". Say the plain thing: rules, a limit, checks,
+  "would give only one".
 - **Never name the SAGs** (or the syllabus) anywhere a pupil sees it in a
   lesson - prompts, html, intro, explain. State the fact without the citation.
   Lesson-file doc comments may cite it. **Exception:** the Pascal course page

@@ -1,5 +1,60 @@
 # Course: SQL and databases (`sql`) - PLAN
 
+**Opened 27 September 2026** (Chris: "take all out of draft status"):
+`'status' => 'open'` in `CourseIndex()`. The four teacher check pages
+(`runnercheck`, `checkjavadb`, `checksqlite`, `checkaccess`) were taken out
+as planned - deleted, still in git at 3d1bb13 - and their 10 Access
+recordings dropped. The history below keeps its dates.
+
+**Dialect parity 27 September 2026** (Chris: "do a and b" - after "do all
+the database courses cover the same content to the same degree?"):
+(a) the MySQL, Java DB and SQLite sets got the questions Access had that
+they lacked - ties with LIMIT (B3), a Null in joined text, the length
+function, money as text (B4), today's date, the day name (MySQL, SQLite;
+Java DB has no function for it) (B5), COUNT(*) against COUNT(field), HAVING,
+grouping by month (B6), INSERT INTO, a delete refused by referential
+integrity (B7), the foreign key, an ambiguous field (B8), LEFT JOIN, a total
+in WHERE, random numbers per record (B9), plus match questions; (b) MySQL
+and Java DB are marked clause by clause (../sql-runner-design.md). Every new
+model answer was run on the real engines.
+
+**Setup lessons 27 September 2026** (Chris: "separate unnumbered sections in
+each (with screenshots) of how to install and use the db engines ... MySQL
+Workbench, SQLiteStudio, jdb through netbeans - semicolon - only necessary
+when multiple lines NOT in exams"): `mysqlsetup`, `javadbsetup`,
+`sqlitesetup` (badge Setup, number 8, first in each dialect chapter; B0
+links to them). Each has "When you need a semicolon": only between several
+statements; one statement - every exam answer - needs none; Java DB: never
+in a Java program's SQL string. Chris chose: **Letos** (SQLiteStudio's new
+name since 4.0, 2026) over the old SQLiteStudio; for Java DB **NetBeans and
+a short DBeaver section** (not ij); MySQL 8.0 through the MySQL Installer is
+"fine for school level" (the Installer ends with 8.0; 9.7 LTS and 26.x
+install per product). Apache Derby was retired on 10 October 2025 - 10.17.1.0
+(Java 21+) is the last; the lesson says so. B0's SQLite tool is now Letos
+(was DB Browser for SQLite), B0's Java DB alternative DBeaver (was ij).
+**Screenshots:** Letos done (real Letos 4.0.3 portable, UI Automation only).
+Workbench and NetBeans not yet: Workbench draws its own screens and NetBeans
+is Swing, so UI Automation sees nothing to press, and the NetBeans installer
+runs as administrator. A plan to connect Chris's Workbench tile to a
+throwaway server on port 3306 was stopped by the safety check. NetBeans 31
+(Codelerity installer) is installed on Chris's PC. Letos renames an old
+SQLiteStudio's `%LOCALAPPDATA%\SalSoft\SQLiteStudio\settings3` to
+`settings3.old` on every start - put it back after each run.
+
+**Voice pass 27 September 2026** (Chris: "check all database lessons for my
+style"): every lesson source (access00-10, capsguide, sqlitepat, db*, shared/
+b00-b10, the index summaries) read against writing-style.md by eight
+reviewers, about 120 small fixes: long sentences split at the dash, the
+engine as a person ("MySQL refuses" -> "stops with an error", "quietly",
+"happily", "Access wants" -> "needs"), meta pointers ("above", "coming up")
+turned into anchor links, cute asides cut ("Here is the trap.", "the
+catch"), jargon explained at first use (TLS, JSON, OTP, FK, JDBC, DLL,
+constraint, driver), "Passwords are never stored" made accurate. No SQL,
+marks or ids changed; every check and all 218 Access recordings still pass.
+"This lesson is about..." intros stay - Chris's approved Pascal lessons use
+them. The "a table is a promise" image was reworded to plain rules (Chris:
+"that is your style"); "records that hold on" is left for Chris.
+
 **Status: plan, drafted 25 September 2026 from Chris's brief ("start
 planning databases and sql - can caps and sags share?").** The course is
 listed as `soon` in `CourseIndex()` (`lib/course.php`). Answer the
@@ -160,8 +215,8 @@ on test). What it set up for the rest:
 - **Ids and numbers:** the Access set is `access00`, `access01` ...; the
   theory lessons A1-A7 will be numbers 1-7 and each set's B0-B10 numbers
   8-18 - the four dialects' versions of a lesson share a number. Chapter
-  "SQL in Access"; the check pages sit under "Checks for teachers - not
-  lessons" and go before the course opens.
+  "SQL in Access"; the check pages sat under "Checks for teachers - not
+  lessons" and were taken out when the course opened (27 September 2026).
 - **Written for Access only.** B0 is mostly about the tool, so it is one
   file, not one source with per-dialect parts; build that when the first
   lesson with shared SQL (B2) is written in a second dialect.
@@ -172,9 +227,21 @@ on test). What it set up for the rest:
 - **Every Access box names its engine** - "In Access's own window" or
   "Through Delphi and SQLBrowser" (the recorder) - and the lesson says both
   exams run SQL the second way.
-- **The course has its own glossary** (`content/sql/glossary.php`, 22 terms;
-  terms a theory lesson will own are taught in `access00` until it exists),
-  `sags.php` (strands 4.9-4.11) and `caps.php`.
+- **The course has its own glossary** (`content/sql/glossary.php`, 152
+  terms on 27 September 2026), `sags.php` (strands 4.9-4.11) and `caps.php`.
+- **Fun practice** (27 September 2026, Chris: "don't forget the fun"): the
+  word games use the glossary's single-word terms (letters only, 3-14), so
+  multi-word terms such as `ORDER BY` never appear. 23 single words were
+  added so the games have enough (68 -> 91 words; Grade 10 30 -> 37):
+  `FROM`, `SET`, `VALUES`, `Number`, `MAX`, `RIGHT`, `MONTH`, `UCASE`,
+  `REPLACE`, `Entity`, `Encryption`, `Hash`, `Commit`, `Rollback`,
+  `Replication`, `Partitioning`, `MongoDB`, and from the dialect sets
+  `VARCHAR`, `DECIMAL`, `BOOLEAN`, `SUBSTR`, `LENGTH`, `CAST`. Several were
+  other names of a term (MAX under MIN, commit under Transaction) and are now
+  terms of their own. A clue must not give its word away (the word is blanked
+  only whole - "numbers" in Number's clue was not). Spoken flash cards accept
+  AVG as "average", RND "random", UCASE "upper case", POPIA "popeye" and
+  GIGO "guy go" (`PracticeSpokenMatches()`). Lobby symbols: `PracticeHeroGlyphs()`.
 - The Pascal link for CAPS Question 2's Delphi side:
   `capssqlitedelphi#ado`.
 
@@ -273,6 +340,116 @@ action queries in Query Design (described, pictures wait for a quiet
 machine). Change boxes show a short query afterwards (`'check'`,
 ../sql-runner-design.md). Five AI-marked change questions; `Yes` for a
 Yes/No value needed the clause reworded before the marker accepted it.
+
+**Access B8, `access08` "Joining tables"** (26 September 2026, on test):
+the foreign key; the WHERE-join and INNER JOIN ... ON (the same 25 rows;
+both earn the marks); a field in both tables needs its table name (Access's
+"could refer to more than one table" message); **no join condition pairs
+every sale with every product - 350 rows, no error**; **JOIN without INNER
+is a syntax error in Access**; table aliases; **an OR without brackets next
+to a WHERE-join gives 81 rows instead of 10**; a join with GROUP BY and
+FORMAT(SUM(Quantity * Price), 'Currency') - CAPS's heaviest question;
+**three tables** through tblSuppliers (lesson B1's CREATE TABLE) and a new
+tblDeliveries, both made by `'before'` so the sample stays at two tables
+(B0's pictures show two) - **two INNER JOINs need brackets round the first
+in Access** (syntax error without); Query Design's join line (described).
+Five AI-marked questions; the marker now also sees the tables a question
+makes with `'before'` (lib/sql.php, CheckSqlAnswer()), and the missing
+brackets cost one clause, not two.
+
+**Access B9, `access09` "Questions inside questions"** (26 September 2026,
+on test): numbered 17 with an IEB note in the text, not a badge (a badge
+replaces the number the four sets share); CAPS marks it enrichment.
+Subqueries against AVG and MAX/MIN (with the category in both WHEREs), IN
+with a subquery; never sold with NOT IN and with LEFT JOIN ... IS NULL
+(biltong, koeksister); **NOT IN against a list holding a Null returns
+nothing** (tested); INSERT ... SELECT (VALUES (SELECT ...) is a syntax
+error); **RND() is one number for the whole query - RND(ProductID) gives
+each record its own** (tested), and every fresh Access session starts at
+0.7055475. Query Design: subquery in Criteria, Join Properties, Find
+Unmatched Query Wizard (described). Five AI-marked questions.
+
+**Access B10, `access10` "Practical exam guide - IEB Section A"** (26
+September 2026, on test): number 18 with an **IEB badge**, like the Pascal
+course's exam guides (visible to everyone). The files (November 2025's
+list), SQLBrowser through ADO (so `%`), the answer sheet is what is marked,
+back up and count every table's rows first, the standing rules (no alias
+unless told, no hard-coded year, only what is asked, any data), the
+question order over ten papers with the lesson for each, marking; then a
+**ten-question practice paper** on the tuck shop, each showing its correct
+output (`'output' => true`), IEB wording.
+
+**Access C1, `capsguide` "Practical exam guide - CAPS Question 2"** (26
+September 2026, on test): number 19 with a **CAPS badge**, visible to
+everyone. The shape (two related tables, password, Restore, 2.1 five
+buttons, 2.2 Delphi with no marks for SQL), SQL completed inside a Delphi
+string (double quotes for text - run through ADO; **the missing space at a
+`+` joint recorded as Access's error**), a value from the user glued in
+(text in quotes, numbers with IntToStr, LIKE with the wildcards; a
+parameter in real programs), the button order and the paper's words, the
+memo's alternatives and traps; 2.2 links to Pascal `capssqlitedelphi`
+(#loop, #change, #ado). Practice: five buttons with outputs shown, and two
+quizzes on gluing input.
+
+**The MySQL, Java DB and SQLite sets are built** (27 September 2026, Chris
+overnight: "finish the course, do mysql, jdb and sqlite"; on test). How:
+
+- **One source per lesson with per-dialect parts** -
+  `content/sql/shared/b00.php` ... `b10.php` return a closure taking the
+  dialect; `mysql04.php` is one line calling it. Helpers in
+  `shared/common.php` (`SqlPick()`, `SqlBox()`, `SqlAsk()`, `SqlLesson()`).
+  **The Access set stays as its own files** (decided the same night): Query
+  Design, the wildcard mirror and the recordings are Access's alone, and
+  folding it in would have meant rewriting finished, checked lessons.
+- Ids `mysql00`-`mysql10`, `javadb00`-`javadb10`, `sqlite00`-`sqlite09`
+  plus `sqlitepat` (C2, SQLite in your PAT, number 18 - SQLite has no exam
+  guide); chapters "SQL in MySQL", "SQL in Java DB", "SQL in SQLite"; B10 has
+  the IEB badge. Each lesson reuses its Access twin's quote.
+- **Every box runs live; every claim was run first** on the test server's
+  MySQL 8.0.46, Derby 10.17.1.0 and SQLite 3.53.4, through a scratchpad
+  harness (`sqlcheck.py` + `vps.py`: the lesson's statements to the runner's
+  socket as root). Traps found and taught, by dialect: capitals in `=` and
+  LIKE (Java DB exact in both; SQLite exact in `=`, not LIKE); `'Drinks' OR
+  'Snacks'` gives only drinks (MySQL, SQLite) or an error (Java DB); double
+  quotes are a name in Java DB; NULL sorts last in Java DB; Java DB names an
+  unnamed column by its place (`1`) and shows every name in CAPITALS;
+  **whole-number division** (`14 / 4` = 3 in Java DB and SQLite, also AVG of
+  an INTEGER column in Java DB); **no ROUND, LEFT, RIGHT, REPLACE or FORMAT in
+  Java DB**; CONCAT in MySQL (`+` gives 0, `||` is OR); SQLite rounds 32.775
+  to 32.77 (binary REAL); an alias in WHERE works only in SQLite; a column
+  missing from GROUP BY runs in SQLite (a lie); an alias in HAVING fails only
+  in Java DB; `'2026/03/20'` is fine in MySQL, an error in Java DB and a
+  silent mismatch in SQLite; strftime gives text (`= 2` finds nothing);
+  **a month after 31 January is 3 March in SQLite**; TIMESTAMPDIFF(YEAR) is
+  an accurate age in MySQL; Java DB's `{fn TIMESTAMPDIFF/TIMESTAMPADD}`;
+  RAND()/RANDOM() differ per row (unlike Access's RND()); DELETE * FROM fails
+  in all three; SQLite enforces foreign keys only after `PRAGMA foreign_keys
+  = ON` (the runner sets it).
+- Downloads: `TuckShop_MySQL.sql`, `TuckShop_JavaDB.sql`,
+  `TuckShop_SQLite.sql`, `TuckShop.db` (public/assets/lessons/sql), made from
+  `SqlSampleStatements()`.
+- Coverage: sags.php/caps.php copy each Access lesson's lines to its three
+  twins, except B0/B1 (no Access wording) and sqlitepat.
+- **Platform:** `'before'` and `'check'` now work on live boxes
+  (../sql-runner-design.md).
+
+**The theory lessons A1-A7 are built** (27 September 2026, the same night;
+on test): `dbdata` (Good data in a database), `dbwhat` (What a database is),
+`dbkeys` (Keys and relationships), `dbdesign` (A good design), `dbnormal`
+(Normalisation step by step - IEB, numbered, with an IEB note), `dbcare`
+(Looking after data), `dbbig` (Big data), numbers 1-7, chapter "Database
+theory", first in the index; no dialect, so they count for everyone. Written
+in the theory courses' style - quote, sections, Good to Know, AI-marked
+`written` questions with rubrics (markMax 2, 4 or 6), a "What to study"
+block - and calibrated on caps- and ieb-theory-exam-analysis.md (CAPS:
+relationships/ERDs 19 of 23 papers, primary key 16, DBMS 15, transactions
+14, distributed 13, validation vs verification 13; IEB: keys, anomalies,
+normalisation 14 of 14). **A1 doesn't repeat theory10's `datainfo`** (data,
+information, knowledge) - it recalls it and links there, and teaches data
+quality, validation vs verification and the DBMS's rules. `dbcare` has one
+live SQLite box (a glued search that returns every product - SQL injection).
+The glossary's Primary key, Foreign key and Referential integrity now point
+at `dbkeys`, as its header said they would; 36 theory terms added.
 
 The course needs:
 

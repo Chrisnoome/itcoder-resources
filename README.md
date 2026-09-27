@@ -28,7 +28,7 @@ this folder's git log.
 |---|---|
 | [platform.md](platform.md) | Purpose, stack, architecture, **decisions that must not be undone**, sign-in and privacy, keys, local testbed, checks |
 | [publishing.md](publishing.md) | **How to publish** to test then live - read before touching the server |
-| [vps-access.md](vps-access.md) | The server: access, what is on it, house rules |
+| [vps-access.md](vps-access.md) | The server: access, what is on it, house rules, the install kit for a new one |
 | [compile-subsystem-design.md](compile-subsystem-design.md) | The Pascal compile sandbox and queue |
 | [sql-runner-design.md](sql-runner-design.md) | The SQL runner: MySQL, Java DB and SQLite for the SQL course's `sql` blocks - guard, limits, sandbox, install |
 | [live-console-design.md](live-console-design.md) | The live console (interactive Pascal, files, editor, layout check, code completion) |
@@ -55,7 +55,9 @@ this folder's git log.
 | [courses/pascal-course.md](courses/pascal-course.md) | The Pascal course: lessons, decisions, verified facts |
 | [courses/java-course.md](courses/java-course.md) | The Java course (IEB only): Chris's brief, lessons, verified facts |
 | [courses/sql-course.md](courses/sql-course.md) | PLAN: the SQL and databases course - shared theory, SQL lessons per dialect (Access, MySQL, Java DB, SQLite), marks per dialect, the SQL runner, questions for Chris |
+| [courses/install-videos.md](courses/install-videos.md) | PLAN: install videos for the tools (Lazarus, Delphi, JDK, jGRASP, NetBeans, Java DB, MySQL, DBeaver, Letos) - recorded in a clean Windows VM, blue sketch notes, Chris's cloned voice, uploaded to YouTube by Chris |
 | [courses/theory-course.md](courses/theory-course.md) | PLAN: the IT Theory courses - Chris's decisions, sources (the old textbook), chapter outlines per grade, platform work |
+| [courses/theory-review-queue.md](courses/theory-review-queue.md) | IT Theory review items still open after the 27 Sep 2026 reviews of Grades 10-12 - delete an item when it is done |
 | [courses/theory-yearly-update.md](courses/theory-yearly-update.md) | Facts in the theory lessons that go stale (brands, statistics, "most"), checked every January; add a line whenever a lesson states one |
 | [course-development.md](course-development.md) | PLAN: researching courses for other subjects (CAT first) in the separate `itcoder-coursedev` repo - scope, subject order, sources and how to get them, outputs |
 | `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php`, `tools/marking-check.php` | Publishing ([publishing.md](publishing.md)) |
@@ -78,6 +80,7 @@ this folder's git log.
 | Pupil backups (personal data) | `Projects/AIWebCourse/backups` |
 | Secrets | `config/config.php` per project; server key `C:\Users\chris\.ssh\gnomemedia_vps` |
 | Brand: BestLessons logo and icons (bestlessons.co.za) | [brand/bestlessons/](brand/bestlessons/README.md) |
+| Year planning 2027: school calendars (DBE, ISASA, named schools) and ready-made plans | [planning/](planning/README.md) |
 | Future courses | `Projects/AITheory`, `Projects/AIQuestionDatabase` (empty) |
 | Research for other subjects' courses | `Projects/itcoder-coursedev` - see [course-development.md](course-development.md) |
 | Git remotes | Private GitHub `Chrisnoome/itcoder-platform` (AIPascalCourse), `Chrisnoome/itcoder-resources` (this folder) - see platform.md, "Keys and accounts" |

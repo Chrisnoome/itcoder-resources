@@ -20,7 +20,7 @@ lesson 4.
 | # | File | Title | Notes |
 |---|---|---|---|
 | 1 | lesson01 | What you learn when you learn programming | Computational thinking, not syntax; "the computer is stupid" (jam-sandwich reveal); selection in Pascal/Python/JS; Pascal built to teach; fetch-decode-execute. Feynman, Jobs quotes |
-| 2 | proofoflife | Proof of Life / Output - WriteLn and Write | **Core thesis, to recur:** a program must produce output or you can't know it did anything. IPO planning order vs learning order (Output -> Input -> Processing); Program/Begin/End.; naming rules; Write vs Writeln; commas; `:width:decimals`; `''`; `#9`; reading real compiler errors; fix-the-code written questions (`starterText`). No Readln (no variables yet). Pratchett quote |
+| 2 | proofoflife | Proof of Life / Output - WriteLn and Write | **Core thesis, to recur:** a program must produce output or you can't know it did anything. IPO planning order vs learning order (Output -> Input -> Processing); **first know what output you want to create - that is not planning the output - then plan Input -> Processing -> Output** (Chris 27 Sep 2026, for the AlgoBro song's "start with the end"; Java lesson02 says the same); Program/Begin/End.; naming rules; Write vs Writeln; commas; `:width:decimals`; `''`; `#9`; reading real compiler errors; fix-the-code written questions (`starterText`). No Readln (no variables yet). Pratchett quote |
 | 3 | lesson03 | Making it pretty | **Enrichment, no marks at all.** Units as an idea (`Uses`); Crt: ClrScr, TextColor/TextBackground, GotoXY, WhereX/WhereY, Delay, Sound. Newton, Gates quotes |
 | 4 | lesson02 | How to remember - Variables and constants | Memory, names, types, Integer range (32-bit), `Div` vs `/`, type mismatch errors, assignment, Inc/Dec, **NB: always give a variable a starting value** (proved: an uninitialised local printed 1240 instead of 6), Random, **constants** (`Const` above `Var`, `=`, no type; errors `Variable identifier expected`, `"=" expected but ":=" found`). Wirth, Gates "640 KB" (labelled disputed) quotes |
 | 5 | lesson05 | Getting input - Readln, Read, ReadKey and KeyPressed | **Only Readln is exam content** (an `important` block says so; study notes mirror it). Read vs Readln = Write vs Writeln. Readln crash table (Integer + letters/decimal -> 106; empty -> 0; String never crashes; `12 apples` -> 12). Band-rubric capstone (markMax 10). Treasure, Adams quotes |
@@ -182,6 +182,57 @@ live.**
 
 Not in this course: data representation (binary, hex, bits, signed/unsigned,
 overflow, how a Real is stored - SAGs 4.2) goes in the theory course.
+
+## From the Java review (Chris, 27 September 2026 - built, not published)
+
+Chris asked which Java-only lessons Pascal should also have, then "do all
+four". Built 27 Sep 2026; nothing committed or deployed.
+
+- **`ides` - Where you write Pascal - Lazarus and Delphi.** Unnumbered, badge
+  `IDE`, listed after lesson 25 (`number` 26 only orders it; the IEB guides
+  and tasks moved to 27-30). Chris chose the badge over renumbering: making
+  it lesson 3 (so Pascal numbers match Java's) would have changed about 500
+  hard-coded "lesson N" references. Covers: the IDE's four tools plus the
+  form designer and Object Inspector; the compiler makes machine code in an
+  .exe (no VM - compile again for a Mac); Compile Ctrl+F9 / Build Shift+F9 /
+  Run F9; fpc by hand (real output); Delphi vs Lazarus vs fp; the files in a
+  project (.lpi/.dproj, .lpr/.dpr, .pas + .lfm/.dfm; lib, backup, __history
+  and Win32 not needed); where the .exe goes (Lazarus: project folder;
+  Delphi: Win32\Debug - so data "next to the .exe" goes there); Debug and
+  Release builds (the lesson 23 booking form: 25.9 MB debug, 2.8 MB
+  release, lazbuild 27 Sep); a hand-over Good to Know; the debugger (links
+  to lesson 18). SAGs 4.13 Gr 11; CAPS Gr 10 terms 1 and 2. No IDE
+  screenshots yet - Chris to add his school's.
+- **Hand-over Good to Know** (`#handOver`) in lesson27 (IEB PAT), capspat12
+  and capspat11: release build, one folder with the .exe, database, text
+  files and sqlite3.dll, no fixed paths, test on another computer, source
+  without lib/backup/__history/Win32; links to `ides#buildRelease`.
+- **Making the database and its data** in lesson 24 (`capssqlitedelphi`,
+  `#makeData`, `#fillData`, `#checkData`; lesson 25 points to it): DB
+  Browser for SQLite (New Database, Create Table, Browse Data, Write
+  Changes, File > Export > Database to SQL file - captions from its
+  MainWindow.ui); unwritten changes make the program's writes fail with
+  "database is locked" (tested); test data by hand, from an **AI** (an
+  example prompt asking for edge values too, imported with File > Import >
+  Table from CSV file), or from a real source an AI helps find - checked
+  (row count, keys, real dates, ranges, variety); made-up people only
+  (POPIA); AI data declared with the tool and prompts like AI code (Chris:
+  "talk about using an ai to generate sample testing data or to locate /
+  create data from sources as well"). The same three blocks are in Java
+  lesson 25.
+- **Lesson 16 Good to Know - Self** (`#selfWord`, Chris 27 Sep 2026: "yes add
+  the Self good to know"). Self is the object the method was called on;
+  SelfDemo (DidBetterThan with aOther) prints TRUE/FALSE. Tested with fpc
+  3.2.2: in objfpc mode (Lazarus, the console) a parameter named like a
+  field is "Duplicate identifier"; in Delphi mode it compiles, Self.name :=
+  name works, and name := name leaves the fields empty (": 0"), no warning.
+  Mentions Delphi's F/A prefixes and lesson 23's TButton.Create (Self).
+  Two quizzes, a study point, a glossary row.
+- **Stale overflow pointers fixed.** Overflow was cut from lesson 9 on 18 Sep
+  2026, but the index summary still promised it, and lessons 7 and 12 still
+  pointed to lesson 9 for it. The summary now describes Div and Mod; lesson
+  12's LCM note points to lesson 4's Integer range; lesson 7's sentence is
+  gone.
 
 ## Glossary and index (Chris, 24 September 2026 - built)
 

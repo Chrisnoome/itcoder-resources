@@ -1,0 +1,635 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT CAPS Grade 11 - Pascal - Other four-term independent school
+  (ISASA guideline)
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 11 T1 W1: Pascal 10 Repeating instructions the easy and effic
+ ient way - For loops | The motherboard a...
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W1\n\nProgramming:\n- Pascal 10 (part): Repeating instr
+ uctions the easy and efficient way - For loops\n    focus: nested loops: th
+ eir structure\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson10\n-
+  Pascal 11 (part): Looped algorithms - totals\, averages and shapes\n    fo
+ cus: nested loops: drawing simple geometric shapes with a character such as
+  a star\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson11\n\nTheor
+ y:\n- The motherboard and data flow\n    https://itcoder.co.za/lesson.php?c
+ =theory11&id=motherboard11\n- The clock and the buses\n    https://itcoder.
+ co.za/lesson.php?c=theory11&id=busesclock
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 11: Term 1 starts
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 11 T1 W2: Pascal 13 Working with text - String handling | Mem
+ ory and caching
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W2\n\nProgramming:\n- Pascal 11 (part): Looped algorith
+ ms - totals\, averages and shapes (continued)\n    https://itcoder.co.za/le
+ sson.php?c=pascal&id=lesson11\n- Pascal 13 (part): Working with text - Stri
+ ng handling\n    focus: string manipulation: inserting and deleting charact
+ ers\, finding a character or substring and its position\; nested loops: bin
+ ary to decimal and decimal to binary conversion\n    https://itcoder.co.za/
+ lesson.php?c=pascal&id=lesson13\n\nTheory:\n- Memory and caching\n    https
+ ://itcoder.co.za/lesson.php?c=theory11&id=caching\n- Doing many things at o
+ nce\n    https://itcoder.co.za/lesson.php?c=theory11&id=multitasking
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 11 T1 W3: Pascal 14 Making your own commands - procedures\, f
+ unctions\, parameters and units | Starting...
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W3\n\nProgramming:\n- Pascal 13 (part): Working with te
+ xt - String handling (continued)\n    https://itcoder.co.za/lesson.php?c=pa
+ scal&id=lesson13\n- Pascal 14 (part): Making your own commands - procedures
+ \, functions\, parameters and units\n    focus: built-in methods and the id
+ ea of parameters (message passing)\n    https://itcoder.co.za/lesson.php?c=
+ pascal&id=lesson14\n\nTheory:\n- Doing many things at once (continued)\n   
+  https://itcoder.co.za/lesson.php?c=theory11&id=multitasking\n- Starting up
+ : BIOS\, UEFI\, CMOS and interrupts\n    https://itcoder.co.za/lesson.php?c
+ =theory11&id=startup\n- Primary and secondary storage compared\n    https:/
+ /itcoder.co.za/lesson.php?c=theory11&id=storagecompared
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 11 T1 W4: Pascal 15 Remembering a whole list - Arrays | Opera
+ ting systems compared
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W4\n\nProgramming:\n- Pascal 14 (part): Making your own
+  commands - procedures\, functions\, parameters and units (continued)\n    
+ https://itcoder.co.za/lesson.php?c=pascal&id=lesson14\n- Pascal 15 (part): 
+ Remembering a whole list - Arrays\n    focus: one-dimensional arrays: loopi
+ ng through items\, sum\, average\, minimum and maximum\; linear and binary 
+ search\, bubble and selection sort\, and comparing their efficiency\; paral
+ lel arrays\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15\n\nTh
+ eory:\n- Operating systems compared\n    https://itcoder.co.za/lesson.php?c
+ =theory11&id=oscompared\n- Virtual memory\n    https://itcoder.co.za/lesson
+ .php?c=theory11&id=virtualmemory
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 11 T1 W5: Virtualisation and virtual machines
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W5\n\nProgramming:\n- Pascal 15 (part): Remembering a w
+ hole list - Arrays (continued)\n    https://itcoder.co.za/lesson.php?c=pasc
+ al&id=lesson15\n\nTheory:\n- Virtualisation and virtual machines\n    https
+ ://itcoder.co.za/lesson.php?c=theory11&id=virtualisation\n- Compilers\, int
+ erpreters and assemblers\n    https://itcoder.co.za/lesson.php?c=theory11&i
+ d=translators\n- Numbers in a fixed number of bits (optional extra)\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory11&id=fixedbits
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270220
+SUMMARY:IT Gr 11 T1 W6: Pascal 19 It's a date - Dates and times | Network h
+ ardware and topologies
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W6\n\nProgramming:\n- Pascal 15 (part): Remembering a w
+ hole list - Arrays (continued)\n    https://itcoder.co.za/lesson.php?c=pasc
+ al&id=lesson15\n- Pascal 19: It's a date - Dates and times\n    focus: date
+  and time: changing\, formatting and calculating with dates and times\; Tim
+ eToStr\, DateToStr and IsLeapYear\; StrToTime\, StrToDateTime and DateTimeT
+ oStr\, and checking typed times\n    https://itcoder.co.za/lesson.php?c=pas
+ cal&id=lesson19\n\nTheory:\n- Network hardware and topologies\n    https://
+ itcoder.co.za/lesson.php?c=theory11&id=networkhardware\n- Addresses\, packe
+ ts and frames\n    https://itcoder.co.za/lesson.php?c=theory11&id=addressin
+ g
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270222-7@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 11 T1 W7: Protocols and wide area networks
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W7\n\nProgramming:\n- Pascal 19: It's a date - Dates an
+ d times (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesso
+ n19\n\nTheory:\n- Addresses\, packets and frames (continued)\n    https://i
+ tcoder.co.za/lesson.php?c=theory11&id=addressing\n- Protocols and wide area
+  networks\n    https://itcoder.co.za/lesson.php?c=theory11&id=protocolswan\
+ n- Virtual private networks\n    https://itcoder.co.za/lesson.php?c=theory1
+ 1&id=vpn
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 11 T1 W8: Threats to a system
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W8\n\nProgramming:\n- Pascal 19: It's a date - Dates an
+ d times (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesso
+ n19\n\nTheory:\n- Virtual private networks (continued)\n    https://itcoder
+ .co.za/lesson.php?c=theory11&id=vpn\n- Threats to a system\n    https://itc
+ oder.co.za/lesson.php?c=theory11&id=threats
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 11 T1 W9: Pascal 20 Managing a list - the array manager class
+  | Protecting a system
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W9\n\nProgramming:\n- Pascal 19: It's a date - Dates an
+ d times (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesso
+ n19\n- Pascal 20 (part): Managing a list - the array manager class\n    foc
+ us: searching and sorting an array\n    https://itcoder.co.za/lesson.php?c=
+ pascal&id=lesson20\n\nTheory:\n- Protecting a system\n    https://itcoder.c
+ o.za/lesson.php?c=theory11&id=protecting\n- Arrays\, searching and sorting 
+ on paper\n    https://itcoder.co.za/lesson.php?c=theory11&id=arraystheory
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 11 T1 W10: Classes\, objects and class diagrams
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W10\n\nProgramming:\n- Pascal 20 (part): Managing a lis
+ t - the array manager class (continued)\n    https://itcoder.co.za/lesson.p
+ hp?c=pascal&id=lesson20\n\nTheory:\n- Arrays\, searching and sorting on pap
+ er (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=arraysth
+ eory\n- Classes\, objects and class diagrams\n    https://itcoder.co.za/les
+ son.php?c=theory11&id=classes11
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270319-11@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 11: Term 1 ends
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270413-12@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270417
+SUMMARY:IT Gr 11 T2 W1: Pascal 12 Flexible loops - While and Repeat | Datab
+ ases and the DBMS
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W1\n\nProgramming:\n- Pascal 12 (part): Flexible loops 
+ - While and Repeat\n    focus: input validation using code constructs\n    
+ https://itcoder.co.za/lesson.php?c=pascal&id=lesson12\n- Pascal 14 (part): 
+ Making your own commands - procedures\, functions\, parameters and units\n 
+    focus: user-defined methods: purpose\, procedures and functions and how 
+ they differ\, structure\, calling statement and method signature\; argument
+ s vs parameters\, value parameters\, and using methods in problems\; trace 
+ tables to show parameter passing\; value parameters\n    https://itcoder.co
+ .za/lesson.php?c=pascal&id=lesson14\n\nTheory:\n- Databases and the DBMS\n 
+    https://itcoder.co.za/lesson.php?c=theory11&id=dbms11\n- Mobile and wire
+ less communication\n    https://itcoder.co.za/lesson.php?c=theory11&id=mobi
+ lewireless\n\nDatabases:\n- SQL 2: What a database is\n    focus: DBMS: def
+ inition and functions\; proprietary and open-source examples\; desktop\, se
+ rver and distributed databases\; careers - DBA\, database programmer\, anal
+ yst\n    https://itcoder.co.za/lesson.php?c=sql&id=dbwhat
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270413-13@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270414
+SUMMARY:IT Gr 11: Term 2 starts
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270419-14@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270424
+SUMMARY:IT Gr 11 T2 W2: Computer crime and social engineering
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W2\n\nProgramming:\n- Pascal 14 (part): Making your own
+  commands - procedures\, functions\, parameters and units (continued)\n    
+ https://itcoder.co.za/lesson.php?c=pascal&id=lesson14\n\nTheory:\n- Mobile 
+ and wireless communication (continued)\n    https://itcoder.co.za/lesson.ph
+ p?c=theory11&id=mobilewireless\n- Computer crime and social engineering\n  
+   https://itcoder.co.za/lesson.php?c=theory11&id=compcrime
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270426-15@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270501
+SUMMARY:IT Gr 11 T2 W3: Pascal 17 Persistence - Text files | Blockchain
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W3\n\nProgramming:\n- Pascal 14 (part): Making your own
+  commands - procedures\, functions\, parameters and units (continued)\n    
+ https://itcoder.co.za/lesson.php?c=pascal&id=lesson14\n- Pascal 17 (part): 
+ Persistence - Text files\n    focus: text files: physical vs logical file n
+ ame\, end of line and end of file\; AssignFile\, Rewrite\, Reset\, Append\,
+  ReadLn\, WriteLn and CloseFile\; reading one or many lines\, checking that
+  the file exists\, exception handling\, string handling on each line\, and 
+ filling other data structures from a file\n    https://itcoder.co.za/lesson
+ .php?c=pascal&id=lesson17\n\nTheory:\n- Computer crime and social engineeri
+ ng (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&id=compcrim
+ e\n- Blockchain\n    https://itcoder.co.za/lesson.php?c=theory11&id=blockch
+ ain
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270503-16@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 11 T2 W4: Work in a digital world
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W4\n\nProgramming:\n- Pascal 17 (part): Persistence - T
+ ext files (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=les
+ son17\n\nTheory:\n- Blockchain (continued)\n    https://itcoder.co.za/lesso
+ n.php?c=theory11&id=blockchain\n- Work in a digital world\n    https://itco
+ der.co.za/lesson.php?c=theory11&id=digitalwork
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270510-17@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 11 T2 W5: Pascal 18 Catching errors - Defensive programming |
+  Text files
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W5\n\nProgramming:\n- Pascal 17 (part): Persistence - T
+ ext files (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=les
+ son17\n- Pascal 18 (part): Catching errors - Defensive programming\n    foc
+ us: exception handling\, input validation using code constructs\, and testi
+ ng and debugging techniques\n    https://itcoder.co.za/lesson.php?c=pascal&
+ id=lesson18\n\nTheory:\n- Work in a digital world (continued)\n    https://
+ itcoder.co.za/lesson.php?c=theory11&id=digitalwork\n- Text files\n    https
+ ://itcoder.co.za/lesson.php?c=theory11&id=textfiles
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270517-18@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 11 T2 W6: Pascal 21 Family trees - Inheritance and polymorphi
+ sm | Methods and parameters
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W6\n\nProgramming:\n- Pascal 18 (part): Catching errors
+  - Defensive programming (continued)\n    https://itcoder.co.za/lesson.php?
+ c=pascal&id=lesson18\n- Pascal 21 (part): Family trees - Inheritance and po
+ lymorphism\n    focus: reading a text file and filling a data structure fro
+ m it\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21\n\nTheory:\
+ n- Text files (continued)\n    https://itcoder.co.za/lesson.php?c=theory11&
+ id=textfiles\n- Methods and parameters\n    https://itcoder.co.za/lesson.ph
+ p?c=theory11&id=methods11
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270524-19@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 11 T2 W7: Pascal 22 Talking to people - Text user interfaces 
+ | Validation and testing
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W7\n\nProgramming:\n- Pascal 21 (part): Family trees - 
+ Inheritance and polymorphism (continued)\n    https://itcoder.co.za/lesson.
+ php?c=pascal&id=lesson21\n- Pascal 22 (part): Talking to people - Text user
+  interfaces\n    focus: functionality and usability when designing the inte
+ rface\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22\n\nTheory:
+ \n- Methods and parameters (continued)\n    https://itcoder.co.za/lesson.ph
+ p?c=theory11&id=methods11\n- Validation and testing\n    https://itcoder.co
+ .za/lesson.php?c=theory11&id=testing11
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270531-20@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270605
+SUMMARY:IT Gr 11 T2 W8: Pascal 23 Windows\, buttons and boxes - GUI design 
+ | Designing a good interface
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W8\n\nProgramming:\n- Pascal 22 (part): Talking to peop
+ le - Text user interfaces (continued)\n    https://itcoder.co.za/lesson.php
+ ?c=pascal&id=lesson22\n- Pascal 23 (part): Windows\, buttons and boxes - GU
+ I design\n    focus: dynamic instantiation of components: creating buttons 
+ in code\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23\n- Pasca
+ l 104 (part): The Grade 11 PAT - CAPS\n    focus: software development: def
+ ine\, design\, code\, test and document a solution\n    https://itcoder.co.
+ za/lesson.php?c=pascal&id=capspat11\n\nTheory:\n- Designing a good interfac
+ e\n    https://itcoder.co.za/lesson.php?c=theory11&id=guidesign
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270607-21@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 11: Mid-year exams
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270625-22@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 11: Term 2 ends
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270720-23@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270724
+SUMMARY:IT Gr 11 T3 W1: Pascal 16 Smart data - Classes and objects | When d
+ ata goes wrong
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W1\n\nProgramming:\n- Pascal 16 (part): Smart data - Cl
+ asses and objects\n    focus: parameter passing and return values with meth
+ ods of a class\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson16\n
+ \nTheory:\n- When data goes wrong\n    https://itcoder.co.za/lesson.php?c=t
+ heory11&id=dataerrors\n\nDatabases:\n- SQL 1 (part): Good data in a databas
+ e\n    focus: data\, information and knowledge\; quality data - accuracy\, 
+ correctness\, currency\, completeness\, relevance\; validation - format\, d
+ ata type and range checks\, check digit\n    https://itcoder.co.za/lesson.p
+ hp?c=sql&id=dbdata\n- SQL 3: Keys and relationships\n    focus: grouping da
+ ta: primary\, alternate\, foreign and composite keys\; relationships\, refe
+ rential integrity and ERDs\n    https://itcoder.co.za/lesson.php?c=sql&id=d
+ bkeys
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270720-24@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:IT Gr 11: Term 3 starts
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270726-25@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270726
+DTEND;VALUE=DATE:20270731
+SUMMARY:IT Gr 11 T3 W2: SQL 8 Getting started in Access
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W2\n\nProgramming:\n- Pascal 16 (part): Smart data - Cl
+ asses and objects (continued)\n    https://itcoder.co.za/lesson.php?c=pasca
+ l&id=lesson16\n\nTheory:\n- Theory revision and past-paper questions\n\nDat
+ abases:\n- SQL 8 (part): Getting started in Access\n    focus: grouping dat
+ a: records and fields\, field types\, tables and the primary key\; a simple
+  database without relationships - viewing and querying it\n    https://itco
+ der.co.za/lesson.php?c=sql&id=access00\n- SQL 9: Building a table in Access
+ \n    focus: a simple database without relationships: designing the table -
+  fields\, field types and their purpose\, the primary key\; maintaining dat
+ a (adding records)\n    https://itcoder.co.za/lesson.php?c=sql&id=access01
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270802-26@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 11 T3 W3: Pascal 18 Catching errors - Defensive programming |
+  SQL 10 Asking questions: WHERE and ORDE...
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W3\n\nProgramming:\n- Pascal 18 (part): Catching errors
+  - Defensive programming\n    focus: validating a solution against a set of
+  data: trace tables\, watches and comparing output by hand\n    https://itc
+ oder.co.za/lesson.php?c=pascal&id=lesson18\n\nTheory:\n- Theory revision an
+ d past-paper questions\n\nDatabases:\n- SQL 9: Building a table in Access (
+ continued)\n    https://itcoder.co.za/lesson.php?c=sql&id=access01\n- SQL 1
+ 0 (part): Asking questions: WHERE and ORDER BY\n    focus: a simple databas
+ e without relationships: sorting and querying it\n    https://itcoder.co.za
+ /lesson.php?c=sql&id=access02\n- SQL 15 (part): Changing data: INSERT\, UPD
+ ATE and DELETE\n    focus: a simple database: maintaining data - insert\, d
+ elete\, edit\; referential integrity\n    https://itcoder.co.za/lesson.php?
+ c=sql&id=access07
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270810-27@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270814
+SUMMARY:IT Gr 11 T3 W4: Pascal 20 Managing a list - the array manager class
+  | SQL 16 Joining tables
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W4\n\nProgramming:\n- Pascal 18 (part): Catching errors
+  - Defensive programming (continued)\n    https://itcoder.co.za/lesson.php?
+ c=pascal&id=lesson18\n- Pascal 20 (part): Managing a list - the array manag
+ er class\n    focus: moving through records and adding\, changing and delet
+ ing them through methods - here on an array\, the same ideas a dataset uses
+ \n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20\n\nTheory:\n- T
+ heory revision and past-paper questions\n\nDatabases:\n- SQL 15 (part): Cha
+ nging data: INSERT\, UPDATE and DELETE (continued)\n    https://itcoder.co.
+ za/lesson.php?c=sql&id=access07\n- SQL 16 (part): Joining tables\n    focus
+ : key fields - primary and foreign\; relationships\n    https://itcoder.co.
+ za/lesson.php?c=sql&id=access08\n- SQL 17: Questions inside questions (opti
+ onal extra)\n    https://itcoder.co.za/lesson.php?c=sql&id=access09
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270816-28@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270821
+SUMMARY:IT Gr 11 T3 W5: 
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W5\n\nProgramming:\n- Pascal 20 (part): Managing a list
+  - the array manager class (continued)\n    https://itcoder.co.za/lesson.ph
+ p?c=pascal&id=lesson20\n\nTheory:\n- Theory revision and past-paper questio
+ ns
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270823-29@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270828
+SUMMARY:IT Gr 11 T3 W6: Pascal 23 Windows\, buttons and boxes - GUI design
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W6\n\nProgramming:\n- Pascal 23 (part): Windows\, butto
+ ns and boxes - GUI design\n    focus: a GUI with simple controls\, designed
+  for functionality and usability\; a multi-form GUI: Show\, ShowModal and H
+ ide\, and passing data between forms\n    https://itcoder.co.za/lesson.php?
+ c=pascal&id=lesson23\n\nTheory:\n- Theory revision and past-paper questions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270830-30@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270904
+SUMMARY:IT Gr 11 T3 W7: Pascal 24 SQLite databases in Delphi (or lesson 25\
+ , in Lazarus)
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W7\n\nProgramming:\n- Pascal 24 (part): SQLite database
+ s in Delphi (or lesson 25\, in Lazarus)\n    focus: accessing a database th
+ rough code: connecting\, navigating\, reading\, adding\, changing and delet
+ ing records\n    https://itcoder.co.za/lesson.php?c=pascal&id=capssqlitedel
+ phi\n- Pascal 104 (part): The Grade 11 PAT - CAPS\n    focus: a multi-form 
+ GUI and a database accessed through code\, as the PAT asks\n    https://itc
+ oder.co.za/lesson.php?c=pascal&id=capspat11\n\nTheory:\n- Theory revision a
+ nd past-paper questions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270906-31@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270911
+SUMMARY:IT Gr 11 T3 W8: 
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W8\n\nProgramming:\n- Practice\, consolidation and PAT 
+ work\n\nTheory:\n- Theory revision and past-paper questions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270913-32@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 11 T3 W9: 
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W9\n\nProgramming:\n- Practice\, consolidation and PAT 
+ work\n\nTheory:\n- Theory revision and past-paper questions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20270917-33@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 11: Term 3 ends
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20271005-34@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 11 T4 W1: Streaming and compression
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W1\n\nProgramming:\n- Practice\, consolidation and PAT 
+ work\n\nTheory:\n- Streaming and compression\n    https://itcoder.co.za/les
+ son.php?c=theory11&id=streaming
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20271005-35@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271006
+SUMMARY:IT Gr 11: Term 4 starts
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20271011-36@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271016
+SUMMARY:IT Gr 11 T4 W2: How the Web grew up
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W2\n\nProgramming:\n- Practice\, consolidation and PAT 
+ work\n\nTheory:\n- How the Web grew up\n    https://itcoder.co.za/lesson.ph
+ p?c=theory11&id=webgrewup
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20271018-37@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271018
+DTEND;VALUE=DATE:20271023
+SUMMARY:IT Gr 11 T4 W3: Searching like an expert
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W3\n\nProgramming:\n- Practice\, consolidation and PAT 
+ work\n\nTheory:\n- Searching like an expert\n    https://itcoder.co.za/less
+ on.php?c=theory11&id=expertsearch\n- IoT\, 4IR\, location and big data\n   
+  https://itcoder.co.za/lesson.php?c=theory11&id=iotbigdata
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20271025-38@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271030
+SUMMARY:IT Gr 11 T4 W4: What location\, IoT and big data do to people
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W4\n\nProgramming:\n- Practice\, consolidation and PAT 
+ work\n\nTheory:\n- IoT\, 4IR\, location and big data (continued)\n    https
+ ://itcoder.co.za/lesson.php?c=theory11&id=iotbigdata\n- What location\, IoT
+  and big data do to people\n    https://itcoder.co.za/lesson.php?c=theory11
+ &id=iotpeople
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20271101-39@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+SUMMARY:IT Gr 11: Final exams start
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps11-pascal-access-20271201-40@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271201
+DTEND;VALUE=DATE:20271202
+SUMMARY:IT Gr 11: Term 4 ends
+DESCRIPTION:CAPS Grade 11 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,89 @@
+﻿Term,Week,Monday,Friday,Programming,Theory,Databases,"Dates and tasks"
+"Term 1",1,2027-01-11,2027-01-15,"Pascal 12 (part): Flexible loops - While and Repeat
+Pascal 13 (part): Working with text - String handling","The motherboard and data flow
+The clock and the buses",,"Term 1 starts"
+"Term 1",2,2027-01-18,2027-01-22,"Pascal 13 (part): Working with text - String handling (continued)","The clock and the buses (continued)
+Memory and caching",,
+"Term 1",3,2027-01-25,2027-01-29,"Pascal 13 (part): Working with text - String handling (continued)","Memory and caching (continued)
+Doing many things at once",,
+"Term 1",4,2027-02-01,2027-02-05,"Pascal 13 (part): Working with text - String handling (continued)","Doing many things at once (continued)
+Starting up: BIOS, UEFI, CMOS and interrupts",,
+"Term 1",5,2027-02-08,2027-02-12,"Pascal 13 (part): Working with text - String handling (continued)
+Pascal 14 (part): Making your own commands - procedures, functions, parameters and units","Starting up: BIOS, UEFI, CMOS and interrupts (continued)
+Primary and secondary storage compared",,
+"Term 1",6,2027-02-15,2027-02-19,"Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)
+Pascal 15 (part): Remembering a whole list - Arrays","Primary and secondary storage compared (continued)
+Operating systems compared",,
+"Term 1",7,2027-02-22,2027-02-26,"Pascal 15 (part): Remembering a whole list - Arrays (continued)","Virtual memory
+Virtualisation and virtual machines",,
+"Term 1",8,2027-03-01,2027-03-05,"Pascal 15 (part): Remembering a whole list - Arrays (continued)
+Pascal 16 (part): Smart data - Classes and objects","Virtualisation and virtual machines (continued)
+Compilers, interpreters and assemblers",,
+"Term 1",9,2027-03-08,2027-03-12,"Pascal 16 (part): Smart data - Classes and objects (continued)","Numbers in a fixed number of bits",,
+"Term 1",10,2027-03-15,2027-03-19,"Pascal 16 (part): Smart data - Classes and objects (continued)","When data goes wrong
+Databases and the DBMS",,
+"Term 1",11,2027-03-22,2027-03-26,"Pascal 16 (part): Smart data - Classes and objects (continued)
+Pascal 17 (part): Persistence - Text files","Databases and the DBMS (continued)
+Network hardware and topologies","SQL 2 (part): What a database is",
+"Term 1",12,2027-03-29,2027-04-02,"Pascal 17 (part): Persistence - Text files (continued)","Network hardware and topologies (continued)
+Addresses, packets and frames",,
+"Term 1",13,2027-04-05,2027-04-09,"Pascal 17 (part): Persistence - Text files (continued)","Addresses, packets and frames (continued)
+Protocols and wide area networks",,"Term 1 ends"
+"Term 2",1,2027-05-03,2027-05-07,"Pascal 17 (part): Persistence - Text files (continued)
+Pascal 18 (part): Catching errors - Defensive programming","Protocols and wide area networks (continued)
+Mobile and wireless communication",,"Term 2 starts"
+"Term 2",2,2027-05-10,2027-05-14,"Pascal 18 (part): Catching errors - Defensive programming (continued)","Mobile and wireless communication (continued)
+Virtual private networks",,
+"Term 2",3,2027-05-17,2027-05-21,"Pascal 18 (part): Catching errors - Defensive programming (continued)
+Pascal 19: It's a date - Dates and times","Virtual private networks (continued)
+Streaming and compression",,
+"Term 2",4,2027-05-24,2027-05-28,"Pascal 19: It's a date - Dates and times (continued)","Streaming and compression (continued)
+How the Web grew up",,
+"Term 2",5,2027-05-31,2027-06-04,"Pascal 19: It's a date - Dates and times (continued)","How the Web grew up (continued)
+Searching like an expert",,
+"Term 2",6,2027-06-07,2027-06-11,,,,"Mid-year exams"
+"Term 2",7,2027-06-14,2027-06-18,,,,"Mid-year exams"
+"Term 2",8,2027-06-21,2027-06-25,,,,"Mid-year exams"
+"Term 2",9,2027-07-05,2027-07-09,"Pascal 19: It's a date - Dates and times (continued)","Searching like an expert (continued)
+IoT, 4IR, location and big data","SQL 1: Good data in a database
+SQL 6 (part): Looking after data",
+"Term 2",10,2027-07-12,2027-07-16,"Pascal 19: It's a date - Dates and times (continued)
+Pascal 20 (part): Managing a list - the array manager class","Threats to a system","SQL 8 (part): Getting started in Access
+SQL 12: Calculated fields and text",
+"Term 2",11,2027-07-19,2027-07-23,"Pascal 20 (part): Managing a list - the array manager class (continued)","Threats to a system (continued)
+Protecting a system","SQL 12: Calculated fields and text (continued)
+SQL 13: Dates in Access",
+"Term 2",12,2027-07-26,2027-07-30,"Pascal 20 (part): Managing a list - the array manager class (continued)
+Pascal 21 (part): Family trees - Inheritance and polymorphism","Protecting a system (continued)
+Computer crime and social engineering","SQL 14: Counting and totals",
+"Term 2",13,2027-08-02,2027-08-06,"Pascal 21 (part): Family trees - Inheritance and polymorphism (continued)
+Pascal 22 (part): Talking to people - Text user interfaces","Computer crime and social engineering (continued)
+Blockchain","SQL 15 (part): Changing data: INSERT, UPDATE and DELETE
+SQL 17 (part): Questions inside questions","Term 2 ends"
+"Term 3",1,2027-09-06,2027-09-10,"Pascal 22 (part): Talking to people - Text user interfaces (continued)","Blockchain (continued)
+Work in a digital world",,"Term 3 starts"
+"Term 3",2,2027-09-13,2027-09-17,"Pascal 22 (part): Talking to people - Text user interfaces (continued)
+Pascal 23: Windows, buttons and boxes - GUI design","Work in a digital world (continued)
+What location, IoT and big data do to people",,
+"Term 3",3,2027-09-20,2027-09-24,"Pascal 23: Windows, buttons and boxes - GUI design (continued)","What location, IoT and big data do to people (continued)
+Arrays, searching and sorting on paper",,
+"Term 3",4,2027-09-27,2027-10-01,"Pascal 23: Windows, buttons and boxes - GUI design (continued)","Arrays, searching and sorting on paper (continued)
+Classes, objects and class diagrams",,
+"Term 3",5,2027-10-04,2027-10-08,"Pascal 23: Windows, buttons and boxes - GUI design (continued)","Classes, objects and class diagrams (continued)
+Text files",,
+"Term 3",6,2027-10-11,2027-10-15,"Pascal 23: Windows, buttons and boxes - GUI design (continued)
+Pascal 24: SQLite databases in Delphi (or lesson 25, in Lazarus) (optional extra)
+Pascal 26: Where you write Pascal - Lazarus and Delphi","Text files (continued)
+Methods and parameters",,
+"Term 3",7,2027-10-18,2027-10-22,"Pascal 26: Where you write Pascal - Lazarus and Delphi (continued)
+Pascal 29 (part): The data validation task - IEB","Methods and parameters (continued)
+Validation and testing",,
+"Term 3",8,2027-10-25,2027-10-29,"Pascal 29 (part): The data validation task - IEB (continued)
+Pascal 30 (part): The PAT - IEB","Designing a good interface",,
+"Term 3",9,2027-11-01,2027-11-05,,,,"Final exams
+Final exams start"
+"Term 3",10,2027-11-08,2027-11-12,,,,"Final exams"
+"Term 3",11,2027-11-15,2027-11-19,,,,"Final exams"
+"Term 3",12,2027-11-22,2027-11-26,,,,"Final exams"
+"Term 3",13,2027-11-29,2027-12-03,,,,"Final exams
+Term 3 ends"

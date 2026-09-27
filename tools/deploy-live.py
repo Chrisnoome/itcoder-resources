@@ -154,6 +154,18 @@ Step('add the cron line (only if absent)',
      "&& crontab -u www-data /tmp/ct.txt && echo added; fi; rm -f /tmp/ct.txt")
 Step('crontab now', 'crontab -u www-data -l')
 
+# Weekly reminders to pupils who fall behind (27 September 2026, bin/remind.php):
+# weekdays 04:30 UTC = 06:30 South African time; the script itself decides whether
+# today is a reminder day, and never mails anyone twice. Live only - the test site
+# has real pupils' addresses in its database and must never send.
+print('\n== 7b. the reminders: log FIRST, then cron ==')
+Step('create the reminders log', 'touch /var/log/itcoder-remind.log && chown www-data:www-data /var/log/itcoder-remind.log && ls -l /var/log/itcoder-remind.log')
+Step('add the reminders cron line (only if absent)',
+     "crontab -u www-data -l > /tmp/ct.txt; "
+     "if grep -q 'itcoder/bin/remind.php' /tmp/ct.txt; then echo 'already there'; else "
+     "echo '30 4 * * 1-5 /usr/bin/php /var/www/itcoder/bin/remind.php >> /var/log/itcoder-remind.log 2>&1' >> /tmp/ct.txt "
+     "&& crontab -u www-data /tmp/ct.txt && echo added; fi; rm -f /tmp/ct.txt")
+
 print('\n== 8. verify ==')
 Step('every php file parses',
      "find %s/lib %s/bin %s/public %s/content -name '*.php' -exec php -l {} + 2>&1 "

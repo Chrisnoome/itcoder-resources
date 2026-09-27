@@ -1,0 +1,646 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT CAPS Grade 10 - Pascal - Other four-term independent school
+  (ISASA guideline)
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 10 T1 W1: Pascal 1 What you learn when you learn programming 
+ | ICT and ICT systems
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W1\n\nProgramming:\n- Pascal 1 (part): What you learn w
+ hen you learn programming\n    focus: introduction to algorithms: what an a
+ lgorithm is\, everyday examples\, and why order and precision matter\n    h
+ ttps://itcoder.co.za/lesson.php?c=pascal&id=lesson01\n- Pascal 2 (part): Pr
+ oof of Life / Output - WriteLn and Write\n    focus: introduction to progra
+ mming\, its basic terms and the development environment\; output\n    https
+ ://itcoder.co.za/lesson.php?c=pascal&id=proofoflife\n\nTheory:\n- ICT and I
+ CT systems\n    https://itcoder.co.za/lesson.php?c=theory10&id=ict\n- Kinds
+  of computers\n    https://itcoder.co.za/lesson.php?c=theory10&id=kindsofco
+ mputers
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 10: Term 1 starts
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 10 T1 W2: Pascal 4 How to remember - Variables and constants 
+ | Hardware and software
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W2\n\nProgramming:\n- Pascal 3: Making it pretty (optio
+ nal extra)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson03\n- Pa
+ scal 4: How to remember - Variables and constants\n    focus: variables: na
+ ming conventions\, assigning values\, and the data types integer\, string\,
+  float and Boolean\; data types and how they are stored: integer\, characte
+ r\, floating point\, Boolean and string\; the function random\, and RandomR
+ ange\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson02\n\nTheory:\
+ n- Kinds of computers (continued)\n    https://itcoder.co.za/lesson.php?c=t
+ heory10&id=kindsofcomputers\n- Hardware and software\n    https://itcoder.c
+ o.za/lesson.php?c=theory10&id=hardwaresoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 10 T1 W3: Pascal 5 Getting input - Readln\, ReadKey and KeyPr
+ essed | Data\, information and knowledge
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W3\n\nProgramming:\n- Pascal 4: How to remember - Varia
+ bles and constants (continued)\n    https://itcoder.co.za/lesson.php?c=pasc
+ al&id=lesson02\n- Pascal 5: Getting input - Readln\, ReadKey and KeyPressed
+ \n    focus: input from the keyboard\; the IPO table: input\, processing an
+ d output\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson05\n\nTheo
+ ry:\n- Data\, information and knowledge\n    https://itcoder.co.za/lesson.p
+ hp?c=theory10&id=datainfo\n- Application software\n    https://itcoder.co.z
+ a/lesson.php?c=theory10&id=appsoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 10 T1 W4: Pascal 6 Processing - basic maths | Getting and own
+ ing software
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W4\n\nProgramming:\n- Pascal 5: Getting input - Readln\
+ , ReadKey and KeyPressed (continued)\n    https://itcoder.co.za/lesson.php?
+ c=pascal&id=lesson05\n- Pascal 6: Processing - basic maths\n    focus: oper
+ ators (+\, -\, *\, /) and order of precedence\; remainders with modulus\; f
+ unctions such as round and square root\; calculations such as area\, volume
+  and VAT\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson06\n\nTheo
+ ry:\n- Getting and owning software\n    https://itcoder.co.za/lesson.php?c=
+ theory10&id=softwareowning\n- How computers store data\n    https://itcoder
+ .co.za/lesson.php?c=theory10&id=storingdata
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 10 T1 W5: Pascal 7 Type conversion | Bits and bytes
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W5\n\nProgramming:\n- Pascal 6: Processing - basic math
+ s (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson06\n-
+  Pascal 7: Type conversion\n    focus: casting between strings and numbers 
+ (StrToInt\, IntToStr\, StrToFloat\, FloatToStr)\; digital character represe
+ ntation: ASCII and Unicode\; data types and storage: what is lost going fro
+ m a floating point type to an integer type\; rounding functions\, including
+  Ceil and Floor\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson07\
+ n\nTheory:\n- How computers store data (continued)\n    https://itcoder.co.
+ za/lesson.php?c=theory10&id=storingdata\n- Bits and bytes\n    https://itco
+ der.co.za/lesson.php?c=theory10&id=bitsbytes\n- Binary\n    https://itcoder
+ .co.za/lesson.php?c=theory10&id=binary
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270220
+SUMMARY:IT Gr 10 T1 W6: Pascal 8 Decisions / Branching | Hexadecimal and oc
+ tal
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W6\n\nProgramming:\n- Pascal 7: Type conversion (contin
+ ued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson07\n- Pascal 8
+  (part): Decisions / Branching\n    focus: comparison operators and logical
+  comparisons\; if and if-then-else\n    https://itcoder.co.za/lesson.php?c=
+ pascal&id=lesson08\n\nTheory:\n- Binary (continued)\n    https://itcoder.co
+ .za/lesson.php?c=theory10&id=binary\n- Hexadecimal and octal\n    https://i
+ tcoder.co.za/lesson.php?c=theory10&id=hexoctal\n- Characters - ASCII and Un
+ icode\n    https://itcoder.co.za/lesson.php?c=theory10&id=characters
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270222-7@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 10 T1 W7: Primitive data types
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W7\n\nProgramming:\n- Pascal 8 (part): Decisions / Bran
+ ching (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson0
+ 8\n\nTheory:\n- Characters - ASCII and Unicode (continued)\n    https://itc
+ oder.co.za/lesson.php?c=theory10&id=characters\n- Primitive data types\n   
+  https://itcoder.co.za/lesson.php?c=theory10&id=primitives
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 10 T1 W8: Pascal 9 Division - Div\, Mod\, Trunc and Round | S
+ toring data and managing files
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W8\n\nProgramming:\n- Pascal 9 (part): Division - Div\,
+  Mod\, Trunc and Round\n    focus: algorithms: whether a number is even\, a
+ nd whether one number is a factor of another\; representing an algorithm wi
+ th a flow chart\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson09\
+ n- Pascal 11 (part): Looped algorithms - totals\, averages and shapes\n    
+ focus: aggregates: sum and average\n    https://itcoder.co.za/lesson.php?c=
+ pascal&id=lesson11\n\nTheory:\n- Storing data and managing files\n    https
+ ://itcoder.co.za/lesson.php?c=theory10&id=files\n- Databases - a first look
+ \n    https://itcoder.co.za/lesson.php?c=theory10&id=databasesintro
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 10 T1 W9: Pascal 13 Working with text - String handling | Com
+ puters and our society
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W9\n\nProgramming:\n- Pascal 13 (part): Working with te
+ xt - String handling\n    focus: formatting of output\n    https://itcoder.
+ co.za/lesson.php?c=pascal&id=lesson13\n- Pascal 15 (part): Remembering a wh
+ ole list - Arrays\n    focus: swapping values\n    https://itcoder.co.za/le
+ sson.php?c=pascal&id=lesson15\n\nTheory:\n- Databases - a first look (conti
+ nued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=databasesintro\n-
+  Computers and our society\n    https://itcoder.co.za/lesson.php?c=theory10
+ &id=society\n- The digital divide\n    https://itcoder.co.za/lesson.php?c=t
+ heory10&id=digitaldivide
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 10 T1 W10: Pascal 23 Windows\, buttons and boxes - GUI design
+  | Plagiarism
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T1 W10\n\nProgramming:\n- Pascal 23 (part): Windows\, butt
+ ons and boxes - GUI design\n    focus: the IDE and GUI builder: components 
+ for input and output\, and handling a click event\; dialogs: ShowMessage an
+ d InputBox\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23\n- Pa
+ scal 26 (part): Where you write Pascal - Lazarus and Delphi\n    focus: the
+  programming tool: the IDE\, basic terms and the development environment\n 
+    https://itcoder.co.za/lesson.php?c=pascal&id=ides\n- Pascal 106: The alt
+ ernative task - CAPS\n    focus: the alternative task (closed or open book\
+ , case study or integrated task)\, as the programme of assessment in each g
+ rade sets it\n    https://itcoder.co.za/lesson.php?c=pascal&id=capsalttask\
+ n\nTheory:\n- The digital divide (continued)\n    https://itcoder.co.za/les
+ son.php?c=theory10&id=digitaldivide\n- Plagiarism\n    https://itcoder.co.z
+ a/lesson.php?c=theory10&id=plagiarism
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270319-11@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 10: Term 1 ends
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270413-12@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270417
+SUMMARY:IT Gr 10 T2 W1: Pascal 1 What you learn when you learn programming 
+ | Inside the case
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W1\n\nProgramming:\n- Pascal 1 (part): What you learn w
+ hen you learn programming\n    focus: problem-solving steps (Polya): unders
+ tand the problem\, devise an algorithm\, carry it out\, look back/test\n   
+  https://itcoder.co.za/lesson.php?c=pascal&id=lesson01\n- Pascal 2 (part): 
+ Proof of Life / Output - WriteLn and Write\n    focus: debugging techniques
+ : reading the compiler's error messages\n    https://itcoder.co.za/lesson.p
+ hp?c=pascal&id=proofoflife\n\nTheory:\n- Inside the case\n    https://itcod
+ er.co.za/lesson.php?c=theory10&id=insidecase\n- Processing and memory\n    
+ https://itcoder.co.za/lesson.php?c=theory10&id=processing\n- Storage\n    h
+ ttps://itcoder.co.za/lesson.php?c=theory10&id=storage
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270413-13@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270414
+SUMMARY:IT Gr 10: Term 2 starts
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270419-14@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270424
+SUMMARY:IT Gr 10 T2 W2: Pascal 8 Decisions / Branching | Input - keyboards 
+ and pointing devices
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W2\n\nProgramming:\n- Pascal 2 (part): Proof of Life / 
+ Output - WriteLn and Write (continued)\n    https://itcoder.co.za/lesson.ph
+ p?c=pascal&id=proofoflife\n- Pascal 8 (part): Decisions / Branching\n    fo
+ cus: nested ifs\, the CASE statement\, Boolean operators (AND\, OR\, NOT\, 
+ IN) and basic string comparisons\n    https://itcoder.co.za/lesson.php?c=pa
+ scal&id=lesson08\n\nTheory:\n- Input - keyboards and pointing devices\n    
+ https://itcoder.co.za/lesson.php?c=theory10&id=inputkeyboards\n- Input - ca
+ meras\, scanners\, sound and sensors\n    https://itcoder.co.za/lesson.php?
+ c=theory10&id=inputother
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270426-15@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270501
+SUMMARY:IT Gr 10 T2 W3: Output
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W3\n\nProgramming:\n- Pascal 8 (part): Decisions / Bran
+ ching (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson0
+ 8\n\nTheory:\n- Output\n    https://itcoder.co.za/lesson.php?c=theory10&id=
+ output\n- Ports and connectors\n    https://itcoder.co.za/lesson.php?c=theo
+ ry10&id=ports\n- Communication devices\n    https://itcoder.co.za/lesson.ph
+ p?c=theory10&id=commsdevices\n- System software\n    https://itcoder.co.za/
+ lesson.php?c=theory10&id=systemsoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270503-16@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 10 T2 W4: Pascal 11 Looped algorithms - totals\, averages and
+  shapes | Why networks
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W4\n\nProgramming:\n- Pascal 8 (part): Decisions / Bran
+ ching (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson0
+ 8\n- Pascal 11 (part): Looped algorithms - totals\, averages and shapes\n  
+   focus: the smallest and largest of more than two values\n    https://itco
+ der.co.za/lesson.php?c=pascal&id=lesson11\n\nTheory:\n- System software (co
+ ntinued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=systemsoftware
+ \n- Why networks\n    https://itcoder.co.za/lesson.php?c=theory10&id=whynet
+ works\n- Types of networks\n    https://itcoder.co.za/lesson.php?c=theory10
+ &id=networktypes
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270510-17@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 10 T2 W5: Pascal 12 Flexible loops - While and Repeat | Commu
+ nications media
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W5\n\nProgramming:\n- Pascal 12 (part): Flexible loops 
+ - While and Repeat\n    focus: basic validation techniques\, with trace tab
+ les to debug\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson12\n- 
+ Pascal 13 (part): Working with text - String handling\n    focus: string me
+ thods: length and UpperCase\, and comparing strings\n    https://itcoder.co
+ .za/lesson.php?c=pascal&id=lesson13\n\nTheory:\n- Types of networks (contin
+ ued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=networktypes\n- Co
+ mmunications media\n    https://itcoder.co.za/lesson.php?c=theory10&id=medi
+ a\n- E-mail\n    https://itcoder.co.za/lesson.php?c=theory10&id=email
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270517-18@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 10 T2 W6: Pascal 16 Smart data - Classes and objects | Chat\,
+  instant messaging\, VoIP and video
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W6\n\nProgramming:\n- Pascal 13 (part): Working with te
+ xt - String handling (continued)\n    https://itcoder.co.za/lesson.php?c=pa
+ scal&id=lesson13\n- Pascal 16 (part): Smart data - Classes and objects\n   
+  focus: software analysis tools: noun-verb analysis of user stories (nouns 
+ are objects and state\, verbs are behaviour)\n    https://itcoder.co.za/les
+ son.php?c=pascal&id=lesson16\n\nTheory:\n- E-mail (continued)\n    https://
+ itcoder.co.za/lesson.php?c=theory10&id=email\n- Chat\, instant messaging\, 
+ VoIP and video\n    https://itcoder.co.za/lesson.php?c=theory10&id=chatvoip
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270524-19@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 10 T2 W7: Pascal 18 Catching errors - Defensive programming |
+  Social media\, blogs\, vlogs and podcasts
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W7\n\nProgramming:\n- Pascal 16 (part): Smart data - Cl
+ asses and objects (continued)\n    https://itcoder.co.za/lesson.php?c=pasca
+ l&id=lesson16\n- Pascal 18 (part): Catching errors - Defensive programming\
+ n    focus: debugging techniques\, debugging with trace tables\, and basic 
+ validation techniques\n    https://itcoder.co.za/lesson.php?c=pascal&id=les
+ son18\n\nTheory:\n- Social media\, blogs\, vlogs and podcasts\n    https://
+ itcoder.co.za/lesson.php?c=theory10&id=socialmedia\n- Netiquette\n    https
+ ://itcoder.co.za/lesson.php?c=theory10&id=netiquette
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270531-20@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270605
+SUMMARY:IT Gr 10 T2 W8: Pascal 23 Windows\, buttons and boxes - GUI design 
+ | Your body and the planet
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T2 W8\n\nProgramming:\n- Pascal 18 (part): Catching errors
+  - Defensive programming (continued)\n    https://itcoder.co.za/lesson.php?
+ c=pascal&id=lesson18\n- Pascal 23 (part): Windows\, buttons and boxes - GUI
+  design\n    focus: form events: OnCreate\, OnActivate\, OnShow and OnClose
+ \n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23\n- Pascal 26 (p
+ art): Where you write Pascal - Lazarus and Delphi\n    focus: debugging tec
+ hniques: breakpoints\, stepping and watching variables\n    https://itcoder
+ .co.za/lesson.php?c=pascal&id=ides\n\nTheory:\n- Your body and the planet\n
+     https://itcoder.co.za/lesson.php?c=theory10&id=bodyplanet\n- Theory for
+  practical work\n    https://itcoder.co.za/lesson.php?c=theory10&id=practic
+ altheory10
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270607-21@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 10: Mid-year exams
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270625-22@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 10: Term 2 ends
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270720-23@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270724
+SUMMARY:IT Gr 10 T3 W1: Pascal 9 Division - Div\, Mod\, Trunc and Round | L
+ ooking after a computer
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W1\n\nProgramming:\n- Pascal 9 (part): Division - Div\,
+  Mod\, Trunc and Round\n    focus: whether a number is a prime number\n    
+ https://itcoder.co.za/lesson.php?c=pascal&id=lesson09\n- Pascal 10 (part): 
+ Repeating instructions the easy and efficient way - For loops\n    focus: i
+ teration: the fixed loop (for-loop)\; whether a number is a prime number\n 
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson10\n\nTheory:\n- Look
+ ing after a computer\n    https://itcoder.co.za/lesson.php?c=theory10&id=co
+ mputercare\n\nDatabases:\n- SQL 8 (part): Getting started in Access\n    fo
+ cus: common file types and extensions: database files (.mdb and .accdb)\n  
+   https://itcoder.co.za/lesson.php?c=sql&id=access00
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270720-24@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:IT Gr 10: Term 3 starts
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270726-25@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270726
+DTEND;VALUE=DATE:20270731
+SUMMARY:IT Gr 10 T3 W2: The Internet
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W2\n\nProgramming:\n- Pascal 10 (part): Repeating instr
+ uctions the easy and efficient way - For loops (continued)\n    https://itc
+ oder.co.za/lesson.php?c=pascal&id=lesson10\n\nTheory:\n- Looking after a co
+ mputer (continued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=comp
+ utercare\n- The Internet\n    https://itcoder.co.za/lesson.php?c=theory10&i
+ d=internet
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270802-26@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 10 T3 W3: Pascal 12 Flexible loops - While and Repeat | URLs\
+ , IP addresses and DNS
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W3\n\nProgramming:\n- Pascal 12 (part): Flexible loops 
+ - While and Repeat\n    focus: iteration: pre-conditional and post-conditio
+ nal loops (while and repeat-until)\; algorithms: lowest common multiple (LC
+ M) and greatest common divisor (GCD)\n    https://itcoder.co.za/lesson.php?
+ c=pascal&id=lesson12\n\nTheory:\n- The Internet (continued)\n    https://it
+ coder.co.za/lesson.php?c=theory10&id=internet\n- URLs\, IP addresses and DN
+ S\n    https://itcoder.co.za/lesson.php?c=theory10&id=urls
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270810-27@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270814
+SUMMARY:IT Gr 10 T3 W4: Pascal 13 Working with text - String handling | The
+  World Wide Web
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W4\n\nProgramming:\n- Pascal 12 (part): Flexible loops 
+ - While and Repeat (continued)\n    https://itcoder.co.za/lesson.php?c=pasc
+ al&id=lesson12\n- Pascal 13 (part): Working with text - String handling\n  
+   focus: string handling from first principles: counting\, finding\, removi
+ ng\, replacing\, adding and extracting characters\; string methods: length\
+ , position\, copy\, trim\, delete and insert\; finding a character in a str
+ ing\; string methods: left and right (LeftStr\, RightStr)\n    https://itco
+ der.co.za/lesson.php?c=pascal&id=lesson13\n\nTheory:\n- The World Wide Web\
+ n    https://itcoder.co.za/lesson.php?c=theory10&id=www
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270816-28@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270821
+SUMMARY:IT Gr 10 T3 W5: Browsing and searching
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W5\n\nProgramming:\n- Pascal 13 (part): Working with te
+ xt - String handling (continued)\n    https://itcoder.co.za/lesson.php?c=pa
+ scal&id=lesson13\n\nTheory:\n- Browsing and searching\n    https://itcoder.
+ co.za/lesson.php?c=theory10&id=searching\n- Judging a website\n    https://
+ itcoder.co.za/lesson.php?c=theory10&id=judgingsites
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270823-29@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270828
+SUMMARY:IT Gr 10 T3 W6: Making web pages
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W6\n\nProgramming:\n- Pascal 13 (part): Working with te
+ xt - String handling (continued)\n    https://itcoder.co.za/lesson.php?c=pa
+ scal&id=lesson13\n\nTheory:\n- Judging a website (continued)\n    https://i
+ tcoder.co.za/lesson.php?c=theory10&id=judgingsites\n- Making web pages\n   
+  https://itcoder.co.za/lesson.php?c=theory10&id=webpages
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270830-30@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270904
+SUMMARY:IT Gr 10 T3 W7: Pascal 17 Persistence - Text files | Malware and cy
+ bercrime
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W7\n\nProgramming:\n- Pascal 17 (part): Persistence - T
+ ext files\n    focus: program persistence: getting back a program's previou
+ s state\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17\n\nTheor
+ y:\n- Making web pages (continued)\n    https://itcoder.co.za/lesson.php?c=
+ theory10&id=webpages\n- Who runs the Web (optional extra)\n    https://itco
+ der.co.za/lesson.php?c=theory10&id=w3cicann\n- Malware and cybercrime\n    
+ https://itcoder.co.za/lesson.php?c=theory10&id=malware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270906-31@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270911
+SUMMARY:IT Gr 10 T3 W8: Pascal 22 Talking to people - Text user interfaces
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W8\n\nProgramming:\n- Pascal 22 (part): Talking to peop
+ le - Text user interfaces\n    focus: HCI principles in designing an interf
+ ace\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22\n\nTheory:\n
+ - Malware and cybercrime (continued)\n    https://itcoder.co.za/lesson.php?
+ c=theory10&id=malware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270913-32@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 10 T3 W9: Pascal 23 Windows\, buttons and boxes - GUI design
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T3 W9\n\nProgramming:\n- Pascal 23 (part): Windows\, butto
+ ns and boxes - GUI design\n    focus: HCI principles: grouping components\,
+  panels and tabbed panes\; the timer component\; a timer object for simple 
+ animations\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson23\n- Pa
+ scal 103 (part): The Grade 10 PAT - CAPS\n    focus: the PAT: problem state
+ ment\, user stories\, a diagram of the program\, GUI design by HCI principl
+ es\, IPO\, flowchart\, test cases\n    https://itcoder.co.za/lesson.php?c=p
+ ascal&id=capspat10\n\nTheory:\n- Theory revision and past-paper questions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20270917-33@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 10: Term 3 ends
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20271005-34@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 10 T4 W1: Pascal 23 Windows\, buttons and boxes - GUI design 
+ | Looking after hardware
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W1\n\nProgramming:\n- Pascal 23 (part): Windows\, butto
+ ns and boxes - GUI design\n    focus: reading a text file into a list box a
+ nd saving a list box to a file (LoadFromFile\, SaveToFile)\n    https://itc
+ oder.co.za/lesson.php?c=pascal&id=lesson23\n- Pascal 103 (part): The Grade 
+ 10 PAT - CAPS\n    focus: finalising the PAT: building the solution from th
+ e planning\, and documenting it\n    https://itcoder.co.za/lesson.php?c=pas
+ cal&id=capspat10\n\nTheory:\n- Looking after hardware\n    https://itcoder.
+ co.za/lesson.php?c=theory10&id=hwcare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20271005-35@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271006
+SUMMARY:IT Gr 10: Term 4 starts
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20271011-36@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271016
+SUMMARY:IT Gr 10 T4 W2: Revision
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W2\n\nRevision and exam practice: past papers\, and the
+  exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20271018-37@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271018
+DTEND;VALUE=DATE:20271023
+SUMMARY:IT Gr 10 T4 W3: Revision
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W3\n\nRevision and exam practice: past papers\, and the
+  exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20271025-38@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271030
+SUMMARY:IT Gr 10 T4 W4: Revision
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline) - T4 W4\n\nRevision and exam practice: past papers\, and the
+  exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20271101-39@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+SUMMARY:IT Gr 10: Final exams start
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps10-pascal-access-20271201-40@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271201
+DTEND;VALUE=DATE:20271202
+SUMMARY:IT Gr 10: Term 4 ends
+DESCRIPTION:CAPS Grade 10 - Pascal - Other four-term independent school (IS
+ ASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,84 @@
+﻿Term,Week,Monday,Friday,Programming,Theory,Databases,"Dates and tasks"
+"Term 1",1,2027-01-11,2027-01-15,"Pascal 10 (part): Repeating instructions the easy and efficient way - For loops
+Pascal 11 (part): Looped algorithms - totals, averages and shapes","The motherboard and data flow
+The clock and the buses",,"Term 1 starts"
+"Term 1",2,2027-01-18,2027-01-22,"Pascal 11 (part): Looped algorithms - totals, averages and shapes (continued)
+Pascal 13 (part): Working with text - String handling","Memory and caching
+Doing many things at once",,
+"Term 1",3,2027-01-25,2027-01-29,"Pascal 13 (part): Working with text - String handling (continued)
+Pascal 14 (part): Making your own commands - procedures, functions, parameters and units","Doing many things at once (continued)
+Starting up: BIOS, UEFI, CMOS and interrupts
+Primary and secondary storage compared",,
+"Term 1",4,2027-02-01,2027-02-05,"Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)
+Pascal 15 (part): Remembering a whole list - Arrays","Operating systems compared
+Virtual memory",,
+"Term 1",5,2027-02-08,2027-02-12,"Pascal 15 (part): Remembering a whole list - Arrays (continued)","Virtualisation and virtual machines
+Compilers, interpreters and assemblers
+Numbers in a fixed number of bits (optional extra)",,
+"Term 1",6,2027-02-15,2027-02-19,"Pascal 15 (part): Remembering a whole list - Arrays (continued)
+Pascal 19: It's a date - Dates and times","Network hardware and topologies
+Addresses, packets and frames",,
+"Term 1",7,2027-02-22,2027-02-26,"Pascal 19: It's a date - Dates and times (continued)","Addresses, packets and frames (continued)
+Protocols and wide area networks
+Virtual private networks",,
+"Term 1",8,2027-03-01,2027-03-05,"Pascal 19: It's a date - Dates and times (continued)","Virtual private networks (continued)
+Threats to a system",,
+"Term 1",9,2027-03-08,2027-03-12,"Pascal 19: It's a date - Dates and times (continued)
+Pascal 20 (part): Managing a list - the array manager class","Protecting a system
+Arrays, searching and sorting on paper",,
+"Term 1",10,2027-03-15,2027-03-19,"Pascal 20 (part): Managing a list - the array manager class (continued)","Arrays, searching and sorting on paper (continued)
+Classes, objects and class diagrams",,"Term 1 ends"
+"Term 2",1,2027-04-05,2027-04-09,"Pascal 12 (part): Flexible loops - While and Repeat
+Pascal 14 (part): Making your own commands - procedures, functions, parameters and units","Databases and the DBMS
+Mobile and wireless communication","SQL 2: What a database is","Term 2 starts"
+"Term 2",2,2027-04-12,2027-04-16,"Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)","Mobile and wireless communication (continued)
+Computer crime and social engineering",,
+"Term 2",3,2027-04-19,2027-04-23,"Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)","Computer crime and social engineering (continued)",,
+"Term 2",4,2027-04-26,2027-04-30,"Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)
+Pascal 17 (part): Persistence - Text files",Blockchain,,
+"Term 2",5,2027-05-03,2027-05-07,"Pascal 17 (part): Persistence - Text files (continued)","Work in a digital world",,
+"Term 2",6,2027-05-10,2027-05-14,"Pascal 17 (part): Persistence - Text files (continued)
+Pascal 18 (part): Catching errors - Defensive programming","Text files",,
+"Term 2",7,2027-05-17,2027-05-21,"Pascal 18 (part): Catching errors - Defensive programming (continued)
+Pascal 21 (part): Family trees - Inheritance and polymorphism","Methods and parameters",,
+"Term 2",8,2027-05-24,2027-05-28,"Pascal 21 (part): Family trees - Inheritance and polymorphism (continued)
+Pascal 22 (part): Talking to people - Text user interfaces","Validation and testing",,
+"Term 2",9,2027-05-31,2027-06-04,,,,"Mid-year exams"
+"Term 2",10,2027-06-07,2027-06-11,,,,"Mid-year exams"
+"Term 2",11,2027-06-14,2027-06-18,,,,"Mid-year exams"
+"Term 2",12,2027-06-21,2027-06-25,"Pascal 22 (part): Talking to people - Text user interfaces (continued)
+Pascal 23 (part): Windows, buttons and boxes - GUI design
+Pascal 104 (part): The Grade 11 PAT - CAPS","Designing a good interface",,"Term 2 ends"
+"Term 3",1,2027-07-19,2027-07-23,"Pascal 16 (part): Smart data - Classes and objects","When data goes wrong","SQL 1 (part): Good data in a database
+SQL 3: Keys and relationships","Term 3 starts"
+"Term 3",2,2027-07-26,2027-07-30,"Pascal 16 (part): Smart data - Classes and objects (continued)","Theory revision and past-paper questions","SQL 8 (part): Getting started in Access
+SQL 9: Building a table in Access",
+"Term 3",3,2027-08-02,2027-08-06,"Pascal 18 (part): Catching errors - Defensive programming","Theory revision and past-paper questions","SQL 9: Building a table in Access (continued)
+SQL 10 (part): Asking questions: WHERE and ORDER BY
+SQL 15 (part): Changing data: INSERT, UPDATE and DELETE",
+"Term 3",4,2027-08-09,2027-08-13,"Pascal 18 (part): Catching errors - Defensive programming (continued)
+Pascal 20 (part): Managing a list - the array manager class","Theory revision and past-paper questions","SQL 15 (part): Changing data: INSERT, UPDATE and DELETE (continued)
+SQL 16 (part): Joining tables
+SQL 17: Questions inside questions (optional extra)",
+"Term 3",5,2027-08-16,2027-08-20,"Pascal 20 (part): Managing a list - the array manager class (continued)","Theory revision and past-paper questions",,
+"Term 3",6,2027-08-23,2027-08-27,"Pascal 23 (part): Windows, buttons and boxes - GUI design","Theory revision and past-paper questions",,
+"Term 3",7,2027-08-30,2027-09-03,"Pascal 24 (part): SQLite databases in Delphi (or lesson 25, in Lazarus)
+Pascal 104 (part): The Grade 11 PAT - CAPS","Theory revision and past-paper questions",,
+"Term 3",8,2027-09-06,2027-09-10,"Practice, consolidation and PAT work","Theory revision and past-paper questions",,
+"Term 3",9,2027-09-13,2027-09-17,"Practice, consolidation and PAT work","Theory revision and past-paper questions",,
+"Term 3",10,2027-09-20,2027-09-24,"Practice, consolidation and PAT work","Theory revision and past-paper questions",,"Term 3 ends"
+"Term 4",1,2027-10-04,2027-10-08,"Practice, consolidation and PAT work","Streaming and compression",,"Term 4 starts"
+"Term 4",2,2027-10-11,2027-10-15,"Practice, consolidation and PAT work","Streaming and compression (continued)
+How the Web grew up",,
+"Term 4",3,2027-10-18,2027-10-22,"Practice, consolidation and PAT work","How the Web grew up (continued)
+Searching like an expert",,
+"Term 4",4,2027-10-25,2027-10-29,"Practice, consolidation and PAT work","Searching like an expert (continued)
+IoT, 4IR, location and big data",,
+"Term 4",5,2027-11-01,2027-11-05,"Practice, consolidation and PAT work","What location, IoT and big data do to people",,
+"Term 4",6,2027-11-08,2027-11-12,,,,"Final exams
+Final exams start"
+"Term 4",7,2027-11-15,2027-11-19,,,,"Final exams"
+"Term 4",8,2027-11-22,2027-11-26,,,,"Final exams"
+"Term 4",9,2027-11-29,2027-12-03,,,,"Final exams"
+"Term 4",10,2027-12-06,2027-12-10,,,,"Final exams
+Term 4 ends"

@@ -1,0 +1,300 @@
+﻿Subject,"Start Date","End Date","All Day Event",Description,Private
+"IT Gr 12 T1 W1: Pascal 30 The PAT - IEB | What makes a computer fast",01/13/2027,01/15/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W1
+
+Programming:
+- Pascal 30 (part): The PAT - IEB
+    focus: the PAT documents: specification, design, and technical and testing; comments in the project: what each method does, receives and gives back
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson27
+- Pascal 8 (part): Decisions / Branching
+    focus: complex Boolean expressions and truth tables with 4 variables
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson08
+
+Theory:
+- What makes a computer fast
+    https://itcoder.co.za/lesson.php?c=theory12&id=performance
+
+Databases:
+- SQL 3: Keys and relationships
+    focus: keys: primary, foreign, composite; relationships one-to-one, one-to-many, many-to-many; referential integrity
+    https://itcoder.co.za/lesson.php?c=sql&id=dbkeys
+- SQL 4: A good design
+    focus: redundancy, repeating groups, duplicate and derived data, atomic and non-atomic fields; update, insert and delete anomalies
+    https://itcoder.co.za/lesson.php?c=sql&id=dbdesign",False
+"IT Gr 12: Term 1 starts",01/13/2027,01/13/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12 T1 W2: Pascal 15 Remembering a whole list - Arrays | Choosing a computer for the job",01/18/2027,01/22/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W2
+
+Programming:
+- Pascal 8 (part): Decisions / Branching (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson08
+- Pascal 15 (part): Remembering a whole list - Arrays
+    focus: dynamic arrays compared to static arrays (Good to Know); two-dimensional arrays: rows and columns, row and column totals, searching a grid
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15
+
+Theory:
+- What makes a computer fast (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=performance
+- Choosing a computer for the job
+    https://itcoder.co.za/lesson.php?c=theory12&id=choosingcomputer
+
+Databases:
+- SQL 4: A good design (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=dbdesign
+- SQL 5: Normalisation step by step
+    focus: normalisation: 1NF, 2NF, 3NF; partial and transitive dependencies
+    https://itcoder.co.za/lesson.php?c=sql&id=dbnormal
+- SQL 6 (part): Looking after data
+    focus: threats to data quality: corrupted, outdated and invalidated data
+    https://itcoder.co.za/lesson.php?c=sql&id=dbcare",False
+"IT Gr 12 T1 W3: Cloud computing | SQL 7 Big data",01/25/2027,01/29/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W3
+
+Programming:
+- Pascal 15 (part): Remembering a whole list - Arrays (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15
+
+Theory:
+- Cloud computing
+    https://itcoder.co.za/lesson.php?c=theory12&id=cloudcomputing
+- Artificial intelligence
+    https://itcoder.co.za/lesson.php?c=theory12&id=ai12
+
+Databases:
+- SQL 7: Big data
+    focus: data warehousing and data mining - description, purpose, uses; big data sources (social media, activity-generated data, logs and audit trails, location data); NoSQL - description, an example (MongoDB), comparison with SQL
+    https://itcoder.co.za/lesson.php?c=sql&id=dbbig
+- SQL 16: Joining tables
+    focus: multi-table SQL: INNER JOIN and WHERE on matching keys; keys: primary and foreign; relationships between tables
+    https://itcoder.co.za/lesson.php?c=sql&id=access08",False
+"IT Gr 12 T1 W4: Pascal 17 Persistence - Text files | VR, AR and MR",02/01/2027,02/05/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W4
+
+Programming:
+- Pascal 15 (part): Remembering a whole list - Arrays (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15
+- Pascal 17 (part): Persistence - Text files
+    focus: JSON compared with text files and databases (Good to Know)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17
+
+Theory:
+- Artificial intelligence (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=ai12
+- VR, AR and MR
+    https://itcoder.co.za/lesson.php?c=theory12&id=vrarmr
+
+Databases:
+- SQL 16: Joining tables (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access08
+- SQL 17 (part): Questions inside questions
+    focus: multi-table SQL: subqueries; LEFT and RIGHT JOIN; NOT IN or an outer join to find unrelated records; INSERT ... SELECT
+    https://itcoder.co.za/lesson.php?c=sql&id=access09",False
+"IT Gr 12 T1 W5: Collecting and caring for data",02/08/2027,02/12/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W5
+
+Programming:
+- Pascal 17 (part): Persistence - Text files (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17
+
+Theory:
+- VR, AR and MR (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=vrarmr
+- Collecting and caring for data
+    https://itcoder.co.za/lesson.php?c=theory12&id=datacollection",False
+"IT Gr 12 T1 W6: Pascal 20 Managing a list - the array manager class | Data warehouses, data mining and big ...",02/15/2027,02/18/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W6
+
+Programming:
+- Pascal 17 (part): Persistence - Text files (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson17
+- Pascal 20 (part): Managing a list - the array manager class
+    focus: an array as a field of an object, an object as a field, and an object whose fields are arrays of two different object types; fields of complex type, passing and returning complex types, null objects and null fields, and comparing data structures; sending and giving back arrays and arrays of objects
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+
+Theory:
+- Collecting and caring for data (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=datacollection
+- Data warehouses, data mining and big data
+    https://itcoder.co.za/lesson.php?c=theory12&id=warehousemining",False
+"IT Gr 12 T1 W7: Centralised and distributed processing",02/23/2027,02/26/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W7
+
+Programming:
+- Pascal 20 (part): Managing a list - the array manager class (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+
+Theory:
+- Centralised and distributed processing
+    https://itcoder.co.za/lesson.php?c=theory12&id=distributed
+- Sharing and remote access
+    https://itcoder.co.za/lesson.php?c=theory12&id=sharingremote",False
+"IT Gr 12 T1 W8: Connecting a home or school",03/01/2027,03/05/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W8
+
+Programming:
+- Pascal 20 (part): Managing a list - the array manager class (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+
+Theory:
+- Sharing and remote access (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=sharingremote
+- Connecting a home or school
+    https://itcoder.co.za/lesson.php?c=theory12&id=connecthome
+- Better searching and SEO
+    https://itcoder.co.za/lesson.php?c=theory12&id=seo",False
+"IT Gr 12 T1 W9: Pascal 21 Family trees - Inheritance and polymorphism | How online applications work",03/08/2027,03/12/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W9
+
+Programming:
+- Pascal 20 (part): Managing a list - the array manager class (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+- Pascal 21 (part): Family trees - Inheritance and polymorphism
+    focus: inheritance: superclass (ancestor) and subclass (descendant), overriding with Virtual and Override, polymorphism and dynamic binding, calling the ancestor's methods, advantages of inheritance, object-as-field compared with inheritance (has-a vs is-a), and type determination with is (and as); an array of inherited objects; abstraction: using inheritance to reduce complexity, and efficiency through the reuse of classes
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+
+Theory:
+- Better searching and SEO (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=seo
+- How online applications work
+    https://itcoder.co.za/lesson.php?c=theory12&id=onlineapps",False
+"IT Gr 12 T1 W10: The deep web and the dark web",03/15/2027,03/19/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W10
+
+Programming:
+- Pascal 21 (part): Family trees - Inheritance and polymorphism (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+
+Theory:
+- How online applications work (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=onlineapps
+- The deep web and the dark web
+    https://itcoder.co.za/lesson.php?c=theory12&id=deepdark",False
+"IT Gr 12 T1 W11: Keys, SSL and certificates",03/23/2027,03/25/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W11
+
+Programming:
+- Pascal 21 (part): Family trees - Inheritance and polymorphism (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+
+Theory:
+- Keys, SSL and certificates
+    https://itcoder.co.za/lesson.php?c=theory12&id=encryption
+- Cryptocurrency
+    https://itcoder.co.za/lesson.php?c=theory12&id=cryptocurrency",False
+"IT Gr 12 T1 W12: Cybercrime in depth",03/30/2027,04/02/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W12
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Cryptocurrency (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=cryptocurrency
+- Cybercrime in depth
+    https://itcoder.co.za/lesson.php?c=theory12&id=cybercrime12",False
+"IT Gr 12 T1 W13: Evaluating and recommending security",04/05/2027,04/09/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T1 W13
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Cybercrime in depth (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=cybercrime12
+- Evaluating and recommending security
+    https://itcoder.co.za/lesson.php?c=theory12&id=securityplan",False
+"IT Gr 12: Term 1 ends",04/09/2027,04/09/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12 T2 W1: Privacy, rights and the law",05/05/2027,05/07/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W1
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Privacy, rights and the law
+    https://itcoder.co.za/lesson.php?c=theory12&id=privacylaw",False
+"IT Gr 12: Term 2 starts",05/05/2027,05/05/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12 T2 W2: Computers and the big problems",05/10/2027,05/14/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W2
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Computers and the big problems
+    https://itcoder.co.za/lesson.php?c=theory12&id=bigproblems
+- Social networking and its effects
+    https://itcoder.co.za/lesson.php?c=theory12&id=socialnetworking",False
+"IT Gr 12 T2 W3: Green computing",05/17/2027,05/21/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W3
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Social networking and its effects (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=socialnetworking
+- Green computing
+    https://itcoder.co.za/lesson.php?c=theory12&id=green12",False
+"IT Gr 12 T2 W4: Objects in depth",05/24/2027,05/28/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W4
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Green computing (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=green12
+- Objects in depth
+    https://itcoder.co.za/lesson.php?c=theory12&id=oop12",False
+"IT Gr 12 T2 W5: Two-dimensional arrays",05/31/2027,06/04/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W5
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Objects in depth (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=oop12
+- Two-dimensional arrays
+    https://itcoder.co.za/lesson.php?c=theory12&id=arrays2d",False
+"IT Gr 12: Mid-year exams",06/07/2027,06/24/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12 T2 W9: Dynamic arrays and JSON",07/05/2027,07/09/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W9
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Dynamic arrays and JSON
+    https://itcoder.co.za/lesson.php?c=theory12&id=dynamicjson
+- Bigger truth tables
+    https://itcoder.co.za/lesson.php?c=theory12&id=truthtables4",False
+"IT Gr 12 T2 W10: Efficient algorithms",07/12/2027,07/16/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T2 W10
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Bigger truth tables (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=truthtables4
+- Efficient algorithms
+    https://itcoder.co.za/lesson.php?c=theory12&id=efficiency",False
+"IT Gr 12: Preliminary (trial) exams",07/19/2027,08/06/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12: Term 2 ends",08/06/2027,08/06/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12 T3 W1: Pascal 27 Practical exam guide - IEB | Theory exam guide - IEB",09/07/2027,09/10/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W1
+
+Programming:
+- Pascal 27: Practical exam guide - IEB
+    focus: inheritance in the exam: Inherited Create, Override, and a toString that builds on the parent's
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson24
+
+Theory:
+- Theory exam guide - IEB
+    https://itcoder.co.za/lesson.php?c=theory12&id=examieb
+
+Databases:
+- SQL 18: Practical exam guide - IEB Section A
+    focus: SQL as the IEB practical examination asks it: single- and multi-table queries, aggregates with GROUP BY and HAVING, dates, subqueries, UPDATE and INSERT ... SELECT on a given database
+    https://itcoder.co.za/lesson.php?c=sql&id=access10",False
+"IT Gr 12: Term 3 starts",09/07/2027,09/07/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12 T3 W2: ",09/13/2027,09/17/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W2
+
+Programming:
+- Pascal 27: Practical exam guide - IEB (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson24
+
+Theory:
+- Theory revision and past-paper questions",False
+"IT Gr 12 T3 W3: Revision",09/20/2027,09/23/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W3
+
+Revision and exam practice: past papers, and the exam guide lessons.",False
+"IT Gr 12 T3 W4: Revision",09/27/2027,10/01/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W4
+
+Revision and exam practice: past papers, and the exam guide lessons.",False
+"IT Gr 12 T3 W5: Revision",10/04/2027,10/08/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline) - T3 W5
+
+Revision and exam practice: past papers, and the exam guide lessons.",False
+"IT Gr 12: Final (NSC) exams start",10/12/2027,10/12/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 12: Term 3 ends",12/03/2027,12/03/2027,True,"IEB Grade 12 - Pascal - Access - Other three-term independent school (ISASA guideline)",False

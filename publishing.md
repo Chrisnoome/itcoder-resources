@@ -47,6 +47,11 @@ log, and runs the sandbox check against live.
 
 Both are safe to re-run and never delete anything.
 
+**Reminders and email (27 September 2026):** deploy-live.py also makes
+`/var/log/itcoder-remind.log` and adds the cron line for `bin/remind.php`
+(weekdays 04:30 UTC) - live only; the test site never gets it. Email keys go to
+live with `tools/set-server-config.py mail` (it asks for the key; never printed).
+
 ## When something goes wrong
 
 - **`[STOP] Not published to test yet`** - script, installed copy and proven

@@ -1,0 +1,532 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT CAPS Grade 12 - Pascal - Other three-term independent schoo
+ l (ISASA guideline)
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 12 T1 W1: Pascal 24 SQLite databases in Delphi (or lesson 25\
+ , in Lazarus) | What makes a computer fast
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W1\n\nProgramming:\n- Pascal 24 (part): SQLite databas
+ es in Delphi (or lesson 25\, in Lazarus)\n    focus: SQL from a program\, i
+ ncluding queries with a parameter from the user\n    https://itcoder.co.za/
+ lesson.php?c=pascal&id=capssqlitedelphi\n- Pascal 105 (part): The Grade 12 
+ PAT - CAPS\n    focus: starting the PAT: task description and analysis of r
+ equirements\n    https://itcoder.co.za/lesson.php?c=pascal&id=capspat12\n\n
+ Theory:\n- What makes a computer fast\n    https://itcoder.co.za/lesson.php
+ ?c=theory12&id=performance\n\nDatabases:\n- SQL 1 (part): Good data in a da
+ tabase\n    focus: caring for data: validation\, verification\, integrity\n
+     https://itcoder.co.za/lesson.php?c=sql&id=dbdata\n- SQL 4: A good desig
+ n\n    focus: a good database: integrity\, redundancy\; anomalies\, and rem
+ oving them (the concept of normalisation): split tables and create relation
+ s\n    https://itcoder.co.za/lesson.php?c=sql&id=dbdesign\n- SQL 5: Normali
+ sation step by step\n    focus: anomalies\, and removing them - the concept
+  of normalisation (the formal normal forms go beyond CAPS)\n    https://itc
+ oder.co.za/lesson.php?c=sql&id=dbnormal
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 12: Term 1 starts
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 12 T1 W2: Choosing a computer for the job | SQL 6 Looking aft
+ er data
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W2\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- What makes a computer fast (continued)\n    https://itc
+ oder.co.za/lesson.php?c=theory12&id=performance\n- Choosing a computer for 
+ the job\n    https://itcoder.co.za/lesson.php?c=theory12&id=choosingcompute
+ r\n\nDatabases:\n- SQL 5: Normalisation step by step (continued)\n    https
+ ://itcoder.co.za/lesson.php?c=sql&id=dbnormal\n- SQL 6: Looking after data\
+ n    focus: caring for data: logging changes (who\, what\, when)\, access c
+ ontrol (passwords\, security\, user rights)\, parallel data sets\n    https
+ ://itcoder.co.za/lesson.php?c=sql&id=dbcare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 12 T1 W3: SQL 7 Big data
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W3\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Choosing a computer for the job (continued)\n    https:
+ //itcoder.co.za/lesson.php?c=theory12&id=choosingcomputer\n\nDatabases:\n- 
+ SQL 7: Big data\n    focus: data collection (including invisible online col
+ lection and transaction tracking)\; data warehousing - warehouse vs databas
+ e\; data mining - the process and examples\n    https://itcoder.co.za/lesso
+ n.php?c=sql&id=dbbig\n- SQL 8 (part): Getting started in Access\n    focus:
+  SQL: SELECT all fields FROM a table\; the aggregate function COUNT\n    ht
+ tps://itcoder.co.za/lesson.php?c=sql&id=access00\n- SQL 10 (part): Asking q
+ uestions: WHERE and ORDER BY\n    focus: SQL: SELECT some fields FROM a tab
+ le\; ORDER BY\; WHERE with >\, >=\, <\, <=\, =\; AND\, OR\, NOT\n    https:
+ //itcoder.co.za/lesson.php?c=sql&id=access02
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 12 T1 W4: Collecting and caring for data | SQL 11 Finding pat
+ terns: LIKE\, BETWEEN\, IN and more
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W4\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Collecting and caring for data\n    https://itcoder.co.
+ za/lesson.php?c=theory12&id=datacollection\n\nDatabases:\n- SQL 10 (part): 
+ Asking questions: WHERE and ORDER BY (continued)\n    https://itcoder.co.za
+ /lesson.php?c=sql&id=access02\n- SQL 11: Finding patterns: LIKE\, BETWEEN\,
+  IN and more\n    focus: SQL: WHERE with LIKE and wild cards\, BETWEEN\, IN
+ \, IS NULL\; DISTINCT\; TOP\n    https://itcoder.co.za/lesson.php?c=sql&id=
+ access03
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 12 T1 W5: Data warehouses\, data mining and big data | SQL 12
+  Calculated fields and text
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W5\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Collecting and caring for data (continued)\n    https:/
+ /itcoder.co.za/lesson.php?c=theory12&id=datacollection\n- Data warehouses\,
+  data mining and big data\n    https://itcoder.co.za/lesson.php?c=theory12&
+ id=warehousemining\n\nDatabases:\n- SQL 11: Finding patterns: LIKE\, BETWEE
+ N\, IN and more (continued)\n    https://itcoder.co.za/lesson.php?c=sql&id=
+ access03\n- SQL 12: Calculated fields and text\n    focus: SQL: calculated 
+ fields with AS\; ROUND\, INT\, LENGTH (LEN)\; LEFT\, RIGHT\, MID\; concaten
+ ating fields\; FORMAT\; mathematical operators\n    https://itcoder.co.za/l
+ esson.php?c=sql&id=access04
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270219
+SUMMARY:IT Gr 12 T1 W6: Privacy\, rights and the law | SQL 13 Dates in Acce
+ ss
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W6\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Data warehouses\, data mining and big data (continued)\
+ n    https://itcoder.co.za/lesson.php?c=theory12&id=warehousemining\n- Priv
+ acy\, rights and the law\n    https://itcoder.co.za/lesson.php?c=theory12&i
+ d=privacylaw\n\nDatabases:\n- SQL 13: Dates in Access\n    focus: SQL: #dat
+ e# in WHERE\; date functions (day\, month\, year\, date)\n    https://itcod
+ er.co.za/lesson.php?c=sql&id=access05\n- SQL 14: Counting and totals\n    f
+ ocus: SQL: aggregate functions SUM\, MIN\, MAX\, AVG\, COUNT\; GROUP BY and
+  HAVING\n    https://itcoder.co.za/lesson.php?c=sql&id=access06
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270223-7@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270223
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 12 T1 W7: SQL 15 Changing data: INSERT\, UPDATE and DELETE
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W7\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Privacy\, rights and the law (continued)\n    https://i
+ tcoder.co.za/lesson.php?c=theory12&id=privacylaw\n\nDatabases:\n- SQL 14: C
+ ounting and totals (continued)\n    https://itcoder.co.za/lesson.php?c=sql&
+ id=access06\n- SQL 15 (part): Changing data: INSERT\, UPDATE and DELETE\n  
+   focus: SQL: INSERT\, DELETE\, UPDATE - one and several records\n    https
+ ://itcoder.co.za/lesson.php?c=sql&id=access07
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 12 T1 W8: SQL 16 Joining tables
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W8\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Theory revision and past-paper questions\n\nDatabases:\
+ n- SQL 15 (part): Changing data: INSERT\, UPDATE and DELETE (continued)\n  
+   https://itcoder.co.za/lesson.php?c=sql&id=access07\n- SQL 16 (part): Join
+ ing tables\n    focus: SQL: a join query (single join) using WHERE\; aggreg
+ ate functions with GROUP BY and HAVING on the joined tables\n    https://it
+ coder.co.za/lesson.php?c=sql&id=access08\n- SQL 17: Questions inside questi
+ ons (optional extra)\n    https://itcoder.co.za/lesson.php?c=sql&id=access0
+ 9
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 12 T1 W9: Pascal 15 Remembering a whole list - Arrays | Cloud
+  computing
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W9\n\nProgramming:\n- Pascal 15 (part): Remembering a 
+ whole list - Arrays\n    focus: two-dimensional arrays: structure\, populat
+ ing\, looping through\, row and column aggregates\n    https://itcoder.co.z
+ a/lesson.php?c=pascal&id=lesson15\n- Pascal 16 (part): Smart data - Classes
+  and objects\n    focus: OOP: parameterised and non-parameterised construct
+ ors\, private and public attributes\, accessor\, mutator and auxiliary meth
+ ods\, ToString\, and instantiating objects correctly\n    https://itcoder.c
+ o.za/lesson.php?c=pascal&id=lesson16\n\nTheory:\n- Cloud computing\n    htt
+ ps://itcoder.co.za/lesson.php?c=theory12&id=cloudcomputing\n- Artificial in
+ telligence\n    https://itcoder.co.za/lesson.php?c=theory12&id=ai12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 12 T1 W10: VR\, AR and MR
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W10\n\nProgramming:\n- Pascal 16 (part): Smart data - 
+ Classes and objects (continued)\n    https://itcoder.co.za/lesson.php?c=pas
+ cal&id=lesson16\n\nTheory:\n- Artificial intelligence (continued)\n    http
+ s://itcoder.co.za/lesson.php?c=theory12&id=ai12\n- VR\, AR and MR\n    http
+ s://itcoder.co.za/lesson.php?c=theory12&id=vrarmr
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270323-11@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270323
+DTEND;VALUE=DATE:20270326
+SUMMARY:IT Gr 12 T1 W11: Pascal 20 Managing a list - the array manager clas
+ s | Centralised and distributed processing
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W11\n\nProgramming:\n- Pascal 20 (part): Managing a li
+ st - the array manager class\n    focus: OOP: using the methods of several 
+ objects together to solve a problem\n    https://itcoder.co.za/lesson.php?c
+ =pascal&id=lesson20\n\nTheory:\n- VR\, AR and MR (continued)\n    https://i
+ tcoder.co.za/lesson.php?c=theory12&id=vrarmr\n- Centralised and distributed
+  processing\n    https://itcoder.co.za/lesson.php?c=theory12&id=distributed
+ \n- Cybercrime in depth\n    https://itcoder.co.za/lesson.php?c=theory12&id
+ =cybercrime12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270330-12@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270330
+DTEND;VALUE=DATE:20270403
+SUMMARY:IT Gr 12 T1 W12: Pascal 21 Family trees - Inheritance and polymorph
+ ism | Evaluating and recommending security
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W12\n\nProgramming:\n- Pascal 20 (part): Managing a li
+ st - the array manager class (continued)\n    https://itcoder.co.za/lesson.
+ php?c=pascal&id=lesson20\n- Pascal 21 (part): Family trees - Inheritance an
+ d polymorphism\n    focus: OOP: constructors\, attributes\, methods and cor
+ rect instantiation - inheritance and polymorphism themselves go beyond CAPS
+ \n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21\n\nTheory:\n- C
+ ybercrime in depth (continued)\n    https://itcoder.co.za/lesson.php?c=theo
+ ry12&id=cybercrime12\n- Evaluating and recommending security\n    https://i
+ tcoder.co.za/lesson.php?c=theory12&id=securityplan
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270405-13@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270405
+DTEND;VALUE=DATE:20270410
+SUMMARY:IT Gr 12 T1 W13: Objects in depth
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T1 W13\n\nProgramming:\n- Pascal 21 (part): Family trees 
+ - Inheritance and polymorphism (continued)\n    https://itcoder.co.za/lesso
+ n.php?c=pascal&id=lesson21\n\nTheory:\n- Evaluating and recommending securi
+ ty (continued)\n    https://itcoder.co.za/lesson.php?c=theory12&id=security
+ plan\n- Objects in depth\n    https://itcoder.co.za/lesson.php?c=theory12&i
+ d=oop12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270409-14@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270409
+DTEND;VALUE=DATE:20270410
+SUMMARY:IT Gr 12: Term 1 ends
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270505-15@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 12 T2 W1: Pascal 22 Talking to people - Text user interfaces 
+ | Two-dimensional arrays
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T2 W1\n\nProgramming:\n- Pascal 22 (part): Talking to peo
+ ple - Text user interfaces\n    focus: interface design: functionality and 
+ usability principles\n    https://itcoder.co.za/lesson.php?c=pascal&id=less
+ on22\n- Pascal 105 (part): The Grade 12 PAT - CAPS\n    focus: interface de
+ sign\, program design\, continuing the PAT\n    https://itcoder.co.za/lesso
+ n.php?c=pascal&id=capspat12\n\nTheory:\n- Objects in depth (continued)\n   
+  https://itcoder.co.za/lesson.php?c=theory12&id=oop12\n- Two-dimensional ar
+ rays\n    https://itcoder.co.za/lesson.php?c=theory12&id=arrays2d
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270505-16@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:IT Gr 12: Term 2 starts
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270510-17@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 12 T2 W2: Pascal 18 Catching errors - Defensive programming |
+  Sharing and remote access
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T2 W2\n\nProgramming:\n- Pascal 18 (part): Catching error
+ s - Defensive programming\n    focus: testing and validating a solution aga
+ inst its design specifications\n    https://itcoder.co.za/lesson.php?c=pasc
+ al&id=lesson18\n\nTheory:\n- Sharing and remote access\n    https://itcoder
+ .co.za/lesson.php?c=theory12&id=sharingremote\n- Connecting a home or schoo
+ l\n    https://itcoder.co.za/lesson.php?c=theory12&id=connecthome
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270517-18@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 12 T2 W3: Pascal 105 The Grade 12 PAT - CAPS | Better searchi
+ ng and SEO
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T2 W3\n\nProgramming:\n- Pascal 18 (part): Catching error
+ s - Defensive programming (continued)\n    https://itcoder.co.za/lesson.php
+ ?c=pascal&id=lesson18\n- Pascal 105 (part): The Grade 12 PAT - CAPS\n    fo
+ cus: finalising the PAT\n    https://itcoder.co.za/lesson.php?c=pascal&id=c
+ apspat12\n\nTheory:\n- Better searching and SEO\n    https://itcoder.co.za/
+ lesson.php?c=theory12&id=seo\n- How online applications work\n    https://i
+ tcoder.co.za/lesson.php?c=theory12&id=onlineapps
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270524-19@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 12 T2 W4: Keys\, SSL and certificates
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T2 W4\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Keys\, SSL and certificates\n    https://itcoder.co.za/
+ lesson.php?c=theory12&id=encryption\n- Cryptocurrency\n    https://itcoder.
+ co.za/lesson.php?c=theory12&id=cryptocurrency
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270531-20@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270605
+SUMMARY:IT Gr 12 T2 W5: Computers and the big problems
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T2 W5\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Computers and the big problems\n    https://itcoder.co.
+ za/lesson.php?c=theory12&id=bigproblems\n- Social networking and its effect
+ s\n    https://itcoder.co.za/lesson.php?c=theory12&id=socialnetworking
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270604-21@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:IT Gr 12: PAT Phase 1 due (a week before the mid-year exams)
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270607-22@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270625
+SUMMARY:IT Gr 12: Mid-year exams
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270705-23@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270705
+DTEND;VALUE=DATE:20270710
+SUMMARY:IT Gr 12 T2 W9: Green computing
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T2 W9\n\nProgramming:\n- Practice\, consolidation and PAT
+  work\n\nTheory:\n- Social networking and its effects (continued)\n    http
+ s://itcoder.co.za/lesson.php?c=theory12&id=socialnetworking\n- Green comput
+ ing\n    https://itcoder.co.za/lesson.php?c=theory12&id=green12\n- Dynamic 
+ arrays and JSON\n    https://itcoder.co.za/lesson.php?c=theory12&id=dynamic
+ json
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270712-24@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270712
+DTEND;VALUE=DATE:20270717
+SUMMARY:IT Gr 12 T2 W10: Bigger truth tables
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T2 W10\n\nProgramming:\n- Practice\, consolidation and PA
+ T work\n\nTheory:\n- Bigger truth tables\n    https://itcoder.co.za/lesson.
+ php?c=theory12&id=truthtables4\n- Efficient algorithms\n    https://itcoder
+ .co.za/lesson.php?c=theory12&id=efficiency
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270716-25@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270717
+SUMMARY:IT Gr 12: PAT Phase 2 due (coding and testing)
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270719-26@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270719
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 12: Preliminary (trial) exams
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270806-27@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270806
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 12: Term 2 ends
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270907-28@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270907
+DTEND;VALUE=DATE:20270911
+SUMMARY:IT Gr 12 T3 W1: Pascal 28 Practical exam guide - CAPS | Theory exam
+  guide - CAPS
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T3 W1\n\nProgramming:\n- Pascal 28: Practical exam guide 
+ - CAPS\n    focus: OOP: constructors\, attributes\, accessor and mutator me
+ thods\, ToString\, instantiating an object from a form\; two-dimensional ar
+ rays: populating and looping through them\; consolidating everything to dev
+ elop a software solution\, as Paper 1 examines it\n    https://itcoder.co.z
+ a/lesson.php?c=pascal&id=lesson25\n\nTheory:\n- Theory exam guide - CAPS\n 
+    https://itcoder.co.za/lesson.php?c=theory12&id=examcaps\n\nDatabases:\n-
+  SQL 19: Practical exam guide - CAPS Question 2\n    focus: solutions incor
+ porating SQL in a Delphi program: SELECT\, aggregates with GROUP BY and HAV
+ ING\, a join using WHERE\, INSERT\, UPDATE and DELETE\; a value from the us
+ er in the SQL\n    https://itcoder.co.za/lesson.php?c=sql&id=capsguide
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270907-29@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270907
+DTEND;VALUE=DATE:20270908
+SUMMARY:IT Gr 12: Term 3 starts
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270913-30@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 12 T3 W2: 
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T3 W2\n\nProgramming:\n- Pascal 28: Practical exam guide 
+ - CAPS (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 25\n\nTheory:\n- Theory revision and past-paper questions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270920-31@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270920
+DTEND;VALUE=DATE:20270924
+SUMMARY:IT Gr 12 T3 W3: Revision
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T3 W3\n\nRevision and exam practice: past papers\, and th
+ e exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20270927-32@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270927
+DTEND;VALUE=DATE:20271002
+SUMMARY:IT Gr 12 T3 W4: Revision
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T3 W4\n\nRevision and exam practice: past papers\, and th
+ e exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20271004-33@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271004
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 12 T3 W5: Revision
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline) - T3 W5\n\nRevision and exam practice: past papers\, and th
+ e exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20271012-34@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271012
+DTEND;VALUE=DATE:20271013
+SUMMARY:IT Gr 12: Final (NSC) exams start
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-caps12-pascal-access-20271203-35@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271203
+DTEND;VALUE=DATE:20271204
+SUMMARY:IT Gr 12: Term 3 ends
+DESCRIPTION:CAPS Grade 12 - Pascal - Other three-term independent school (I
+ SASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

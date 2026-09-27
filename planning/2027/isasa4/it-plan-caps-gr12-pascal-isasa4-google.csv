@@ -1,0 +1,344 @@
+﻿Subject,"Start Date","End Date","All Day Event",Description,Private
+"IT Gr 12 T1 W1: Pascal 24 SQLite databases in Delphi (or lesson 25, in Lazarus) | What makes a computer fast",01/13/2027,01/15/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W1
+
+Programming:
+- Pascal 24 (part): SQLite databases in Delphi (or lesson 25, in Lazarus)
+    focus: SQL from a program, including queries with a parameter from the user
+    https://itcoder.co.za/lesson.php?c=pascal&id=capssqlitedelphi
+- Pascal 105 (part): The Grade 12 PAT - CAPS
+    focus: starting the PAT: task description and analysis of requirements
+    https://itcoder.co.za/lesson.php?c=pascal&id=capspat12
+
+Theory:
+- What makes a computer fast
+    https://itcoder.co.za/lesson.php?c=theory12&id=performance
+
+Databases:
+- SQL 1 (part): Good data in a database
+    focus: caring for data: validation, verification, integrity
+    https://itcoder.co.za/lesson.php?c=sql&id=dbdata
+- SQL 4: A good design
+    focus: a good database: integrity, redundancy; anomalies, and removing them (the concept of normalisation): split tables and create relations
+    https://itcoder.co.za/lesson.php?c=sql&id=dbdesign
+- SQL 5: Normalisation step by step
+    focus: anomalies, and removing them - the concept of normalisation (the formal normal forms go beyond CAPS)
+    https://itcoder.co.za/lesson.php?c=sql&id=dbnormal",False
+"IT Gr 12: Term 1 starts",01/13/2027,01/13/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12 T1 W2: Choosing a computer for the job | SQL 6 Looking after data",01/18/2027,01/22/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W2
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- What makes a computer fast (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=performance
+- Choosing a computer for the job
+    https://itcoder.co.za/lesson.php?c=theory12&id=choosingcomputer
+
+Databases:
+- SQL 5: Normalisation step by step (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=dbnormal
+- SQL 6: Looking after data
+    focus: caring for data: logging changes (who, what, when), access control (passwords, security, user rights), parallel data sets
+    https://itcoder.co.za/lesson.php?c=sql&id=dbcare",False
+"IT Gr 12 T1 W3: SQL 7 Big data",01/25/2027,01/29/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W3
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Choosing a computer for the job (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=choosingcomputer
+
+Databases:
+- SQL 7: Big data
+    focus: data collection (including invisible online collection and transaction tracking); data warehousing - warehouse vs database; data mining - the process and examples
+    https://itcoder.co.za/lesson.php?c=sql&id=dbbig
+- SQL 8 (part): Getting started in Access
+    focus: SQL: SELECT all fields FROM a table; the aggregate function COUNT
+    https://itcoder.co.za/lesson.php?c=sql&id=access00
+- SQL 10 (part): Asking questions: WHERE and ORDER BY
+    focus: SQL: SELECT some fields FROM a table; ORDER BY; WHERE with >, >=, <, <=, =; AND, OR, NOT
+    https://itcoder.co.za/lesson.php?c=sql&id=access02",False
+"IT Gr 12 T1 W4: Collecting and caring for data | SQL 11 Finding patterns: LIKE, BETWEEN, IN and more",02/01/2027,02/05/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W4
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Collecting and caring for data
+    https://itcoder.co.za/lesson.php?c=theory12&id=datacollection
+
+Databases:
+- SQL 10 (part): Asking questions: WHERE and ORDER BY (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access02
+- SQL 11: Finding patterns: LIKE, BETWEEN, IN and more
+    focus: SQL: WHERE with LIKE and wild cards, BETWEEN, IN, IS NULL; DISTINCT; TOP
+    https://itcoder.co.za/lesson.php?c=sql&id=access03",False
+"IT Gr 12 T1 W5: Data warehouses, data mining and big data | SQL 12 Calculated fields and text",02/08/2027,02/12/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W5
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Collecting and caring for data (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=datacollection
+- Data warehouses, data mining and big data
+    https://itcoder.co.za/lesson.php?c=theory12&id=warehousemining
+
+Databases:
+- SQL 11: Finding patterns: LIKE, BETWEEN, IN and more (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access03
+- SQL 12: Calculated fields and text
+    focus: SQL: calculated fields with AS; ROUND, INT, LENGTH (LEN); LEFT, RIGHT, MID; concatenating fields; FORMAT; mathematical operators
+    https://itcoder.co.za/lesson.php?c=sql&id=access04",False
+"IT Gr 12 T1 W6: Privacy, rights and the law | SQL 13 Dates in Access",02/15/2027,02/19/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W6
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Data warehouses, data mining and big data (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=warehousemining
+- Privacy, rights and the law
+    https://itcoder.co.za/lesson.php?c=theory12&id=privacylaw
+
+Databases:
+- SQL 13: Dates in Access
+    focus: SQL: #date# in WHERE; date functions (day, month, year, date)
+    https://itcoder.co.za/lesson.php?c=sql&id=access05
+- SQL 14: Counting and totals
+    focus: SQL: aggregate functions SUM, MIN, MAX, AVG, COUNT; GROUP BY and HAVING
+    https://itcoder.co.za/lesson.php?c=sql&id=access06",False
+"IT Gr 12 T1 W7: SQL 15 Changing data: INSERT, UPDATE and DELETE",02/22/2027,02/26/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W7
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Privacy, rights and the law (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=privacylaw
+
+Databases:
+- SQL 14: Counting and totals (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access06
+- SQL 15 (part): Changing data: INSERT, UPDATE and DELETE
+    focus: SQL: INSERT, DELETE, UPDATE - one and several records
+    https://itcoder.co.za/lesson.php?c=sql&id=access07",False
+"IT Gr 12 T1 W8: SQL 16 Joining tables",03/01/2027,03/05/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W8
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Theory revision and past-paper questions
+
+Databases:
+- SQL 15 (part): Changing data: INSERT, UPDATE and DELETE (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access07
+- SQL 16 (part): Joining tables
+    focus: SQL: a join query (single join) using WHERE; aggregate functions with GROUP BY and HAVING on the joined tables
+    https://itcoder.co.za/lesson.php?c=sql&id=access08
+- SQL 17: Questions inside questions (optional extra)
+    https://itcoder.co.za/lesson.php?c=sql&id=access09",False
+"IT Gr 12 T1 W9: ",03/08/2027,03/12/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W9
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Theory revision and past-paper questions",False
+"IT Gr 12 T1 W10: ",03/15/2027,03/19/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T1 W10
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Theory revision and past-paper questions",False
+"IT Gr 12: Term 1 ends",03/19/2027,03/19/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12 T2 W1: Pascal 15 Remembering a whole list - Arrays | Cloud computing",04/13/2027,04/16/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W1
+
+Programming:
+- Pascal 15 (part): Remembering a whole list - Arrays
+    focus: two-dimensional arrays: structure, populating, looping through, row and column aggregates
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson15
+
+Theory:
+- Cloud computing
+    https://itcoder.co.za/lesson.php?c=theory12&id=cloudcomputing",False
+"IT Gr 12: Term 2 starts",04/13/2027,04/13/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12 T2 W2: Pascal 16 Smart data - Classes and objects | Artificial intelligence",04/19/2027,04/23/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W2
+
+Programming:
+- Pascal 16 (part): Smart data - Classes and objects
+    focus: OOP: parameterised and non-parameterised constructors, private and public attributes, accessor, mutator and auxiliary methods, ToString, and instantiating objects correctly
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson16
+
+Theory:
+- Artificial intelligence
+    https://itcoder.co.za/lesson.php?c=theory12&id=ai12",False
+"IT Gr 12 T2 W3: Pascal 20 Managing a list - the array manager class | VR, AR and MR",04/26/2027,04/30/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W3
+
+Programming:
+- Pascal 16 (part): Smart data - Classes and objects (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson16
+- Pascal 20 (part): Managing a list - the array manager class
+    focus: OOP: using the methods of several objects together to solve a problem
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+
+Theory:
+- Artificial intelligence (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=ai12
+- VR, AR and MR
+    https://itcoder.co.za/lesson.php?c=theory12&id=vrarmr",False
+"IT Gr 12 T2 W4: Centralised and distributed processing",05/03/2027,05/07/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W4
+
+Programming:
+- Pascal 20 (part): Managing a list - the array manager class (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+
+Theory:
+- Centralised and distributed processing
+    https://itcoder.co.za/lesson.php?c=theory12&id=distributed
+- Cybercrime in depth
+    https://itcoder.co.za/lesson.php?c=theory12&id=cybercrime12",False
+"IT Gr 12 T2 W5: Pascal 21 Family trees - Inheritance and polymorphism",05/10/2027,05/14/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W5
+
+Programming:
+- Pascal 20 (part): Managing a list - the array manager class (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson20
+- Pascal 21 (part): Family trees - Inheritance and polymorphism
+    focus: OOP: constructors, attributes, methods and correct instantiation - inheritance and polymorphism themselves go beyond CAPS
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+
+Theory:
+- Cybercrime in depth (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=cybercrime12",False
+"IT Gr 12 T2 W6: Evaluating and recommending security",05/17/2027,05/21/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W6
+
+Programming:
+- Pascal 21 (part): Family trees - Inheritance and polymorphism (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+
+Theory:
+- Evaluating and recommending security
+    https://itcoder.co.za/lesson.php?c=theory12&id=securityplan
+- Objects in depth
+    https://itcoder.co.za/lesson.php?c=theory12&id=oop12",False
+"IT Gr 12 T2 W7: Pascal 22 Talking to people - Text user interfaces",05/24/2027,05/28/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W7
+
+Programming:
+- Pascal 21 (part): Family trees - Inheritance and polymorphism (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21
+- Pascal 22 (part): Talking to people - Text user interfaces
+    focus: interface design: functionality and usability principles
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22
+
+Theory:
+- Objects in depth (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=oop12",False
+"IT Gr 12 T2 W8: Pascal 105 The Grade 12 PAT - CAPS | Two-dimensional arrays",05/31/2027,06/04/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T2 W8
+
+Programming:
+- Pascal 22 (part): Talking to people - Text user interfaces (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22
+- Pascal 105 (part): The Grade 12 PAT - CAPS
+    focus: interface design, program design, continuing the PAT
+    https://itcoder.co.za/lesson.php?c=pascal&id=capspat12
+
+Theory:
+- Two-dimensional arrays
+    https://itcoder.co.za/lesson.php?c=theory12&id=arrays2d",False
+"IT Gr 12: PAT Phase 1 due (a week before the mid-year exams)",06/04/2027,06/04/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12: Mid-year exams",06/07/2027,06/25/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12: Term 2 ends",06/25/2027,06/25/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12 T3 W1: Pascal 18 Catching errors - Defensive programming | Sharing and remote access",07/20/2027,07/23/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T3 W1
+
+Programming:
+- Pascal 18 (part): Catching errors - Defensive programming
+    focus: testing and validating a solution against its design specifications
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson18
+
+Theory:
+- Sharing and remote access
+    https://itcoder.co.za/lesson.php?c=theory12&id=sharingremote
+- Connecting a home or school
+    https://itcoder.co.za/lesson.php?c=theory12&id=connecthome
+- Better searching and SEO
+    https://itcoder.co.za/lesson.php?c=theory12&id=seo",False
+"IT Gr 12: Term 3 starts",07/20/2027,07/20/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12 T3 W2: Pascal 105 The Grade 12 PAT - CAPS | How online applications work",07/26/2027,07/30/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T3 W2
+
+Programming:
+- Pascal 18 (part): Catching errors - Defensive programming (continued)
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson18
+- Pascal 105 (part): The Grade 12 PAT - CAPS
+    focus: finalising the PAT
+    https://itcoder.co.za/lesson.php?c=pascal&id=capspat12
+
+Theory:
+- Better searching and SEO (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=seo
+- How online applications work
+    https://itcoder.co.za/lesson.php?c=theory12&id=onlineapps
+- The deep web and the dark web (optional extra)
+    https://itcoder.co.za/lesson.php?c=theory12&id=deepdark
+- Keys, SSL and certificates
+    https://itcoder.co.za/lesson.php?c=theory12&id=encryption",False
+"IT Gr 12 T3 W3: Cryptocurrency",08/02/2027,08/06/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T3 W3
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Keys, SSL and certificates (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=encryption
+- Cryptocurrency
+    https://itcoder.co.za/lesson.php?c=theory12&id=cryptocurrency
+- Computers and the big problems
+    https://itcoder.co.za/lesson.php?c=theory12&id=bigproblems",False
+"IT Gr 12 T3 W4: Social networking and its effects",08/10/2027,08/13/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T3 W4
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Social networking and its effects
+    https://itcoder.co.za/lesson.php?c=theory12&id=socialnetworking
+- Green computing
+    https://itcoder.co.za/lesson.php?c=theory12&id=green12
+- Dynamic arrays and JSON
+    https://itcoder.co.za/lesson.php?c=theory12&id=dynamicjson",False
+"IT Gr 12 T3 W5: Bigger truth tables",08/16/2027,08/20/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T3 W5
+
+Programming:
+- Practice, consolidation and PAT work
+
+Theory:
+- Dynamic arrays and JSON (continued)
+    https://itcoder.co.za/lesson.php?c=theory12&id=dynamicjson
+- Bigger truth tables
+    https://itcoder.co.za/lesson.php?c=theory12&id=truthtables4
+- Efficient algorithms
+    https://itcoder.co.za/lesson.php?c=theory12&id=efficiency",False
+"IT Gr 12: Preliminary (trial) exams",08/23/2027,09/17/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12: Term 3 ends",09/17/2027,09/17/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12: PAT Phase 2 due (coding and testing)",09/17/2027,09/17/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12 T4 W1: Pascal 28 Practical exam guide - CAPS | Theory exam guide - CAPS",10/05/2027,10/08/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline) - T4 W1
+
+Programming:
+- Pascal 28: Practical exam guide - CAPS
+    focus: OOP: constructors, attributes, accessor and mutator methods, ToString, instantiating an object from a form; two-dimensional arrays: populating and looping through them; consolidating everything to develop a software solution, as Paper 1 examines it
+    https://itcoder.co.za/lesson.php?c=pascal&id=lesson25
+
+Theory:
+- Theory exam guide - CAPS
+    https://itcoder.co.za/lesson.php?c=theory12&id=examcaps
+
+Databases:
+- SQL 19: Practical exam guide - CAPS Question 2
+    focus: solutions incorporating SQL in a Delphi program: SELECT, aggregates with GROUP BY and HAVING, a join using WHERE, INSERT, UPDATE and DELETE; a value from the user in the SQL
+    https://itcoder.co.za/lesson.php?c=sql&id=capsguide",False
+"IT Gr 12: Term 4 starts",10/05/2027,10/05/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12: Final (NSC) exams start",10/12/2027,10/12/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False
+"IT Gr 12: Term 4 ends",12/01/2027,12/01/2027,True,"CAPS Grade 12 - Pascal - Other four-term independent school (ISASA guideline)",False

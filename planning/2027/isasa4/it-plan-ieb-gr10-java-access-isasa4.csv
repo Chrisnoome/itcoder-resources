@@ -1,0 +1,91 @@
+﻿Term,Week,Monday,Friday,Programming,Theory,Databases,"Dates and tasks"
+"Term 1",1,2027-01-11,2027-01-15,"Java 1: What you learn when you learn programming","ICT and ICT systems
+Kinds of computers",,"Term 1 starts"
+"Term 1",2,2027-01-18,2027-01-22,"Java 1: What you learn when you learn programming (continued)
+Java 2: Proof of Life / Output - println and print","Kinds of computers (continued)
+Hardware and software",,
+"Term 1",3,2027-01-25,2027-01-29,"Java 2: Proof of Life / Output - println and print (continued)","Hardware and software (continued)
+Data, information and knowledge
+Inside the case",,
+"Term 1",4,2027-02-01,2027-02-05,"Java 2: Proof of Life / Output - println and print (continued)
+Java 3 (part): Where you write Java - IDEs
+Java 4: Making it pretty (optional extra)","Inside the case (continued)
+Processing and memory",,
+"Term 1",5,2027-02-08,2027-02-12,"Java 5: How to remember - Variables and constants","Storage
+Input - keyboards and pointing devices",,
+"Term 1",6,2027-02-15,2027-02-19,"Java 5: How to remember - Variables and constants (continued)","Input - keyboards and pointing devices (continued)
+Input - cameras, scanners, sound and sensors",,
+"Term 1",7,2027-02-22,2027-02-26,"Java 5: How to remember - Variables and constants (continued)
+Java 6: Getting input - Scanner","Output
+Ports and connectors",,
+"Term 1",8,2027-03-01,2027-03-05,"Java 6: Getting input - Scanner (continued)
+Java 7: Processing - basic maths","Communication devices
+Looking after hardware
+System software",,
+"Term 1",9,2027-03-08,2027-03-12,"Java 7: Processing - basic maths (continued)","System software (continued)
+Application software",,
+"Term 1",10,2027-03-15,2027-03-19,"Java 8: Type conversion","Application software (continued)
+Getting and owning software
+Looking after a computer",,"Term 1 ends"
+"Term 2",1,2027-04-12,2027-04-16,"Java 8: Type conversion (continued)
+Java 9: Decisions / Branching","Looking after a computer (continued)",,"Term 2 starts"
+"Term 2",2,2027-04-19,2027-04-23,"Java 9: Decisions / Branching (continued)","How computers store data
+Bits and bytes",,
+"Term 2",3,2027-04-26,2027-04-30,"Java 9: Decisions / Branching (continued)","Binary
+Hexadecimal and octal",,
+"Term 2",4,2027-05-03,2027-05-07,"Java 9: Decisions / Branching (continued)","Hexadecimal and octal (continued)
+Characters - ASCII and Unicode",,
+"Term 2",5,2027-05-10,2027-05-14,"Java 10: Division - / and %","Primitive data types
+Storing data and managing files",,
+"Term 2",6,2027-05-17,2027-05-21,"Java 11: Repeating instructions the easy and efficient way - for loops","Storing data and managing files (continued)
+Databases - a first look",,
+"Term 2",7,2027-05-24,2027-05-28,"Java 11: Repeating instructions the easy and efficient way - for loops (continued)","Why networks
+Types of networks",,
+"Term 2",8,2027-05-31,2027-06-04,"Java 12: Looped algorithms - totals, averages and shapes","Types of networks (continued)
+Communications media",,
+"Term 2",9,2027-06-07,2027-06-11,,,,"Mid-year exams"
+"Term 2",10,2027-06-14,2027-06-18,,,,"Mid-year exams"
+"Term 2",11,2027-06-21,2027-06-25,,,,"Mid-year exams
+Term 2 ends"
+"Term 3",1,2027-07-19,2027-07-23,"Java 12: Looped algorithms - totals, averages and shapes (continued)","Communications media (continued)
+E-mail","SQL 2 (part): What a database is
+SQL 8 (part): Getting started in Access","Term 3 starts"
+"Term 3",2,2027-07-26,2027-07-30,"Java 12: Looped algorithms - totals, averages and shapes (continued)
+Java 13: Flexible loops - while and do ... while","E-mail (continued)
+Chat, instant messaging, VoIP and video","SQL 9: Building a table in Access
+SQL 10: Asking questions: WHERE and ORDER BY",
+"Term 3",3,2027-08-02,2027-08-06,"Java 13: Flexible loops - while and do ... while (continued)","Chat, instant messaging, VoIP and video (continued)
+Social media, blogs, vlogs and podcasts","SQL 10: Asking questions: WHERE and ORDER BY (continued)
+SQL 11: Finding patterns: LIKE, BETWEEN, IN and more",
+"Term 3",4,2027-08-09,2027-08-13,"Java 13: Flexible loops - while and do ... while (continued)","Netiquette
+The Internet","SQL 11: Finding patterns: LIKE, BETWEEN, IN and more (continued)
+SQL 15 (part): Changing data: INSERT, UPDATE and DELETE",
+"Term 3",5,2027-08-16,2027-08-20,"Java 13: Flexible loops - while and do ... while (continued)
+Java 14 (part): Working with text - Strings","The Internet (continued)
+URLs, IP addresses and DNS",,
+"Term 3",6,2027-08-23,2027-08-27,"Java 14 (part): Working with text - Strings (continued)","URLs, IP addresses and DNS (continued)
+The World Wide Web",,
+"Term 3",7,2027-08-30,2027-09-03,"Java 15 (part): Methods, parameters and classes of tools","Browsing and searching
+Judging a website",,
+"Term 3",8,2027-09-06,2027-09-10,"Java 15 (part): Methods, parameters and classes of tools (continued)","Judging a website (continued)
+Making web pages",,
+"Term 3",9,2027-09-13,2027-09-17,"Java 15 (part): Methods, parameters and classes of tools (continued)
+Java 16 (part): Arrays - remembering a whole list","Making web pages (continued)
+Who runs the Web (optional extra)
+Malware and cybercrime",,"Term 3 ends"
+"Term 4",1,2027-10-04,2027-10-08,"Java 17 (part): Smart data - Classes and objects","Malware and cybercrime (continued)
+Computers and our society",,"Term 4 starts"
+"Term 4",2,2027-10-11,2027-10-15,"Java 19 (part): Catching errors - Defensive programming","The digital divide
+Your body and the planet",,
+"Term 4",3,2027-10-18,2027-10-22,"Java 19 (part): Catching errors - Defensive programming (continued)
+Java 23 (part): Talking to people - Text user interfaces","Your body and the planet (continued)
+Plagiarism",,
+"Term 4",4,2027-10-25,2027-10-29,"Java 23 (part): Talking to people - Text user interfaces (continued)
+Java 30 (part): The data validation task - IEB","Theory for practical work",,
+"Term 4",5,2027-11-01,2027-11-05,,,,"Final exams
+Final exams start"
+"Term 4",6,2027-11-08,2027-11-12,,,,"Final exams"
+"Term 4",7,2027-11-15,2027-11-19,,,,"Final exams"
+"Term 4",8,2027-11-22,2027-11-26,,,,"Final exams"
+"Term 4",9,2027-11-29,2027-12-03,,,,"Final exams
+Term 4 ends"

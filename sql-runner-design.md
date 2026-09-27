@@ -312,6 +312,23 @@ machine** (Chris: "build the access recorder next").
   that query's rows instead, under "Afterwards, this shows the change" with
   the query itself (the same field a `sqlquery` already had). Blocks without
   it keep their recordings.
+
+## Set-up and afterwards queries on live boxes (27 September 2026)
+
+The runner already ran a list of trusted set-up statements (the sample);
+a block's `'before'` statements are simply added to it (`SqlRun(...,
+$aBefore)`), so **no change to SqlRunner.java** was needed - Java DB's
+warm copies are keyed by the whole set-up and its autonumber reset covers
+every table. **Run** sends `lessonId` and `blockId`; `api/sql-run.php` looks
+the block up in the lesson (`SqlLessonBlock()`) and takes its `before` and
+`check` from there - never from the browser (`show` may also name tables
+the set-up made). A `sqlquery`'s `before` goes to both its model answer
+(cache key includes it) and the pupil's runs - its Run button as well
+as Check (`SqlLessonBlock()` finds `sql` and `sqlquery` blocks). `'check'` on a live box: the
+page prints the query (`data-check`, display only) and its rows in place of
+the whole changed table. **PHP strips a trailing `;`** from `before` and
+`check` - the runner strips it only from the pupil's SQL, and Java DB
+refuses one (found when a check came back empty).
 - **Questions:** `'output' => true` shows the recorded output under the
   question; otherwise the finished answer shows "What it gives in Access"
   under the model answer. The AI marker is given the model answer's output
@@ -320,6 +337,35 @@ machine** (Chris: "build the access recorder next").
   boxes (a query, `*` through ADO and in the window, an UPDATE, an alias in
   HAVING, today's date), a question's correct output and a finished answer's
   table all showed as recorded, no sideways scrolling.
+
+## MySQL and Java DB marked by clause (27 September 2026)
+
+Chris: "mark MySQL and Java DB SQL questions clause by clause too" - so a
+near-miss earns part marks there as in Access, and the sets' totals are
+comparable (B0-B10: Access 572 with its CAPS guide, MySQL 516, Java DB 508;
+before, MySQL and Java DB were 152).
+
+- `SqlQuestionByClause()` (lib/sql.php): Access, MySQL, Java DB. SQLite
+  (practice for everyone) stays all-or-nothing. `SqlQuestionIsAi()` stays
+  Access-only (no Run button, recorded outputs).
+- The answer still **runs** on its engine (an answer that does not run uses
+  no go). The model answer's result = every clause met, **no AI call**. An
+  answer that runs and differs goes to `CheckSqlAnswer(..., $aLive)` with
+  both results and `SqlQuestionCompare()`'s reason (`SqlLiveMarkerPrompt()`,
+  `SqlReplyPromptText()`); if the marker still says every clause is met, the
+  last clause is marked unmet with the code's reason. So AI cost only comes
+  from wrong answers that run.
+- Clauses live beside the questions: `SqlClauses($blocks, [id => [...]])`
+  wraps each shared lesson's return (content/sql/shared/common.php). Each
+  clause scores like a match line (marks x2 first go, x1 second).
+- The reply carries the pupil's result table and the clause list together
+  (sql-runner.js keeps the result above the clauses).
+- **Tried on test** (27 September 2026, the marker on the test server): the
+  model answer - every clause, no AI call; mysql02 aDear without DESC - 3 of
+  4, only "sorted from the most expensive" unmet; javadb06 aGradeSales
+  without HAVING - 3 of 4, only the HAVING clause unmet. The notes said what
+  was wrong without the fix. (CONCAT('R', Price) gives the same text as the
+  FORMAT answer for these prices - the same result, so full marks.)
 
 ## Not built yet
 

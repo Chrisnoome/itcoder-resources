@@ -1,0 +1,93 @@
+﻿Term,Week,Monday,Friday,Programming,Theory,Databases,"Dates and tasks"
+"Term 1",1,2027-01-11,2027-01-15,"Pascal 1: What you learn when you learn programming","ICT and ICT systems
+Kinds of computers",,"Term 1 starts"
+"Term 1",2,2027-01-18,2027-01-22,"Pascal 1: What you learn when you learn programming (continued)
+Pascal 2: Proof of Life / Output - WriteLn and Write","Kinds of computers (continued)
+Hardware and software",,
+"Term 1",3,2027-01-25,2027-01-29,"Pascal 2: Proof of Life / Output - WriteLn and Write (continued)","Hardware and software (continued)
+Data, information and knowledge
+Inside the case",,
+"Term 1",4,2027-02-01,2027-02-05,"Pascal 2: Proof of Life / Output - WriteLn and Write (continued)
+Pascal 3: Making it pretty (optional extra)
+Pascal 4: How to remember - Variables and constants","Inside the case (continued)
+Processing and memory",,
+"Term 1",5,2027-02-08,2027-02-12,"Pascal 4: How to remember - Variables and constants (continued)","Storage
+Input - keyboards and pointing devices",,
+"Term 1",6,2027-02-15,2027-02-19,"Pascal 4: How to remember - Variables and constants (continued)","Input - keyboards and pointing devices (continued)
+Input - cameras, scanners, sound and sensors",,
+"Term 1",7,2027-02-22,2027-02-26,"Pascal 4: How to remember - Variables and constants (continued)
+Pascal 5: Getting input - Readln, ReadKey and KeyPressed","Output
+Ports and connectors",,
+"Term 1",8,2027-03-01,2027-03-05,"Pascal 5: Getting input - Readln, ReadKey and KeyPressed (continued)
+Pascal 6: Processing - basic maths","Communication devices
+Looking after hardware
+System software",,
+"Term 1",9,2027-03-08,2027-03-12,"Pascal 6: Processing - basic maths (continued)","System software (continued)
+Application software",,
+"Term 1",10,2027-03-15,2027-03-19,"Pascal 7: Type conversion","Application software (continued)
+Getting and owning software
+Looking after a computer",,
+"Term 1",11,2027-03-22,2027-03-26,"Pascal 7: Type conversion (continued)","Looking after a computer (continued)",,
+"Term 1",12,2027-03-29,2027-04-02,"Pascal 8 (part): Decisions / Branching","How computers store data
+Bits and bytes",,
+"Term 1",13,2027-04-05,2027-04-09,"Pascal 8 (part): Decisions / Branching (continued)","Binary
+Hexadecimal and octal",,"Term 1 ends"
+"Term 2",1,2027-05-03,2027-05-07,"Pascal 8 (part): Decisions / Branching (continued)","Hexadecimal and octal (continued)
+Characters - ASCII and Unicode",,"Term 2 starts"
+"Term 2",2,2027-05-10,2027-05-14,"Pascal 8 (part): Decisions / Branching (continued)
+Pascal 9: Division - Div, Mod, Trunc and Round","Primitive data types
+Storing data and managing files",,
+"Term 2",3,2027-05-17,2027-05-21,"Pascal 9: Division - Div, Mod, Trunc and Round (continued)
+Pascal 10: Repeating instructions the easy and efficient way - For loops","Storing data and managing files (continued)
+Databases - a first look",,
+"Term 2",4,2027-05-24,2027-05-28,"Pascal 10: Repeating instructions the easy and efficient way - For loops (continued)","Why networks
+Types of networks",,
+"Term 2",5,2027-05-31,2027-06-04,"Pascal 10: Repeating instructions the easy and efficient way - For loops (continued)
+Pascal 11: Looped algorithms - totals, averages and shapes","Types of networks (continued)
+Communications media",,
+"Term 2",6,2027-06-07,2027-06-11,,,,"Mid-year exams"
+"Term 2",7,2027-06-14,2027-06-18,,,,"Mid-year exams"
+"Term 2",8,2027-06-21,2027-06-25,,,,"Mid-year exams"
+"Term 2",9,2027-07-05,2027-07-09,"Pascal 11: Looped algorithms - totals, averages and shapes (continued)","Communications media (continued)
+E-mail","SQL 2 (part): What a database is
+SQL 8 (part): Getting started in Access",
+"Term 2",10,2027-07-12,2027-07-16,"Pascal 11: Looped algorithms - totals, averages and shapes (continued)","E-mail (continued)
+Chat, instant messaging, VoIP and video","SQL 9: Building a table in Access
+SQL 10: Asking questions: WHERE and ORDER BY",
+"Term 2",11,2027-07-19,2027-07-23,"Pascal 11: Looped algorithms - totals, averages and shapes (continued)
+Pascal 12 (part): Flexible loops - While and Repeat","Chat, instant messaging, VoIP and video (continued)
+Social media, blogs, vlogs and podcasts","SQL 10: Asking questions: WHERE and ORDER BY (continued)
+SQL 11: Finding patterns: LIKE, BETWEEN, IN and more",
+"Term 2",12,2027-07-26,2027-07-30,"Pascal 12 (part): Flexible loops - While and Repeat (continued)","Netiquette
+The Internet","SQL 11: Finding patterns: LIKE, BETWEEN, IN and more (continued)
+SQL 15 (part): Changing data: INSERT, UPDATE and DELETE",
+"Term 2",13,2027-08-02,2027-08-06,"Pascal 12 (part): Flexible loops - While and Repeat (continued)","The Internet (continued)
+URLs, IP addresses and DNS",,"Term 2 ends"
+"Term 3",1,2027-09-06,2027-09-10,"Pascal 13 (part): Working with text - String handling","URLs, IP addresses and DNS (continued)
+The World Wide Web",,"Term 3 starts"
+"Term 3",2,2027-09-13,2027-09-17,"Pascal 13 (part): Working with text - String handling (continued)
+Pascal 14 (part): Making your own commands - procedures, functions, parameters and units","Browsing and searching
+Judging a website",,
+"Term 3",3,2027-09-20,2027-09-24,"Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)","Judging a website (continued)
+Making web pages",,
+"Term 3",4,2027-09-27,2027-10-01,"Pascal 14 (part): Making your own commands - procedures, functions, parameters and units (continued)
+Pascal 15 (part): Remembering a whole list - Arrays","Making web pages (continued)
+Who runs the Web (optional extra)
+Malware and cybercrime",,
+"Term 3",5,2027-10-04,2027-10-08,"Pascal 15 (part): Remembering a whole list - Arrays (continued)","Malware and cybercrime (continued)
+Computers and our society",,
+"Term 3",6,2027-10-11,2027-10-15,"Pascal 16 (part): Smart data - Classes and objects
+Pascal 18 (part): Catching errors - Defensive programming","The digital divide
+Your body and the planet",,
+"Term 3",7,2027-10-18,2027-10-22,"Pascal 18 (part): Catching errors - Defensive programming (continued)
+Pascal 22 (part): Talking to people - Text user interfaces","Your body and the planet (continued)
+Plagiarism",,
+"Term 3",8,2027-10-25,2027-10-29,"Pascal 22 (part): Talking to people - Text user interfaces (continued)
+Pascal 29 (part): The data validation task - IEB","Theory for practical work",,
+"Term 3",9,2027-11-01,2027-11-05,,,,"Final exams
+Final exams start"
+"Term 3",10,2027-11-08,2027-11-12,,,,"Final exams"
+"Term 3",11,2027-11-15,2027-11-19,,,,"Final exams"
+"Term 3",12,2027-11-22,2027-11-26,,,,"Final exams"
+"Term 3",13,2027-11-29,2027-12-03,,,,"Final exams
+Term 3 ends"

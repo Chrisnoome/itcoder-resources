@@ -1,0 +1,500 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT IEB Grade 12 - Pascal - Access - Other four-term independen
+ t school (ISASA guideline)
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 12 T1 W1: Pascal 30 The PAT - IEB | What makes a computer fas
+ t
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W1\n\nProgramming:\n- Pascal 30 (part): The PAT
+  - IEB\n    focus: the PAT documents: specification\, design\, and technica
+ l and testing\; comments in the project: what each method does\, receives a
+ nd gives back\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson27\n-
+  Pascal 8 (part): Decisions / Branching\n    focus: complex Boolean express
+ ions and truth tables with 4 variables\n    https://itcoder.co.za/lesson.ph
+ p?c=pascal&id=lesson08\n\nTheory:\n- What makes a computer fast\n    https:
+ //itcoder.co.za/lesson.php?c=theory12&id=performance\n\nDatabases:\n- SQL 3
+ : Keys and relationships\n    focus: keys: primary\, foreign\, composite\; 
+ relationships one-to-one\, one-to-many\, many-to-many\; referential integri
+ ty\n    https://itcoder.co.za/lesson.php?c=sql&id=dbkeys\n- SQL 4: A good d
+ esign\n    focus: redundancy\, repeating groups\, duplicate and derived dat
+ a\, atomic and non-atomic fields\; update\, insert and delete anomalies\n  
+   https://itcoder.co.za/lesson.php?c=sql&id=dbdesign
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 12: Term 1 starts
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 12 T1 W2: Pascal 15 Remembering a whole list - Arrays | Choos
+ ing a computer for the job
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W2\n\nProgramming:\n- Pascal 8 (part): Decision
+ s / Branching (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id
+ =lesson08\n- Pascal 15 (part): Remembering a whole list - Arrays\n    focus
+ : dynamic arrays compared to static arrays (Good to Know)\; two-dimensional
+  arrays: rows and columns\, row and column totals\, searching a grid\n    h
+ ttps://itcoder.co.za/lesson.php?c=pascal&id=lesson15\n\nTheory:\n- What mak
+ es a computer fast (continued)\n    https://itcoder.co.za/lesson.php?c=theo
+ ry12&id=performance\n- Choosing a computer for the job\n    https://itcoder
+ .co.za/lesson.php?c=theory12&id=choosingcomputer\n\nDatabases:\n- SQL 4: A 
+ good design (continued)\n    https://itcoder.co.za/lesson.php?c=sql&id=dbde
+ sign\n- SQL 5: Normalisation step by step\n    focus: normalisation: 1NF\, 
+ 2NF\, 3NF\; partial and transitive dependencies\n    https://itcoder.co.za/
+ lesson.php?c=sql&id=dbnormal\n- SQL 6 (part): Looking after data\n    focus
+ : threats to data quality: corrupted\, outdated and invalidated data\n    h
+ ttps://itcoder.co.za/lesson.php?c=sql&id=dbcare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 12 T1 W3: Cloud computing | SQL 7 Big data
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W3\n\nProgramming:\n- Pascal 15 (part): Remembe
+ ring a whole list - Arrays (continued)\n    https://itcoder.co.za/lesson.ph
+ p?c=pascal&id=lesson15\n\nTheory:\n- Choosing a computer for the job (conti
+ nued)\n    https://itcoder.co.za/lesson.php?c=theory12&id=choosingcomputer\
+ n- Cloud computing\n    https://itcoder.co.za/lesson.php?c=theory12&id=clou
+ dcomputing\n\nDatabases:\n- SQL 7: Big data\n    focus: data warehousing an
+ d data mining - description\, purpose\, uses\; big data sources (social med
+ ia\, activity-generated data\, logs and audit trails\, location data)\; NoS
+ QL - description\, an example (MongoDB)\, comparison with SQL\n    https://
+ itcoder.co.za/lesson.php?c=sql&id=dbbig\n- SQL 16: Joining tables\n    focu
+ s: multi-table SQL: INNER JOIN and WHERE on matching keys\; keys: primary a
+ nd foreign\; relationships between tables\n    https://itcoder.co.za/lesson
+ .php?c=sql&id=access08
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 12 T1 W4: Pascal 17 Persistence - Text files | Artificial int
+ elligence
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W4\n\nProgramming:\n- Pascal 15 (part): Remembe
+ ring a whole list - Arrays (continued)\n    https://itcoder.co.za/lesson.ph
+ p?c=pascal&id=lesson15\n- Pascal 17 (part): Persistence - Text files\n    f
+ ocus: JSON compared with text files and databases (Good to Know)\n    https
+ ://itcoder.co.za/lesson.php?c=pascal&id=lesson17\n\nTheory:\n- Cloud comput
+ ing (continued)\n    https://itcoder.co.za/lesson.php?c=theory12&id=cloudco
+ mputing\n- Artificial intelligence\n    https://itcoder.co.za/lesson.php?c=
+ theory12&id=ai12\n\nDatabases:\n- SQL 16: Joining tables (continued)\n    h
+ ttps://itcoder.co.za/lesson.php?c=sql&id=access08\n- SQL 17 (part): Questio
+ ns inside questions\n    focus: multi-table SQL: subqueries\; LEFT and RIGH
+ T JOIN\; NOT IN or an outer join to find unrelated records\; INSERT ... SEL
+ ECT\n    https://itcoder.co.za/lesson.php?c=sql&id=access09
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 12 T1 W5: VR\, AR and MR
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W5\n\nProgramming:\n- Pascal 17 (part): Persist
+ ence - Text files (continued)\n    https://itcoder.co.za/lesson.php?c=pasca
+ l&id=lesson17\n\nTheory:\n- Artificial intelligence (continued)\n    https:
+ //itcoder.co.za/lesson.php?c=theory12&id=ai12\n- VR\, AR and MR\n    https:
+ //itcoder.co.za/lesson.php?c=theory12&id=vrarmr
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270220
+SUMMARY:IT Gr 12 T1 W6: Pascal 20 Managing a list - the array manager class
+  | Collecting and caring for data
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W6\n\nProgramming:\n- Pascal 17 (part): Persist
+ ence - Text files (continued)\n    https://itcoder.co.za/lesson.php?c=pasca
+ l&id=lesson17\n- Pascal 20 (part): Managing a list - the array manager clas
+ s\n    focus: an array as a field of an object\, an object as a field\, and
+  an object whose fields are arrays of two different object types\; fields o
+ f complex type\, passing and returning complex types\, null objects and nul
+ l fields\, and comparing data structures\; sending and giving back arrays a
+ nd arrays of objects\n    https://itcoder.co.za/lesson.php?c=pascal&id=less
+ on20\n\nTheory:\n- Collecting and caring for data\n    https://itcoder.co.z
+ a/lesson.php?c=theory12&id=datacollection
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270222-7@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 12 T1 W7: Data warehouses\, data mining and big data
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W7\n\nProgramming:\n- Pascal 20 (part): Managin
+ g a list - the array manager class (continued)\n    https://itcoder.co.za/l
+ esson.php?c=pascal&id=lesson20\n\nTheory:\n- Data warehouses\, data mining 
+ and big data\n    https://itcoder.co.za/lesson.php?c=theory12&id=warehousem
+ ining\n- Centralised and distributed processing\n    https://itcoder.co.za/
+ lesson.php?c=theory12&id=distributed
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 12 T1 W8: Sharing and remote access
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W8\n\nProgramming:\n- Pascal 20 (part): Managin
+ g a list - the array manager class (continued)\n    https://itcoder.co.za/l
+ esson.php?c=pascal&id=lesson20\n\nTheory:\n- Centralised and distributed pr
+ ocessing (continued)\n    https://itcoder.co.za/lesson.php?c=theory12&id=di
+ stributed\n- Sharing and remote access\n    https://itcoder.co.za/lesson.ph
+ p?c=theory12&id=sharingremote
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 12 T1 W9: Pascal 21 Family trees - Inheritance and polymorphi
+ sm | Connecting a home or school
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W9\n\nProgramming:\n- Pascal 20 (part): Managin
+ g a list - the array manager class (continued)\n    https://itcoder.co.za/l
+ esson.php?c=pascal&id=lesson20\n- Pascal 21 (part): Family trees - Inherita
+ nce and polymorphism\n    focus: inheritance: superclass (ancestor) and sub
+ class (descendant)\, overriding with Virtual and Override\, polymorphism an
+ d dynamic binding\, calling the ancestor's methods\, advantages of inherita
+ nce\, object-as-field compared with inheritance (has-a vs is-a)\, and type 
+ determination with is (and as)\; an array of inherited objects\; abstractio
+ n: using inheritance to reduce complexity\, and efficiency through the reus
+ e of classes\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson21\n\n
+ Theory:\n- Sharing and remote access (continued)\n    https://itcoder.co.za
+ /lesson.php?c=theory12&id=sharingremote\n- Connecting a home or school\n   
+  https://itcoder.co.za/lesson.php?c=theory12&id=connecthome
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 12 T1 W10: Better searching and SEO
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T1 W10\n\nProgramming:\n- Pascal 21 (part): Family
+  trees - Inheritance and polymorphism (continued)\n    https://itcoder.co.z
+ a/lesson.php?c=pascal&id=lesson21\n\nTheory:\n- Better searching and SEO\n 
+    https://itcoder.co.za/lesson.php?c=theory12&id=seo
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270319-11@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 12: Term 1 ends
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270413-12@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270417
+SUMMARY:IT Gr 12 T2 W1: How online applications work
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W1\n\nProgramming:\n- Pascal 21 (part): Family 
+ trees - Inheritance and polymorphism (continued)\n    https://itcoder.co.za
+ /lesson.php?c=pascal&id=lesson21\n\nTheory:\n- How online applications work
+ \n    https://itcoder.co.za/lesson.php?c=theory12&id=onlineapps\n- The deep
+  web and the dark web\n    https://itcoder.co.za/lesson.php?c=theory12&id=d
+ eepdark
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270413-13@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270414
+SUMMARY:IT Gr 12: Term 2 starts
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270419-14@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270424
+SUMMARY:IT Gr 12 T2 W2: Keys\, SSL and certificates
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W2\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- The deep web and the dark web (continued)\n    h
+ ttps://itcoder.co.za/lesson.php?c=theory12&id=deepdark\n- Keys\, SSL and ce
+ rtificates\n    https://itcoder.co.za/lesson.php?c=theory12&id=encryption
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270426-15@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270501
+SUMMARY:IT Gr 12 T2 W3: Cryptocurrency
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W3\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Keys\, SSL and certificates (continued)\n    htt
+ ps://itcoder.co.za/lesson.php?c=theory12&id=encryption\n- Cryptocurrency\n 
+    https://itcoder.co.za/lesson.php?c=theory12&id=cryptocurrency
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270503-16@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 12 T2 W4: Cybercrime in depth
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W4\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Cryptocurrency (continued)\n    https://itcoder.
+ co.za/lesson.php?c=theory12&id=cryptocurrency\n- Cybercrime in depth\n    h
+ ttps://itcoder.co.za/lesson.php?c=theory12&id=cybercrime12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270510-17@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 12 T2 W5: Evaluating and recommending security
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W5\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Evaluating and recommending security\n    https:
+ //itcoder.co.za/lesson.php?c=theory12&id=securityplan\n- Privacy\, rights a
+ nd the law\n    https://itcoder.co.za/lesson.php?c=theory12&id=privacylaw
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270517-18@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 12 T2 W6: 
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W6\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Privacy\, rights and the law (continued)\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory12&id=privacylaw
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270524-19@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 12 T2 W7: Computers and the big problems
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W7\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Privacy\, rights and the law (continued)\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory12&id=privacylaw\n- Computers and th
+ e big problems\n    https://itcoder.co.za/lesson.php?c=theory12&id=bigprobl
+ ems
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270531-20@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270605
+SUMMARY:IT Gr 12 T2 W8: Social networking and its effects
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T2 W8\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Social networking and its effects\n    https://i
+ tcoder.co.za/lesson.php?c=theory12&id=socialnetworking
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270607-21@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 12: Mid-year exams
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270625-22@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 12: Term 2 ends
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270720-23@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270724
+SUMMARY:IT Gr 12 T3 W1: Green computing
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T3 W1\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Green computing\n    https://itcoder.co.za/lesso
+ n.php?c=theory12&id=green12\n- Objects in depth\n    https://itcoder.co.za/
+ lesson.php?c=theory12&id=oop12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270720-24@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:IT Gr 12: Term 3 starts
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270726-25@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270726
+DTEND;VALUE=DATE:20270731
+SUMMARY:IT Gr 12 T3 W2: Two-dimensional arrays
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T3 W2\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Objects in depth (continued)\n    https://itcode
+ r.co.za/lesson.php?c=theory12&id=oop12\n- Two-dimensional arrays\n    https
+ ://itcoder.co.za/lesson.php?c=theory12&id=arrays2d
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270802-26@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 12 T3 W3: Dynamic arrays and JSON
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T3 W3\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Two-dimensional arrays (continued)\n    https://
+ itcoder.co.za/lesson.php?c=theory12&id=arrays2d\n- Dynamic arrays and JSON\
+ n    https://itcoder.co.za/lesson.php?c=theory12&id=dynamicjson
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270810-27@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270814
+SUMMARY:IT Gr 12 T3 W4: Bigger truth tables
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T3 W4\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Dynamic arrays and JSON (continued)\n    https:/
+ /itcoder.co.za/lesson.php?c=theory12&id=dynamicjson\n- Bigger truth tables\
+ n    https://itcoder.co.za/lesson.php?c=theory12&id=truthtables4
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270816-28@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270821
+SUMMARY:IT Gr 12 T3 W5: Efficient algorithms
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T3 W5\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Bigger truth tables (continued)\n    https://itc
+ oder.co.za/lesson.php?c=theory12&id=truthtables4\n- Efficient algorithms\n 
+    https://itcoder.co.za/lesson.php?c=theory12&id=efficiency
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270823-29@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 12: Preliminary (trial) exams
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20270917-30@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 12: Term 3 ends
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20271005-31@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 12 T4 W1: Pascal 27 Practical exam guide - IEB | Theory exam 
+ guide - IEB
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline) - T4 W1\n\nProgramming:\n- Pascal 27: Practical exam
+  guide - IEB\n    focus: inheritance in the exam: Inherited Create\, Overri
+ de\, and a toString that builds on the parent's\n    https://itcoder.co.za/
+ lesson.php?c=pascal&id=lesson24\n\nTheory:\n- Theory exam guide - IEB\n    
+ https://itcoder.co.za/lesson.php?c=theory12&id=examieb\n\nDatabases:\n- SQL
+  18: Practical exam guide - IEB Section A\n    focus: SQL as the IEB practi
+ cal examination asks it: single- and multi-table queries\, aggregates with 
+ GROUP BY and HAVING\, dates\, subqueries\, UPDATE and INSERT ... SELECT on 
+ a given database\n    https://itcoder.co.za/lesson.php?c=sql&id=access10
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20271005-32@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271006
+SUMMARY:IT Gr 12: Term 4 starts
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20271012-33@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271012
+DTEND;VALUE=DATE:20271013
+SUMMARY:IT Gr 12: Final (NSC) exams start
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-pascal-access-20271201-34@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271201
+DTEND;VALUE=DATE:20271202
+SUMMARY:IT Gr 12: Term 4 ends
+DESCRIPTION:IEB Grade 12 - Pascal - Access - Other four-term independent sc
+ hool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

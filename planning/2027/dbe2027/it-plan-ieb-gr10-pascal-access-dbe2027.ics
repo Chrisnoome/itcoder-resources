@@ -1,0 +1,685 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT IEB Grade 10 - Pascal - Access - Public school (DBE\, four 
+ terms)
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 10 T1 W1: Pascal 1 What you learn when you learn programming 
+ | ICT and ICT systems
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W1\n\nProgramming:\n- Pascal 1: What you learn when you learn progr
+ amming\n    focus: decomposition\, pattern recognition\, abstraction and al
+ gorithms\; solving a problem in iterative steps: understand it\, devise an 
+ algorithm\, carry it out\, look back and evaluate\n    https://itcoder.co.z
+ a/lesson.php?c=pascal&id=lesson01\n\nTheory:\n- ICT and ICT systems\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory10&id=ict
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 10: Term 1 starts
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 10 T1 W2: Pascal 2 Proof of Life / Output - WriteLn and Write
+  | Kinds of computers
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W2\n\nProgramming:\n- Pascal 1: What you learn when you learn progr
+ amming (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 01\n- Pascal 2: Proof of Life / Output - WriteLn and Write\n    focus: inpu
+ t\, processing and output (IPO) - the output part\; a simple text-based int
+ erface\; syntax errors and reading the compiler's messages\n    https://itc
+ oder.co.za/lesson.php?c=pascal&id=proofoflife\n\nTheory:\n- Kinds of comput
+ ers\n    https://itcoder.co.za/lesson.php?c=theory10&id=kindsofcomputers\n-
+  Hardware and software\n    https://itcoder.co.za/lesson.php?c=theory10&id=
+ hardwaresoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 10 T1 W3: Data\, information and knowledge
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W3\n\nProgramming:\n- Pascal 2: Proof of Life / Output - WriteLn an
+ d Write (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=proof
+ oflife\n\nTheory:\n- Hardware and software (continued)\n    https://itcoder
+ .co.za/lesson.php?c=theory10&id=hardwaresoftware\n- Data\, information and 
+ knowledge\n    https://itcoder.co.za/lesson.php?c=theory10&id=datainfo
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 10 T1 W4: Inside the case
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W4\n\nProgramming:\n- Pascal 2: Proof of Life / Output - WriteLn an
+ d Write (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=proof
+ oflife\n- Pascal 3: Making it pretty (optional extra)\n    https://itcoder.
+ co.za/lesson.php?c=pascal&id=lesson03\n\nTheory:\n- Inside the case\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory10&id=insidecase\n- Processing and m
+ emory\n    https://itcoder.co.za/lesson.php?c=theory10&id=processing
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 10 T1 W5: Pascal 4 How to remember - Variables and constants 
+ | Storage
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W5\n\nProgramming:\n- Pascal 3: Making it pretty (continued) (optio
+ nal extra)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson03\n- Pa
+ scal 4: How to remember - Variables and constants\n    focus: the types Str
+ ing\, Char\, Integer\, Real and Boolean\, their ranges\, and naming convent
+ ions\; constants versus variables (Const)\; random numbers\, with Random an
+ d RandomRange\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson02\n\
+ nTheory:\n- Processing and memory (continued)\n    https://itcoder.co.za/le
+ sson.php?c=theory10&id=processing\n- Storage\n    https://itcoder.co.za/les
+ son.php?c=theory10&id=storage
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270220
+SUMMARY:IT Gr 10 T1 W6: Input - keyboards and pointing devices
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W6\n\nProgramming:\n- Pascal 4: How to remember - Variables and con
+ stants (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 02\n\nTheory:\n- Input - keyboards and pointing devices\n    https://itcode
+ r.co.za/lesson.php?c=theory10&id=inputkeyboards\n- Input - cameras\, scanne
+ rs\, sound and sensors\n    https://itcoder.co.za/lesson.php?c=theory10&id=
+ inputother
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270222-7@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 10 T1 W7: Output
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W7\n\nProgramming:\n- Pascal 4: How to remember - Variables and con
+ stants (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 02\n\nTheory:\n- Input - cameras\, scanners\, sound and sensors (continued)
+ \n    https://itcoder.co.za/lesson.php?c=theory10&id=inputother\n- Output\n
+     https://itcoder.co.za/lesson.php?c=theory10&id=output
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 10 T1 W8: Pascal 5 Getting input - Readln\, ReadKey and KeyPr
+ essed | Ports and connectors
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W8\n\nProgramming:\n- Pascal 5: Getting input - Readln\, ReadKey an
+ d KeyPressed\n    focus: input\, processing and output (IPO) - the input pa
+ rt\; prompts in a text-based interface\; runtime errors\n    https://itcode
+ r.co.za/lesson.php?c=pascal&id=lesson05\n\nTheory:\n- Ports and connectors\
+ n    https://itcoder.co.za/lesson.php?c=theory10&id=ports\n- Communication 
+ devices\n    https://itcoder.co.za/lesson.php?c=theory10&id=commsdevices
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 10 T1 W9: Pascal 6 Processing - basic maths | Looking after h
+ ardware
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W9\n\nProgramming:\n- Pascal 5: Getting input - Readln\, ReadKey an
+ d KeyPressed (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=
+ lesson05\n- Pascal 6: Processing - basic maths\n    focus: arithmetic opera
+ tors\, real division\, Div and Mod\, precedence and brackets\; maths functi
+ ons: Sqrt\, Sqr\, Power\, Abs\, Min\, Max\, Round and Trunc\n    https://it
+ coder.co.za/lesson.php?c=pascal&id=lesson06\n\nTheory:\n- Looking after har
+ dware\n    https://itcoder.co.za/lesson.php?c=theory10&id=hwcare\n- System 
+ software\n    https://itcoder.co.za/lesson.php?c=theory10&id=systemsoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 10 T1 W10: Application software
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T1 W10\n\nProgramming:\n- Pascal 6: Processing - basic maths (continue
+ d)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson06\n\nTheory:\n-
+  System software (continued)\n    https://itcoder.co.za/lesson.php?c=theory
+ 10&id=systemsoftware\n- Application software\n    https://itcoder.co.za/les
+ son.php?c=theory10&id=appsoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270319-11@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 10: Term 1 ends
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270406-12@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270410
+SUMMARY:IT Gr 10 T2 W1: Pascal 7 Type conversion | Getting and owning softw
+ are
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W1\n\nProgramming:\n- Pascal 7: Type conversion\n    focus: convers
+ ions: String and number\, String and Char\, Char and Integer\, Real and Int
+ eger\; character codes (ASCII)\; narrowing and widening conversions\, and t
+ heir effects\; rounding up and down with Ceil and Floor\n    https://itcode
+ r.co.za/lesson.php?c=pascal&id=lesson07\n\nTheory:\n- Getting and owning so
+ ftware\n    https://itcoder.co.za/lesson.php?c=theory10&id=softwareowning\n
+ - Looking after a computer\n    https://itcoder.co.za/lesson.php?c=theory10
+ &id=computercare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270406-13@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270407
+SUMMARY:IT Gr 10: Term 2 starts
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270412-14@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270417
+SUMMARY:IT Gr 10 T2 W2: 
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W2\n\nProgramming:\n- Pascal 7: Type conversion (continued)\n    ht
+ tps://itcoder.co.za/lesson.php?c=pascal&id=lesson07\n\nTheory:\n- Looking a
+ fter a computer (continued)\n    https://itcoder.co.za/lesson.php?c=theory1
+ 0&id=computercare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270419-15@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270424
+SUMMARY:IT Gr 10 T2 W3: Pascal 8 Decisions / Branching | How computers stor
+ e data
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W3\n\nProgramming:\n- Pascal 8 (part): Decisions / Branching\n    f
+ ocus: relational operators\, And\, Or and Not\, order of operations and tru
+ th tables\; selection: If\, If...Else\, nested If and Case\, and when to us
+ e If or Case\; Boolean logic in search engines\; sets and the In operator\,
+  and enumerated types\n    https://itcoder.co.za/lesson.php?c=pascal&id=les
+ son08\n\nTheory:\n- How computers store data\n    https://itcoder.co.za/les
+ son.php?c=theory10&id=storingdata\n- Bits and bytes\n    https://itcoder.co
+ .za/lesson.php?c=theory10&id=bitsbytes
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270428-16@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270428
+DTEND;VALUE=DATE:20270501
+SUMMARY:IT Gr 10 T2 W4: Binary
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W4\n\nProgramming:\n- Pascal 8 (part): Decisions / Branching (conti
+ nued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson08\n\nTheory:
+ \n- Bits and bytes (continued)\n    https://itcoder.co.za/lesson.php?c=theo
+ ry10&id=bitsbytes\n- Binary\n    https://itcoder.co.za/lesson.php?c=theory1
+ 0&id=binary\n- Hexadecimal and octal\n    https://itcoder.co.za/lesson.php?
+ c=theory10&id=hexoctal
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270503-17@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 10 T2 W5: Characters - ASCII and Unicode
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W5\n\nProgramming:\n- Pascal 8 (part): Decisions / Branching (conti
+ nued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson08\n\nTheory:
+ \n- Hexadecimal and octal (continued)\n    https://itcoder.co.za/lesson.php
+ ?c=theory10&id=hexoctal\n- Characters - ASCII and Unicode\n    https://itco
+ der.co.za/lesson.php?c=theory10&id=characters
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270510-18@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 10 T2 W6: Pascal 9 Division - Div\, Mod\, Trunc and Round | P
+ rimitive data types
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W6\n\nProgramming:\n- Pascal 8 (part): Decisions / Branching (conti
+ nued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson08\n- Pascal 
+ 9: Division - Div\, Mod\, Trunc and Round\n    focus: algorithms in pseudoc
+ ode and flowcharts: odd or even\, and factors\; Div and Mod\n    https://it
+ coder.co.za/lesson.php?c=pascal&id=lesson09\n\nTheory:\n- Characters - ASCI
+ I and Unicode (continued)\n    https://itcoder.co.za/lesson.php?c=theory10&
+ id=characters\n- Primitive data types\n    https://itcoder.co.za/lesson.php
+ ?c=theory10&id=primitives
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270517-19@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 10 T2 W7: Storing data and managing files
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W7\n\nProgramming:\n- Pascal 9: Division - Div\, Mod\, Trunc and Ro
+ und (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson09\
+ n\nTheory:\n- Storing data and managing files\n    https://itcoder.co.za/le
+ sson.php?c=theory10&id=files
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270524-20@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 10 T2 W8: Pascal 10 Repeating instructions the easy and effic
+ ient way - For loops | Databases - a fir...
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W8\n\nProgramming:\n- Pascal 10: Repeating instructions the easy an
+ d efficient way - For loops\n    focus: the For loop (a counting loop)\, ac
+ cumulators\, nested loops with their own counters\, and checking for prime 
+ numbers\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson10\n\nTheor
+ y:\n- Databases - a first look\n    https://itcoder.co.za/lesson.php?c=theo
+ ry10&id=databasesintro\n- Why networks\n    https://itcoder.co.za/lesson.ph
+ p?c=theory10&id=whynetworks
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270601-21@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270619
+SUMMARY:IT Gr 10: Mid-year exams
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270621-22@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270621
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 10 T2 W12: Types of networks
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T2 W12\n\nProgramming:\n- Pascal 10: Repeating instructions the easy a
+ nd efficient way - For loops (continued)\n    https://itcoder.co.za/lesson.
+ php?c=pascal&id=lesson10\n\nTheory:\n- Types of networks\n    https://itcod
+ er.co.za/lesson.php?c=theory10&id=networktypes
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270625-23@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 10: Term 2 ends
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270720-24@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270724
+SUMMARY:IT Gr 10 T3 W1: Pascal 11 Looped algorithms - totals\, averages and
+  shapes | Communications media
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W1\n\nProgramming:\n- Pascal 10: Repeating instructions the easy an
+ d efficient way - For loops (continued)\n    https://itcoder.co.za/lesson.p
+ hp?c=pascal&id=lesson10\n- Pascal 11: Looped algorithms - totals\, averages
+  and shapes\n    focus: classic loop problems: sum\, average\, biggest and 
+ smallest\, factors\, and nested loops\; turning a problem into an algorithm
+ \n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson11\n\nTheory:\n- C
+ ommunications media\n    https://itcoder.co.za/lesson.php?c=theory10&id=med
+ ia\n\nDatabases:\n- SQL 2 (part): What a database is\n    focus: relational
+  concepts: field\, record\, table\, primary key\n    https://itcoder.co.za/
+ lesson.php?c=sql&id=dbwhat\n- SQL 8 (part): Getting started in Access\n    
+ focus: concepts of a relational database: field\, record\, table and primar
+ y key\; the database structure (Design View) versus its data (Datasheet Vie
+ w)\; working with a single-table database in an application package (Access
+ ): opening it and querying it with SELECT and FROM\n    https://itcoder.co.
+ za/lesson.php?c=sql&id=access00
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270720-25@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:IT Gr 10: Term 3 starts
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270726-26@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270726
+DTEND;VALUE=DATE:20270731
+SUMMARY:IT Gr 10 T3 W2: E-mail | SQL 9 Building a table in Access
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W2\n\nProgramming:\n- Pascal 11: Looped algorithms - totals\, avera
+ ges and shapes (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&i
+ d=lesson11\n\nTheory:\n- E-mail\n    https://itcoder.co.za/lesson.php?c=the
+ ory10&id=email\n\nDatabases:\n- SQL 9: Building a table in Access\n    focu
+ s: creating a single-table database in an application package (Access): sui
+ table field types and sizes\, default values\, an AutoNumber primary key\, 
+ not-null (Required) and indexed fields\; the database structure (schema) - 
+ built in Design View or with CREATE TABLE - versus its data\n    https://it
+ coder.co.za/lesson.php?c=sql&id=access01\n- SQL 10: Asking questions: WHERE
+  and ORDER BY\n    focus: querying a single table with SQL: SELECT\, FROM\,
+  WHERE\, ORDER BY ASC/DESC\; logical operators NOT\, AND\, OR in search cri
+ teria\, with brackets\; comparison operators\n    https://itcoder.co.za/les
+ son.php?c=sql&id=access02
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270802-27@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 10 T3 W3: Chat\, instant messaging\, VoIP and video | SQL 11 
+ Finding patterns: LIKE\, BETWEEN\, IN and more
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W3\n\nProgramming:\n- Pascal 11: Looped algorithms - totals\, avera
+ ges and shapes (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&i
+ d=lesson11\n\nTheory:\n- E-mail (continued)\n    https://itcoder.co.za/less
+ on.php?c=theory10&id=email\n- Chat\, instant messaging\, VoIP and video\n  
+   https://itcoder.co.za/lesson.php?c=theory10&id=chatvoip\n\nDatabases:\n- 
+ SQL 10: Asking questions: WHERE and ORDER BY (continued)\n    https://itcod
+ er.co.za/lesson.php?c=sql&id=access02\n- SQL 11: Finding patterns: LIKE\, B
+ ETWEEN\, IN and more\n    focus: special operators BETWEEN\, LIKE (wildcard
+ s) and IS NULL\; the logical operator IN\; SELECT DISTINCT\; TOP to limit t
+ he rows\n    https://itcoder.co.za/lesson.php?c=sql&id=access03
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270810-28@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270814
+SUMMARY:IT Gr 10 T3 W4: Pascal 12 Flexible loops - While and Repeat | Socia
+ l media\, blogs\, vlogs and podcasts
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W4\n\nProgramming:\n- Pascal 11: Looped algorithms - totals\, avera
+ ges and shapes (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&i
+ d=lesson11\n- Pascal 12 (part): Flexible loops - While and Repeat\n    focu
+ s: condition loops: While (checks first) and Repeat (checks last)\, and cho
+ osing between For\, While and Repeat\; prompts and error messages from simp
+ le validation\; factors and multiples: the greatest common divisor (Euclid)
+  and the lowest common multiple\n    https://itcoder.co.za/lesson.php?c=pas
+ cal&id=lesson12\n\nTheory:\n- Chat\, instant messaging\, VoIP and video (co
+ ntinued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=chatvoip\n- So
+ cial media\, blogs\, vlogs and podcasts\n    https://itcoder.co.za/lesson.p
+ hp?c=theory10&id=socialmedia\n\nDatabases:\n- SQL 11: Finding patterns: LIK
+ E\, BETWEEN\, IN and more (continued)\n    https://itcoder.co.za/lesson.php
+ ?c=sql&id=access03\n- SQL 15 (part): Changing data: INSERT\, UPDATE and DEL
+ ETE\n    focus: INSERT\, UPDATE\, DELETE with WHERE\n    https://itcoder.co
+ .za/lesson.php?c=sql&id=access07
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270816-29@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270821
+SUMMARY:IT Gr 10 T3 W5: Netiquette
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W5\n\nProgramming:\n- Pascal 12 (part): Flexible loops - While and 
+ Repeat (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 12\n\nTheory:\n- Netiquette\n    https://itcoder.co.za/lesson.php?c=theory1
+ 0&id=netiquette\n- The Internet\n    https://itcoder.co.za/lesson.php?c=the
+ ory10&id=internet
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270823-30@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270828
+SUMMARY:IT Gr 10 T3 W6: URLs\, IP addresses and DNS
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W6\n\nProgramming:\n- Pascal 12 (part): Flexible loops - While and 
+ Repeat (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 12\n\nTheory:\n- The Internet (continued)\n    https://itcoder.co.za/lesson
+ .php?c=theory10&id=internet\n- URLs\, IP addresses and DNS\n    https://itc
+ oder.co.za/lesson.php?c=theory10&id=urls
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270830-31@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270904
+SUMMARY:IT Gr 10 T3 W7: Pascal 13 Working with text - String handling | The
+  World Wide Web
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W7\n\nProgramming:\n- Pascal 12 (part): Flexible loops - While and 
+ Repeat (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 12\n- Pascal 13 (part): Working with text - String handling\n    focus: str
+ ings: length\, joining\, upper and lower case\, comparison\; converting bet
+ ween binary and decimal\, as algorithms\n    https://itcoder.co.za/lesson.p
+ hp?c=pascal&id=lesson13\n\nTheory:\n- URLs\, IP addresses and DNS (continue
+ d)\n    https://itcoder.co.za/lesson.php?c=theory10&id=urls\n- The World Wi
+ de Web\n    https://itcoder.co.za/lesson.php?c=theory10&id=www
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270906-32@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270911
+SUMMARY:IT Gr 10 T3 W8: Browsing and searching
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W8\n\nProgramming:\n- Pascal 13 (part): Working with text - String 
+ handling (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=less
+ on13\n\nTheory:\n- The World Wide Web (continued)\n    https://itcoder.co.z
+ a/lesson.php?c=theory10&id=www\n- Browsing and searching\n    https://itcod
+ er.co.za/lesson.php?c=theory10&id=searching
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270913-33@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 10 T3 W9: Pascal 14 Making your own commands - procedures\, f
+ unctions\, parameters and units | Judging ...
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W9\n\nProgramming:\n- Pascal 13 (part): Working with text - String 
+ handling (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=less
+ on13\n- Pascal 14 (part): Making your own commands - procedures\, functions
+ \, parameters and units\n    focus: decomposition into methods\, and spotti
+ ng repeated code (no duplicated code)\; writing and calling a typed functio
+ n and a procedure\; parameters: matching count\, type and order\, and a ret
+ urn type to send data back\; using methods to hide the detail of nested str
+ uctures\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson14\n\nTheor
+ y:\n- Judging a website\n    https://itcoder.co.za/lesson.php?c=theory10&id
+ =judgingsites
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270920-34@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270920
+DTEND;VALUE=DATE:20270923
+SUMMARY:IT Gr 10 T3 W10: Making web pages
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T3 W10\n\nProgramming:\n- Pascal 14 (part): Making your own commands -
+  procedures\, functions\, parameters and units (continued)\n    https://itc
+ oder.co.za/lesson.php?c=pascal&id=lesson14\n\nTheory:\n- Making web pages\n
+     https://itcoder.co.za/lesson.php?c=theory10&id=webpages\n- Who runs the
+  Web (optional extra)\n    https://itcoder.co.za/lesson.php?c=theory10&id=w
+ 3cicann
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20270922-35@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270922
+DTEND;VALUE=DATE:20270923
+SUMMARY:IT Gr 10: Term 3 ends
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271005-36@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 10 T4 W1: Pascal 15 Remembering a whole list - Arrays | Malwa
+ re and cybercrime
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T4 W1\n\nProgramming:\n- Pascal 14 (part): Making your own commands - 
+ procedures\, functions\, parameters and units (continued)\n    https://itco
+ der.co.za/lesson.php?c=pascal&id=lesson14\n- Pascal 15 (part): Remembering 
+ a whole list - Arrays\n    focus: constants (from lesson 4) used for the si
+ ze of an array\; classic problems on a list: sum\, average\, biggest\, smal
+ lest and swapping values\n    https://itcoder.co.za/lesson.php?c=pascal&id=
+ lesson15\n\nTheory:\n- Malware and cybercrime\n    https://itcoder.co.za/le
+ sson.php?c=theory10&id=malware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271005-37@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271006
+SUMMARY:IT Gr 10: Term 4 starts
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271011-38@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271016
+SUMMARY:IT Gr 10 T4 W2: Pascal 16 Smart data - Classes and objects | Comput
+ ers and our society
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T4 W2\n\nProgramming:\n- Pascal 15 (part): Remembering a whole list - 
+ Arrays (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson
+ 15\n- Pascal 16 (part): Smart data - Classes and objects\n    focus: instan
+ tiating objects\, and the purpose of constructors\n    https://itcoder.co.z
+ a/lesson.php?c=pascal&id=lesson16\n\nTheory:\n- Computers and our society\n
+     https://itcoder.co.za/lesson.php?c=theory10&id=society\n- The digital d
+ ivide\n    https://itcoder.co.za/lesson.php?c=theory10&id=digitaldivide
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271018-39@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271018
+DTEND;VALUE=DATE:20271023
+SUMMARY:IT Gr 10 T4 W3: Pascal 18 Catching errors - Defensive programming |
+  Your body and the planet
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T4 W3\n\nProgramming:\n- Pascal 16 (part): Smart data - Classes and ob
+ jects (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson1
+ 6\n- Pascal 18 (part): Catching errors - Defensive programming\n    focus: 
+ syntax\, runtime and logic errors\; standard\, extreme and abnormal test da
+ ta\; prompts and error messages from simple validation\, in a text-based in
+ terface\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson18\n\nTheor
+ y:\n- The digital divide (continued)\n    https://itcoder.co.za/lesson.php?
+ c=theory10&id=digitaldivide\n- Your body and the planet\n    https://itcode
+ r.co.za/lesson.php?c=theory10&id=bodyplanet
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271025-40@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271030
+SUMMARY:IT Gr 10 T4 W4: Pascal 22 Talking to people - Text user interfaces 
+ | Plagiarism
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T4 W4\n\nProgramming:\n- Pascal 18 (part): Catching errors - Defensive
+  programming (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id=
+ lesson18\n- Pascal 22 (part): Talking to people - Text user interfaces\n   
+  focus: a simple text-based user interface: prompts\, and error messages fr
+ om simple validation\; the good-UI principles - structure\, simplicity\, vi
+ sibility\, feedback\, tolerance and reuse\; desktop compared with mobile in
+ terfaces\n    https://itcoder.co.za/lesson.php?c=pascal&id=lesson22\n\nTheo
+ ry:\n- Your body and the planet (continued)\n    https://itcoder.co.za/less
+ on.php?c=theory10&id=bodyplanet\n- Plagiarism\n    https://itcoder.co.za/le
+ sson.php?c=theory10&id=plagiarism
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271101-41@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271106
+SUMMARY:IT Gr 10 T4 W5: Pascal 29 The data validation task - IEB | Theory f
+ or practical work
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s) - T4 W5\n\nProgramming:\n- Pascal 22 (part): Talking to people - Text us
+ er interfaces (continued)\n    https://itcoder.co.za/lesson.php?c=pascal&id
+ =lesson22\n- Pascal 29 (part): The data validation task - IEB\n    focus: s
+ tandard\, extreme and abnormal test data\, with evidence of every test\n   
+  https://itcoder.co.za/lesson.php?c=pascal&id=lesson26\n\nTheory:\n- Theory
+  for practical work\n    https://itcoder.co.za/lesson.php?c=theory10&id=pra
+ cticaltheory10
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271108-42@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271108
+DTEND;VALUE=DATE:20271109
+SUMMARY:IT Gr 10: Final exams start
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-pascal-access-20271208-43@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271208
+DTEND;VALUE=DATE:20271209
+SUMMARY:IT Gr 10: Term 4 ends
+DESCRIPTION:IEB Grade 10 - Pascal - Access - Public school (DBE\, four term
+ s)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,480 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT IEB Grade 12 - Java - Access - Other three-term independent
+  school (ISASA guideline)
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 12 T1 W1: Java 31 The PAT - IEB | What makes a computer fast
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W1\n\nProgramming:\n- Java 31 (part): The PAT - 
+ IEB\n    focus: the PAT documents: specification\, design\, and technical a
+ nd testing\; comments in the project: what each method does\, receives and 
+ gives back\n    https://itcoder.co.za/lesson.php?c=java&id=patieb\n- Java 1
+ 6 (part): Arrays - remembering a whole list\n    focus: two-dimensional arr
+ ays: rows\, columns and their totals\n    https://itcoder.co.za/lesson.php?
+ c=java&id=lesson16\n\nTheory:\n- What makes a computer fast\n    https://it
+ coder.co.za/lesson.php?c=theory12&id=performance\n\nDatabases:\n- SQL 3: Ke
+ ys and relationships\n    focus: keys: primary\, foreign\, composite\; rela
+ tionships one-to-one\, one-to-many\, many-to-many\; referential integrity\n
+     https://itcoder.co.za/lesson.php?c=sql&id=dbkeys\n- SQL 4: A good desig
+ n\n    focus: redundancy\, repeating groups\, duplicate and derived data\, 
+ atomic and non-atomic fields\; update\, insert and delete anomalies\n    ht
+ tps://itcoder.co.za/lesson.php?c=sql&id=dbdesign
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 12: Term 1 starts
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 12 T1 W2: Java 18 Persistence - Text files | Choosing a compu
+ ter for the job
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W2\n\nProgramming:\n- Java 16 (part): Arrays - r
+ emembering a whole list (continued)\n    https://itcoder.co.za/lesson.php?c
+ =java&id=lesson16\n- Java 18 (part): Persistence - Text files\n    focus: J
+ SON - theory\n    https://itcoder.co.za/lesson.php?c=java&id=lesson18\n\nTh
+ eory:\n- What makes a computer fast (continued)\n    https://itcoder.co.za/
+ lesson.php?c=theory12&id=performance\n- Choosing a computer for the job\n  
+   https://itcoder.co.za/lesson.php?c=theory12&id=choosingcomputer\n\nDataba
+ ses:\n- SQL 4: A good design (continued)\n    https://itcoder.co.za/lesson.
+ php?c=sql&id=dbdesign\n- SQL 5: Normalisation step by step\n    focus: norm
+ alisation: 1NF\, 2NF\, 3NF\; partial and transitive dependencies\n    https
+ ://itcoder.co.za/lesson.php?c=sql&id=dbnormal\n- SQL 6 (part): Looking afte
+ r data\n    focus: threats to data quality: corrupted\, outdated and invali
+ dated data\n    https://itcoder.co.za/lesson.php?c=sql&id=dbcare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 12 T1 W3: Java 21 Managing a list - the array manager class |
+  Cloud computing
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W3\n\nProgramming:\n- Java 18 (part): Persistenc
+ e - Text files (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=
+ lesson18\n- Java 21 (part): Managing a list - the array manager class\n    
+ focus: an array as a field of an object\, an object as a field\, and an obj
+ ect whose fields are arrays of two different object types\; fields of compl
+ ex type\, passing and returning complex types\, null objects and null field
+ s\, and comparing data structures\; sending and giving back arrays and arra
+ ys of objects\n    https://itcoder.co.za/lesson.php?c=java&id=lesson21\n\nT
+ heory:\n- Cloud computing\n    https://itcoder.co.za/lesson.php?c=theory12&
+ id=cloudcomputing\n- Artificial intelligence\n    https://itcoder.co.za/les
+ son.php?c=theory12&id=ai12\n\nDatabases:\n- SQL 7: Big data\n    focus: dat
+ a warehousing and data mining - description\, purpose\, uses\; big data sou
+ rces (social media\, activity-generated data\, logs and audit trails\, loca
+ tion data)\; NoSQL - description\, an example (MongoDB)\, comparison with S
+ QL\n    https://itcoder.co.za/lesson.php?c=sql&id=dbbig\n- SQL 16: Joining 
+ tables\n    focus: multi-table SQL: INNER JOIN and WHERE on matching keys\;
+  keys: primary and foreign\; relationships between tables\n    https://itco
+ der.co.za/lesson.php?c=sql&id=access08
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 12 T1 W4: VR\, AR and MR | SQL 17 Questions inside questions
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W4\n\nProgramming:\n- Java 21 (part): Managing a
+  list - the array manager class (continued)\n    https://itcoder.co.za/less
+ on.php?c=java&id=lesson21\n\nTheory:\n- Artificial intelligence (continued)
+ \n    https://itcoder.co.za/lesson.php?c=theory12&id=ai12\n- VR\, AR and MR
+ \n    https://itcoder.co.za/lesson.php?c=theory12&id=vrarmr\n\nDatabases:\n
+ - SQL 16: Joining tables (continued)\n    https://itcoder.co.za/lesson.php?
+ c=sql&id=access08\n- SQL 17 (part): Questions inside questions\n    focus: 
+ multi-table SQL: subqueries\; LEFT and RIGHT JOIN\; NOT IN or an outer join
+  to find unrelated records\; INSERT ... SELECT\n    https://itcoder.co.za/l
+ esson.php?c=sql&id=access09
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 12 T1 W5: Collecting and caring for data
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W5\n\nProgramming:\n- Java 21 (part): Managing a
+  list - the array manager class (continued)\n    https://itcoder.co.za/less
+ on.php?c=java&id=lesson21\n\nTheory:\n- VR\, AR and MR (continued)\n    htt
+ ps://itcoder.co.za/lesson.php?c=theory12&id=vrarmr\n- Collecting and caring
+  for data\n    https://itcoder.co.za/lesson.php?c=theory12&id=datacollectio
+ n
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270219
+SUMMARY:IT Gr 12 T1 W6: Java 22 Family trees - Inheritance and polymorphism
+  | Data warehouses\, data mining and big ...
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W6\n\nProgramming:\n- Java 21 (part): Managing a
+  list - the array manager class (continued)\n    https://itcoder.co.za/less
+ on.php?c=java&id=lesson21\n- Java 22 (part): Family trees - Inheritance and
+  polymorphism\n    focus: inheritance: superclass and subclass\, overriding
+  - polymorphism and dynamic binding\, calling the superclass's methods\, ad
+ vantages of inheritance\, object-as-field compared with inheritance (has-a 
+ vs is-a)\, and type determination with instanceof\; an array of inherited o
+ bjects\n    https://itcoder.co.za/lesson.php?c=java&id=lesson22\n\nTheory:\
+ n- Collecting and caring for data (continued)\n    https://itcoder.co.za/le
+ sson.php?c=theory12&id=datacollection\n- Data warehouses\, data mining and 
+ big data\n    https://itcoder.co.za/lesson.php?c=theory12&id=warehouseminin
+ g
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270223-7@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270223
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 12 T1 W7: Centralised and distributed processing
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W7\n\nProgramming:\n- Java 22 (part): Family tre
+ es - Inheritance and polymorphism (continued)\n    https://itcoder.co.za/le
+ sson.php?c=java&id=lesson22\n\nTheory:\n- Centralised and distributed proce
+ ssing\n    https://itcoder.co.za/lesson.php?c=theory12&id=distributed\n- Sh
+ aring and remote access\n    https://itcoder.co.za/lesson.php?c=theory12&id
+ =sharingremote
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 12 T1 W8: Connecting a home or school
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W8\n\nProgramming:\n- Java 22 (part): Family tre
+ es - Inheritance and polymorphism (continued)\n    https://itcoder.co.za/le
+ sson.php?c=java&id=lesson22\n\nTheory:\n- Sharing and remote access (contin
+ ued)\n    https://itcoder.co.za/lesson.php?c=theory12&id=sharingremote\n- C
+ onnecting a home or school\n    https://itcoder.co.za/lesson.php?c=theory12
+ &id=connecthome\n- Better searching and SEO\n    https://itcoder.co.za/less
+ on.php?c=theory12&id=seo
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 12 T1 W9: How online applications work
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W9\n\nProgramming:\n- Practice\, consolidation a
+ nd PAT work\n\nTheory:\n- Better searching and SEO (continued)\n    https:/
+ /itcoder.co.za/lesson.php?c=theory12&id=seo\n- How online applications work
+ \n    https://itcoder.co.za/lesson.php?c=theory12&id=onlineapps
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 12 T1 W10: The deep web and the dark web
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W10\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- How online applications work (continued)\n    ht
+ tps://itcoder.co.za/lesson.php?c=theory12&id=onlineapps\n- The deep web and
+  the dark web\n    https://itcoder.co.za/lesson.php?c=theory12&id=deepdark
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270323-11@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270323
+DTEND;VALUE=DATE:20270326
+SUMMARY:IT Gr 12 T1 W11: Keys\, SSL and certificates
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W11\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Keys\, SSL and certificates\n    https://itcoder
+ .co.za/lesson.php?c=theory12&id=encryption\n- Cryptocurrency\n    https://i
+ tcoder.co.za/lesson.php?c=theory12&id=cryptocurrency
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270330-12@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270330
+DTEND;VALUE=DATE:20270403
+SUMMARY:IT Gr 12 T1 W12: Cybercrime in depth
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W12\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Cryptocurrency (continued)\n    https://itcoder.
+ co.za/lesson.php?c=theory12&id=cryptocurrency\n- Cybercrime in depth\n    h
+ ttps://itcoder.co.za/lesson.php?c=theory12&id=cybercrime12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270405-13@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270405
+DTEND;VALUE=DATE:20270410
+SUMMARY:IT Gr 12 T1 W13: Evaluating and recommending security
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T1 W13\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Cybercrime in depth (continued)\n    https://itc
+ oder.co.za/lesson.php?c=theory12&id=cybercrime12\n- Evaluating and recommen
+ ding security\n    https://itcoder.co.za/lesson.php?c=theory12&id=securityp
+ lan
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270409-14@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270409
+DTEND;VALUE=DATE:20270410
+SUMMARY:IT Gr 12: Term 1 ends
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270505-15@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 12 T2 W1: Privacy\, rights and the law
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T2 W1\n\nProgramming:\n- Practice\, consolidation a
+ nd PAT work\n\nTheory:\n- Privacy\, rights and the law\n    https://itcoder
+ .co.za/lesson.php?c=theory12&id=privacylaw
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270505-16@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:IT Gr 12: Term 2 starts
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270510-17@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 12 T2 W2: Computers and the big problems
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T2 W2\n\nProgramming:\n- Practice\, consolidation a
+ nd PAT work\n\nTheory:\n- Computers and the big problems\n    https://itcod
+ er.co.za/lesson.php?c=theory12&id=bigproblems\n- Social networking and its 
+ effects\n    https://itcoder.co.za/lesson.php?c=theory12&id=socialnetworkin
+ g
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270517-18@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 12 T2 W3: Green computing
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T2 W3\n\nProgramming:\n- Practice\, consolidation a
+ nd PAT work\n\nTheory:\n- Social networking and its effects (continued)\n  
+   https://itcoder.co.za/lesson.php?c=theory12&id=socialnetworking\n- Green 
+ computing\n    https://itcoder.co.za/lesson.php?c=theory12&id=green12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270524-19@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 12 T2 W4: Objects in depth
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T2 W4\n\nProgramming:\n- Practice\, consolidation a
+ nd PAT work\n\nTheory:\n- Green computing (continued)\n    https://itcoder.
+ co.za/lesson.php?c=theory12&id=green12\n- Objects in depth\n    https://itc
+ oder.co.za/lesson.php?c=theory12&id=oop12
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270531-20@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270605
+SUMMARY:IT Gr 12 T2 W5: Two-dimensional arrays
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T2 W5\n\nProgramming:\n- Practice\, consolidation a
+ nd PAT work\n\nTheory:\n- Objects in depth (continued)\n    https://itcoder
+ .co.za/lesson.php?c=theory12&id=oop12\n- Two-dimensional arrays\n    https:
+ //itcoder.co.za/lesson.php?c=theory12&id=arrays2d
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270607-21@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270625
+SUMMARY:IT Gr 12: Mid-year exams
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270705-22@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270705
+DTEND;VALUE=DATE:20270710
+SUMMARY:IT Gr 12 T2 W9: Dynamic arrays and JSON
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T2 W9\n\nProgramming:\n- Practice\, consolidation a
+ nd PAT work\n\nTheory:\n- Dynamic arrays and JSON\n    https://itcoder.co.z
+ a/lesson.php?c=theory12&id=dynamicjson\n- Bigger truth tables\n    https://
+ itcoder.co.za/lesson.php?c=theory12&id=truthtables4
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270712-23@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270712
+DTEND;VALUE=DATE:20270717
+SUMMARY:IT Gr 12 T2 W10: Efficient algorithms
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T2 W10\n\nProgramming:\n- Practice\, consolidation 
+ and PAT work\n\nTheory:\n- Bigger truth tables (continued)\n    https://itc
+ oder.co.za/lesson.php?c=theory12&id=truthtables4\n- Efficient algorithms\n 
+    https://itcoder.co.za/lesson.php?c=theory12&id=efficiency
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270719-24@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270719
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 12: Preliminary (trial) exams
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270806-25@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270806
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 12: Term 2 ends
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270907-26@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270907
+DTEND;VALUE=DATE:20270911
+SUMMARY:IT Gr 12 T3 W1: Java 29 Practical exam guide - IEB | Theory exam gu
+ ide - IEB
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T3 W1\n\nProgramming:\n- Java 29: Practical exam gu
+ ide - IEB\n    focus: inheritance in the exam: super(...)\, @Override\, and
+  a toString that builds on the parent's\n    https://itcoder.co.za/lesson.p
+ hp?c=java&id=examieb\n\nTheory:\n- Theory exam guide - IEB\n    https://itc
+ oder.co.za/lesson.php?c=theory12&id=examieb\n\nDatabases:\n- SQL 18: Practi
+ cal exam guide - IEB Section A\n    focus: SQL as the IEB practical examina
+ tion asks it: single- and multi-table queries\, aggregates with GROUP BY an
+ d HAVING\, dates\, subqueries\, UPDATE and INSERT ... SELECT on a given dat
+ abase\n    https://itcoder.co.za/lesson.php?c=sql&id=access10
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270907-27@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270907
+DTEND;VALUE=DATE:20270908
+SUMMARY:IT Gr 12: Term 3 starts
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270913-28@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 12 T3 W2: 
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T3 W2\n\nProgramming:\n- Java 29: Practical exam gu
+ ide - IEB (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=exami
+ eb\n\nTheory:\n- Theory revision and past-paper questions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270920-29@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270920
+DTEND;VALUE=DATE:20270924
+SUMMARY:IT Gr 12 T3 W3: Revision
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T3 W3\n\nRevision and exam practice: past papers\, 
+ and the exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20270927-30@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20270927
+DTEND;VALUE=DATE:20271002
+SUMMARY:IT Gr 12 T3 W4: Revision
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T3 W4\n\nRevision and exam practice: past papers\, 
+ and the exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20271004-31@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271004
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 12 T3 W5: Revision
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline) - T3 W5\n\nRevision and exam practice: past papers\, 
+ and the exam guide lessons.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20271012-32@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271012
+DTEND;VALUE=DATE:20271013
+SUMMARY:IT Gr 12: Final (NSC) exams start
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb12-java-access-20271203-33@itcoder.co.za
+DTSTAMP:20260927T162527Z
+DTSTART;VALUE=DATE:20271203
+DTEND;VALUE=DATE:20271204
+SUMMARY:IT Gr 12: Term 3 ends
+DESCRIPTION:IEB Grade 12 - Java - Access - Other three-term independent sch
+ ool (ISASA guideline)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" width="220" height="160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M150 4 L150 40"/>
+<path d="M150 40 q0 26 -20 26 q-16 0 -16 -14 q0 -9 9 -9"/>
+<path d="M123 49 l-8 -6 M123 49 l-2 -10"/>
+<rect x="26" y="74" width="124" height="76" rx="4"/>
+<path d="M26 74 L88 116 L150 74"/>
+<text x="88" y="140" text-anchor="middle" fill="currentColor" stroke="none" style="font-family: 'Kalam', cursive; font-weight: 700; font-size: 16px">YOUR BANK</text>
+<text x="188" y="30" text-anchor="middle" fill="currentColor" stroke="none" style="font-family: 'Kalam', cursive; font-weight: 700; font-size: 22px">!</text>
+</svg>

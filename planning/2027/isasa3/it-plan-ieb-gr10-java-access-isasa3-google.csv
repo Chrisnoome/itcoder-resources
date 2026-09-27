@@ -1,0 +1,425 @@
+﻿Subject,"Start Date","End Date","All Day Event",Description,Private
+"IT Gr 10 T1 W1: Java 1 What you learn when you learn programming | ICT and ICT systems",01/13/2027,01/15/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W1
+
+Programming:
+- Java 1: What you learn when you learn programming
+    focus: decomposition, pattern recognition, abstraction, algorithms and evaluation
+    https://itcoder.co.za/lesson.php?c=java&id=lesson01
+
+Theory:
+- ICT and ICT systems
+    https://itcoder.co.za/lesson.php?c=theory10&id=ict
+- Kinds of computers
+    https://itcoder.co.za/lesson.php?c=theory10&id=kindsofcomputers",False
+"IT Gr 10: Term 1 starts",01/13/2027,01/13/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 10 T1 W2: Java 2 Proof of Life / Output - println and print | Hardware and software",01/18/2027,01/22/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W2
+
+Programming:
+- Java 1: What you learn when you learn programming (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson01
+- Java 2: Proof of Life / Output - println and print
+    focus: input, processing and output (IPO) - the output part; a simple text-based interface; syntax errors and reading the compiler's messages
+    https://itcoder.co.za/lesson.php?c=java&id=lesson02
+
+Theory:
+- Kinds of computers (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=kindsofcomputers
+- Hardware and software
+    https://itcoder.co.za/lesson.php?c=theory10&id=hardwaresoftware",False
+"IT Gr 10 T1 W3: Data, information and knowledge",01/25/2027,01/29/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W3
+
+Programming:
+- Java 2: Proof of Life / Output - println and print (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson02
+
+Theory:
+- Hardware and software (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=hardwaresoftware
+- Data, information and knowledge
+    https://itcoder.co.za/lesson.php?c=theory10&id=datainfo
+- Inside the case
+    https://itcoder.co.za/lesson.php?c=theory10&id=insidecase",False
+"IT Gr 10 T1 W4: Java 3 Where you write Java - IDEs | Processing and memory",02/01/2027,02/05/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W4
+
+Programming:
+- Java 2: Proof of Life / Output - println and print (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson02
+- Java 3 (part): Where you write Java - IDEs
+    focus: how a program is compiled and run: source code, compiler, bytecode and the Java Virtual Machine
+    https://itcoder.co.za/lesson.php?c=java&id=lesson03
+- Java 4: Making it pretty (optional extra)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson04
+
+Theory:
+- Inside the case (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=insidecase
+- Processing and memory
+    https://itcoder.co.za/lesson.php?c=theory10&id=processing",False
+"IT Gr 10 T1 W5: Java 5 How to remember - Variables and constants | Storage",02/08/2027,02/12/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W5
+
+Programming:
+- Java 5: How to remember - Variables and constants
+    focus: the types String, char, int, double and boolean, their ranges, and naming conventions; constants versus variables (final); random numbers, with Random, nextInt and Math.random
+    https://itcoder.co.za/lesson.php?c=java&id=lesson05
+
+Theory:
+- Storage
+    https://itcoder.co.za/lesson.php?c=theory10&id=storage
+- Input - keyboards and pointing devices
+    https://itcoder.co.za/lesson.php?c=theory10&id=inputkeyboards",False
+"IT Gr 10 T1 W6: Input - cameras, scanners, sound and sensors",02/15/2027,02/18/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W6
+
+Programming:
+- Java 5: How to remember - Variables and constants (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson05
+
+Theory:
+- Input - keyboards and pointing devices (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=inputkeyboards
+- Input - cameras, scanners, sound and sensors
+    https://itcoder.co.za/lesson.php?c=theory10&id=inputother",False
+"IT Gr 10 T1 W7: Java 6 Getting input - Scanner | Output",02/23/2027,02/26/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W7
+
+Programming:
+- Java 5: How to remember - Variables and constants (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson05
+- Java 6: Getting input - Scanner
+    focus: input, processing and output (IPO) - the input part; prompts in a text-based interface; runtime errors
+    https://itcoder.co.za/lesson.php?c=java&id=lesson06
+
+Theory:
+- Output
+    https://itcoder.co.za/lesson.php?c=theory10&id=output
+- Ports and connectors
+    https://itcoder.co.za/lesson.php?c=theory10&id=ports",False
+"IT Gr 10 T1 W8: Java 7 Processing - basic maths | Communication devices",03/01/2027,03/05/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W8
+
+Programming:
+- Java 6: Getting input - Scanner (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson06
+- Java 7: Processing - basic maths
+    focus: arithmetic operators, integer and real division, %, precedence and brackets; the Math class: abs, sqrt, pow, max, min and round
+    https://itcoder.co.za/lesson.php?c=java&id=lesson07
+
+Theory:
+- Communication devices
+    https://itcoder.co.za/lesson.php?c=theory10&id=commsdevices
+- Looking after hardware
+    https://itcoder.co.za/lesson.php?c=theory10&id=hwcare
+- System software
+    https://itcoder.co.za/lesson.php?c=theory10&id=systemsoftware",False
+"IT Gr 10 T1 W9: Application software",03/08/2027,03/12/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W9
+
+Programming:
+- Java 7: Processing - basic maths (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson07
+
+Theory:
+- System software (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=systemsoftware
+- Application software
+    https://itcoder.co.za/lesson.php?c=theory10&id=appsoftware",False
+"IT Gr 10 T1 W10: Java 8 Type conversion | Getting and owning software",03/15/2027,03/19/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W10
+
+Programming:
+- Java 8: Type conversion
+    focus: conversions: String and number, String and char, char and int, double and int; character codes (ASCII); narrowing and widening conversions, and their effects
+    https://itcoder.co.za/lesson.php?c=java&id=lesson08
+
+Theory:
+- Application software (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=appsoftware
+- Getting and owning software
+    https://itcoder.co.za/lesson.php?c=theory10&id=softwareowning
+- Looking after a computer
+    https://itcoder.co.za/lesson.php?c=theory10&id=computercare",False
+"IT Gr 10 T1 W11: Java 9 Decisions / Branching",03/23/2027,03/25/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W11
+
+Programming:
+- Java 8: Type conversion (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson08
+- Java 9: Decisions / Branching
+    focus: relational operators, logical NOT, AND and OR, order of operations and brackets; truth tables (up to three variables; four in Grade 12); selection: if, if...else, nested if, switch, and when to use which
+    https://itcoder.co.za/lesson.php?c=java&id=lesson09
+
+Theory:
+- Looking after a computer (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=computercare",False
+"IT Gr 10 T1 W12: How computers store data",03/30/2027,04/02/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W12
+
+Programming:
+- Java 9: Decisions / Branching (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson09
+
+Theory:
+- How computers store data
+    https://itcoder.co.za/lesson.php?c=theory10&id=storingdata
+- Bits and bytes
+    https://itcoder.co.za/lesson.php?c=theory10&id=bitsbytes",False
+"IT Gr 10 T1 W13: Binary",04/05/2027,04/09/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T1 W13
+
+Programming:
+- Java 9: Decisions / Branching (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson09
+
+Theory:
+- Binary
+    https://itcoder.co.za/lesson.php?c=theory10&id=binary
+- Hexadecimal and octal
+    https://itcoder.co.za/lesson.php?c=theory10&id=hexoctal",False
+"IT Gr 10: Term 1 ends",04/09/2027,04/09/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 10 T2 W1: Characters - ASCII and Unicode",05/05/2027,05/07/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W1
+
+Programming:
+- Java 9: Decisions / Branching (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson09
+
+Theory:
+- Hexadecimal and octal (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=hexoctal
+- Characters - ASCII and Unicode
+    https://itcoder.co.za/lesson.php?c=theory10&id=characters",False
+"IT Gr 10: Term 2 starts",05/05/2027,05/05/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 10 T2 W2: Java 10 Division - / and % | Primitive data types",05/10/2027,05/14/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W2
+
+Programming:
+- Java 10: Division - / and %
+    focus: integers: whole-number division and the remainder; algorithms with selection, as pseudocode and flowcharts
+    https://itcoder.co.za/lesson.php?c=java&id=lesson10
+
+Theory:
+- Primitive data types
+    https://itcoder.co.za/lesson.php?c=theory10&id=primitives
+- Storing data and managing files
+    https://itcoder.co.za/lesson.php?c=theory10&id=files",False
+"IT Gr 10 T2 W3: Java 11 Repeating instructions the easy and efficient way - for loops | Databases - a first...",05/17/2027,05/21/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W3
+
+Programming:
+- Java 11: Repeating instructions the easy and efficient way - for loops
+    focus: looping: the for loop (a counting loop); nested loops with independent inner variables
+    https://itcoder.co.za/lesson.php?c=java&id=lesson11
+
+Theory:
+- Storing data and managing files (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=files
+- Databases - a first look
+    https://itcoder.co.za/lesson.php?c=theory10&id=databasesintro",False
+"IT Gr 10 T2 W4: Why networks",05/24/2027,05/28/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W4
+
+Programming:
+- Java 11: Repeating instructions the easy and efficient way - for loops (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson11
+
+Theory:
+- Why networks
+    https://itcoder.co.za/lesson.php?c=theory10&id=whynetworks
+- Types of networks
+    https://itcoder.co.za/lesson.php?c=theory10&id=networktypes",False
+"IT Gr 10 T2 W5: Java 12 Looped algorithms - totals, averages and shapes | Communications media",05/31/2027,06/04/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W5
+
+Programming:
+- Java 12: Looped algorithms - totals, averages and shapes
+    focus: algorithms with loops: totals, averages, counting, the biggest and smallest; nested loops, and inner loops whose range depends on the outer counter
+    https://itcoder.co.za/lesson.php?c=java&id=lesson12
+
+Theory:
+- Types of networks (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=networktypes
+- Communications media
+    https://itcoder.co.za/lesson.php?c=theory10&id=media",False
+"IT Gr 10: Mid-year exams",06/07/2027,06/24/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 10 T2 W9: E-mail | SQL 2 What a database is",07/05/2027,07/09/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W9
+
+Programming:
+- Java 12: Looped algorithms - totals, averages and shapes (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson12
+
+Theory:
+- Communications media (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=media
+- E-mail
+    https://itcoder.co.za/lesson.php?c=theory10&id=email
+
+Databases:
+- SQL 2 (part): What a database is
+    focus: relational concepts: field, record, table, primary key
+    https://itcoder.co.za/lesson.php?c=sql&id=dbwhat
+- SQL 8 (part): Getting started in Access
+    focus: concepts of a relational database: field, record, table and primary key; the database structure (Design View) versus its data (Datasheet View); working with a single-table database in an application package (Access): opening it and querying it with SELECT and FROM
+    https://itcoder.co.za/lesson.php?c=sql&id=access00",False
+"IT Gr 10 T2 W10: Java 13 Flexible loops - while and do ... while | Chat, instant messaging, VoIP and video",07/12/2027,07/16/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W10
+
+Programming:
+- Java 12: Looped algorithms - totals, averages and shapes (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson12
+- Java 13: Flexible loops - while and do ... while
+    focus: looping: counting loops versus condition loops (for versus while); pre-check (while) and post-check (do ... while) loops
+    https://itcoder.co.za/lesson.php?c=java&id=lesson13
+
+Theory:
+- E-mail (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=email
+- Chat, instant messaging, VoIP and video
+    https://itcoder.co.za/lesson.php?c=theory10&id=chatvoip
+
+Databases:
+- SQL 9: Building a table in Access
+    focus: creating a single-table database in an application package (Access): suitable field types and sizes, default values, an AutoNumber primary key, not-null (Required) and indexed fields; the database structure (schema) - built in Design View or with CREATE TABLE - versus its data
+    https://itcoder.co.za/lesson.php?c=sql&id=access01
+- SQL 10: Asking questions: WHERE and ORDER BY
+    focus: querying a single table with SQL: SELECT, FROM, WHERE, ORDER BY ASC/DESC; logical operators NOT, AND, OR in search criteria, with brackets; comparison operators
+    https://itcoder.co.za/lesson.php?c=sql&id=access02",False
+"IT Gr 10 T2 W11: Social media, blogs, vlogs and podcasts | SQL 11 Finding patterns: LIKE, BETWEEN, IN and more",07/19/2027,07/23/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W11
+
+Programming:
+- Java 13: Flexible loops - while and do ... while (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson13
+
+Theory:
+- Chat, instant messaging, VoIP and video (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=chatvoip
+- Social media, blogs, vlogs and podcasts
+    https://itcoder.co.za/lesson.php?c=theory10&id=socialmedia
+
+Databases:
+- SQL 10: Asking questions: WHERE and ORDER BY (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access02
+- SQL 11: Finding patterns: LIKE, BETWEEN, IN and more
+    focus: special operators BETWEEN, LIKE (wildcards) and IS NULL; the logical operator IN; SELECT DISTINCT; TOP to limit the rows
+    https://itcoder.co.za/lesson.php?c=sql&id=access03",False
+"IT Gr 10 T2 W12: Netiquette | SQL 15 Changing data: INSERT, UPDATE and DELETE",07/26/2027,07/30/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W12
+
+Programming:
+- Java 13: Flexible loops - while and do ... while (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson13
+
+Theory:
+- Netiquette
+    https://itcoder.co.za/lesson.php?c=theory10&id=netiquette
+- The Internet
+    https://itcoder.co.za/lesson.php?c=theory10&id=internet
+
+Databases:
+- SQL 11: Finding patterns: LIKE, BETWEEN, IN and more (continued)
+    https://itcoder.co.za/lesson.php?c=sql&id=access03
+- SQL 15 (part): Changing data: INSERT, UPDATE and DELETE
+    focus: INSERT, UPDATE, DELETE with WHERE
+    https://itcoder.co.za/lesson.php?c=sql&id=access07",False
+"IT Gr 10 T2 W13: Java 14 Working with text - Strings | URLs, IP addresses and DNS",08/02/2027,08/06/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T2 W13
+
+Programming:
+- Java 13: Flexible loops - while and do ... while (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson13
+- Java 14 (part): Working with text - Strings
+    focus: strings: length, joining, upper and lower case, comparison; converting between binary and decimal, as algorithms
+    https://itcoder.co.za/lesson.php?c=java&id=lesson14
+
+Theory:
+- The Internet (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=internet
+- URLs, IP addresses and DNS
+    https://itcoder.co.za/lesson.php?c=theory10&id=urls",False
+"IT Gr 10: Term 2 ends",08/06/2027,08/06/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 10 T3 W1: The World Wide Web",09/07/2027,09/10/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W1
+
+Programming:
+- Java 14 (part): Working with text - Strings (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson14
+
+Theory:
+- URLs, IP addresses and DNS (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=urls
+- The World Wide Web
+    https://itcoder.co.za/lesson.php?c=theory10&id=www",False
+"IT Gr 10: Term 3 starts",09/07/2027,09/07/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 10 T3 W2: Java 15 Methods, parameters and classes of tools | Browsing and searching",09/13/2027,09/17/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W2
+
+Programming:
+- Java 15 (part): Methods, parameters and classes of tools
+    focus: calling a method that gives back a value versus a void method; parameters: matching count, type and order, and the return type; decomposition: spotting duplicated code and extracting reusable methods
+    https://itcoder.co.za/lesson.php?c=java&id=lesson15
+
+Theory:
+- Browsing and searching
+    https://itcoder.co.za/lesson.php?c=theory10&id=searching
+- Judging a website
+    https://itcoder.co.za/lesson.php?c=theory10&id=judgingsites",False
+"IT Gr 10 T3 W3: Making web pages",09/20/2027,09/23/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W3
+
+Programming:
+- Java 15 (part): Methods, parameters and classes of tools (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson15
+
+Theory:
+- Judging a website (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=judgingsites
+- Making web pages
+    https://itcoder.co.za/lesson.php?c=theory10&id=webpages",False
+"IT Gr 10 T3 W4: Java 16 Arrays - remembering a whole list | Malware and cybercrime",09/27/2027,10/01/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W4
+
+Programming:
+- Java 15 (part): Methods, parameters and classes of tools (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson15
+- Java 16 (part): Arrays - remembering a whole list
+    focus: algorithms on arrays: sum, average, biggest, smallest, swapping values
+    https://itcoder.co.za/lesson.php?c=java&id=lesson16
+
+Theory:
+- Making web pages (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=webpages
+- Who runs the Web (optional extra)
+    https://itcoder.co.za/lesson.php?c=theory10&id=w3cicann
+- Malware and cybercrime
+    https://itcoder.co.za/lesson.php?c=theory10&id=malware",False
+"IT Gr 10 T3 W5: Java 17 Smart data - Classes and objects | Computers and our society",10/04/2027,10/08/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W5
+
+Programming:
+- Java 17 (part): Smart data - Classes and objects
+    focus: instantiating objects and the purpose of constructors
+    https://itcoder.co.za/lesson.php?c=java&id=lesson17
+
+Theory:
+- Malware and cybercrime (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=malware
+- Computers and our society
+    https://itcoder.co.za/lesson.php?c=theory10&id=society",False
+"IT Gr 10 T3 W6: Java 19 Catching errors - Defensive programming | The digital divide",10/11/2027,10/15/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W6
+
+Programming:
+- Java 19 (part): Catching errors - Defensive programming
+    focus: prompts and error messages from simple validation; standard, extreme and abnormal test data; syntax, runtime and logic errors
+    https://itcoder.co.za/lesson.php?c=java&id=lesson19
+
+Theory:
+- The digital divide
+    https://itcoder.co.za/lesson.php?c=theory10&id=digitaldivide
+- Your body and the planet
+    https://itcoder.co.za/lesson.php?c=theory10&id=bodyplanet",False
+"IT Gr 10 T3 W7: Java 23 Talking to people - Text user interfaces | Plagiarism",10/18/2027,10/21/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W7
+
+Programming:
+- Java 19 (part): Catching errors - Defensive programming (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson19
+- Java 23 (part): Talking to people - Text user interfaces
+    focus: a simple text user interface with prompts and error messages from simple validation; the principles of a good user interface; desktop compared with mobile
+    https://itcoder.co.za/lesson.php?c=java&id=lesson23
+
+Theory:
+- Your body and the planet (continued)
+    https://itcoder.co.za/lesson.php?c=theory10&id=bodyplanet
+- Plagiarism
+    https://itcoder.co.za/lesson.php?c=theory10&id=plagiarism",False
+"IT Gr 10 T3 W8: Java 30 The data validation task - IEB | Theory for practical work",10/26/2027,10/29/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline) - T3 W8
+
+Programming:
+- Java 23 (part): Talking to people - Text user interfaces (continued)
+    https://itcoder.co.za/lesson.php?c=java&id=lesson23
+- Java 30 (part): The data validation task - IEB
+    focus: standard, extreme and abnormal test data, with evidence of every test
+    https://itcoder.co.za/lesson.php?c=java&id=dvtieb
+
+Theory:
+- Theory for practical work
+    https://itcoder.co.za/lesson.php?c=theory10&id=practicaltheory10",False
+"IT Gr 10: Final exams start",11/01/2027,11/01/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False
+"IT Gr 10: Term 3 ends",12/03/2027,12/03/2027,True,"IEB Grade 10 - Java - Access - Other three-term independent school (ISASA guideline)",False

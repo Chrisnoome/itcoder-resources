@@ -67,6 +67,9 @@ print(vps.run('nginx -t'))
   - `* * * * *` `/var/www/itcoder/bin/compilequeue.php` -> `itcoder-compile.log`
     (empty when idle is normal)
   - `30 2 * * *` `/var/www/itcoder/bin/backup.php` -> `itcoder-backup.log`
+  - `30 4 * * 1-5` `/var/www/itcoder/bin/remind.php` -> `itcoder-remind.log`
+    (06:30 SA time; weekly reminders to pupils behind - added by deploy-live.py
+    from 27 Sep 2026, live only; the server clock is UTC)
   - test: `itcoder-v2-test/bin/markqueue.php` -> `itcoder-v2-test-marking.log`,
     `itcoder-v2-test/bin/compilequeue.php` -> `itcoder-v2-test-compile.log`
     (remove at teardown)
@@ -180,6 +183,23 @@ If the server is ever rebuilt: install **`fp-compiler`** (13 packages), not
 `fpc` (387), with `DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=l` so PHP-FPM
 isn't restarted; check `fpc -iV` = 3.2.2.
 
+## Rebuilding the server: the install kit (27 Sep 2026)
+
+`AIPascalCourse/deploy/` (in git) builds a NEW server from nothing: every
+package, tool, setting, cron line and key on this page, in numbered steps
+(`deploy/server/deploy.sh`), with the keys asked one at a time, each with help
+(`deploy/questions.json`). From the PC: `deploy/install-from-pc.py` (IP,
+password once, files from the PC or GitHub, a backup to restore). Its
+`deploy/README.md` says how.
+
+- **Never run it on live** (Chris, 27 September 2026: "don't test run the
+  script on the live server"). It refuses a database with people in it.
+- **Keep it current** (Chris, 27 September 2026: "check this whenever new
+  tools are added to the system"): a new package, service, tool, cron job,
+  config key, secret or `/etc` file on this server goes into `deploy/` in the
+  same change - the README's "Keeping this current" lists where. Compare it
+  with this page read-only; never by running it.
+
 ## Backups and schema changes
 
 `bin/backup.php` snapshots with `VACUUM INTO` and verifies against `$expected`.
@@ -208,5 +228,15 @@ WAL-mode database file.
 - **Nothing is deleted without Chris** - doubly `/var/www/marking-app` and
   `/var/backups`.
 - Secrets stay out of the chat - read them programmatically, never echo.
+- **Settings Chris must put on the server** (an API key, a password, any
+  config value): give him a script that **asks for the value** and he pastes
+  it in (Chris, 27 September 2026: "have it ask for the key. i will paste it
+  in. use this technique when i have to update settings on the server"). For
+  `config/config.php` that script exists: `tools/set-server-config.py`
+  (`mail` for the email settings, or any key names; `--site test`) - values
+  shown as pasted (Chris wants to see the paste worked), secrets masked in the
+  summary, sent over SSH standard input only, config backed up,
+  `php -l`-checked and restored on failure, values never printed. Other
+  settings: a script built the same way.
 - If Claude Code's permission checker blocks a server action, don't work
   around it: write the change as a file and give Chris the commands.

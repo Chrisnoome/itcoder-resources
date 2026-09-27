@@ -1,0 +1,669 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//itcoder//Year planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IT IEB Grade 10 - Java - Access - Public school (DBE\, four te
+ rms)
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270113-0@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270116
+SUMMARY:IT Gr 10 T1 W1: Java 1 What you learn when you learn programming | 
+ ICT and ICT systems
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W1\n\nProgramming:\n- Java 1: What you learn when you learn programmi
+ ng\n    focus: decomposition\, pattern recognition\, abstraction\, algorith
+ ms and evaluation\n    https://itcoder.co.za/lesson.php?c=java&id=lesson01\
+ n\nTheory:\n- ICT and ICT systems\n    https://itcoder.co.za/lesson.php?c=t
+ heory10&id=ict
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270113-1@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:IT Gr 10: Term 1 starts
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270118-2@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:IT Gr 10 T1 W2: Java 2 Proof of Life / Output - println and print |
+  Kinds of computers
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W2\n\nProgramming:\n- Java 1: What you learn when you learn programmi
+ ng (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson01\n- 
+ Java 2: Proof of Life / Output - println and print\n    focus: input\, proc
+ essing and output (IPO) - the output part\; a simple text-based interface\;
+  syntax errors and reading the compiler's messages\n    https://itcoder.co.
+ za/lesson.php?c=java&id=lesson02\n\nTheory:\n- Kinds of computers\n    http
+ s://itcoder.co.za/lesson.php?c=theory10&id=kindsofcomputers\n- Hardware and
+  software\n    https://itcoder.co.za/lesson.php?c=theory10&id=hardwaresoftw
+ are
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270125-3@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270130
+SUMMARY:IT Gr 10 T1 W3: Data\, information and knowledge
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W3\n\nProgramming:\n- Java 2: Proof of Life / Output - println and pr
+ int (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson02\n\
+ nTheory:\n- Hardware and software (continued)\n    https://itcoder.co.za/le
+ sson.php?c=theory10&id=hardwaresoftware\n- Data\, information and knowledge
+ \n    https://itcoder.co.za/lesson.php?c=theory10&id=datainfo
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270201-4@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270206
+SUMMARY:IT Gr 10 T1 W4: Java 3 Where you write Java - IDEs | Inside the cas
+ e
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W4\n\nProgramming:\n- Java 2: Proof of Life / Output - println and pr
+ int (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson02\n-
+  Java 3 (part): Where you write Java - IDEs\n    focus: how a program is co
+ mpiled and run: source code\, compiler\, bytecode and the Java Virtual Mach
+ ine\n    https://itcoder.co.za/lesson.php?c=java&id=lesson03\n\nTheory:\n- 
+ Inside the case\n    https://itcoder.co.za/lesson.php?c=theory10&id=insidec
+ ase\n- Processing and memory\n    https://itcoder.co.za/lesson.php?c=theory
+ 10&id=processing
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270208-5@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270213
+SUMMARY:IT Gr 10 T1 W5: Java 5 How to remember - Variables and constants | 
+ Storage
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W5\n\nProgramming:\n- Java 4: Making it pretty (optional extra)\n    
+ https://itcoder.co.za/lesson.php?c=java&id=lesson04\n- Java 5: How to remem
+ ber - Variables and constants\n    focus: the types String\, char\, int\, d
+ ouble and boolean\, their ranges\, and naming conventions\; constants versu
+ s variables (final)\; random numbers\, with Random\, nextInt and Math.rando
+ m\n    https://itcoder.co.za/lesson.php?c=java&id=lesson05\n\nTheory:\n- Pr
+ ocessing and memory (continued)\n    https://itcoder.co.za/lesson.php?c=the
+ ory10&id=processing\n- Storage\n    https://itcoder.co.za/lesson.php?c=theo
+ ry10&id=storage
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270215-6@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270220
+SUMMARY:IT Gr 10 T1 W6: Input - keyboards and pointing devices
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W6\n\nProgramming:\n- Java 5: How to remember - Variables and constan
+ ts (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson05\n\n
+ Theory:\n- Input - keyboards and pointing devices\n    https://itcoder.co.z
+ a/lesson.php?c=theory10&id=inputkeyboards\n- Input - cameras\, scanners\, s
+ ound and sensors\n    https://itcoder.co.za/lesson.php?c=theory10&id=inputo
+ ther
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270222-7@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270227
+SUMMARY:IT Gr 10 T1 W7: Java 6 Getting input - Scanner | Output
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W7\n\nProgramming:\n- Java 5: How to remember - Variables and constan
+ ts (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson05\n- 
+ Java 6: Getting input - Scanner\n    focus: input\, processing and output (
+ IPO) - the input part\; prompts in a text-based interface\; runtime errors\
+ n    https://itcoder.co.za/lesson.php?c=java&id=lesson06\n\nTheory:\n- Inpu
+ t - cameras\, scanners\, sound and sensors (continued)\n    https://itcoder
+ .co.za/lesson.php?c=theory10&id=inputother\n- Output\n    https://itcoder.c
+ o.za/lesson.php?c=theory10&id=output
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270301-8@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270306
+SUMMARY:IT Gr 10 T1 W8: Ports and connectors
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W8\n\nProgramming:\n- Java 6: Getting input - Scanner (continued)\n  
+   https://itcoder.co.za/lesson.php?c=java&id=lesson06\n\nTheory:\n- Ports a
+ nd connectors\n    https://itcoder.co.za/lesson.php?c=theory10&id=ports\n- 
+ Communication devices\n    https://itcoder.co.za/lesson.php?c=theory10&id=c
+ ommsdevices
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270308-9@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270313
+SUMMARY:IT Gr 10 T1 W9: Java 7 Processing - basic maths | Looking after har
+ dware
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W9\n\nProgramming:\n- Java 6: Getting input - Scanner (continued)\n  
+   https://itcoder.co.za/lesson.php?c=java&id=lesson06\n- Java 7: Processing
+  - basic maths\n    focus: arithmetic operators\, integer and real division
+ \, %\, precedence and brackets\; the Math class: abs\, sqrt\, pow\, max\, m
+ in and round\n    https://itcoder.co.za/lesson.php?c=java&id=lesson07\n\nTh
+ eory:\n- Looking after hardware\n    https://itcoder.co.za/lesson.php?c=the
+ ory10&id=hwcare\n- System software\n    https://itcoder.co.za/lesson.php?c=
+ theory10&id=systemsoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270315-10@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 10 T1 W10: Application software
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T1 W10\n\nProgramming:\n- Java 7: Processing - basic maths (continued)\n
+     https://itcoder.co.za/lesson.php?c=java&id=lesson07\n\nTheory:\n- Syste
+ m software (continued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=
+ systemsoftware\n- Application software\n    https://itcoder.co.za/lesson.ph
+ p?c=theory10&id=appsoftware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270319-11@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:IT Gr 10: Term 1 ends
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270406-12@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270410
+SUMMARY:IT Gr 10 T2 W1: Java 8 Type conversion | Getting and owning softwar
+ e
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W1\n\nProgramming:\n- Java 8: Type conversion\n    focus: conversions
+ : String and number\, String and char\, char and int\, double and int\; cha
+ racter codes (ASCII)\; narrowing and widening conversions\, and their effec
+ ts\n    https://itcoder.co.za/lesson.php?c=java&id=lesson08\n\nTheory:\n- G
+ etting and owning software\n    https://itcoder.co.za/lesson.php?c=theory10
+ &id=softwareowning\n- Looking after a computer\n    https://itcoder.co.za/l
+ esson.php?c=theory10&id=computercare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270406-13@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270407
+SUMMARY:IT Gr 10: Term 2 starts
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270412-14@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270417
+SUMMARY:IT Gr 10 T2 W2: Java 9 Decisions / Branching
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W2\n\nProgramming:\n- Java 8: Type conversion (continued)\n    https:
+ //itcoder.co.za/lesson.php?c=java&id=lesson08\n- Java 9: Decisions / Branch
+ ing\n    focus: relational operators\, logical NOT\, AND and OR\, order of 
+ operations and brackets\; truth tables (up to three variables\; four in Gra
+ de 12)\; selection: if\, if...else\, nested if\, switch\, and when to use w
+ hich\n    https://itcoder.co.za/lesson.php?c=java&id=lesson09\n\nTheory:\n-
+  Looking after a computer (continued)\n    https://itcoder.co.za/lesson.php
+ ?c=theory10&id=computercare
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270419-15@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270424
+SUMMARY:IT Gr 10 T2 W3: How computers store data
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W3\n\nProgramming:\n- Java 9: Decisions / Branching (continued)\n    
+ https://itcoder.co.za/lesson.php?c=java&id=lesson09\n\nTheory:\n- How compu
+ ters store data\n    https://itcoder.co.za/lesson.php?c=theory10&id=storing
+ data\n- Bits and bytes\n    https://itcoder.co.za/lesson.php?c=theory10&id=
+ bitsbytes
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270428-16@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270428
+DTEND;VALUE=DATE:20270501
+SUMMARY:IT Gr 10 T2 W4: Binary
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W4\n\nProgramming:\n- Java 9: Decisions / Branching (continued)\n    
+ https://itcoder.co.za/lesson.php?c=java&id=lesson09\n\nTheory:\n- Bits and 
+ bytes (continued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=bitsb
+ ytes\n- Binary\n    https://itcoder.co.za/lesson.php?c=theory10&id=binary\n
+ - Hexadecimal and octal\n    https://itcoder.co.za/lesson.php?c=theory10&id
+ =hexoctal
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270503-17@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270508
+SUMMARY:IT Gr 10 T2 W5: Characters - ASCII and Unicode
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W5\n\nProgramming:\n- Java 9: Decisions / Branching (continued)\n    
+ https://itcoder.co.za/lesson.php?c=java&id=lesson09\n\nTheory:\n- Hexadecim
+ al and octal (continued)\n    https://itcoder.co.za/lesson.php?c=theory10&i
+ d=hexoctal\n- Characters - ASCII and Unicode\n    https://itcoder.co.za/les
+ son.php?c=theory10&id=characters
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270510-18@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:IT Gr 10 T2 W6: Java 10 Division - / and % | Primitive data types
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W6\n\nProgramming:\n- Java 9: Decisions / Branching (continued)\n    
+ https://itcoder.co.za/lesson.php?c=java&id=lesson09\n- Java 10: Division - 
+ / and %\n    focus: integers: whole-number division and the remainder\; alg
+ orithms with selection\, as pseudocode and flowcharts\n    https://itcoder.
+ co.za/lesson.php?c=java&id=lesson10\n\nTheory:\n- Characters - ASCII and Un
+ icode (continued)\n    https://itcoder.co.za/lesson.php?c=theory10&id=chara
+ cters\n- Primitive data types\n    https://itcoder.co.za/lesson.php?c=theor
+ y10&id=primitives
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270517-19@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:IT Gr 10 T2 W7: Java 11 Repeating instructions the easy and efficie
+ nt way - for loops | Storing data and ma...
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W7\n\nProgramming:\n- Java 10: Division - / and % (continued)\n    ht
+ tps://itcoder.co.za/lesson.php?c=java&id=lesson10\n- Java 11: Repeating ins
+ tructions the easy and efficient way - for loops\n    focus: looping: the f
+ or loop (a counting loop)\; nested loops with independent inner variables\n
+     https://itcoder.co.za/lesson.php?c=java&id=lesson11\n\nTheory:\n- Stori
+ ng data and managing files\n    https://itcoder.co.za/lesson.php?c=theory10
+ &id=files
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270524-20@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+SUMMARY:IT Gr 10 T2 W8: Databases - a first look
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W8\n\nProgramming:\n- Java 11: Repeating instructions the easy and ef
+ ficient way - for loops (continued)\n    https://itcoder.co.za/lesson.php?c
+ =java&id=lesson11\n\nTheory:\n- Databases - a first look\n    https://itcod
+ er.co.za/lesson.php?c=theory10&id=databasesintro\n- Why networks\n    https
+ ://itcoder.co.za/lesson.php?c=theory10&id=whynetworks
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270601-21@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270619
+SUMMARY:IT Gr 10: Mid-year exams
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270621-22@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270621
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 10 T2 W12: Java 12 Looped algorithms - totals\, averages and 
+ shapes | Types of networks
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T2 W12\n\nProgramming:\n- Java 11: Repeating instructions the easy and e
+ fficient way - for loops (continued)\n    https://itcoder.co.za/lesson.php?
+ c=java&id=lesson11\n- Java 12: Looped algorithms - totals\, averages and sh
+ apes\n    focus: algorithms with loops: totals\, averages\, counting\, the 
+ biggest and smallest\; nested loops\, and inner loops whose range depends o
+ n the outer counter\n    https://itcoder.co.za/lesson.php?c=java&id=lesson1
+ 2\n\nTheory:\n- Types of networks\n    https://itcoder.co.za/lesson.php?c=t
+ heory10&id=networktypes
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270625-23@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:IT Gr 10: Term 2 ends
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270720-24@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270724
+SUMMARY:IT Gr 10 T3 W1: Communications media | SQL 2 What a database is
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W1\n\nProgramming:\n- Java 12: Looped algorithms - totals\, averages 
+ and shapes (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=less
+ on12\n\nTheory:\n- Communications media\n    https://itcoder.co.za/lesson.p
+ hp?c=theory10&id=media\n\nDatabases:\n- SQL 2 (part): What a database is\n 
+    focus: relational concepts: field\, record\, table\, primary key\n    ht
+ tps://itcoder.co.za/lesson.php?c=sql&id=dbwhat\n- SQL 8 (part): Getting sta
+ rted in Access\n    focus: concepts of a relational database: field\, recor
+ d\, table and primary key\; the database structure (Design View) versus its
+  data (Datasheet View)\; working with a single-table database in an applica
+ tion package (Access): opening it and querying it with SELECT and FROM\n   
+  https://itcoder.co.za/lesson.php?c=sql&id=access00
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270720-25@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:IT Gr 10: Term 3 starts
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270726-26@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270726
+DTEND;VALUE=DATE:20270731
+SUMMARY:IT Gr 10 T3 W2: E-mail | SQL 9 Building a table in Access
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W2\n\nProgramming:\n- Java 12: Looped algorithms - totals\, averages 
+ and shapes (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=less
+ on12\n\nTheory:\n- E-mail\n    https://itcoder.co.za/lesson.php?c=theory10&
+ id=email\n\nDatabases:\n- SQL 9: Building a table in Access\n    focus: cre
+ ating a single-table database in an application package (Access): suitable 
+ field types and sizes\, default values\, an AutoNumber primary key\, not-nu
+ ll (Required) and indexed fields\; the database structure (schema) - built 
+ in Design View or with CREATE TABLE - versus its data\n    https://itcoder.
+ co.za/lesson.php?c=sql&id=access01\n- SQL 10: Asking questions: WHERE and O
+ RDER BY\n    focus: querying a single table with SQL: SELECT\, FROM\, WHERE
+ \, ORDER BY ASC/DESC\; logical operators NOT\, AND\, OR in search criteria\
+ , with brackets\; comparison operators\n    https://itcoder.co.za/lesson.ph
+ p?c=sql&id=access02
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270802-27@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270807
+SUMMARY:IT Gr 10 T3 W3: Java 13 Flexible loops - while and do ... while | C
+ hat\, instant messaging\, VoIP and video
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W3\n\nProgramming:\n- Java 12: Looped algorithms - totals\, averages 
+ and shapes (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=less
+ on12\n- Java 13: Flexible loops - while and do ... while\n    focus: loopin
+ g: counting loops versus condition loops (for versus while)\; pre-check (wh
+ ile) and post-check (do ... while) loops\n    https://itcoder.co.za/lesson.
+ php?c=java&id=lesson13\n\nTheory:\n- E-mail (continued)\n    https://itcode
+ r.co.za/lesson.php?c=theory10&id=email\n- Chat\, instant messaging\, VoIP a
+ nd video\n    https://itcoder.co.za/lesson.php?c=theory10&id=chatvoip\n\nDa
+ tabases:\n- SQL 10: Asking questions: WHERE and ORDER BY (continued)\n    h
+ ttps://itcoder.co.za/lesson.php?c=sql&id=access02\n- SQL 11: Finding patter
+ ns: LIKE\, BETWEEN\, IN and more\n    focus: special operators BETWEEN\, LI
+ KE (wildcards) and IS NULL\; the logical operator IN\; SELECT DISTINCT\; TO
+ P to limit the rows\n    https://itcoder.co.za/lesson.php?c=sql&id=access03
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270810-28@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270814
+SUMMARY:IT Gr 10 T3 W4: Social media\, blogs\, vlogs and podcasts | SQL 15 
+ Changing data: INSERT\, UPDATE and DELETE
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W4\n\nProgramming:\n- Java 13: Flexible loops - while and do ... whil
+ e (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson13\n\nT
+ heory:\n- Chat\, instant messaging\, VoIP and video (continued)\n    https:
+ //itcoder.co.za/lesson.php?c=theory10&id=chatvoip\n- Social media\, blogs\,
+  vlogs and podcasts\n    https://itcoder.co.za/lesson.php?c=theory10&id=soc
+ ialmedia\n\nDatabases:\n- SQL 11: Finding patterns: LIKE\, BETWEEN\, IN and
+  more (continued)\n    https://itcoder.co.za/lesson.php?c=sql&id=access03\n
+ - SQL 15 (part): Changing data: INSERT\, UPDATE and DELETE\n    focus: INSE
+ RT\, UPDATE\, DELETE with WHERE\n    https://itcoder.co.za/lesson.php?c=sql
+ &id=access07
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270816-29@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270821
+SUMMARY:IT Gr 10 T3 W5: Netiquette
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W5\n\nProgramming:\n- Java 13: Flexible loops - while and do ... whil
+ e (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson13\n\nT
+ heory:\n- Netiquette\n    https://itcoder.co.za/lesson.php?c=theory10&id=ne
+ tiquette\n- The Internet\n    https://itcoder.co.za/lesson.php?c=theory10&i
+ d=internet
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270823-30@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270828
+SUMMARY:IT Gr 10 T3 W6: Java 14 Working with text - Strings | URLs\, IP add
+ resses and DNS
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W6\n\nProgramming:\n- Java 13: Flexible loops - while and do ... whil
+ e (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson13\n- J
+ ava 14 (part): Working with text - Strings\n    focus: strings: length\, jo
+ ining\, upper and lower case\, comparison\; converting between binary and d
+ ecimal\, as algorithms\n    https://itcoder.co.za/lesson.php?c=java&id=less
+ on14\n\nTheory:\n- The Internet (continued)\n    https://itcoder.co.za/less
+ on.php?c=theory10&id=internet\n- URLs\, IP addresses and DNS\n    https://i
+ tcoder.co.za/lesson.php?c=theory10&id=urls
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270830-31@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270904
+SUMMARY:IT Gr 10 T3 W7: The World Wide Web
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W7\n\nProgramming:\n- Java 14 (part): Working with text - Strings (co
+ ntinued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson14\n\nTheory
+ :\n- URLs\, IP addresses and DNS (continued)\n    https://itcoder.co.za/les
+ son.php?c=theory10&id=urls\n- The World Wide Web\n    https://itcoder.co.za
+ /lesson.php?c=theory10&id=www
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270906-32@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270911
+SUMMARY:IT Gr 10 T3 W8: Java 15 Methods\, parameters and classes of tools |
+  Browsing and searching
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W8\n\nProgramming:\n- Java 14 (part): Working with text - Strings (co
+ ntinued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson14\n- Java 1
+ 5 (part): Methods\, parameters and classes of tools\n    focus: calling a m
+ ethod that gives back a value versus a void method\; parameters: matching c
+ ount\, type and order\, and the return type\; decomposition: spotting dupli
+ cated code and extracting reusable methods\n    https://itcoder.co.za/lesso
+ n.php?c=java&id=lesson15\n\nTheory:\n- The World Wide Web (continued)\n    
+ https://itcoder.co.za/lesson.php?c=theory10&id=www\n- Browsing and searchin
+ g\n    https://itcoder.co.za/lesson.php?c=theory10&id=searching
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270913-33@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270918
+SUMMARY:IT Gr 10 T3 W9: Judging a website
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W9\n\nProgramming:\n- Java 15 (part): Methods\, parameters and classe
+ s of tools (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=less
+ on15\n\nTheory:\n- Judging a website\n    https://itcoder.co.za/lesson.php?
+ c=theory10&id=judgingsites
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270920-34@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270920
+DTEND;VALUE=DATE:20270923
+SUMMARY:IT Gr 10 T3 W10: Java 16 Arrays - remembering a whole list | Making
+  web pages
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T3 W10\n\nProgramming:\n- Java 15 (part): Methods\, parameters and class
+ es of tools (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=les
+ son15\n- Java 16 (part): Arrays - remembering a whole list\n    focus: algo
+ rithms on arrays: sum\, average\, biggest\, smallest\, swapping values\n   
+  https://itcoder.co.za/lesson.php?c=java&id=lesson16\n\nTheory:\n- Making w
+ eb pages\n    https://itcoder.co.za/lesson.php?c=theory10&id=webpages\n- Wh
+ o runs the Web (optional extra)\n    https://itcoder.co.za/lesson.php?c=the
+ ory10&id=w3cicann
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20270922-35@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20270922
+DTEND;VALUE=DATE:20270923
+SUMMARY:IT Gr 10: Term 3 ends
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271005-36@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271009
+SUMMARY:IT Gr 10 T4 W1: Java 17 Smart data - Classes and objects | Malware 
+ and cybercrime
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T4 W1\n\nProgramming:\n- Java 16 (part): Arrays - remembering a whole li
+ st (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson16\n- 
+ Java 17 (part): Smart data - Classes and objects\n    focus: instantiating 
+ objects and the purpose of constructors\n    https://itcoder.co.za/lesson.p
+ hp?c=java&id=lesson17\n\nTheory:\n- Malware and cybercrime\n    https://itc
+ oder.co.za/lesson.php?c=theory10&id=malware
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271005-37@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271006
+SUMMARY:IT Gr 10: Term 4 starts
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271011-38@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271016
+SUMMARY:IT Gr 10 T4 W2: Java 19 Catching errors - Defensive programming | C
+ omputers and our society
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T4 W2\n\nProgramming:\n- Java 17 (part): Smart data - Classes and object
+ s (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson17\n- J
+ ava 19 (part): Catching errors - Defensive programming\n    focus: prompts 
+ and error messages from simple validation\; standard\, extreme and abnormal
+  test data\; syntax\, runtime and logic errors\n    https://itcoder.co.za/l
+ esson.php?c=java&id=lesson19\n\nTheory:\n- Computers and our society\n    h
+ ttps://itcoder.co.za/lesson.php?c=theory10&id=society\n- The digital divide
+ \n    https://itcoder.co.za/lesson.php?c=theory10&id=digitaldivide
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271018-39@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271018
+DTEND;VALUE=DATE:20271023
+SUMMARY:IT Gr 10 T4 W3: Your body and the planet
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T4 W3\n\nProgramming:\n- Java 19 (part): Catching errors - Defensive pro
+ gramming (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson
+ 19\n\nTheory:\n- The digital divide (continued)\n    https://itcoder.co.za/
+ lesson.php?c=theory10&id=digitaldivide\n- Your body and the planet\n    htt
+ ps://itcoder.co.za/lesson.php?c=theory10&id=bodyplanet
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271025-40@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271030
+SUMMARY:IT Gr 10 T4 W4: Java 23 Talking to people - Text user interfaces | 
+ Plagiarism
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T4 W4\n\nProgramming:\n- Java 19 (part): Catching errors - Defensive pro
+ gramming (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesson
+ 19\n- Java 23 (part): Talking to people - Text user interfaces\n    focus: 
+ a simple text user interface with prompts and error messages from simple va
+ lidation\; the principles of a good user interface\; desktop compared with 
+ mobile\n    https://itcoder.co.za/lesson.php?c=java&id=lesson23\n\nTheory:\
+ n- Your body and the planet (continued)\n    https://itcoder.co.za/lesson.p
+ hp?c=theory10&id=bodyplanet\n- Plagiarism\n    https://itcoder.co.za/lesson
+ .php?c=theory10&id=plagiarism
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271101-41@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271106
+SUMMARY:IT Gr 10 T4 W5: Java 30 The data validation task - IEB | Theory for
+  practical work
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+  - T4 W5\n\nProgramming:\n- Java 23 (part): Talking to people - Text user i
+ nterfaces (continued)\n    https://itcoder.co.za/lesson.php?c=java&id=lesso
+ n23\n- Java 30 (part): The data validation task - IEB\n    focus: standard\
+ , extreme and abnormal test data\, with evidence of every test\n    https:/
+ /itcoder.co.za/lesson.php?c=java&id=dvtieb\n\nTheory:\n- Theory for practic
+ al work\n    https://itcoder.co.za/lesson.php?c=theory10&id=practicaltheory
+ 10
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271108-42@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271108
+DTEND;VALUE=DATE:20271109
+SUMMARY:IT Gr 10: Final exams start
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:planner-ieb10-java-access-20271208-43@itcoder.co.za
+DTSTAMP:20260927T162526Z
+DTSTART;VALUE=DATE:20271208
+DTEND;VALUE=DATE:20271209
+SUMMARY:IT Gr 10: Term 4 ends
+DESCRIPTION:IEB Grade 10 - Java - Access - Public school (DBE\, four terms)
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
