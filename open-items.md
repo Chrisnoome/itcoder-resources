@@ -122,10 +122,16 @@ Details live in the linked files.
   **All five H5P steps are built.** Left: the NetBeans picture (step 2,
   waiting for Chris hands off), pictures for more ordering sequences, and
   the rollout of every type across suitable lessons.
-  **Test publish on hold (28 Sep, Chris: "wait for the other chat"):** steps
-  1-3 of this chat are committed and pushed but not on test, because
-  tools/publish-test.py has another chat's unfinished nginx hardening that
-  also reaches live's shared config. Its publish will take them along.
+  **Not published yet (28 Sep, late):** Chris asked for commit, push and
+  deploy live. All of this chat's work is committed and pushed (H5P steps,
+  second-attempt marks, naming checks, the dilemma look, the ComfyUI match
+  cards). Before publishing, the whole working tree (other chats' uncommitted
+  work too) was checked: every changed PHP and JS file lints, every check
+  script passes, all 236 lesson pages and the main pages render with no PHP
+  error. The permission classifier refused publish-test.py, so nothing went
+  to test or live - Chris runs publish-test.py, looks at the test site, then
+  deploy-live.py (publishing.md). The nginx hardening that held this back is
+  finished (vps-access.md).
 - **Decided 28 Sep (Chris), being built:** (1) second-attempt marks - fix (a):
   store which lines were right on the first try; they keep 2 marks, lines
   fixed on the second try get 1 (old answers, with no first try stored, keep
