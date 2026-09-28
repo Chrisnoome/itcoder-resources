@@ -110,6 +110,18 @@ Details live in the linked files.
   reload, the teacher's view. Next: step 5, questions inside the music
   videos - check first what the other chat's WatchForHtml() (style.css
   .watch-for) is for.
+  **Step 5 built 28 Sep** (lib/videoquestions.php, assets/videoq.js,
+  bin/check-video-questions.php): a quiz, typed or select question with
+  `'videoAt'` pops up in the video above it (the other chat's watchFor is a
+  separate, static list). Pilots: Programmers Are Clever (Pascal and Java
+  lesson 1, 3 questions) and You gotta comment your code (Pascal 8, Java 9,
+  3 each). Tested on the testbed: the player answers on its message channel,
+  a seek past a question's time pauses it and shows the question, answering
+  marks it, and Carry on watching puts it back. Not tested: a real play
+  through (the hidden test browser may not autoplay) - check on test.
+  **All five H5P steps are built.** Left: the NetBeans picture (step 2,
+  waiting for Chris hands off), pictures for more ordering sequences, and
+  the rollout of every type across suitable lessons.
   **Test publish on hold (28 Sep, Chris: "wait for the other chat"):** steps
   1-3 of this chat are committed and pushed but not on test, because
   tools/publish-test.py has another chat's unfinished nginx hardening that

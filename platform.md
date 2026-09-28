@@ -154,7 +154,14 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   endings best / ok / poor - lib/dilemma.php, 28 Sep 2026; out of marks x 2
   x the choice points on the best path, half on a second go; the page walks
   the story from a copy without scores or reasons and api/dilemma-answer.php
-  marks the path; checked by `bin/check-dilemmas.php`) - `code`, `algorithm`, `errors`, `important`,
+  marks the path; checked by `bin/check-dilemmas.php`); and any quiz, typed or
+  select question may carry **`'videoAt' => '1:23'`**: it pops up in the
+  video block above it - lib/videoquestions.php, assets/videoq.js, 28 Sep
+  2026 - which pauses the player through YouTube's own postMessage channel
+  (enablejsapi=1, no YouTube script, so the content policy is unchanged),
+  shows the question under the video and plays on; it is still an ordinary
+  marked question, answerable without the video (`bin/check-video-questions.php`)
+  - `code`, `algorithm`, `errors`, `important`,
   `goodtoknow`, `enrichment`, `contents`, `study`; and two wrappers made by
   helpers, never by hand (25 Sep 2026): `board`/`boardend`
   (`BoardSection()`, below) and `scenario`/`scenarioend` (`Scenario()` - an

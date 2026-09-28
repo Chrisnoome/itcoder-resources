@@ -289,6 +289,17 @@ marking-house-style.md (style never marked) is deliberately different.
   theory10 malware `dlParcelSms`, plagiarism `dlEssayNight`, computercare
   `dlHelpDesk`, and `dlPatNight` (content/pascal/dilemma-pat.php, shared by
   Pascal lesson 27 and Java patieb). Check with `php bin/check-dilemmas.php`.
+- **Questions inside the music videos** (28 September 2026 -
+  lib/videoquestions.php): two or three quiz questions straight after the
+  video block, each with `'videoAt'` a second or two after the line it asks
+  about - times from the song's `cartoon/audio/karaoke_lines.json` (the
+  video's sound is the mp3, 43 ms later). Ask about the idea the line
+  teaches, and correct the song where it is loose (it says the IDE ignores
+  comments - it is the compiler). Two cuts of one song share the audio, so
+  the times hold for both; the answers may not (a Java lesson's
+  "not a comment" is { }, Pascal's is /* */). Models: Pascal and Java lesson
+  1 `qvClever1-3`, Pascal lesson 8 and Java lesson 9 `qvComment1-3`. Check
+  with `php bin/check-video-questions.php`.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
   keep a ~20px gap; never `textLength`/`lengthAdjust` (warps glyphs) - widen,
