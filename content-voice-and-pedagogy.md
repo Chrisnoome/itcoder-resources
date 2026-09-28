@@ -255,6 +255,26 @@ marking-house-style.md (style never marked) is deliberately different.
   asked about rather than shrink the whole window. Check with
   `php bin/check-pictures.php`, and look at the finished render: every box
   and area on its part.
+- **Code and text activities** (28 September 2026 - lib/codeq.php; Chris:
+  "have code like a class definition and label elements, etc. be creative in
+  its use"): **label the code** (a class: field, constructor, getter,
+  setter, parameter, return type; a function: name, parameter, local
+  variable, Result, call, argument; an SQL statement's clauses), **mark the
+  words** (every parameter where it is declared; every input device in a
+  story) or **mark the lines** (every Writeln that runs when mark is 45),
+  **drag the words** (complete a class so it compiles; the most exact
+  network name in each sentence) and **label the output** (which line
+  printed each line - loops and method calls, where one line prints many
+  times or a call prints nothing itself). Every program must compile, and
+  every output must come from a real run (fpc in C:\lazarus\fpc, JDK 21 in
+  ~/.jdks). Use the lesson's own words for the names, give the extras and
+  wrong clicks a real reason to tempt (an argument next to a parameter, an
+  input device next to an output one), and mark every occurrence that is an
+  answer - an unmarked one is a wrong click. Models: Java 17 `lcPupilParts`,
+  `dwBookClass`; Java 15 `mwShopParameters`, `loGreetings`; Pascal 8
+  `mwReportLines`, 10 `loTwoTimes`, 14 `lcAverageParts`; theory10 output
+  `mwOutputDevices`, networktypes `dwNetworkSizes`. Check with
+  `php bin/check-code-questions.php`.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
   keep a ~20px gap; never `textLength`/`lengthAdjust` (warps glyphs) - widen,

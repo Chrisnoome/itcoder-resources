@@ -139,7 +139,17 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   part) - both lib/picture.php, 28 Sep 2026, scored per zone like a match
   line, zones in per cent `[left, top, width, height]` (a labelpic box may add
   a pointer `x, y`; a hotspot zone may be several rectangles), checked by
-  `bin/check-pictures.php` - `code`, `algorithm`, `errors`, `important`,
+  `bin/check-pictures.php` - **`labelcode`** (label the code: numbered parts
+  of real code, drag each name on), **`markwords`** (click every word - or,
+  with `'pick' => 'lines'`, every line - of one kind; each wrong mark cancels
+  a right one), **`dragwords`** (gaps in code or sentences, words from a
+  tray) and **`labeloutput`** (for each output line, the code line that
+  printed it) - all lib/codeq.php, 28 Sep 2026: `'language'` pascal, java,
+  sql or text, `'code'` with `[[markers]]` (`[[Student|Class name]]` a part,
+  `[[aName]]` an answer, `[[String]]` a gap), scored per item like a match
+  line, the answers never in the page before it is finished, the code
+  coloured like any listing (public/assets/codeq.js), checked by
+  `bin/check-code-questions.php` - `code`, `algorithm`, `errors`, `important`,
   `goodtoknow`, `enrichment`, `contents`, `study`; and two wrappers made by
   helpers, never by hand (25 Sep 2026): `board`/`boardend`
   (`BoardSection()`, below) and `scenario`/`scenarioend` (`Scenario()` - an
@@ -735,14 +745,27 @@ changes. pupils without teachers don't get calendars by default."
   plan's scope `bundle:<id>` covers its courses (Entitlements()).
 - **Invitations** (`lib/invites.php`, `public/invite.php`, also the group
   page): type, paste or upload a text/CSV file; each address gets an email
-  "<teacher> has invited you to join <site> using this email address";
-  **signing in with that address joins the group and course at once**
-  (MatchWaitingInvites() at every sign-in, JoinGroupNow()); an existing
-  account joins when invited. No limit yet; sent/invited/joined counted per
-  teacher (groupInvites.inviteCount) for the quota subscriptions will bring.
+  "<teacher> has invited you to join <site> using this email address".
+  **Joining at once only for the teacher's own school** (Chris, 28 Sep 2026,
+  after the security review - "instant for school domains only"; it narrows
+  his earlier "invited = joined"): an address on one of the teacher's
+  admin-approved domains (`teacherDomains`), or any address when an admin
+  invites, joins the group and course at once - when invited if it has an
+  account, else at its first sign-in (MatchWaitingInvites()). **Anyone else
+  gets Join / No thanks** (`InviteOrJoin()`, `JoinsAtOnce()` in
+  lib/invites.php). Why: otherwise any teacher could type any address and read,
+  re-mark or delete that person's work. **Someone who left or said no is never
+  put back**: pasting them again does nothing, and "Invite again" only asks
+  (they must accept). "Resend" mails only addresses already on the group's
+  list. No limit yet; sent/invited/joined counted per teacher
+  (groupInvites.inviteCount) for the quota subscriptions will bring. Check:
+  `php bin/check-invites.php` (local database, rolled back).
 - **Deleting a pupil** (group page, with a warning): the account and all
   its work go (every table cascades) - unless another teacher has them in a
-  group; then they only leave this teacher's groups. Never a teacher or admin.
+  group, or (for a teacher who is not an admin, 28 Sep 2026) the account has a
+  subscription or a course outside this teacher's groups; then they only leave
+  this teacher's groups. Only pupils who accepted count as the teacher's. Never
+  a teacher or admin.
 - **Onboarding** (`lib/onboarding.php`): a new teacher lands on
   `teacher-welcome.php` - what they teach and IT's exam board, calendar, year
   plan (database, revision; IT only), cycle, days off, first group, invite
@@ -1018,8 +1041,14 @@ Only flagged / Only 50% or below** filters.
 **6c. Security headers** (`SendSecurityHeaders()` in `lib/db.php`): CSP (this
 site, Google Fonts, YouTube and YouTube no-cookie, and `https://www.google.com`
 in `frame-src` - the YouTube player frames it and every video is blocked
-without it; `script-src` allows `'unsafe-inline'`), `Permissions-Policy`, HSTS
-over https (no includeSubDomains/preload). nginx sends the other three.
+without it; `script-src` allows `'unsafe-inline'`), `Permissions-Policy`
+(camera, location, payment, usb off; **`microphone=(self)`** - the spoken flash
+cards and mic-check.php need it; `microphone=()` blocked them until 28 Sep
+2026), HSTS over https (no includeSubDomains/preload). nginx sends the other
+three. Because `'unsafe-inline'` lets inline handlers run, **never write a
+person's name (or anything a user typed) into an `onclick`/`onsubmit`** - put
+it in a `data-` attribute with `H()` and read `this.dataset` (two admin-page
+bugs, 28 Sep 2026).
 `'cspReportOnly' => true` in config makes the CSP log instead of block.
 
 **7. Rubrics are written for the marker:** award marks for correct ideas, never
@@ -1329,6 +1358,20 @@ section folds only once every question in it is settled (app.js).
 - **Daily cap** `maxApiCallsPerPupilPerDay` = 100 (Chris, 26 September 2026; set in config.php on
   live, test and the testbed - no plan overrides it yet). Only written marking,
   reviews, analyses and task pre-checks count; code and term checks do not.
+- **Hard stops on AI spending** (Chris, 28 September 2026, after the security
+  review: "$5/day, 200/pupil"): `AiSpendGuard()` (lib/billing.php), called by
+  `CallClaude()` before every call, so no caller can skip it. The AI pauses for
+  the rest of the UTC day once the site has spent config `aiDailyBudgetUsd`
+  (default 5), and one person may make at most `aiCallsPerPupilPerDayMax`
+  (default 200) calls of **any** kind a day - including the kinds the daily cap
+  leaves out. Both read `aiUsage`; 0 switches one off. Live spent under $0.10 a
+  day, busiest pupil 10 calls, when it was set. A marking call stopped by it
+  fails like any failed call (admin's "Re-mark all failed" retries it).
+- **The house-style comment after a compile** goes only to someone who may use
+  AI marking in that lesson (`StyleFeedbackFor()` in lib/compile.php, Chris 28
+  Sep 2026: "only pupils with AI marking"); running code stays open to every
+  enrolled pupil. The same program from the same pupil in the same lesson
+  reuses the last comment instead of a new call.
 - **Class and year:** `ClassList()` (`9C 9J 9R 9L Gr 10 Gr 11 Gr 12 Staff
   Other`), stored with the year; asked again each January.
 - **Backups leave South Africa** (Chris's machine, Dropbox); `privacy.php` says

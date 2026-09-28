@@ -56,6 +56,27 @@ Details live in the linked files.
   installed; tools/ide-screens shows the way), then the next types in the
   order above (mark the words, drag the words, ...), and the memory-match
   picture top-ups.
+  **Decided 28 Sep (Chris: "you can also do code - have code like a class
+  definition and label elements, etc. be creative in its use. lets complete
+  h5p first"):** finish every H5P type before other work, in this order:
+  1. Code and text: **label the code** (numbered parts of real code, drag the
+     names on - class name, field, constructor, parameter...), **mark the
+     words** (click every word - or line - of one kind; wrong clicks cost),
+     **drag the words** (gaps in code or text, words from a tray), **label
+     the output** (link each output line to the code line that printed it).
+  2. The Java IDE picture (NetBeans).
+  3. Practice games: timed conversion drill, picture ordering.
+  4. Branching dilemmas.
+  5. Questions inside the music videos: the video pauses at set times for a
+     quick question, **marked** like any lesson question.
+  Each type is piloted in 2-4 lessons (Pascal, Java, IT Theory); once all
+  types are done, they are rolled out across every suitable lesson.
+  **Step 1 built 28 Sep** (lib/codeq.php, public/assets/codeq.js,
+  api/code-answer.php, bin/check-code-questions.php): all four types, tested
+  end to end on the testbed (tap and drag, a sticky tray and edge scrolling
+  for long code, a wrong first try with its hints, the second try, reload,
+  right first time, the teacher's view). Nine pilots (content-voice §code and
+  text activities lists them). Next: step 2, the Java IDE picture.
 - **Second-attempt marks under-count** (found 28 Sep, not changed - Chris to
   decide): match and picture questions say "each line/part is marked on its
   own - 2 marks right first time, 1 if it takes the second attempt", but
@@ -91,12 +112,16 @@ Details live in the linked files.
   - re-mark from `/admin.php` ("Re-mark all failed", "Retry failed reviews")
   if not yet done.
 - **Dev login is on for the public test site** (8082): anyone can sign in as
-  any pupil there. Switch off or restrict 8082 to Chris's IP while real names
-  are in its database (publishing still needs a way to look at test).
+  any of its 19 people (real addresses). Chris chose a password (28 Sep 2026):
+  **Chris runs `tools/set-test-password.py`** (PowerShell:
+  `& "C:\Python314\python.exe" -X utf8 "D:/DB Sync/Dropbox/Projects/AIResources/tools/set-test-password.py"`),
+  then checks the live console still connects on test. Delete this item then.
 - **Subscription purchase flow** - gating exists, dates are set by hand.
 - **Google OAuth** - consent screen External; **Publish app** to lift the
   100-test-user cap (branding submitted for review 26 Sep 2026).
-- **API spend limit** - set one on the Anthropic workspace; no global daily cap.
+- **API spend limit** - set one on the Anthropic workspace (Console - Limits),
+  e.g. US$50 a month. The site now stops itself at $5 a day (AiSpendGuard,
+  platform.md), but only the workspace limit also covers a leaked key.
 - **Review voice** - the "evaluate my performance" review has only been read by
   Claude; read one against a real pupil's marks.
 - **Marked code questions** - `code` blocks are unmarked by design; no scoring
@@ -106,6 +131,68 @@ Details live in the linked files.
 - Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.)
 - PDF icon (`public/assets/icons/pdf.png`) was derived from `txt.png`; swap in
   a real one if found.
+
+## Security review (2026-09-28)
+
+A read-only review of the code, both live addresses and the server found no
+SQL or shell injection and no way from pupil code to secrets. Fixed the same
+day (in the tree, **not yet published**): the two admin-page XSS bugs (the
+Delete confirm on Admin > Users never showed), `microphone=(self)`,
+AiSpendGuard ($5/day, 200 calls/person), the style comment only with AI
+marking, invitations join at once only for the teacher's school domains,
+teacher deletes spare accounts with more than that teacher's groups, Resend
+only to listed addresses (platform.md for each). Still open, most important
+first:
+
+- **Answer APIs check enrolment, not access** (`api/answer.php`,
+  `typed-answer.php` and the other *-answer.php, `compile.php`,
+  `cite-fetch.php`): a locked lesson's questions can be answered - and their
+  answers revealed - by posting to the API. One helper: CourseExists +
+  IsEnrolled + `AccessMode($p, $c, $lesson) !== ACCESS_LOCKED`.
+  `study-notes.php` checks the course, not the lesson (`RequireCourseAccess`).
+- **Attempts are not claimed atomically**: parallel requests all see
+  attempts=0 - all options sent at once gives right-first-time marks, and one
+  attempt can cost many AI checks. Claim first:
+  `UPDATE ... SET attempts = attempts + 1 WHERE ... AND attempts = ?`, check
+  rowCount. Same for the daily cap (`apiUsage`) and access-code `maxUses`.
+- **Google sign-in** (`lib/auth.php` GoogleExchangeCode/SignIn): require
+  `email_verified`, check `aud` = googleClientId and `iss`; once a googleSub is
+  stored, refuse a different one (today it is silently re-bound).
+- **Ban and "Free session" do not end a live session**: `CurrentPupil()` ignores
+  `bannedAt`, and a NULL sessionId counts as free for anyone.
+- **SQL marker prompt injection** (`lib/sql.php` ~1368): the pupil's query
+  results and column names reach the marker outside `<pupil_work>` - fence
+  them; keep pupil strings out of the "final" reason.
+- **One user can exhaust PHP workers**: `practice-speech.php` waits up to 10 s
+  for a whisper slot plus 15 s of work, per request, no per-person limit.
+  One in-flight request per pupil, fail fast. No nginx `limit_req` anywhere
+  (auth, api, /live/); no per-person limits on sql-run, compile, live-start.
+- **Sandboxes** (`bin/compile-sandbox.sh`, `bin/live-sandbox.sh`): pupil code
+  can reach host unix sockets (MySQL's is 777 - can use up its 30
+  connections); add `RestrictAddressFamilies`, `InaccessiblePaths=-/run/mysqld
+  -/run/dbus -/run/php`, `SystemCallFilter=@system-service`, the Protect*
+  set, `PrivateDevices`, `LimitFSIZE`, `CPUQuota`; test Java; re-run
+  sandbox-check.php.
+- **Live console daemon**: `bin/live/runner.py` `recv()` takes any frame
+  length from the sandbox (one program can OOM it and drop every session) -
+  cap frames and `bytes_out`. Its user is in group www-data and **can read
+  config.php and course.sqlite** (checked on the server; systemd exposure
+  8.5) - add `InaccessiblePaths`, `ProtectSystem=strict` as the SQL runner has.
+- **Backups unencrypted** and kept forever on Chris's PC/Dropbox (minors'
+  data, POPIA) - encrypt on the server with `age` (public key), set a
+  retention period. (Also under Operations.)
+- **Low, together later**: CSRF - one Origin/Sec-Fetch-Site check for every
+  non-GET (about 25 pages and every JSON API rely only on SameSite=Lax);
+  sign-out by GET; `/\evil.com` passes the redirect filter (progress.php:28,
+  notifications.php:21); `?note=`/`?flash=`/`?problem=` show any text; the
+  access-code try count lives in the session; Practice XP and live-result
+  `compileOk` are trusted from the browser; cite fetch: `FILTER_FLAG_GLOBAL_RANGE`
+  and check `CURLINFO_PRIMARY_IP`; why-wrong hint has no OFF_TOPIC contract,
+  review prompt no fence; hidden courses open by URL; `session.use_strict_mode`
+  0; cron logs 644 with pupil emails (make 640); `/assets/` responses carry no
+  security headers; fail2ban not installed; the install kit has no SSH
+  hardening / fail2ban step; group membership gives Full access to every paid
+  course (matters once teacher plans are sold).
 
 ## Content
 
@@ -182,3 +269,4 @@ Details live in the linked files.
       ufw delete allow 8082/tcp
       crontab -u www-data -l | grep -v itcoder-v2-test | crontab -u www-data -
       rm -f /var/log/itcoder-v2-test-marking.log /var/log/itcoder-v2-test-compile.log
+      rm -f /etc/nginx/itcoder-test.htpasswd
