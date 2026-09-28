@@ -149,7 +149,12 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `[[aName]]` an answer, `[[String]]` a gap), scored per item like a match
   line, the answers never in the page before it is finished, the code
   coloured like any listing (public/assets/codeq.js), checked by
-  `bin/check-code-questions.php` - `code`, `algorithm`, `errors`, `important`,
+  `bin/check-code-questions.php` - **`dilemma`** (a branching story: scenes,
+  2-4 choices each scoring 2 best / 1 reasonable / 0 poor with a `why`, and
+  endings best / ok / poor - lib/dilemma.php, 28 Sep 2026; out of marks x 2
+  x the choice points on the best path, half on a second go; the page walks
+  the story from a copy without scores or reasons and api/dilemma-answer.php
+  marks the path; checked by `bin/check-dilemmas.php`) - `code`, `algorithm`, `errors`, `important`,
   `goodtoknow`, `enrichment`, `contents`, `study`; and two wrappers made by
   helpers, never by hand (25 Sep 2026): `board`/`boardend`
   (`BoardSection()`, below) and `scenario`/`scenarioend` (`Scenario()` - an

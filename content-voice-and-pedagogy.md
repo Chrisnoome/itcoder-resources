@@ -275,6 +275,20 @@ marking-house-style.md (style never marked) is deliberately different.
   `mwReportLines`, 10 `loTwoTimes`, 14 `lcAverageParts`; theory10 output
   `mwOutputDevices`, networktypes `dwNetworkSizes`. Check with
   `php bin/check-code-questions.php`.
+- **Branching dilemmas** (28 September 2026 - lib/dilemma.php; Chris: marked,
+  "a story with 3-5 choices"): one pupil-aged character in a real South
+  African setting, a time stamp on each scene (Monday, 16:40), 3-5 choice
+  points on the best path. Build it as a spine: the best and the reasonable
+  choice both go on to the next scene (so the scenes must read well after
+  either), a poor choice ends the story at once with its consequence - that
+  keeps every other path below the best. Exactly one best choice per scene;
+  the reasonable one must be tempting and partly right, and its `why` says
+  what it misses; a `why` never names the best choice. Endings are short and
+  concrete (what happened, in rand and hours), titled. The facts must match
+  the lesson (the PAT's 20% rule, OTPs, the school's AI rules). Models:
+  theory10 malware `dlParcelSms`, plagiarism `dlEssayNight`, computercare
+  `dlHelpDesk`, and `dlPatNight` (content/pascal/dilemma-pat.php, shared by
+  Pascal lesson 27 and Java patieb). Check with `php bin/check-dilemmas.php`.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
   keep a ~20px gap; never `textLength`/`lengthAdjust` (warps glyphs) - widen,

@@ -94,6 +94,26 @@ Details live in the linked files.
   uses the 49 IT Theory ordering questions (7 with pictures so far) and 10
   Parsons puzzles each for Pascal and Java. Still to do here: pictures for
   more of the sequences. Next: step 4, branching dilemmas.
+  **Step 4 decided 28 Sep (Chris):** branching dilemmas are a **marked lesson
+  block** - each choice point scores (best choice full marks, a reasonable
+  one half, a poor one nothing) - played as a **story with 3-5 choices**: a
+  short scene (a drawing where it helps), a choice, a new scene with its
+  consequences, and one of several endings with feedback on the path taken.
+  Topics: online safety, ethics and the law, programming projects (PAT) and
+  workplace IT (an IT support day).
+  **Step 4 built 28 Sep** (lib/dilemma.php, assets/dilemma.js,
+  api/dilemma-answer.php, bin/check-dilemmas.php): four pilots - the parcel
+  SMS (theory10 malware), the essay due tomorrow (plagiarism), the first
+  week on the help desk (computercare) and the night before the PAT code is
+  due (Pascal 27 and Java patieb, one shared story). Tested on the testbed: a
+  reasonable path with its feedback, a replay on the best path (half marks),
+  reload, the teacher's view. Next: step 5, questions inside the music
+  videos - check first what the other chat's WatchForHtml() (style.css
+  .watch-for) is for.
+  **Test publish on hold (28 Sep, Chris: "wait for the other chat"):** steps
+  1-3 of this chat are committed and pushed but not on test, because
+  tools/publish-test.py has another chat's unfinished nginx hardening that
+  also reaches live's shared config. Its publish will take them along.
 - **Second-attempt marks under-count** (found 28 Sep, not changed - Chris to
   decide): match and picture questions say "each line/part is marked on its
   own - 2 marks right first time, 1 if it takes the second attempt", but
