@@ -162,6 +162,32 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   clause, each clause scoring like a match line (sql-runner-design.md,
   "Access answers, AI-marked").
 
+## Page layout rules (Chris, 28 Sep 2026)
+
+Every page, new or changed, before it is published:
+
+- **No endless scrolls** ("avoid endless scrolls - make that a rule"). A long
+  list of things to read one at a time is a master-detail pair: a list box on
+  the left (its own scroll, sticky), the chosen item's detail on the right,
+  with Previous/Next and arrow keys (My marks' "What the marker said",
+  `.fb-panes`). Other ways out: tabs (settings-tabs.js), term tabs (the
+  planner), side-by-side columns (the progress check's behind/top). Stacks
+  on a phone.
+- **Good GUI principles** ("all layouts must be appropriately prettified and
+  follow good gui principles"): related controls grouped in a titled card;
+  labels above their fields, with the unit in the label, not trailing after
+  the box; one clear primary button per form, secondary ones quieter;
+  controls at least 36px high; consistent spacing and colours from the
+  existing tokens; nothing that makes the person hunt. Check it in the
+  browser pane at desktop and phone width before publishing.
+- **Collapsible panels remember their state**: a `<details>` a person opens
+  or closes carries `data-remember="name"` and loads
+  `assets/remember-details.js`, so a page reload (changing a filter) does
+  not undo it. `data-force-open` overrides it for one load when a message
+  inside it must be seen.
+- **Pupils always have My progress in the top bar** on every page of a
+  course the planner covers (`WithMyProgressItem()` in lib/masthead.php).
+
 ## Practice - word games from the glossary (Chris, 25 Sep 2026)
 
 - `practice.php?c=` (any course with a glossary), `assets/practice.js`,
