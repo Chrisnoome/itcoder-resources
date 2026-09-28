@@ -166,6 +166,16 @@ Step('add the reminders cron line (only if absent)',
      "echo '30 4 * * 1-5 /usr/bin/php /var/www/itcoder/bin/remind.php >> /var/log/itcoder-remind.log 2>&1' >> /tmp/ct.txt "
      "&& crontab -u www-data /tmp/ct.txt && echo added; fi; rm -f /tmp/ct.txt")
 
+# The daily "you are behind" email (28 September 2026, bin/behind.php): weekdays
+# 04:45 UTC, after remind.php, so a pupil a teacher's reminder reached today is
+# skipped. The script checks each pupil's own school days. Live only.
+Step('create the behind log', 'touch /var/log/itcoder-behind.log && chown www-data:www-data /var/log/itcoder-behind.log && ls -l /var/log/itcoder-behind.log')
+Step('add the behind cron line (only if absent)',
+     "crontab -u www-data -l > /tmp/ct.txt; "
+     "if grep -q 'itcoder/bin/behind.php' /tmp/ct.txt; then echo 'already there'; else "
+     "echo '45 4 * * 1-5 /usr/bin/php /var/www/itcoder/bin/behind.php >> /var/log/itcoder-behind.log 2>&1' >> /tmp/ct.txt "
+     "&& crontab -u www-data /tmp/ct.txt && echo added; fi; rm -f /tmp/ct.txt")
+
 print('\n== 8. verify ==')
 Step('every php file parses',
      "find %s/lib %s/bin %s/public %s/content -name '*.php' -exec php -l {} + 2>&1 "

@@ -587,6 +587,48 @@ changes. pupils without teachers don't get calendars by default."
 - **Class results**: each lesson's mark shows its percentage.
 - **Dark pages** (teacher and admin): the BestLessons logo in a white box.
 
+## Why-wrong hints, both attempts, lesson revisits, the behind email (Chris, 28 Sep 2026)
+
+- **Why a first try was wrong** (`lib/whywrong.php`): straight after a wrong
+  first attempt on a two-attempt question the pupil sees why THAT answer is
+  wrong - never the right answer - then tries again. Chris: "a proper
+  explanation of why it was wrong", not just the correct answer.
+  - Stored in the lessons for the fixed-choice types, key `'why'` beside
+    `'explain'`: **quiz** `['b' => 'why b is not it', ...]` for every wrong
+    option; **select** the same for every option not to tick (missed ticks get
+    a general line); **match** `['left item' => 'what to think about']` for
+    every left item; **order** one string. Model: `content/theory10/networktypes.php`
+    (m27Networks, o27Sizes, q27Star, s27ClientServer). One or two short
+    sentences naming the misunderstanding; writing-style.md applies.
+  - **Typed and grid answers:** AI writes the hint (costed as `whyhint`),
+    cached in `whyHints` per question and answer, never shown if it contains
+    an accepted answer. A reload shows a pending hint again (`window.itcWhy`).
+  - `php bin/check-why.php [course [files]]` lists gaps and hints that give
+    the answer away. **Every new quiz/select/match/order question needs its
+    `why`.**
+- **Both attempts kept:** `quizResponses.firstResponse` (a trigger, like
+  `firstAnsweredAt`); a pupil's query shows the teacher the first try, the
+  second and the right answer.
+- **A query needs a reason:** the "Query this mark" dialog asks what bothers
+  them (at least 10 characters, `markQueries.pupilComment`), shown to the
+  teacher in Pupil queries and the bell.
+- **Lesson revisits:** opened "What happens next?" boxes are remembered on the
+  server (`activityState`, activityId `_lesson`, lib/lessonstate.php) so any
+  school computer shows them open, and from the second visit the page never
+  calls a pupil back to one they skipped. Answered questions start folded
+  for everyone, staff included. **Next question** in the lesson's top bar
+  jumps to the first question still to answer and counts what is left.
+- **Flash cards earn XP only for words said into the microphone**
+  (api/practice-speech.php notes each word heard right); the honour system
+  is practice only.
+- **The behind email** (`bin/behind.php`, `lib/behind.php`, cron on live
+  weekdays 04:45 UTC): a pupil more than 2 school days behind their plan (the
+  oldest lesson not done though its date has passed, counted in school days
+  of their own calendar) gets a bell and an email, then again every 3 school
+  days while still behind; never on a day off; emailsOff stops it; skipped on
+  a day a teacher's weekly reminder went. Year plans are 2027's, so in 2026
+  only pupils under a completion date are ever behind.
+
 ## Pupil queries, the result reveal, My settings (Chris, 28 Sep 2026)
 
 - **Teachers land on their pages:** sign-in goes to Pupil queries when some
