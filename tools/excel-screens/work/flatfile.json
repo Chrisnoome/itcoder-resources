@@ -1,0 +1,92 @@
+{
+    "header": [
+        "Sale",
+        "Date",
+        "Product",
+        "Category",
+        "Price",
+        "Qty"
+    ],
+    "rows": [
+        [
+            1,
+            "2026\/01\/21",
+            "Mince pie",
+            "Hot food",
+            28.5,
+            2
+        ],
+        [
+            2,
+            "2026\/01\/21",
+            "Water (500 ml)",
+            "Drinks",
+            10,
+            1
+        ],
+        [
+            3,
+            "2026\/01\/22",
+            "Chocolate bar",
+            "Sweets",
+            16.5,
+            3
+        ],
+        [
+            4,
+            "2026\/01\/23",
+            "Chicken wrap",
+            "Hot food",
+            35,
+            1
+        ],
+        [
+            5,
+            "2026\/01\/26",
+            "Apple",
+            "Snacks",
+            6,
+            2
+        ],
+        [
+            6,
+            "2026\/01\/27",
+            "Cola",
+            "Drinks",
+            14,
+            1
+        ],
+        [
+            7,
+            "2026\/01\/29",
+            "Vetkoek with mince",
+            "Hot food",
+            25,
+            1
+        ],
+        [
+            8,
+            "2026\/02\/02",
+            "Lollipop",
+            "Sweets",
+            3.5,
+            3
+        ],
+        [
+            9,
+            "2026\/02\/03",
+            "Mince pie",
+            "Hot food",
+            30,
+            1
+        ],
+        [
+            18,
+            "2026\/03\/02",
+            "Mince Pei",
+            "Hot food",
+            28.5,
+            3
+        ]
+    ]
+}

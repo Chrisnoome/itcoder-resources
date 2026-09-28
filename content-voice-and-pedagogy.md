@@ -159,6 +159,33 @@ marking-house-style.md (style never marked) is deliberately different.
   doesn't want. Typical spots: a value stored or changed, a condition worked
   out, a loop or decision running, a function or conversion, a format or screen
   position. Every output or error a try-it shows must come from a real run.
+- **A concept that needs a picture always gets one** (Chris, 28 September
+  2026, SQL lesson A3's "product 8, not Water": "concepts like this that need
+  visual aid must always get an illustration"). Anything about how things link,
+  point, flow or are laid out - keys and relationships, a table split in two,
+  a path through a network, what goes where in memory - gets a drawn
+  `Figure ()` / `DesignFigure ()` where it is first explained, not words
+  alone and not only a margin doodle. Model: `db-keys-link` (two tables, the
+  arrows from each sale's 8 to Water, foreign and primary key labelled, the
+  1-to-many line as the relationship).
+- **The visual check is part of writing, every time** (Chris, 28 September
+  2026: "add a rule for writing content that this check must always be done
+  ... more interactivity = better lessons"). When writing or correcting any
+  lesson, go through it section by section before calling it done and ask of
+  each explanation:
+  - **Hard to picture?** Draw it (the rule above).
+  - **A sequence of steps, or a fault to point at?** Use a step-through
+    block - the pupil presses Next and each step is drawn in turn: the
+    `shotSteps` activity (`ShotStepsHtml()`, lib/content.php; model:
+    `FlatFileActivity()`, the flat file's four problems circled one by one on
+    a real Excel sheet) for a screenshot, a `flowStepper` or `memoryBox`
+    try-it for code, a `reveal` for "guess, then see". A list of steps or
+    faults in plain text is the last resort.
+  - **Could the pupil do it instead of read it?** Add a try-it, an activity
+    or a question. More interactivity makes a better lesson; Chris removes
+    what he doesn't want.
+  A lesson with explanation after explanation and nothing to look at or
+  press is not finished.
 - **Try-its:** `<div class="tryit" data-tryit="NAME" ...></div>` in a prose
   block titled "Try this: ...", right after its section. No server, no marks.
   Builders: `public/assets/pascal-tryit.js` (lesson 14: `callStepper`,
@@ -417,6 +444,11 @@ chart rendered.
 - [ ] Explanations of what code does checked for a `reveal` (§3)
 - [ ] **Try-its and diagrams wherever they help** (§5); illustrations in
       `Figure ()` (§5a)
+- [ ] **The visual check, section by section** (§5, Chris 28 Sep 2026 - always):
+      every hard-to-picture concept drawn where first explained; every sequence
+      of steps or set of faults a step-through (`shotSteps`, `flowStepper`,
+      `memoryBox`, `reveal`); every "read about it" that could be "do it" made
+      interactive
 - [ ] Every algorithm an `algorithm` block with matching flowchart and
       pseudocode (§7e); loops/decisions considered for a `flowStepper`
 - [ ] Every listing a whole program or `no-console`, full names, runnable
