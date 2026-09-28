@@ -43,6 +43,28 @@ Details live in the linked files.
   stock photos, own topology drawings). Still to do: pictures for the AI
   course, more theory terms (file types without their name on them, cloud,
   e-waste, pixel), then the lesson activity types in the order above.
+  **Picture activities - PAUSED mid-build 28 Sep (Chris shut down; resume
+  here).** Chris chose: pilots in all four (IT Theory hardware, IT Theory
+  networks, Pascal/Java IDE, databases); 1-2 extra labels that belong
+  nowhere; hotspots built now with drag and drop; these before the
+  memory-match picture top-ups. **Written, committed, NOT tested, NOT
+  published:** `lib/picture.php` (both types: `labelpic` drag names into
+  boxes, `hotspot` pins; zones in per cent; scored per zone like a match
+  line), `public/api/picture-answer.php`, the lesson.php case, app.js
+  `SetUpLabelPic`/`SetUpHotspot` (drag, tap, keyboard), style.css `.pic-*`,
+  block icons `labelpic.svg`/`hotspot.svg`, and the wiring (content.php
+  totals, whywrong, workanswers, pupil-work, review, check-why,
+  check-figures, check-lesson-links, teacher.php). **Next:** (1) a sample
+  block, rendered with the page harness and clicked through in headless
+  Edge; (2) pilots - theory10 `insidecase` (label the motherboard, plus a
+  hotspot), a network diagram (`whynetworks`/`commsdevices`),
+  `databasesintro` (a table's parts), Pascal lesson 26 `ides` (a real
+  Lazarus screenshot: ask Chris for ~30 s hands off, reuse the
+  tools/excel-screens approach; NetBeans is installed for Java too); (3) a
+  `bin/check-pictures.php` (zones inside 0-100, the image exists, boxes do
+  not overlap, 1-2 extras); (4) platform.md block types and
+  content-voice; (5) publish to test. The class-results subtotals,
+  drill-down and "Below 50% in written work" are on test, not live.
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
