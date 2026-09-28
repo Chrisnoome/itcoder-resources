@@ -640,6 +640,17 @@ changes. pupils without teachers don't get calendars by default."
   School calendar card the term and exam dates always show, filled in from
   the calendar chosen; changing a term date saves the school's own dates
   (`SaveTeacherCalendar()`).
+- **Bundles** (Manage courses, Chris 28 Sep 2026): a price empty or 0 means
+  that option (monthly / yearly) is not offered; **Offered to new buyers**
+  (was "On sale" - it only ever meant this; plans already using the bundle
+  keep covering it); a **sale** is a discount % (1-90) and its last day,
+  `discountPercent` / `saleEndsOn`, priced by `BundlePrice()` (lib/access.php).
+  The list: find by name or course, courses one under the other, Delete on
+  each row. The form: two columns, the courses in a searchable scroll box
+  on the right with a count of those ticked. Nothing sells bundles to the
+  public yet - plans on the Billing page do.
+- **Year planner**: the order button is **Edit my Year planner** ("change
+  the order of topics and chapters"), and planner-order.php has that title.
 - **BestLessons everywhere**: links in emails the cron jobs send use
   bestlessons.co.za even though live's config baseUrl still names
   itcoder.co.za (`SiteBaseUrl()`, lib/brand.php); invoices default to the
