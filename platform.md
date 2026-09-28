@@ -477,6 +477,51 @@ changes. pupils without teachers don't get calendars by default."
   pupil's teacher's; nothing for a pupil with no teacher. The lesson's own
   time hides below 1440px wide to make room.
 
+## Planner order, revision weeks, marks export, code answers (Chris, 28 Sep 2026)
+
+- **Revision weeks** (Chris: "1 week for mid year, 2 for finals as standard.
+  teacher must also have option to change to 0"): no new work in the N
+  teaching weeks before the mid-year exams and before the finals (Grade 12:
+  before the prelims) - `PlannerRevisionWeeks()`, input `revMid`/`revFinal`,
+  saved on the teacher as `pupils.planRevision` (Teacher settings, Year plan;
+  or the planner's "Make these my school's settings"). Programming and theory
+  now **fill** their terms up to the revision weeks (the end-of-year revision
+  had been far too long); the databases keep their steady pace.
+- **The school's database** (`pupils.schoolDialect`): the planner's default
+  for both boards; pupils with a teacher get that dialect's SQL lessons in
+  their plan, pupils without one their own choice (`PlanDialect()`).
+- **The teacher's own order** (Chris: "change the order of when content is
+  presented ... a chapter in a block with move up and down arrows"; he chose
+  blocks per chapter with their lessons, per board and grade):
+  `public/planner-order.php`, table `plannerOrders` (teacher, board, grade,
+  stream, lesson ids), `lib/planorder.php`. A reordered stream is one run
+  through the year (bucket 0) instead of the CAPS term plan; the Grade 12 exam
+  guides stay after the prelims. Their groups' pupils' plans follow it.
+- **The planner page**: settings and instructions fold away; the school's dates
+  as one coloured table (terms, mid-year exams, prelims, finals, the two
+  revision periods in weeks); the plan in Term 1-4 tabs.
+- **A teacher looking at a course with a completion date** sees that plan
+  (`TeacherPreviewRule()`); the AI course's lessons are "Lesson N".
+- **Export marks** (`public/teacher-export.php`, a teacher tab): a group's pupils,
+  one row each - ticked lessons (and percentages), ticked written activities,
+  the total - as Excel (`lib/xlsx.php`, its own small ZIP writer: no library,
+  no PHP extension) or CSV.
+- **Code answers**: a written question with `'editor' => 'run'` (a whole
+  program) or `'edit'` (a fragment, or needs files or a form) is answered in
+  the console-style code editor (`public/assets/code-answer.js`: colours from
+  pascal-syntax.js / java-syntax.js, line numbers, Tab and auto-indent, no
+  paste, no drop, no file buttons); `run` has Run through the lessons' sandbox
+  (`LessonCodeQuestions()` accepts them). 21 Pascal and 21 Java questions
+  flagged. (The key is `'editor'`; `'code'` already means a listing on a
+  question.)
+- **Settings pages**: one section at a time from the list on the left
+  (`public/assets/settings-tabs.js`), each in its own colour; Teacher settings
+  has a Year plan section and a clearer groups explanation.
+- **My progress**: the bars (left) and the current mark (right) in one block
+  pinned under the header, folding to a line of chips.
+- **Class results**: each lesson's mark shows its percentage.
+- **Dark pages** (teacher and admin): the BestLessons logo in a white box.
+
 ## Pupil queries, the result reveal, My settings (Chris, 28 Sep 2026)
 
 - **Teachers land on their pages:** sign-in goes to Pupil queries when some
