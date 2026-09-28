@@ -657,7 +657,13 @@ changes. pupils without teachers don't get calendars by default."
   2026 counts as set up (setup.php backfill).
 - **The menu by role** (`lib/sitemenu.php`): where-you-are links, then
   Student / Teacher / Administrator (only your roles), items alphabetical,
-  your main role open, remembered per browser; Help at the bottom.
+  your main role open, remembered per browser; Help at the bottom. **Sub-menus
+  when a role grows** (Chris, 28 Sep 2026): a role with more than
+  `SITE_MENU_SPLIT_AT` (10) items folds into sub-menus by each item's group,
+  groups and items both alphabetical. Every new menu item names its group
+  (the 4th value) - today's groups: Student: Account, This course; Teacher:
+  Marks and progress, Pupils and groups, Setup and planning; Administrator:
+  Courses and content, Marking and server, People and billing.
 - **Help** (`public/help.php`): public, searchable, sections for getting
   started, pupils, teachers, subscribers, schools and privacy; a form for
   everyone (honeypot, 5 an hour) kept in helpRequests and emailed to config
