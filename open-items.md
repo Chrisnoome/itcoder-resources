@@ -126,8 +126,22 @@ Details live in the linked files.
   1-3 of this chat are committed and pushed but not on test, because
   tools/publish-test.py has another chat's unfinished nginx hardening that
   also reaches live's shared config. Its publish will take them along.
-- **Second-attempt marks under-count** (found 28 Sep, not changed - Chris to
-  decide): match and picture questions say "each line/part is marked on its
+- **Decided 28 Sep (Chris), being built:** (1) second-attempt marks - fix (a):
+  store which lines were right on the first try; they keep 2 marks, lines
+  fixed on the second try get 1 (old answers, with no first try stored, keep
+  their marks). (2) Naming checks before a program runs, Pascal and Java -
+  keyword case, procedure/function/class/variable/parameter names - **stop
+  the run** like the layout checks (console always; exercises from the lesson
+  that teaches naming). (3) Dilemmas get scene backgrounds, character avatars,
+  phone and chat screens and pop-up screens; pictures made with ComfyUI
+  (D:\ComfyUI App, models in D:\ComfyUIModels - Flux, Qwen-Image, Z-Image),
+  **mixed styles for variety: realistic, cartoon like the No Single Letters
+  characters, stylised, illustrated** - for the dilemmas and for better
+  memory match cards.
+- **Second-attempt marks under-count - FIXED 28 Sep** (fix (a):
+  LineMarksEarned(), lib/content.php, from quizResponses.firstResponse; tested:
+  a hotspot 7 right both times is 14 of 16, a match with 2 right both times
+  and 1 fixed is 5 of 10, reload and totals agree). The old note: match and picture questions say "each line/part is marked on its
   own - 2 marks right first time, 1 if it takes the second attempt", but
   `MatchMarkEarned()` (lib/content.php) gives every right line 1 mark once a
   second attempt is used, even the lines that were right the first time (7

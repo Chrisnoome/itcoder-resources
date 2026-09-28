@@ -177,10 +177,18 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   optional (`enrichment`), blue = quote, **plum = not examined but useful**
   (`goodtoknow`: `#EFE9F5`, `#8A6BB0`, `#5B4380`). Keep plum for that only.
 - **Scoring:** quiz/typed/checkedcode/order/select/match share `quizResponses`.
-  All-or-nothing via `QuizMarkEarned()`, except `match`, scored **per line**
-  (`MatchCorrectLines()`, `MatchMarkEarned()`). Every totalling page goes
-  through `AutoMarkedEarned()` (`PupilAutoMarkedTotal()`,
-  `CourseAutoMarkedWeights()`) - never `QuizMarkEarned()` on a match row.
+  All-or-nothing via `QuizMarkEarned()`, except the types scored **per line**
+  - match, gridtyped, labelpic/hotspot, the code activities, SQL by clause -
+  through `LineMarksEarned()` (`PerLineRightKeys()` gives each line's key):
+  **each line on its own - 2 x marks if it was already right in the first
+  attempt, 1 x marks if it was only right in the second** (Chris, 28 Sep
+  2026, fix (a); markwords' wrong marks cancel right ones at the same rate).
+  The first attempt is `quizResponses.firstResponse` (the trigger below); an
+  answer from before it was kept has none and keeps the old rule (doubled
+  only with a single attempt). Every totalling page goes through
+  `AutoMarkedEarned()` (`PupilAutoMarkedTotal()`,
+  `CourseAutoMarkedWeights()`) - never `QuizMarkEarned()` on a per-line row,
+  and any query feeding it selects `firstResponse`.
 - **Popups:** `Gloss($term, $def)` (glossary - shows the course glossary's
   definition when the term is in it, `lib/glossary.php`) and `Aside($marker, $text)` (joke,
   anecdote) in `lib/content.php`.

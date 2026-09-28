@@ -128,7 +128,10 @@ than recognising it.
 
 **Scoring (quiz, typed, order, select; match per line):** `marks` is the base
 (min 1, declare it deliberately); right first time earns `marks x 2`, second
-time `marks`, else 0.
+time `marks`, else 0. A question marked line by line (match, a grid, a
+picture, a code activity, SQL by clause) does this **per line**: a line right
+in the first attempt keeps `marks x 2` even when another line needed the
+second (Chris, 28 September 2026).
 
 **Written questions:**
 - The **prompt says what a good answer covers** (2-4 bullets naming ideas, not
