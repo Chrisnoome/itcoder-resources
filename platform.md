@@ -585,6 +585,18 @@ changes. pupils without teachers don't get calendars by default."
 - **My progress**: the bars (left) and the current mark (right) in one block
   pinned under the header, folding to a line of chips.
 - **Class results**: each lesson's mark shows its percentage.
+- **Class results subtotals and drill-down** (Chris, 28 Sep 2026): before
+  Total, **Self-marked** and **Written** columns - marks out of what the
+  pupil has answered (self-marked: questions tried; written: answers marked
+  so far), with %. The grid keeps lesson totals; a lesson's name (or the
+  Lesson filter) opens it question by question (Q1.., written ones marked
+  with a pencil, then the same two subtotals and the lesson total), with
+  All lessons / previous / next to move about. Show: All pupils | Flagged
+  work | **Below 50% in written work** (`WEAK_WRITTEN_PERCENT`, teacher.php;
+  that written cell shows red). **Teacher pages open on the current course**
+  (`TeacherCourseDefault()`, lib/groups.php): the course of the last course
+  page in this session (`NoteCurrentCourse()`, called by `SiteMenuHtml()`),
+  else their first group's - Class results, Progress check, Export marks.
 - **Dark pages** (teacher and admin): the BestLessons logo in a white box.
 
 ## The image bank (Chris, 28 Sep 2026)
