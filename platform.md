@@ -477,6 +477,44 @@ changes. pupils without teachers don't get calendars by default."
   pupil's teacher's; nothing for a pupil with no teacher. The lesson's own
   time hides below 1440px wide to make room.
 
+## Pupil queries, the result reveal, My settings (Chris, 28 Sep 2026)
+
+- **Teachers land on their pages:** sign-in goes to Pupil queries when some
+  wait, else Class results (`HomeAfterSignIn()`); every teacher page carries
+  one tab row - Class results | Pupil queries (count badge) | Progress
+  check | Year planner | Settings (`TeacherTabsHtml()`, lib/teachertabs.php).
+- **Pupil queries** (lib/queries.php, table `markQueries`, one per pupil per
+  question): a pupil with a teacher (`PupilTeacher()`) gets "Query this mark
+  with my teacher" under any marked question - self-marked once finished,
+  written once its result is shown. The button goes quiet, a popup says it
+  was sent, the teacher gets a bell. `public/teacher-queries.php`: the
+  question, the pupil's answer beside the right answer or memo, the mark and
+  the AI feedback; quick replies; "The mark is correct" or a new mark with a
+  reply. The pupil gets a bell and an email (unless `pupils.emailsOff`) and
+  sees the reply under the question. A changed mark is the teacher's mark on
+  the answer (`writtenAnswers.teacherMark`, `quizResponses.teacherMark` -
+  `AutoMarkedEarned()` honours it everywhere) and goes to every admin by
+  bell and email and to **Mark corrections** (`public/admin-corrections.php`,
+  Admin menu) until ticked done.
+- **The result reveal** (Chris: "ai marking is not just displayed - let's
+  gamify this a little"): a written answer handed in says "Go on with the
+  lesson - you will be notified when the marking is complete"; the marking
+  bell no longer gives the mark; the question shows **Show my result**
+  (`writtenAnswers.revealedAt` once pressed; answers marked before 28 Sep
+  2026 count as seen). `public/assets/reveal.js` + `reveal.css`: a drum roll
+  while the score spins up, then by level - below 50% always the same (sad
+  trombone, slumped figure, rain cloud, a random line of encouragement);
+  50-59 muted, 60-69 pleased, 70-79 celebrating, each a random gesture and
+  line; 80%+ a random victory dance (30, the blue-pen stick figure posed by
+  joint angles on the beat), fanfare and a beat, confetti, gold rays, and "5
+  of 30 collected" (this browser). All sound is synthesised (Web Audio), no
+  files. A mute button on the reveal; `prefers-reduced-motion` stills it.
+- **My settings** (`public/pupil-settings.php`, like Teacher settings): the
+  reveal's animation and sound (`pupils.revealAnim`, `revealSound`, on by
+  default) with "Try it" previews (not collected), fun activities (practice
+  name, icon, leaderboard opt-out), exam syllabus and SQL database, emails
+  on/off (`pupils.emailsOff`), and a read-only "Your teacher".
+
 ## Completion dates and reminders to pupils (Chris, 27 Sep 2026)
 
 Chris: "apply the tracking and calendar to my pupils for the ai course this

@@ -100,15 +100,32 @@ The same recordings give the setup lessons their screenshots
    Delphi serial, an e-mail address); captions as an .srt file for
    YouTube. Chris watches each before uploading.
 
-**Draft storyboards** (27 September 2026, to check against the real
-installers while recording): `E:\itcoder-videos\scripts\01-lazarus.md`
-(Lazarus 4.8, FPC 3.2.2) and `02-08-drafts.md` (Delphi 13 CE, Temurin 25
-LTS, jGRASP 2.1.0, NetBeans 31, Derby 10.17.1.0, MySQL Installer 8.0,
-DBeaver 26, Letos 4.0.3). The Pascal course's `ides` lesson and Java lesson 3
-are where videos 1-5 belong; the SQL setup lessons take 6-9.
+**Scripts** (27 September 2026): `E:\itcoder-videos\scripts\01-lazarus.md`
+to `09-letos.md`, one step per `## NN name`, edit notes on `>` lines,
+`{caption|spoken}` where the voice must say something else (format in
+`scripts\README.md`). Versions: Lazarus 4.8 (FPC 3.2.2), Delphi 13 CE,
+Temurin 25 LTS, jGRASP 2.1.0, NetBeans 31, Derby 10.17.1.0, MySQL Installer
+8.0, DBeaver 26, Letos 4.0.3. `> check:` lines are still to be confirmed
+against the real installers while recording; `> optional` steps are
+dropped if the screen never appears. The Pascal course's `ides` lesson and
+Java lesson 3 are where videos 1-5 belong; the SQL setup lessons take 6-9.
+
+**Narration** (made 27-28 September 2026, overnight): `voice\narrate.py`
+makes `voice\out\NN-name\` - `narration.mp3` to listen to, `steps\*.wav`
+(one per step, for the edit), `lines.json`, `report.txt`. Each line is
+played back through speech recognition and re-made (up to three seeds) if
+it doesn't come back as its words; names such as Letos are often misheard
+by the recogniser, so a low score means "listen", not "wrong".
 
 ## Open
 
-- Chris records the voice sample.
+- Chris listens to the nine narrations (`voice\out\*\narration.mp3`;
+  `voice\out\LISTEN-FIRST.txt` lists the lines worth a first listen).
+- "Tuck shop": speech recognition often hears the voice's "Tuck Shop" as
+  "touch shop". Chris picks a spelling from `voice\tuckshop\tuckshop-variants.mp3`
+  (1 Tuck Shop, 2 Tuk Shop, 3 Tuckshop, 4 tuck-shop, 5 Tukk shop; 3 and 5
+  came back as "Tuck Shop"); it goes into `pronounce.json` and the lines
+  with it are re-made.
+- Recording waits for Hyper-V (Chris enables it and restarts) and the VM.
 - Delphi: Chris's Embarcadero login during the Delphi recording.
 - Where each video sits in the lessons, once the YouTube links exist.
