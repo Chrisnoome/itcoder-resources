@@ -596,7 +596,38 @@ changes. pupils without teachers don't get calendars by default."
   that written cell shows red). **Teacher pages open on the current course**
   (`TeacherCourseDefault()`, lib/groups.php): the course of the last course
   page in this session (`NoteCurrentCourse()`, called by `SiteMenuHtml()`),
-  else their first group's - Class results, Progress check, Export marks.
+  else their first group's - Progress check, Export marks. **Class results**
+  opens on the current course or on none ("Choose a course", nothing listed).
+- **Class results, the top** (Chris, 28 Sep 2026): eyebrow "Class results",
+  the course as h1 with the group or class and year under it (and in
+  `<title>`); Course | **Pupil lookup** (narrows every table) | **Summary**
+  (a `<dialog>`: Marks, Time, Practice cards side by side) | group/class/
+  year | Lesson; the facts as one folded line of chips (`details
+  data-remember`); **tabs** Marks | Time on the site | Practice (remembered).
+- **Changing a mark by hand** (`lib/teachermarks.php`, `api/set-mark.php`,
+  `assets/marks-edit.js`): any element with `MarkEditAttributes()` - click,
+  type, Enter. Only answered and settled questions (written marked; self-
+  marked right or out of tries), 0 to the max; stored in `teacherMark` like
+  a query's changed mark; the pupil gets a bell. On the lesson grid, its
+  **Question by question** view (one question, every pupil's answer, the
+  class average in the list) and a pupil's work page; totals update in the
+  page.
+- **Pupil work is one question at a time**: the scrollable list on the left
+  picks it, full-width Previous / Next under the lesson name step through
+  every question (n of N), the list follows; hovering a list item shows the
+  question's first line (`QuestionFirstLine()`, lib/workanswers.php). Never
+  set `location.hash` while a page loads - the browser jumps to it.
+- **Lessons**: Test view's button is in the left outline above "In this
+  lesson" (and at the top of the contents box when the outline is hidden);
+  **My progress** is in the top bar for teachers too.
+- **Term and exam dates** (Chris, 28 Sep 2026): the School calendar card
+  (Teacher settings part 1, the setup wizard) also takes the exam dates -
+  mid-year, Grade 12 prelims, each grade's finals - for `PLANNER_YEAR`;
+  only dates that differ from the calendar's typical ones are kept, in
+  `planDates['exams']` (`PlanExamOverrides()`, `PlannerWithExams()`), so a
+  listed school keeps its terms and breaks. The Year planner's **Term and
+  exam dates** button opens that card in a popup
+  (`teacher-settings.php?popup=calendar`); saving reloads the plan.
 - **Dark pages** (teacher and admin): the BestLessons logo in a white box.
 
 ## The image bank (Chris, 28 Sep 2026)
