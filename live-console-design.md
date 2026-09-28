@@ -132,19 +132,25 @@ the Windows testbed.
 never hides a real compiler error, and never says "house style".
 
 - **Free code and copied examples:** `ConsoleStyleRules()` = everyday rules +
-  `noSingleLetters` + `comparisonBrackets` + `routineComments` +
-  `functionResult`.
+  `noSingleLetters` + `naming` + `comparisonBrackets` + `routineComments` +
+  `functionResult`. Java: `JavaConsoleStyleRules()`, with `naming` too.
 - **Units:** `UnitStyleRules()` = tabs, oneInstructionPerLine,
   noSingleLetters, comparisonBrackets, routineComments, functionResult (the
   everyday indent/programHeader rules misread units).
 - **Code copied from an exercise:** that block's rules, plus single letters
-  from lesson 4, `comparisonBrackets` from lesson 8, the routine rules from
+  and `naming` from lesson 4 (Java: lesson 5, `JavaStyleGates()`),
+  `comparisonBrackets` from lesson 8, the routine rules from
   lesson 14 (`live-start.php`, mirrored in `bin/check-code-blocks.php`).
   `checkStyle => false` skips it. `DefaultStyleRules()` (lesson code blocks
   naming no rules) stays without these.
 - `noSingleLetters`: flags a one-letter name once, where it first appears,
   listing its lines; ignores strings, comments, `$F`, `1E5`, `#13`, `%101`,
   anything after a dot.
+- `naming` (`lib/naming.php`, 28 September 2026): how names are made and
+  written - pascal-house-style.md §2 and java-house-style.md §2 say what it
+  checks. It replaces `reservedWords` when both are on. The course's own
+  listings pass it (swept 28 Sep; only Java lesson 17's `this.name` form and
+  the IEB memo's `inN` parameters would be asked to change).
 - `comparisonBrackets` (`ComparisonBracketProblem()`): in `If...Then`,
   `While...Do`, `Until...;` or `:=`, comparisons joined by And/Or/Xor or after
   Not each need brackets.
@@ -154,7 +160,7 @@ never hides a real compiler error, and never says "house style".
   a block is refused; every function body sets `Result :=`.
 - The indent rule understands classes and records in a program's Type section,
   and `Destructor Destroy; Override;` is one instruction.
-- Tests: `php bin/check-codestyle.php`.
+- Tests: `php bin/check-codestyle.php`, `php bin/check-javastyle.php`.
 
 ## Code completion (`public/assets/pascal-complete.js`, no DOM)
 

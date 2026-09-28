@@ -132,7 +132,9 @@ Details live in the linked files.
   their marks). (2) Naming checks before a program runs, Pascal and Java -
   keyword case, procedure/function/class/variable/parameter names - **stop
   the run** like the layout checks (console always; exercises from the lesson
-  that teaches naming). (3) Dilemmas get scene backgrounds, character avatars,
+  that teaches naming). **Built 28 Sep** (`naming` rule, lib/naming.php;
+  pascal-house-style.md and java-house-style.md §2, live-console-design.md).
+  (3) Dilemmas get scene backgrounds, character avatars,
   phone and chat screens and pop-up screens; pictures made with ComfyUI
   (D:\ComfyUI App, models in D:\ComfyUIModels - Flux, Qwen-Image, Z-Image),
   **mixed styles for variety: realistic, cartoon like the No Single Letters

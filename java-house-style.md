@@ -44,6 +44,15 @@ Java 21 (LTS) on the server and in the lessons.
 | Parameters | `a` + name (Chris, 25 September 2026) | `aName`, `aMark` |
 | Constants | `static final`, UPPER_SNAKE_CASE | `MAX_PUPILS` |
 
+**Checked before a program runs** (Chris, 28 September 2026 - the `naming`
+rule, `lib/naming.php` via `lib/javastyle.php`; it stops the run like the
+layout checks): each row of the table above, for classes, methods,
+constructor and method parameters (main's `args` excepted), variables, fields
+and constants. Java's own words in the wrong capitals are javac's errors, so
+they are left to javac. Console always; code copied from an exercise from
+lesson 5 on (`JavaStyleGates()`). A pupil who copies the `this.name = name`
+form (lesson 17) into the console is asked for `aName`.
+
 **Parameters and `this`** (Chris, 25 September 2026): the course uses `aName`
 so a parameter never has the same name as a field. Lesson 17 says plainly that
 most Java code (textbooks, IEB memos, the internet) gives the parameter the

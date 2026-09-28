@@ -35,6 +35,17 @@ curriculum calls for them. The console's layout check (`lib/codestyle.php`,
 | Classes | `T` prefix | `TStopwatch` |
 | Reserved words | Capitalised | `Begin`, `End`, `If`, `Then`, `Div`, `Mod` |
 
+**Checked before a program runs** (Chris, 28 September 2026 - the `naming`
+rule, `lib/naming.php`; it stops the run like the layout checks): variables and
+fields camelCase with no `_`, parameters `aName`, procedures and functions
+capitalised, classes `TName`, the program's name capitalised, Pascal's own
+words (reserved words, types, built-in routines, the units) with the capitals
+the editor offers (`Writeln`, `Integer`, `GotoXY`; `Downto` and `DownTo` both
+pass), and every name with the same capitals everywhere as where it was
+declared. A name declared in two spellings (a function `AtRisk`, a variable
+`atRisk`) or also one of Pascal's words (a variable `date`) is left alone.
+Console always; code copied from an exercise from lesson 4 on.
+
 ## 3. Whitespace
 
 - Space before `:` (`minutesPart : Integer`, `Function GetElapsed : Integer`).
