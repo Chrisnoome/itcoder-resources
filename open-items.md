@@ -134,7 +134,9 @@ Details live in the linked files.
   the run** like the layout checks (console always; exercises from the lesson
   that teaches naming). **Built 28 Sep** (`naming` rule, lib/naming.php;
   pascal-house-style.md and java-house-style.md §2, live-console-design.md).
-  (3) Dilemmas get scene backgrounds, character avatars,
+  (3) **Built 28 Sep** (lib/dilemma.php's look, tools/dilemma-art and
+  tools/match-art; content-voice §dilemmas, platform.md memory match):
+  Dilemmas get scene backgrounds, character avatars,
   phone and chat screens and pop-up screens; pictures made with ComfyUI
   (D:\ComfyUI App, models in D:\ComfyUIModels - Flux, Qwen-Image, Z-Image),
   **mixed styles for variety: realistic, cartoon like the No Single Letters

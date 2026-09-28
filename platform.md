@@ -154,7 +154,12 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   endings best / ok / poor - lib/dilemma.php, 28 Sep 2026; out of marks x 2
   x the choice points on the best path, half on a second go; the page walks
   the story from a copy without scores or reasons and api/dilemma-answer.php
-  marks the path; checked by `bin/check-dilemmas.php`); and any quiz, typed or
+  marks the path; checked by `bin/check-dilemmas.php`; **the look** (28 Sep,
+  Chris: "make it look and feel real"): a `cast` with avatars under the
+  intro, a `background` per story and per scene, the scene's person (`who`)
+  on it, and a `screen` the page draws in HTML - chat, SMS, call, lock
+  screen, web page, pop-up or log window - DilemmaScreenForPage(), text only);
+  and any quiz, typed or
   select question may carry **`'videoAt' => '1:23'`**: it pops up in the
   video block above it - lib/videoquestions.php, assets/videoq.js, 28 Sep
   2026 - which pauses the player through YouTube's own postMessage channel
@@ -266,7 +271,12 @@ Every page, new or changed, before it is published:
   Java, SQL snippets - Chris: "pascal and java can get code snippets to match
   with 'loop', 'decision' etc"), `group` (look-alike pictures - a router and a
   switch - never both pictured in one round). Pictures sit in
-  `public/assets/match/<home>/` with `SOURCES.txt` giving each Eagle item.
+  `public/assets/match/<home>/` with `SOURCES.txt` giving each Eagle item -
+  or "ComfyUI" for the ones made here (`<slug>-g1.webp`, 28 Sep 2026, Chris:
+  "icons, realistic, etc", mixed: photo, 3D icon, flat icon, watercolour -
+  `AIResources/tools/match-art/make_match_art.py`, whose `--write` adds them
+  and their look-alike groups to matchcards.php; the AI course got its own
+  `content/ai/matchcards.php` this way).
   **Picture rules (Chris):** everything in the Eagle library is licensed
   except some screenshots - ask him when unsure, especially photos; take
   only stock-site files and icon packs. Our own drawings are preferred when

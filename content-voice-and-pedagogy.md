@@ -292,6 +292,23 @@ marking-house-style.md (style never marked) is deliberately different.
   theory10 malware `dlParcelSms`, plagiarism `dlEssayNight`, computercare
   `dlHelpDesk`, and `dlPatNight` (content/pascal/dilemma-pat.php, shared by
   Pascal lesson 27 and Java patieb). Check with `php bin/check-dilemmas.php`.
+  **The look** (Chris, 28 September 2026: "background images, avatars,
+  things to make it look and feel real"; "realistic, cartoon a la no single
+  letters characters, stylized, illustrated - mix it up for variety"): every
+  story has a `cast` (name, avatar, a few words on who they are), a
+  background for each scene (the place, **with nobody in it** - the same
+  person cannot be drawn the same twice, so people are the avatars only),
+  `who` on the scenes that are someone's, and a `screen` wherever a phone or
+  computer is in the story (the SMS, the chat, the call with the OTP popping
+  up, the lock screen, the web page, the pop-up, the backup log). What is on
+  the screen is not repeated in the scene's words. **One look per story, a
+  different look for each story**: `dlPatNight` cartoon (the No Single
+  Letters caricature style), `dlParcelSms` realistic photographs,
+  `dlEssayNight` watercolour picture book, `dlHelpDesk` stylised 3D. Pictures
+  are made with `AIResources/tools/dilemma-art/make_art.py` (ComfyUI: Qwen-
+  Image 2512, Qwen-Image-Edit 2511 for the cartoon avatars) into
+  `public/assets/dilemma/<story>/`; look at each one - a background that
+  draws a person, or an avatar with a logo, is made again.
 - **Questions inside the music videos** (28 September 2026 -
   lib/videoquestions.php): two or three quiz questions straight after the
   video block, each with `'videoAt'` a second or two after the line it asks
