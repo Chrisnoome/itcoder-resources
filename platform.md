@@ -587,6 +587,33 @@ changes. pupils without teachers don't get calendars by default."
 - **Class results**: each lesson's mark shows its percentage.
 - **Dark pages** (teacher and admin): the BestLessons logo in a white box.
 
+## The image bank (Chris, 28 Sep 2026)
+
+- **Every picture the lessons and memory match use, with its words**
+  (`lib/imagebank.php`, table `imageBank`): src, kind (match / figure /
+  doodle / picture / photo), subject, courses, lessons, grades, caption, alt,
+  terms (glossary terms it goes with), shown (terms written in the SVG - never
+  paired with those), pairTerms, matchReady, manual.
+- **It registers itself:** `bin/setup.php` runs `ImageBankScan()` on every
+  deploy, reading every lesson file (and what it pulls in) for Doodle(),
+  DesignFigure(), DoodleWithPhoto() and any /assets/ picture with its caption
+  and alt text, plus `content/<glossary>/matchcards.php`. **So a new lesson
+  picture needs nothing extra** - but give it a file name that names what it
+  shows (`router-rack.svg`, not `pic3.svg`) and a caption that names it: the
+  words come from those.
+- **Memory match ready:** a matchcards picture, or a figure / picture (never a
+  joke doodle) whose FILE NAME names exactly one glossary term by its own
+  name, which it does not show written on it (on 28 Sep 2026: 289 of 1348).
+  Caption-only matches are listed but off. Memory match adds the bank's ready
+  pictures to each term's matchcards pictures (courses sharing a glossary
+  share them) - theory10 went from 84 to 143 terms with pictures.
+- **Image bank** (`public/admin-images.php`, admin): filter by subject,
+  course, grade, kind, on/off, no words yet; fix a picture's words and switch
+  it on or off - an edited picture (manual) keeps its words at the next scan.
+- **Word search:** random filler letters never spell a word from the name
+  filter (`PracticeBadWords()`), read any direction; they are drawn again
+  until the grid is clean (Chris, 28 Sep 2026).
+
 ## Access, onboarding, invitations, the menu, Help (Chris, 28 Sep 2026)
 
 - **Who opens what** (`lib/access.php`, `AccessMode()`): everything needs a
