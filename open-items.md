@@ -76,7 +76,24 @@ Details live in the linked files.
   end to end on the testbed (tap and drag, a sticky tray and edge scrolling
   for long code, a wrong first try with its hints, the second try, reload,
   right first time, the teacher's view). Nine pilots (content-voice §code and
-  text activities lists them). Next: step 2, the Java IDE picture.
+  text activities lists them). Next: step 2, the Java IDE picture
+  (tools/ide-screens/netbeans-ide.ps1 is ready; it needs Chris hands off for
+  about 3 minutes - waiting for his go).
+  **Step 3 decided 28 Sep (Chris):** a **conversion drill** in Practice for
+  IT Theory 10-12 only - binary and decimal, hex and octal, storage units
+  (not character codes) - run like the other games: 20 questions against the
+  clock, XP per right answer and a speed bonus. **Picture ordering** in
+  Practice: processes drawn as cards (booting up, fetch-decode-execute, the
+  SDLC, an email's journey ...) and, for Pascal and Java, Parsons puzzles -
+  the shuffled lines of a short working program, put in order (not
+  timelines).
+  **Step 3 built 28 Sep** (platform.md, Practice): the conversion drill and
+  Put in order - tested on the testbed (keypad and typing, a wrong answer and
+  a skip, the score; cards with pictures, a Parsons puzzle ordered and
+  indented, half XP on a second check, the answer after three). Put in order
+  uses the 49 IT Theory ordering questions (7 with pictures so far) and 10
+  Parsons puzzles each for Pascal and Java. Still to do here: pictures for
+  more of the sequences. Next: step 4, branching dilemmas.
 - **Second-attempt marks under-count** (found 28 Sep, not changed - Chris to
   decide): match and picture questions say "each line/part is marked on its
   own - 2 marks right first time, 1 if it takes the second attempt", but

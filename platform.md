@@ -253,6 +253,33 @@ Every page, new or changed, before it is published:
   clear enough, but real photos and common icons belong too, because exams
   show those. **No picture may show the word it stands for.** Every course
   has the game; a course with no `matchcards.php` pairs terms with meanings.
+- **Conversion drill** (seventh game, Chris 28 Sep 2026; `lib/convertdrill.php`):
+  **IT Theory 10-12 only** (`'courses'` in PracticeGames(); PracticeGamesFor()
+  gives each course its games). 20 questions made up each round, against the
+  clock like the others: binary and decimal (3 + 3), hex and decimal (2 + 2),
+  binary and hex (2 + 2), storage units (5 - KB, MB, GB, TB are 1 000 of the
+  one below, KiB and MiB 1 024, as theory10 bitsbytes teaches) and one octal
+  (Good to Know in both syllabuses). Harder by grade: up to 8 bits and 2 hex
+  digits in Grade 10, 10 bits in 11, 12 bits and 3 hex digits in 12. Typed or
+  on a keypad with only the answer's digits; leading zeros, spaces and a hex
+  prefix are fine. One try each; a wrong one shows the answer and how it is
+  worked out. 2 XP a question; in today's challenge (the same 20 per grade);
+  no spaced repetition (`'noBoxes'` - its "words" are only C1 to C20).
+- **Put in order** (eighth game, Chris 28 Sep 2026; `lib/ordering.php`):
+  IT Theory 10-12, Pascal and Java. Two kinds of puzzle: **cards** - every
+  ordering question in the course's lessons (and the grades it includes) that
+  the pupil has already finished there (practice, never a preview; a teacher
+  gets all), with pictures for some steps from the memory match's bank
+  (`content/theory10/ordercards.php`: "course/questionId" => a picture or null
+  per step); and **Parsons puzzles** for Pascal and Java
+  (`content/<course>/parsons.php`: a short working program per lesson, its
+  lines shuffled and unindented - the pupil orders and indents them, two
+  spaces a level; lines marked `~` may swap). A round is up to five puzzles,
+  at most three of them code. Three checks a puzzle (the rows in place turn
+  green): right first time 5 XP, on the second or third check half; after
+  three the answer is shown. Not in today's challenge; no spaced repetition.
+  `php bin/check-ordering.php --run` compiles and runs every Parsons program
+  (fpc from Lazarus, JDK 21) and checks it prints its `'output'`.
 - The server picks the words and issues a one-time round token; the page
   reports which words were right; the server caps the score at the round's
   words and refuses impossibly fast rounds. XP per word: flash cards 1,
