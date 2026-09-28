@@ -649,6 +649,20 @@ changes. pupils without teachers don't get calendars by default."
   each row. The form: two columns, the courses in a searchable scroll box
   on the right with a count of those ticked. Nothing sells bundles to the
   public yet - plans on the Billing page do.
+- **Every data grid sorts by its columns** (Chris, 28 Sep 2026 - a rule for
+  every page): `public/assets/table-sort.js`, loaded by `RenderMasthead()`,
+  sorts `table.marks`, `.marks-table`, `.admin-table`, `.data-table`,
+  `.qlist-answers` and `[data-sortable]` - numbers, rand, % and dates as
+  such, empties last, `<tfoot>` totals stay put. Never lesson tables. A
+  table with its own sorting (`data-sort-type` headings) is left alone.
+- **Billing, Make an invoice**: who (a school tick box, name, email,
+  address) and what (a course or bundle - the description is only its name;
+  a school: pupils x rate per pupil, remembered in the browser, and the
+  invoice line says so; a person: the bundle's price for the period,
+  filled in) side by side; the subscription is a searchable choice.
+- **Billing, AI costs**: tiles for the total and the average a pupil, a
+  course and a call; by kind, **by course** and per person, each with a
+  total row.
 - **Year planner**: the order button is **Edit my Year planner** ("change
   the order of topics and chapters"), and planner-order.php has that title.
 - **BestLessons everywhere**: links in emails the cron jobs send use
