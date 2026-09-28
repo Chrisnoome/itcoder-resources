@@ -5,50 +5,12 @@ Details live in the linked files.
 
 ## Platform
 
-- **Access, onboarding, invitations, menu, help** (Chris, 2026-09-28 - decided,
-  being built; move each part to platform.md as it lands):
-  - **Test view** replaces Next question in the lesson bar: a toggle that hides
-    the teaching content and shows only the questions, unanswered open,
-    answered folded with their mark, "n left". The bottom bar counts every
-    question (self-marked and written; a written one once handed in).
-  - **Access from now:** everything needs a Google sign-in. Signed in with no
-    school link and no subscription: only FREE courses/lessons (the AI course
-    for now, AI marking included); every other course shows its lesson list
-    locked with "join through your school or subscribe". **School linked** =
-    in a teacher's group OR an approved school domain with a licence: full
-    site. **Subscriber, no school:** course content, AI marking, glossary and
-    Index, practice games, console/Run, My marks - no progress bar, planner,
-    My progress, queries or teacher features. A free course or lesson has AI
-    for everyone signed in.
-  - **AI course:** free, not tied to a grade; school groups keep its one-term
-    plan and progress.
-  - **Manage courses (admin):** free/subscription per course and lesson,
-    bundles with prices, visibility (hidden/pilot/live) and order, grades and
-    whether a course has a year plan.
-  - **Invitations page** (separate from groups): type, paste or upload a text
-    file of addresses; each gets an email "<teacher> has invited you to join
-    bestlessons.co.za using this address"; signing in with that address joins
-    the group and course at once (no accept step). No limit yet, but count
-    them per teacher (sent, joined) - a quota comes with subscriptions.
-  - **Delete a pupil** (teacher, with a warning that data and progress are
-    lost): the account and all its work go, unless another teacher has them
-    in a group - then they are only removed from this teacher's groups.
-  - **Teacher onboarding wizard** (first visit, resumable, skippable steps):
-    subjects they teach and each subject's own choices (IT: exam board,
-    database dialect), school year (calendar, cycle, days off), first group,
-    invite pupils, completion dates and reminders, a tour of the teacher tabs.
-  - **Pupil onboarding** (school-linked): welcome and your teacher, practice
-    name and icon, settings and how lessons work (two tries, hints, Test
-    view, queries, My progress).
-  - **Hamburger menu** by role - Student / Teacher / Administrator, items
-    alphabetical, only your roles shown; collapsible, your main role open,
-    remembers what you opened.
-  - **Help page:** public, searchable, sections for pupils, teachers,
-    subscribers and schools; a contact form for everyone (signed-in details
-    filled in) to support@, with a copy to the sender.
-  - **Email addresses** recommended for the gateway: noreply@ (reply-to
-    support@), support@, billing@, admin@, privacy@ (POPIA information
-    officer), schools@, postmaster@, abuse@, dmarc@.
+- **Question review** (2026-09-28): questions the hint writers found wrong or
+  arguable - [question-review.md](question-review.md). Fix the wrong keys first.
+- **Email addresses** for the gateway (Chris asked, 2026-09-28): noreply@
+  (reply-to support@), support@, billing@, admin@, privacy@ (POPIA information
+  officer), schools@, postmaster@, abuse@, dmarc@ - all may forward to one
+  inbox. Then set supportEmail with tools/set-server-config.py mail.
 
 - **H5P-style activities and the memory match** (Chris, 2026-09-28): "investigate
   h5p for their range of activities. lets brainstorm what can be added to

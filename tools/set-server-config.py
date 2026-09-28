@@ -35,7 +35,8 @@ PRESETS = {
     'mail': [('brevoApiKey', 'the Brevo API key (Brevo - SMTP & API - API keys)'),
              ('mailFrom', 'the sender address, e.g. reminders@bestlessons.co.za'),
              ('mailReplyTo', 'where replies go (your own address) - Enter to skip'),
-             ('mailFromName', 'the sender name - Enter to follow the site brand')],
+             ('mailFromName', 'the sender name - Enter to follow the site brand'),
+             ('supportEmail', 'where Help page messages go, e.g. support@bestlessons.co.za - Enter to skip')],
 }
 
 args = sys.argv[1:]

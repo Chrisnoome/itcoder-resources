@@ -587,6 +587,59 @@ changes. pupils without teachers don't get calendars by default."
 - **Class results**: each lesson's mark shows its percentage.
 - **Dark pages** (teacher and admin): the BestLessons logo in a white box.
 
+## Access, onboarding, invitations, the menu, Help (Chris, 28 Sep 2026)
+
+- **Who opens what** (`lib/access.php`, `AccessMode()`): everything needs a
+  Google sign-in. **Full** - teachers, admins and SCHOOL-LINKED pupils (in a
+  teacher's group, or an approved school domain: config schoolEmailDomains or
+  a school licence). **Content** - a subscriber with no school link: the
+  courses their plan covers with AI marking, glossary and Index, games,
+  console, My marks; no progress bar, year plan, My progress, school-day bar
+  or reminders. **Free** - a free course or lesson, AI marking included, for
+  anyone signed in. **Locked** - everything else: the course page lists its
+  lessons with a lock and "join through your school or subscribe";
+  `RequireCourseAccess()` sends locked pages back there. On 28 Sep 2026 live
+  had 158 school-domain pupils (full) and 2 Gmail accounts (locked).
+- **The AI course** is the free sample, not tied to a grade (setup.php seeds
+  courseSettings ai = free, grades ''); school groups keep its one-term plan.
+- **Manage courses** (`public/admin-courses.php`, admin): per course free or
+  subscription, live / pilot (test site only) / hidden (admins only), order,
+  grades, year plan on or off (courseSettings, applied in CourseIndex() by
+  `ApplyCourseSettings()`); per lesson Course / Free / Locked
+  (lessonSettings); **bundles** of courses with month and year prices - a
+  plan's scope `bundle:<id>` covers its courses (Entitlements()).
+- **Invitations** (`lib/invites.php`, `public/invite.php`, also the group
+  page): type, paste or upload a text/CSV file; each address gets an email
+  "<teacher> has invited you to join <site> using this email address";
+  **signing in with that address joins the group and course at once**
+  (MatchWaitingInvites() at every sign-in, JoinGroupNow()); an existing
+  account joins when invited. No limit yet; sent/invited/joined counted per
+  teacher (groupInvites.inviteCount) for the quota subscriptions will bring.
+- **Deleting a pupil** (group page, with a warning): the account and all
+  its work go (every table cascades) - unless another teacher has them in a
+  group; then they only leave this teacher's groups. Never a teacher or admin.
+- **Onboarding** (`lib/onboarding.php`): a new teacher lands on
+  `teacher-welcome.php` - what they teach and IT's exam board, calendar, year
+  plan (database, revision; IT only), cycle, days off, first group, invite
+  pupils, completion dates, reminders, a tour of the tabs. The settings and
+  invite pages show one section in wizard mode (`?wizard=<step>`, the step
+  strip on top); saving moves on; every step skips; Close puts it away and
+  **Setup guide** in the menu brings it back. A new school-linked pupil
+  lands on `pupil-welcome.php`: welcome and your teacher, practice name and
+  icon, settings and how lessons work. Everyone on the site before 28 Sep
+  2026 counts as set up (setup.php backfill).
+- **The menu by role** (`lib/sitemenu.php`): where-you-are links, then
+  Student / Teacher / Administrator (only your roles), items alphabetical,
+  your main role open, remembered per browser; Help at the bottom.
+- **Help** (`public/help.php`): public, searchable, sections for getting
+  started, pupils, teachers, subscribers, schools and privacy; a form for
+  everyone (honeypot, 5 an hour) kept in helpRequests and emailed to config
+  `supportEmail` (else mailReplyTo, else the first admin) with a copy to the
+  sender. **Add to Help whenever a feature changes what people do.**
+- **Test view** (lesson bar): only the questions, answered ones folded, "n
+  of m still to answer", Next unanswered; remembered per lesson. The bottom
+  bar counts every question, written ones too.
+
 ## Why-wrong hints, both attempts, lesson revisits, the behind email (Chris, 28 Sep 2026)
 
 - **Why a first try was wrong** (`lib/whywrong.php`): straight after a wrong
