@@ -86,6 +86,33 @@ than recognising it.
   answer goes to the AI checker (`CheckCodeAnswer()`); if that fails the exact
   verdict stands. Still list likely wordings in `answer`. For a short Pascal
   snippet where many wordings are right, `checkedcode` (always AI-checked) fits.
+- **An answer with several parts is marked part by part - `'rules'`** (Chris,
+  28 September 2026: "- seatsLeft :integer" scored 0 and is worth 3 of 4;
+  "these type of questions need ai marking with specified rules and partial
+  marks (not all wrong or all right). if unsure if a question is partial or
+  not, ask me"). Every typed answer that has parts gets rules: a class
+  diagram line, a heading, a declaration, a create/assign line, an
+  instruction to write, a short expression or condition, program output with
+  more than one value or line, a list or record (a sort pass, a CSV line), a
+  value with its unit, a "what and why" answer. One word, one term, one
+  method name, one value stays all or nothing. **Unsure which? Ask Chris.**
+
+      'marks' => 2,
+      'rules' => [   // add up to marks x 2 - the total the pupil sees
+          [1, 'A minus sign (-) at the start, for private'],
+          [1, 'The field name, seatsLeft'],
+          [1, 'A colon between the name and the type'],
+          [1, 'The type Integer, written with a capital I'],
+      ],
+
+  The AI marks each rule instantly for every pupil (`MarkTypedByRules()`);
+  an exact match with `answer` gets full marks without it, so `answer` lists
+  only fully correct wordings. Two tries, the better mark counts; after the
+  first try the pupil sees only the mark, the rule-by-rule verdicts once
+  finished. Spacing and a final `;` never cost a mark; Java questions add
+  `'caseSensitive' => true`. `php bin/check-typed-rules.php` checks the sums;
+  after adding or changing rules, `php bin/remark-typed-rules.php --apply`
+  re-marks saved answers (never lowering a mark).
 - **Hint under the box:** "Only one word needed!" only when the main answer is
   one plain word; code gets "Type the Pascal code - spacing and a missing ; do
   not matter."; other answers get none. Don't write "one word" in a prompt
@@ -211,6 +238,17 @@ marking-house-style.md (style never marked) is deliberately different.
     column, see the element and both totals; `data-config` `{name, rows,
     columns, values, row, column}`).
 - **Screens and screenshots** (24 September 2026): a Crt screen is a real server run saved as `content/pascal/screens/<lesson>-*.ans` and drawn with TerminalScreen() inside `Figure ()` (`.figure-box .terminal` is left-aligned and the box is 80 JetBrains Mono columns - Chris, 24 Sep 2026: centred rows broke the columns); a window is a real Lazarus screenshot in `public/assets/lessons/pascal/` (`.shot` + numbered `.shot-badge`s for callouts). How: `tools/ui-screens/README.md`.
+- **Picture activities** (28 September 2026 - lib/picture.php; the H5P-style
+  activities): after a labelled figure, let the pupil do it - `labelpic`
+  (drag the names into boxes on the same picture with its names taken off;
+  one or two extras that belong nowhere; a pointer line from each box to its
+  part) or `hotspot` (put a pin on each named part - good for real photos,
+  since exams show real parts, not our drawings). Put each box in clear space
+  beside its part; zones in per cent of the picture; a hint for every name
+  (about the part, never where it is); nothing on the picture may name what
+  is asked. Models: theory10 `insidecase` (labelpic), `ports` (hotspot on an
+  Eagle photo). Check with `php bin/check-pictures.php`, and look at the
+  finished render: every box and area on its part.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
   keep a ~20px gap; never `textLength`/`lengthAdjust` (warps glyphs) - widen,
@@ -287,6 +325,14 @@ what makes a lesson worth reading, never what a pupil needs.
   `Figure()` box - an illustration (§5a), not a margin item. It is drawn in
   the doodles' blue pen (`.figure-art`; Chris, 26 September 2026), so draw it
   in `currentColor`.
+- **Nothing shows through a shape in front** (Chris, 28 September 2026, the
+  doodle gallery): wheels are solid circles (`fill="currentColor"`) drawn
+  after the body and the road; a shape that sits in front of another (a head
+  over a body, dust on a fan, a magnifying lens over a card) is backed with
+  `style="fill: var(--doodle-paper, #fff)"` and drawn after it, so the lines
+  behind are hidden - never a see-through fill over a line. Text never
+  touches a box, circle or dashed line: leave room for the font to come out
+  wider than Kalam.
 
 ## 6. Quotes with portraits
 

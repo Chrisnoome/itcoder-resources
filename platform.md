@@ -133,7 +133,13 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   lesson gets both.
 - **Block types:** `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
   `typed`, `checkedcode`, `order`, `select` (tick all correct, no more), `match`
-  (dropdown per row), `gridtyped`, `code`, `algorithm`, `errors`, `important`,
+  (dropdown per row), `gridtyped`, **`labelpic`** (label the picture: drag
+  each name, and one or two extras that belong nowhere, into boxes on a
+  picture) and **`hotspot`** (find it on the picture: a pin for each named
+  part) - both lib/picture.php, 28 Sep 2026, scored per zone like a match
+  line, zones in per cent `[left, top, width, height]` (a labelpic box may add
+  a pointer `x, y`; a hotspot zone may be several rectangles), checked by
+  `bin/check-pictures.php` - `code`, `algorithm`, `errors`, `important`,
   `goodtoknow`, `enrichment`, `contents`, `study`; and two wrappers made by
   helpers, never by hand (25 Sep 2026): `board`/`boardend`
   (`BoardSection()`, below) and `scenario`/`scenarioend` (`Scenario()` - an
