@@ -620,6 +620,30 @@ changes. pupils without teachers don't get calendars by default."
 - **Lessons**: Test view's button is in the left outline above "In this
   lesson" (and at the top of the contents box when the outline is hidden);
   **My progress** is in the top bar for teachers too.
+- **Long lists get a search** (Chris, 28 Sep 2026 - a design rule for every
+  page: "where lists get long like this always design for using a
+  autocomplete search to make finding the item easier"): a dropdown of more
+  than about ten choices is `<select data-search="Find a ...">` (a type-to-
+  find box, `public/assets/list-search.js`); a long list of cards or rows gets
+  `<input data-filter="selector">`. In use: Class results (Course, Group,
+  Lesson), Manage courses, a pupil's work list.
+- **Class results exports to Excel** (Chris, 28 Sep 2026): the Excel button
+  downloads what is on screen (`?export=xlsx`, same filters) - Marks (lesson
+  totals, or one lesson question by question, with the subtotals), Time
+  (minutes) and Practice sheets (lib/xlsx.php). The Export marks page is
+  retired: teacher-export.php sends old links to Class results.
+- **Calendars on offer** (Chris, 28 Sep 2026: "only offer standard caps or
+  isasa 3 / 4 term ... listing many schools gets messy"): Public school CAPS
+  (DBE, four terms), ISASA three terms, ISASA four terms, or own dates
+  (`PlannerCalendarChoices()`); the named schools stay in
+  `PlannerCalendarPresets()` only so a saved choice keeps working. In the
+  School calendar card the term and exam dates always show, filled in from
+  the calendar chosen; changing a term date saves the school's own dates
+  (`SaveTeacherCalendar()`).
+- **BestLessons everywhere**: links in emails the cron jobs send use
+  bestlessons.co.za even though live's config baseUrl still names
+  itcoder.co.za (`SiteBaseUrl()`, lib/brand.php); invoices default to the
+  brand name.
 - **Term and exam dates** (Chris, 28 Sep 2026): the School calendar card
   (Teacher settings part 1, the setup wizard) also takes the exam dates -
   mid-year, Grade 12 prelims, each grade's finals - for `PLANNER_YEAR`;
