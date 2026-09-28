@@ -5,6 +5,15 @@ Details live in the linked files.
 
 ## Platform
 
+- **H5P-style activities and the memory match** (Chris, 2026-09-28): "investigate
+  h5p for their range of activities. lets brainstorm what can be added to
+  lessons ... you will need to be able to generate the questions /
+  activities", and a memory match for theory practice (term on one card, a
+  picture on the other, several pictures per term, images from the Eagle
+  library at `R:\Eagle\Eagle Image Library.library` - read its files
+  read-only, never its API token). Brainstorm done and questions put to
+  Chris on 28 Sep; nothing built yet. If a chat closes before he answers,
+  ask again (interactively) before building.
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
