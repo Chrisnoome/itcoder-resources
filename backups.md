@@ -17,6 +17,12 @@ a chat, opened only to restore.
   committed data.
 - Every backup is opened and checked (`integrity_check`, expected tables, row
   counts), gzipped, `0640`, in a `0750` directory outside the site.
+- **Every table the database has must arrive; a listed table the database
+  does not have yet is only named** ("not in the database yet: ...") - a
+  deploy backs up before setup.php adds new tables, and an interrupted deploy
+  can leave the new backup.php on the server first (28 Sep 2026: that failed
+  the pre-deploy backup). The snapshot is `0640` from the moment it exists,
+  and a failed run removes its own snapshot.
 - Table changes: see [vps-access.md](vps-access.md), "Backups and schema
   changes" (`$expected` vs `SCHEMAS['v2']`).
 - By hand: `sudo -u www-data php /var/www/itcoder/bin/backup.php`
