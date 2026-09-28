@@ -24,8 +24,18 @@ Details live in the linked files.
     Chris when unsure, especially photos. Our own drawings are preferred
     when they are clear enough, but use real-world photos and common icons
     too, because exams and tests show those, not ours.
-  Still to ask before building: the build order, how each new type is
-  marked, and the memory match's courses and pair counts.
+  - Build order: the memory match first (it sets up the Eagle picture
+    pipeline the picture activities reuse).
+  - Marking: a mark per item (label, hotspot, word), keeping totals even.
+  - The memory match is a standard fun activity in every course, like the
+    other Practice games. Pascal and Java pair code snippets with what they
+    are ("loop", "decision" ...).
+  - 10, 20 or 30 pairs, from the lessons the pupil has done so far.
+  **Memory match built 28 Sep** (platform.md, Practice): code cards for
+  Pascal, Java and SQL, pictures for 84 IT Theory terms (Eagle icon packs and
+  stock photos, own topology drawings). Still to do: pictures for the AI
+  course, more theory terms (file types without their name on them, cloud,
+  e-waste, pixel), then the lesson activity types in the order above.
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @

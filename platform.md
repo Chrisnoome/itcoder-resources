@@ -112,6 +112,25 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   byte, with place values; readouts in binary and as a number, and for
   byteSwitches the ASCII letter and a shade of grey; the block's `start`
   key sets the first pattern (default `01010000`).
+  **Screenshot steps** (`'kind' => 'shotSteps'`, any id - 28 Sep 2026, SQL
+  lesson A2's flat file, Chris: "an activity box - a real screenshot, Next
+  buttons to draw in problem text and an arrow to the problem, circled or
+  highlighted"): a real screenshot, then Back and Next, one step at a time;
+  each step circles (`circle`) or highlights (`box`) cells by address, draws
+  an arrow from a handwritten Kalam note, and says the problem in full under
+  the picture (phones show only that). `ShotStepsHtml()` in
+  `lib/content.php` documents the keys. The cell map beside the picture comes
+  from `tools/excel-screens/` (real Excel, COM + PrintWindow, hands off).
+  The tuck shop flat file is one shared block, `FlatFileActivity()`: SQL
+  lesson A2 and Theory Gr 10 databasesintro (four problems), SQL lesson A4
+  dbdesign (`$aNamed`: redundancy, update, insert and delete anomaly).
+- **Shared Learn / Memorise boxes** (28 Sep 2026, Chris: in every database
+  lesson): `GoodDataBox()` (accurate, correct, current, complete, relevant)
+  and `ValidationChecksBox()` (nine checks: type, range, presence, length,
+  format, list, uniqueness, logical, check digit) in `lib/content.php` - one
+  copy, dropped into SQL 1, Theory Gr 10 databasesintro, Gr 11 dataerrors and
+  dbms11, Gr 12 datacollection, Pascal 24-25 and Java 25-27. A new database
+  lesson gets both.
 - **Block types:** `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
   `typed`, `checkedcode`, `order`, `select` (tick all correct, no more), `match`
   (dropdown per row), `gridtyped`, `code`, `algorithm`, `errors`, `important`,
@@ -193,11 +212,31 @@ Every page, new or changed, before it is published:
 - `practice.php?c=` (any course with a glossary), `assets/practice.js`,
   `lib/practice.php`, `api/practice-start.php` / `api/practice-finish.php`,
   table `practiceRounds`.
-- Five games - **flash cards, hangman, word search, crossword, speed match** - built from the
+- Five word games - **flash cards, hangman, word search, crossword, speed match** - built from the
   glossary's single-word terms (letters only, 3-14; the definition is the clue
   with the word blanked). **Every round is 20 words** (word search and
   crossword score out of the words that fit). Missed words are listed with
   their meanings at the end.
+- **Memory match** (sixth game, Chris 28 Sep 2026; `lib/memorymatch.php`):
+  turn two cards, pair each glossary term with its **face** - a picture, a
+  code snippet or (for a term with neither) its meaning with the term
+  blanked. **10, 20 or 30 pairs**, only from **lessons the pupil has answered
+  something in** (a teacher gets every lesson); terms with a picture or code
+  come first. 2 XP a pair; a pair found after 3+ wrong turns of its cards
+  earns half and counts as missed for spaced repetition. Not in today's
+  challenge (its words are the pupil's own lessons). Faces live beside the
+  glossary in `content/<glossary home>/matchcards.php`: term =>
+  `pictures` (several, one picked at random each round), `code` (Pascal,
+  Java, SQL snippets - Chris: "pascal and java can get code snippets to match
+  with 'loop', 'decision' etc"), `group` (look-alike pictures - a router and a
+  switch - never both pictured in one round). Pictures sit in
+  `public/assets/match/<home>/` with `SOURCES.txt` giving each Eagle item.
+  **Picture rules (Chris):** everything in the Eagle library is licensed
+  except some screenshots - ask him when unsure, especially photos; take
+  only stock-site files and icon packs. Our own drawings are preferred when
+  clear enough, but real photos and common icons belong too, because exams
+  show those. **No picture may show the word it stands for.** Every course
+  has the game; a course with no `matchcards.php` pairs terms with meanings.
 - The server picks the words and issues a one-time round token; the page
   reports which words were right; the server caps the score at the round's
   words and refuses impossibly fast rounds. XP per word: flash cards 1,
