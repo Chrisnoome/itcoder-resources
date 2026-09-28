@@ -50,11 +50,20 @@ Details live in the linked files.
   the motherboard, pic-motherboard.svg), `whynetworks` (find the devices,
   pic-network.svg), `databasesintro` (label a table, pic-db-table.svg),
   `ports` (find the ports on a real motherboard - Eagle K7NN70MX20T0A,
-  cropped, pic-back-ports.jpg). **Still to do:** the Pascal/Java IDE pilot
-  (Pascal lesson 26 `ides`: a real Lazarus screenshot - ask Chris for ~30 s
-  hands off, reuse the tools/excel-screens approach; NetBeans is installed
-  for Java), then the next types in the order above (mark the words, drag
-  the words, ...), and the memory-match picture top-ups.
+  cropped, pic-back-ports.jpg), and Pascal lesson 26 `ides` (`hsIdeWhere`,
+  "where would you click": a real Lazarus 4.2 window from
+  tools/ide-screens, 28 Sep). **Still to do:** the Java one (NetBeans is
+  installed; tools/ide-screens shows the way), then the next types in the
+  order above (mark the words, drag the words, ...), and the memory-match
+  picture top-ups.
+- **Second-attempt marks under-count** (found 28 Sep, not changed - Chris to
+  decide): match and picture questions say "each line/part is marked on its
+  own - 2 marks right first time, 1 if it takes the second attempt", but
+  `MatchMarkEarned()` (lib/content.php) gives every right line 1 mark once a
+  second attempt is used, even the lines that were right the first time (7
+  parts right first time, 1 still wrong after the second try: 7 of 16, not
+  14). Either store which lines were right the first time and mark them x2,
+  or change the wording.
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @

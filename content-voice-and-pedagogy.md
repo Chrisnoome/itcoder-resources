@@ -246,9 +246,15 @@ marking-house-style.md (style never marked) is deliberately different.
   since exams show real parts, not our drawings). Put each box in clear space
   beside its part; zones in per cent of the picture; a hint for every name
   (about the part, never where it is); nothing on the picture may name what
-  is asked. Models: theory10 `insidecase` (labelpic), `ports` (hotspot on an
-  Eagle photo). Check with `php bin/check-pictures.php`, and look at the
-  finished render: every box and area on its part.
+  is asked. When a real screen prints the parts' names (an IDE: "Object
+  Inspector", "Events"), ask for tasks instead - "Where would you click to
+  set what a click does?" - which is also how pupils use it. Models: theory10
+  `insidecase` (labelpic), `ports` (hotspot on an Eagle photo), Pascal `ides`
+  (hotspot on a real Lazarus window, tools/ide-screens). A screenshot must be
+  readable in the lesson's column (about 612 pixels): crop to the parts
+  asked about rather than shrink the whole window. Check with
+  `php bin/check-pictures.php`, and look at the finished render: every box
+  and area on its part.
 - **Diagrams:** inline SVG in `Figure ()` using colour tokens (`var(--ink)`,
   `var(--card)`, `var(--heat)`) so dark mode works. Adjacent flowchart shapes
   keep a ~20px gap; never `textLength`/`lengthAdjust` (warps glyphs) - widen,
