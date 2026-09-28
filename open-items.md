@@ -11,9 +11,21 @@ Details live in the linked files.
   activities", and a memory match for theory practice (term on one card, a
   picture on the other, several pictures per term, images from the Eagle
   library at `R:\Eagle\Eagle Image Library.library` - read its files
-  read-only, never its API token). Brainstorm done and questions put to
-  Chris on 28 Sep; nothing built yet. If a chat closes before he answers,
-  ask again (interactively) before building.
+  read-only, never its API token). Nothing built yet. **Decided 28 Sep:**
+  - Our own block types, not the H5P player: our look, marks into My marks
+    and class results, written as data in the lesson files by a chat.
+  - All of them in time: pictures (drag and drop on a picture, find the
+    hotspot, picture hotspots), code and text (mark the words, drag the
+    words), games (timed conversion drill, picture ordering), scenarios
+    and video (branching dilemmas, questions inside the music videos).
+  - Marked activities inside lessons, the game-like ones in Practice for XP.
+    The memory match is a Practice (fun) game only, not a lesson block.
+  - Pictures: everything in Eagle is licensed except some screenshots - ask
+    Chris when unsure, especially photos. Our own drawings are preferred
+    when they are clear enough, but use real-world photos and common icons
+    too, because exams and tests show those, not ours.
+  Still to ask before building: the build order, how each new type is
+  marked, and the memory match's courses and pair counts.
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
