@@ -67,7 +67,31 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   Glossary page, the popups' shared definitions, the terms in the Index
   popup and the Practice word games. Also give Practice its own lobby
   symbols in `PracticeHeroGlyphs()`. Check with `bin/check-glossary.php`.
-- **Pages:** `/` landing; after sign-in `subjects.php` (the first page);
+- **Home page** (Chris, 1 Oct 2026 - design canvas mock-ups A and C;
+  `public/index.php`, `lib/home.php`, `assets/home.css`). A visitor gets the
+  landing page; someone signed in gets their dashboard, and sign-in lands
+  pupils there (`HomeAfterSignIn()`; teachers still go to their pages).
+  - **Built from the subject list, never hand-written** (Chris: "the site will
+    not be limited to just these subjects"): the Subjects tiles come from
+    `SubjectIndex()` + `CourseIndex()` (`HomeSubjects()`), open subjects
+    first, a subject with no open course shows "Coming soon"; draft courses
+    never show. A grade filter narrows the tiles (a course with no grades tag
+    counts for every grade). The hero words are subject-neutral.
+  - **"In every lesson"** lists only what every course has; **"What each
+    subject adds"** comes from a subject's `'extras'` in `SubjectIndex()` -
+    give a new subject its own there when it opens.
+  - The landing page keeps the **Google sign-in explanation, the AI-marking
+    eligibility and the privacy link** - Google's OAuth review reads it.
+  - **Dashboard**: carry on (the last lesson read), the weighted mark of
+    that course, Due next (from the year plan), this week's quests, rank and
+    badges, My courses (lessons finished + weighted mark), the latest
+    notifications and the class goal, and the coming-soon subjects.
+  - **"Tell me when it opens"** (Chris: yes, after sign-in): on the
+    dashboard and on a coming-soon subject's page (`subject-watch.php`,
+    table `subjectWatch`). `NotifySubjectWatchers()` (run by the dashboard
+    and the subjects page) sends one notification when the subject's first
+    course opens.
+- **Pages:** `/` landing or the dashboard (above); `subjects.php` (All subjects);
   `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
   `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`; its search, A-Z and count stay pinned under the masthead while scrolling - Chris, 27 Sep 2026) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `practice.php?c=` (**Practice**, right after the glossary on the course page - see below); `cite.php?c=` (the **Harvard reference builder**, after Practice on the course page, only for courses with `'citeTool' => true` - IT Theory 10-12 - Chris, 27 Sep 2026: "build a citation creation tool for links and put it in the course contents", Harvard because the IEB requires it. The pupil pastes a link; `api/cite-fetch.php` -> `lib/cite.php` reads the page's own title, author, site and year (meta tags, JSON-LD, `<title>`), public addresses only, 3 redirects, 5 s, 400 KB, 20 look-ups per 10 minutes per session; every field can be typed instead. It builds the reference and the in-text citation, copies them with the title in italics, and keeps a "My reference list" in the browser's localStorage, A-Z. Grade 10 lesson 44 `plagiarism#referencing` links to it); `scores.php?c=` (My marks - lesson and course totals as
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year

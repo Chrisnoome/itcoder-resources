@@ -166,6 +166,8 @@ Details live in the linked files.
     to Claude. The Jev key goes on the server with the prompting script,
     never in chat.
   - **Home page**: a landing page for visitors, a dashboard once signed in.
+    Built 1 Oct 2026 (platform.md, "Home page"): landing A built from the
+    subject list, dashboard C, and "Tell me when it opens".
   - **Mark and correct** question type (decided later that day): all four
     kinds - code (Pascal/Java), written theory answers, SQL queries, trace
     tables/output. The question and an answer are given; the answer looks
