@@ -735,7 +735,9 @@ changes. pupils without teachers don't get calendars by default."
   `pupils.cycleAnchor`) holds until the next Term 1 - needed for 2026,
   whose Term 1 the site does not know. `lib/schoolday.php`.
 - **The bottom bar** of every lesson, right-aligned (`SchoolDayBarHtml()`):
-  "Day 3 · 47 days left in Term 3" (school days), "No school · next Day 3
+  "Day 3 · 20 teaching days left in Term 3" (teaching days, as the teacher's
+  countdown counts them - weekdays less days off and exam days; Chris, 1 Oct
+  2026: "must be teaching days"), "Exams to the end of Term 3", "No school · next Day 3
   (Mon)", or "Holiday · Term 1 starts ..." - the teacher's own, or a
   pupil's teacher's; nothing for a pupil with no teacher. The lesson's own
   time hides below 1440px wide to make room.
@@ -1598,7 +1600,10 @@ section folds only once every question in it is settled (app.js).
 
 Secrets live in `config/config.php` per project, never here.
 
-- **Anthropic:** model `claude-haiku-4-5-20251001`; workspace-scoped key, or an
+- **Anthropic:** written answers are marked by **Sonnet 5.5** (`markingModel`,
+  default `claude-sonnet-5-5`, $2/$10 per M tokens; Chris, 1 Oct 2026: "change
+  sonnet to sonnet 5.5 for marking"); everything else (quick checks, hints,
+  reviews) by `anthropicModel`, `claude-haiku-4-5-20251001`. Workspace-scoped key, or an
   org key plus `anthropicWorkspaceId`. Workspace spend limit still to set.
 - **The site is BestLessons, on both addresses** (Chris, 27 September 2026:
   "stop referring to itcoder. now changed to BestLessons"; itcoder.co.za
