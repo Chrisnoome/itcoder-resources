@@ -15,6 +15,7 @@ beside them. Uses ../dilemma-art/make_art.py's ComfyUI client and
 """
 import html
 import json
+import os
 import subprocess
 import sys
 import urllib.request
@@ -26,6 +27,7 @@ TOOLS    = Path (__file__).resolve ().parent.parent
 QUEUE    = TOOLS.parent / "comfyui-queue" / "requests"
 PROJECTS = TOOLS.parents[1]                 # Dropbox/Projects - every `out` is relative to it
 RAW      = Path ("D:/temp/comfy-queue")     # off C: (README rule 9)
+COMFY    = os.environ.get ("COMFY_URL", "http://127.0.0.1:8188")   # ComfyUI Desktop may use another port (8189, 1 Oct 2026)
 
 sys.path.insert (0, str (TOOLS / "dilemma-art"))
 sys.path.insert (0, str (TOOLS / "badge-art"))
@@ -42,7 +44,7 @@ def Save (path, request):
 
 def ComfyIsUp ():
     try:
-        urllib.request.urlopen ("http://127.0.0.1:8188/system_stats", timeout=3).read ()
+        urllib.request.urlopen (COMFY + "/system_stats", timeout=3).read ()
         return True
     except OSError:
         return False
@@ -93,7 +95,9 @@ def RunItems (path, request):
 def RunScript (path, request):
     cwd = PROJECTS / request.get ("cwd", "AIResources")
     print ("  running:", request["command"], "in", cwd)
-    subprocess.run (request["command"], shell=True, cwd=cwd, check=True)
+    # "python ..." runs with this same interpreter (it has Pillow), not whichever python is first on the PATH.
+    command = request["command"].replace ("python ", '"' + sys.executable + '" -X utf8 ')
+    subprocess.run (command, shell=True, cwd=cwd, check=True)
     request["status"] = "done"
     Save (path, request)
 
@@ -138,7 +142,7 @@ def Main ():
         return
 
     if not ComfyIsUp ():
-        sys.exit ("ComfyUI is not answering on port 8188 - start D:\\ComfyUI App\\RLComfyUI\\run_nvidia_gpu.bat first.")
+        sys.exit ("ComfyUI is not answering at " + COMFY + " - start it first (set COMFY_URL if it is on another port).")
 
     only = args[1] if len (args) > 1 else None
     for path, request in Requests ():

@@ -297,6 +297,16 @@ marking-house-style.md (style never marked) is deliberately different.
   activities (our own, or licensed). Models: AI lessons 1 `gRulesOrLearned`,
   2 the 16-colour towers, 4 `pcWhichCard`, 5 the rack and `mpDataCentre`,
   8 `tlCourseMoments`. Check with `php bin/check-more-questions.php`.
+- **Software simulations** (1 October 2026 - lib/simulation.php; Chris: real
+  screenshots, step by step, each step marked with two tries, Excel first): a
+  `simulation` block is a task done in the real program, one real screen per
+  step - a click (left, right or double), typing in a box laid over the
+  picture, or a key combination - each with a hint about the target, never
+  where it is. Write the steps the way the program really behaves (after Enter
+  Excel moves down a row). Screens from `AIResources/tools/sim-screens` (its
+  README): real Microsoft 365, never the title bar. Model: AI lesson 4
+  `simRandPerGb`. Check with `php bin/check-simulations.php`, then play it
+  through.
 - **Mark and correct** (1 October 2026 - lib/markcorrect.php; Chris): a
   `written` question with `'markCorrect'`: an exam question and somebody's
   answer to it, which the pupil marks (where each mark is earned or lost, and

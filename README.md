@@ -73,6 +73,7 @@ this folder's git log.
 | [course-development.md](course-development.md) | PLAN: researching courses for other subjects (CAT first) in the separate `itcoder-coursedev` repo - scope, subject order, sources and how to get them, outputs |
 | `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php`, `tools/marking-check.php` | Publishing ([publishing.md](publishing.md)) |
 | `tools/vps.py` | Run commands and upload files on the server |
+| `tools/sim-screens/` | Real program screens (Excel first) for the software simulations - its README |
 | [comfyui-queue/](comfyui-queue/README.md), `tools/comfy-queue/run.py` | Every chat's ComfyUI picture requests, and the runner that makes them when the GPU is ready |
 | `tools/pull-backups.py`, `.cmd` | The daily Dropbox pull |
 | `tools/sql-dialects/` | The SQL dialect test harness and its results ([sql-dialects.md](sql-dialects.md)) |

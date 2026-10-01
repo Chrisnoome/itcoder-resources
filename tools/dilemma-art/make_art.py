@@ -33,6 +33,7 @@ their 4-step Lightning LoRAs (D:\\ComfyUIModels). Raw PNGs go to D:\\temp\\dilem
 backgrounds 1280x720, avatars 320x320, WebP.
 """
 import json
+import os
 import sys
 import time
 import urllib.parse
@@ -42,7 +43,7 @@ from pathlib import Path
 
 from PIL import Image
 
-URL      = "http://127.0.0.1:8188"
+URL      = os.environ.get ("COMFY_URL", "http://127.0.0.1:8188")   # ComfyUI Desktop may use another port (8189, 1 Oct 2026)
 RAW      = Path ("D:/temp/dilemma-art")
 PLATFORM = Path (__file__).resolve ().parents[3] / "AIPascalCourse" / "public" / "assets" / "dilemma"
 ANCHOR   = Path ("D:/DB Sync/Dropbox/Projects/Video/Music Videos/no single letters/cartoon/art/gates.png")

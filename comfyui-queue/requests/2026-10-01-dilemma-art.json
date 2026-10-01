@@ -3,7 +3,7 @@
   "kind": "script",
   "from": "the H5P rollout chat (branching dilemmas)",
   "added": "2026-10-01",
-  "status": "waiting",
+  "status": "done",
   "command": "python tools/dilemma-art/make_art.py reception && python tools/dilemma-art/make_art.py easymoney && python tools/dilemma-art/make_art.py groupchat && python tools/dilemma-art/make_art.py farewell && python tools/dilemma-art/make_art.py tuckshop",
   "cwd": "AIResources",
   "minutes": 20,

@@ -1,0 +1,376 @@
+{
+  "id": "2026-10-01-rank-emblems",
+  "kind": "items",
+  "from": "the platform chat (levels)",
+  "added": "2026-10-01",
+  "status": "waiting",
+  "why": "Chris, 1 October 2026: \"all level names change per course ... each courses level icons need to be generated independently\". Nine levels per family (lib/practice.php PracticeRanks(): programming for Pascal and Java, SQL, theory, AI); the frame grows bronze to silver to gold to a jewelled starburst. PracticeRankEmblem() uses public/assets/rank-art/<family>/<index>.png once it exists and draws the old emblem until then.",
+  "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 2,
+  "items": [
+    {
+      "name": "programming-0",
+      "prompt": "a crumpled sheet of paper with a single red squiggle on it, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-1",
+      "prompt": "a red warning triangle made of two curly brackets, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-2",
+      "prompt": "a shiny beetle under a large magnifying glass, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-3",
+      "prompt": "a small bug caught in a glowing net, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-4",
+      "prompt": "a jigsaw puzzle piece clicking into place, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-5",
+      "prompt": "a fountain pen drawing a neat glowing curly bracket, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-6",
+      "prompt": "a glowing flowchart of connected round nodes, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-7",
+      "prompt": "interlocking building blocks and cogs forming a tower, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "programming-8",
+      "prompt": "a golden crown resting on a sleek laptop, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/programming/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-0",
+      "prompt": "a single glowing cube, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-1",
+      "prompt": "a column of three stacked glowing cubes, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-2",
+      "prompt": "a row of glowing cubes lined up side by side, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-3",
+      "prompt": "a neat grid of glowing tiles like a table, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-4",
+      "prompt": "an ornate key, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-5",
+      "prompt": "a magnifying glass hovering over a grid of tiles, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-6",
+      "prompt": "two grids of tiles linked by a shining chain, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-7",
+      "prompt": "a database cylinder of stacked glowing discs, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql-8",
+      "prompt": "a grand warehouse building full of glowing database cylinders, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/sql/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-0",
+      "prompt": "a wooden abacus with coloured beads, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-1",
+      "prompt": "a glowing vacuum tube, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-2",
+      "prompt": "a single transistor with three legs, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-3",
+      "prompt": "a microchip with gold pins, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-4",
+      "prompt": "a desktop computer with a monitor and keyboard, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-5",
+      "prompt": "an open laptop, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-6",
+      "prompt": "a smartphone, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-7",
+      "prompt": "a fluffy cloud with glowing circuit lines, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory-8",
+      "prompt": "a gleaming supercomputer cabinet with blue lights, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/theory/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-0",
+      "prompt": "a curious little owl with big eyes, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-1",
+      "prompt": "a speech bubble glowing softly, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-2",
+      "prompt": "a magnifying glass with a sparkle, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-3",
+      "prompt": "a shield with a checkmark, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-4",
+      "prompt": "a wrench and a gear, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-5",
+      "prompt": "a small friendly robot being built from blocks, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-6",
+      "prompt": "a glowing brain with a rising line graph beside it, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-7",
+      "prompt": "a microscope, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "ai-8",
+      "prompt": "a golden glowing brain wearing a small crown, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/ai/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
+  ]
+}
