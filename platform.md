@@ -1200,8 +1200,14 @@ record. Generous on purpose. Text the code editor puts in itself (an indent,
 a Ctrl+Space suggestion, Ctrl+Shift+C's code - code-answer.js marks it
 `data-assist`) counts as typed (Chris, 1 October 2026: every auto-indent used
 to count as pasted, so long programs were flagged). A
-flagged answer is marked, then stores a third (`FlaggedMark()`), keeping the
-real mark in `markBeforeFlag`; the pupil sees `FlagNotice()` in red; the NB
+flagged answer is marked and KEEPS its mark (Chris, 1 October 2026, after five
+honest Taxi-class programs were cut to a third by the indent bug): the flag holds
+it for the teacher, and the pupil sees nothing yet. The teacher clears it, or
+cuts it to a third (`CutPasteFlag()` - `FlaggedMark()`, the full mark kept in
+`markBeforeFlag`, the pupil told and shown `FlagNotice()` in red); a cut flag
+can be cleared too (`ClearPasteFlag()`). `FlagCut()` = flagged with
+`markBeforeFlag` set. Both buttons are on the pupil's work page and on the
+query screen, which also shows the AI's mark and the typing record. The NB
 list warns. Teachers see a red flag (filter "Show only flagged work"), the
 typing record on `pupil-work.php`, **Clear the flag** (`flagCleared`) and
 **Flag as pasted**. `teacherMark` overrides all. Check: `bin/check-typing.php`.
