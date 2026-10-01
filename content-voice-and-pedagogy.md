@@ -278,6 +278,25 @@ marking-house-style.md (style never marked) is deliberately different.
   `mwReportLines`, 10 `loTwoTimes`, 14 `lcAverageParts`; theory10 output
   `mwOutputDevices`, networktypes `dwNetworkSizes`. Check with
   `php bin/check-code-questions.php`.
+- **More activities** (1 October 2026 - lib/moreq.php; Chris chose all four
+  of the H5P kinds we lacked): **sort into groups** (a `match` with
+  `'display' => 'groups'`: item => group, 2-4 groups, cards dragged or tapped
+  into a box per group - input vs output devices, valid vs invalid
+  identifiers, rules vs learning); **match the pictures** (a `match` with
+  `'pictures' => [left => url]` - name the lefts 'Picture A', since the left's
+  words show); **picture choice** (a `quiz` or `select` with `'images' =>
+  [optionId => url]` - neutral option text, 'Picture A' or 'Port A', when the
+  picture is the point); **a time line** (an `order` with `'timeline' =>
+  [item => 'when']` - the items carry no dates, which show once marked);
+  **explore a picture** (unmarked: `<div class="explorepic" data-src
+  data-alt data-points='[{"x", "y", "title", "text"}]'>` in a prose block -
+  tap each numbered spot; never on a picture a later question asks about);
+  **before/after** (unmarked: `<div class="beforeafter" data-before
+  data-after data-before-label data-after-label data-alt>` - compression,
+  resolution, colour depth, a layout fixed). Pictures as for picture
+  activities (our own, or licensed). Models: AI lessons 1 `gRulesOrLearned`,
+  2 the 16-colour towers, 4 `pcWhichCard`, 5 the rack and `mpDataCentre`,
+  8 `tlCourseMoments`. Check with `php bin/check-more-questions.php`.
 - **Mark and correct** (1 October 2026 - lib/markcorrect.php; Chris): a
   `written` question with `'markCorrect'`: an exam question and somebody's
   answer to it, which the pupil marks (where each mark is earned or lost, and

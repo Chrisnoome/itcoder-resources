@@ -183,3 +183,4 @@ pre-compaction files).
 - 10-01 Features page (public/features.php) for teachers and home schooling; home schooling = the parent contacts us and is made their child's teacher; public copy says the AI course is free and the rest comes through a school or a subscription (coming soon), never "every lesson is free". Privacy policy updated 1 Oct.
 - 10-01 Written answers marked by Sonnet 5.5 (markingModel, default claude-sonnet-5-5); the bottom bar counts teaching days (no days off, no exam days), as the teacher countdown does.
 - 10-01 Videos with questions open a window (questions left, video right); any video may have questions; songs play to the end before their questions show (lib/videoquestions.php MusicVideoIds()).
+- 10-01 More activities (lib/moreq.php): sort into groups, match the pictures, picture choice, time line (new looks on match/quiz/select/order), explore a picture and before/after (unmarked); bin/check-more-questions.php.
