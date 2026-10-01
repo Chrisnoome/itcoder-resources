@@ -164,7 +164,13 @@ Details live in the linked files.
     marks per part - a 4-mark answer is never only 0 or 4. Each rubric point
     is a yes/no **Jev** judgment (TypeSafe), and a point Jev is unsure of goes
     to Claude. The Jev key goes on the server with the prompting script,
-    never in chat.
+    never in chat. **Built 1 Oct 2026** (`lib/jev.php` JevMarkTypedRules(),
+    key set on live): Jev sure of every point marks alone; any unsure point,
+    an answer talking to the marker, or no key, and Claude marks it all.
+    The hook and an off-topic fix sit in `MarkTypedByRules()` in
+    `lib/content.php` - still uncommitted with the typed-rules work; commit
+    them with it. Jev's lines say only "Partly there." / "Missing, or not
+    right." where Claude explains the point.
   - **Home page**: a landing page for visitors, a dashboard once signed in.
     Built 1 Oct 2026 (platform.md, "Home page"): landing A built from the
     subject list, dashboard C, and "Tell me when it opens".
