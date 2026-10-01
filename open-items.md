@@ -166,7 +166,15 @@ Details live in the linked files.
     to Claude. The Jev key goes on the server with the prompting script,
     never in chat.
   - **Home page**: a landing page for visitors, a dashboard once signed in.
-  - **Mark and correct** question type: to be discussed with examples first.
+  - **Mark and correct** question type (decided later that day): all four
+    kinds - code (Pascal/Java), written theory answers, SQL queries, trace
+    tables/output. The question and an answer are given; the answer looks
+    like **handwriting on a written exam** (not for code and SQL). Always a
+    **written** question with a rubric and room to write - code and SQL too,
+    in a normal text box. The pupil's marking, fixes and reasons are **all
+    marked by AI against the memo**.
+  - **Badges**: glossy 3D game badges, **a different look per course**.
+  - Next after the fixes: achievements and the game features.
   - **Flowchart pictures**: open, with a Hide button, remembered per device.
   - **MySQL Try-it** fails on live ("not switched on"): the SQL runner was
     only installed on test - install it on live (check memory first).
