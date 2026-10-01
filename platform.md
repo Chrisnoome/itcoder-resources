@@ -315,6 +315,41 @@ Built on Practice (its XP, ranks Bit to Petabyte, display names).
   per course, from `tools/badge-art/make_badges.py` (ComfyUI); a stand-in
   shows until a badge is made.
 
+### Collectables (Chris, 1 Oct 2026)
+
+`lib/collectables.php`, table `collectables` (a row per SOURCE - what earned
+it - so nothing is earned twice), `api/collect.php`, `assets/egg.js`. Synced
+inside `GameSync()`; their XP counts towards the course XP and rank.
+
+- **The page** (`achievements.php?c=&tab=`): tabs **Overview** (rank, streak,
+  quests, class goal, leaderboard, the collection in numbers, Lately, Nearly
+  there - the home page dashboard shows the same numbers), **Course
+  achievements**, **Lesson badges**, **Collectables**, **Dances**. No "All"
+  tab (Chris chose the Overview instead).
+- **Themed items**: every lesson has a set of four in
+  `content/<course>/collectables.php` - 2 common, 1 rare, 1 legendary, made
+  to match the lesson's own content (`bin/check-collectables.php`). One is
+  drawn at random (an unowned one first; rarer ones less often) for:
+  a **tough written answer** (`markMax` >= 8) marked 80%+; a **big code answer**
+  (the code editor, `markMax` >= 10) marked 80%+; an **easter egg**.
+- **Easter eggs** (Chris: "to make sure they do them"): `LessonEggBlocks()` -
+  a "Try this" block with a try-it, or a block with a runnable program that
+  says to run it / predict / see what happens. The egg pops out at the END:
+  a stepper's last step, real use of a lab (6 changes over 15 s), or the
+  block's program copied to the console and run to its end (changed is fine).
+  New lessons: title such blocks "Try this: ..." and the eggs follow.
+- **Lesson badges**: bronze when finished, silver at 70% (weighted), gold at
+  90% with most questions right first time; they only go up.
+- **Story endings**: each ending reached; once a story's marks are settled,
+  "Explore another ending" walks it again for the others (no marks).
+- **Music video stickers**: watched to the end (videoq.js) with every
+  question in it answered.
+- **Rank emblems**: every rank reached. **Dances**: the 30 victory dances
+  (reveal.js), kept with the account (the browser's old list is brought over).
+- **Art**: `tools/collect-art/make_collect_art.py` from each item's `art`
+  prompt (ComfyUI, glossy 3D toy, a glow by rarity, transparent background) to
+  `public/assets/collect/<course>/<code>.webp`; a rarity-coloured gem until then.
+
 ## Practice - word games from the glossary (Chris, 25 Sep 2026)
 
 - `practice.php?c=` (any course with a glossary), `assets/practice.js`,
@@ -1161,7 +1196,10 @@ event may carry 30); **>15 typing EVENTS/s over 100+ events** (events, not
 characters, since 24 September 2026 - predictive and swipe typing insert a word
 per event and were flagged at 22 and 37 "chars/s"; records from before events
 were counted are never judged on speed); or a 60+ character answer with no
-record. Generous on purpose. A
+record. Generous on purpose. Text the code editor puts in itself (an indent,
+a Ctrl+Space suggestion, Ctrl+Shift+C's code - code-answer.js marks it
+`data-assist`) counts as typed (Chris, 1 October 2026: every auto-indent used
+to count as pasted, so long programs were flagged). A
 flagged answer is marked, then stores a third (`FlaggedMark()`), keeping the
 real mark in `markBeforeFlag`; the pupil sees `FlagNotice()` in red; the NB
 list warns. Teachers see a red flag (filter "Show only flagged work"), the
@@ -1394,6 +1432,18 @@ section folds only once every question in it is settled (app.js).
   the last closes; the next page reclaims the seat 3 s after loading). Browsers
   allow no custom pop-up on close, so a **"Leaving?" pop-up with Sign out**
   shows when the mouse leaves through the top of the window (24 September 2026). It states both cases (Chris, 26 September 2026): closing the tab usually frees the account in a minute or two; if the beacon never arrives (sleep, flat battery, crash) it stays locked for up to `SessionIdleMinutes()`, which `lib/masthead.php` passes to the script as `data-idle-minutes`.
+- **Time-outs** (Chris, 1 October 2026: "sign the user out and go to a 'time
+  out' screen that reassures that no work is lost and allows them to log back
+  in"). Signing in sets the cookie `itcWasIn` (it says only "this browser was
+  signed in"); a page that needs a pupil and finds that cookie but no session
+  goes to `timed-out.php?back=` (`RequirePupil()`, and `/`), never straight to
+  sign-in. `session-release.js` sends the page there on any api/ 401, a failed
+  still-here check, or coming back to the tab; before it leaves, `itc:session-ended`
+  lets app.js keep unsaved written answers WITH their typing record, and
+  console.js unsaved code, on the device - put back and saved when the page
+  opens again. Sign in again returns to the page (`SetAfterSignIn()` /
+  `TakeAfterSignIn()` in `HomeAfterSignIn()`); signing out on purpose
+  (`ForgetSignedIn()`) shows no time-out page.
 - **Access is decided by `Entitlements()` in `lib/billing.php` and nothing
   else** (24 September 2026). `CanUseMarking (pupil, courseId)` asks it. Sources:
   a `schoolEmailDomains` address in config (De La Salle, until step 2 turns its
@@ -1595,7 +1645,8 @@ Secrets live in `config/config.php` per project, never here.
   sql-runner-design.md, "Access, recorded").
 - `php bin/check-codestyle.php`, `php bin/check-typing.php`,
   `php bin/check-sags.php`, `php bin/check-videos.php`,
-  `php bin/check-markcorrect.php`, `php bin/check-code-blocks.php` (Pascal and Java).
+  `php bin/check-markcorrect.php`, `php bin/check-code-blocks.php` (Pascal and Java),
+  `php bin/check-collectables.php`.
 - `node tests/tokeniser.test.js`; `node public/assets/*.test.js`.
 - Every `written` `markMax` even; every shown mark count matches the engine
   (decision 12); a new block with `.block-icon` is in the `position: relative`
