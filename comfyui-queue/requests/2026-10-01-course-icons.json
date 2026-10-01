@@ -1,0 +1,136 @@
+{
+  "id": "2026-10-01-course-icons",
+  "kind": "items",
+  "from": "the platform chat (home page)",
+  "added": "2026-10-01",
+  "status": "waiting",
+  "why": "Chris, 1 October 2026: \"each course should get a professional looking icon - can use comfyui - vary colours per course\". Shown in the glossy badge on each course card of the landing page strip (public/index.php); until a file exists the card shows a line icon (lib/home.php HomeCourseLook(), which also sets each course's two cover colours - keep the object in that colour).",
+  "style": "A glossy 3D icon object, smooth shiny plastic and enamel, soft studio light, like a premium app icon. The whole object centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 3,
+  "items": [
+    {
+      "name": "ai",
+      "prompt": "A small friendly crystal brain made of violet and indigo glass, glowing softly from inside, with a few tiny sparkles around it",
+      "out": "AIPascalCourse/public/assets/course-art/ai.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal",
+      "prompt": "A chunky teal and deep-blue computer terminal window with a glowing cursor bar on its dark screen",
+      "out": "AIPascalCourse/public/assets/course-art/pascal.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "java",
+      "prompt": "A steaming orange coffee cup on a glossy saucer, warm orange and red",
+      "out": "AIPascalCourse/public/assets/course-art/java.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql",
+      "prompt": "A database cylinder made of three stacked glossy bright-blue discs",
+      "out": "AIPascalCourse/public/assets/course-art/sql.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory10",
+      "prompt": "A green computer monitor with a rising line chart on its screen",
+      "out": "AIPascalCourse/public/assets/course-art/theory10.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory11",
+      "prompt": "A magenta-pink computer chip with shiny gold pins on every side",
+      "out": "AIPascalCourse/public/assets/course-art/theory11.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "theory12",
+      "prompt": "A golden globe wrapped in a network of glowing lines and round nodes",
+      "out": "AIPascalCourse/public/assets/course-art/theory12.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword",
+      "prompt": "A blue document page with a folded corner and grey bars for lines of writing",
+      "out": "AIPascalCourse/public/assets/course-art/catword.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catsheets",
+      "prompt": "A green spreadsheet grid tile with a small bar chart standing on it",
+      "out": "AIPascalCourse/public/assets/course-art/catsheets.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml",
+      "prompt": "A coral-red web browser window with two angle-bracket shapes on its page",
+      "out": "AIPascalCourse/public/assets/course-art/cathtml.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory",
+      "prompt": "A purple open textbook with a small laptop resting on its pages",
+      "out": "AIPascalCourse/public/assets/course-art/cattheory.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb",
+      "prompt": "A cyan database cylinder with a small table card leaning against it",
+      "out": "AIPascalCourse/public/assets/course-art/catdb.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
+  ]
+}

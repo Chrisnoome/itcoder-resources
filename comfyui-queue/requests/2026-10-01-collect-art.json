@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-01-collect-art",
+  "kind": "script",
+  "from": "the platform chat (collectables)",
+  "added": "2026-10-01",
+  "status": "waiting",
+  "command": "python tools/collect-art/make_collect_art.py",
+  "cwd": "AIResources",
+  "minutes": 180,
+  "why": "About 950 collectables (Chris, 1 October 2026: \"comfyui, glossy, attractive\"). Long: the script can run one course at a time - add the course id to the command."
+}

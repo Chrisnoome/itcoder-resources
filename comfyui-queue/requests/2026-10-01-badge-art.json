@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-01-badge-art",
+  "kind": "script",
+  "from": "the platform chat (achievements)",
+  "added": "2026-10-01",
+  "status": "waiting",
+  "command": "python tools/badge-art/make_badges.py",
+  "cwd": "AIResources",
+  "minutes": 90,
+  "why": "The achievement badges, a different glossy look per course (Chris, 1 October 2026); stand-ins show until then. open-items.md, \"Game part 1\"."
+}

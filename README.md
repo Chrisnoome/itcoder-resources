@@ -27,6 +27,11 @@ this folder's git log.
    always with the interactive question tool (multiple choice, the
    recommended option first) - never as questions typed into a reply. If
    Chris dismisses the questions, stop and wait.
+10. **Pictures from ComfyUI go through the queue** (Chris, 1 October 2026:
+    "a general comfyui queue that all chats can add their requirements
+    to"). Add a request to [comfyui-queue/](comfyui-queue/README.md) and
+    show a stand-in on the site until the picture exists; never run
+    ComfyUI yourself unless Chris says the GPU is ready.
 
 ## Files
 
@@ -68,6 +73,7 @@ this folder's git log.
 | [course-development.md](course-development.md) | PLAN: researching courses for other subjects (CAT first) in the separate `itcoder-coursedev` repo - scope, subject order, sources and how to get them, outputs |
 | `tools/publish-test.py`, `tools/deploy-live.py`, `tools/sandbox-check.php`, `tools/marking-check.php` | Publishing ([publishing.md](publishing.md)) |
 | `tools/vps.py` | Run commands and upload files on the server |
+| [comfyui-queue/](comfyui-queue/README.md), `tools/comfy-queue/run.py` | Every chat's ComfyUI picture requests, and the runner that makes them when the GPU is ready |
 | `tools/pull-backups.py`, `.cmd` | The daily Dropbox pull |
 | `tools/sql-dialects/` | The SQL dialect test harness and its results ([sql-dialects.md](sql-dialects.md)) |
 | `tools/ui-screens/` | How the lessons' text screens and window screenshots were made (Pascal, Java lesson 23 and 24) - the no-clicks rule is in its README |

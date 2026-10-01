@@ -72,11 +72,23 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   landing page; someone signed in gets their dashboard, and sign-in lands
   pupils there (`HomeAfterSignIn()`; teachers still go to their pages).
   - **Built from the subject list, never hand-written** (Chris: "the site will
-    not be limited to just these subjects"): the Subjects tiles come from
+    not be limited to just these subjects"): the Subjects come from
     `SubjectIndex()` + `CourseIndex()` (`HomeSubjects()`), open subjects
-    first, a subject with no open course shows "Coming soon"; draft courses
-    never show. A grade filter narrows the tiles (a course with no grades tag
-    counts for every grade). The hero words are subject-neutral.
+    first, a subject with no open course shows "Coming soon"; draft and
+    hidden courses never show. The hero words are subject-neutral.
+  - **Subjects are a list and a strip, never a tall grid of tiles** (Chris,
+    1 Oct 2026: "too scrolly - a list on the left, then a nice horizontal
+    slideshow on the right with all lessons"): the subjects on the left (a
+    find box for subject, course or lesson; click to jump), every course on
+    one strip on the right (swipe, scroll, drag or arrows), each card with
+    its lessons, grades, Free and Start free / Sign in. On a phone the list
+    becomes a row above the strip. A grade filter and the find box hide
+    cards (a course with no grades tag counts for every grade).
+  - **Each course has its own colours and icon** (Chris, 1 Oct 2026: "too
+    bland and blended - vary colours per course"): `HomeCourseLook()` gives
+    two cover colours and a line icon; give a new course its own there.
+    ComfyUI art (`public/assets/course-art/<course>.png`, queued in
+    `comfyui-queue/`) replaces the line icon once it exists.
   - **"In every lesson"** lists only what every course has; **"What each
     subject adds"** comes from a subject's `'extras'` in `SubjectIndex()` -
     give a new subject its own there when it opens.

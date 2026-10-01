@@ -183,7 +183,9 @@ Details live in the linked files.
   class goal, the opt-in leaderboard, the toolbar trophy and pop-up. **Badge
   art waits for Chris** (1 Oct: "wait till i get home with a cooler for the
   gpu"): then run `python tools/badge-art/make_badges.py` with ComfyUI up -
-  about 1.5 hours; stand-ins show until then.
+  about 1.5 hours; stand-ins show until then. Queued, with the collectables
+  and the course icons, in `comfyui-queue/` (`python tools/comfy-queue/run.py`
+  lists it).
   - **Flowchart pictures**: open, with a Hide button, remembered per device.
   - **MySQL Try-it** fails on live ("not switched on"): the SQL runner was
     only installed on test - install it on live (check memory first).
