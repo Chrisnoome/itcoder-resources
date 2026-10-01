@@ -163,7 +163,7 @@ together.
   password in `/etc/itcoder-sql/mysql.password`), and the test site's
   config has `'sqlRunner'` (backup `config.php.bak-2026-09-25-230318`).
   Measured on the server: ~105 MB; 30 Runs at once in 1.06 s; systemd
-  exposure 2.9 "OK". **Not on live yet.** Install/update:
+  exposure 2.9 "OK". **On live since 1 October 2026** (Chris: MySQL Try-it said "not switched on"): `itcoder-sql@live`, socket `/run/itcoder-sql-live/sql.sock`, and live's config.php has `'sqlRunner'` (backup `config.php.bak-2026-10-01-074518`); proven with a real query in all three dialects through the site's own code; ~2.9 GB still available after. Install/update:
   `bash /var/www/itcoder-v2-test/bin/sql/deploy/install-sql.sh test`
   (after publish-test.py). It does not use `/opt/derby` (its own jars).
 
