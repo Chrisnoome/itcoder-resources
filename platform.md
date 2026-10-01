@@ -181,6 +181,19 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `.learn-memorise`'s amber), teal = watch/try, green = question, cream =
   optional (`enrichment`), blue = quote, **plum = not examined but useful**
   (`goodtoknow`: `#EFE9F5`, `#8A6BB0`, `#5B4380`). Keep plum for that only.
+- **Copy to console on every listing** (Chris, 1 Oct 2026): a whole program
+  gets the button as before; a fragment (one loop, part of a unit) keeps
+  its short listing and carries its complete program in a hidden
+  `<pre class="console-full" hidden>` straight after it - the button copies
+  that. `bin/check-code-blocks.php` checks both courses (Java too) and
+  compiles the hidden programs like any listing. Java Copy to console puts a
+  program in the file named after its class. Output that mentions a class
+  ("location: class X") is not code.
+- **The bell** (Chris, 1 Oct 2026; `public/assets/bell.js`,
+  `api/notifications.php`): Clear all (off the bell, kept on the
+  notifications page - `notifications.clearedAt`), a chime when one arrives
+  (checked once a minute; Sound on/off per device) and a shake while any are
+  unread.
 - **Scoring:** quiz/typed/checkedcode/order/select/match share `quizResponses`.
   All-or-nothing via `QuizMarkEarned()`, except the types scored **per line**
   - match, gridtyped, labelpic/hotspot, the code activities, SQL by clause -
@@ -671,6 +684,20 @@ changes. pupils without teachers don't get calendars by default."
   page in this session (`NoteCurrentCourse()`, called by `SiteMenuHtml()`),
   else their first group's - Progress check, Export marks. **Class results**
   opens on the current course or on none ("Choose a course", nothing listed).
+- **The weighted mark is the main mark** (Chris, 1 Oct 2026): written work
+  50%, every other question 50% - `WeightedPercent()` (lib/content.php): the
+  percentage of the written answers marked so far and of the other questions
+  answered so far, half each; with one kind only, that kind alone. Shown
+  first everywhere a course mark is shown - My progress (four dials, 2 x 2:
+  weighted, total, other questions, written - `MarkDialsHtml()`), Class
+  results (a Weighted column in the grid and the lesson marksheet, and the
+  export), a pupil's work page - with the raw total smaller. Lesson-level
+  marks stay raw.
+- **Every class marksheet is the same** (Chris, 1 Oct 2026 - a rule): a
+  lesson's name in any column heading (Marks, Time on the site) opens that
+  lesson's marksheet question by question, and the chosen group, class and
+  year stay chosen - kept per course in the session, so any link back
+  (from a lesson, a pupil's work, the menu) lands on the same class.
 - **Class results, the top** (Chris, 28 Sep 2026): eyebrow "Class results",
   the course as h1 with the group or class and year under it (and in
   `<title>`); Course | **Pupil lookup** (narrows every table) | **Summary**
