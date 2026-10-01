@@ -1058,6 +1058,13 @@ changes. pupils without teachers don't get calendars by default."
   `AutoMarkedEarned()` honours it everywhere) and goes to every admin by
   bell and email and to **Mark corrections** (`public/admin-corrections.php`,
   Admin menu) until ticked done.
+- **Allow pasting** (Chris, 1 October 2026: "a temporary allow paste option
+  ... on the pupil query page put in an allow paste checkbox for that
+  pupil"): a tick beside Reset on a written query. With the reset, that
+  pupil may paste into that one question (table `pasteAllowed`,
+  `AllowPaste()` in lib/typing.php), nothing pasted is flagged, the lesson
+  shows "Your teacher has switched pasting on", and the permission goes when
+  they hand it in. For work the site lost - never as a general easing of 6.
 - **The result reveal** (Chris: "ai marking is not just displayed - let's
   gamify this a little"): a written answer handed in says "Go on with the
   lesson - you will be notified when the marking is complete"; the marking
@@ -1214,7 +1221,24 @@ lives.
 
 **6. Pasting is refused in written answers** (paste and drop), with a line
 saying why - and, from 24 September 2026, in typed, checked-code and grid
-answers too (`app.js`). Not in activity boxes.
+answers too (`app.js`). Not in activity boxes. The one exception: a teacher's
+"Allow pasting" on a reset query (Pupil queries, above).
+
+**6a. A written answer is never cut, never lost** (Chris, 1 October 2026,
+after programs were cut at 4000 characters without a word and marked as
+missing their main block: "we can't have stuff being lost as it will damage
+trust in the system"). The limit is `WRITTEN_ANSWER_MAX_CHARS` = 50,000
+(lib/typing.php); over it, save-draft and submit-written **refuse the whole
+answer** - nothing on the server ever truncates one. The page shows a count
+from 80% of the limit and will not hand in over it. **Hand-in saves first:**
+the answer is saved whole as a draft (and kept on the device) before it goes
+for marking; if the save fails, nothing is handed in.
+
+**6c. A second try must differ from the first** (Chris, 1 October 2026: a
+pupil pressed "Try again" at once and spent the try on the same answer). The
+retry button says **Check again**; every two-try endpoint refuses an answer
+identical to the stored one (`SameAsLastTry()`, lib/content.php) with no try
+spent.
 
 **6b. A paste that gets round it is caught.** The page records typed
 characters, typing time, non-typed characters and refused pastes, sent with

@@ -5,6 +5,16 @@ Details live in the linked files.
 
 ## Platform
 
+- **Lost work and lost second tries - repair after publishing** (Chris,
+  2026-10-01; platform.md 6a, 6c, "Allow pasting"). Built and checked on the
+  local testbed, waiting for Chris's synchronised publish. Then: (1) run
+  `tools/fix-lost-work.py` (dry run), then with `--apply` - resets the
+  Pascal answer cut at 4000 characters that has no query (pasting on, a
+  bell) and gives back the 12 second tries spent on an identical answer;
+  (2) answer the two open queries from the same pupil on Pupil queries:
+  the cut program with **Reset the question** + **Allow pasting** ticked,
+  and the lost second try (the script gives it back) with a reply saying so.
+  Delete this item when done.
 - **Question review** (2026-09-28): questions the hint writers found wrong or
   arguable - [question-review.md](question-review.md). Fix the wrong keys first.
 - **Email addresses** for the gateway (Chris asked, 2026-09-28): noreply@
