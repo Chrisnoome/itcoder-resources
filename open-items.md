@@ -462,6 +462,10 @@ first:
 
 ## Operations and housekeeping
 
+- **Deploy order: new tables after new code** (2026-10-01). deploy-live.py uploads all of the code (step 3) and
+  only then runs setup.php (step 6): for about 90 seconds on 1 Oct, pages that read the new pasteAllowed table
+  failed (10 "no such table" errors in nginx's log, none after setup). Run setup.php right after lib/ and
+  bin/ go up, before content/ and public/ - in both scripts, proved on test (publishing.md).
 - **Re-point the backup task** (admin PowerShell), then delete the stand-in -
   [backups.md](backups.md).
 - **Backup encryption** - [backups.md](backups.md).
