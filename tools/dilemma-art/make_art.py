@@ -4,13 +4,18 @@ Chris, 28 September 2026: dilemmas get scene backgrounds, character avatars,
 phone and chat screens and pop-up screens (the screens are drawn by the page,
 not here); "realistic, cartoon a la no single letters characters, stylized,
 illustrated - mix it up for variety". One look per story, so a story hangs
-together and the four stories differ:
+together and the stories differ:
 
     pat       cartoon, the No Single Letters caricature style (Qwen-Image-Edit 2511,
               styled on the video's art/gates.png)
     parcel    realistic photographs
     essay     illustrated: watercolour and ink, picture book
     helpdesk  stylised 3D, soft clay-like
+    reception comic-book ink with halftone dots (theory11 compcrime, 1 October 2026)
+    easymoney flat vector illustration (theory12 cybercrime12)
+    groupchat coloured pencil on paper (theory12 privacylaw)
+    farewell  paper cut-out collage (theory12 datacollection)
+    tuckshop  16-bit pixel art (sql dbcare)
 
 Backgrounds are places with nobody in them (the same person cannot be drawn
 twice the same); the people are the avatars. Everything is made up - no real
@@ -53,6 +58,16 @@ LOOKS = {
               "paper, warm and gentle."),
     "helpdesk": ("Stylised 3D render: soft clay-like materials, rounded chunky shapes, warm studio lighting, "
                  "miniature diorama feel, pastel and saturated colours."),
+    "reception": ("Comic-book illustration: bold black ink outlines, flat bright colours, halftone dot shading, "
+                  "strong shadows and dramatic angles, like a panel from a printed comic."),
+    "easymoney": ("Flat vector illustration: clean geometric shapes, no outlines, smooth flat colours with soft "
+                  "gradients, a limited palette of teal, coral and mustard, like a modern editorial web illustration."),
+    "groupchat": ("Coloured-pencil drawing on textured paper: soft hatched shading, visible pencil strokes, gentle "
+                  "muted colours, calm and quiet."),
+    "farewell": ("Paper cut-out collage: layers of coloured craft paper with cut and torn edges, soft shadows "
+                 "between the layers, playful and handmade, like a paper diorama seen from the front."),
+    "tuckshop": ("16-bit pixel art, like a scene from a retro video game: crisp square pixels, a limited bright "
+                 "palette, clean dithering, no blur."),
 }
 
 AVATAR_CARTOON = ("in exactly the same caricature art style as the image: huge head, small body, thick black ink "
@@ -67,6 +82,16 @@ AVATAR = {
               "plain cream paper. Loose ink lines, soft washes."),
     "helpdesk": ("Stylised 3D character render, soft clay-like, head and shoulders, facing the viewer, centred, "
                  "friendly, on a plain soft pastel blue background."),
+    "reception": ("Comic-book portrait, head and shoulders, facing the viewer, centred, bold black ink outlines, "
+                  "flat colours, halftone dot shading, on a plain pale yellow background."),
+    "easymoney": ("Flat vector portrait, head and shoulders, facing the viewer, centred, clean geometric shapes, "
+                  "no outlines, flat colours, on a plain soft teal background."),
+    "groupchat": ("Coloured-pencil portrait on textured paper, head and shoulders, facing the viewer, centred, "
+                  "soft hatched shading, on plain cream paper."),
+    "farewell": ("Paper cut-out collage portrait made of layered coloured craft paper, head and shoulders, facing "
+                 "the viewer, centred, soft shadows between the layers, on a plain pale pink paper background."),
+    "tuckshop": ("16-bit pixel art portrait, head and shoulders, facing the viewer, centred, crisp square pixels, "
+                 "a limited bright palette, on a plain light blue background."),
 }
 
 EMPTY = " Nobody in the picture. No text, no words, no logos, no brand names anywhere."
@@ -146,6 +171,113 @@ JOBS = {
                           "window with a sunset over Durban."),
         "dark": ("bg", "A dark empty office on a Sunday night: a server cupboard with one red warning light, "
                        "everything else in shadow."),
+    },
+    "reception": {
+        "imraan": ("avatar", "Imraan, a 16-year-old South African boy with light brown skin, short dark hair and a "
+                             "neat collared work shirt, alert and friendly"),
+        "petersen": ("avatar", "Mrs Petersen, a South African office manager in her fifties with light brown skin, "
+                               "short grey curly hair, reading glasses and a cardigan, kind but no-nonsense"),
+        "lobby": ("bg", "The empty front desk of a small transport company's office in Gqeberha in the morning: a "
+                        "reception counter with a desk phone and a visitors' book, a locked glass door with a card "
+                        "reader leading to the offices, a pot plant, harbour cranes far away through the window."),
+        "desk": ("bg", "Close-up of an empty reception counter: a desk phone, a computer screen, a mug of coffee, a "
+                       "notepad and a pen, morning light."),
+        "carpark": ("bg", "A small company's staff car park early in the morning, empty: a few parked cars, a "
+                          "bicycle against a wall beside a back door, a small flash drive lying on the tarmac in "
+                          "the front."),
+        "accounts": ("bg", "An empty accounts office in the afternoon: a desk with a computer, a tray of invoices, "
+                           "a calculator, a filing cabinet, sunlight through blinds."),
+        "sales": ("bg", "An empty sales office: two desks with laptop chargers hanging loose where the laptops "
+                        "used to be, an open door, papers on the floor."),
+        "night": ("bg", "An empty office at night: one computer monitor glowing blue on a desk, everything else "
+                        "dark, city lights through the window."),
+        "server": ("bg", "A small server cupboard in an office: a rack with a server and a network switch, one red "
+                         "warning light glowing, everything else in shadow."),
+        "meeting": ("bg", "An empty small meeting room in the morning: chairs around a table, coffee mugs, a "
+                          "whiteboard, sunlight through the window."),
+    },
+    "easymoney": {
+        "lesedi": ("avatar", "Lesedi, a 17-year-old Black South African girl from Polokwane with short natural hair, "
+                             "small earrings and a mustard-yellow jersey, a hopeful smile"),
+        "neo": ("avatar", "Neo, a 17-year-old Black South African boy with a short fade haircut and a grey hoodie, a "
+                          "cheeky grin"),
+        "bedroom": ("bg", "An empty teenage girl's bedroom in the afternoon: a bed with a patterned duvet, a desk "
+                          "with school books, a phone charging, a picture of a long dress pinned to the wall."),
+        "lounge": ("bg", "An empty lounge in a Polokwane house on a Saturday morning: a couch with cushions, a "
+                         "coffee table with a phone on it, sunlight through the curtains."),
+        "desk": ("bg", "An empty study desk at night: an open laptop glowing, a desk lamp, school books and a "
+                       "pencil case, a dark window."),
+        "quad": ("bg", "An empty high-school quad at lunchtime: benches, a big tree, a corridor of classrooms, "
+                       "bright sun."),
+        "farewell": ("bg", "An empty school hall decorated for a matric farewell: fairy lights, round tables with "
+                           "white cloths and flowers, a dance floor, balloons."),
+        "police": ("bg", "The empty front counter of a South African police station: a counter with a bell and "
+                         "forms, a bench against the wall, a notice board."),
+        "principal": ("bg", "An empty school principal's office: a big wooden desk, two chairs in front of it, a "
+                            "bookshelf, a pot plant."),
+    },
+    "groupchat": {
+        "kayla": ("avatar", "Kayla, a 17-year-old white South African girl with long light-brown hair in a ponytail "
+                            "and a navy school jersey, a thoughtful look"),
+        "ofentse": ("avatar", "Ofentse, a 17-year-old Black South African boy with short hair and a white school "
+                              "shirt, quiet and a little sad"),
+        "bedroom": ("bg", "An empty teenage girl's bedroom at night: a bed with a phone lying on it, its screen "
+                          "glowing, a bedside lamp, posters, a dark window."),
+        "kitchen": ("bg", "An empty kitchen in a Bloemfontein house on a Saturday morning: a table with a bowl of "
+                          "fruit and a mug of tea, sunlight through the window."),
+        "gate": ("bg", "The gate of a South African high school early on a Monday morning, empty: a palisade "
+                       "fence, the gate standing open, trees, long morning shadows."),
+        "busstop": ("bg", "An empty bus stop on a suburban road in the afternoon: a shelter with a bench, a school "
+                          "bag lying in the gutter, trees."),
+        "classroom": ("bg", "An empty high-school classroom in the morning: rows of desks and chairs, a "
+                            "whiteboard, sunlight through the windows."),
+        "principal": ("bg", "An empty school principal's office: a desk, two chairs in front of it, a bookshelf, "
+                            "a pot plant."),
+        "corridor": ("bg", "An empty school corridor with lockers and notice boards, afternoon light."),
+        "quad": ("bg", "An empty school quad on a sunny morning: benches under a tree, a green lawn, classrooms "
+                       "around it."),
+    },
+    "farewell": {
+        "tshepiso": ("avatar", "Tshepiso, a 17-year-old Black South African boy from Durban with short hair, "
+                               "glasses and a white school shirt with a tie, a focused look"),
+        "megan": ("avatar", "Megan, a 17-year-old white South African girl with curly red hair and a school "
+                            "blazer, confident and full of plans"),
+        "junaid": ("avatar", "Junaid, a South African photographer in his thirties of Indian descent, a short beard, "
+                             "a camera strap over his shoulder, a salesman's smile"),
+        "lab": ("bg", "An empty school computer lab after school: rows of computers, chairs pushed in, afternoon "
+                      "sun through the windows."),
+        "kitchen": ("bg", "An empty kitchen in a Durban flat early in the morning: an open laptop on the table, a "
+                          "mug of tea, a bowl of cereal, morning light."),
+        "committee": ("bg", "An empty classroom at lunchtime: a desk with a cash box, a pile of envelopes and a "
+                            "laptop."),
+        "hall": ("bg", "An empty school hall the morning after a matric farewell: fairy lights still up, balloons "
+                       "on the floor, chairs stacked against the wall."),
+        "office": ("bg", "An empty school principal's office: a big desk with a phone, two chairs in front of it, "
+                         "a bookshelf."),
+        "door": ("bg", "The empty entrance of a school hall at night, decorated for a farewell: a table with a "
+                       "lamp and a ticket box, fairy lights round the doors."),
+    },
+    "tuckshop": {
+        "amahle": ("avatar", "Amahle, a 16-year-old Black South African girl from Pietermaritzburg with braids and "
+                             "a green school jersey, clever and determined"),
+        "simphiwe": ("avatar", "Simphiwe, a 16-year-old Black South African boy with short hair and a white school "
+                               "shirt, a mischievous grin"),
+        "abrahams": ("avatar", "Mrs Abrahams, a South African woman in her fifties with light brown skin, a "
+                               "headscarf and an apron, warm and busy"),
+        "counter": ("bg", "An empty school tuck shop counter: shelves of chips and sweets, a fridge of cold drinks, "
+                          "a tablet on a stand by the till."),
+        "quad": ("bg", "An empty school quad at break on a sunny day: benches, the tuck shop's serving window, "
+                       "trees."),
+        "backroom": ("bg", "The small empty room behind a school tuck shop: a desk with an old computer and a "
+                           "flash drive plugged into it, boxes of stock, a window with burglar bars."),
+        "home": ("bg", "An empty teenager's desk at home on a Friday afternoon: an open laptop, a school bag, a "
+                       "flash drive, a glass of juice."),
+        "lab": ("bg", "An empty school computer lab at break: rows of computers, chairs pushed in, sunlight through "
+                      "the windows."),
+        "dark": ("bg", "A school tuck shop at night after a break-in: a broken window, an empty desk where a "
+                       "computer stood, torch light and shadows."),
+        "taxi": ("bg", "The inside of an empty South African minibus taxi: rows of seats, the sliding door, a small "
+                       "flash drive lying on a seat."),
     },
 }
 

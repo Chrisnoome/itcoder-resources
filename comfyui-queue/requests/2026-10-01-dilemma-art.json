@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-01-dilemma-art",
+  "kind": "script",
+  "from": "the H5P rollout chat (branching dilemmas)",
+  "added": "2026-10-01",
+  "status": "waiting",
+  "command": "python tools/dilemma-art/make_art.py reception && python tools/dilemma-art/make_art.py easymoney && python tools/dilemma-art/make_art.py groupchat && python tools/dilemma-art/make_art.py farewell && python tools/dilemma-art/make_art.py tuckshop",
+  "cwd": "AIResources",
+  "minutes": 20,
+  "why": "Art for five new \"What would you do?\" stories (Chris, 1 October 2026: \"continue with h5p\"; the dilemma look, 28 September 2026: \"background images, avatars ... mix it up for variety\"), one new look each: theory11 compcrime dlFrontDesk (reception, comic-book ink), theory12 cybercrime12 dlEasyMoney (easymoney, flat vector), theory12 privacylaw dlClassVideo (groupchat, coloured pencil), theory12 datacollection dlFarewellForm (farewell, paper cut-out), sql dbcare dlTuckShopApp (tuckshop, pixel art). 48 pictures (12 avatars at 1024 x 1024, 36 backgrounds at 1664 x 928), about 10-15 s each; make_art.py writes them straight to AIPascalCourse/public/assets/dilemma/<story>/ as WebP. Until then the stories work without them: names with no pictures in the cast, plain panels behind the screens. Look at each picture: a background that draws a person, or an avatar with a logo or text, is made again with python tools/dilemma-art/make_art.py <story>/<name> <seed>. Name the stories as above - make_art.py with no story also remakes any picture of the first four stories whose raw PNG in D:\\temp\\dilemma-art is missing. Once they are in, bin/check-dilemmas.php passes again (it lists each missing picture until then)."
+}
