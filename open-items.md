@@ -148,6 +148,46 @@ Details live in the linked files.
   **mixed styles for variety: realistic, cartoon like the No Single Letters
   characters, stylised, illustrated** - for the dilemmas and for better
   memory match cards.
+- **Chris's list, 1 Oct 2026** (the H5P chat is working through it; the
+  video items go to the install-videos chat). Decided the same day:
+  - **Weighted mark** = written work 50%, other questions 50% - **the main
+    mark everywhere** (pages, marksheets, exports), the total on a smaller
+    line; a course with no written work: weighted = other questions. My
+    progress: 4 dials, 2 x 2 - total, other questions, written, weighted.
+  - **Achievements** per course (shared ones too: finished lesson 1, first
+    answer, never fell behind, written answer champion ...), an achievements
+    page (all badges in a grid, greyed until earned, the requirement under
+    each; badges made with ComfyUI - juicy, colourful), linked from the
+    bottom bar with a count. Also **XP levels and ranks, streaks with a
+    streak freeze, weekly quests, a class goal and an opt-in leaderboard**.
+  - **Typed answers with more than one part** (code, output, a sentence) get
+    marks per part - a 4-mark answer is never only 0 or 4. Each rubric point
+    is a yes/no **Jev** judgment (TypeSafe), and a point Jev is unsure of goes
+    to Claude. The Jev key goes on the server with the prompting script,
+    never in chat.
+  - **Home page**: a landing page for visitors, a dashboard once signed in.
+  - **Mark and correct** question type: to be discussed with examples first.
+  - **Flowchart pictures**: open, with a Hide button, remembered per device.
+  - **MySQL Try-it** fails on live ("not switched on"): the SQL runner was
+    only installed on test - install it on live (check memory first).
+  - **Videos** (install-videos chat): Explorer parts redone with file
+    extensions showing (always); a video per browser (Edge, Chrome, Firefox)
+    to always ask where to save; installers save to the right place; the
+    first time Explorer appears, say what file name extensions are and link
+    the Explorer set-up video; good file organisation in every video.
+  - **New first lesson in Pascal and Java**: getting your computer set up to
+    study programming - every set-up video for the course, Notepad++ for
+    text files; no questions, no marks.
+  - Fixes: the class marks Summary's close button; back from a lesson keeps
+    the chosen class; every class marksheet opens the lesson marksheet when a
+    lesson is clicked (a rule); code listings on phones (one letter per line,
+    portrait and landscape); a typed two-try answer keeps the first entry to
+    edit; 'Check with my teacher' on every question that lost marks; Java
+    Copy to console names the file after the class; every whole program in
+    both courses gets Copy to console; the written questions' warning block
+    folds; memory match words shrink and wrap, a long press enlarges a
+    picture (in the instructions); the bell gets Clear all, a sound and a
+    shake while unread; check the site through a proxy and Tor.
 - **Second-attempt marks under-count - FIXED 28 Sep** (fix (a):
   LineMarksEarned(), lib/content.php, from quizResponses.firstResponse; tested:
   a hotspot 7 right both times is 14 of 16, a match with 2 right both times
