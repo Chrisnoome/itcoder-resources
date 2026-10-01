@@ -211,12 +211,16 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   video block above it - lib/videoquestions.php, assets/videoq.js and
   videoq.css. Since 1 Oct 2026 such a video is a picture in the lesson
   (`public/assets/video-thumbs/<youtubeId>.jpg` if present, else a drawn card)
-  that opens a window, questions left and video right; an ordinary video
+  that opens the video's own page - lesson.php?c=..&id=..&watch=N, the same
+  tab, a Back button, the questions left and the video as big as the screen
+  allows (Chris, 1 Oct 2026: "not a popup window but whole new page full
+  screen width to maximise the video"; a popup's backdrop-filter also drew
+  the player black); an ordinary video
   pauses at each question's time through YouTube's own postMessage channel
   (enablejsapi=1, no YouTube script, so the content policy is unchanged), a
   song (MusicVideoIds() or `'music'` on the block) plays to the end before
-  its questions show. The questions are the lesson's own blocks, moved into
-  the window and back - still ordinary marked questions, answerable without
+  its questions show. The page draws only that video's questions
+  (VideoQuestionIndexes()) - the lesson's own blocks, still ordinary marked questions, answerable without
   the video (`bin/check-video-questions.php`)
   - `code`, `algorithm`, `errors`, `important`,
   `goodtoknow`, `enrichment`, `contents`, `study`; and two wrappers made by

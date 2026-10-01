@@ -359,10 +359,12 @@ marking-house-style.md (style never marked) is deliberately different.
   videos allow the whole video to play before showing questions"): any video,
   not only the songs, may have questions. A video with questions is a picture
   in the lesson (a play button, how many questions, what will happen) that
-  opens a window - questions left, video right. An ordinary video pauses at
+  opens the video's own page (Chris, the same evening: "not a popup window but
+  whole new page full screen width to maximise the video" - same tab, a Back
+  button, the video as big as the screen allows, questions beside it). An ordinary video pauses at
   each question's `videoAt`; a song (MusicVideoIds() in
   lib/videoquestions.php, or `'music' => true` on the block) plays to the end
-  first and the window says so. For a song, two or three quiz questions straight after the
+  first and the page says so. For a song, two or three quiz questions straight after the
   video block, each with `'videoAt'` a second or two after the line it asks
   about - times from the song's `cartoon/audio/karaoke_lines.json` (the
   video's sound is the mp3, 43 ms later). Ask about the idea the line
