@@ -89,6 +89,17 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     two cover colours and a line icon; give a new course its own there.
     ComfyUI art (`public/assets/course-art/<course>.png`, queued in
     `comfyui-queue/`) replaces the line icon once it exists.
+  - **The features page** (`public/features.php`, Chris, 1 Oct 2026: "a whole
+    page for teacher and home schooling highlighting all features"), linked
+    from the landing page. **Home schooling: the parent contacts us and the
+    admin makes them their child's teacher** (Chris chose this over a
+    self-serve parent account); the page shows no prices. Keep it current
+    when a teacher or pupil feature is added.
+  - **What public copy says is free** (Chris, 1 Oct 2026): the AI course,
+    AI marking included; the other courses come through a school (a teacher
+    invites the pupils) or a subscription (coming soon). Never "every lesson
+    is free" - `lib/access.php` locks the rest. Landing page, sign-in card,
+    terms and features page say it the same way.
   - **"In every lesson"** lists only what every course has; **"What each
     subject adds"** comes from a subject's `'extras'` in `SubjectIndex()` -
     give a new subject its own there when it opens.
