@@ -261,6 +261,36 @@ Every page, new or changed, before it is published:
 - **Pupils always have My progress in the top bar** on every page of a
   course the planner covers (`WithMyProgressItem()` in lib/masthead.php).
 
+## The lessons as a game (Chris, 1 Oct 2026)
+
+`lib/achievements.php`, `public/achievements.php` (+ `assets/achievements.css`).
+Built on Practice (its XP, ranks Bit to Petabyte, display names).
+
+- **Achievements** per course: `AchievementCatalogue()` - 27, each course gets
+  the ones that fit (dilemmas, questions in videos, written work, code, SQL,
+  theory). Met or not is worked out from the pupil's own work (`GameFacts()`,
+  `GameMet()`); the first time, kept in `achievements` (pupil, course, code,
+  xp, earnedAt, seenAt).
+- **Course XP** = marks earned + 20 a finished lesson + achievement and quest
+  XP + Practice XP; the rank is Practice's.
+- **Streak**: days with work in the course; a **freeze** for every 7 days in a
+  row (two at most) covers a missed day - worked out, not stored.
+- **Weekly quests**: three a week per pupil and course (`GameQuests()`, picked
+  from a pool by week), 30 XP each, kept as `quest:<week>:<key>`.
+- **Class goal**: the group (else the class) answers 15 questions a member a
+  week. **Leaderboard**: the group or class by course XP; a name shows only
+  for a pupil who opts in (`pupils.leaderboardOptIn`, on the page); `gameStats`
+  keeps each pupil's XP for it.
+- **The page**: rank and XP, streak and freezes, the count; quests, class
+  goal, leaderboard; every badge in a grid, greyed and locked until earned,
+  what earns it underneath. **The lesson toolbar** shows the trophy, the count
+  and the streak, and an "Achievement unlocked" pop-up once for each new one.
+- **Cost**: a sync is ~0.8 s, so ordinary pages run it at most every 5 minutes
+  per course in a session (`GameSync()`); the achievements page always.
+- **Badges**: `public/assets/badges/<course>/<code>.webp`, glossy 3D, a look
+  per course, from `tools/badge-art/make_badges.py` (ComfyUI); a stand-in
+  shows until a badge is made.
+
 ## Practice - word games from the glossary (Chris, 25 Sep 2026)
 
 - `practice.php?c=` (any course with a glossary), `assets/practice.js`,
@@ -1540,7 +1570,8 @@ Secrets live in `config/config.php` per project, never here.
   (Windows with Access only; `--check` lists what is not recorded;
   sql-runner-design.md, "Access, recorded").
 - `php bin/check-codestyle.php`, `php bin/check-typing.php`,
-  `php bin/check-sags.php`, `php bin/check-videos.php`.
+  `php bin/check-sags.php`, `php bin/check-videos.php`,
+  `php bin/check-markcorrect.php`, `php bin/check-code-blocks.php` (Pascal and Java).
 - `node tests/tokeniser.test.js`; `node public/assets/*.test.js`.
 - Every `written` `markMax` even; every shown mark count matches the engine
   (decision 12); a new block with `.block-icon` is in the `position: relative`

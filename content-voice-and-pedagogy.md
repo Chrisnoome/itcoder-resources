@@ -278,6 +278,21 @@ marking-house-style.md (style never marked) is deliberately different.
   `mwReportLines`, 10 `loTwoTimes`, 14 `lcAverageParts`; theory10 output
   `mwOutputDevices`, networktypes `dwNetworkSizes`. Check with
   `php bin/check-code-questions.php`.
+- **Mark and correct** (1 October 2026 - lib/markcorrect.php; Chris): a
+  `written` question with `'markCorrect'`: an exam question and somebody's
+  answer to it, which the pupil marks (where each mark is earned or lost, and
+  why), gives a mark, and corrects - always a written question with a rubric
+  and room to write, code and SQL in the normal box too, marked by AI against
+  the memo. The answer is shown as an exam script: **handwriting on lined
+  paper** for theory and trace tables, typed for code and SQL. Four kinds:
+  code, theory, sql, trace. Plant 1-3 real, typical mistakes (a wrong claim, a
+  missing explanation, an uninitialised total, > for <, DESC for cheapest
+  first), never a trick; the answer must not already earn full marks. The
+  usual rubric: 2 for their mark (1 if one out), 2 for their reasons, 2 for
+  their corrected answer; the markerRubric names the planted mistakes. Models:
+  `mcCloudStorage` (theory10 storage), `mcLoopTotal` (Pascal lesson 10),
+  `mcTraceTotal` (Pascal lesson 12), `mcSqlCheap` (SQL B2). Check with
+  `php bin/check-markcorrect.php`.
 - **Branching dilemmas** (28 September 2026 - lib/dilemma.php; Chris: marked,
   "a story with 3-5 choices"): one pupil-aged character in a real South
   African setting, a time stamp on each scene (Monday, 16:40), 3-5 choice
