@@ -89,6 +89,16 @@ not already 12m, with a dated backup beside it, `nginx -t` before the reload.
   chats' unfinished work in the same folders. Committing and pushing are
   separate; ask Chris first.
 
+**The one exception so far (Chris, 1 October 2026):** a fix for pupils' saves
+failing with "database is locked" in class time (lib/db.php, commit 1687029)
+could not wait, and the working tree held another chat's half-finished
+refactor, so a whole-tree publish was not safe. Chris approved putting that
+one file on live by hand: live's own lib/db.php plus only the fix, linted and
+proved with bin/check-db-locks.php against a copy of live's lib/ in /tmp, the
+old file kept in /root/itcoder-code-backups/. It does not make hand uploads
+normal: the next whole-tree publish carries the same change. Anything like it
+needs Chris's say-so each time.
+
 ## After publishing
 
 Tell Chris briefly: what went up, where, whether every check passed, any NOTE
