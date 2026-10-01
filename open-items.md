@@ -175,6 +175,13 @@ Details live in the linked files.
     marked by AI against the memo**.
   - **Badges**: glossy 3D game badges, **a different look per course**.
   - Next after the fixes: achievements and the game features.
+  **Game part 1 built 1 Oct** (lib/achievements.php, public/achievements.php):
+  27 achievements (each course gets the ones that fit - 276 badges in all),
+  course XP on Practice's ranks, a streak with freezes, weekly quests, the
+  class goal, the opt-in leaderboard, the toolbar trophy and pop-up. **Badge
+  art waits for Chris** (1 Oct: "wait till i get home with a cooler for the
+  gpu"): then run `python tools/badge-art/make_badges.py` with ComfyUI up -
+  about 1.5 hours; stand-ins show until then.
   - **Flowchart pictures**: open, with a Hide button, remembered per device.
   - **MySQL Try-it** fails on live ("not switched on"): the SQL runner was
     only installed on test - install it on live (check memory first).
