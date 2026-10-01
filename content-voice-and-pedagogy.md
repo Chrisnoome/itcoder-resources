@@ -324,8 +324,16 @@ marking-house-style.md (style never marked) is deliberately different.
   Image 2512, Qwen-Image-Edit 2511 for the cartoon avatars) into
   `public/assets/dilemma/<story>/`; look at each one - a background that
   draws a person, or an avatar with a logo, is made again.
-- **Questions inside the music videos** (28 September 2026 -
-  lib/videoquestions.php): two or three quiz questions straight after the
+- **Questions with the videos** (28 September 2026; the window 1 October
+  2026, Chris: "for a video only have a screenshot in the lesson that opens a
+  new window with questions on the left and the video on the right. for music
+  videos allow the whole video to play before showing questions"): any video,
+  not only the songs, may have questions. A video with questions is a picture
+  in the lesson (a play button, how many questions, what will happen) that
+  opens a window - questions left, video right. An ordinary video pauses at
+  each question's `videoAt`; a song (MusicVideoIds() in
+  lib/videoquestions.php, or `'music' => true` on the block) plays to the end
+  first and the window says so. For a song, two or three quiz questions straight after the
   video block, each with `'videoAt'` a second or two after the line it asks
   about - times from the song's `cartoon/audio/karaoke_lines.json` (the
   video's sound is the mp3, 43 ms later). Ask about the idea the line

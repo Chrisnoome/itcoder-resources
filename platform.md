@@ -207,12 +207,17 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   on it, and a `screen` the page draws in HTML - chat, SMS, call, lock
   screen, web page, pop-up or log window - DilemmaScreenForPage(), text only);
   and any quiz, typed or
-  select question may carry **`'videoAt' => '1:23'`**: it pops up in the
-  video block above it - lib/videoquestions.php, assets/videoq.js, 28 Sep
-  2026 - which pauses the player through YouTube's own postMessage channel
-  (enablejsapi=1, no YouTube script, so the content policy is unchanged),
-  shows the question under the video and plays on; it is still an ordinary
-  marked question, answerable without the video (`bin/check-video-questions.php`)
+  select question may carry **`'videoAt' => '1:23'`**: it belongs to the
+  video block above it - lib/videoquestions.php, assets/videoq.js and
+  videoq.css. Since 1 Oct 2026 such a video is a picture in the lesson
+  (`public/assets/video-thumbs/<youtubeId>.jpg` if present, else a drawn card)
+  that opens a window, questions left and video right; an ordinary video
+  pauses at each question's time through YouTube's own postMessage channel
+  (enablejsapi=1, no YouTube script, so the content policy is unchanged), a
+  song (MusicVideoIds() or `'music'` on the block) plays to the end before
+  its questions show. The questions are the lesson's own blocks, moved into
+  the window and back - still ordinary marked questions, answerable without
+  the video (`bin/check-video-questions.php`)
   - `code`, `algorithm`, `errors`, `important`,
   `goodtoknow`, `enrichment`, `contents`, `study`; and two wrappers made by
   helpers, never by hand (25 Sep 2026): `board`/`boardend`
