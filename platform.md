@@ -1696,6 +1696,11 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-titles.php` - titles <= 55 visible characters (Good to Know
   <= 36; video titles exempt).
 - `php bin/check-figures.php` - every illustration in `Figure ()`.
+- `php bin/check-db-locks.php` - a write never fails because a read was left
+  open (1 October 2026: pupils' saves failed with "database is locked" in
+  class time). lib/db.php's DbStatement closes every statement a row was
+  fetched from before any write; always get connections from Db() or
+  DbConnect(), never `new PDO` on the site's database.
 - **Committing only your own hunks: check the staged tree, not the working
   one** (1 October 2026). `git checkout-index -a --prefix=D:/temp/<x>/`, copy
   `config/config.php` in, then `php -l`, the checks and
