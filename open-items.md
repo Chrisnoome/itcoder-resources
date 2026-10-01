@@ -188,6 +188,16 @@ Details live in the linked files.
     folds; memory match words shrink and wrap, a long press enlarges a
     picture (in the instructions); the bell gets Clear all, a sound and a
     shake while unread; check the site through a proxy and Tor.
+  **Done 1 Oct:** MySQL Try-it on live (the SQL runner installed, vps-access.md);
+  **proxy and Tor checked:** the site loads from abroad (fetched from a US
+  network), DNS is right (A records only, no stray IPv6), and nothing on the
+  server blocks proxies or Tor (no deny/geo rules, ports 80/443 open to
+  all). But **not one Tor exit address has ever reached the server** - none
+  of 1 405 in two weeks of nginx access and error logs, none in the firewall
+  log - so Tor is filtered upstream by the host (Absolute Hosting): ask them
+  whether they block Tor exits or proxy ranges. A school's web filter is a
+  different thing: it shows its own block page; ask its vendor to class
+  bestlessons.co.za and itcoder.co.za as Education.
 - **Second-attempt marks under-count - FIXED 28 Sep** (fix (a):
   LineMarksEarned(), lib/content.php, from quizResponses.firstResponse; tested:
   a hotspot 7 right both times is 14 of 16, a match with 2 right both times
