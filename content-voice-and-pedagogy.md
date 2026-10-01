@@ -385,7 +385,8 @@ caption)` -> `<figure class="figure"><div class="figure-box">...</div>
 <figcaption>...</figcaption></figure>` (write that markup by hand inside a
 heredoc). Caption in plain words under the box, never inside the SVG; an
 algorithm's is "Flowchart: " + what it does. Not boxed: quote portraits, block
-icons, a question's own diagram, interactive widgets. Check:
+icons, a question's own diagram, interactive widgets, small pictures in a
+table's cells (a component's thumbnail, a font sample). Check:
 `php bin/check-figures.php`.
 
 ## 5b. The margin (Chris, 25 September 2026)

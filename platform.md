@@ -1696,6 +1696,16 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-titles.php` - titles <= 55 visible characters (Good to Know
   <= 36; video titles exempt).
 - `php bin/check-figures.php` - every illustration in `Figure ()`.
+- **Committing only your own hunks: check the staged tree, not the working
+  one** (1 October 2026). `git checkout-index -a --prefix=D:/temp/<x>/`, copy
+  `config/config.php` in, then `php -l`, the checks and
+  `php AIResources/tools/undefined-calls.php D:/temp/<x>` (every function
+  called is defined somewhere in the tree). A hunk can call a function
+  another chat has not committed: PromptHtml(), ApiRequireAccess() and
+  TypedRules() were each called by committed code and defined only in
+  uncommitted work - the site worked only because publishing uploads the
+  working tree. A private index (`GIT_INDEX_FILE`) keeps the staging away
+  from other chats' commits.
 - `php bin/check-code-blocks.php [--compile]` - every listing runnable or
   marked no-console.
 - `php bin/check-groups.php` - groups, invitations, who a teacher sees, seats (local only).

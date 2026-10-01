@@ -5,6 +5,37 @@ Details live in the linked files.
 
 ## Platform
 
+- **Committed code calls functions that are not committed** (found
+  2026-10-01 with `tools/undefined-calls.php`, platform.md "Checks to run").
+  TypedRules() is called by commit 236431c (28 Sep) and defined only in the
+  uncommitted typed-rules work in lib/content.php (MarkTypedByRules() and the
+  rest, with bin/check-typed-rules.php); check-groups' "newcomer finds the
+  waiting invitation" needs uncommitted invitation code. Live is fine
+  (publishing uploads the working tree); the chat that owns each piece
+  commits it. Delete when the staged-tree scan is clean.
+- **H5P rollout - Chris's decisions** (2026-10-01; committed fc36005, live with
+  the evening publish). Theory 10: the satellite drawing says 550 km, media's prose says
+  Starlink is about 500 km; the coaxial-cable photo shows a stranded core
+  where the lesson says one copper core; lp24ExplorerParts' two extras are
+  Finder's names; tl19ByteHistory has only 3 dates; mp22TextTrouble picture
+  C uses a different message. Theory 11: webgrewup has 6 new activities
+  (pc20Token the easiest to drop); the JPEG "before" is very blotchy
+  (quality 5); g24Factors and g20Factors both sort know / have / are;
+  mp27AtWork pairs a drone with "A UAV" before the drone identify question;
+  lp28Pattern uses a dot that is not on the lesson's map. Theory 10-12: the
+  motherboard explore and zoom before/after use Eagle's Shutterstock photo
+  (licensed for this?); router-1.png is also a memory-match card; Grade 12
+  has many two-group benefit/risk sorts; the colour-blind seat map is a
+  simulation. Java: lesson 4 says it is enrichment but now has three marked
+  activities; hsDefensiveWindow (lesson 19) uses lesson 24's window.
+  Part 1: LeftStr/RightStr and StrUtils in Pascal lesson 13; the SQL B9
+  slider cuts through a row; gCapsButtonsAccess teaches a tendency;
+  lc38KotaParts tests a Good to Know box; tl30ChatHistory's dates are in
+  margin notes; the Eagle icons in mp40. Delete each as Chris decides.
+- **Level emblems: IT Theory 5 and 6 to redo** (2026-10-01): Laptop and
+  Smartphone hide their device behind the medal; queue new seeds or a
+  clearer prompt (comfyui-queue). The other 34 are live.
+
 - **Lost work and lost second tries - repair after publishing** (Chris,
   2026-10-01; platform.md 6a, 6c, "Allow pasting"). Built and checked on the
   local testbed, waiting for Chris's synchronised publish. Then: (1) run
