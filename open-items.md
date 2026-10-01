@@ -148,6 +148,25 @@ Details live in the linked files.
   **mixed styles for variety: realistic, cartoon like the No Single Letters
   characters, stylised, illustrated** - for the dilemmas and for better
   memory match cards.
+- **H5P rollout - where it stopped (1 Oct 2026, Chris: "pause activites and
+  publish live")**: part 1 is committed and live - 403 activities, Pascal
+  complete; Java, SQL and IT Theory 10-12 stopped part-way (each lesson's
+  finished blocks kept), the video questions part-way, five new dilemmas
+  done (their pictures in comfyui-queue). Still to do: finish Java, SQL and
+  Theory 10-12; the video questions; a second round for the six new types
+  (sort into groups, picture choice and pairing, time line, explore, before/
+  after - lib/moreq.php, pilots in the AI course); the NetBeans "where would
+  you click" picture (the video VM's 'netbeans' checkpoint has NetBeans 31
+  at C:\Program Files\Apache NetBeans; tools/ide-screens/netbeans-ide.ps1
+  needs Shot.cs beside it - checkpoint the VM first and restore it after).
+  16 video questions on another chat's uncommitted videos (theory10
+  internet/urls/www, theory11 addressing/protocolswan, theory12
+  cloudcomputing) are in the files but not committed - commit them with
+  those videos.
+- **Software simulations** (Chris, 1 Oct 2026: "we also need to look at
+  software simulations for working with word, excel, access & powerpoint and
+  file explorer"): not started - plan first (what a pupil does in each, how
+  it is marked, real screenshots vs a drawn copy of the program), and ask.
 - **Chris's list, 1 Oct 2026** (the H5P chat is working through it; the
   video items go to the install-videos chat). Decided the same day:
   - **Weighted mark** = written work 50%, other questions 50% - **the main
