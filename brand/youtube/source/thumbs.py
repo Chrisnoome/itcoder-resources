@@ -3,6 +3,8 @@
 the tag and code. One HTML file per video, rendered to PNG with headless Chrome.
 
   python thumbs.py [--channel FOLDER] [id ...]   specs from thumbs.json (codesinger) or thumbs-FOLDER.json
+  python thumbs.py --card [--channel FOLDER] [id ...]   the opening title card: same picture, 1920 x 1080
+                                                  -> FOLDER/cards/<id>.png
   python thumbs.py --samples                      one sample per channel -> source/samples/FOLDER.png
 
 A spec: id, tag, title (list of lines; *word* = accent colour), and either a frame from the video in
@@ -123,12 +125,13 @@ while ((inner.scrollWidth>box.clientWidth || inner.scrollHeight>box.clientHeight
                          bg=c['bg'], ac=c['accent'], mu=c['muted'],
                          f85=rgba (c['bg'], .85), f70=rgba (c['bg'], .7), f0=rgba (c['bg'], 0))
 
-def render (spec, folder, png):
+def render (spec, folder, png, scale=1):
     os.makedirs (os.path.dirname (png), exist_ok=True)
     h = png[:-4] + '.html'
     open (h, 'w', encoding='utf-8').write (page (spec, folder))
     subprocess.run ([CHROME, '--headless=new', '--disable-gpu', '--hide-scrollbars',
                      '--allow-file-access-from-files', '--window-size=1280,720', '--virtual-time-budget=4000',
+                     '--force-device-scale-factor=%s' % scale,
                      '--screenshot=' + png, 'file:///' + h.replace ('\\', '/')],
                     check=True, capture_output=True)
 
@@ -149,6 +152,9 @@ def main ():
             render (spec, folder, os.path.join (HERE, 'samples', folder + '.png'))
             print ('ok', folder)
         return
+    card = False
+    if args[:1] == ['--card']:   # the video's opening title card: the same picture at 1920 x 1080
+        card, args = True, args[1:]
     folder = 'codesinger'
     if args[:1] == ['--channel']:
         folder, args = args[1], args[2:]
@@ -158,7 +164,10 @@ def main ():
     for s in specs:
         if want and s['id'] not in want:
             continue
-        render (s, folder, os.path.join (ROOT, folder, 'thumbs', s['id'] + '.png'))
+        if card:
+            render (s, folder, os.path.join (ROOT, folder, 'cards', s['id'] + '.png'), 1.5)
+        else:
+            render (s, folder, os.path.join (ROOT, folder, 'thumbs', s['id'] + '.png'))
         print ('ok', s['id'])
 
 if __name__ == '__main__':

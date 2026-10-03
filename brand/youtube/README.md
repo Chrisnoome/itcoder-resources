@@ -63,3 +63,10 @@ The bottom-right corner stays clear for YouTube's video length. Titles follow "N
 clear character or scene, no lyric caption), run `python thumbs.py --channel FOLDER`, then review on an
 OK / Needs fixing page (`source/review.py` builds one) before uploading. `python thumbs.py --samples`
 redraws the samples.
+
+**Opening title card** (Chris, 3 October 2026): every finished video opens with its thumbnail as a
+title card - the same picture at 1920 x 1080 (`python thumbs.py --card [--channel FOLDER] [id ...]`
+-> `FOLDER/cards/<id>.png`), held **3 seconds** with a quick fade into the video. **No separate sound**:
+the song or narration simply starts under the card. The per-video text (tag, title, frame or code) is
+the video's entry in `source/thumbs.json` (Code Singer) or `source/thumbs-FOLDER.json`, so card and
+thumbnail always match. A video with no entry yet gets one there first.

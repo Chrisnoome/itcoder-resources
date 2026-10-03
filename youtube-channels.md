@@ -86,6 +86,12 @@ The four School SA channels, Computer Skills SA and Pascal Code Singer have one 
 **BestLessons** -> https://bestlessons.co.za (Chris, 3 Oct 2026). The AI
 channels have none.
 
+## Thumbnails and title cards
+
+One style for every channel (brand/youtube/README.md, "Video thumbnails"): `brand/youtube/source/thumbs.py`.
+Every finished video opens with its thumbnail as a 3-second title card at 1920 x 1080
+(`thumbs.py --card`), no separate sound - the video's own sound starts under it (Chris, 3 Oct 2026).
+
 ## Still to do
 
 - Install-video sign-off: the scripts (`E:\itcoder-videos\scripts\NN-*.md`)
