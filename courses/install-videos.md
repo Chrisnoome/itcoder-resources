@@ -46,11 +46,18 @@ can we create a voice clone for me?"
   arrows and circles, captions in **Kalam** bold. Drawn as transparent
   overlays and laid over the recording with ffmpeg.
 - **Chris uploads to YouTube**; the lessons then embed them (platform.md,
-  decision 10: never invent YouTube IDs). The channel is **Pascal Code
-  Singer**, https://www.youtube.com/@PascalCodeSinger.
+  decision 10: never invent YouTube IDs). **Each video goes to its
+  subject's School SA channel** (Chris, 3 October 2026; was Pascal Code
+  Singer): Lazarus and Delphi to Pascal School SA (@PascalSchoolSA); JDK,
+  jGRASP and NetBeans to Java School SA (@JavaSchoolSA); Java DB, MySQL,
+  DBeaver and Letos to SQL School SA (@SQLSchoolSA); the general tools
+  (10-17: Explorer, Notepad++, 7-Zip, draw.io, Git, OneDrive, Google Drive,
+  Office) to Computer Skills SA (@ComputerSkillsSA). See
+  [../youtube-channels.md](../youtube-channels.md).
 - **Opening, ending and waits** (Chris, 27 September 2026): every video
   opens "Hi, and welcome to BestLessons."; it ends with a sign-off that
-  points to bestlessons.co.za and to Pascal Code Singer on YouTube (no "next
+  points to bestlessons.co.za and to the subject's School SA channel on
+  YouTube (no "next
   video" - each sits in its own lesson). Downloads and install progress are
   **not waited through**: a 2-3 second fast-forward with a "(sped up)" note
   and one line, "This takes a few minutes, so I've sped it up." - "don't make

@@ -1,0 +1,204 @@
+<title>Pascal Code Singer Makeover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one column of video cards (thumbnail beside new title + description), sticky progress bar. Channel colours: black, white, gold. */
+:root{
+  --bg:#f6f4ee; --surface:#ffffff; --fg:#17150f; --muted:#655f50; --line:#ddd7c8;
+  --accent:#8a6100; --ok:#1f5fae; --ok-bg:#e6effa; --fix:#b5560f; --fix-bg:#fbeee3; --old:#8b8577;
+  --font-display:"Montserrat","Arial Black",system-ui,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141414; --surface:#1d1d1b; --fg:#f2efe6; --muted:#a8a294; --line:#34322c;
+  --accent:#ffcc33; --ok:#7fb2f0; --ok-bg:#1b2a3d; --fix:#f0a35e; --fix-bg:#3a2717; --old:#878174; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141414; --surface:#1d1d1b; --fg:#f2efe6; --muted:#a8a294; --line:#34322c;
+  --accent:#ffcc33; --ok:#7fb2f0; --ok-bg:#1b2a3d; --fix:#f0a35e; --fix-bg:#3a2717; --old:#878174; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--font-body);padding:0 16px 64px}
+a{color:var(--accent)}
+.wrap{max-width:1000px;margin:0 auto}
+header.top{padding-block:28px 8px}
+h1{font:900 clamp(1.6rem,4vw,2.3rem)/1.1 var(--font-display);margin:0 0 8px;letter-spacing:-.01em;text-wrap:balance}
+h1 span{color:var(--accent)}
+.sub{color:var(--muted);margin:0;max-width:70ch}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.counts{font-family:var(--font-mono);font-size:.85rem;font-variant-numeric:tabular-nums;display:flex;gap:14px;flex-wrap:wrap}
+.counts .ok{color:var(--ok)} .counts .fix{color:var(--fix)} .counts .todo{color:var(--muted)}
+.meter{flex:1 1 160px;height:6px;background:var(--line);border-radius:3px;overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+.meter .m-ok{background:var(--ok)} .meter .m-fix{background:var(--fix)}
+.sync{font-size:.8rem;color:var(--muted)}
+.btn{font:500 .85rem var(--font-body);border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:6px 12px;border-radius:6px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{display:flex;flex-direction:column;gap:18px;margin-top:20px}
+.item{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:8px;padding:16px;display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:18px}
+.item[data-status="ok"]{border-left-color:var(--ok)}
+.item[data-status="fix"]{border-left-color:var(--fix)}
+@media (max-width:760px){.item{grid-template-columns:1fr}}
+.thumb{width:100%;height:auto;aspect-ratio:16/9;max-width:100%;object-fit:contain;border-radius:8px;display:block;background:#141414}
+.yt{font-size:.78rem;color:var(--muted);margin-top:6px;font-family:var(--font-mono)}
+.info{min-width:0}
+.lbl{font:500 .7rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+.old{color:var(--old);text-decoration:line-through;margin:0 0 10px;font-size:.9rem}
+.new{font:600 1.08rem/1.35 var(--font-body);margin:0 0 12px;text-wrap:balance}
+.desc{white-space:pre-wrap;font-size:.9rem;margin:0;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px;max-height:280px;overflow:auto}
+.choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.choice{font:500 .88rem var(--font-body);padding:7px 14px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.choice[aria-pressed="true"].c-ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.choice[aria-pressed="true"].c-fix{background:var(--fix-bg);border-color:var(--fix);color:var(--fix)}
+.choice.c-clear{color:var(--muted);border-color:transparent}
+.fixes{margin-top:10px}
+.fixes label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px}
+textarea{width:100%;min-height:80px;resize:vertical;font:.9rem/1.5 var(--font-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+.foot{margin-top:28px;color:var(--muted);font-size:.88rem}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:6px;font-size:.85rem}
+@media (prefers-reduced-motion:no-preference){.meter i{transition:width .3s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Pascal Code Singer <span>makeover</span></h1>
+    <p class="sub">New thumbnails, titles and descriptions for the channel's 14 videos. Nothing has changed on YouTube yet. Mark each video <b>OK</b> or <b>Needs fixing</b> and say what to change. Your answers save as you go and Claude reads them before applying.</p>
+  </header>
+
+  <div class="bar">
+    <div class="counts" id="counts"></div>
+    <div class="meter" aria-hidden="true"><i class="m-ok" id="mOk"></i><i class="m-fix" id="mFix"></i></div>
+    <button class="btn" id="copy" type="button">Copy report</button>
+    <span class="sync" id="sync">Loading…</span>
+  </div>
+
+  <main id="list"></main>
+
+  <p class="foot">When you are done, tell the chat "review done". Videos marked OK are applied; the rest are fixed and shown again.</p>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const ITEMS = [{"id": "jmqdIR8yidI", "old": "Mission: Algorithm", "title": "Mission: Algorithm - plan your program, start with the end (IT song)", "desc": "Every program is a mission. Before you write a line of code, know what it must produce - then plan your way there.\n\nIn this song:\n- Start with the end: know the output you want first\n- Then plan Input, Processing, Output (IPO)\n- Break a big job into small steps and small modules, each with one job\n\nGoes with the Pascal and Java courses (output, and procedures and functions) and IT Theory Grade 10 at https://bestlessons.co.za\n\n#Algorithms #Programming #ITGrade10"}, {"id": "EDSOMA17T1E", "old": "Let the Database Do the Work", "title": "Let the Database Do the Work - SQL WHERE for your PAT (IT song)", "desc": "Why loop through every record in your PAT when SQL can do it for you? Filter at the source with WHERE and let the database do the work.\n\nIn this song:\n- Don't pull every record into your program\n- Use WHERE to fetch only the rows you need\n- A tuck-shop PAT example: 3 drinks out of 14, straight from the query\n\nGoes with the PAT and database lessons in the Pascal, Java and SQL courses at https://bestlessons.co.za\n\n#SQL #PAT #ITGrade12"}, {"id": "eRDH2Z_d9f0", "old": "Make It GUI", "title": "Make It GUI - GUI design tips for any language (IT song)", "desc": "A messy form gets a makeover. Twelve design faults, fixed one by one - and the rules work in Delphi, Lazarus, Java or anything else.\n\nIn this song:\n- Spacing, grouping and alignment\n- Visual hierarchy and contrast\n- Consistency: make it clean\n\nGoes with the GUI design lessons in the Pascal and Java courses and IT Theory Grade 11 at https://bestlessons.co.za\n\n#GUIDesign #UIDesign #ITGrade11"}, {"id": "5BwAO8mr0fo", "old": "You Gotta Comment Your Code music video Java", "title": "You Gotta Comment Your Code - Java comments (IT song)", "desc": "Ram the goldfish keeps forgetting what his code does. Comments are the notes that save him - and you, three months from now.\n\nIn this song:\n- Why every program needs comments\n- Explain what the code does and why\n- Java comments: // for one line, /* */ for a block\n\nThere is also a Pascal version of this song.\nGoes with the Java course at https://bestlessons.co.za\n\n#Java #Programming #ITGrade10"}, {"id": "kyGsQdyGe9c", "old": "You Gotta Comment Your Code", "title": "You Gotta Comment Your Code - Pascal comments (IT song)", "desc": "Ram the goldfish keeps forgetting what his code does. Comments are the notes that save him - and you, three months from now.\n\nIn this song:\n- Why every program needs comments\n- Explain what the code does and why\n- Pascal comments: // for one line, { } for a block\n\nThere is also a Java version of this song.\nGoes with the Pascal course (Delphi and Lazarus) at https://bestlessons.co.za\n\n#Pascal #Delphi #ITGrade10"}, {"id": "VBRpt4tUfBU", "old": "Programmers are clever - problem solving", "title": "Programmers Are Clever - how programmers solve problems (IT song)", "desc": "Programmers aren't magic - they have a method. A detective cracks two cases the way a programmer cracks a problem.\n\nIn this song:\n- Decomposition: break the problem apart\n- Pattern recognition: spot what repeats\n- Evaluation: test the idea before you trust it\n\nGoes with lesson 1 of the Pascal and Java courses at https://bestlessons.co.za\n\n#ComputationalThinking #ProblemSolving #ITGrade10"}, {"id": "KYBj68eKZhw", "old": "Loop it up", "title": "Loop It Up - For loops in Pascal (IT song)", "desc": "Copying the same line ten times is a coding crime. A For loop does it for you.\n\nIn this song:\n- For loops replace repeated code\n- The counter goes up by one each time round (DownTo counts backwards)\n- Never change the counter yourself inside the loop\n\nGoes with the For loops lesson in the Pascal course at https://bestlessons.co.za\n\n#Pascal #Loops #ITGrade10"}, {"id": "vmlBxOpEuQ0", "old": "Keeping It DRY music video", "title": "Keeping It DRY - procedures and functions (IT song)", "desc": "Don't Repeat Yourself. No more copy-paste: put the code in a procedure or function once, and call it as often as you need.\n\nIn this song:\n- The DRY rule\n- Procedures and functions as rooms you walk into\n- Parameters: only the values you pass in change\n\nGoes with the procedures, functions and units lesson in the Pascal course at https://bestlessons.co.za\n\n#Pascal #DRY #ITGrade11"}, {"id": "XX8oqXGubCU", "old": "Read and Think - the debugging process.", "title": "Read and Think - how to debug your code (IT song)", "desc": "Don't just guess - use your brain. The error message tells you where to look.\n\nIn this song:\n- Read the error: the line and column number\n- Think before you change anything\n- The usual suspect: a missing semicolon\n\nGoes with the Pascal course at https://bestlessons.co.za\n\n#Pascal #Debugging #ITGrade10"}, {"id": "AsKKincNwCA", "old": "No Single Letters", "title": "No Single Letters - naming variables (IT song)", "desc": "What does 'i' even mean? In three months you won't remember. All the experts agree: give every variable a name that says what it holds.\n\nIn this song:\n- Why single-letter names cause trouble\n- i becomes index, x becomes position, c becomes customerCount\n- Names that explain your code to the next person (and to you)\n\nGoes with the variables lessons in the Pascal and Java courses at https://bestlessons.co.za\n\n#Pascal #Java #ITGrade10"}, {"id": "Qgjfqf635oM", "old": "Output in Pascal (Write, Writeln, Beep, TextColor, TextBackground, ClrScr, GotoXY)", "title": "Output in Pascal - Write, WriteLn, colour, ClrScr and GotoXY", "desc": "How to show output in a console Pascal program, in Delphi and Lazarus.\n\nIn this video:\n- Write stays on the line, WriteLn moves down to the next one\n- Beep\n- Crt screen commands: TextColor, TextBackground, ClrScr, GotoXY\n\nGoes with the output lessons in the Pascal course at https://bestlessons.co.za\n\n#Pascal #Delphi #Lazarus\n\n[The sample code from the current description stays below this.]"}, {"id": "yXqKTmBDVCg", "old": "Law, law baby - IT law in South Africa", "title": "Law, Law Baby - IT law in South Africa (IT song)", "desc": "The laws around IT in South Africa, one verse each - with apologies to Vanilla Ice (and Queen).\n\nIn this song:\n- POPIA: the Protection of Personal Information Act\n- RICA: why your SIM card is registered\n- The Protection from Harassment Act\n- The Cybercrimes Act: unauthorised access, fraud and what it costs you\n\nGoes with IT Theory Grades 10 to 12 (netiquette, computer crime, privacy law) at https://bestlessons.co.za\n\nImages rendered in DAZ Studio. Comic created in Comic Life 3. Video edited in DaVinci Resolve.\n\n#POPIA #ITTheory #ITGrade12"}, {"id": "DrhceJSci4M", "old": "Code like Jazz", "title": "Code Like Jazz - how to get good at programming (IT song)", "desc": "You can't learn programming from books alone - just like jazz, you learn it by playing.\n\nIn this song:\n- Type the code yourself; don't just read it\n- Practise a little, often\n- Sit with the error: that's where the learning happens\n\nThe habit every course at https://bestlessons.co.za is built on.\n\n#Programming #LearnToCode #ITGrade10"}, {"id": "jmnBHdXu380", "old": "What do computers actually do? (Add and Compare)", "title": "Add and Compare - what computers actually do (IT song)", "desc": "All any computer ever does: add numbers, compare numbers and move numbers around - in binary. Nothing cleverer than that.\n\nIn this song:\n- What the CPU really does\n- Why it's all binary\n- How simple steps add up to everything a computer can do\n\nGoes with lesson 1 of the Pascal and Java courses at https://bestlessons.co.za\n\nLyrics written with Claude. Song made with Suno. Clips courtesy of Pixabay, Envato and Vecteezy.\n\n#HowComputersWork #Binary #ITGrade10"}];
+const state = {};
+ITEMS.forEach(i => state[i.id] = {status:"", fixes:""});
+const LS = "codesinger-review-v1";
+function lsLoad(){ try{ return JSON.parse(localStorage.getItem(LS)||"{}") }catch(e){ return {} } }
+function lsSave(){ try{ localStorage.setItem(LS, JSON.stringify(state)) }catch(e){} }
+Object.assign(state, lsLoad());
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderList(){
+  document.getElementById("list").innerHTML = ITEMS.map((i, n) => `
+   <section class="item" id="v-${i.id}" data-status="">
+    <div>
+      <img class="thumb" src="thumbs/${i.id}.png" alt="New thumbnail: ${esc(i.title)}" loading="lazy" width="1280" height="720">
+      <div class="yt">${n+1} of ${ITEMS.length} · <a href="https://www.youtube.com/watch?v=${i.id}" target="_blank" rel="noopener">watch on YouTube</a></div>
+    </div>
+    <div class="info">
+      <p class="lbl">Title now</p><p class="old">${esc(i.old)}</p>
+      <p class="lbl">New title</p><p class="new">${esc(i.title)}</p>
+      <p class="lbl">New description</p><p class="desc">${esc(i.desc)}</p>
+      <div class="choices" role="group" aria-label="Result for ${esc(i.title)}">
+        <button type="button" class="choice c-ok" data-id="${i.id}" data-set="ok">✓ OK</button>
+        <button type="button" class="choice c-fix" data-id="${i.id}" data-set="fix">✗ Needs fixing</button>
+        <button type="button" class="choice c-clear" data-id="${i.id}" data-set="">Clear</button>
+      </div>
+      <div class="fixes" hidden>
+        <label for="fx-${i.id}">What to change - one per line</label>
+        <textarea id="fx-${i.id}" data-id="${i.id}" placeholder="e.g. Thumbnail: use 'For i' instead of 'For count'"></textarea>
+      </div>
+    </div>
+   </section>`).join("");
+  ITEMS.forEach(i => paintItem(i.id, true));
+}
+function paintItem(id, setText){
+  const el = document.getElementById("v-"+id), st = state[id];
+  el.dataset.status = st.status;
+  el.querySelectorAll(".choice").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.set === st.status && st.status !== "")));
+  el.querySelector(".fixes").hidden = st.status !== "fix";
+  const ta = el.querySelector("textarea");
+  if (setText && document.activeElement !== ta) ta.value = st.fixes || "";
+}
+function paintCounts(){
+  const n = ITEMS.length;
+  const ok = ITEMS.filter(i => state[i.id].status === "ok").length;
+  const fix = ITEMS.filter(i => state[i.id].status === "fix").length;
+  document.getElementById("counts").innerHTML =
+    `<span class="ok">✓ ${ok} OK</span><span class="fix">✗ ${fix} to fix</span><span class="todo">${n-ok-fix} not checked</span>`;
+  document.getElementById("mOk").style.width = (ok/n*100)+"%";
+  document.getElementById("mFix").style.width = (fix/n*100)+"%";
+}
+
+let db = null;
+const timers = {};
+const syncEl = document.getElementById("sync");
+function setSync(t){ syncEl.textContent = t }
+async function persist(id){
+  lsSave();
+  if (!db) return;
+  setSync("Saving…");
+  try{
+    await db.doc("checks/"+id).set({status: state[id].status, fixes: state[id].fixes, updatedAt: new Date().toISOString()});
+    setSync("Saved");
+  }catch(e){ setSync("Not saved to the shared copy ("+(e.code||"error")+") - kept in this browser") }
+}
+const list = document.getElementById("list");
+list.addEventListener("click", e => {
+  const b = e.target.closest(".choice"); if (!b) return;
+  const id = b.dataset.id;
+  state[id].status = b.dataset.set;
+  paintItem(id, false); paintCounts();
+  if (state[id].status === "fix") document.getElementById("fx-"+id).focus();
+  persist(id);
+});
+list.addEventListener("input", e => {
+  const ta = e.target.closest("textarea"); if (!ta) return;
+  const id = ta.dataset.id;
+  state[id].fixes = ta.value; lsSave();
+  clearTimeout(timers[id]); timers[id] = setTimeout(() => persist(id), 800);
+});
+list.addEventListener("focusout", e => {
+  const ta = e.target.closest("textarea"); if (!ta) return;
+  const id = ta.dataset.id;
+  if (timers[id]){ clearTimeout(timers[id]); delete timers[id]; persist(id); }
+});
+function report(){
+  const lines = ["Pascal Code Singer makeover - review"];
+  ITEMS.forEach((i, n) => {
+    const st = state[i.id];
+    const mark = st.status === "ok" ? "OK" : st.status === "fix" ? "NEEDS FIXING" : "not checked";
+    lines.push(`${n+1}. ${i.title}: ${mark}`);
+    if (st.status === "fix" && st.fixes.trim()) st.fixes.trim().split(/\n+/).forEach(f => lines.push("   - "+f.trim()));
+  });
+  return lines.join("\n");
+}
+function toast(t){ const el = document.getElementById("toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => el.hidden = true, 2200) }
+document.getElementById("copy").addEventListener("click", () => {
+  const text = report();
+  navigator.clipboard.writeText(text).then(() => toast("Report copied"), () => {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+    toast("Press Ctrl+C to copy"); setTimeout(() => ta.remove(), 8000);
+  });
+});
+
+renderList(); paintCounts();
+setSync("Saved in this browser");
+(async () => {
+  if (!window.claude?.use) return;
+  db = await window.claude.use("db");
+  if (!db){ setSync("Saved in this browser only"); return; }
+  setSync("Connected");
+  db.collection("checks").onSnapshot(snap => {
+    snap.docs.forEach(d => {
+      if (!state[d.id]) return;
+      const v = d.data() || {};
+      const ta = document.getElementById("fx-"+d.id);
+      if (document.activeElement === ta) { state[d.id].status = v.status || ""; }
+      else { state[d.id] = {status: v.status || "", fixes: v.fixes || ""}; }
+      paintItem(d.id, true);
+    });
+    paintCounts(); lsSave();
+  }, err => setSync("Live sync stopped ("+err.code+") - saved in this browser"));
+})();
+</script>

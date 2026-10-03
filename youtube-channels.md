@@ -1,0 +1,97 @@
+# YouTube channels
+
+All are Brand Accounts under chris.noome@gmail.com, created 3 October 2026
+(Chris clicks Create; Claude fills in names, handles and descriptions in
+YouTube Studio). Descriptions carry no personal name (Chris, 3 Oct 2026).
+Logos, banners, watermarks and end cards: the Art chat, files in
+`brand/youtube/<folder>/` (avatar.png 800, banner.png 2560x1440 with text
+inside 1546x423, watermark.png 150 transparent, endcard-bg.png 1920x1080).
+
+| Channel | Handle | Channel ID | Ties to the site | Art folder |
+|---|---|---|---|---|
+| AI 4 All | @AI4AllSA | UCThqggjlsU6ob8hKuPbqndA | no | ai4all |
+| AI for Teachers | @AIforTeachersSA | UCp1gqgeYZK4-NC_CqXS9_mA | no | ai4teachers |
+| Pascal School SA | @PascalSchoolSA | UCIvtXgauB3KHJ0O-DAe0H5A | yes - Pascal course | pascal |
+| Java School SA | @JavaSchoolSA | UCj1ScpNorZzpltULQVJQZrw | yes - Java course | java |
+| SQL School SA | @SQLSchoolSA | UCEu6IetqpdDqt-Io9PRJqmA | yes - SQL course | sql |
+| CAT School SA | @CATSchoolSA | UCWNaBSXRLWj2FwXyaQ0-Tuw | yes - CAT course | cat |
+| Computer Skills SA | @ComputerSkillsSA | UCMxJJhzHqCdlOLl4GmAtAkQ | link only - general tool how-tos (install videos 10-17) | skills |
+
+Older channels: **Pascal Code Singer** (@PascalCodeSinger,
+UCb24pUo8CSo__XW2vB4q88Q, the songs; new art from `brand/youtube/codesinger/`
+uploaded 3 Oct 2026 - white note and gold semicolon on black, outside the
+School SA look; the old claymation-style picture was
+`yt3.ggpht.com/u-TA2eUVI8S5uUwenJSk3dMbsoWJrG65CeehqlKy2RDnJmA6kySAI6WUB2I7uPB8fsnbhg8h`)
+and The Code Singer (@ClaudeSuno), left as it is.
+
+Pascal Code Singer's 14 videos got new thumbnails, titles ("Song - topic (IT song)") and
+descriptions on 3 Oct 2026, after Chris approved each on
+https://claude.ai/artifact/Xa9Q8k67a4x1AfmEvNCP2g. Source: `brand/youtube/source/thumbs.json` +
+`thumbs.py` (frames from the videos in `brand/youtube/codesinger/frames/`); the old titles and
+descriptions are in `brand/youtube/codesinger/old-titles-descriptions.md`. New song videos should get
+the same treatment: add an entry to thumbs.json and run thumbs.py.
+
+Pascal Code Singer's public contact email (Chris's address) was removed on
+3 Oct 2026 (Chris). None of the channels has a contact email.
+
+Pascal Code Singer's description before 3 Oct 2026 (replaced with a
+songs-only one, Chris):
+
+> Coding is magic. Coding is a passion. Coding is fun.
+> The aim of this channel is to help you learn all about programming in
+> Pascal (Delphi / Lazarus). The content is for anyone just starting
+> programming - and for anyone who is also looking for some more advanced
+> tricks and techniques. The IEB (Independent Examinations Board) SAG
+> syllabus and the DOE (South African Department of Education) CAPS syllabus
+> are covered in both Theory and Practical.
+> Playlists include: Songs that help you remember important programming and
+> IT theory concepts; IT theory content; Pascal programming beginner's tips;
+> Pascal programming for Matric pupils; GUI tips; Longer sample projects for
+> PATs. Or, if you are not a South African school pupil, just learn
+> programming and have fun!
+
+@AI4All and @AIforTeachers were taken, hence the SA suffix.
+
+## What each channel is for
+
+- **AI 4 All** - interesting and useful ways to use AI for everyday people,
+  not AI experts.
+- **AI for Teachers** - two levels: admin, and making resources. Recommends
+  AI tools that are free, easy and add value.
+- **Pascal / Java / SQL / CAT School SA** - videos that go with the
+  bestlessons.co.za courses (install videos, tutorials).
+- **Computer Skills SA** - using your computer more effectively and
+  efficiently: everyday skills and free tools that save time (install videos
+  10-17 and more).
+
+## Working notes
+
+- A new channel's Studio page says "you don't have permission" for a minute
+  or so after creation, even after switching to it; wait and reload.
+- Switch channel at youtube.com/channel_switcher before opening its Studio.
+- Typing into Studio's description box sometimes doesn't take; check the box
+  after Publish (reload and read it back).
+
+## Art
+
+Avatar, banner and watermark uploaded to all seven on 3 October 2026 (Chris
+chose all-SVG art; sources and `source/build.py` in `brand/youtube/`).
+Watermark display time is YouTube's default, **end of video**.
+`endcard-bg.png` is not a channel setting - it goes into each video's last
+5-20 seconds, with YouTube's end-screen elements over it.
+
+## Links
+
+The four School SA channels, Computer Skills SA and Pascal Code Singer have one link,
+**BestLessons** -> https://bestlessons.co.za (Chris, 3 Oct 2026). The AI
+channels have none.
+
+## Still to do
+
+- Install-video sign-off: the scripts (`E:\itcoder-videos\scripts\NN-*.md`)
+  now name the new channel; re-voicing the line and changing the on-screen
+  "Pascal Code Singer" in `edit\NN-*.json` is with the chat that makes the
+  install videos, "Database planning: caps and sags" (handed over 3 Oct 2026).
+
+- Install videos go to each subject's School SA channel (Chris, 3 Oct
+  2026); courses/install-videos.md says so.

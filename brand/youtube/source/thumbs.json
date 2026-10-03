@@ -1,0 +1,225 @@
+[
+ {
+  "id": "jmqdIR8yidI",
+  "tag": "SONG · ALGORITHMS",
+  "title": [
+   "Mission:",
+   "*Algorithm*"
+  ],
+  "code": [
+   "// start with the end",
+   "1. Output",
+   "2. Input",
+   "3. Processing"
+  ],
+  "ytTitle": "Mission: Algorithm - plan your program, start with the end (IT song)",
+  "desc": "Every program is a mission. Before you write a line of code, know what it must produce - then plan your way there.\n\nIn this song:\n- Start with the end: know the output you want first\n- Then plan Input, Processing, Output (IPO)\n- Break a big job into small steps and small modules, each with one job\n\nGoes with the Pascal and Java courses (output, and procedures and functions) and IT Theory Grade 10 at https://bestlessons.co.za\n\n#Algorithms #Programming #ITGrade10"
+ },
+ {
+  "id": "EDSOMA17T1E",
+  "tag": "SONG · DATABASES · PAT",
+  "title": [
+   "Let the",
+   "*Database*",
+   "Do the Work"
+  ],
+  "code": [
+   "SELECT name, stock",
+   "FROM tblDrinks",
+   "WHERE stock < 5"
+  ],
+  "ytTitle": "Let the Database Do the Work - SQL WHERE for your PAT (IT song)",
+  "desc": "Why loop through every record in your PAT when SQL can do it for you? Filter at the source with WHERE and let the database do the work.\n\nIn this song:\n- Don't pull every record into your program\n- Use WHERE to fetch only the rows you need\n- A tuck-shop PAT example: 3 drinks out of 14, straight from the query\n\nGoes with the PAT and database lessons in the Pascal, Java and SQL courses at https://bestlessons.co.za\n\n#SQL #PAT #ITGrade12",
+  "pos": "50% 0%"
+ },
+ {
+  "id": "eRDH2Z_d9f0",
+  "tag": "SONG · GUI DESIGN",
+  "title": [
+   "Make It",
+   "*GUI*"
+  ],
+  "code": [
+   "+ spacing",
+   "+ grouping",
+   "+ alignment",
+   "+ contrast"
+  ],
+  "ytTitle": "Make It GUI - GUI design tips for any language (IT song)",
+  "desc": "A messy form gets a makeover. Twelve design faults, fixed one by one - and the rules work in Delphi, Lazarus, Java or anything else.\n\nIn this song:\n- Spacing, grouping and alignment\n- Visual hierarchy and contrast\n- Consistency: make it clean\n\nGoes with the GUI design lessons in the Pascal and Java courses and IT Theory Grade 11 at https://bestlessons.co.za\n\n#GUIDesign #UIDesign #ITGrade11"
+ },
+ {
+  "id": "5BwAO8mr0fo",
+  "tag": "SONG · JAVA",
+  "title": [
+   "You Gotta",
+   "*Comment*",
+   "Your Code"
+  ],
+  "code": [
+   "/* what this does */",
+   "// and why",
+   "total += price;"
+  ],
+  "ytTitle": "You Gotta Comment Your Code - Java comments (IT song)",
+  "desc": "Ram the goldfish keeps forgetting what his code does. Comments are the notes that save him - and you, three months from now.\n\nIn this song:\n- Why every program needs comments\n- Explain what the code does and why\n- Java comments: // for one line, /* */ for a block\n\nThere is also a Pascal version of this song.\nGoes with the Java course at https://bestlessons.co.za\n\n#Java #Programming #ITGrade10"
+ },
+ {
+  "id": "kyGsQdyGe9c",
+  "tag": "SONG · PASCAL",
+  "title": [
+   "You Gotta",
+   "*Comment*",
+   "Your Code"
+  ],
+  "code": [
+   "{ what this does }",
+   "// and why",
+   "total := total + price;"
+  ],
+  "ytTitle": "You Gotta Comment Your Code - Pascal comments (IT song)",
+  "desc": "Ram the goldfish keeps forgetting what his code does. Comments are the notes that save him - and you, three months from now.\n\nIn this song:\n- Why every program needs comments\n- Explain what the code does and why\n- Pascal comments: // for one line, { } for a block\n\nThere is also a Java version of this song.\nGoes with the Pascal course (Delphi and Lazarus) at https://bestlessons.co.za\n\n#Pascal #Delphi #ITGrade10"
+ },
+ {
+  "id": "VBRpt4tUfBU",
+  "tag": "SONG · PROBLEM SOLVING",
+  "title": [
+   "Programmers",
+   "Are *Clever*"
+  ],
+  "code": [
+   "1. break it apart",
+   "2. find patterns",
+   "3. test the idea"
+  ],
+  "ytTitle": "Programmers Are Clever - how programmers solve problems (IT song)",
+  "desc": "Programmers aren't magic - they have a method. A detective cracks two cases the way a programmer cracks a problem.\n\nIn this song:\n- Decomposition: break the problem apart\n- Pattern recognition: spot what repeats\n- Evaluation: test the idea before you trust it\n\nGoes with lesson 1 of the Pascal and Java courses at https://bestlessons.co.za\n\n#ComputationalThinking #ProblemSolving #ITGrade10",
+  "pos": "50% 75%"
+ },
+ {
+  "id": "KYBj68eKZhw",
+  "tag": "SONG · FOR LOOPS",
+  "title": [
+   "Loop",
+   "It *Up*"
+  ],
+  "code": [
+   "For count := 1 To 10 Do",
+   "  WriteLn (count);"
+  ],
+  "ytTitle": "Loop It Up - For loops in Pascal (IT song)",
+  "desc": "Copying the same line ten times is a coding crime. A For loop does it for you.\n\nIn this song:\n- For loops replace repeated code\n- The counter goes up by one each time round (DownTo counts backwards)\n- Never change the counter yourself inside the loop\n\nGoes with the For loops lesson in the Pascal course at https://bestlessons.co.za\n\n#Pascal #Loops #ITGrade10"
+ },
+ {
+  "id": "vmlBxOpEuQ0",
+  "tag": "SONG · PROCEDURES",
+  "title": [
+   "Keeping",
+   "It *DRY*"
+  ],
+  "code": [
+   "PrintSlip (item1);",
+   "PrintSlip (item2);",
+   "PrintSlip (item3);"
+  ],
+  "ytTitle": "Keeping It DRY - procedures and functions (IT song)",
+  "desc": "Don't Repeat Yourself. No more copy-paste: put the code in a procedure or function once, and call it as often as you need.\n\nIn this song:\n- The DRY rule\n- Procedures and functions as rooms you walk into\n- Parameters: only the values you pass in change\n\nGoes with the procedures, functions and units lesson in the Pascal course at https://bestlessons.co.za\n\n#Pascal #DRY #ITGrade11"
+ },
+ {
+  "id": "XX8oqXGubCU",
+  "tag": "SONG · DEBUGGING",
+  "title": [
+   "Read and",
+   "*Think*"
+  ],
+  "code": [
+   "(12,5) Fatal:",
+   "Syntax error,",
+   "\";\" expected"
+  ],
+  "ytTitle": "Read and Think - how to debug your code (IT song)",
+  "desc": "Don't just guess - use your brain. The error message tells you where to look.\n\nIn this song:\n- Read the error: the line and column number\n- Think before you change anything\n- The usual suspect: a missing semicolon\n\nGoes with the Pascal course at https://bestlessons.co.za\n\n#Pascal #Debugging #ITGrade10",
+  "pos": "50% 65%"
+ },
+ {
+  "id": "AsKKincNwCA",
+  "tag": "SONG · NAMING VARIABLES",
+  "title": [
+   "No *Single*",
+   "Letters"
+  ],
+  "code": [
+   "x := x + 1;",
+   "total := total + 1;"
+  ],
+  "strike": 0,
+  "ytTitle": "No Single Letters - naming variables (IT song)",
+  "desc": "What does 'i' even mean? In three months you won't remember. All the experts agree: give every variable a name that says what it holds.\n\nIn this song:\n- Why single-letter names cause trouble\n- i becomes index, x becomes position, c becomes customerCount\n- Names that explain your code to the next person (and to you)\n\nGoes with the variables lessons in the Pascal and Java courses at https://bestlessons.co.za\n\n#Pascal #Java #ITGrade10"
+ },
+ {
+  "id": "Qgjfqf635oM",
+  "tag": "PASCAL · OUTPUT",
+  "title": [
+   "Output",
+   "in *Pascal*"
+  ],
+  "code": [
+   "Write ('Hello ');",
+   "WriteLn ('world');",
+   "TextColor (Yellow);",
+   "GotoXY (10, 5);"
+  ],
+  "ytTitle": "Output in Pascal - Write, WriteLn, colour, ClrScr and GotoXY",
+  "desc": "How to show output in a console Pascal program, in Delphi and Lazarus.\n\nIn this video:\n- Write stays on the line, WriteLn moves down to the next one\n- Beep\n- Crt screen commands: TextColor, TextBackground, ClrScr, GotoXY\n\nGoes with the output lessons in the Pascal course at https://bestlessons.co.za\n\n#Pascal #Delphi #Lazarus",
+  "keepCode": true,
+  "pos": "0% 30%"
+ },
+ {
+  "id": "yXqKTmBDVCg",
+  "tag": "SONG · IT LAW",
+  "title": [
+   "Law, Law",
+   "*Baby*"
+  ],
+  "code": [
+   "POPIA",
+   "RICA",
+   "Harassment Act",
+   "Cybercrimes Act"
+  ],
+  "ytTitle": "Law, Law Baby - IT law in South Africa (IT song)",
+  "desc": "The laws around IT in South Africa, one verse each - with apologies to Vanilla Ice (and Queen).\n\nIn this song:\n- POPIA: the Protection of Personal Information Act\n- RICA: why your SIM card is registered\n- The Protection from Harassment Act\n- The Cybercrimes Act: unauthorised access, fraud and what it costs you\n\nGoes with IT Theory Grades 10 to 12 (netiquette, computer crime, privacy law) at https://bestlessons.co.za\n\nImages rendered in DAZ Studio. Comic created in Comic Life 3. Video edited in DaVinci Resolve.\n\n#POPIA #ITTheory #ITGrade12"
+ },
+ {
+  "id": "DrhceJSci4M",
+  "tag": "SONG · LEARNING TO CODE",
+  "title": [
+   "Code Like",
+   "*Jazz*"
+  ],
+  "code": [
+   "// you can't learn",
+   "// from books alone",
+   "WriteLn ('practise');"
+  ],
+  "ytTitle": "Code Like Jazz - how to get good at programming (IT song)",
+  "desc": "You can't learn programming from books alone - just like jazz, you learn it by playing.\n\nIn this song:\n- Type the code yourself; don't just read it\n- Practise a little, often\n- Sit with the error: that's where the learning happens\n\nThe habit every course at https://bestlessons.co.za is built on.\n\n#Programming #LearnToCode #ITGrade10",
+  "pos": "60% 95%"
+ },
+ {
+  "id": "jmnBHdXu380",
+  "tag": "SONG · HOW COMPUTERS WORK",
+  "title": [
+   "Add and",
+   "*Compare*"
+  ],
+  "code": [
+   "0101 + 0011",
+   "= 1000",
+   "0110 > 0101 ?"
+  ],
+  "ytTitle": "Add and Compare - what computers actually do (IT song)",
+  "desc": "All any computer ever does: add numbers, compare numbers and move numbers around - in binary. Nothing cleverer than that.\n\nIn this song:\n- What the CPU really does\n- Why it's all binary\n- How simple steps add up to everything a computer can do\n\nGoes with lesson 1 of the Pascal and Java courses at https://bestlessons.co.za\n\nLyrics written with Claude. Song made with Suno. Clips courtesy of Pixabay, Envato and Vecteezy.\n\n#HowComputersWork #Binary #ITGrade10",
+  "pos": "50% 35%"
+ }
+]

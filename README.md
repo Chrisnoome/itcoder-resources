@@ -67,6 +67,7 @@ this folder's git log.
 | [courses/java-course.md](courses/java-course.md) | The Java course (IEB only): Chris's brief, lessons, verified facts |
 | [courses/sql-course.md](courses/sql-course.md) | PLAN: the SQL and databases course - shared theory, SQL lessons per dialect (Access, MySQL, Java DB, SQLite), marks per dialect, the SQL runner, questions for Chris |
 | [courses/install-videos.md](courses/install-videos.md) | PLAN: install videos for the tools (Lazarus, Delphi, JDK, jGRASP, NetBeans, Java DB, MySQL, DBeaver, Letos) - recorded in a clean Windows VM, blue sketch notes, Chris's cloned voice, uploaded to YouTube by Chris |
+| [youtube-channels.md](youtube-channels.md) | The seven YouTube channels made 3 Oct 2026 (AI 4 All, AI for Teachers, Pascal/Java/SQL/CAT School SA, Computer Skills SA): handles, channel IDs, purpose, art folders, what's left |
 | [courses/theory-course.md](courses/theory-course.md) | PLAN: the IT Theory courses - Chris's decisions, sources (the old textbook), chapter outlines per grade, platform work |
 | [courses/theory-review-queue.md](courses/theory-review-queue.md) | IT Theory review items still open after the 27 Sep 2026 reviews of Grades 10-12 - delete an item when it is done |
 | [courses/theory-yearly-update.md](courses/theory-yearly-update.md) | Facts in the theory lessons that go stale (brands, statistics, "most"), checked every January; add a line whenever a lesson states one |

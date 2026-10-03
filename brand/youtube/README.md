@@ -32,3 +32,34 @@ renders with headless Chrome). It needs Montserrat in the user fonts folder and 
 **ComfyUI alternatives:** illustrated avatars and banner backgrounds were made but not used (requests
 `comfyui-queue/requests/2026-10-03-youtube-channels*.json`, pictures in
 `D:\temp\comfy-queue\2026-10-03-youtube-channels*\`), in case Chris wants them later.
+
+## Video thumbnails
+
+One style for every channel's video thumbnails (1280 x 720), set up on Pascal Code Singer's 14 videos
+on 3 October 2026 and recorded for the rest (Chris: "record similar styles with different colours for
+the other channels"). `source/thumbs.py` makes them; its `CHANNELS` table holds the colours.
+
+**The layout:** the channel background colour; a tag pill top left in the accent (`SONG · FOR LOOPS`,
+`SQL · JOINS`); a big Montserrat Black title on the left, white with the key word in the accent; the
+channel's mark and name bottom left (Code Singer: the note and `;`; the others: their avatar), with the
+BestLessons blue line under it for the School SA channels and Computer Skills SA. On the right, a frame
+from the video fading into the background (preferred), or a code card when there is no good frame.
+The bottom-right corner stays clear for YouTube's video length. Titles follow "Name - topic"
+(songs end in "(IT song)").
+
+| Channel | Background | Accent | Sample |
+|---|---|---|---|
+| Pascal Code Singer | `#141414` | `#ffcc33` | `codesinger/thumbs/*.png` (live) |
+| Pascal School SA | `#12355b` | `#2ec4b6` | `source/samples/pascal.png` |
+| Java School SA | `#2b1a12` | `#f28c28` | `source/samples/java.png` |
+| SQL School SA | `#0e3b2a` | `#6fe3a5` | `source/samples/sql.png` |
+| CAT School SA | `#1b2233` | `#ff6a4d` | `source/samples/cat.png` |
+| Computer Skills SA | `#4a1240` | `#ff8fd1` | `source/samples/skills.png` |
+| AI 4 All | `#2d2a8c` | `#ffd166` | `source/samples/ai4all.png` |
+| AI for Teachers | `#c8372d` | `#ffd166` | `source/samples/ai4teachers.png` |
+
+**To make a channel's thumbnails:** write `source/thumbs-FOLDER.json` (id, tag, title lines with
+`*accent*` words, and `code` lines or a frame), put frames in `FOLDER/frames/<id>.jpg` (ffmpeg, one
+clear character or scene, no lyric caption), run `python thumbs.py --channel FOLDER`, then review on an
+OK / Needs fixing page (`source/review.py` builds one) before uploading. `python thumbs.py --samples`
+redraws the samples.
