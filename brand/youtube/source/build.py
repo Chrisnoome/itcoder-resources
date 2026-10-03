@@ -7,10 +7,10 @@ Per channel, in brand/youtube/<folder>/:
   watermark.svg/.png    150 x 150, the round avatar on a clear background
   endcard-bg.svg/.png   1920 x 1080, quiet left and middle for YouTube's end-screen elements
 
-Run with a Python that has fontTools and Pillow (ComfyUI's):  python build.py
+Run with a Python that has fontTools and Pillow (ComfyUI's):  python build.py [folder ...]  (none = all)
 Fonts: Montserrat from the user fonts folder, JetBrains Mono NL from C:/Windows/Fonts. The letters are
 outlines, so the SVGs need no font. PNGs are rendered with headless Chrome, as in brand/bestlessons."""
-import os, subprocess, tempfile
+import os, subprocess, sys, tempfile
 from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
@@ -115,6 +115,16 @@ def cat_mark ():
             f'<path d="M136 133 V157 A15 5 0 0 0 166 157 V133" fill="none" stroke="{w}" stroke-width="4"/>' + line_mark (SITE_BLUE))
 
 
+def skills_mark ():
+    plum = '#4a1240'
+    return ('<rect x="56" y="52" width="128" height="96" rx="12" fill="#fde7f4"/>'
+            '<path d="M56 64 A12 12 0 0 1 68 52 H172 A12 12 0 0 1 184 64 V76 H56 Z" fill="#ff8fd1"/>'
+            f'<circle cx="72" cy="64" r="4" fill="{plum}"/><circle cx="84" cy="64" r="4" fill="{plum}"/><circle cx="96" cy="64" r="4" fill="{plum}"/>'
+            f'<path d="M108 92 L98 82 M104 104 L90 104 M120 88 L120 74" stroke="{plum}" stroke-width="5" stroke-linecap="round"/>'
+            f'<path d="M120 100 L120 160 L135 147 L146 171 L157 166 L146 142 L166 141 Z" fill="#ffffff" stroke="{plum}" '
+            'stroke-width="5" stroke-linejoin="round"/>' + line_mark (SITE_BLUE))
+
+
 def ai_mark ():
     dots = ''.join (f'<circle cx="{x}" cy="{y}" r="15" fill="#ffd166"/>'
                     for x, y in ((150, 50), (60, 150), (184, 150), (150, 196), (150, 150)))
@@ -150,6 +160,16 @@ def tiles (spots):
                     for i, (x, y, s) in enumerate (spots))
 
 
+def windows (spots):
+    """Faint app windows with a title bar, and the odd pointer."""
+    out = ''
+    for x, y, s in spots:
+        h = s * 0.75
+        out += (f'<g opacity="0.3"><rect x="{x}" y="{y}" width="{s}" height="{h:.0f}" rx="10" fill="none" stroke="#ff8fd1" stroke-width="4"/>'
+                f'<rect x="{x}" y="{y}" width="{s}" height="{s * 0.17:.0f}" rx="8" fill="#ff8fd1"/></g>')
+    return out
+
+
 def network (points, links):
     lines = ''.join (f'<path d="M{points[a][0]} {points[a][1]} L{points[b][0]} {points[b][1]}"/>' for a, b in links)
     dots = ''.join (f'<circle cx="{x}" cy="{y}" r="10"/>' for x, y in points)
@@ -183,6 +203,8 @@ def banner_sides (key, accent):
         return code_lines (left, 90, 590, 34, accent, 'start') + code_lines (right, 2470, 590, 34, accent, 'end')
     if key == 'cat':
         return tiles ([(90, 560, 110), (240, 690, 84), (110, 800, 70), (330, 540, 64), (2360, 560, 110), (2230, 700, 84), (2380, 810, 70), (2140, 560, 64)])
+    if key == 'skills':
+        return windows ([(90, 560, 170), (300, 700, 130), (120, 820, 100), (2300, 560, 170), (2130, 690, 130), (2360, 820, 100)])
     if key == 'ai4all':
         return network (NET, NET_LINKS) + network (mirror (NET, 2560), NET_LINKS)
     return sheets_and_sparks ([('sheet', 120, 600, 110), ('spark', 340, 560, 34), ('spark', 380, 860, 22), ('spark', 90, 520, 18),
@@ -194,6 +216,8 @@ def endcard_sides (key, accent):
         return code_lines (CODE[key][1], 1840, 760, 30, accent, 'end')
     if key == 'cat':
         return tiles ([(1700, 700, 100), (1580, 860, 76), (1760, 880, 70), (80, 960, 60), (1820, 620, 54)])
+    if key == 'skills':
+        return windows ([(1640, 720, 170), (1560, 900, 120), (1740, 930, 110), (80, 960, 80)])
     if key == 'ai4all':
         pts = [(1820, 640), (1680, 760), (1840, 880), (1560, 940), (1740, 1010), (1880, 760)]
         return network (pts, [(0, 1), (1, 2), (1, 3), (2, 4), (3, 4), (0, 5), (5, 2)])
@@ -211,6 +235,8 @@ CHANNELS = [
           tagline='Databases and SQL for the IT syllabus.', site=True, next='Keep going'),
     dict (key='cat', name=('CAT ', 'School SA'), bg='#1b2233', accent=SITE_BLUE, ring=SITE_BLUE, mark=cat_mark,
           tagline='Computer Applications Technology, IEB and CAPS.', site=True, next='Keep going'),
+    dict (key='skills', name=('Computer ', 'Skills SA'), bg='#4a1240', accent='#ff8fd1', ring='#ff8fd1', mark=skills_mark,
+          tagline='How-to videos for everyday computer tools.', site=True, next='Keep going'),
     dict (key='ai4all', name=('AI 4 All', ''), bg='#2d2a8c', accent='#ffd166', ring='#ffd166', mark=ai_mark,
           tagline='Everyday AI, explained for everyone.', sub='No jargon. No experts needed.', subcolour='#c9b8ff', site=False, next='Watch next'),
     dict (key='ai4teachers', name=('AI for Teachers', ''), bg='#c8372d', accent='#ffd166', ring='#ffd166', mark=teachers_mark,
@@ -285,7 +311,10 @@ def render (svg_path, png_path, w, h):
     im.save (png_path, optimize=True)
 
 
+ONLY = sys.argv[1:]   # folder names to build; none = all
 for c in CHANNELS:
+    if ONLY and c['key'] not in ONLY:
+        continue
     out = os.path.join (YT, c['key'])
     os.makedirs (out, exist_ok=True)
     for name, make, w, h in (('avatar', avatar, 800, 800), ('banner', banner, 2560, 1440),
