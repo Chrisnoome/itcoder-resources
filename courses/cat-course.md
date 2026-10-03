@@ -936,7 +936,7 @@ depth, reuse its drawings, pictures and examples where they fit.
 
 The pilot is `content/catpilot/computer.php` (course `catpilot`, `'status'
 => 'draft'`, `'pilot' => true` - on the test site and the testbed, never
-live; original in `handoff/cat-session/pilot/`). Compared with IT Theory
+live; the handoff original was deleted on 3 October 2026, once merged). Compared with IT Theory
 Grade 10 lesson 1 (`content/theory10/ict.php`, the same topic), it needs:
 
 - **The definition:** add *multi-purpose* (ict.php's five-part definition).
@@ -969,6 +969,14 @@ Grade 10 lesson 1 (`content/theory10/ict.php`, the same topic), it needs:
   not the 22/26 its README says. Both even.
 
 Chris judges the fixed pilot on test before any more lessons are written.
+
+**Done 3 October 2026** (the CAT chat): every item above, plus a
+sort-into-groups activity (a microwave's input, processing and output), a
+definition `select`, an ATM picture, and `why` lines on every quiz, select
+and match. The quote is Peter Thiel's from the quote bank, with its portrait
+(80 px - the bank's size). Marks: 50 CAPS, 56 IEB. Checks pass and it
+renders on the testbed. **Waiting for Chris's verdict on test** (it goes up
+with the next publish).
 
 ### 7.2 Then Grade 10, lesson by lesson
 

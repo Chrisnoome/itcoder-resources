@@ -1152,7 +1152,7 @@ pupils in Grades 9-11; email through **Brevo**, plus the bell.
   the live site (the folder named `itcoder`); it exists on the test site and
   the testbed only. With `'status' => 'draft'`, teachers and admins see it,
   pupils do not. First use: `catpilot`, the CAT sample lesson from
-  `handoff/cat-session/pilot/`, for Chris to judge (27 September 2026).
+  the CAT cloud session, for Chris to judge (27 September 2026).
 - **A shared glossary:** `'glossaryFrom' => 'theory10'` (`GlossaryHome()`);
   a row taught in another course names it with the extras key `'course'`.
   The glossary page and Index link a term only when the pupil's course is
