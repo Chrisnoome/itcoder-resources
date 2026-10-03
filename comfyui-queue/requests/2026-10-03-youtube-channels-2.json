@@ -1,0 +1,125 @@
+{
+  "id": "2026-10-03-youtube-channels-2",
+  "kind": "items",
+  "from": "the art chat (YouTube channel brands)",
+  "added": "2026-10-03",
+  "status": "made",
+  "why": "The second half of 2026-10-03-youtube-channels. The YouTube chat confirmed five channel names (Chris, 3 October 2026): AI 4 All, AI for Teachers, Pascal School SA, Java School SA, SQL School SA. This request adds the avatar art and banner backgrounds for SQL School SA and AI for Teachers, plus a plain end-card background for every channel. The end card is 1920 x 1080; YouTube's own elements (2 videos, a subscribe circle) go over the left and middle, so the detail stays at the edges. Board: https://claude.ai/artifact/LtgVBNvwsQKPhcxTb9feYz. Colours: SQL deep green #0e3b2a and mint #6fe3a5; AI for Teachers warm red #c8372d, white and gold #ffd166.",
+  "style": "No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 4,
+  "items": [
+    {
+      "name": "sql-avatar",
+      "prompt": "A glossy 3D icon of a database cylinder made of three stacked mint green glass discs with soft light inside, smooth shiny glass and enamel, soft studio light, like a premium app icon, centred on a plain deep forest green background with space all around it",
+      "out": "AIResources/brand/youtube/sql/avatar-art.png",
+      "outSize": [
+        800,
+        800
+      ]
+    },
+    {
+      "name": "teachers-avatar",
+      "prompt": "A glossy 3D icon of a shiny white apple with a small glowing golden four-pointed star where its leaf would be, smooth shiny ceramic and enamel, soft studio light, like a premium app icon, centred on a plain warm red background with space all around it",
+      "out": "AIResources/brand/youtube/ai4teachers/avatar-art.png",
+      "outSize": [
+        800,
+        800
+      ]
+    },
+    {
+      "name": "sql-banner",
+      "prompt": "A wide calm deep forest green background with soft glowing mint green light, faint blurred grids like spreadsheet tables and small glass database cylinders, all the detail at the far left and far right edges, the whole middle a smooth empty dark green space, gentle depth of field, modern and clean",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/sql/banner-bg.png",
+      "outSize": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "name": "teachers-banner",
+      "prompt": "A wide calm warm red background with soft golden sparkles, a few blurred paper sheets, pencils and a red apple, all the detail at the far left and far right edges, the whole middle a smooth empty warm red space, gentle depth of field, friendly and modern",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/ai4teachers/banner-bg.png",
+      "outSize": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "name": "pascal-endcard",
+      "prompt": "A calm deep navy blue background with a soft teal glow and faint blurred rows of tiny rectangles like code lines only along the far right edge and the bottom corners, most of the picture a smooth empty dark navy space, gentle depth of field",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/pascal/endcard-bg.png",
+      "outSize": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "java-endcard",
+      "prompt": "A calm dark coffee brown background with soft warm orange steam swirls only along the far right edge and the bottom corners, most of the picture a smooth empty dark brown space, gentle depth of field",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/java/endcard-bg.png",
+      "outSize": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "sql-endcard",
+      "prompt": "A calm deep forest green background with soft mint green light and faint blurred table grids only along the far right edge and the bottom corners, most of the picture a smooth empty dark green space, gentle depth of field",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/sql/endcard-bg.png",
+      "outSize": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "ai-endcard",
+      "prompt": "A calm deep indigo background with a soft network of small golden dots joined by thin lilac lines only along the far right edge and the bottom corners, most of the picture a smooth empty dark indigo space, gentle depth of field",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/ai4all/endcard-bg.png",
+      "outSize": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "teachers-endcard",
+      "prompt": "A calm warm red background with soft golden sparkles and a few blurred paper sheets only along the far right edge and the bottom corners, most of the picture a smooth empty warm red space, gentle depth of field",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/ai4teachers/endcard-bg.png",
+      "outSize": [
+        1920,
+        1080
+      ]
+    }
+  ]
+}

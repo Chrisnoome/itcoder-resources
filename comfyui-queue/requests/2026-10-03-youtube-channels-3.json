@@ -1,0 +1,51 @@
+{
+  "id": "2026-10-03-youtube-channels-3",
+  "kind": "items",
+  "from": "the art chat (YouTube channel brands)",
+  "added": "2026-10-03",
+  "status": "made",
+  "why": "A sixth channel, CAT School SA (Computer Applications Technology, IEB and CAPS), added by Chris on 3 October 2026 via the YouTube chat. It shares the School SA look. Board: https://claude.ai/artifact/LtgVBNvwsQKPhcxTb9feYz. Colours: slate #1b2233, plus the site's CAT colours: blue #4f7cff, green #27b36b, coral #ff6a4d and cyan #1fb5c9 (lib/home.php).",
+  "style": "No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 4,
+  "items": [
+    {
+      "name": "cat-avatar",
+      "prompt": "A glossy 3D icon of four rounded square app tiles in a two by two grid, one bright blue, one green, one coral, one cyan, each with a simple white symbol: lines of a page, a spreadsheet grid, angle brackets, a database cylinder, smooth shiny plastic and enamel, soft studio light, like a premium app icon, centred on a plain dark slate blue background with space all around it",
+      "out": "AIResources/brand/youtube/cat/avatar-art.png",
+      "outSize": [
+        800,
+        800
+      ]
+    },
+    {
+      "name": "cat-banner",
+      "prompt": "A wide calm dark slate blue background with a few softly glowing blurred rounded square tiles in blue, green, coral and cyan floating at different depths, all the detail at the far left and far right edges, the whole middle a smooth empty dark slate space, gentle depth of field, modern and clean",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/cat/banner-bg.png",
+      "outSize": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "name": "cat-endcard",
+      "prompt": "A calm dark slate blue background with a few softly glowing blurred rounded square tiles in blue, green, coral and cyan only along the far right edge and the bottom corners, most of the picture a smooth empty dark slate space, gentle depth of field",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/cat/endcard-bg.png",
+      "outSize": [
+        1920,
+        1080
+      ]
+    }
+  ]
+}

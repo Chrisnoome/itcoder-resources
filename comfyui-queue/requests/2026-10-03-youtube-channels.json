@@ -1,0 +1,82 @@
+{
+  "id": "2026-10-03-youtube-channels",
+  "kind": "items",
+  "from": "the art chat (YouTube channel brands)",
+  "added": "2026-10-03",
+  "status": "made",
+  "why": "Chris, 3 October 2026: \"I want a new channel for programming in pascal and programming in java and one for Ai called AI 4 All. i need logos and brands for youtube for these channels\". The logos themselves are drawn as SVG (design board https://claude.ai/artifact/LtgVBNvwsQKPhcxTb9feYz); these pictures are the illustrated alternative avatars and the banner backgrounds the name and logo sit on. Banner rule: YouTube shows only the middle 1546 x 423 of 2560 x 1440 on every device, so the middle must stay calm and dark for the logo and name. Colours per channel: Pascal navy #12355b and teal #2ec4b6; Java coffee brown #2b1a12 and orange #f28c28; AI 4 All indigo #2d2a8c, lilac #c9b8ff and gold #ffd166.",
+  "style": "No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 4,
+  "items": [
+    {
+      "name": "pascal-avatar",
+      "prompt": "A glossy 3D icon of a chunky deep navy blue computer terminal with a glowing teal cursor block on its dark screen, smooth shiny plastic and enamel, soft studio light, like a premium app icon, centred on a plain deep navy blue background with space all around it",
+      "out": "AIResources/brand/youtube/pascal/avatar-art.png",
+      "outSize": [
+        800,
+        800
+      ]
+    },
+    {
+      "name": "java-avatar",
+      "prompt": "A glossy 3D icon of a cream coffee cup with warm orange steam curling up from it, standing between two large glossy orange curly bracket shapes, smooth shiny ceramic and enamel, soft studio light, like a premium app icon, centred on a plain dark coffee brown background with space all around it",
+      "out": "AIResources/brand/youtube/java/avatar-art.png",
+      "outSize": [
+        800,
+        800
+      ]
+    },
+    {
+      "name": "ai-avatar",
+      "prompt": "A glossy 3D icon of a small friendly glowing network of five golden spheres joined by lilac glass rods, softly lit from inside, smooth shiny glass and enamel, soft studio light, like a premium app icon, centred on a plain deep indigo background with space all around it",
+      "out": "AIResources/brand/youtube/ai4all/avatar-art.png",
+      "outSize": [
+        800,
+        800
+      ]
+    },
+    {
+      "name": "pascal-banner",
+      "prompt": "A wide calm deep navy blue background with soft glowing teal light trails and faint blurred rows of tiny rectangles like lines on a code editor, all the detail at the far left and far right edges, the whole middle a smooth empty dark navy space, gentle depth of field, modern and clean",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/pascal/banner-bg.png",
+      "outSize": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "name": "java-banner",
+      "prompt": "A wide calm dark coffee brown background with soft warm orange glowing steam swirls and a few blurred coffee beans, all the detail at the far left and far right edges, the whole middle a smooth empty dark brown space, gentle depth of field, cosy and modern",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/java/banner-bg.png",
+      "outSize": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "name": "ai-banner",
+      "prompt": "A wide calm deep indigo background with a soft glowing network of small golden dots joined by thin lilac lines, all the detail at the far left and far right edges, the whole middle a smooth empty dark indigo space, gentle depth of field, hopeful and modern",
+      "size": [
+        1536,
+        864
+      ],
+      "out": "AIResources/brand/youtube/ai4all/banner-bg.png",
+      "outSize": [
+        2560,
+        1440
+      ]
+    }
+  ]
+}

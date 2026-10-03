@@ -1,0 +1,34 @@
+{
+  "id": "2026-10-03-youtube-channels-4",
+  "kind": "items",
+  "from": "the art chat (YouTube channel brands)",
+  "added": "2026-10-03",
+  "status": "made",
+  "why": "A redo of the SQL School SA banner and end card from 2026-10-03-youtube-channels-2: the words \"forest green\" made the model draw an actual forest. These prompts ask for an abstract dark green with mint light. Board: https://claude.ai/artifact/LtgVBNvwsQKPhcxTb9feYz.",
+  "style": "Abstract, no trees, no plants, no landscape. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1536,
+    864
+  ],
+  "variants": 4,
+  "items": [
+    {
+      "name": "sql-banner",
+      "prompt": "A wide calm abstract very dark emerald green background with soft glowing mint green light, faint blurred grids like spreadsheet tables and a few small glowing glass cylinders, all the detail at the far left and far right edges, the whole middle a smooth empty dark green space, gentle depth of field, modern and clean, like a technology wallpaper",
+      "out": "AIResources/brand/youtube/sql/banner-bg.png",
+      "outSize": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "name": "sql-endcard",
+      "prompt": "A calm abstract very dark emerald green background with soft mint green light and faint blurred table grids only along the far right edge and the bottom corners, most of the picture a smooth empty dark green space, gentle depth of field, like a technology wallpaper",
+      "out": "AIResources/brand/youtube/sql/endcard-bg.png",
+      "outSize": [
+        1920,
+        1080
+      ]
+    }
+  ]
+}
