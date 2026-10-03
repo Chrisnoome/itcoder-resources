@@ -1587,7 +1587,9 @@ section folds only once every question in it is settled (app.js).
   links to the question's `#bN` block; a re-mark refreshes the same notice),
   the review worker (summary ready, `#review`), `InviteToGroup` (only when the
   invitation is really opened), pupil-work reset and flag/clear, and
-  `SubscriptionReminders()` - 30 and 7 days before a subscription ends,
+  `SubscriptionReminders()` - 30 and 7 days before a subscription ends, plus
+  the Consumer Protection Act s14 notice once between 80 and 40 business days
+  before the end of one longer than three months (4 October 2026),
   checked lazily when the bell is drawn (no cron). `Notify()` never throws: a
   notice must not break what caused it. **Carry on where you were** on
   Subjects: the newest `lessonPositions` row still in an enrolled course; the
@@ -1619,6 +1621,22 @@ section folds only once every question in it is settled (app.js).
   leaves out. Both read `aiUsage`; 0 switches one off. Live spent under $0.10 a
   day, busiest pupil 10 calls, when it was set. A marking call stopped by it
   fails like any failed call (admin's "Re-mark all failed" retries it).
+  **Raised to US$50 a day and lowered to 60 a person** (Chris, 4 October 2026,
+  before selling subscriptions; set in live's config.php and the code defaults).
+- **A monthly AI budget per paid plan** (Chris, 4 October 2026: "cheaper model,
+  then stop" - pricing-suggestions.md section 2): `plans.aiMonthlyBudgetCents`
+  (rand cents; Admin > Billing > Plans, "AI a month"; R10 a course, R15 a
+  subject). `AiBudgetState()` in lib/billing.php adds up the budgets of the
+  person's **own** subscriptions and compares this month's `aiUsage` cost in
+  rand: past the budget, written answers are marked by `anthropicModel`
+  (Haiku) instead of `markingModel` (`MarkingModel()`); past twice the budget,
+  `AiSpendGuard()` refuses every call until the 1st, in words. No budget at all
+  for anyone with another source (school email or licence, a teacher's group,
+  the old expiry date, the admin's AI-on switch) or a plan without one; a
+  school's shared budget is not built. Check: `php bin/check-ai-budget.php`.
+- **No prompt caching on marking** (4 October 2026): live data showed each
+  marking call wrote about 3,100 tokens to the cache and read back about 240,
+  adding 9.6% a call (costs-research.md 3.3).
 - **The house-style comment after a compile** goes only to someone who may use
   AI marking in that lesson (`StyleFeedbackFor()` in lib/compile.php, Chris 28
   Sep 2026: "only pupils with AI marking"); running code stays open to every

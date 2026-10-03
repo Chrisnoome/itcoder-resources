@@ -5,6 +5,21 @@ Details live in the linked files.
 
 ## Platform
 
+- **Commercialisation - before selling** (4 Oct 2026; research in
+  [payments-research.md](payments-research.md),
+  [costs-research.md](costs-research.md),
+  [market-research.md](market-research.md),
+  [competitor-review.md](competitor-review.md),
+  [pricing-suggestions.md](pricing-suggestions.md); business case page
+  https://claude.ai/artifact/6aFcGpBj1QeGuzwVmdz1HT). Done: live limits
+  US$50 a day / 60 a person (config); monthly AI budgets per plan, marking
+  cache off, the CPA expiry notice (platform commit 88766d2, **waiting for
+  Chris's publish**). Still to do: set each plan's "AI a month" in Admin >
+  Billing once plans exist; a school's shared AI budget; checkout must make
+  the parent the buyer and show the ECT Act s43 information; Chris: Paystack
+  sign-up (sole proprietorship), an accountant (VAT, entity, imported-services
+  VAT on Anthropic and Brevo invoices).
+
 - **Committed code calls functions that are not committed** (found
   2026-10-01 with `tools/undefined-calls.php`, platform.md "Checks to run").
   TypedRules() is called by commit 236431c (28 Sep) and defined only in the
