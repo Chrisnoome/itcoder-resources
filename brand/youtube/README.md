@@ -1,6 +1,6 @@
 # YouTube channel art
 
-Art for the seven channels in `youtube-channels.md`. Chris chose all-SVG art for now (3 October 2026: "use
+Art for the eight channels in `youtube-channels.md`. Chris chose all-SVG art for now (3 October 2026: "use
 all svg for now. make svg parts for the rest"). The ideas and alternatives are on the design board:
 https://claude.ai/artifact/LtgVBNvwsQKPhcxTb9feYz
 
@@ -11,12 +11,14 @@ https://claude.ai/artifact/LtgVBNvwsQKPhcxTb9feYz
 | `sql` | SQL School SA | a database cylinder | green `#0e3b2a`, mint `#6fe3a5` |
 | `cat` | CAT School SA | four app tiles in the site's CAT colours | slate `#1b2233`, blue/green/coral/cyan |
 | `skills` | Computer Skills SA | a mouse pointer clicking in an app window | plum `#4a1240`, pink `#ff8fd1` |
+| `codesinger` | Pascal Code Singer (the songs) | a music note and Pascal's `;` | black `#141414`, white, gold `#ffcc33` |
 | `ai4all` | AI 4 All | the 4 drawn as a network | indigo `#2d2a8c`, lilac `#c9b8ff`, gold `#ffd166` |
 | `ai4teachers` | AI for Teachers | a white apple with a gold spark for a leaf | red `#c8372d`, gold `#ffd166` |
 
 **The family rule:** the four School SA channels and Computer Skills SA go with bestlessons.co.za. They carry the BestLessons
 light-blue rising line (`#7ea6ff`) under the mark, and their banners and end cards name the site. The
-two AI channels stand alone: no line, no site.
+two AI channels stand alone: no line, no site. Pascal Code Singer is the songs channel, outside the
+family: no line, but its banner says the lessons are at bestlessons.co.za.
 
 **Each folder has:** `avatar` (800 x 800, full-bleed, YouTube crops it to a circle), `banner`
 (2560 x 1440, name and logo inside the 1546 x 423 middle), `watermark` (150 x 150, clear background)

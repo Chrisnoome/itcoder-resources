@@ -125,6 +125,17 @@ def skills_mark ():
             'stroke-width="5" stroke-linejoin="round"/>' + line_mark (SITE_BLUE))
 
 
+def note (x, y, k, fill):
+    """An eighth note, head at (x, y), k = scale (1 = the avatar's note)."""
+    return (f'<g transform="translate({x} {y}) scale({k})" fill="{fill}"><ellipse cx="0" cy="0" rx="30" ry="22" transform="rotate(-20)"/>'
+            '<rect x="21" y="-108" width="11" height="108"/><path d="M29 -108 C54 -96 70 -84 64 -54 C60 -70 50 -78 29 -80 Z"/></g>')
+
+
+def singer_mark ():
+    """Pascal Code Singer (the songs channel): a note and Pascal's semicolon (Chris, 3 October 2026: C, black and gold)."""
+    return note (96, 160, 1, '#ffffff') + text (MONO, ';', 174, 172, 100, '#ffcc33', 'middle')
+
+
 def ai_mark ():
     dots = ''.join (f'<circle cx="{x}" cy="{y}" r="15" fill="#ffd166"/>'
                     for x, y in ((150, 50), (60, 150), (184, 150), (150, 196), (150, 150)))
@@ -170,6 +181,13 @@ def windows (spots):
     return out
 
 
+def staff (x0, x1, top, notes):
+    """Five faint staff lines with gold notes on them."""
+    lines = ''.join (f'<path d="M{x0} {top + i * 34} H{x1}"/>' for i in range (5))
+    return (f'<g stroke="#ffffff" stroke-width="3" opacity="0.18">{lines}</g>' +
+            ''.join (f'<g opacity="0.55">{note (x, top + step * 17, 0.62, "#ffcc33")}</g>' for x, step in notes))
+
+
 def network (points, links):
     lines = ''.join (f'<path d="M{points[a][0]} {points[a][1]} L{points[b][0]} {points[b][1]}"/>' for a, b in links)
     dots = ''.join (f'<circle cx="{x}" cy="{y}" r="10"/>' for x, y in points)
@@ -203,6 +221,9 @@ def banner_sides (key, accent):
         return code_lines (left, 90, 590, 34, accent, 'start') + code_lines (right, 2470, 590, 34, accent, 'end')
     if key == 'cat':
         return tiles ([(90, 560, 110), (240, 690, 84), (110, 800, 70), (330, 540, 64), (2360, 560, 110), (2230, 700, 84), (2380, 810, 70), (2140, 560, 64)])
+    if key == 'codesinger':
+        return (staff (40, 470, 620, [(110, 6), (200, 4), (290, 5), (390, 2)]) +
+                staff (2090, 2520, 620, [(2160, 3), (2260, 5), (2350, 1), (2440, 4)]))
     if key == 'skills':
         return windows ([(90, 560, 170), (300, 700, 130), (120, 820, 100), (2300, 560, 170), (2130, 690, 130), (2360, 820, 100)])
     if key == 'ai4all':
@@ -216,6 +237,8 @@ def endcard_sides (key, accent):
         return code_lines (CODE[key][1], 1840, 760, 30, accent, 'end')
     if key == 'cat':
         return tiles ([(1700, 700, 100), (1580, 860, 76), (1760, 880, 70), (80, 960, 60), (1820, 620, 54)])
+    if key == 'codesinger':
+        return staff (1480, 1880, 820, [(1560, 5), (1660, 3), (1760, 6), (1840, 2)])
     if key == 'skills':
         return windows ([(1640, 720, 170), (1560, 900, 120), (1740, 930, 110), (80, 960, 80)])
     if key == 'ai4all':
@@ -237,6 +260,9 @@ CHANNELS = [
           tagline='Computer Applications Technology, IEB and CAPS.', site=True, next='Keep going'),
     dict (key='skills', name=('Computer ', 'Skills SA'), bg='#4a1240', accent='#ff8fd1', ring='#ff8fd1', mark=skills_mark,
           tagline='How-to videos for everyday computer tools.', site=True, next='Keep going'),
+    dict (key='codesinger', name=('Pascal Code ', 'Singer'), bg='#141414', accent='#ffcc33', ring='#ffcc33', mark=singer_mark,
+          tagline='IT, sung. Short songs for the IT syllabus.', sub='The lessons are at bestlessons.co.za', subcolour='#ffffff',
+          site=False, next='Watch next'),
     dict (key='ai4all', name=('AI 4 All', ''), bg='#2d2a8c', accent='#ffd166', ring='#ffd166', mark=ai_mark,
           tagline='Everyday AI, explained for everyone.', sub='No jargon. No experts needed.', subcolour='#c9b8ff', site=False, next='Watch next'),
     dict (key='ai4teachers', name=('AI for Teachers', ''), bg='#c8372d', accent='#ffd166', ring='#ffd166', mark=teachers_mark,
