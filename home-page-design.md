@@ -189,3 +189,44 @@ Still far under the price; typical use is R3.53.
 - **Q5** A demo lesson that works without signing in (roadmap Q22)?
 - **Q6** Which pictures first: marking, console, badge, collectable,
   progress check, revision list, year plan - all, or a shortlist?
+
+## Mock-up status (night of 4 October 2026)
+
+The whole page is mocked up at https://claude.ai/artifact/MytbCKNynd2GvH2A2JPxFU
+(round 10): the hero block with tabs, then In every lesson, Home schooling,
+Teachers, Schools (with the "what you get vs the old way" table), Sign in,
+Subjects and prices, footer (no "built by"). Chris's calls during the evening,
+all in the mock-up:
+
+- **Hero**: one block, tabs for pupils / parents / teachers with site-style
+  drawings; only the promise flips (icon in front of it); the screen on the
+  right changes with it; title bars take turns (Mac, Windows, Linux);
+  heading "A textbook that does what **no** textbook ever could" with a
+  scribbled underline; wordmark small, site name large; "Take a full course
+  explaining AI before you pay a cent"; no "30 minutes" claim (lessons vary).
+- **Promises**: 18 for pupils (incl. tells you what to learn, explains
+  interactively, comes with its own videos, works on all your devices), 11 for
+  parents, 12 for teachers; no promise shows the same picture on two tabs.
+- **Screens are the real site** (local copy, a demo class: a dev teacher and
+  six made-up pupils with high marks, seeded by `scratchpad/site/seed-demo.php`
+  - not in the repo). **Names are blurred on purpose** so it feels like real
+  data. Special screens: a brochure stack (question with rubric, the answer,
+  the marking) for "marks your work"; six games cycling; an animated walk
+  from the class table to one pupil's question; the token counter being
+  typed into; the must-know box and a Learn / Memorise table; the study-notes
+  PDF as the browser shows it; the flagged (pasted) answer with how it was
+  entered.
+- **Prices on the page**: the 3x table above, with the decisions (R6,000 a
+  class of 35 then R120; R750 exam pass; sponsored pricing on request).
+
+**Not done, on purpose**: nothing is on the live site. publishing.md says
+Chris publishes, and the working tree holds other chats' unfinished work plus
+the Delphi-mode sandbox change that must go through publish-test first. The
+next step is to build the real page in `public/index.php` from this mock-up
+(prices from `plans`/`bundles`, screenshots as assets under
+`public/assets/home/`), then Chris publishes.
+
+**Live changes made on 4 October 2026 at Chris's request** (his Chrome):
+the 21 Grade 10 pupils (28... addresses) added to Grd 10 IT; Term 3 ticks for
+Grade 10 IT set to lessons 16 and 18 only - lesson 17 is not in Term 3's
+plan, so it could not be ticked there.
