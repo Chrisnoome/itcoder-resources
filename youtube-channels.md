@@ -52,6 +52,34 @@ songs-only one, Chris):
 
 @AI4All and @AIforTeachers were taken, hence the SA suffix.
 
+## BestLessons: one channel, playlists per subject (4 October 2026)
+
+YouTube verifies only two channels a year per phone number, and custom thumbnails need a verified
+channel, so Chris chose one main channel (4 Oct 2026). It is also better for monetisation, because the
+Partner Program counts watch hours and subscribers per channel.
+
+- **Pascal Code Singer was renamed BestLessons, @BestLessonsSA** (UCb24pUo8CSo__XW2vB4q88Q), with a
+  new all-subjects description. Every new video goes here.
+- The seven channels in the table above are **parked, empty**: they keep their art, but get no uploads.
+- AI 4 All and AI for Teachers are playlists now, not channels.
+- All 166 old playlists were set to **private** (none deleted). The new public playlists:
+
+| Playlist | ID | Cover (`brand/youtube/playlists/`) |
+|---|---|---|
+| IT songs (13 songs) | PLRm72f41crCs | it-songs.png - set |
+| Pascal | PLNZqbWxbF8ds | pascal.png - set |
+| Java | PLQvVbWwEQGXM | java.png - after its first video |
+| SQL and databases | PLHccRW6P5DZg | sql.png - after its first video |
+| CAT | PLKVWwt37_Zh8 | cat.png - after its first video |
+| Computer skills | PLDaS9R_GFhx0 | computer-skills.png - after its first video |
+| AI 4 All | PLfnu74dR9LIc | ai-4-all.png - after its first video |
+| AI for Teachers | PLBS4vk8yfEiM | ai-for-teachers.png - after its first video |
+
+Covers come from `thumbs.py --playlists`, in the same style and colours as the videos. **YouTube
+offers no cover for an empty playlist**, so a cover goes on with the playlist's first video: on
+youtube.com/playlist?list=ID, hover over the cover, click the pencil (Edit Thumbnail), upload, Done.
+On thumbnails and title cards, the channel name is BestLessons for every subject.
+
 ## What each channel is for
 
 - **AI 4 All** - interesting and useful ways to use AI for everyday people,
@@ -99,5 +127,6 @@ Every finished video opens with its thumbnail as a 3-second title card at 1920 x
   "Pascal Code Singer" in `edit\NN-*.json` is with the chat that makes the
   install videos, "Database planning: caps and sags" (handed over 3 Oct 2026).
 
-- Install videos go to each subject's School SA channel (Chris, 3 Oct
-  2026); courses/install-videos.md says so.
+- Install videos go to BestLessons and their subject's playlist (4 Oct 2026, replacing "each
+  subject's School SA channel"); waiting for the re-voiced files ("find BestLessons on YouTube").
+  courses/install-videos.md still names the School SA channels.

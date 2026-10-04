@@ -5,6 +5,7 @@ the tag and code. One HTML file per video, rendered to PNG with headless Chrome.
   python thumbs.py [--channel FOLDER] [id ...]   specs from thumbs.json (codesinger) or thumbs-FOLDER.json
   python thumbs.py --card [--channel FOLDER] [id ...]   the opening title card: same picture, 1920 x 1080
                                                   -> FOLDER/cards/<id>.png
+  python thumbs.py --playlists                    the playlist covers -> playlists/KEY.png
   python thumbs.py --samples                      one sample per channel -> source/samples/FOLDER.png
 
 A spec: id, tag, title (list of lines; *word* = accent colour), and either a frame from the video in
@@ -21,14 +22,14 @@ WIN_FONTS = 'file:///C:/Windows/Fonts/'
 # bg: background, accent: *words*, tag and pill, muted: the channel name at the bottom,
 # line: the BestLessons blue rising line under the name (the School SA family and Computer Skills SA).
 CHANNELS = {
- 'codesinger':  dict (name='Pascal Code Singer', bg='#141414', accent='#ffcc33', muted='#9a9a9a', line=False),
- 'pascal':      dict (name='Pascal School SA',   bg='#12355b', accent='#2ec4b6', muted='#a9bdd6', line=True),
- 'java':        dict (name='Java School SA',     bg='#2b1a12', accent='#f28c28', muted='#c9b4a2', line=True),
- 'sql':         dict (name='SQL School SA',      bg='#0e3b2a', accent='#6fe3a5', muted='#a3c9b6', line=True),
- 'cat':         dict (name='CAT School SA',      bg='#1b2233', accent='#ff6a4d', muted='#aab3c7', line=True),
- 'skills':      dict (name='Computer Skills SA', bg='#4a1240', accent='#ff8fd1', muted='#d7b3cd', line=True),
- 'ai4all':      dict (name='AI 4 All',           bg='#2d2a8c', accent='#ffd166', muted='#c9b8ff', line=False),
- 'ai4teachers': dict (name='AI for Teachers',    bg='#c8372d', accent='#ffd166', muted='#f6d2cd', line=False),
+ 'codesinger':  dict (name='BestLessons',        bg='#141414', accent='#ffcc33', muted='#9a9a9a', line=False),
+ 'pascal':      dict (name='BestLessons',        bg='#12355b', accent='#2ec4b6', muted='#a9bdd6', line=True),
+ 'java':        dict (name='BestLessons',        bg='#2b1a12', accent='#f28c28', muted='#c9b4a2', line=True),
+ 'sql':         dict (name='BestLessons',        bg='#0e3b2a', accent='#6fe3a5', muted='#a3c9b6', line=True),
+ 'cat':         dict (name='BestLessons',        bg='#1b2233', accent='#ff6a4d', muted='#aab3c7', line=True),
+ 'skills':      dict (name='BestLessons',        bg='#4a1240', accent='#ff8fd1', muted='#d7b3cd', line=True),
+ 'ai4all':      dict (name='BestLessons',        bg='#2d2a8c', accent='#ffd166', muted='#c9b8ff', line=False),
+ 'ai4teachers': dict (name='BestLessons',        bg='#c8372d', accent='#ffd166', muted='#f6d2cd', line=False),
 }
 
 NOTE = ('<g fill="#ffffff"><ellipse cx="0" cy="0" rx="30" ry="22" transform="rotate(-20)"/>'
@@ -145,8 +146,24 @@ SAMPLES = {   # one made-up video per channel, for the style record in README.md
  'ai4teachers': dict (id='sample', tag='ADMIN · REPORTS', title=['Report Comments', 'in *Minutes*'], code=['"Write a 2-line', ' comment for a', ' Grade 10 pupil..."']),
 }
 
+PLAYLISTS = {   # one cover per playlist on the BestLessons channel (16:9, uploaded with "Edit Thumbnail")
+ 'it-songs':        ('codesinger',  dict (id='it-songs', tag='PLAYLIST · SONGS', title=['IT', '*Songs*'], code=['// learn it,', '// then sing it', "WriteLn ('Encore!');"])),
+ 'pascal':          ('pascal',      dict (id='pascal', tag='PLAYLIST · PASCAL', title=['*Pascal*'], code=['Program Hello;', 'Begin', "  WriteLn ('Hello!');", 'End.'])),
+ 'java':            ('java',        dict (id='java', tag='PLAYLIST · JAVA', title=['*Java*'], code=['public class Hello {', '  public static void', '    main (String[] a) {']), ),
+ 'sql':             ('sql',         dict (id='sql', tag='PLAYLIST · DATABASES', title=['SQL and', '*Databases*'], code=['SELECT *', 'FROM tblPupils', 'WHERE grade = 12;'])),
+ 'cat':             ('cat',         dict (id='cat', tag='PLAYLIST · CAT', title=['*CAT*'], code=['=SUM(B2:B30)', '=IF(C2<50;', '  "Fail";"Pass")'])),
+ 'computer-skills': ('skills',      dict (id='computer-skills', tag='PLAYLIST · HOW-TO', title=['Computer', '*Skills*'], code=['Ctrl+C  copy', 'Ctrl+V  paste', 'Win+E   Explorer'])),
+ 'ai-4-all':        ('ai4all',      dict (id='ai-4-all', tag='PLAYLIST · EVERYDAY AI', title=['AI', '*4 All*'], code=['"Explain this letter', ' in plain English..."'])),
+ 'ai-for-teachers': ('ai4teachers', dict (id='ai-for-teachers', tag='PLAYLIST · TEACHERS', title=['AI for', '*Teachers*'], code=['"Make a Grade 10', ' worksheet with a', ' memo..."'])),
+}
+
 def main ():
     args = sys.argv[1:]
+    if args[:1] == ['--playlists']:
+        for key, (folder, spec) in PLAYLISTS.items ():
+            render (spec, folder, os.path.join (ROOT, 'playlists', key + '.png'))
+            print ('ok', key)
+        return
     if args[:1] == ['--samples']:
         for folder, spec in SAMPLES.items ():
             render (spec, folder, os.path.join (HERE, 'samples', folder + '.png'))
