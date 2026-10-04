@@ -138,3 +138,46 @@ Every finished video opens with its thumbnail as a 3-second title card at 1920 x
 
 - Install videos go to each subject's School SA channel (Chris, 3 Oct
   2026); courses/install-videos.md says so.
+
+## Install videos on BestLessons (4 October 2026)
+
+All 19 uploaded, Public, with our title, description, thumbnail (`brand/youtube/<folder>/thumbs/install-NN-*.png`)
+and our English (UK) captions (`out/final/NN-*.srt`). Titles and descriptions come from `thumbs-*.json`.
+
+| NN | Video | ID | Playlists |
+|---|---|---|---|
+| 01 | Lazarus | 9VSHNetcIM8 | Pascal |
+| 03 | JDK | h_puRYS0OM4 | Java |
+| 04 | jGRASP | RDGT9EaJfsQ | Java |
+| 05 | NetBeans | E7IkiLV1vFU | Java, SQL |
+| 06 | Java DB | nz4K9FM7bso | SQL |
+| 07 | MySQL | zIaeScqkFL8 | SQL |
+| 08 | DBeaver | s37LfMjZurM | SQL |
+| 09 | Letos (SQLite) | yd0jxc2c-Cg | SQL |
+| 10 | File Explorer | ExHmPxC1ZLg | Computer skills, CAT |
+| 11 | Notepad++ | Okx8X9cSgr8 | Computer skills |
+| 12 | 7-Zip | xfK2mtwWEdc | Computer skills, CAT |
+| 13 | draw.io | 0aYZ8aA_Btg | Computer skills, CAT |
+| 14 | Git | eegb3tAUr7I | Computer skills |
+| 15 | OneDrive | SgvYCFAbrZ4 | Computer skills, CAT |
+| 16 | Google Drive | Zv7Ge2_M2yU | Computer skills, CAT |
+| 17 | Office and Access | dJRv6DrPOAI | Computer skills, CAT, SQL |
+| 18 | Edge | C4sZj8xxeDI | Computer skills |
+| 19 | Chrome | B8HY7VQsqRk | Computer skills |
+| 20 | Firefox | nUOMxO6h8AQ | Computer skills |
+
+Channel art replaced on 4 Oct 2026 (Chris approved): banner, "bl" profile picture and watermark from the site's
+logo files, made by `brand/youtube/source/bestlessons_art.py` -> `brand/youtube/bestlessons/`.
+Playlist covers set: IT songs, Pascal, Java, SQL and databases, CAT, Computer skills (AI ones wait for videos).
+
+In the lessons (AIPascalCourse 75e3990 and 60ce4f4, not published yet - Chris: "not yet"): setup-lesson.php
+`$setupVideos` (all but Delphi; draw.io and Git in a new step 7 for both Pascal and Java), pascal/ides.php
+(Lazarus), java/lesson03.php (JDK, jGRASP, NetBeans), sql/javadbsetup (Java DB, NetBeans, DBeaver),
+sql/mysqlsetup (MySQL), sql/sqlitesetup (Letos), sql/access00 (Office and Access).
+
+Cards (links inside the videos) added on 4 Oct 2026 from `out/final/NN-*.youtube.md`: 24 cards on 16 videos - File
+Explorer where the voice mentions it, OneDrive and Google Drive 2 s apart where it mentions both. All 19 checked with
+our en-GB caption track on the watch page (18's Studio "Catalan" row is not shown to viewers).
+How: Studio's own `video_editor/edit_video` with `infoCardEdit.infoCards` [{videoId, teaserStartMs,
+videoInfoCard: {videoId}}] replaces a video's whole card list; `creator/list_creator_info_cards` {videoId} reads it.
+YouTube auto-dubs and auto-translates titles into many languages; Chris chose to keep it on (4 Oct 2026).
