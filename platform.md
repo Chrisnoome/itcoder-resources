@@ -1476,7 +1476,9 @@ pupils in Grades 9-11; email through **Brevo**, plus the bell.
   the live site (the folder named `itcoder`); it exists on the test site and
   the testbed only. With `'status' => 'draft'`, teachers and admins see it,
   pupils do not. First use: `catpilot`, the CAT sample lesson from
-  the CAT cloud session, for Chris to judge (27 September 2026).
+  the CAT cloud session, for Chris to judge (27 September 2026). On live
+  too since 4 October 2026 (Chris: "show it on live too"): the flag is off,
+  the status stays `draft`, so only teachers and admins see it there.
 - **A shared glossary:** `'glossaryFrom' => 'theory10'` (`GlossaryHome()`);
   a row taught in another course names it with the extras key `'course'`.
   The glossary page and Index link a term only when the pupil's course is
