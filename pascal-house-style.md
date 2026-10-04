@@ -128,6 +128,11 @@ Console always; code copied from an exercise from lesson 4 on.
   (`SetTitle (aTitle);`, not `title := aTitle;`).
 - Getter `GetX`/`IsX`/`HasX` gives back its field (`Result := title;`); setter
   `SetX` stores its parameter (`title := aTitle;`).
+- **Every class has its own destructor** (Chris, 1 October 2026),
+  `Destructor Destroy; Override;`, with `Inherited Destroy;` as its last
+  line - for a simple class, its only line. Lesson 16 says so, and the
+  console's Ctrl+Shift+C adds one to a class without it. Listings written
+  before this date were not changed (Chris: rule and lesson 16's text only).
 - **A class holding an array of objects frees them in its destructor**
   (`Destructor Destroy; Override;`): loop `Low (list) To High (list)`,
   `list[index].Free;`, `list[index] := Nil;`, then `Inherited Destroy;`.
@@ -137,11 +142,15 @@ Console always; code copied from an exercise from lesson 4 on.
   of this - change the two together.
 - Keep logic out of event handlers so it works in GUI and CLI.
 
-## 6a. Verified type-mismatch errors (FPC 3.2.2, `-Mobjfpc`)
+## 6a. Verified type-mismatch errors (FPC 3.2.2, `-Mdelphi`)
 
-Never guess compiler messages - compile them. Under `-Mobjfpc` (what the site
-uses; Lazarus and Delphi agree) `Integer` = `LongInt`, 32-bit
-(-2147483648..2147483647); `String` = `ShortString` (255 chars, `SizeOf` 256).
+Never guess compiler messages - compile them. The console compiles with
+`-Mdelphi` (Chris, 4 October 2026; it was `-Mobjfpc` before). There `Integer` =
+`LongInt`, 32-bit (-2147483648..2147483647), and `String` = `AnsiString` (long,
+`SizeOf` 8) even without `{$H+}` - the same as Lazarus (`{$mode objfpc}{$H+}`,
+and `-Sh` in its default project options) and Delphi. Only bare `fpc -Mobjfpc`
+without `{$H+}` still makes `String` a 255-character `ShortString`. Recompiled
+4 October 2026 with `-Mdelphi -O1`; only the String row changed.
 
 | Assignment | fpc error |
 |---|---|
@@ -149,7 +158,7 @@ uses; Lazarus and Delphi agree) `Integer` = `LongInt`, 32-bit
 | `Integer := 'ten'` | `Incompatible types: got "Constant String" expected "LongInt"` |
 | `Boolean := 1` | `Incompatible types: got "ShortInt" expected "Boolean"` |
 | `Char := 'AB'` | `Incompatible types: got "Constant String" expected "Char"` |
-| `String := 5` | `Incompatible types: got "ShortInt" expected "ShortString"` |
+| `String := 5` | `Incompatible types: got "ShortInt" expected "AnsiString"` |
 | `Real := 5` | Compiles - Integer widens into Real |
 
 Lessons say `Integer`/`String`; the compiler says the underlying names.

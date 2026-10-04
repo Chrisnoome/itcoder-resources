@@ -27,7 +27,17 @@ polkit rule would be broader than one sudo line). Inside one transient
 `InaccessiblePaths=/var/www /var/backups /var/log`, `ProtectProc=invisible`,
 `ProcSubset=pid`, `TasksMax=32`, memory and time limits; compile then run in
 the unit's private `/tmp` (on disk, exec allowed; cleaned up automatically).
-Run 5s, output 64 KB, 128M memory.
+Run 5s, output 64 KB, 128M memory. **Added 28 Sep 2026 (security review; the
+live console's launcher has the same set):** `InaccessiblePaths=-/run/mysqld
+-/run/dbus -/run/php` and `RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6`
+(PrivateNetwork removes TCP/IP, not host unix sockets - pupil code could use up
+MySQL's connections), `SystemCallFilter=@system-service` with
+`SystemCallErrorNumber=EPERM`, `SystemCallArchitectures=native`, the
+`Protect*` kernel set, `RestrictNamespaces`, `LockPersonality`,
+`RestrictRealtime`, `PrivateDevices` (keeps the pty), `PrivateIPC`, an empty
+`CapabilityBoundingSet`, `LimitFSIZE=32M`, `CPUQuota=100%`. Tried in a
+throwaway unit on the server first, then proven by sandbox-check.php (all
+gating checks, Java included); Java compiles ~0.2 s slower on one core.
 
 Load-bearing facts, all verified on the server:
 - Unprivileged user namespaces are blocked; `DynamicUser` via systemd works.
@@ -54,7 +64,7 @@ Load-bearing facts, all verified on the server:
   call and `--tty` only; the script validates its argument too. Always
   `visudo -cf` a candidate, `visudo -c` after. Removing
   `/etc/sudoers.d/itcoder-compile` switches compiling off cleanly.
-- fpc runs `-Mobjfpc -O1` (platform.md decision 24).
+- fpc runs `-Mdelphi -O1` (platform.md decision 24; `-Mobjfpc` until 4 October 2026).
 
 ## PHP side
 
@@ -128,7 +138,7 @@ marks = awardable marks.
         -- bash -c ':(){ :|:& };: ; sleep 3'; echo "exit=$?"
       uptime; ps -eL --no-headers | wc -l
       systemctl is-active nginx php8.3-fpm
-      curl -s -o /dev/null -w '%{http_code}\n' https://itcoder.co.za/
+      curl -s -o /dev/null -w '%{http_code}\n' https://bestlessons.co.za/
 
   (`sleep 3` keeps the parent alive so `TasksMax` is really exercised.) Expect
   a return in 3-8s, task count back to normal, the site still 200. If not,

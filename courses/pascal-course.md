@@ -223,9 +223,11 @@ four". Built 27 Sep 2026; nothing committed or deployed.
 - **Lesson 16 Good to Know - Self** (`#selfWord`, Chris 27 Sep 2026: "yes add
   the Self good to know"). Self is the object the method was called on;
   SelfDemo (DidBetterThan with aOther) prints TRUE/FALSE. Tested with fpc
-  3.2.2: in objfpc mode (Lazarus, the console) a parameter named like a
-  field is "Duplicate identifier"; in Delphi mode it compiles, Self.name :=
-  name works, and name := name leaves the fields empty (": 0"), no warning.
+  3.2.2: in objfpc mode (Lazarus) a parameter named like a field is
+  "Duplicate identifier"; in Delphi mode (Delphi, and the console since 4
+  October 2026) it compiles, Self.name := name works, and name := name
+  leaves the fields empty (": 0"), no warning. The lesson now says the
+  console behaves like Delphi and names Lazarus as the strict one.
   Mentions Delphi's F/A prefixes and lesson 23's TButton.Create (Self).
   Two quizzes, a study point, a glossary row.
 - **Stale overflow pointers fixed.** Overflow was cut from lesson 9 on 18 Sep
@@ -318,9 +320,24 @@ opened; cached in the temp folder until any content file changes.
   pre-fills a written box; a saved answer wins over it.
 - **`markerRubric`** carries exact detail; the shown `rubric` stays vague
   (model: `w2FirstProgram` in proofoflife).
-- **Every example and error is compiled with fpc 3.2.2 `-Mobjfpc`**; nothing is
-  invented. Crt output can only be checked on the test site.
-- **`{$H+}` and ToString Override (Chris, 24 Sep 2026):** from lesson 16 on, every program with a class starts with `{$H+}` under the Program line (a compiler switch, not a comment - Lazarus puts it in every new project) and declares `Function ToString : String; Override;` - no warning. Without `{$H+}`, Override on ToString is an error. Lesson 16 teaches both as "learn the line as it is" (like `Destructor Destroy; Override;`); lesson 21 explains them. Programs without a class are unchanged. Marker rubrics accept ToString with or without Override and never deduct for `{$H+}`. With `{$H+}` the 255-character String limit is gone (lesson 20's warning about it was removed), and ToString on a freed object stopped with an Access violation instead of printing half a pupil (lesson 20's error item re-run).
+- **Every example and error is compiled with fpc 3.2.2 `-Mdelphi -O1`**, the
+  console's mode (Chris, 4 October 2026: "make the console work in delphi
+  mode", for everyone; it was `-Mobjfpc` before). Nothing is invented. Crt
+  output can only be checked on the test site. On 4 October 2026 every whole
+  listing was compiled and run in both modes: the same, except that four
+  exercise starters which named a variable like the program (c2NextLetter,
+  c9Gcd, c4HottestDay, c6AtRisk - "Duplicate identifier" before) now compile.
+  What Delphi mode changed in the lessons: Overload is required ("Not all
+  declarations of "SetMark" are declared with OVERLOAD"); String is long even
+  without `{$H+}`; a parameter or variable may share a field's or the
+  program's name; inside a function its own name on its own is a call, not
+  Result (lesson 21: `Result := ToString + ...` is a stack overflow);
+  `TPupil.Create` with no values when Create needs some is `Incompatible
+  types: got "TPupil.constructor Create(AnsiString;LongInt);" expected
+  "TPupil"`; nested `{ }` comments are not allowed. Lazarus stays objfpc
+  (`{$mode objfpc}{$H+}`, `-Sh` by default): mention it only where a lesson's
+  example behaves differently there.
+- **`{$H+}` and ToString Override (Chris, 24 Sep 2026):** from lesson 16 on, every program with a class starts with `{$H+}` under the Program line (a compiler switch, not a comment - Lazarus puts it in every new project) and declares `Function ToString : String; Override;` - no warning. Without `{$H+}`, Override on ToString was an error under `-Mobjfpc`; in Delphi mode (the console from 4 October 2026) and in Lazarus (`-Sh` by default) String is long anyway, so it compiles - the course keeps `{$H+}` because Lazarus writes it, and lesson 21 no longer shows that error (its card was removed, its "And {$H+}?" paragraph rewritten). Lesson 16 teaches both as "learn the line as it is" (like `Destructor Destroy; Override;`); lesson 21 explains them. Programs without a class are unchanged. Marker rubrics accept ToString with or without Override and never deduct for `{$H+}`. With `{$H+}` the 255-character String limit is gone (lesson 20's warning about it was removed), and ToString on a freed object stopped with an Access violation instead of printing half a pupil (lesson 20's error item re-run).
 - **Files inside a manager (lesson 20, 24 Sep 2026 - Chris to confirm):** LoadFromFile/SaveToFile live in the manager class; they never talk to the user (LoadFromFile gives back False and the caller writes the message). The "methods never read or write" rule is taken to mean keyboard and screen.
 - **Method names never reuse a Pascal built-in** (Chris, 24 Sep 2026): `Insert`/`Delete` are built in, so a class has `AddPupil`, `InsertPupil`, `UpdatePupil`, `DeletePupil`, `FindPupil` (`AddSong`, `AddProduct`...).
 - **I/O in routines (settled, Chris 23 Sep 2026):** a procedure or function
@@ -334,7 +351,7 @@ opened; cached in the temp folder until any content file changes.
 - Crt on the server's xterm (lesson 22): ReadKey Enter #13, Backspace #8, Tab #9, Esc #27; F1-F10 #0 then #59-#68; Up/Down/Left/Right #0 then #72/#80/#75/#77; Home #71, Insert #82; End and Delete come through as rubbish. ClrEol fills to the line end in the current TextBackground. TextBackground (White) shows light grey. Crt sends ESC[6n and waits for the reply.
 - Lazarus 4.2 TMaskEdit (lesson 23, keys typed with WM_CHAR): literals typed for you; a key the place won't take is ignored; `>`/`<` change case as typed; `;0;` Text = typed characters only, `;1;` keeps literals, blanks -> spaces; leaving with a required place empty raises `EDBEditError: The current text does not match the specified mask.`; setting Text in code skips the rules. lazbuild: `lblTotal.Caption := GetTotal` -> `Got "LongInt", expected "TTranslateString"`; `Key = F1` -> `Identifier not found "F1"` (VK_F1 from LCLType); `edtName.Caption := ''` compiles.
 
-- `Integer` 32-bit under `-Mobjfpc`; a computed overflow wraps silently
+- `Integer` 32-bit under `-Mdelphi` (and `-Mobjfpc`); a computed overflow wraps silently
   (`50000 * 50000` -> -1794967296; 13! -> 1932053504).
 - Uninitialised: main-program globals start at 0 (warning); a routine's local
   holds whatever was in memory. An unset function `Result` came back as
@@ -356,15 +373,16 @@ opened; cached in the temp folder until any content file changes.
   search text.
 - Arrays: a fixed out-of-range index only warns; a variable one is silent
   (`marks[6]` of 5), far out crashes 216; with `-Cr`/`{$R+}` -> 201.
-  `Writeln (marks)` -> "Can't read or write variables of this type". A program
-  can't share its name with a variable.
+  `Writeln (marks)` -> "Can't read or write variables of this type". Under
+  `-Mobjfpc` a program can't share its name with a variable ("Duplicate
+  identifier"); in `-Mdelphi` (the console since 4 October 2026) it can.
 - Classes: `Function ToString : String;` without Override warns about hiding
-  the inherited one (`"ToString:AnsiString;"` with `{$H+}`, `ShortString`
-  without); Override errors without `{$H+}`; `private` doesn't protect within the same
+  the inherited one (`"ToString:AnsiString;"`; `ShortString` only under
+  `-Mobjfpc` without `{$H+}`, where Override errors); `private` doesn't protect within the same
   file (`strict private` does); a field below `Class Var` is shared too;
   `Destructor Destroy;` without Override only warns and Free never calls it;
   using an object never created -> 216.
-- Inheritance (lesson 21, `{$H+}`): Override with no Virtual in the ancestor, or a different heading -> `There is no method in an ancestor class to be overridden: "GetMonthlyFee:LongInt;"`; forgotten Override -> `An inherited method is hidden by "GetMonthlyFee:LongInt;"` and the ancestor's method runs; without `{$H+}` ToString Override -> the same error for `"ToString:ShortString;"`. A descendant method through an ancestor variable -> `identifier idents no member "GetGuardian"`; ancestor into descendant variable -> `Incompatible types: got "TMember" expected "TJunior"`; As on the wrong object -> `EInvalidCast: Invalid type cast` (a hard cast `TJunior (member)` printed rubbish endlessly - never taught); Nil Is X -> FALSE; `strict private` used by a descendant -> `Identifier not found "name"`; `Result := ToString + ...` without Inherited -> a managed-result warning and another member's text; Abstract -> `Constructing a class "TShape" with abstract method "GetArea"` then `EAbstractError: Abstract method called`. A Virtual method called from the ancestor's own code runs the descendant's version.
+- Inheritance (lesson 21, `{$H+}`): Override with no Virtual in the ancestor, or a different heading -> `There is no method in an ancestor class to be overridden: "GetMonthlyFee:LongInt;"`; forgotten Override -> `An inherited method is hidden by "GetMonthlyFee:LongInt;"` and the ancestor's method runs; without `{$H+}` ToString Override -> the same error for `"ToString:ShortString;"` under `-Mobjfpc` only (compiles in `-Mdelphi`). A descendant method through an ancestor variable -> `identifier idents no member "GetGuardian"`; ancestor into descendant variable -> `Incompatible types: got "TMember" expected "TJunior"`; As on the wrong object -> `EInvalidCast: Invalid type cast` (a hard cast `TJunior (member)` printed rubbish endlessly - never taught); Nil Is X -> FALSE; `strict private` used by a descendant -> `Identifier not found "name"`; `Result := ToString + ...` without Inherited -> under `-Mobjfpc` a managed-result warning and another member's text; in `-Mdelphi` (4 Oct 2026) no warning, Thabo's line then `EStackOverflow: Stack overflow` (plain ToString calls itself); Abstract -> `Constructing a class "TShape" with abstract method "GetArea"` then `EAbstractError: Abstract method called`. A Virtual method called from the ancestor's own code runs the descendant's version.
 - Text files: no CloseFile after Rewrite + Writelns leaves an empty file;
   1000 Writelns without CloseFile kept 987 lines; Append onto a file with no
   final end-of-line joins lines; a blank last line crashes a parse

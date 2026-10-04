@@ -1,7 +1,7 @@
 # The live console
 
 A panel beside every Pascal lesson where pupils run real, interactive Pascal
-(like OnlineGDB). **Live on itcoder.co.za and on test.** The sandbox rules come
+(like OnlineGDB). **Live on bestlessons.co.za (and the old itcoder.co.za) and on test.** The sandbox rules come
 from [compile-subsystem-design.md](compile-subsystem-design.md); the queue path
 there still serves marked/auto-checked code (`checkedcode`, `gridtyped`) and
 the Windows testbed.
@@ -12,7 +12,7 @@ the Windows testbed.
     PHP api/live-start.php (auth, enrolment, caps, layout check) --control socket--> daemon
     daemon --sudo -n--> /usr/local/bin/itcoder-live-sandbox.sh run pascal | stop <16 hex>
       --> systemd-run unit itcoder-live-<id> in itcoder-pupils.slice
-          --> bin/live/supervisor.py owns a pty: fpc -Mobjfpc, then the program
+          --> bin/live/supervisor.py owns a pty: fpc -Mdelphi, then the program
 
 - **PHP is the gatekeeper**: `lib/live.php`, `api/live-start.php`,
   `live-result.php`, `live-stop.php` - same checks as `api/compile.php`, then
@@ -35,7 +35,20 @@ the Windows testbed.
   `CPUQuota=200%`, `TasksMax=512`; idle 5 min, total 15 min; output budget with
   backpressure; per-file write cap `RLIMIT_FSIZE` 256 KB (no tmpfs /tmp yet).
   Same sandbox as compiling: DynamicUser, no network,
-  `InaccessiblePaths=/var/www /var/backups /var/log`, private /tmp.
+  `InaccessiblePaths=/var/www /var/backups /var/log`, private /tmp - and,
+  from 28 Sep 2026, the same extra hardening (compile-subsystem-design.md).
+- **Security review, 28 Sep 2026:** the daemon refuses a frame from the
+  sandbox over 70 000 bytes and ends a session past 1.1 MB of output (the
+  pupil's program runs as the supervisor's user, so frame headers are not
+  trusted); the supervisor makes itself non-dumpable so that program cannot
+  open its pipes through /proc; the daemon's unit hides `/var/www`,
+  `/var/backups` and `/etc/itcoder-sql` (its group www-data, needed for the
+  control socket, had let it read config.php and the database). Proven on test
+  and live (smoke test 10/10 each, a Java session through the launcher).
+  **The launcher, supervisor, runner and unit file are shared by test and
+  live:** `install-live.sh live` reinstalls them from `/var/www/itcoder`, so
+  run it only after deploy-live.py has put the same code there, or it puts
+  the old ones back.
 - **Files:** a run is a length-prefixed bundle of files (`<count>\n`, then per
   file `<name>\n<bytes>\n<content>`), one main. Data files sit in the run's
   directory, so reading works; writing works within a run but isn't kept.
