@@ -1341,11 +1341,27 @@ changes. pupils without teachers don't get calendars by default."
   3 answers). Table `remediationPlans` (UNIQUE pupil + code). **Show the
   pupil**: while In progress the pupil sees the focus line under the lesson
   title ("Your focus, from your teacher", `PupilFocusHtml()`), never the
-  habit's name. **Class results** has a **Habits** tab: pupils x habits, each
-  cell the share (number, ⚠ on a pattern), names link to the pupil's Habits
+  habit's name. **Class results** has a **Habits** tab: pupils x habits (each
+  cell was the share until 4 October - see below), names link to the pupil's Habits
   tab; a "Reteach the class" box when a pattern is shared by 30%+ (and 2+)
   of the pupils listed. It loads from `api/class-habits.php` only when the
   tab is opened (each pupil checked with TeacherCanSee).
+  **Since 4 October 2026** (Chris: the home page's habits report "in grid
+  view for pupils in class"; then "change code to text, what does 100% mean?
+  give count of examples / lessons. clicking on the % take you to where you
+  can see the questions with the problems. nb ease of use is paramount"):
+  the tab opens on **Cards** - a card per pupil, those with a pattern first:
+  chips "Rushed: 6 answers" (⚠ on a pattern) and **What to do** (the
+  teacher's plan with its status, else the first strategy marked
+  "suggested", 2 shown + "and N more"). A **Cards / Table** switch
+  (remembered in the browser) keeps the table. **Never the codes on screen**
+  (A1, E1 ... stay internal and in the AI prompt): plain names from
+  `FlawShortNames()`, full wording on hover. **Never a bare percentage**:
+  each box says "3 answers, in 2 lessons" (B1 counts questions), the share
+  only on hover. **Every count, chip and name opens the questions**: the
+  pupil's Habits tab at `#habit-CODE`, each habit's questions grouped by
+  lesson as "Q4: first line of the question" (numbered as Class results
+  numbers them), each opening the question in the lesson.
 - **The result reveal** (Chris: "ai marking is not just displayed - let's
   gamify this a little"): a written answer handed in says "Go on with the
   lesson - you will be notified when the marking is complete"; the marking
