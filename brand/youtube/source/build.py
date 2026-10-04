@@ -156,10 +156,10 @@ def code_lines (lines, x, y, size, colour, anchor, gap=1.75):
 
 
 CODE = {
-    'pascal': (['program Hello;', 'begin', "  writeln('Hi');", '  x := 42;', 'end.'],
-               ['for i := 1 to 10 do', '  total := total + i;', 'if total > 50 then', "  writeln('Done');", 'readln;']),
-    'java':   (['public class Hello {', '  public static void', '    main(String[] a) {', '    int x = 42;', '  }'],
-               ['for (int i = 1; i <= 10; i++) {', '  total += i;', '}', 'System.out.println(total);', '}']),
+    'pascal': (['program Hello;', 'begin', "  writeln('Hi');", '  answer := 42;', 'end.'],
+               ['for counter := 1 to 10 do', '  total := total + counter;', 'if total > 50 then', "  writeln('Done');", 'readln;']),
+    'java':   (['public class Hello {', '  public static void', '    main(String[] args) {', '    int answer = 42;', '  }'],
+               ['for (int count = 1; count <= 10; count++) {', '  total += count;', '}', 'System.out.println(total);', '}']),
     'sql':    (['SELECT name, mark', 'FROM tblLearners', 'WHERE mark >= 50', 'ORDER BY mark DESC;'],
                ['SELECT grade, AVG(mark)', 'FROM tblLearners', 'GROUP BY grade', 'HAVING AVG(mark) > 60;']),
 }
