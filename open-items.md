@@ -20,6 +20,83 @@ Details live in the linked files.
   sign-up (sole proprietorship), an accountant (VAT, entity, imported-services
   VAT on Anthropic and Brevo invoices).
 
+- **Site review fixes** (3 Oct 2026: a review of the local site as a slow pupil,
+  a strong pupil and a teacher, in
+  [checklists/site-review.html](checklists/site-review.html) /
+  https://claude.ai/artifact/ExxFJJB53jssL88dY56Ae3). Chris's decision for
+  most items: "everywhere" (every course, all pages). **Do:**
+  1. A teachers' way in on the home and sign-in pages (Staff gets the pupil view today).
+  2. Courses: the pupil's own grade first, the others folded.
+  3. Join only where a course has free lessons; say "Locked" before Join.
+  4. My account's "What you can use" matches the course page's locks.
+  5. Courses uses the home page's subject cards.
+  6. One "Start lesson 1" / "Continue: lesson N, part M" button on the course page.
+  7. Top bar "Index" becomes "Look up" with an icon.
+  8. "Test view" says what it does, inside the lesson.
+  9. Bottom bar "AI: 0 of 100 today" in plain words.
+  10. Time counters stayed at 0:00:00 while reading - check, fix or relabel.
+  11. Home page cards: no scroll inside the scroll; SQL sub-headings per database.
+  12. One lesson count everywhere ("25 lessons + 10 guides").
+  13. Help page gets the standard top bar.
+  14. Marking rules folded into an ⓘ; one action line per question.
+  16. A right answer collapses the earlier "Why that is not it" hint.
+  17. The spelling-hint pattern on every typed question type.
+  19. Phone: lesson status under the name on the course page.
+  20. Phone: quote portrait above the quote, normal weight.
+  21. A Teacher home page (queries, messages, pupils behind, next due date).
+  22. "Remove from class" as the normal action; real deletion behind a second step.
+
+  **Built locally 3 Oct 2026, not published or committed** (backups in
+  D:\itcoder-backups\site-review-fixes-2026-10-03): 4, 7, 8, 9, 10 (the
+  counter worked - it was days:hours:minutes; now "3 h 42 min"), 12
+  (CourseSizeText(); the course page's "0 of 30 lessons completed" still
+  counts only lessons with questions), 13, 16, 19, 20. Not yet checked
+  signed in: the lesson page, My account, Courses, the phone layout.
+  Also built locally: 1 (home and sign-in link to teach.php), 2 (Courses: own
+  grade first, "Other grades" folded; Subjects: own grade's box first and
+  open - CourseFitsGrade()), 3 (CourseJoinable(), CourseJoinHtml() in
+  lib/access.php; JoinCourse() refuses a course locked through and through),
+  6 (CourseNextLesson() in lib/home.php: Start / Continue / Next). **Chris:
+  with item 3, a pupil outside a school can join only the AI course until
+  some lessons are marked Free** (Manage courses - e.g. each course's lesson 1).
+  Third batch, built locally: 11 (home cards list 5 lessons + "N more", no inner
+  scroll; SQL rows name their database), 14 (MarksNoteHtml() in lib/content.php:
+  one action line, the marking folded under "How this is marked" - every
+  question type and SQL), 17 (WhySpelling() in lib/whywrong.php: typed answers
+  and typed picture boxes, no AI call), 22 (group.php: Remove is the main
+  button; Delete goes to a second step naming the pupils, type DELETE). Also
+  the signed-out home and features pages at lesson width (platform.md).
+  Last batch, built locally: 5 (Courses as cards in the home page's look,
+  HomeCourseLook()), 21 (TeacherHomeHtml() in lib/home.php at the top of a
+  teacher's home page: queries and messages waiting, the term countdown,
+  links to who is behind, class results, invite, planner). **All 20 built and
+  on test and live (the whole-tree publishes of 3-4 Oct 2026) and committed:
+  4dcf81f on expansion (4 Oct 2026, not pushed). Still uncommitted, inside other
+  chats' unfinished work: the spelling hint for typed picture boxes (lib/whywrong.php,
+  needs typed-picture questions) and the folded note on rule-marked typed answers
+  (public/lesson.php, needs TypedRules()) - commit them with that work.
+  **Not seen signed in yet:** Courses cards, the
+  teacher panel, the lesson page (Look up, Test view note, folded marking,
+  spelling hint, bottom bar), My account, the course page's button, the
+  class page's delete step, the phone lesson list.
+
+  **Left as is:** 15 (outline the wrong card in place), 18 (a fast lane for
+  strong pupils). Not tried hands-on: the teacher pages (no test teacher
+  account on localhost) and a paid course's lessons.
+
+- **The server's own names still say itcoder** (3 Oct 2026, Chris chose to
+  rename everything else - platform.md, "The site is BestLessons"):
+  /var/www/itcoder, the itcoder-live and itcoder-sql services, sockets, logs,
+  backups, the MySQL user, the compile sandbox and the install kit. Renaming
+  them would be a planned server move with a short outage - only if Chris
+  wants it. (Mail: decided 3 Oct 2026 - it comes from bestlessons.co.za,
+  already set up in Brevo; platform.md, "Email".)
+
+- **New tables read on every page need a deploy-window guard** (found 3 Oct
+  2026: one lesson page hit "no such table: questionNotes" in the minutes
+  before setup.php ran - harmless, the page carried on). lib/notes.php's two
+  reads now return nothing until the table exists (live 3 Oct with phase 3).
+  Any new table read by a page every pupil opens: the same.
 - **Committed code calls functions that are not committed** (found
   2026-10-01 with `tools/undefined-calls.php`, platform.md "Checks to run").
   TypedRules() is called by commit 236431c (28 Sep) and defined only in the
@@ -28,6 +105,76 @@ Details live in the linked files.
   waiting invitation" needs uncommitted invitation code. Live is fine
   (publishing uploads the working tree); the chat that owns each piece
   commits it. Delete when the staged-tree scan is clean.
+- **Weighted mark ratio set by the teacher, per course** (Chris, 3 Oct 2026:
+  "for all courses the teacher gets to set the weighted mark ratio - a teacher
+  may get to teach more than one course ... default ratio change to 70
+  written, 30 other. the weighted gauge must explain this ratio"). Now part
+  of the **schools, cohorts and classes redesign** (Chris, 3 Oct 2026:
+  schools with several teachers, a cohort per grade and subject split into
+  named classes, a TIC who sets the weighting and the term lessons, subject
+  x grade course checklists, year plans per subject, admin fixing,
+  home-schooling parents as teachers, a pain-free wizard). Design with 9
+  questions for Chris: https://claude.ai/code/artifact/6dea2b45-17ce-41b7-95a4-3f1b96b2ddd8
+  - agreed 3 Oct (all 9 answered; schools-design.md). **Phase 1 built,
+  reviewed (10 findings fixed) and LIVE 3 Oct ~07:05 SAST** (test then live,
+  Chris's go-ahead with the new privacy wording; ALL STEPS OK both; live: De
+  La Salle school, "Grd 10 IT" -> cohort Grade 10 IT 2026, IEB, Pascal, TIC
+  Chris; no members yet). Chris, 3 Oct: messages and mark queries stay with
+  each class's own teacher, not the TIC. **Phase 2 LIVE 3 Oct ~12:45 SAST** (test then
+  live, Chris's go-ahead; ALL STEPS OK both; reviewed first - 13 findings
+  fixed with Chris's rule "see work only after approval"; live: De La Salle's
+  addresses split, students.dlshcch.co.za pupils / dlshcch.co.za staff).
+  **Phase 3 (term marks) LIVE 3 Oct ~16:20 SAST** (test then live, Chris's
+  go-ahead; ALL STEPS OK both; reviewed first, Chris's rule "show coverage,
+  zero after term"; live: no term ticks yet, so the first real term end is
+  the first live test of the zero rule). **Phase 4 (year planner per grade,
+  school calendars) LIVE 3 Oct ~18:30 SAST** (test then live, Chris's
+  go-ahead; ALL STEPS OK both; reviewed first, 13 findings fixed; live: De
+  La Salle's one staff teacher, Chris, is its school admin). **Phase 5
+  (Admin > Schools) LIVE 3 Oct evening** (test then live, Chris's go-ahead;
+  ALL STEPS OK both; reviewed first, 8 findings fixed). All five phases of
+  the schools design are live. Open: the privacy policy now says the site's
+  admin can move a pupil between their school's classes - an attorney
+  question in popia-checklist.md.
+  **POPIA:** popia-checklist.md is a draft for Chris to take to an attorney
+  before self-sign-up is opened to the public (operator agreement for
+  schools, parental consent outside schools, Information Officer,
+  cross-border);
+  phases 3-5 (wizard, marks views, planner per cohort, admin Schools page) to build. Decided so far: default 70
+  written / 30 other; the ratio in steps of 5%; the weighted dial says the
+  ratio. Today WeightedPercent() (lib/content.php) is a fixed 50/50 with 11
+  callers, the lesson badge tiers among them; a teacher's courses come only
+  from their groups (no admin list).
+- **Message my teacher, My progress for everyone, the menu, the query page,
+  the music-video tab** - live 2 Oct 2026 21:2x-21:4x (Chris: "install gd
+  and publish"; php8.3-gd installed, all steps OK), not committed. Still
+  open: **free lessons** - only the AI course and 3 Pascal lessons are marked
+  Free on live, so an unsubscribed pupil can open nothing else (mark more in
+  Manage courses); **bin/check-notifications.php's guard** now refuses a
+  server database (it ran once on live from a server check, inside its
+  rolled-back transaction, nothing left behind) - live since 3 Oct.
+- **Live is ahead of git: commit the refactor and the video page** (2026-10-02;
+  Chris, 1 Oct 23:30: "publish live when ready, monitor the code review and
+  publish that when its done"). Published to test and live 2 Oct 01:31-06:00
+  (all steps OK): the Code review chat's modular refactor (lib/jobqueue.php,
+  public/assets/itc-core.js, the markChanges table), the video's own page
+  (lesson.php?watch=N; lib/videoquestions.php, videoq.js, videoq.css), the
+  Mission: Algorithm swap (9ce1ab7) and the first 520 collectable pictures.
+  None of the refactor or the video page is committed: 41 of the refactor's
+  files are tangled with other chats' uncommitted hunks, and the video page
+  needs itc-core.js. Chris decides how to commit (2 October: "leave it
+  uncommitted" for now). Published again 2 Oct 05:18-06:10 (all steps OK, on
+  Chris's word): the follow-ups too - archived groups hidden everywhere
+  (TeachingLinkSql), form tokens on 13 more pages, one leaderboard rule,
+  written work counted for whoever can hand it in (CanHandInWritten). Still
+  uncommitted. Delete when committed.
+- **Publishing over a busy line** (2026-10-02): with the home line full
+  (OpenAudible downloading ~5 MB/s; ~500 ms round trips, 10% loss) the
+  file-by-file upload took 2 hours a site and dropped mid-upload twice; a
+  drop on live leaves it half-updated. Until Chris decides: pause big
+  downloads before publishing. Proposed, waiting for Chris: vps.put_tree
+  sends each folder as one archive, unpacked on the server only once it has
+  all arrived (minutes on a slow line, never half-uploaded).
 - **H5P rollout - Chris's decisions** (2026-10-01; committed fc36005, live with
   the evening publish). Theory 10: the satellite drawing says 550 km, media's prose says
   Starlink is about 500 km; the coaxial-cable photo shows a stranded core
@@ -61,6 +208,41 @@ Details live in the linked files.
   the cut program with **Reset the question** + **Allow pasting** ticked,
   and the lost second try (the script gives it back) with a reply saying so.
   Delete this item when done.
+- **Remediation: flaw log, diagnosis, accessibility** (Chris, 2026-10-01,
+  still being discussed; the reset built, live and verified on test 1 Oct;
+  all of it live 1 Oct (reset, reading options, spelling concession, colour
+  work, flaw log / Habits; committed b275418). Then (1 Oct) the pupil work page tabs, the class Habits tab and Remediation strategies: built and checked server-side; waiting for Chris's synchronised publish. Left:
+  Chris to review the draft remedies; D5/E2/F4 have no evidence yet): the flaw codes, their draft
+  remedies and the decisions are in [remediation.md](remediation.md),
+  which wins over this summary. Record a pupil's habitual flaws
+  per marked question, never shown to the pupil, and use the pattern to
+  diagnose and suggest remedies. Draft flaw codes: A reading the question
+  (misread, command word, ignores context, part answered), B completeness
+  (left out, too little for the marks, lists not explains, no example,
+  padding), C knowledge (fact, misconception, confused terms, vague
+  language), D care (syntax, language, boundary slips, no checking,
+  naming/layout), E effort (rushed by time+length vs class median,
+  guessing, second attempt unused, copy-paste), F code problem solving
+  (can't start, logic, no decomposition, trial-and-error). A flaw is a
+  pattern at >= 25% of questions where it could occur, across >= 2
+  lessons. POPIA: a pupil/parent may request the log, so notes stay
+  professional; dyslexia info is special personal information. **Decided
+  1 Oct:**
+  - Tag written answers (AI, in the same marking call), code (compiler,
+    tests, existing checks) and automatic signals (time, length, attempts).
+  - Diagnosis suggests remedies to the teacher; the teacher assigns. No
+    auto-assigned remedial work.
+  - Dyslexia: any pupil may choose font, spacing, tinted background and
+    read-aloud in My settings; only the teacher sets a spelling concession
+    (theory spelling ignored, never keywords or identifiers).
+  - Colour blindness: never colour alone (WCAG 1.4.1), Okabe-Ito palette,
+    audit every page with CVD simulation.
+  - **Reset a question** becomes a third outcome on Pupil queries (beside
+    "The mark is correct" and "New mark"). Every reset - there and on
+    pupil-work.php, which today deletes the row - **archives** the old
+    answer, mark and flaw entries (teacher-only history) instead of
+    deleting them; the question goes back to not done.
+
 - **Question review** (2026-09-28): questions the hint writers found wrong or
   arguable - [question-review.md](question-review.md). Fix the wrong keys first.
 - **Email addresses** for the gateway (Chris asked, 2026-09-28): noreply@
@@ -303,7 +485,7 @@ Details live in the linked files.
   a hotspot 7 right both times is 14 of 16, a match with 2 right both times
   and 1 fixed is 5 of 10, reload and totals agree). The old note: match and picture questions say "each line/part is marked on its
   own - 2 marks right first time, 1 if it takes the second attempt", but
-  `MatchMarkEarned()` (lib/content.php) gives every right line 1 mark once a
+  `MatchMarkEarned()` (lib/content.php, removed 1 October 2026) gave every right line 1 mark once a
   second attempt is used, even the lines that were right the first time (7
   parts right first time, 1 still wrong after the second try: 7 of 16, not
   14). Either store which lines were right the first time and mark them x2,
@@ -364,46 +546,44 @@ Delete confirm on Admin > Users never showed), `microphone=(self)`,
 AiSpendGuard ($5/day, 200 calls/person), the style comment only with AI
 marking, invitations join at once only for the teacher's school domains,
 teacher deletes spare accounts with more than that teacher's groups, Resend
-only to listed addresses (platform.md for each). Still open, most important
-first:
+only to listed addresses (platform.md for each). Also fixed, 28 Sep: the
+answer, compile and marking APIs refuse a locked lesson (`ApiRequireAccess()`,
+lib/access.php) and study notes check the lesson; Google sign-in needs
+`email_verified`, checks `aud`/`iss`, and refuses an address now held by a
+different Google account; a ban or "Free session" ends the live session; the
+SQL marker's pupil result is fenced.
 
-- **Answer APIs check enrolment, not access** (`api/answer.php`,
-  `typed-answer.php` and the other *-answer.php, `compile.php`,
-  `cite-fetch.php`): a locked lesson's questions can be answered - and their
-  answers revealed - by posting to the API. One helper: CourseExists +
-  IsEnrolled + `AccessMode($p, $c, $lesson) !== ACCESS_LOCKED`.
-  `study-notes.php` checks the course, not the lesson (`RequireCourseAccess`).
-- **Attempts are not claimed atomically**: parallel requests all see
-  attempts=0 - all options sent at once gives right-first-time marks, and one
-  attempt can cost many AI checks. Claim first:
-  `UPDATE ... SET attempts = attempts + 1 WHERE ... AND attempts = ?`, check
-  rowCount. Same for the daily cap (`apiUsage`) and access-code `maxUses`.
-- **Google sign-in** (`lib/auth.php` GoogleExchangeCode/SignIn): require
-  `email_verified`, check `aud` = googleClientId and `iss`; once a googleSub is
-  stored, refuse a different one (today it is silently re-bound).
-- **Ban and "Free session" do not end a live session**: `CurrentPupil()` ignores
-  `bannedAt`, and a NULL sessionId counts as free for anyone.
-- **SQL marker prompt injection** (`lib/sql.php` ~1368): the pupil's query
-  results and column names reach the marker outside `<pupil_work>` - fence
-  them; keep pupil strings out of the "final" reason.
-- **One user can exhaust PHP workers**: `practice-speech.php` waits up to 10 s
-  for a whisper slot plus 15 s of work, per request, no per-person limit.
-  One in-flight request per pupil, fail fast. No nginx `limit_req` anywhere
-  (auth, api, /live/); no per-person limits on sql-run, compile, live-start.
-- **Sandboxes** (`bin/compile-sandbox.sh`, `bin/live-sandbox.sh`): pupil code
-  can reach host unix sockets (MySQL's is 777 - can use up its 30
-  connections); add `RestrictAddressFamilies`, `InaccessiblePaths=-/run/mysqld
-  -/run/dbus -/run/php`, `SystemCallFilter=@system-service`, the Protect*
-  set, `PrivateDevices`, `LimitFSIZE`, `CPUQuota`; test Java; re-run
-  sandbox-check.php.
-- **Live console daemon**: `bin/live/runner.py` `recv()` takes any frame
-  length from the sandbox (one program can OOM it and drop every session) -
-  cap frames and `bytes_out`. Its user is in group www-data and **can read
-  config.php and course.sqlite** (checked on the server; systemd exposure
-  8.5) - add `InaccessiblePaths`, `ProtectSystem=strict` as the SQL runner has.
-- **Backups unencrypted** and kept forever on Chris's PC/Dropbox (minors'
-  data, POPIA) - encrypt on the server with `age` (public key), set a
-  retention period. (Also under Operations.)
+**Not a problem after all (checked 28 Sep):** "parallel requests all see
+attempt 1" and "one user can hold every PHP worker" - PHP's file sessions
+(`session.save_handler = files` on the server) lock the session for the whole
+request and the code never calls `session_write_close()`, so one account runs
+one request at a time, and one-account-one-session stops a second session.
+**If anyone ever adds `session_write_close()` to an answer or AI API, add a
+per-pupil lock there first.** Many accounts from one address are still
+possible: that is what the nginx rate limits (vps-access.md) are for.
+
+**Server round, 28 Sep (Chris chose all four):** already on the SERVER for
+both sites - the tightened compile and console sandboxes (shared; all
+sandbox checks and both console smoke tests pass), the console daemon's frame
+caps and hidden config (live daemon restarted, 10/10), server_tokens off,
+cron logs 640; the rate limits are on the test block (live's blocks get them
+at deploy-live.py). Copies of the old console files:
+`/root/live-console-bak-2026-09-28` (delete once live has run a week). Built,
+waiting for Chris: **encrypted backups** (backups.md, "Encryption").
+
+**Chris, in this order:**
+1. Look at test, then `deploy-live.py` - everything above goes live (with
+   other chats' work in the tree). The compile sandbox is already shared, so
+   don't leave it long (publish-test's warning).
+2. `setup-backup-encryption.py` with the venv's Python (command in its first
+   lines) - makes the key, asks you to keep a second copy, sets up the server,
+   makes the first encrypted backup. Then `pull-backups.py --encrypt-existing`.
+3. Then a chat updates `public/privacy.php` (the backups paragraph: the
+   Dropbox copy is now encrypted and only the owner holds the key).
+4. Choose how long local backups are kept (backups.md, "Not done").
+
+Still open:
+
 - **Low, together later**: CSRF - one Origin/Sec-Fetch-Site check for every
   non-GET (about 25 pages and every JSON API rely only on SameSite=Lax);
   sign-out by GET; `/\evil.com` passes the redirect filter (progress.php:28,
@@ -412,10 +592,10 @@ first:
   `compileOk` are trusted from the browser; cite fetch: `FILTER_FLAG_GLOBAL_RANGE`
   and check `CURLINFO_PRIMARY_IP`; why-wrong hint has no OFF_TOPIC contract,
   review prompt no fence; hidden courses open by URL; `session.use_strict_mode`
-  0; cron logs 644 with pupil emails (make 640); `/assets/` responses carry no
-  security headers; fail2ban not installed; the install kit has no SSH
-  hardening / fail2ban step; group membership gives Full access to every paid
-  course (matters once teacher plans are sold).
+  0; fail2ban not installed (SSH is key-only, so it would mostly quieten the
+  logs); the install kit has no SSH-hardening step; group membership gives
+  Full access to every paid course (matters once teacher plans are sold); a
+  `/live/` handshake rate limit (the daemon's own caps hold for now).
 
 ## Content
 
@@ -423,6 +603,15 @@ first:
   courses/java-course.md). For Chris: check the glossary's grades and
   plum marks (a script's first draft); IDE screenshots (lesson 3) and the
   NetBeans GUI-builder wording (lessons 24, 25, 28 - no IDEs on the testbed).
+
+- **WHEN DELPHI IS RUNNING: Delphi GUI lessons, simulations and CAPS GUI
+  tutorials** (Chris, 4 Oct 2026) - plan and trigger in
+  [courses/delphi-gui.md](courses/delphi-gui.md). Ask Chris its four
+  questions first.
+
+- **AI lesson 9's isiZulu prompt** (1 Oct 2026) - written by Claude; a fluent
+  speaker must check it (the lesson's `everySubject` card and its study
+  block) before lesson 9 is published.
 
 - **AI course restyle** - lessons are still v1's copy (no popups, reveals,
   mixed question types). Also worksheets, teacher pack, assessment weight,
@@ -483,7 +672,8 @@ first:
   bin/ go up, before content/ and public/ - in both scripts, proved on test (publishing.md).
 - **Re-point the backup task** (admin PowerShell), then delete the stand-in -
   [backups.md](backups.md).
-- **Backup encryption** - [backups.md](backups.md).
+- **Backup encryption** - built; Chris runs setup-backup-encryption.py
+  (Security review, above; [backups.md](backups.md)).
 - **`AIWebCourse` root:** two copies of the Google `client_secret_*.json` (live
   credentials, already in config.php) - delete; `student_emails.csv` (pupils'
   emails) - keep only if needed; `tools/__pycache__` - delete with the stand-in.

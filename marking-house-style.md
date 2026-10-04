@@ -5,7 +5,7 @@ Lazarus) against a memo, and writing memos, under the IEB SAGs - formal,
 summative marking. Code is written in [pascal-house-style.md](pascal-house-style.md),
 but style is never a criterion here.
 
-This is **not** itcoder's in-course policy, which deducts 1 mark for a
+This is **not** BestLessons' in-course policy, which deducts 1 mark for a
 house-style violation on practice questions (content-voice-and-pedagogy.md §4)
 - that one is formative, building the habit before the exam.
 

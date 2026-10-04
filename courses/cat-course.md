@@ -8,7 +8,7 @@ Written 25 September 2026 from the four reference files in this folder -
 `kit/theory-course.md`. **Nothing is decided. This is a proposal and a list
 of questions.**
 
-**The short version.** CAT's theory paper is the best fit for itcoder of
+**The short version.** CAT's theory paper is the best fit for BestLessons of
 anything looked at so far - shorter answers than IT's, and close to half of
 it machine-markable. CAT's practical paper is 25% of the promotion mark, it
 is 180 minutes of doing things inside Word, Excel, Access and File Explorer,
@@ -136,7 +136,7 @@ Grade 11 anyway.
 
 ## 2. Fit with the platform
 
-itcoder is short, self-marking lessons of about 30 minutes' work in a
+BestLessons is short, self-marking lessons of about 30 minutes' work in a
 40-minute period (`kit/platform.md`). The question is what of CAT fits that.
 
 ### 2.1 What can be taught and auto-marked with the question types that exist
@@ -499,7 +499,7 @@ that were not in the previous draft, and they are the biggest pieces of work
 in this plan.
 
 1. **Upload and mark - the largest piece of work in this plan, and new to
-   the platform.** Decision 3 asks for something itcoder has never done:
+   the platform.** Decision 3 asks for something BestLessons has never done:
    pupils do the task in the real application and hand in the file. Four
    parts, and they can be built in this order.
 

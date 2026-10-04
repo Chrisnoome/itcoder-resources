@@ -145,6 +145,12 @@ Step('upload size 12m in nginx',
      "&& sed -i 's/client_max_body_size [0-9]*[mM];/client_max_body_size 12m;/' {f} "
      "&& nginx -t && systemctl reload nginx && grep -n client_max_body_size {f}; fi".format(f=NGINX_SITE))
 
+# server_tokens off, per-address rate limits, /assets/ headers (28 September
+# 2026, security review) - tools/nginx_hardening.py, proven on test by
+# publish-test.py first. Both addresses' blocks: keep them alike (vps-access.md).
+import nginx_hardening
+nginx_hardening.apply(vps, Step, LOCAL, [NGINX_SITE, '/etc/nginx/sites-available/bestlessons'])
+
 print('\n== 7. the compile worker: log FIRST, then cron ==')
 Step('create the log', 'touch /var/log/itcoder-compile.log && chown www-data:www-data /var/log/itcoder-compile.log && ls -l /var/log/itcoder-compile.log')
 Step('add the cron line (only if absent)',

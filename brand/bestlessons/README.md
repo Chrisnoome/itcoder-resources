@@ -1,8 +1,8 @@
 # BestLessons - logo and icons
 
-The site is being rebranded from itcoder.co.za to **bestlessons.co.za** (Chris,
-26 September 2026). These are the chosen designs; the site itself has not been
-changed yet. Every idea considered, and the rounds that led here, are on the
+The site was rebranded from itcoder.co.za to **bestlessons.co.za** (Chris,
+26 September 2026; the switch was complete on 27 September, and the old address
+still works). These are the chosen designs. Every idea considered, and the rounds that led here, are on the
 design board: https://claude.ai/artifact/NNVpy8Gudz4oEBXRnL9e8N
 
 ## What was chosen

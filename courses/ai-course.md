@@ -1,6 +1,6 @@
 # Course: How AI really works (`ai`)
 
-Grade 9, eight lessons, `content/ai/` in `AIPascalCourse`, **open and live**.
+Grade 9, nine lessons, `content/ai/` in `AIPascalCourse`, **open and live**.
 All six activities are ported (`public/assets/app.js`, `lesson.php`'s
 `activity` case; `api/activity.php`, `activityState`). The **restyle** to
 the current lesson rules (popups, reveals, mixed question types) is not
@@ -37,6 +37,18 @@ chatbot for free, who pays, and how much?**
 8. **Where it goes** - agents, robots, AGI (definitions and disagreement), and
    the final assessment (`w1FinalAssessment`, markMax 30, banded rubric -
    the model for big rubrics). **The tightest lesson for time.**
+9. **Using AI well** (Chris, 1 October 2026: "how to use ai effectively as a
+   student (without cheating)") - what a chatbot is good and bad at,
+   three questions that tell help from cheating, the five parts of a good
+   prompt (who you are, what you're working on, what help, how, the guard
+   rail), copyable prompts for every subject (Copy buttons, and the study
+   block's PDF), checking facts, and three prompts the pupil writes, AI-marked
+   against a rubric. Chris chose: its own lesson after 8 (the final
+   assessment stays in 8); prompts marked by the AI marker, not run; PDF plus
+   Copy buttons; **Afrikaans and isiZulu prompts written in those languages**
+   with an English line under each - an exception to writing-style.md's "no
+   isiZulu examples", because Chris asked for isiZulu. **The isiZulu prompt
+   must be checked by a fluent speaker before the lesson is published.**
 
 Shape: cost of running -> cost of building -> cost to you -> who pays.
 

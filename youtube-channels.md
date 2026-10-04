@@ -108,6 +108,15 @@ Watermark display time is YouTube's default, **end of video**.
 `endcard-bg.png` is not a channel setting - it goes into each video's last
 5-20 seconds, with YouTube's end-screen elements over it.
 
+## Cards to other videos
+
+**When a video mentions another video, the chat that makes it writes a
+card note for the YouTube chat** (Chris, 4 October 2026): in the video's
+`youtube.md`, a "Cards" list - the time in the finished file (title card
+included), the words said, and the video to link (title, channel, ID once
+known). The YouTube chat adds each card at that time when it uploads.
+Times are updated whenever the video is re-rendered.
+
 ## Links
 
 The four School SA channels, Computer Skills SA and Pascal Code Singer have one link,
@@ -127,6 +136,5 @@ Every finished video opens with its thumbnail as a 3-second title card at 1920 x
   "Pascal Code Singer" in `edit\NN-*.json` is with the chat that makes the
   install videos, "Database planning: caps and sags" (handed over 3 Oct 2026).
 
-- Install videos go to BestLessons and their subject's playlist (4 Oct 2026, replacing "each
-  subject's School SA channel"); waiting for the re-voiced files ("find BestLessons on YouTube").
-  courses/install-videos.md still names the School SA channels.
+- Install videos go to each subject's School SA channel (Chris, 3 Oct
+  2026); courses/install-videos.md says so.

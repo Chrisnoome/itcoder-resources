@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face {font-family:MB; src:url('file:///C:/Users/chris/AppData/Local/Microsoft/Windows/Fonts/Montserrat-Black.ttf');}
+@font-face {font-family:MBold; src:url('file:///C:/Users/chris/AppData/Local/Microsoft/Windows/Fonts/Montserrat-Bold.ttf');}
+@font-face {font-family:JM; src:url('file:///C:/Windows/Fonts/JetBrainsMono-ExtraBold.ttf');}
+html,body {margin:0; width:1280px; height:720px; overflow:hidden; background:#141414;}
+.tag {position:absolute; left:64px; top:52px; font:30px JM; color:#ffcc33; letter-spacing:2px;
+      border:3px solid #ffcc33; border-radius:40px; padding:8px 26px;}
+.title {position:absolute; left:64px; top:150px; height:430px; width:600px; display:flex;
+        align-items:center; font-family:MB; white-space:nowrap; color:#fff; line-height:1.02; letter-spacing:-1px;
+        font-size:111px;}
+.g {color:#ffcc33;}
+.code {position:absolute; right:56px; top:170px; width:420px; background:#222; border:3px solid #333;
+       border-radius:22px; padding:30px 34px; font-family:JM; color:#e8e8e8; line-height:1.45;
+       transform:rotate(2deg); box-shadow:0 20px 50px rgba(0,0,0,.6); white-space:pre;}
+.code .x {color:#ff6b6b; text-decoration:line-through; text-decoration-thickness:3px; opacity:.85;}
+.brand {position:absolute; left:64px; bottom:42px; font:32px MBold; color:#9a9a9a; display:flex;
+        align-items:center; gap:16px;}
+svg.bg {position:absolute; left:0; top:0;}
+.shot {position:absolute; left:470px; top:0; width:810px; height:720px; background-size:auto 116%;
+       background-repeat:no-repeat;}
+.fade {position:absolute; left:470px; top:0; width:810px; height:720px;
+       background:linear-gradient(to right,#141414 0%,rgba(20,20,20,.85) 14%,rgba(20,20,20,0) 42%),
+                  linear-gradient(to top,rgba(20,20,20,.7) 0%,rgba(20,20,20,0) 22%);}
+.title, .tag, .brand {z-index:2;}
+.title {text-shadow:0 4px 18px rgba(0,0,0,.85);}
+</style></head><body>
+<svg class="bg" width="1280" height="720"><g stroke="#fff" stroke-width="2" opacity=".14"></g></svg>
+<div class="tag">SONG · LEARNING TO CODE</div>
+<div class="title"><div>Code Like<br><span class="g">Jazz</span></div></div>
+<div class="shot" style="background-image:url(file:///D%3A/DB%20Sync/Dropbox/Projects/AIResources/brand/youtube/codesinger/frames/DrhceJSci4M.jpg);background-position:60% 95%"></div><div class="fade"></div>
+<div class="brand"><svg width="40" height="48" viewBox="-40 -120 120 150"><g transform="scale(1)"><g fill="#ffffff"><ellipse cx="0" cy="0" rx="30" ry="22" transform="rotate(-20)"/><rect x="21" y="-108" width="11" height="108"/><path d="M29 -108 C54 -96 70 -84 64 -54 C60 -70 50 -78 29 -80 Z"/></g></g>
+<text x="62" y="10" font-family="JM" font-size="90" fill="#ffcc33">;</text></svg>Pascal Code Singer</div>
+<script>
+document.fonts.ready.then(()=>{const box=document.querySelector('.title'), inner=box.firstElementChild; let f=parseFloat(getComputedStyle(box).fontSize);
+while ((inner.scrollWidth>box.clientWidth || inner.scrollHeight>box.clientHeight) && f>40) { f-=2; box.style.fontSize=f+'px'; }});
+</script></body></html>

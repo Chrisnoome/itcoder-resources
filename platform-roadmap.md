@@ -50,19 +50,19 @@ wants it, Q1) anyone whose address is in one of their approved
    teacher (only an admin, because a domain claims a whole school).
 2. **Teacher > Groups**: create a group for a course; paste or upload a list
    of addresses (CSV or one per line, de-duplicated, validated).
-3. The list page shows each address: *not on itcoder* / *on itcoder, invited*
+3. The list page shows each address: *not on BestLessons* / *on BestLessons, invited*
    / *accepted* / *rejected*, with tick boxes and **Invite again** / **Remove**.
-4. An address that is already on itcoder: the pupil gets a **notification**
+4. An address that is already on BestLessons: the pupil gets a **notification**
    (bell in the masthead, and on their next sign-in): "Ms X wants to add you
    to 10A IT 2027 - Accept / Reject". Accepting enrols them in the course too.
-5. An address not on itcoder: the teacher may send **one invitation email**
+5. An address not on BestLessons: the teacher may send **one invitation email**
    (see anti-spam). When that person later signs in with that address, the
    invitation is waiting as a notification - still accept/reject.
 
 ### Keeping email from becoming a spam tool
 
 - Only **invitations** - fixed wording written by us, the teacher's name and
-  school, one link to itcoder. No free text from the teacher (Q3).
+  school, one link to BestLessons. No free text from the teacher (Q3).
 - Only to addresses on the teacher's **own list**, and at most **one email per
   address per 7 days**, **3 ever**, per teacher.
 - A daily cap per teacher (e.g. 60), and a hard cap per new teacher until an
@@ -136,7 +136,7 @@ reads subscription rows. Today's `CanUseMarking()` becomes one of its answers.
 | South African buyers | PayFast, Yoco, Ozow (instant EFT), Peach Payments, Paystack | Card, instant EFT, sometimes SnapScan/Zapper; payouts to an SA bank account; recurring billing support differs |
 | Buyers abroad | A **merchant of record** such as Paddle or Lemon Squeezy | They sell on our behalf and handle foreign VAT/sales tax - much less admin than a plain card processor |
 
-- **Q10** Is itcoder a business (sole proprietor, company), and is it or will it
+- **Q10** Is BestLessons a business (sole proprietor, company), and is it or will it
   be **VAT registered**? (Invoices, VAT on SA sales and the accounting export
   depend on it - an accountant should confirm.)
 - **Q11** Do you want recurring debit orders (auto-renew), or pay-per-period
@@ -189,11 +189,11 @@ straight there?
 
 Today `index.php` is a sign-in page with a short explanation; it becomes
 **About** (`about.php`). The new landing page is for someone who has never
-heard of itcoder.
+heard of BestLessons.
 
 Possible sections, top to bottom:
 
-1. One line: what itcoder is (e.g. "IEB IT programming, taught properly - with
+1. One line: what BestLessons is (e.g. "IEB IT programming, taught properly - with
    a live Pascal console and marking in seconds").
 2. Three audience cards: **Pupils**, **Teachers**, **Schools** - each with what
    they get and a button.
@@ -209,7 +209,7 @@ Possible sections, top to bottom:
   marking)? It sells the site better than any description.
 - **Q23** Is the audience IEB only, or also CAPS (NSC) IT schools?
 - **Q24** Your name and teaching background on the page (trust), or the
-  itcoder brand only?
+  BestLessons brand only?
 - **Q25** Testimonials from De La Salle pupils/teachers (needs their consent)?
 
 ## Suggested order of work
@@ -241,6 +241,9 @@ Possible sections, top to bottom:
   utility message in South Africa from 1 October 2026). **Marked for later** -
   build the in-site notifications first; set up Brevo (SPF/DKIM for
   itcoder.co.za, API key in config.php) when invitation emails are built.
+  *Since then:* Brevo was set up on **bestlessons.co.za** instead (27 Sep
+  2026), and Chris confirmed on 3 Oct 2026 that mail comes from
+  bestlessons.co.za (platform.md, "Email").
   WhatsApp, if ever: opt-in only, consent for under-18s (POPIA).
 - **Q6** Turn De La Salle's classes into groups. Current pupils start as
   accepted, and Chris assigns teachers to the groups.

@@ -1,6 +1,6 @@
 # Content voice, pedagogy and lesson rules
 
-For every lesson written or revised on itcoder (the AI course's v1 lessons stand
+For every lesson written or revised on BestLessons (the AI course's v1 lessons stand
 until touched). Builds on [writing-style.md](writing-style.md). Voice source:
 Chris's textbook in `word documents/` (`bc_*`, `hw_*`, `im_*`, `dc_*`, `sw_*`,
 `si_*`). The checklist is §8.
@@ -69,6 +69,14 @@ back** / **Not now** (`app.js`, `SetUpReveal`/`DrawRevealBar`).
 - not only in a popup or a reveal's hidden `explain`.
 
 ## 4. Question types and scoring
+
+**The question stands on its own** (Chris, 1 October 2026: "the question
+itself hides in the cruft before it. use paragraphs to make it clear"). A
+prompt with a scenario puts the set-up first and the question last, in its
+own paragraph, one sentence starting with the instruction. Plain-text
+prompts: a blank line splits paragraphs and the last one shows in bold
+(`PromptHtml()`). HTML prompts: `<p class="prompt-setup">` for the set-up,
+`<p class="prompt-ask">` for the question.
 
 **`typed`** (`kind`: `scramble`, `blank`, `complete`, `exact` - only picks the
 label; add new kinds freely). Use it when recalling an exact word matters more
@@ -218,6 +226,13 @@ marking-house-style.md (style never marked) is deliberately different.
   press is not finished.
 - **Try-its:** `<div class="tryit" data-tryit="NAME" ...></div>` in a prose
   block titled "Try this: ...", right after its section. No server, no marks.
+  **Every step of a `processStepper` gets a picture** (Chris, 1 October 2026:
+  "this needs pictures", then "do both"): `"pic": "<name>"` draws
+  `doodles/<name>.svg` above the step - blue pen, 680 wide, the same scene
+  each step with what changes picked out (models: `agent-loop-1..6`,
+  `processing-fde-1..7`). `"art": "<name>"` adds a ComfyUI picture
+  (`assets/stepper-art/<name>.webp`, requested through `comfyui-queue/`)
+  that replaces the drawing once it exists.
   Builders: `public/assets/pascal-tryit.js` (lesson 14: `callStepper`,
   `parameterMachine`, `functionMachine`; `writeOrWriteln`, `crtColours`,
   `swapBoxes`, `readlnTester`, `divModSweets`, `roundTrunc`, `asciiExplorer`,
@@ -304,8 +319,12 @@ marking-house-style.md (style never marked) is deliberately different.
   picture, or a key combination - each with a hint about the target, never
   where it is. Write the steps the way the program really behaves (after Enter
   Excel moves down a row). Screens from `AIResources/tools/sim-screens` (its
-  README): real Microsoft 365, never the title bar. Model: AI lesson 4
-  `simRandPerGb`. Check with `php bin/check-simulations.php`, then play it
+  README): real Microsoft 365, never the title bar. **Never in the AI course**
+  (Chris, 2 October 2026: "remove excel questions from ai courses (users
+  don't necessarily know about formulas)") - the pilot `simRandPerGb` was
+  taken out of AI lesson 4; its block is in git history (commit 208b117) and
+  its screens stay in `public/assets/sims/excel/vram-*.png` for a course that
+  teaches spreadsheets. Check with `php bin/check-simulations.php`, then play it
   through.
 - **Mark and correct** (1 October 2026 - lib/markcorrect.php; Chris): a
   `written` question with `'markCorrect'`: an exam question and somebody's

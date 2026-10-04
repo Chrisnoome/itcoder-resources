@@ -3,7 +3,7 @@
   "kind": "script",
   "from": "the platform chat (collectables)",
   "added": "2026-10-01",
-  "status": "waiting",
+  "status": "done",
   "command": "python tools/collect-art/make_collect_art.py",
   "cwd": "AIResources",
   "minutes": 180,

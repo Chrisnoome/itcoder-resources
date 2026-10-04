@@ -1,0 +1,37 @@
+[
+ {
+  "id": "install-01-lazarus",
+  "tag": "INSTALL · PASCAL",
+  "title": [
+   "Install",
+   "*Lazarus*"
+  ],
+  "video": "E:/itcoder-videos/out/01-lazarus.mp4",
+  "frameAt": 338.5,
+  "ytTitle": "How to install Lazarus on Windows (free Pascal IDE)",
+  "desc": "Install Lazarus 4.8 with Free Pascal 3.2.2 on Windows, step by step, and run your first Pascal program. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading the 64-bit Windows installer from lazarus-ide.org\n- Installing to C:\\lazarus - a short path with no spaces\n- Choosing the Modern, single-window layout at the first start\n- Saving a first program in your cloud-synced Coding folder\n- Running Hello from Lazarus! with F9\n\n0:00 Intro\n0:22 Download Lazarus\n1:07 Save the installer to Downloads\\Installs\n1:44 Run the installer\n2:23 Keep the folder C:\\lazarus\n3:14 First start: the Modern layout\n3:49 A new program\n4:06 Save it in your Coding folder\n5:12 Run it with F9\n5:41 Done\n\nGoes with the Pascal course lesson \"Where you write Pascal - Lazarus and Delphi\", and the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#Lazarus #Pascal #ITGrade10"
+ },
+ {
+  "id": "tut-01-creating-a-class",
+  "tag": "PASCAL · CLASSES",
+  "title": [
+   "Creating a",
+   "*Class*"
+  ],
+  "pos": "50% 30%",
+  "ytTitle": "Creating a Class in Pascal - plan it in UML, code it in Lazarus",
+  "desc": "See E:/itcoder-videos/tutorials/01-creating-a-class/youtube.md"
+ },
+ {
+  "id": "tut-02-array-manager",
+  "tag": "PASCAL · OOP",
+  "title": [
+   "An Array",
+   "*Manager*",
+   "Class"
+  ],
+  "pos": "50% 30%",
+  "ytTitle": "An Array Manager Class in Pascal - a whole shelf of objects in one object",
+  "desc": "See E:/itcoder-videos/tutorials/02-array-manager/youtube.md"
+ }
+]

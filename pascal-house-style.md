@@ -136,6 +136,24 @@ Console always; code copied from an exercise from lesson 4 on.
 - **A class holding an array of objects frees them in its destructor**
   (`Destructor Destroy; Override;`): loop `Low (list) To High (list)`,
   `list[index].Free;`, `list[index] := Nil;`, then `Inherited Destroy;`.
+- **Every unit's name starts with `u`** (Chris, 4 October 2026), and the
+  file has the same name: `uUtils.pas`, `uMain.pas`, `uBookingForm.pas`. **A
+  unit holding a class is `uClass` + the class name without its T**: TGame
+  in `uClassGame.pas` (`Unit uClassGame;`), TGameShelf in
+  `uClassGameShelf.pas`. The program's `Uses` names it the same way. Applied
+  to the tutorials from 4 October 2026; the lessons' existing units
+  (MyUtils, ShapeTools, uBooking, ...) are unchanged until Chris says so.
+- **Habits taught with the style** (Chris, 4 October 2026, every language):
+  type a structure's `End` (with its comment) straight after the line that
+  opens it, then fill in between; start every function with `Result := `
+  straight after its `Begin`, then complete it. Videos show both as tips.
+- **No empty brackets in Pascal code** (Chris, 4 October 2026): a method
+  with no parameters is declared and called without them -
+  `Function GetTitle : String;`, `game.GetTitle`, `shelf.Free`, never
+  `GetTitle ()`. **UML class diagrams keep them** (`+ GetTitle () : String`):
+  in UML the brackets are part of every operation, and they are how a
+  reader tells a method from a field. Lesson 16's diagrams and exam memos
+  draw them that way.
 - Every function sets `Result := ...;` (never `FunctionName := ...`); the
   console refuses a function without it.
 - Ctrl+Shift+C / **Update code** (`public/assets/pascal-complete.js`) writes all

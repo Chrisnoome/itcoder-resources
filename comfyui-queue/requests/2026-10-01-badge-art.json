@@ -3,7 +3,7 @@
   "kind": "script",
   "from": "the platform chat (achievements)",
   "added": "2026-10-01",
-  "status": "waiting",
+  "status": "done",
   "command": "python tools/badge-art/make_badges.py",
   "cwd": "AIResources",
   "minutes": 90,

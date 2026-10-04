@@ -1,0 +1,135 @@
+[
+ {
+  "id": "install-10-explorer",
+  "tag": "HOW-TO · FILES",
+  "title": [
+   "File",
+   "*Explorer*",
+   "for coders"
+  ],
+  "video": "E:/itcoder-videos/out/10-explorer.mp4",
+  "frameAt": 149.5,
+  "ytTitle": "How to set up File Explorer in Windows for programming",
+  "desc": "Set up File Explorer the way programmers need it - it takes five minutes, and saves you hours. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Showing file name extensions, and why homework.pdf.exe is a program\n- Pinning your cloud-synced Coding folder to Quick access\n- Making an Installs folder in Downloads\n- A folder for each subject in Documents\n- Short file names without spaces\n\n0:00 Intro\n0:13 Your Coding folder\n0:32 Show file name extensions\n1:12 Pin Coding to Quick access\n1:59 An Installs folder in Downloads\n2:24 Folders in Documents\n2:42 Good file names\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#FileExplorer #Windows11 #Coding"
+ },
+ {
+  "id": "install-11-notepadpp",
+  "tag": "INSTALL · EDITOR",
+  "title": [
+   "Install",
+   "*Notepad++*"
+  ],
+  "video": "E:/itcoder-videos/out/11-notepadpp.mp4",
+  "frameAt": 265.5,
+  "ytTitle": "How to install Notepad++ on Windows (free code editor)",
+  "desc": "Install Notepad++ 8.9.8.1, a free editor for code. It opens any text file - Pascal, Java, SQL or a web page - and colours the code, so it's easy to read. For South African IT pupils and teachers.\n\nIn this video:\n- Finding the real download button on notepad-plus-plus.org, not the adverts\n- Installing it - and why to untick Run Notepad++ at the end\n- Setting the default folder to your cloud-synced Coding folder\n- Saving hello.pas, so Notepad++ colours it as Pascal\n\n0:00 Intro\n0:18 Download Notepad++\n0:52 Save the installer to Downloads\\Installs\n1:27 Run the installer\n2:51 Start Notepad++\n3:14 Set your default folder\n4:06 Save a Pascal file\n4:48 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#NotepadPlusPlus #Pascal #Coding"
+ },
+ {
+  "id": "install-12-sevenzip",
+  "tag": "INSTALL · FILES",
+  "title": [
+   "Install",
+   "*7-Zip*"
+  ],
+  "video": "E:/itcoder-videos/out/12-sevenzip.mp4",
+  "frameAt": 113.7,
+  "ytTitle": "How to install 7-Zip on Windows and zip a project folder",
+  "desc": "Install 7-Zip 26.03, a free program for zip files, and zip a project folder to hand in. It makes zips, and opens kinds Windows can't, like .rar files. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Downloading the 64-bit installer from 7-zip.org\n- Installing it in a few seconds\n- Zipping a project folder into one file to hand in or e-mail\n- Extracting a zip into a folder of its own\n\nDownload: https://7-zip.org\n\n0:00 Intro\n0:17 Download 7-Zip\n0:39 Save the installer to Downloads\\Installs\n1:17 Install it\n1:54 Zip a project folder\n2:37 Extract a zip\n2:49 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#7Zip #Windows11 #Coding"
+ },
+ {
+  "id": "install-13-drawio",
+  "tag": "INSTALL · DIAGRAMS",
+  "title": [
+   "Install",
+   "*draw.io*"
+  ],
+  "video": "E:/itcoder-videos/out/13-drawio.mp4",
+  "frameAt": 183.4,
+  "ytTitle": "How to install draw.io on Windows (free flowchart program)",
+  "desc": "Install draw.io 31.7.0, a free program for flowcharts and diagrams, like the ones in your project's design. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Downloading the Windows installer from get.diagrams.net\n- Drawing two boxes joined with an arrow\n- Saving Flowchart.drawio with your project's code\n- Exporting it as a PNG for a document\n\nDownload: https://get.diagrams.net\n\n0:00 Intro\n0:13 Download draw.io\n0:33 Save the installer to Downloads\\Installs\n1:09 Install it\n1:56 Start draw.io\n2:25 Draw a flowchart\n3:00 Save it\n3:38 Export as PNG\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za, and the design lessons\n\n#drawio #Flowchart #ITGrade10"
+ },
+ {
+  "id": "install-14-git",
+  "tag": "INSTALL · CODE",
+  "title": [
+   "*Git* and",
+   "GitHub Desktop"
+  ],
+  "video": "E:/itcoder-videos/out/14-git.mp4",
+  "frameAt": 300.3,
+  "ytTitle": "How to install Git and GitHub Desktop on Windows",
+  "desc": "Install Git, which keeps every version of your code, and GitHub Desktop, an easy way to use it. For South African IT pupils and teachers.\n\nIn this video:\n- Installing Git 2.56.0 from git-scm.com, with Notepad as its editor and main as the first branch\n- Installing GitHub Desktop from desktop.github.com\n- Putting your name and e-mail on your versions\n- Making a first repository in Documents\\GitHub - not in OneDrive, and why\n\n0:00 Intro\n0:15 Download Git\n0:41 Save the installer to Downloads\\Installs\n1:16 Install Git\n2:12 Choose Notepad as the editor\n2:29 Name the first branch main\n3:20 Download GitHub Desktop\n4:10 Set up GitHub Desktop\n4:35 Make a repository\n5:05 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za, and the project lessons\n\n#Git #GitHub #Coding"
+ },
+ {
+  "id": "install-15-onedrive",
+  "tag": "SET UP · CLOUD",
+  "title": [
+   "Set up",
+   "*OneDrive*"
+  ],
+  "video": "E:/itcoder-videos/out/15-onedrive.mp4",
+  "frameAt": 100.4,
+  "ytTitle": "How to set up OneDrive on Windows for your code",
+  "desc": "Set up OneDrive, so your code is on your computer, in the cloud, and on the school computers too. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Signing in to OneDrive with your school account\n- Skipping the Documents, Pictures and Desktop backup - your code goes in Coding\n- A Coding folder with Pascal, Java and SQL inside\n- Always keep on this device, so it works without the internet\n- Using OneDrive at school, in the browser, and a flash drive backup\n\n0:00 Intro\n0:13 Sign in to OneDrive\n0:33 OneDrive settings\n0:56 Your Coding folder\n1:25 Always keep on this device\n1:48 OneDrive at school\n2:08 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#OneDrive #Windows11 #Coding"
+ },
+ {
+  "id": "install-16-googledrive",
+  "tag": "SET UP · CLOUD",
+  "title": [
+   "Set up",
+   "*Google Drive*"
+  ],
+  "video": "E:/itcoder-videos/out/16-googledrive.mp4",
+  "frameAt": 211.6,
+  "ytTitle": "How to set up Google Drive on Windows for your code",
+  "desc": "Set up Google Drive for desktop, so your code is on your computer, in the cloud, and on the school computers too. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Downloading Google Drive for desktop from google.com/drive/download\n- Signing in with your school Google account\n- Checking Drive is working from its icon by the clock - and what to do if there's no icon\n- A Coding folder with Pascal, Java and SQL inside\n- Using Drive at school, in the browser, and a flash drive backup\n\nDownload: https://google.com/drive/download\n\n0:00 Intro\n0:14 Download Google Drive\n0:40 Save the installer to Downloads\\Installs\n1:15 Install it\n1:59 Sign in\n2:50 Check Drive is working\n3:17 Make your Coding folder\n3:50 Drive at school\n4:09 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#GoogleDrive #Windows11 #Coding"
+ },
+ {
+  "id": "install-17-office",
+  "tag": "INSTALL · OFFICE",
+  "title": [
+   "Office and",
+   "*Access*"
+  ],
+  "video": "E:/itcoder-videos/out/17-office.mp4",
+  "frameAt": 141.0,
+  "ytTitle": "How to install Office and Access on Windows through your school",
+  "desc": "Install Microsoft Office - with Access - free, through your school's Microsoft 365. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Signing in at office.com with your school Microsoft account\n- Install apps, then Install Office on your account page\n- Running the small installer, which fetches the rest of Office\n- Switching Access on with your school account\n- Keeping databases in your Coding folder - and closing Access so it syncs\n\n0:00 Intro\n0:13 Sign in at office.com\n0:35 Install apps\n1:26 Save the installer to Downloads\\Installs\n2:01 Install Office\n2:26 Open Access\n2:46 Switch Access on\n2:58 Where to keep databases\n3:08 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za, and the SQL and database lessons\n\n#MicrosoftAccess #Office365 #CAT"
+ },
+ {
+  "id": "install-18-edge",
+  "tag": "HOW-TO · BROWSER",
+  "title": [
+   "*Edge*",
+   "downloads"
+  ],
+  "video": "E:/itcoder-videos/out/18-edge.mp4",
+  "frameAt": 32.3,
+  "ytTitle": "How to make Edge ask where to save downloads (Windows)",
+  "desc": "Set Edge to ask where to save each download, so your installers go in your Installs folder. No install needed - Edge comes with Windows. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Opening Edge's Settings, then Downloads\n- Checking Ask where to save each file before downloading is on\n- Saving each download to your Installs folder\n\n0:00 Intro\n0:13 Edge's download settings\n0:33 Ask where to save each file\n0:49 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#MicrosoftEdge #Windows11 #Downloads"
+ },
+ {
+  "id": "install-19-chrome",
+  "tag": "INSTALL · BROWSER",
+  "title": [
+   "Install",
+   "*Chrome*"
+  ],
+  "video": "E:/itcoder-videos/out/19-chrome.mp4",
+  "frameAt": 141.2,
+  "ytTitle": "How to install Chrome on Windows and choose where downloads go",
+  "desc": "Install Google Chrome, make it your main browser, and set it to ask where to save each download. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Downloading Chrome from google.com/chrome\n- Installing it, with no sign-in needed\n- Making Chrome your default browser\n- Turning on Ask where to save each file before downloading\n\nDownload: https://google.com/chrome\n\n0:00 Intro\n0:15 Download Chrome\n0:41 Save the installer to Downloads\\Installs\n1:17 Install Chrome\n1:44 Make it your default browser\n2:08 Ask where to save downloads\n2:33 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#GoogleChrome #Windows11 #Downloads"
+ },
+ {
+  "id": "install-20-firefox",
+  "tag": "INSTALL · BROWSER",
+  "title": [
+   "Install",
+   "*Firefox*"
+  ],
+  "video": "E:/itcoder-videos/out/20-firefox.mp4",
+  "frameAt": 168.4,
+  "ytTitle": "How to install Firefox on Windows and choose where downloads go",
+  "desc": "Install Firefox, and set it to ask where to save each download. For South African IT and CAT pupils and teachers.\n\nIn this video:\n- Downloading Firefox from firefox.com\n- Choosing whether to send technical and interaction data - off keeps more private\n- Keeping the browser you have as the default\n- Ticking Ask where to save files before downloading\n\nDownload: https://firefox.com\n\n0:00 Intro\n0:12 Download Firefox\n0:35 Save the installer to Downloads\\Installs\n1:10 Install Firefox\n1:30 The welcome pages\n2:35 Ask where to save downloads\n3:00 Done\n\nGoes with the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#Firefox #Windows11 #Downloads"
+ }
+]

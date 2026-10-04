@@ -7,7 +7,7 @@ requirements ... a calendar format and spreadsheet that they can easily upload
 to google calendar / ical / outlook". The rules are in
 [../platform.md](../platform.md), "Year planner" and "Progress and ticks".
 
-- **Teachers:** https://itcoder.co.za/planner.php (Teacher options - Year
+- **Teachers:** https://bestlessons.co.za/planner.php (Teacher options - Year
   planner): any board, grade, language, SQL dialect and calendar, or their own
   dates; downloads .ics, Google CSV and a spreadsheet CSV.
 - **Pupils:** My progress in each Grade 10+ course (`progress.php?c=`), from

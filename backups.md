@@ -8,8 +8,36 @@ a chat, opened only to restore.
 | `bin/backup.php` | the site's `bin/` on the server | 02:30 nightly (www-data cron) |
 | Server copies | `/var/backups/itcoder/course-YYYY-MM-DD-HHMMSS.sqlite.gz` | 14 nightly + the 1st of each month for a year |
 | `tools/pull-backups.py` + `.cmd` | this folder | 18:30 daily, Windows task **itcoder backup pull** |
-| Local copies | `D:\DB Sync\Dropbox\Projects\AIWebCourse\backups` | kept forever |
+| Encrypted copies | the same folder, `...sqlite.gz.age` beside each server backup | made with each backup once the public key is there |
+| Local copies | `D:\DB Sync\Dropbox\Projects\AIWebCourse\backups` - **encrypted only** once set up | kept forever |
+| The backup key | secret: `C:\Users\chris\.ssh\itcoder-backups.agekey` + Chris's second copy; public: server `/etc/itcoder-backup/age-recipient.txt` | made once |
 | Logs | server `/var/log/itcoder-backup.log`; local `pull-backups.log`, `task-output.log` in the local folder | |
+
+## Encryption (Chris, 28 September 2026)
+
+Backups leave South Africa (Dropbox), so the pull keeps only **age-encrypted**
+copies. `bin/backup.php` makes `course-...sqlite.gz.age` beside each verified
+backup with the **public** key (it can lock, never unlock); the plain `.gz`
+stays on the server for a quick restore and never leaves it. The pull fetches
+only `.age` files, decrypts each in memory and checks it as before, so a copy
+the key cannot open is caught the day it arrives. Only Chris holds the
+**secret** key: on his PC outside Dropbox, plus one copy he keeps elsewhere
+(password manager or paper) - **lose both and the Dropbox copies can never be
+opened**; the server's own 14 days and 12 months are unaffected.
+
+- **Set up / check:** Chris runs `tools/setup-backup-encryption.py` with the
+  venv's Python (its docstring has the command). It installs pyrage, makes
+  the key (never replaces one), puts `age` and the public key on the server,
+  proves the pair with a test message, and - once the new backup.php is live -
+  makes the first encrypted backup. **Never run it from a chat: it shows the
+  secret key.** Safe to run again.
+- **The plain backups already in Dropbox:** `pull-backups.py --encrypt-existing`
+  encrypts each, checks it byte for byte, then asks before deleting the plain
+  ones (Dropbox keeps deleted files a while - empty them there too).
+- **If the server is not encrypting** (key on the PC, no `.age` on the server)
+  the pull warns and notifies with what to do, instead of "backups stopped".
+- **A failed encryption** is logged as a WARNING line in the backup log; the
+  plain backup is kept, and the pull's staleness alarm fires within 36 hours.
 
 ## backup.php
 
@@ -47,6 +75,12 @@ If `ok` with a sensible count:
 Deleting the stale `-wal`/`-shm` matters - an old log beside a restored
 database corrupts it. A local copy is uploaded first with `vps.put()`.
 
+**From an encrypted local copy** (the server's own copies are gone): on the PC,
+`pull-backups.py --decrypt <path to the .sqlite.gz.age>` writes the plain
+`.sqlite` to `D:\itcoder-restore` (outside Dropbox) and checks it; upload that
+as `/tmp/restore.sqlite`, carry on as above, then **delete the plain copy on
+both machines**.
+
 ## pull-backups.py
 
 Fetches new server backups over the SSH key, **verifies each after it lands**,
@@ -81,7 +115,10 @@ stops:
 
 ## Not done
 
-- **Encryption** - plain gzip, a copy in Dropbox outside South Africa
-  (`privacy.php` says so). Encrypt before the pull, or keep copies in SA.
+- **Encryption switched on** - built 28 Sep 2026 (above); it starts when Chris
+  has run setup-backup-encryption.py and the new backup.php is live. Until
+  then the pull keeps plain copies as before.
+- **Retention** - local copies are kept forever; POPIA prefers a limit. Chris
+  to choose one.
 - **Local folder** is under the legacy `AIWebCourse`. If it moves, change
   `LOCAL_DIR` in `pull-backups.py` and `DATA` in `pull-backups.cmd` together.

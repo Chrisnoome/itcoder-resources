@@ -1,0 +1,270 @@
+<title>Site Review Personas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column of check cards grouped by section; sticky progress bar on top. */
+:root{
+  --bg:#f5f6f4; --surface:#ffffff; --fg:#1d2321; --muted:#5d6763; --line:#d9ded9;
+  --accent:#20605a; --ok:#1f5fae; --ok-bg:#e6effa; --fix:#b5560f; --fix-bg:#fbeee3;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141917; --surface:#1c2220; --fg:#e4e9e6; --muted:#9aa5a0; --line:#2f3835;
+  --accent:#6cc0b6; --ok:#7fb2f0; --ok-bg:#1b2a3d; --fix:#f0a35e; --fix-bg:#3a2717; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --surface:#1c2220; --fg:#e4e9e6; --muted:#9aa5a0; --line:#2f3835;
+  --accent:#6cc0b6; --ok:#7fb2f0; --ok-bg:#1b2a3d; --fix:#f0a35e; --fix-bg:#3a2717; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--font-body);padding:0 16px 64px}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto}
+header.top{padding-block:28px 8px}
+h1{font-size:1.6rem;margin:0 0 6px;text-wrap:balance;font-weight:600}
+.sub{color:var(--muted);margin:0}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.counts{font-family:var(--font-mono);font-size:.85rem;font-variant-numeric:tabular-nums;display:flex;gap:14px;flex-wrap:wrap}
+.counts .ok{color:var(--ok)} .counts .fix{color:var(--fix)} .counts .todo{color:var(--muted)}
+.meter{flex:1 1 160px;height:6px;background:var(--line);border-radius:3px;overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+.meter .m-ok{background:var(--ok)} .meter .m-fix{background:var(--fix)}
+.sync{font-size:.8rem;color:var(--muted)}
+.btn{font:500 .85rem var(--font-body);border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:6px 12px;border-radius:6px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.before{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-top:18px;font-size:.92rem}
+.before ul{margin:6px 0 0;padding-left:20px}
+h2{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 10px;font-weight:600}
+.item{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:12px}
+.item[data-status="ok"]{border-left-color:var(--ok)}
+.item[data-status="fix"]{border-left-color:var(--fix)}
+.item h3{margin:0 0 6px;font-size:1rem;font-weight:600;display:flex;gap:10px;align-items:baseline}
+.num{font-family:var(--font-mono);color:var(--muted);font-size:.85rem;min-width:1.8em}
+.tag{font:500 .7rem var(--font-mono);color:var(--fix);border:1px solid var(--fix);border-radius:4px;padding:0 5px;margin-left:auto;white-space:nowrap}
+.body{font-size:.92rem;min-width:0}
+.body p{margin:0 0 6px}
+.body ul{margin:4px 0 6px;padding-left:20px}
+.look{color:var(--fg)}
+.look b{color:var(--accent)}
+.choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.choice{font:500 .88rem var(--font-body);padding:7px 14px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.choice[aria-pressed="true"].c-ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.choice[aria-pressed="true"].c-fix{background:var(--fix-bg);border-color:var(--fix);color:var(--fix)}
+.choice.c-clear{color:var(--muted);border-color:transparent}
+.fixes{margin-top:10px}
+.fixes label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px}
+textarea{width:100%;min-height:90px;resize:vertical;font:.9rem/1.5 var(--font-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+.foot{margin-top:28px;color:var(--muted);font-size:.88rem}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:6px;font-size:.85rem}
+@media (prefers-reduced-motion:no-preference){.meter i{transition:width .3s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Site review - three users</h1>
+    <p class="sub">BestLessons, local test site · 3 October 2026 · for each suggestion choose <b>Do it</b> (and say how) or <b>Leave as is</b>. Your answers save as you go and Claude can read them.</p>
+  </header>
+
+  <div class="bar">
+    <div class="counts" id="counts"></div>
+    <div class="meter" aria-hidden="true"><i class="m-ok" id="mOk"></i><i class="m-fix" id="mFix"></i></div>
+    <button class="btn" id="copy" type="button">Copy report</button>
+    <span class="sync" id="sync">Loading…</span>
+  </div>
+
+  <div class="before">
+    <b>Who used the site</b>
+    <ul>
+      <li><b>Sipho</b>, Grade 9 (9C) - reads slowly, weak speller, mostly on a phone, gives up when lost. Did the free AI course, lesson 1, with mistakes on purpose.</li>
+      <li><b>Thandi</b>, Grade 11 - quick, impatient, skims instructions, wants to code. Tried to start Pascal.</li>
+      <li><b>Mrs Naidoo</b>, IT teacher - busy, wants class results and set-up fast. Signed in as Staff; the teacher pages themselves could not be opened (the test teacher address was not added), so section E comes from the help pages.</li>
+    </ul>
+    <b>Overall feel</b>
+    <p style="margin:6px 0 0">The lesson itself is the strongest part: friendly tone, instant marking, kind hints, tap-to-sort, resume where you left off. The weak spots are around it: getting from sign-in to the right course, locked courses that look open, too much small print on each question, and no front door for teachers.</p>
+  </div>
+
+  <main id="list"></main>
+
+  <p class="foot">When you are done, tell the chat "review done" - it reads your answers from here.</p>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const L = (path, text) => `<a href="https://itcoder.co.za/${path}" target="_blank" rel="noopener">${text}</a>`;
+const AI1 = L("lesson.php?c=ai&id=lesson01","AI lesson 1");
+
+const SECTIONS = [
+ {title:"A. First visit and signing in", items:[
+  {id:"i1", who:"Mrs Naidoo", t:"Give teachers their own way in", b:`<p>The sign-in page and the home page speak only to pupils. Choosing <b>Staff</b> as the class gives the pupil view ("Student" menu, "Write to your teacher"). A teacher arriving cold has no "I'm a teacher" path and no idea they need to be on a list.</p>
+   <p class="look"><b>Suggestion:</b> a "For teachers" button on the home page and sign-in page that explains how a teacher gets an account (or requests one), and links to the teacher help.</p>`},
+  {id:"i2", who:"Sipho", t:"Show a Grade 9 pupil what fits Grade 9", b:`<p>Sipho (9C) gets <b>Join this course</b> on every course, including Pascal, Java, SQL and IT Theory 10-12. Thandi (Gr 11) gets Theory Gr 10, 11 and 12 with equal weight. The class was asked for at sign-in but nothing uses it.</p>
+   <p class="look"><b>Suggestion:</b> on Courses, put "For your grade" first (from the class chosen), and grey or fold the rest under "Other grades".</p>`},
+  {id:"i3", who:"Thandi", t:"Don't let a pupil join a course they can't open", b:`<p>Thandi joined Pascal and landed on a page where all 35 items say <b>locked</b> - no taster at all. The Courses page gave no warning before Join.</p>
+   <p class="look"><b>Suggestion:</b> say "Locked - your teacher invites you, or subscribe" on the card <i>before</i> Join, and open lesson 1 (or the set-up lesson) of each paid course as a free sample so a keen pupil can try the console.</p>`},
+  {id:"i4", who:"Thandi", t:"My account contradicts the lock", b:`<p>My account says <b>"What you can use: Every lesson, every self-marked question and the console - always."</b> The Pascal page says everything is locked. One of them is wrong.</p>
+   <p class="look"><b>Suggestion:</b> make My account list, per course, what is open and what is locked, in the same words as the course page.</p>`},
+  {id:"i5", who:"All", t:"The jump from home page to Courses", b:`<p>The home page is polished (hero, subject cards, feature tiles). After signing in, Courses is a plain list of boxes with a "›" and a button. It feels like a different site.</p>
+   <p class="look"><b>Suggestion:</b> reuse the home page's subject cards on Courses (colour band, icon, lesson count, "Continue" or "Join").</p>`}
+ ]},
+ {title:"B. Finding your way", items:[
+  {id:"i6", who:"Sipho", t:"One clear \"Continue\" button on the course page", b:`<p>The course page lists lessons with "not started" / "11/30 marks", but there is no big "Start lesson 1" or "Continue lesson 2" button. Sipho has to work out that the lesson name is clickable.</p>
+   <p class="look"><b>Suggestion:</b> one primary button under the progress line: <b>Start lesson 1</b> / <b>Continue: lesson 3, part 2</b>.</p>`},
+  {id:"i7", who:"Sipho", t:"\"Index\" in the top bar", b:`<p>The top bar reads <b>Index · My marks · My progress · Sign out</b>. "Index" is the term look-up, but a pupil reads it as "home" or "contents".</p>
+   <p class="look"><b>Suggestion:</b> rename it <b>Look up</b> (or a 🔍 with "Look up a word").</p>`},
+  {id:"i8", who:"Sipho", t:"\"Test view\" at the top of every lesson", b:`<p>A big yellow <b>Test view</b> button sits above "In this lesson" in the sidebar. Help explains it, but in the lesson nothing says what it does - Sipho thinks it is a test he must take.</p>
+   <p class="look"><b>Suggestion:</b> label it by what it does (e.g. "Questions only") with a one-line note on hover or tap.</p>`},
+  {id:"i9", who:"Sipho", t:"Bottom bar wording", b:`<p>The sticky bottom bar shows <b>TOTAL · AI: 0 of 100 today · On site 0:00:00 · This lesson 0:00:00</b>. "AI: 0 of 100 today" means nothing to a pupil.</p>
+   <p class="look"><b>Suggestion:</b> "AI marking: 100 left today", or hide it until it is nearly used up.</p>`},
+  {id:"i10", who:"All", t:"Check the time counters", b:`<p>"On site" and "This lesson" stayed at <b>0:00:00</b> for several minutes of reading and only went to 0:00:01 after the first answer. If time counts only when answering, the label should say so; if it should count reading, it is broken. (It may be the hidden test browser - check on a real screen.)</p>`},
+  {id:"i11", who:"All", t:"Home page subject carousel", b:`<p>The subject cards scroll sideways, and each card has its own scrolling lesson list inside - a scroll inside a scroll, easy to get stuck in on a trackpad or phone. SQL's list repeats lessons 8-17 three times (Access, MySQL, Java DB) with only a small "Setup" row between them.</p>
+   <p class="look"><b>Suggestion:</b> show 4-5 lessons and "+ 30 more" instead of an inner scroll; in SQL, give each database its own sub-heading.</p>`},
+  {id:"i12", who:"All", t:"Lesson counts disagree", b:`<p>Pascal is "35 lessons" on the cards and "0 of 30 lessons completed" on the course page (set-up, IDE and exam guides are counted in one and not the other).</p>
+   <p class="look"><b>Suggestion:</b> "25 lessons + 10 guides" everywhere.</p>`},
+  {id:"i13", who:"All", t:"Help page looks like another site", b:`<p>Help has a dark top bar and grey background; every other page has the white bar. Small, but it breaks the one-design rule.</p>`}
+ ]},
+ {title:"C. Inside a lesson", items:[
+  {id:"i14", who:"Sipho", t:"Too many rules before each question", b:`<p>The sort question in ${AI1} has three lines of marking rules ("2 marks a line, 6 lines", "Each line is marked on its own - 2 marks... 1 if... Two attempts at the whole set...") before Sipho reaches what to do. Every question repeats "Two attempts. Right first time earns the full mark...".</p>
+   <p class="look"><b>Suggestion:</b> keep one action line ("Tap a card, then a group") and fold the marking rules into a small ⓘ "How this is marked".</p>`},
+  {id:"i15", who:"Sipho", t:"Show which card was wrong", b:`<p>After a wrong sort, the hint names the thermostat in text, but the card itself is not marked in its group. A slow reader has to match text to cards.</p>
+   <p class="look"><b>Suggestion:</b> outline the wrong card(s) in place (✗ plus colour-safe orange) on the first check.</p>`},
+  {id:"i16", who:"Sipho", t:"Old \"Why that is not it\" stays after a right answer", b:`<p>After fixing the sort on the second try ("6 of 6 lines right"), the orange <b>Why that is not it</b> box is still shown under the result.</p>
+   <p class="look"><b>Suggestion:</b> clear or collapse the hint once the answer is right.</p>`},
+  {id:"i17", who:"Sipho", t:"Keep: the spelling hint and friendly touches", b:`<p>Typing "learnig" gave "check your spelling - you've missed a letter in there", with the answer left in the box. Clear, kind, and what a weak speller needs. Also good: tap-a-card-then-a-group works without dragging; "All sorted - press Check" appears when ready; "Carry on where you left off?" on return.</p>
+   <p class="look">Mark <b>Leave as is</b> unless you want this pattern on more question types.</p>`},
+  {id:"i18", who:"Thandi", t:"A fast lane for strong pupils", b:`<p>Thandi reads fast and is bored by long intros. The sidebar "In this lesson" helps, but there is no "I know this - check me" route that lets her answer a part's questions first and skip the reading if she gets them right.</p>
+   <p class="look"><b>Suggestion:</b> per part, a "Try the questions first" link; full marks moves her on. Also an optional challenge question at the end of each lesson for extra XP.</p>`}
+ ]},
+ {title:"D. Phone", items:[
+  {id:"i19", who:"Sipho", t:"Lesson names squashed on the course page", b:`<p>At phone width the status column ("11/30 marks", "not started") takes so much room that lesson names wrap one word per line ("What / AI / actually / is").</p>
+   <p class="look"><b>Suggestion:</b> on narrow screens put the status under the name.</p>`},
+  {id:"i20", who:"Sipho", t:"Quote box at the top of a lesson", b:`<p>On a phone the Steve Jobs quote at the top of lesson 1 is narrow bold text beside a portrait, a whole screen tall before the lesson starts.</p>
+   <p class="look"><b>Suggestion:</b> on phones put the portrait above the quote and use normal weight.</p>`}
+ ]},
+ {title:"E. Teacher (from the help pages - not tried hands-on)", items:[
+  {id:"i21", who:"Mrs Naidoo", t:"Eight separate teacher tools", b:`<p>Help lists Setup guide, Invite pupils, My groups, Pupil queries, Pupil messages, Year planner, Class results and Teacher settings, each on its own page. A busy teacher wants one start page: "3 queries waiting, 2 messages, 5 pupils behind, next lesson due Friday".</p>
+   <p class="look"><b>Suggestion:</b> a Teacher home page with those counts as cards linking to each tool.</p>`},
+  {id:"i22", who:"Mrs Naidoo", t:"Deleting a pupil is for good", b:`<p>Help: "Their account, answers, marks and progress are lost for good." One mis-tick in My groups loses a pupil's year.</p>
+   <p class="look"><b>Suggestion:</b> "Remove from class" as the normal action; real deletion behind a second step with the pupil's name typed in, or a 30-day undo.</p>`}
+ ]}
+];
+const ALL = SECTIONS.flatMap(s => s.items);
+const state = {};            // id -> {status, fixes}
+ALL.forEach(i => state[i.id] = {status:"", fixes:""});
+
+const LS = "site-review-v1";
+function lsLoad(){ try{ return JSON.parse(localStorage.getItem(LS)||"{}") }catch(e){ return {} } }
+function lsSave(){ try{ localStorage.setItem(LS, JSON.stringify(state)) }catch(e){} }
+Object.assign(state, lsLoad());
+
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderList(){
+  const html = SECTIONS.map(s => `<h2>${s.title}</h2>` + s.items.map(i => `
+   <section class="item" id="${i.id}" data-status="${state[i.id].status}">
+    <h3><span class="num">${i.id.slice(1)}.</span><span>${i.t}</span>${i.who?'<span class="tag">'+i.who+'</span>':''}</h3>
+    <div class="body">${i.b}</div>
+    <div class="choices" role="group" aria-label="Decision for suggestion ${i.id.slice(1)}">
+      <button type="button" class="choice c-ok" data-id="${i.id}" data-set="ok">Leave as is</button>
+      <button type="button" class="choice c-fix" data-id="${i.id}" data-set="fix">✓ Do it</button>
+      <button type="button" class="choice c-clear" data-id="${i.id}" data-set="">Clear</button>
+    </div>
+    <div class="fixes" hidden>
+      <label for="fx-${i.id}">How you want it - one point per line</label>
+      <textarea id="fx-${i.id}" data-id="${i.id}" placeholder="e.g. Only for the AI course for now"></textarea>
+    </div>
+   </section>`).join("")).join("");
+  document.getElementById("list").innerHTML = html;
+  ALL.forEach(i => paintItem(i.id, true));
+}
+function paintItem(id, setText){
+  const el = document.getElementById(id), st = state[id];
+  el.dataset.status = st.status;
+  el.querySelectorAll(".choice").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.set === st.status && st.status !== "")));
+  el.querySelector(".fixes").hidden = st.status !== "fix";
+  const ta = el.querySelector("textarea");
+  if (setText && document.activeElement !== ta) ta.value = st.fixes || "";
+}
+function paintCounts(){
+  const n = ALL.length;
+  const ok = ALL.filter(i => state[i.id].status === "ok").length;
+  const fix = ALL.filter(i => state[i.id].status === "fix").length;
+  document.getElementById("counts").innerHTML =
+    `<span class="fix">✓ ${fix} to do</span><span class="ok">${ok} left as is</span><span class="todo">${n-ok-fix} not decided</span>`;
+  document.getElementById("mOk").style.width = (ok/n*100)+"%";
+  document.getElementById("mFix").style.width = (fix/n*100)+"%";
+}
+
+let db = null;
+const timers = {};
+const syncEl = document.getElementById("sync");
+function setSync(t){ syncEl.textContent = t }
+async function persist(id){
+  lsSave();
+  if (!db) return;
+  setSync("Saving…");
+  try{
+    await db.doc("checks/"+id).set({status: state[id].status, fixes: state[id].fixes, updatedAt: new Date().toISOString()});
+    setSync("Saved");
+  }catch(e){ setSync("Not saved to the shared copy ("+(e.code||"error")+") - kept in this browser") }
+}
+
+document.getElementById("list").addEventListener("click", e => {
+  const b = e.target.closest(".choice"); if (!b) return;
+  const id = b.dataset.id;
+  state[id].status = b.dataset.set;
+  paintItem(id, false); paintCounts();
+  if (state[id].status === "fix") document.getElementById("fx-"+id).focus();
+  persist(id);
+});
+document.getElementById("list").addEventListener("input", e => {
+  const ta = e.target.closest("textarea"); if (!ta) return;
+  const id = ta.dataset.id;
+  state[id].fixes = ta.value; lsSave();
+  clearTimeout(timers[id]); timers[id] = setTimeout(() => persist(id), 800);
+});
+document.getElementById("list").addEventListener("focusout", e => {
+  const ta = e.target.closest("textarea"); if (!ta) return;
+  const id = ta.dataset.id;
+  if (timers[id]){ clearTimeout(timers[id]); delete timers[id]; persist(id); }
+});
+
+function report(){
+  const lines = ["Site review - decisions"];
+  ALL.forEach(i => {
+    const st = state[i.id], n = i.id.slice(1);
+    const mark = st.status === "ok" ? "LEAVE AS IS" : st.status === "fix" ? "DO IT" : "not decided";
+    lines.push(`${n}. ${i.t}: ${mark}`);
+    if (st.status === "fix" && st.fixes.trim()) st.fixes.trim().split(/\n+/).forEach(f => lines.push("   - "+f.trim()));
+  });
+  return lines.join("\n");
+}
+function toast(t){ const el = document.getElementById("toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => el.hidden = true, 2200) }
+document.getElementById("copy").addEventListener("click", () => {
+  const text = report();
+  navigator.clipboard.writeText(text).then(() => toast("Report copied"), () => {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+    toast("Press Ctrl+C to copy"); setTimeout(() => ta.remove(), 8000);
+  });
+});
+
+renderList(); paintCounts();
+setSync("Saved in this browser");
+
+(async () => {
+  if (!window.claude?.use) return;
+  db = await window.claude.use("db");
+  if (!db){ setSync("Saved in this browser only"); return; }
+  setSync("Connected");
+  db.collection("checks").onSnapshot(snap => {
+    snap.docs.forEach(d => {
+      if (!state[d.id]) return;
+      const v = d.data() || {};
+      const ta = document.getElementById("fx-"+d.id);
+      if (document.activeElement === ta) { state[d.id].status = v.status || ""; }
+      else { state[d.id] = {status: v.status || "", fixes: v.fixes || ""}; }
+      paintItem(d.id, true);
+    });
+    paintCounts(); lsSave();
+  }, err => setSync("Live sync stopped ("+err.code+") - saved in this browser"));
+})();
+</script>

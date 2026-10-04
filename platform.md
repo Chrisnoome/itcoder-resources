@@ -120,12 +120,16 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     and the subjects page) sends one notification when the subject's first
     course opens.
 - **Pages:** `/` landing or the dashboard (above); `subjects.php` (All subjects);
-  `courses.php` (grouped by subject, `?s=` for one); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
+  `courses.php` (grouped by subject, with a search up top and the subjects down the left - a swipeable row on a phone - both filtering in place, `?s=` / `?q=` in the address; Chris, 4 Oct 2026); `course.php?c=` (lesson titles only; each summary + syllabus boxes opens with its chevron, Expand all / Collapse all - Chris, 23 Sep 2026);
   `lesson.php?c=&id=`; `glossary.php?c=` (after the last lesson; PDF `glossary-pdf.php`; its search, A-Z and count stay pinned under the masthead while scrolling - Chris, 27 Sep 2026) and the **Index** popup in the top bar (both 24 Sep 2026, courses/pascal-course.md); `practice.php?c=` (**Practice**, right after the glossary on the course page - see below); `cite.php?c=` (the **Harvard reference builder**, after Practice on the course page, only for courses with `'citeTool' => true` - IT Theory 10-12 - Chris, 27 Sep 2026: "build a citation creation tool for links and put it in the course contents", Harvard because the IEB requires it. The pupil pastes a link; `api/cite-fetch.php` -> `lib/cite.php` reads the page's own title, author, site and year (meta tags, JSON-LD, `<title>`), public addresses only, 3 redirects, 5 s, 400 KB, 20 look-ups per 10 minutes per session; every field can be typed instead. It builds the reference and the in-text citation, copies them with the title in italics, and keeps a "My reference list" in the browser's localStorage, A-Z. Grade 10 lesson 44 `plagiarism#referencing` links to it); `scores.php?c=` (My marks - lesson and course totals as
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year
   filters); `pupil-work.php?c=&p=` (teachers only: every marked question, the
   answer, right answer, mark and feedback; same totals as `teacher.php`);
-  `admin.php`, `admin-users.php`.
+  `admin.php`, `admin-users.php` (a name opens `admin-user.php?id=` - one account: role, status, AI marking and
+  why, the actions, time, sign-ins, each course's progress and mark, the last 14 days, AI use, classes,
+  subscriptions; Chris, 4 Oct 2026); `admin-teachers.php` in tabs - To approve (opens there when anything
+  waits), Teachers, Groups, Schools - with figures across the top (Chris, 4 Oct 2026: "layout and structural
+  improvement - always good gui design").
 - **Class results and pupil-work list pupils only** - `IsPupilAccount()`: a
   `students.dlshcch.co.za` address that is not a teacher.
 - **Everything a pupil finished is shown again on return** - every question
@@ -692,10 +696,28 @@ for teachers. `public/planner.php` (Teacher options - Year planner),
 - **Paced by time, with class time and homework** (Chris, 4 Oct 2026: "build
   1-3 with those defaults"): a lesson's weight is the minutes it takes a
   typical pupil (`CourseLessonTimes()`, lib/lessontime.php - it was the file
-  size). Teacher settings - Timetable holds the IT periods: minutes a period,
-  periods a week or cycle, minutes lost a period (standard 5) and the share of
-  weeks kept for tests, practicals and the PAT (standard 20%); unsaved, CAPS's
-  four hours as 5 x 45 (`pupils.periodSettings`, `TimetableSettings()`). Each
+  size). **The lesson length is the school's** (Chris, 4 Oct 2026: "lesson
+  length is also a school function. allow it to be set there and each teacher
+  gets the school default"): its admin sets the average minutes a period and
+  the minutes lost in each, beside the school calendar (Teacher settings -
+  School calendar; Admin > Schools too) - `schools.periodSettings`,
+  `SaveSchoolTimetable()`. A teacher starts from it and may save their own
+  (one equal to the school's is not kept, so it follows the school; "Use the
+  school's lesson length" drops their own). The length is the **average**
+  where periods differ by day (Chris: "recommend they work on an average
+  length"; both forms say so). Teacher settings - Timetable holds the rest:
+  **periods per subject**, each teacher's own (Chris, 4 Oct 2026: "put lessons
+  per cycle as a setting per subject - set by teacher. for it at de la salle it
+  is 6") - a box per subject they have classes in, `periods` saved as
+  subjectId => n (a single number from before is IT's); unsaved, **one a
+  school day of the cycle** (5 a week, 7 in a 7-day cycle - an unsaved 5 had
+  counted per 7-day cycle); and the share of their periods kept for tests,
+  practicals and the PAT, **standard 0** (Chris: "put test time as a setting,
+  make it default to 0" - it was 20%) (`pupils.periodSettings`,
+  `TimetableSettings($teacher, $subject)`; the planner uses the grade's
+  subject). **A short week gets less work**: `PlannerSpread()` gives each
+  week lessons in proportion to its school days (Chris: a 3-day week had a
+  full week's lessons, so its homework was high). Each
   planner week shows lessons / class / homework (`WeekLoad()`), each term its
   totals, the spreadsheet three more columns. With the standard periods and
   the 2027 calendars a typical pupil needs about 1.5-1.75 h of homework a week
@@ -1004,7 +1026,10 @@ changes. pupils without teachers don't get calendars by default."
   that option (monthly / yearly) is not offered; **Offered to new buyers**
   (was "On sale" - it only ever meant this; plans already using the bundle
   keep covering it); a **sale** is a discount % (1-90) and its last day,
-  `discountPercent` / `saleEndsOn`, priced by `BundlePrice()` (lib/access.php).
+  `discountPercent` / `saleEndsOn`, priced by `BundlePrice()` (lib/access.php),
+  with an optional **description** of the sale (`saleDescription`, up to 120
+  characters, e.g. "Back-to-school special" - kept only with a sale, shown
+  beside it; Chris, 4 Oct 2026).
   The list: find by name or course, courses one under the other, Delete on
   each row. The form: two columns, the courses in a searchable scroll box
   on the right with a count of those ticked. Nothing sells bundles to the
@@ -1722,9 +1747,21 @@ same in both modes (check-code-blocks --compile, 4 October 2026).
 
 **25. The hamburger menu** (`SiteMenuHtml()` in `lib/sitemenu.php`, before the
 wordmark) holds: All subjects, this subject's courses, this course's lessons;
-**Teacher options > Class results** for teachers; **Admin > Admin, Users** for
-`IsAdmin()`. Those left the masthead bar (admin pages and pupil-work keep their
-own links). The panel is a `<div>`, not `<nav>` (`.masthead nav` is a flex
+then **one link per role** (Chris, 4 Oct 2026: "instead of such long menus put
+the link to teacher settings with the tabbed pages - do the same for admin
+settings. reduce complexity in navigation", "and the same with pupils") -
+**My learning** (a course's My progress, My marks, Revision list, Fun
+practice), **My account** (Account, Settings, Notifications, Messages, Join a
+class), **Teaching** (Class results, Progress, Term marks, Queries, Messages,
+Pupils and groups, Year planner, Set up classes, Settings) and **Admin**
+(Users, Teachers, Schools, Billing, Courses, Marking, Corrections, Images,
+Messages to us, Monitor), each with a line on what it holds and what waits.
+**Every page of a role carries that role's tab bar** under the masthead
+(`RolePages()`, `RoleTabsHtml()`; `RenderMasthead()` draws it on any
+signed-in page whose script is a tab - a new role page is added to
+`RolePages()`, nowhere else); queries and messages waiting show on their tabs.
+The teacher pages' older row (`TeacherTabsHtml()`) and the admin pages' top-bar
+links (`AdminNavItems()` - now only Sign out) gave way to it. The panel is a `<div>`, not `<nav>` (`.masthead nav` is a flex
 row); the summary needs `display: block` plus `::marker` rules to lose
 Chrome's triangle.
 

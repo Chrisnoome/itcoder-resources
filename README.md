@@ -1,6 +1,6 @@
 # AIResources - start here
 
-**The source of truth for the itcoder project**: the itcoder.co.za platform, its
+**The source of truth for the BestLessons project**: the bestlessons.co.za platform (the old itcoder.co.za still works), its
 courses, the server and the house styles. Every chat reads this first and
 records decisions here. Files hold the **current state only** - history is in
 this folder's git log.
@@ -26,7 +26,17 @@ this folder's git log.
    Before building, ask about every choice that would change what gets built,
    always with the interactive question tool (multiple choice, the
    recommended option first) - never as questions typed into a reply. If
-   Chris dismisses the questions, stop and wait.
+   Chris dismisses the questions, stop and wait. **This covers every
+   question, not only before building** (Chris, 1 October 2026: "always ask
+   questions interactively"): "is that OK?", "which do you want?", choices
+   left open at the end of a report - all go through the tool, never as
+   text at the end of a reply.
+9. **Keep off C: on Chris's PC** (Chris, 28 September 2026: "c: is low on
+   space, if you need space work on d: or e:"). Anything big - VMs, videos,
+   downloads, models, caches, renders, scratch files that grow - goes on D:
+   or E:, never C: (the scratchpad on C: is for small files only). Set a
+   program's own data or download folder to D: or E: when it would default
+   to C:.
 10. **Pictures from ComfyUI go through the queue** (Chris, 1 October 2026:
     "a general comfyui queue that all chats can add their requirements
     to"). Add a request to [comfyui-queue/](comfyui-queue/README.md) and
@@ -46,6 +56,8 @@ this folder's git log.
 | [backups.md](backups.md) | Backups, restore, the Dropbox pull and its alarm |
 | [open-items.md](open-items.md) | The backlog |
 | [platform-roadmap.md](platform-roadmap.md) | PLAN: teachers and classes, subscriptions and payments, the public landing page - with Chris's open questions |
+| [popia-checklist.md](popia-checklist.md) | **POPIA** (3 Oct 2026, draft for an attorney): what the site holds, children's consent (s35), operator agreements for schools, approval before work is shown, cross-border, the questions to ask |
+| [schools-design.md](schools-design.md) | **Schools, cohorts and classes** (3 Oct 2026, agreed): school, teacher, cohort, class, TIC, weighting, term marks, the sign-up wizard, home schools - replaces the roadmap's "no school level yet" |
 | [history.md](history.md) | Append-only log of rule, style and engine changes - don't load unless asked why |
 | [writing-style.md](writing-style.md) | Base rules for lesson prose |
 | [content-voice-and-pedagogy.md](content-voice-and-pedagogy.md) | Voice, pedagogy and lesson rules, with the lesson checklist |
@@ -68,6 +80,8 @@ this folder's git log.
 | [courses/sql-course.md](courses/sql-course.md) | PLAN: the SQL and databases course - shared theory, SQL lessons per dialect (Access, MySQL, Java DB, SQLite), marks per dialect, the SQL runner, questions for Chris |
 | [courses/install-videos.md](courses/install-videos.md) | PLAN: install videos for the tools (Lazarus, Delphi, JDK, jGRASP, NetBeans, Java DB, MySQL, DBeaver, Letos) - recorded in a clean Windows VM, blue sketch notes, Chris's cloned voice, uploaded to YouTube by Chris |
 | [youtube-channels.md](youtube-channels.md) | The seven YouTube channels made 3 Oct 2026 (AI 4 All, AI for Teachers, Pascal/Java/SQL/CAT School SA, Computer Skills SA): handles, channel IDs, purpose, art folders, what's left |
+| [courses/tutorial-videos.md](courses/tutorial-videos.md) | PLAN: tutorial videos - install-video pipeline and voice, blue doodle style, sped-up typing then held code, house-style code zip on bestlessons.co.za, .srt captions, doodle thumbnail template |
+| [courses/delphi-gui.md](courses/delphi-gui.md) | PLAN, waits for the Delphi IDE: Delphi GUI simulations from real screens, CAPS Delphi lessons and GUI tutorials (Chris, 4 Oct 2026) |
 | [courses/theory-course.md](courses/theory-course.md) | PLAN: the IT Theory courses - Chris's decisions, sources (the old textbook), chapter outlines per grade, platform work |
 | [courses/theory-review-queue.md](courses/theory-review-queue.md) | IT Theory review items still open after the 27 Sep 2026 reviews of Grades 10-12 - delete an item when it is done |
 | [courses/theory-yearly-update.md](courses/theory-yearly-update.md) | Facts in the theory lessons that go stale (brands, statistics, "most"), checked every January; add a line whenever a lesson states one |

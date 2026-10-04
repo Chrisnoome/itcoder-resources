@@ -3,16 +3,38 @@
 Server facts are in [vps-access.md](vps-access.md); this file is only how to
 publish. **Read it before putting anything on the server.**
 
+**Chris publishes, not the chats (Chris, 1 October 2026: "don't just
+automatically publish. multiple chats working. publish should be
+synchronised which i will do when chats are finished").** Several chats share
+one working tree, and a publish uploads all of it - half-finished work of
+other chats included (it has carried unfinished files to live, and failed
+when another chat removed a file mid-upload). So a chat never runs
+publish-test.py or deploy-live.py on its own: it finishes, lints, commits its
+own hunks, and tells Chris it is ready to publish. Testing a change on the
+server without publishing: upload single files to /tmp and run them there
+(as the remediation chat's php -l checks do), never into the sites.
+
 ## The two scripts, always in this order
 
 1. **Test:** `tools/publish-test.py` - puts all of `AIPascalCourse` on the test
    site (`/var/www/itcoder-v2-test`, http://102.214.9.207:8082) and proves the
    compile sandbox there.
-2. **Look at it** on the test site (dev login is on there).
-3. **Live:** `tools/deploy-live.py` - the same code to https://itcoder.co.za.
+2. **Look at it** on the test site (dev login is on there, behind a
+   password - the browser asks once; set or change it with
+   `tools/set-test-password.py`, 28 Sep 2026).
+3. **Live:** `tools/deploy-live.py` - the same code to https://bestlessons.co.za (the old itcoder.co.za still works).
    Refuses to run until step 1 has passed for the installed sandbox.
 
-Bash tool (10-minute timeout; each run takes 1-3 minutes):
+**A publish that runs over an hour: terminate it and start it again**
+(Chris, 4 Oct 2026: "publishing seems to be stalling. if it goes over an hour,
+terminate and restart"). With about 4,000 public files a run now takes 20-35
+minutes - run it in the background, not under the Bash tool's 10-minute limit.
+A re-run is safe: it backs up again and re-sends every file. Since 4 Oct 2026
+`vps.put_tree()` also sends a file again on a fresh connection when it has
+stalled for 2 minutes (3 tries) - before that, two live deploys hung for good
+on one picture.
+
+Bash tool (run it in the background - see above):
 
     /c/Python314/python.exe -X utf8 "D:/DB Sync/Dropbox/Projects/AIResources/tools/publish-test.py"
     /c/Python314/python.exe -X utf8 "D:/DB Sync/Dropbox/Projects/AIResources/tools/deploy-live.py"
@@ -65,6 +87,14 @@ live with `tools/set-server-config.py mail` (it asks for the key; never printed)
 - **The permission classifier refuses a deploy** - don't work around it (no
   small uploads, no hand copies). Stop and give Chris the PowerShell command.
 - **`ModuleNotFoundError`** - use the full interpreter path.
+
+**nginx hardening (28 September 2026):** both scripts then run
+`tools/nginx_hardening.py` - server_tokens off and the rate-limit zones
+(`conf.d/itcoder.conf`, shared by every site, so publish-test already sets it
+for live), the limits snippet included in the test block (publish-test) or
+the itcoder and bestlessons blocks (deploy-live), and the security headers
+in `/assets/`. Only what differs is changed, each changed file copied aside
+first, `nginx -t` before the reload, everything put back if it fails.
 
 **Upload size (25 September 2026):** both scripts make sure the site's nginx
 block has `client_max_body_size 12m` (task pre-checks upload PDFs up to 10 MB;

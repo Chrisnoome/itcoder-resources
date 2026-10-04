@@ -1,0 +1,269 @@
+<title>Remediation Live Checks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column of check cards grouped by section; sticky progress bar on top. */
+:root{
+  --bg:#f5f6f4; --surface:#ffffff; --fg:#1d2321; --muted:#5d6763; --line:#d9ded9;
+  --accent:#20605a; --ok:#1f5fae; --ok-bg:#e6effa; --fix:#b5560f; --fix-bg:#fbeee3;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141917; --surface:#1c2220; --fg:#e4e9e6; --muted:#9aa5a0; --line:#2f3835;
+  --accent:#6cc0b6; --ok:#7fb2f0; --ok-bg:#1b2a3d; --fix:#f0a35e; --fix-bg:#3a2717; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --surface:#1c2220; --fg:#e4e9e6; --muted:#9aa5a0; --line:#2f3835;
+  --accent:#6cc0b6; --ok:#7fb2f0; --ok-bg:#1b2a3d; --fix:#f0a35e; --fix-bg:#3a2717; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--font-body);padding:0 16px 64px}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto}
+header.top{padding-block:28px 8px}
+h1{font-size:1.6rem;margin:0 0 6px;text-wrap:balance;font-weight:600}
+.sub{color:var(--muted);margin:0}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.counts{font-family:var(--font-mono);font-size:.85rem;font-variant-numeric:tabular-nums;display:flex;gap:14px;flex-wrap:wrap}
+.counts .ok{color:var(--ok)} .counts .fix{color:var(--fix)} .counts .todo{color:var(--muted)}
+.meter{flex:1 1 160px;height:6px;background:var(--line);border-radius:3px;overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+.meter .m-ok{background:var(--ok)} .meter .m-fix{background:var(--fix)}
+.sync{font-size:.8rem;color:var(--muted)}
+.btn{font:500 .85rem var(--font-body);border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:6px 12px;border-radius:6px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.before{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-top:18px;font-size:.92rem}
+.before ul{margin:6px 0 0;padding-left:20px}
+h2{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 10px;font-weight:600}
+.item{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:12px}
+.item[data-status="ok"]{border-left-color:var(--ok)}
+.item[data-status="fix"]{border-left-color:var(--fix)}
+.item h3{margin:0 0 6px;font-size:1rem;font-weight:600;display:flex;gap:10px;align-items:baseline}
+.num{font-family:var(--font-mono);color:var(--muted);font-size:.85rem;min-width:1.8em}
+.tag{font:500 .7rem var(--font-mono);color:var(--fix);border:1px solid var(--fix);border-radius:4px;padding:0 5px;margin-left:auto;white-space:nowrap}
+.body{font-size:.92rem;min-width:0}
+.body p{margin:0 0 6px}
+.body ul{margin:4px 0 6px;padding-left:20px}
+.look{color:var(--fg)}
+.look b{color:var(--accent)}
+.choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.choice{font:500 .88rem var(--font-body);padding:7px 14px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.choice[aria-pressed="true"].c-ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.choice[aria-pressed="true"].c-fix{background:var(--fix-bg);border-color:var(--fix);color:var(--fix)}
+.choice.c-clear{color:var(--muted);border-color:transparent}
+.fixes{margin-top:10px}
+.fixes label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px}
+textarea{width:100%;min-height:90px;resize:vertical;font:.9rem/1.5 var(--font-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+.foot{margin-top:28px;color:var(--muted);font-size:.88rem}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:6px;font-size:.85rem}
+@media (prefers-reduced-motion:no-preference){.meter i{transition:width .3s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Remediation live checks</h1>
+    <p class="sub">itcoder.co.za · 1 October 2026 · mark each check <b>OK</b> or <b>Needs fixing</b> and list what is wrong. Your answers save as you go and Claude can read them.</p>
+  </header>
+
+  <div class="bar">
+    <div class="counts" id="counts"></div>
+    <div class="meter" aria-hidden="true"><i class="m-ok" id="mOk"></i><i class="m-fix" id="mFix"></i></div>
+    <button class="btn" id="copy" type="button">Copy report</button>
+    <span class="sync" id="sync">Loading…</span>
+  </div>
+
+  <div class="before">
+    <b>Before you start</b>
+    <ul>
+      <li>Items 1-12 are live. <b>Items 13-16 need your next synchronised publish</b> (commit e239420).</li>
+      <li>Two accounts: your <b>teacher/admin</b> account, and <b>Test Pupil</b> in one of your groups.</li>
+      <li>A pupil's work page: click the pupil's name in Class results (<code>pupil-work.php?c=COURSE&amp;p=PUPIL-ID</code>).</li>
+    </ul>
+  </div>
+
+  <main id="list"></main>
+
+  <p class="foot">When you are done, tell the chat "checklist done" - it reads your answers from here.</p>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const L = (path, text) => `<a href="https://itcoder.co.za/${path}" target="_blank" rel="noopener">${text}</a>`;
+const P1 = L("lesson.php?c=pascal&id=lesson01","Pascal lesson 1");
+const AI1 = L("lesson.php?c=ai&id=lesson01","AI lesson 1");
+const READ = L("pupil-settings.php#reading","My settings - Reading");
+const CRP = L("teacher.php?c=pascal","Class results, Pascal");
+
+const SECTIONS = [
+ {title:"A. Reset a question", items:[
+  {id:"i1", t:"Reset from a query", b:`<p>Pupil view: answer the quiz in ${P1} ("The song says all a computer does is add and compare...") and press <i>Query this mark with my teacher</i>. Teacher view: open ${L("teacher-queries.php","Pupil queries")}.</p>
+   <p class="look"><b>Look for:</b> three answers - <i>The mark is correct</i>, <i>New mark</i>, <b>↺ Reset the question</b> (with a confirm box). Press Reset.</p>
+   <p><b>Then:</b> the query shows "Question reset (was x / y)" and keeps the old answer. Pupil view: the question is unanswered again, with "Your teacher reset this question for you to answer again." Answer again - <i>Query this mark</i> is available again.</p>`},
+  {id:"i2", t:"Reset from the pupil's work page", b:`<p>Teacher view: ${CRP} - click Test Pupil - an answered question - <b>Reset this question</b>.</p>
+   <p class="look"><b>Look for:</b> the confirm text says the old answer is kept for staff; the question goes back to "Not answered yet". Try an SQL or grid question too (these failed before).</p>`}
+ ]},
+ {title:"B. Reading options for dyslexia", items:[
+  {id:"i3", t:"The Reading card", b:`<p>Pupil view: ${READ}.</p>
+   <p class="look"><b>Look for:</b> Font, Text size, Background, Reading-aloud speed, Wider spacing, Reading ruler, Read aloud, Colour-safe colours. Each choice changes the page straight away, before Save. Save - the card says "✓ On".</p>`},
+  {id:"i4", t:"Fonts", b:`<p>Same card: try <b>OpenDyslexic</b> and <b>Atkinson Hyperlegible</b>.</p>
+   <p class="look"><b>Look for:</b> the whole page changes font; in ${P1} the lesson text uses it but <b>code stays monospace</b> (no OpenDyslexic in code boxes or the console).</p>`},
+  {id:"i5", t:"Size, spacing, tint, ruler", b:`<p>Largest + Wider spacing + Cream + Ruler on, open ${AI1}.</p>
+   <p class="look"><b>Look for:</b> bigger, more spaced text; cream background; a yellow band follows the mouse; the top menu bar stays normal size. On your phone nothing runs off the right edge (except the bottom bar, a known older issue).</p>`},
+  {id:"i6", t:"Read aloud", b:`<p>Read aloud on, in ${AI1}: each part has a <b>🔊 Read aloud</b> button.</p>
+   <p class="look"><b>Look for:</b> it reads the part, the current word is highlighted, the button becomes <b>■ Stop</b>, Escape stops it. Note which voice the school PCs use.</p>`},
+  {id:"i7", t:"Everything off", b:`<p>Set everything back to the defaults and Save.</p>
+   <p class="look"><b>Look for:</b> lessons look exactly as before (no 🔊 buttons, normal font).</p>`}
+ ]},
+ {title:"C. Spelling concession", items:[
+  {id:"i8", t:"The switch", b:`<p>Teacher view: Test Pupil's work page in ${L("teacher.php?c=theory10","Class results, Theory 10")} - <b>Spelling concession</b> switch near the top; turn it on.</p>
+   <p class="look"><b>Look for:</b> it stays on after a reload. Pupil view: ${READ} shows "Your teacher has given you a spelling concession".</p>`},
+  {id:"i9", t:"A near-miss counts (not in code)", b:`<p>Pupil view, concession on: ${L("lesson.php?c=theory10&id=binary","Theory 10 - Binary")}, "Give the term for the number of digits a number system uses" - type <b>radiz</b>.</p>
+   <p class="look"><b>Look for:</b> marked right. Words of 1-4 letters stay exact ("bace" for "base" is wrong). In ${P1} nothing changes - no concession in Pascal, Java or SQL.</p>`}
+ ]},
+ {title:"D. Colour blindness", items:[
+  {id:"i10", t:"Ticks and crosses everywhere", b:`<p>Pupil view, answer wrongly on purpose in:</p>
+   <ul>
+    <li>${P1}: the quiz - options say <b>✓ right</b> / <b>✗ not right</b>; the sort-into-groups question - a wrong line says <b>✗ should be: ...</b>; the mark-the-words question ("A program must find Lerato...") - a missed word has a <b>dashed</b> ring.</li>
+    <li>${L("lesson.php?c=pascal&id=lesson02","Pascal lesson 2")}: "Tick every value that should be a constant" - each option ✓ / ✗.</li>
+    <li>${L("lesson.php?c=pascal&id=lesson03","Pascal lesson 3")}: the GotoXY grid - each pin has a small ✓ or ✗.</li>
+    <li>${L("lesson.php?c=pascal&id=lesson08","Pascal lesson 8")}: "This time the whole last column is missing" - wrong cells "✗ should be:".</li>
+    <li>${L("practice.php?c=pascal","Practice, Pascal")}: flash cards say RIGHT / NOT QUITE; score dots ✓ / ✗; order game rows ✓ / ✗, no "the green ones".</li>
+   </ul>
+   <p>Teacher view: ${CRP} - cells show ✓ (full) and ◐ (some); the key names ✓ ◐ ⚑ ⚠.</p>`},
+  {id:"i11", t:"Colour-safe colours and the colour vision check", b:`<p>Pupil view: ${L("pupil-settings.php#colours","My settings - Colour vision")} - Start the check.</p>
+   <p class="look"><b>Look for:</b> 8 circles of dots, numbers clear (the first, 12, easy for everyone); "All clear" at the end. Then turn on <b>Colour-safe colours</b> and answer wrongly in ${P1}: right/wrong are <b>blue / orange</b> instead of green / red.</p>`}
+ ]},
+ {title:"E. NB fold, Habits, strategies, class view", items:[
+  {id:"i12", t:"The NB fold", b:`<p>${P1}, the written question "Which language - A, B or C - do you think is easiest to understand, and why?".</p>
+   <p class="look"><b>Look for:</b> the <i>NB: one go only</i> box has a clear <b>Hide ▴ / Show ▾</b> button on the right.</p>`},
+  {id:"i13", pub:true, t:"Pupil work page tabs", b:`<p>Teacher view: ${CRP} - click a pupil with marked written work.</p>
+   <p class="look"><b>Look for:</b> tabs <b>Current | Habits | Remediation strategies</b> and "staff only" on the right; Current is the page as before.</p>`},
+  {id:"i14", pub:true, t:"Habits tab", b:`<p>Same pupil - <b>Habits</b>.</p>
+   <p class="look"><b>Look for:</b> a heatmap (lessons down, habit codes across, numbers in cells, ⚠ on patterns), then each habit with evidence links. Written answers are tagged from 1 October, so pick a pupil who handed in written work since then.</p>`},
+  {id:"i15", pub:true, t:"Remediation strategies tab + the focus card", b:`<p>Same pupil - <b>Remediation strategies</b> - on a pattern (skip if none yet): pick a strategy, status <b>In progress</b>, tick <b>Show the pupil</b>, add a note, <b>Save</b>.</p>
+   <p class="look"><b>Look for:</b> badge "In progress", "by you, today"; "Did it help?" shows "too soon to tell". Pupil view, any lesson (e.g. ${P1}): under the title <b>🎯 Your focus, from your teacher</b> with the kind line, <b>never the habit's name or code</b>. Set it back to Planned or Remove - the card disappears.</p>`},
+  {id:"i16", pub:true, t:"Class Habits tab", b:`<p>Teacher view: ${CRP} - <b>Habits</b> tab.</p>
+   <p class="look"><b>Look for:</b> "Working out..." then pupils down, habit codes across, each cell a % (⚠ on patterns); a pupil's name opens their Habits tab; a <b>Reteach the class</b> box when several share a pattern. Note how long your biggest class takes.</p>`}
+ ]}
+];
+const ALL = SECTIONS.flatMap(s => s.items);
+const state = {};            // id -> {status, fixes}
+ALL.forEach(i => state[i.id] = {status:"", fixes:""});
+
+const LS = "remediation-checks-v1";
+function lsLoad(){ try{ return JSON.parse(localStorage.getItem(LS)||"{}") }catch(e){ return {} } }
+function lsSave(){ try{ localStorage.setItem(LS, JSON.stringify(state)) }catch(e){} }
+Object.assign(state, lsLoad());
+
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderList(){
+  const html = SECTIONS.map(s => `<h2>${s.title}</h2>` + s.items.map(i => `
+   <section class="item" id="${i.id}" data-status="${state[i.id].status}">
+    <h3><span class="num">${i.id.slice(1)}.</span><span>${i.t}</span>${i.pub?'<span class="tag">after publish</span>':''}</h3>
+    <div class="body">${i.b}</div>
+    <div class="choices" role="group" aria-label="Result for check ${i.id.slice(1)}">
+      <button type="button" class="choice c-ok" data-id="${i.id}" data-set="ok">✓ OK</button>
+      <button type="button" class="choice c-fix" data-id="${i.id}" data-set="fix">✗ Needs fixing</button>
+      <button type="button" class="choice c-clear" data-id="${i.id}" data-set="">Clear</button>
+    </div>
+    <div class="fixes" hidden>
+      <label for="fx-${i.id}">What is wrong - one fix per line</label>
+      <textarea id="fx-${i.id}" data-id="${i.id}" placeholder="e.g. Reset button missing on SQL questions"></textarea>
+    </div>
+   </section>`).join("")).join("");
+  document.getElementById("list").innerHTML = html;
+  ALL.forEach(i => paintItem(i.id, true));
+}
+function paintItem(id, setText){
+  const el = document.getElementById(id), st = state[id];
+  el.dataset.status = st.status;
+  el.querySelectorAll(".choice").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.set === st.status && st.status !== "")));
+  el.querySelector(".fixes").hidden = st.status !== "fix";
+  const ta = el.querySelector("textarea");
+  if (setText && document.activeElement !== ta) ta.value = st.fixes || "";
+}
+function paintCounts(){
+  const n = ALL.length;
+  const ok = ALL.filter(i => state[i.id].status === "ok").length;
+  const fix = ALL.filter(i => state[i.id].status === "fix").length;
+  document.getElementById("counts").innerHTML =
+    `<span class="ok">✓ ${ok} OK</span><span class="fix">✗ ${fix} to fix</span><span class="todo">${n-ok-fix} not checked</span>`;
+  document.getElementById("mOk").style.width = (ok/n*100)+"%";
+  document.getElementById("mFix").style.width = (fix/n*100)+"%";
+}
+
+let db = null;
+const timers = {};
+const syncEl = document.getElementById("sync");
+function setSync(t){ syncEl.textContent = t }
+async function persist(id){
+  lsSave();
+  if (!db) return;
+  setSync("Saving…");
+  try{
+    await db.doc("checks/"+id).set({status: state[id].status, fixes: state[id].fixes, updatedAt: new Date().toISOString()});
+    setSync("Saved");
+  }catch(e){ setSync("Not saved to the shared copy ("+(e.code||"error")+") - kept in this browser") }
+}
+
+document.getElementById("list").addEventListener("click", e => {
+  const b = e.target.closest(".choice"); if (!b) return;
+  const id = b.dataset.id;
+  state[id].status = b.dataset.set;
+  paintItem(id, false); paintCounts();
+  if (state[id].status === "fix") document.getElementById("fx-"+id).focus();
+  persist(id);
+});
+document.getElementById("list").addEventListener("input", e => {
+  const ta = e.target.closest("textarea"); if (!ta) return;
+  const id = ta.dataset.id;
+  state[id].fixes = ta.value; lsSave();
+  clearTimeout(timers[id]); timers[id] = setTimeout(() => persist(id), 800);
+});
+document.getElementById("list").addEventListener("focusout", e => {
+  const ta = e.target.closest("textarea"); if (!ta) return;
+  const id = ta.dataset.id;
+  if (timers[id]){ clearTimeout(timers[id]); delete timers[id]; persist(id); }
+});
+
+function report(){
+  const lines = ["Remediation live checks - results"];
+  ALL.forEach(i => {
+    const st = state[i.id], n = i.id.slice(1);
+    const mark = st.status === "ok" ? "OK" : st.status === "fix" ? "NEEDS FIXING" : "not checked";
+    lines.push(`${n}. ${i.t}: ${mark}`);
+    if (st.status === "fix" && st.fixes.trim()) st.fixes.trim().split(/\n+/).forEach(f => lines.push("   - "+f.trim()));
+  });
+  return lines.join("\n");
+}
+function toast(t){ const el = document.getElementById("toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => el.hidden = true, 2200) }
+document.getElementById("copy").addEventListener("click", () => {
+  const text = report();
+  navigator.clipboard.writeText(text).then(() => toast("Report copied"), () => {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+    toast("Press Ctrl+C to copy"); setTimeout(() => ta.remove(), 8000);
+  });
+});
+
+renderList(); paintCounts();
+setSync("Saved in this browser");
+
+(async () => {
+  if (!window.claude?.use) return;
+  db = await window.claude.use("db");
+  if (!db){ setSync("Saved in this browser only"); return; }
+  setSync("Connected");
+  db.collection("checks").onSnapshot(snap => {
+    snap.docs.forEach(d => {
+      if (!state[d.id]) return;
+      const v = d.data() || {};
+      const ta = document.getElementById("fx-"+d.id);
+      if (document.activeElement === ta) { state[d.id].status = v.status || ""; }
+      else { state[d.id] = {status: v.status || "", fixes: v.fixes || ""}; }
+      paintItem(d.id, true);
+    });
+    paintCounts(); lsSave();
+  }, err => setSync("Live sync stopped ("+err.code+") - saved in this browser"));
+})();
+</script>

@@ -1,0 +1,50 @@
+[
+ {
+  "id": "install-06-javadb",
+  "tag": "SET UP · JAVA DB",
+  "title": [
+   "*Java DB*",
+   "in NetBeans"
+  ],
+  "video": "E:/itcoder-videos/out/06-javadb.mp4",
+  "frameAt": 378.3,
+  "ytTitle": "How to set up Java DB (Apache Derby) in NetBeans on Windows",
+  "desc": "NetBeans no longer comes with Java DB, so we fetch it ourselves: add Apache Derby 10.17.1.0 to NetBeans and load the tuck shop database. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading the Derby bin zip from db.apache.org/derby\n- Unzipping it to C:\\Tools\\Derby\n- Setting the Java DB properties, starting the server and creating the TuckShop database\n- Running the tuck shop script and a SELECT query\n- When you need a semicolon - and never in a Java program's SQL\n\n0:00 Intro\n0:17 Download Apache Derby\n1:06 Save the zip to Downloads\\Installs\n1:45 Unzip to C:\\Tools\\Derby\n2:49 Java DB properties in NetBeans\n3:45 Start the server\n3:58 Create the TuckShop database\n4:32 Run the tuck shop script\n6:00 Run a query\n6:21 Semicolon tips\n6:46 Done\n\nGoes with the Java DB setup lesson in the SQL course at https://bestlessons.co.za\n\n#JavaDB #SQL #ITGrade10"
+ },
+ {
+  "id": "install-07-mysql",
+  "tag": "INSTALL · MYSQL",
+  "title": [
+   "Install",
+   "*MySQL*"
+  ],
+  "video": "E:/itcoder-videos/out/07-mysql.mp4",
+  "frameAt": 627.6,
+  "ytTitle": "How to install MySQL and MySQL Workbench on Windows",
+  "desc": "Install MySQL on Windows: the server keeps the databases and runs the SQL, and Workbench is where you type it. One installer gives you both. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading MySQL Installer 8.0.46 from dev.mysql.com/downloads - no account needed\n- A Custom install: MySQL Server 8.0.46 and MySQL Workbench 8.0.47\n- Port 3306 and the root password - write it down!\n- Creating the tuckshop schema and running the tuck shop script\n- Running SELECT * FROM tblProducts\n\n0:00 Intro\n0:21 Download MySQL Installer\n1:00 Save the installer to Downloads\\Installs\n1:36 Run the installer\n4:43 Choose Server and Workbench\n5:33 Install\n6:25 Settings and the root password\n8:14 Open Workbench\n8:42 Create the tuckshop schema\n9:25 Run the tuck shop script\n10:09 Run a query\n10:40 Done\n\nGoes with the MySQL setup lesson in the SQL course at https://bestlessons.co.za\n\n#MySQL #SQL #ITGrade10"
+ },
+ {
+  "id": "install-08-dbeaver",
+  "tag": "INSTALL · SQL",
+  "title": [
+   "Install",
+   "*DBeaver*"
+  ],
+  "video": "E:/itcoder-videos/out/08-dbeaver.mp4",
+  "frameAt": 279.0,
+  "ytTitle": "How to install DBeaver on Windows (free SQL tool)",
+  "desc": "Install DBeaver Community, one free program for MySQL, Java DB and SQLite - handy if you use more than one. It brings its own Java. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading the Windows installer from dbeaver.io\n- Installing it - and why you can click No when it asks about your virus scanner\n- Connecting to the MySQL tuckshop database\n- Running SELECT * FROM tblProducts\n- How to connect to Java DB and SQLite the same way\n\n0:00 Intro\n0:17 Download DBeaver\n0:57 Save the installer to Downloads\\Installs\n1:33 Run the installer\n2:28 The virus scanner question\n2:53 First start\n3:29 Connect to MySQL\n4:28 Run a query\n4:48 Java DB and SQLite\n5:13 Done\n\nGoes with the SQL course at https://bestlessons.co.za - MySQL, Java DB and SQLite\n\n#DBeaver #SQL #ITGrade10"
+ },
+ {
+  "id": "install-09-letos",
+  "tag": "SET UP · SQLITE",
+  "title": [
+   "SQLite with",
+   "*Letos*"
+  ],
+  "video": "E:/itcoder-videos/out/09-letos.mp4",
+  "frameAt": 225.3,
+  "ytTitle": "How to use SQLite with Letos on Windows (free, portable)",
+  "desc": "Set up Letos 4.0.3 to work with SQLite, open the tuck shop database and run your SQL. SQLite needs no server - the whole database is one file. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading the portable zip from letos.org\n- Unzipping it to C:\\Tools\n- Opening TuckShop.db from your cloud-synced Coding folder\n- Running SELECT * FROM tblProducts\n- Semicolons, and why to keep a copy of the file\n\n0:00 Intro\n0:18 Download the portable zip\n0:46 Save the zip to Downloads\\Installs\n1:25 Unzip to C:\\Tools\n2:15 Start Letos\n2:44 Open the tuck shop database\n3:20 Run a query\n3:48 Tips\n4:10 Done\n\nGoes with the SQLite setup lesson in the SQL course at https://bestlessons.co.za\n\n#SQLite #SQL #ITGrade10"
+ }
+]

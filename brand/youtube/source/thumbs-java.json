@@ -1,0 +1,38 @@
+[
+ {
+  "id": "install-03-jdk",
+  "tag": "INSTALL · JAVA",
+  "title": [
+   "Install",
+   "the *JDK*"
+  ],
+  "video": "E:/itcoder-videos/out/03-jdk.mp4",
+  "frameAt": 212.0,
+  "ytTitle": "How to install the Java JDK on Windows (Eclipse Temurin 25)",
+  "desc": "Install Java - the JDK, or Java Development Kit - on Windows in about five minutes. It's free, from Eclipse Temurin. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading the latest long-term version from adoptium.net\n- Saving the .msi installer to Downloads\\Installs\n- Switching on Set JAVA_HOME variable, so other programs find Java\n- Checking it works with java -version\n\nDownload: https://adoptium.net\n\n0:00 Intro\n0:19 Download from Adoptium\n0:57 Save the installer to Downloads\\Installs\n1:34 Run the installer\n2:31 Set JAVA_HOME\n3:13 Check it with java -version\n3:33 Done\n\nGoes with lesson 3 of the Java course, and the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#Java #JDK #ITGrade10"
+ },
+ {
+  "id": "install-04-jgrasp",
+  "tag": "INSTALL · JAVA",
+  "title": [
+   "Install",
+   "*jGRASP*"
+  ],
+  "video": "E:/itcoder-videos/out/04-jgrasp.mp4",
+  "frameAt": 319.4,
+  "ytTitle": "How to install jGRASP on Windows (free Java IDE)",
+  "desc": "Install jGRASP, a small, friendly program for writing Java, and run your first program. The bundled download has Java built in, so there's nothing else to install. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading jGRASP Bundled for Windows from jgrasp.org\n- Installing it and answering the first-start questions\n- Pointing the Browse panel at your cloud-synced Coding\\Java folder\n- Saving Hello.java - the file name must match the class name\n- Compiling and running Hello from jGRASP!\n\n0:00 Intro\n0:18 Download jGRASP Bundled\n1:02 Save the installer to Downloads\\Installs\n1:41 Run the installer\n2:45 First start\n3:28 Point Browse at your Coding folder\n4:18 A first program\n5:04 Compile and run\n5:23 Done\n\nGoes with lesson 3 of the Java course, and the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#jGRASP #Java #ITGrade10"
+ },
+ {
+  "id": "install-05-netbeans",
+  "tag": "INSTALL · JAVA",
+  "title": [
+   "Install",
+   "*NetBeans*"
+  ],
+  "video": "E:/itcoder-videos/out/05-netbeans.mp4",
+  "frameAt": 289.8,
+  "ytTitle": "How to install NetBeans 31 on Windows (free Java IDE)",
+  "desc": "Install Apache NetBeans 31 on Windows and run your first Java program. The Codelerity installer has Java inside, so you need nothing else. For South African IT pupils and teachers.\n\nIn this video:\n- Finding the Codelerity Windows installer from netbeans.apache.org\n- Installing it with a desktop shortcut\n- Making a Java with Ant project\n- Saving the project in your cloud-synced Coding\\Java folder\n- Running Hello from NetBeans! with F6\n\n0:00 Intro\n0:18 Go to netbeans.apache.org\n0:50 The Codelerity installer\n1:28 Save the installer to Downloads\\Installs\n2:06 Run the installer\n3:04 First start\n3:15 A new Java project\n3:37 Save it in your Coding folder\n4:42 Type and run it\n5:04 Done\n\nGoes with lesson 3 of the Java course, the Java DB setup lesson in the SQL course, and the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#NetBeans #Java #ITGrade10"
+ }
+]

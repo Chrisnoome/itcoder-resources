@@ -116,3 +116,13 @@ YouTube links). Lessons 7, 4, 5 and 6 date fastest. Last checked: never.
 - `agiArgument`: four definitions "in active use"; "AGI by 2030" still sounds like the future?
 - `whatYouKnow`: summary figures from lessons 4-7 - keep in step.
 - Videos `PbepTelNFwk`, `l_Zg237msTg`, `Q161VLqYbk4`.
+
+### Lesson 9 - Using AI well
+
+- Chatbot age rules: "most chatbots say you must be 13 or older, and under 18
+  only with a parent's permission" (checked 1 October 2026; some, like Claude,
+  are 18+).
+- "Some newer chatbots search the web first and show where they found things."
+- The History facts in `mw9CheckThese` (16 June 1976, about 20 000 marchers,
+  Hector Pieterson aged 12, Youth Day) - stable, but they are the right ones
+  to keep right.

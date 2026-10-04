@@ -1,4 +1,4 @@
-# The itcoder VPS
+# The BestLessons VPS
 
 For local Claude Code sessions on Chris's machine. Publishing goes through
 [publishing.md](publishing.md) only; backups in [backups.md](backups.md).
@@ -37,6 +37,11 @@ print(vps.run('nginx -t'))
 
 ## What is on the server
 
+- **PHP 8.3 extensions**: curl, mbstring, mysql, sqlite3, xml, zip and **gd**
+  (`php8.3-gd`, apt, 2 October 2026 - Chris: "install gd": it shrinks the
+  pictures pupils add to "Message my teacher" to 1600 px; php8.3-fpm reloaded,
+  `/etc/php/8.3/fpm/conf.d/20-gd.ini`). In the install kit
+  (`deploy/server/steps/10-packages.sh`, `php-gd`).
 - `/var/www/itcoder` - **live**, https://itcoder.co.za. nginx
   `sites-enabled/itcoder` -> `sites-available/itcoder` (port-80 redirect +
   hand-written SSL block; certbot renews; current cert expires 8 Dec 2026).
@@ -49,7 +54,12 @@ print(vps.run('nginx -t'))
   in `/etc/itcoder-live/live.env` (`install-live.sh` writes the same).
 - `/var/www/itcoder-v2-test` - the test site: own database, nginx block on port
   8082 (`sites-enabled/itcoder-v2-test`), `ufw` open for 8082 ("remove at
-  teardown"), dev login on. Teardown commands in [open-items.md](open-items.md).
+  teardown"), dev login on. **Password in front of it** (28 Sep 2026: its
+  database holds real pupils' addresses): nginx `auth_basic` with
+  `/etc/nginx/itcoder-test.htpasswd` (root:www-data 640), set by
+  `tools/set-test-password.py`. Plain http, so the password must not be used
+  anywhere else. Teardown commands in [open-items.md](open-items.md) (also
+  remove the htpasswd file).
 - `/var/www/marking-app` - a separate tool, nginx symlink disabled on purpose;
   its server block still names itcoder.co.za. Don't delete, re-enable or touch
   its database.
@@ -59,7 +69,19 @@ print(vps.run('nginx -t'))
   `publish-test.py`. `/etc/sudoers.d/itcoder-compile` (440) lets www-data run it
   with no arguments or `--tty` only. Removing that sudoers file switches
   compiling off.
-- `/var/backups/itcoder` - 14 daily + 12 monthly verified snapshots.
+- `/var/backups/itcoder` - 14 daily + 12 monthly verified snapshots, each with
+  an age-encrypted `.gz.age` copy once `/etc/itcoder-backup/age-recipient.txt`
+  (the backup key's PUBLIC half, 644) exists - `age` 1.1.1 from apt
+  (backups.md, "Encryption").
+- **nginx hardening** (28 Sep 2026, security review): `conf.d/itcoder.conf`
+  (server_tokens off, the rate-limit zones - shared by every site) and
+  `snippets/itcoder-limits.conf` (sign-in 5/s burst 100, `/api/` 50/s burst
+  300 per address - sized for a class behind one school address), included
+  in each site block that runs PHP; `/assets/` repeats the three security
+  headers. Written by `tools/nginx_hardening.py` from both publish scripts
+  (templates in `AIPascalCourse/deploy/templates`). Measured on test: a burst
+  of 600 at 100 at once gave 384 x 200 and 216 x 429.
+- The cron logs are 640 (the reminder logs name pupils) - 28 Sep 2026.
 - **www-data's crontab** - every line's log must already exist, owned by
   www-data (`touch /var/log/X.log && chown www-data:www-data /var/log/X.log`);
   otherwise the line fails silently:

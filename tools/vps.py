@@ -32,9 +32,38 @@ def client():
         c.connect(HOST, username=USER,
                   pkey=paramiko.RSAKey.from_private_key_file(KEY),
                   timeout=30, allow_agent=False, look_for_keys=False)
+        c.get_transport().set_keepalive(30)   # a quiet link is noticed, not left half-open
         atexit.register(c.close)
         _client = c
     return _client
+
+
+# A file that has not finished sending in this long is sent again, on a fresh
+# connection (Chris, 4 October 2026: two live deploys hung for good on one
+# picture - sftp.put had no time limit - "if it goes over an hour, terminate
+# and restart"). Three tries, then the deploy stops with the error.
+PUT_TIMEOUT = 120
+PUT_TRIES = 3
+
+
+def _fresh_sftp():
+    """An SFTP session with a time limit - on a new connection when the old one has died."""
+    global _client
+    try:
+        transport = _client.get_transport() if _client is not None else None
+        if transport is None or not transport.is_active():
+            raise EOFError('no live connection')
+        sftp = _client.open_sftp()
+    except Exception:
+        try:
+            if _client is not None:
+                _client.close()
+        except Exception:
+            pass
+        _client = None
+        sftp = client().open_sftp()
+    sftp.get_channel().settimeout(PUT_TIMEOUT)
+    return sftp
 
 
 def run(cmd, timeout=900):
@@ -79,7 +108,7 @@ def put_tree(local_dir, remote_dir):
     Never deletes anything on the server. Never uploads a database, a WAL file
     or a lock file, so a deploy cannot overwrite live data with a test copy.
     """
-    sftp = client().open_sftp()
+    sftp = _fresh_sftp()
     sent = 0
     try:
         for root, dirs, files in os.walk(local_dir):
@@ -93,10 +122,26 @@ def put_tree(local_dir, remote_dir):
             for name in files:
                 if name in SKIP_FILES or name.endswith(SKIP_ENDINGS):
                     continue
-                sftp.put(os.path.join(root, name), posixpath.join(target, name))
+                remote = posixpath.join(target, name)
+                for attempt in range(1, PUT_TRIES + 1):
+                    try:
+                        sftp.put(os.path.join(root, name), remote)
+                        break
+                    except Exception as error:   # stalled past PUT_TIMEOUT, or the link dropped
+                        try:
+                            sftp.close()
+                        except Exception:
+                            pass
+                        if attempt == PUT_TRIES:
+                            raise
+                        print('      %s stalled (%s) - sending it again' % (remote, error.__class__.__name__), flush=True)
+                        sftp = _fresh_sftp()
                 sent += 1
     finally:
-        sftp.close()
+        try:
+            sftp.close()
+        except Exception:
+            pass
     return sent
 
 

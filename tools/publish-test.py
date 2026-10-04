@@ -109,6 +109,13 @@ Step('upload size 12m in nginx',
      "&& sed -i 's/client_max_body_size [0-9]*[mM];/client_max_body_size 12m;/' {f} "
      "&& nginx -t && systemctl reload nginx && grep -n client_max_body_size {f}; fi".format(f=NGINX_SITE))
 
+# server_tokens off, per-address rate limits, /assets/ headers (28 September
+# 2026, security review) - tools/nginx_hardening.py. conf.d/itcoder.conf is
+# shared by every site on the server, so server_tokens reaches live here too;
+# live's own blocks get the limits at deploy-live.py.
+import nginx_hardening
+nginx_hardening.apply(vps, Step, LOCAL, [NGINX_SITE])
+
 print('\n== 4. the root-owned sandbox (shared with live) ==')
 code, out = vps.run('sha256sum %s 2>/dev/null' % INSTALLED)
 installed_sha = out.split()[0] if (code == 0 and out.strip()) else ''

@@ -26,6 +26,16 @@ server's backup log into the local log, puts a notification on screen and exits
 with code 2. Try it without waiting for a real failure:
 
     python tools/pull-backups.py --stale-hours 1
+
+ENCRYPTED (28 September 2026, security review): once the backup key is on this
+PC (AGE_KEY below, made by setup-backup-encryption.py), only the server's
+age-encrypted copies (.sqlite.gz.age) are pulled and kept - Dropbox never holds
+a plain one again. Each is decrypted in memory and checked exactly as before,
+so a backup the key cannot open is caught the day it arrives. Plain backups
+pulled before then are encrypted in place, and the plain ones deleted after
+asking, with:
+
+    python tools/pull-backups.py --encrypt-existing
 """
 
 import argparse
@@ -77,8 +87,27 @@ SCHEMAS = {
 # missed night is enough to raise the alarm.
 STALE_HOURS = 36
 
-# backup.php names every file with the UTC time the snapshot was taken.
-STAMP = re.compile(r'^course-(\d{4}-\d{2}-\d{2}-\d{6})\.sqlite\.gz$')
+# backup.php names every file with the UTC time the snapshot was taken; its
+# encrypted copy adds .age.
+STAMP = re.compile(r'^course-(\d{4}-\d{2}-\d{2}-\d{6})\.sqlite\.gz(\.age)?$')
+
+# The key that opens the encrypted backups - NOT in Dropbox, beside the server
+# key. Its public half is on the server (/etc/itcoder-backup/age-recipient.txt).
+# Made by setup-backup-encryption.py; a second copy is kept off this PC.
+AGE_KEY = os.path.expanduser(r'~\.ssh\itcoder-backups.agekey')
+
+
+def load_age_identity():
+    """The backup key, or None while backups are not encrypted yet."""
+    if not os.path.exists(AGE_KEY):
+        return None
+    try:
+        from pyrage import x25519
+    except ImportError as error:
+        sys.exit('the backup key is at %s but pyrage will not load (%s) - run setup-backup-encryption.py '
+                 'with this Python: %s' % (AGE_KEY, error, sys.executable))
+    lines = [l.strip() for l in open(AGE_KEY, encoding='ascii') if l.strip() and not l.startswith('#')]
+    return x25519.Identity.from_str(lines[-1])
 
 # Windows PowerShell 5.1 specifically - PowerShell 7 cannot reach the WinRT
 # notification API.
@@ -120,18 +149,28 @@ def load_key():
     sys.exit('could not read the key at %s' % KEY)
 
 
-def verify(path):
-    """Decompress and open the backup. Returns (ok, description)."""
+def verify(path, identity=None):
+    """Decompress (decrypting first, with an identity) and open the backup.
+    Returns (ok, description)."""
     tmp = None
     try:
-        with gzip.open(path, 'rb') as src:
+        if identity is not None:
+            from pyrage import decrypt
+            with open(path, 'rb') as fh:
+                plain = gzip.decompress(decrypt(fh.read(), [identity]))
             with tempfile.NamedTemporaryFile(suffix='.sqlite', delete=False) as dst:
                 tmp = dst.name
-                while True:
-                    chunk = src.read(262144)
-                    if not chunk:
-                        break
-                    dst.write(chunk)
+                dst.write(plain)
+            plain = None
+        else:
+            with gzip.open(path, 'rb') as src:
+                with tempfile.NamedTemporaryFile(suffix='.sqlite', delete=False) as dst:
+                    tmp = dst.name
+                    while True:
+                        chunk = src.read(262144)
+                        if not chunk:
+                            break
+                        dst.write(chunk)
 
         con = sqlite3.connect(tmp)
         try:
@@ -243,14 +282,87 @@ def warn_stale(client, newest, age, limit):
            detail[0].upper() + detail[1:] + '. Check /var/log/itcoder-backup.log on the server.')
 
 
+def encrypt_existing(identity):
+    """Encrypts every plain backup already in Dropbox (course-*.sqlite.gz ->
+    .sqlite.gz.age), checks each encrypted copy opens and matches byte for
+    byte, then - only when asked at the console - deletes the plain ones."""
+    if identity is None:
+        say('no backup key at %s yet - run setup-backup-encryption.py first' % AGE_KEY)
+        return 1
+
+    from pyrage import encrypt, decrypt
+    recipient = identity.to_public()
+    plain = sorted(n for n in os.listdir(LOCAL_DIR) if STAMP.match(n) and n.endswith('.sqlite.gz'))
+    done, failed = [], 0
+
+    for name in plain:
+        source = os.path.join(LOCAL_DIR, name)
+        target = source + '.age'
+        with open(source, 'rb') as fh:
+            original = fh.read()
+        if not os.path.exists(target):
+            with open(target + '.part', 'wb') as fh:
+                fh.write(encrypt(original, [recipient]))
+            os.replace(target + '.part', target)
+        with open(target, 'rb') as fh:
+            same = decrypt(fh.read(), [identity]) == original
+        ok, detail = verify(target, identity)
+        if same and ok:
+            done.append(name)
+        else:
+            failed += 1
+            say('FAILED to encrypt %s safely (%s) - the plain file is kept' % (name, detail if not ok else 'not the same bytes'))
+
+    say('encrypted and checked: %d, failed: %d' % (len(done), failed))
+
+    if done and sys.stdin is not None and sys.stdin.isatty():
+        answer = input('Delete the %d plain backups that now have a checked encrypted copy? '
+                       'Dropbox keeps deleted files for a while - empty them from its "Deleted files" too. [y/N] ' % len(done))
+        if answer.strip().lower() == 'y':
+            for name in done:
+                os.remove(os.path.join(LOCAL_DIR, name))
+            say('deleted %d plain backups' % len(done))
+        else:
+            say('plain backups kept - run this again to delete them')
+
+    return 1 if failed else 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--list', action='store_true', help='show both sides and exit')
     ap.add_argument('--stale-hours', type=float, default=STALE_HOURS,
                     help='warn if the newest backup on the server is older than this (default: %(default)s)')
+    ap.add_argument('--encrypt-existing', action='store_true',
+                    help='encrypt the plain backups already here, then offer to delete the plain ones')
+    ap.add_argument('--decrypt', metavar='FILE',
+                    help='for a restore: write FILE (a .sqlite.gz.age) as a plain .sqlite in D:\\itcoder-restore')
     args = ap.parse_args()
 
     os.makedirs(LOCAL_DIR, exist_ok=True)
+
+    identity = load_age_identity()
+    suffix = '.sqlite.gz.age' if identity is not None else '.sqlite.gz'
+
+    if args.encrypt_existing:
+        return encrypt_existing(identity)
+
+    if args.decrypt:
+        # Outside Dropbox on purpose: a plain copy must never sync. Delete it after the restore.
+        if identity is None:
+            say('no backup key at %s - it cannot be opened here' % AGE_KEY)
+            return 1
+        from pyrage import decrypt
+        out_dir = r'D:\itcoder-restore'
+        os.makedirs(out_dir, exist_ok=True)
+        target = os.path.join(out_dir, os.path.basename(args.decrypt)[:-len('.gz.age')])
+        with open(args.decrypt, 'rb') as fh:
+            plain = gzip.decompress(decrypt(fh.read(), [identity]))
+        with open(target, 'wb') as fh:
+            fh.write(plain)
+        ok, detail = verify(args.decrypt, identity)
+        say('decrypted to %s (%s) - upload it for the restore (backups.md), then DELETE it' % (target, detail if ok else 'CHECK FAILED: ' + detail))
+        return 0 if ok else 1
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -266,9 +378,12 @@ def main():
 
     try:
         remote = {}
+        plain_on_server = 0
         for entry in sftp.listdir_attr(REMOTE_DIR):
-            if entry.filename.startswith('course-') and entry.filename.endswith('.sqlite.gz'):
+            if entry.filename.startswith('course-') and entry.filename.endswith(suffix):
                 remote[entry.filename] = entry.st_size
+            elif entry.filename.startswith('course-') and entry.filename.endswith('.sqlite.gz'):
+                plain_on_server += 1
     except IOError as error:
         say('FAILED to list %s: %s' % (REMOTE_DIR, error))
         sftp.close()
@@ -277,7 +392,18 @@ def main():
 
     local = {n: os.path.getsize(os.path.join(LOCAL_DIR, n))
              for n in os.listdir(LOCAL_DIR)
-             if n.startswith('course-') and n.endswith('.sqlite.gz')}
+             if n.startswith('course-') and n.endswith(suffix)}
+
+    # The key is on this PC but the server is not encrypting yet (backup.php
+    # not deployed, or its public key missing): say so, rather than "stopped".
+    if identity is not None and not remote and plain_on_server and not args.list:
+        say('WARNING: this PC expects encrypted backups but the server has none yet (%d plain ones) - '
+            'deploy-live.py, then run setup-backup-encryption.py again' % plain_on_server)
+        notify('itcoder backups are not encrypted yet',
+               'The server is still making plain backups only. Publish to live, then run setup-backup-encryption.py again.')
+        sftp.close()
+        client.close()
+        return 2
 
     newest, age = newest_backup(remote)
     stale = newest is None or age > args.stale_hours
@@ -335,7 +461,7 @@ def main():
                 os.remove(part)
             continue
 
-        ok, detail = verify(part)
+        ok, detail = verify(part, identity)
 
         if not ok:
             say('FAILED verification, not keeping %s - %s' % (name, detail))

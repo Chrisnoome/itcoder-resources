@@ -207,7 +207,7 @@ clause, the way the memos mark** (Chris: "Instant, per clause").
   per check (`CheckSqlAnswer()`, the course model, temperature 0), costed in
   `aiUsage` as `sqlcheck`, **no subscription, no daily cap**. ~3 s a check.
 - **Scoring:** each clause scores like a `match` line - `marks` (default 1)
-  x2 right first time, x1 on the second go (`MatchMarkEarned()`);
+  x2 right first time, x1 on the second go (`LineMarksEarned()`);
   `GridScoredLineCount()` is the clause count, `AutoMarkedEarned()` counts
   the clauses met from the stored response
   (`{"sql", "met": [...], "notes": [...], "feedback"}`). Two attempts; every

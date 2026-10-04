@@ -1,0 +1,170 @@
+<title>Lesson Time Ranges</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800&family=Atkinson+Hyperlegible+Next:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; course tabs, a summary strip, then a lesson table with a range bar per row. */
+:root{
+  --bg:#f6f8f9; --surface:#ffffff; --fg:#14213d; --muted:#5b6676; --line:#dde3e8;
+  --teal:#0b6b78; --fast:#2f8f6a; --slow:#c2410c; --band:#d6ebee; --mark:#0b5f78;
+  --display:"Figtree",system-ui,sans-serif; --body:"Atkinson Hyperlegible Next",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10171c; --surface:#172129; --fg:#e6edf2; --muted:#9aa8b5; --line:#2a3741;
+  --teal:#5fc3cf; --fast:#6fd1a6; --slow:#f39a62; --band:#1f3a42; --mark:#8fe0ea; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10171c; --surface:#172129; --fg:#e6edf2; --muted:#9aa8b5; --line:#2a3741;
+  --teal:#5fc3cf; --fast:#6fd1a6; --slow:#f39a62; --band:#1f3a42; --mark:#8fe0ea; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--body);padding:0 16px 64px}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+header{padding-block:32px 8px}
+h1{font-size:2rem;font-weight:800}
+.lede{color:var(--muted);max-width:65ch;margin:8px 0 0}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:22px 0}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.person h3{font-size:1.02rem;display:flex;gap:8px;align-items:center}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.person p{margin:6px 0 0;font-size:.9rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:26px 0 14px}
+.tab{font:700 .9rem var(--display);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+.tab:focus-visible,.sort:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.summary{display:flex;flex-wrap:wrap;gap:10px 28px;padding:14px 0;border-block:1px solid var(--line);margin-bottom:6px}
+.summary div{min-width:0}
+.summary b{display:block;font:800 1.35rem var(--display);font-variant-numeric:tabular-nums}
+.summary span{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:760px}
+th{font:700 .74rem var(--display);text-transform:uppercase;letter-spacing:.07em;color:var(--muted);text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font:600 .78rem var(--mono);color:var(--teal);white-space:nowrap}
+.title{min-width:0}
+.range{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{position:relative;height:12px;width:220px;background:transparent}
+.bar .b{position:absolute;top:3px;height:6px;border-radius:3px;background:var(--band)}
+.bar .m{position:absolute;top:0;width:2px;height:12px;background:var(--mark)}
+.bar .f{position:absolute;top:3px;width:6px;height:6px;border-radius:50%;background:var(--fast)}
+.bar .s{position:absolute;top:3px;width:6px;height:6px;border-radius:50%;background:var(--slow)}
+.periods{font-weight:700}
+.sort{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;letter-spacing:inherit;text-transform:inherit}
+.how{margin-top:34px;max-width:72ch}
+.how h2{font-size:1.25rem;margin-bottom:8px}
+.how ul{padding-left:20px}
+.how li{margin:4px 0}
+.rates{overflow-x:auto;margin:12px 0}
+.rates table{min-width:520px;font-size:.86rem}
+.note{color:var(--muted);font-size:.88rem}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Lesson time ranges</h1>
+  <p class="lede">How long each lesson takes a pupil to read and finish, worked out from every lesson's own content: its words, code listings, videos and each exercise, timed for three pupils. A lesson here is often a unit of several school periods, not one sitting.</p>
+</header>
+
+<section class="people" aria-label="The three pupils">
+  <div class="person"><h3><span class="dot" style="background:var(--fast)"></span>Thandi, quick</h3><p>Grade 11, reads about 230 words a minute, skims code, rarely needs a second try. The low end of each range.</p></div>
+  <div class="person"><h3><span class="dot" style="background:var(--mark)"></span>Lerato, typical</h3><p>About 160 words a minute, a second try on a quarter of the questions. The middle mark, and the periods column.</p></div>
+  <div class="person"><h3><span class="dot" style="background:var(--slow)"></span>Sipho, slow reader</h3><p>Grade 9, about 105 words a minute, rewatches parts of videos, needs a second try on nearly half the questions. The high end.</p></div>
+</section>
+
+<div class="tabs" role="group" aria-label="Course" id="tabs"></div>
+<div class="summary" id="summary"></div>
+<div class="scroll"><table>
+  <thead><tr>
+    <th>Lesson</th><th>Title</th>
+    <th class="num"><button class="sort" data-sort="mid" type="button">Range, minutes</button></th>
+    <th>Quick &ndash; typical &ndash; slow</th>
+    <th class="num"><button class="sort" data-sort="periods" type="button">Periods</button></th>
+    <th class="num"><button class="sort" data-sort="words" type="button">Words</button></th>
+    <th class="num"><button class="sort" data-sort="videoMin" type="button">Video</button></th>
+    <th class="num"><button class="sort" data-sort="questions" type="button">Questions</button></th>
+  </tr></thead>
+  <tbody id="rows"></tbody>
+</table></div>
+<p class="note">Periods: the typical pupil's time in 40-minute working periods (a 45-minute period less settling in). Bars share one scale within a course. Board sections count only one exam board; where a lesson has both, the quick time uses the shorter board and the slow time the longer. SQL lessons count one database.</p>
+
+<section class="how">
+  <h2>How the times were worked out</h2>
+  <ul>
+    <li>Every block of every lesson was read from the lesson files: teaching text, study summaries, case studies and hints count as reading; code listings are read closely for their first 200 words and skimmed after that.</li>
+    <li>Videos use their real YouTube length (one, in AI lesson 3, could not be read and is taken as 5 minutes).</li>
+    <li>Each exercise has a time per item for each pupil, plus a share of second tries at 60% of the first go.</li>
+    <li>Written answers are timed by their marks: the first 10 marks at the full rate, the rest at half, because a long essay is planned once.</li>
+    <li>Two minutes (typical) are added per lesson for opening it, scrolling and the result reveal.</li>
+  </ul>
+  <div class="rates"><table>
+    <thead><tr><th>Per item</th><th class="num">Thandi</th><th class="num">Lerato</th><th class="num">Sipho</th></tr></thead>
+    <tbody>
+      <tr><td>Reading, words a minute</td><td class="num">230</td><td class="num">160</td><td class="num">105</td></tr>
+      <tr><td>Multiple choice</td><td class="num">20 s</td><td class="num">35 s</td><td class="num">55 s</td></tr>
+      <tr><td>Typed answer</td><td class="num">30 s</td><td class="num">55 s</td><td class="num">90 s</td></tr>
+      <tr><td>Match or sort, per line</td><td class="num">12 s</td><td class="num">22 s</td><td class="num">35 s</td></tr>
+      <tr><td>Written answer, per mark</td><td class="num">1 min</td><td class="num">1.8 min</td><td class="num">3 min</td></tr>
+      <tr><td>Coding exercise</td><td class="num">4 min</td><td class="num">8 min</td><td class="num">14 min</td></tr>
+      <tr><td>SQL query to write</td><td class="num">2.5 min</td><td class="num">5 min</td><td class="num">8 min</td></tr>
+      <tr><td>Video, times its length</td><td class="num">1.0</td><td class="num">1.15</td><td class="num">1.4</td></tr>
+      <tr><td>Second tries</td><td class="num">10%</td><td class="num">25%</td><td class="num">45%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">These are estimates from the content, not stopwatch times: the review accounts could not be signed in to do every lesson by hand. The site already records time on each lesson (time on the site, from 27 September 2026); once classes have used a lesson, its real times should replace these.</p>
+</section>
+</div>
+
+<script>
+const DATA = __DATA__;
+const NAMES = {};
+DATA.forEach(r => NAMES[r.course] = r.courseTitle);
+const COURSES = Object.keys(NAMES);
+let course = COURSES[0], sortKey = null;
+try { const saved = localStorage.getItem('lt-course'); if (saved && NAMES[saved]) course = saved; } catch (e) {}
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = m => m >= 120 ? (m / 60).toFixed(m >= 600 ? 0 : 1) + ' h' : m + ' min';
+const periods = r => Math.max(1, Math.ceil(r.mid / 40));
+
+function tabs () {
+  document.getElementById('tabs').innerHTML = COURSES.map(c =>
+    `<button type="button" class="tab" data-c="${c}" aria-pressed="${c === course}">${esc(NAMES[c])}</button>`).join('');
+}
+
+function render () {
+  let rows = DATA.filter(r => r.course === course);
+  const max = Math.max(...rows.map(r => r.slow));
+  const median = k => { const v = rows.map(r => r[k]).sort((a, b) => a - b); return v[Math.floor(v.length / 2)]; };
+  const total = rows.reduce((a, r) => a + r.mid, 0);
+  const totalP = rows.reduce((a, r) => a + periods(r), 0);
+  document.getElementById('summary').innerHTML =
+    `<div><b>${rows.length}</b><span>lessons and guides</span></div>` +
+    `<div><b>${median('fast')}&ndash;${median('slow')} min</b><span>a middle lesson</span></div>` +
+    `<div><b>${Math.round(total / 60)} h</b><span>whole course, typical</span></div>` +
+    `<div><b>${totalP}</b><span>periods, typical</span></div>`;
+  if (sortKey) rows = rows.slice().sort((a, b) => (sortKey === 'periods' ? periods(b) - periods(a) : b[sortKey] - a[sortKey]));
+  const x = m => (m / max * 100).toFixed(2) + '%';
+  document.getElementById('rows').innerHTML = rows.map(r => `
+    <tr>
+      <td class="label">${esc(r.label)}</td>
+      <td class="title">${esc(r.title)}</td>
+      <td class="num range">${fmt(r.fast)} &ndash; ${fmt(r.slow)}</td>
+      <td><div class="bar" title="Quick ${r.fast} min, typical ${r.mid} min, slow ${r.slow} min">
+        <span class="b" style="left:${x(r.fast)};width:calc(${x(r.slow - r.fast)})"></span>
+        <span class="f" style="left:calc(${x(r.fast)} - 3px)"></span>
+        <span class="m" style="left:calc(${x(r.mid)} - 1px)"></span>
+        <span class="s" style="left:calc(${x(r.slow)} - 3px)"></span></div></td>
+      <td class="num periods">${periods(r)}</td>
+      <td class="num">${r.words.toLocaleString('en-ZA')}</td>
+      <td class="num">${r.videoMin ? r.videoMin + ' min' : '&ndash;'}</td>
+      <td class="num">${r.questions}</td>
+    </tr>`).join('');
+}
+
+document.getElementById('tabs').addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if (!b) return;
+  course = b.dataset.c; try { localStorage.setItem('lt-course', course); } catch (err) {}
+  tabs (); render ();
+});
+document.querySelectorAll('.sort').forEach(b => b.addEventListener('click', () => { sortKey = sortKey === b.dataset.sort ? null : b.dataset.sort; render (); }));
+tabs (); render ();
+</script>

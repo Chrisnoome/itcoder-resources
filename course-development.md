@@ -1,6 +1,6 @@
 # Course development for other subjects - PLAN
 
-Research and planning for the subjects itcoder may add after IT. Current
+Research and planning for the subjects BestLessons may add after IT. Current
 state only.
 
 ## Chris's decisions (25 September 2026)
