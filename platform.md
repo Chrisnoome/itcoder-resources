@@ -331,6 +331,10 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   answer is also compared with compiler-ignored spacing removed and the final
   `;` optional, and an unmatched code answer gets an AI second opinion
   (`CheckCodeAnswer()`). Details: content-voice-and-pedagogy.md §4.
+  **Leading zeros** (Chris, 4 October 2026, a pupil's query: "002" marked
+  wrong against "2"): a whole number with leading zeros matches the same
+  number, every course - only when the listed answer has no leading zero of
+  its own, so a padded answer ("00000101") must still be typed as it is.
   **Theory courses** (Chris, 26 September 2026: "anticipate typical pupil
   errors that are still correct answers"): `LenientTerms()` (set from
   `CourseMarkStyle() === 'theory'`) also compares `TheoryTermKey()` - no
