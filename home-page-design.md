@@ -230,3 +230,34 @@ next step is to build the real page in `public/index.php` from this mock-up
 the 21 Grade 10 pupils (28... addresses) added to Grd 10 IT; Term 3 ticks for
 Grade 10 IT set to lessons 16 and 18 only - lesson 17 is not in Term 3's
 plan, so it could not be ticked there.
+
+## Built and published (5 October 2026)
+
+Chris, the morning after the mock-up: "keep the top block. the rest is far
+too busy. the top block says most of what needs to be said ... after the top
+block do a what you get comparison block (no names) from the business case
+(prettified). then the subjects we offer. the start free must be repeated
+each time. keep it simple, stylish, good gui. do this for real, no mockup and
+commit, push, publish live." Platform commit da8e0b1 (branch expansion).
+
+- **The page a visitor sees**: the hero block (tabs, flipping promise, real
+  screen); **What you get** - BestLessons against a textbook, a tutor and an
+  online school, no names, ticks and crosses, cost a year (R1,260-R2,265 a
+  Grade 10-12 textbook set; R10,000-R20,000 a tutor at an hour a week;
+  R5,000-R10,000 an online school); **The subjects we offer** (the subjects
+  strip, unchanged); **Start free** after each of the three. In Home
+  schooling, Teachers, Schools, Sign in and the price table are not on the
+  page. A short paragraph keeps what Google's sign-in review reads (why
+  Google, one account per person, who gets AI marking, the privacy policy).
+  No "built by" on the home page (features.php still has it).
+- **Code**: `lib/home-hero.php` (promises, screens, value strip, comparison
+  rows), `public/assets/home-hero.js`, `public/assets/home-hero.css` (all
+  under `.hh`), screenshots in `public/assets/home/` (33 files, 4 MB).
+- **Prices**: `HomePrices()` - an active plan with id `it-subject-year`,
+  `it-subject-month`, `teacher-class` or `teacher-pupil` overrides the launch
+  price (R1,047 / R117 / R6,000 / R120). Create those plans in Admin >
+  Billing and the page follows.
+- **Screens**: names are now scrambled to other letters and blurred (6px) -
+  unreadable. The "tells you what to learn" screen is a Must know (Learn /
+  Memorise) table inside IT Theory 10 lesson 1; the pasted-work screen shows
+  the red "Flagged: looks pasted" box with its reason.
