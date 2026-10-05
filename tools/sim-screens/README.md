@@ -6,6 +6,10 @@ step, each step marked with two tries, Excel first). A simulation block
 (`lib/simulation.php` in the platform) shows one real screen per step; this
 folder makes those screens.
 
+**Where to run (Chris, 5 October 2026): the video VM first.** Only if the VM
+is busy (the install-video chat records there) run on Chris's PC, and ask him
+for hands-off first.
+
 ## Excel (Excel 365 on Chris's PC)
 
 `excel-vram.ps1` is the model: it types a small sheet into a new workbook

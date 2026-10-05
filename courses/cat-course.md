@@ -978,6 +978,22 @@ and match. The quote is Peter Thiel's from the quote bank, with its portrait
 renders on the testbed. **Waiting for Chris's verdict on test** (it goes up
 with the next publish).
 
+**Sample application lessons, 5 October 2026** (Chris: "do a sample lessons
+for excel, word, access - lots of software simulation"): `catpilot` lessons
+`word`, `excel` and `access`, 14 simulations on real Office 365 screens -
+Word (Heading 1, centre, double-click and Ctrl+B, bullets, Insert > Page
+Break), Excel (a SUM typed, the fill handle, AutoSum on the Formulas tab,
+AVERAGE, a bold row), Access (View and Primary Key, a new field, a
+validation rule, Create > Query Design with a criterion and Run). Screens
+from `tools/sim-screens/cat-*.ps1` (COM and UI Automation, PrintWindow;
+`office-kit.ps1` holds the shared safety rules) cropped by `cat-crop.py`.
+Word needs a 1750 px window or its ribbon folds the Styles gallery and the
+Pages group into menus. A simulation now uses the margin's width on wide
+screens (`simulation.css`). Every step was played through on the testbed.
+**Open:** a teacher must join a course to try its simulations - unlike SQL
+questions, they have no teacher preview (`ApiRequireLesson`'s
+`$aTeacherPreview`).
+
 ### 7.2 Then Grade 10, lesson by lesson
 
 - **A draft course** for Grade 10 theory, `'status' => 'draft'` and
