@@ -188,8 +188,8 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   a folded **CAPS** box (`caps.php`), per `pupils.syllabus` - `ieb`, `caps`,
   `none`, or `both` (teachers and admins only). Not chosen: admin -> both, a
   `schoolEmailDomains` address -> IEB, anyone else sees none and the course
-  page asks once above the lessons. Changed on **My account** ("Exam
-  syllabus"); saved by `syllabus.php`. Rules in `lib/syllabus.php`.
+  page asks once above the lessons. Changed in **My settings** (Exam and
+  SQL; it left My account on 5 October 2026); saved by `syllabus.php`. Rules in `lib/syllabus.php`.
 - **Task pre-checks** (Chris, 25 September 2026) - `lib/tasks.php`, table
   `taskReviews`, block `taskreview` (`'task' => 'dvt'` or `'pat'`). A pupil
   uploads a part (PDF up to 10 MB / 60 pages; the PAT code as source files or
@@ -559,7 +559,8 @@ inside `GameSync()`; their XP counts towards the course XP and rank.
   (default "Coder <1000+id>"; 3-20 characters, unique, checked against
   `PracticeBadWords()` - English and Afrikaans, leetspeak normalised; words
   that hide inside innocent ones are whole-word only) and an **emoji icon on a
-  colour** chosen on My account (`#practice`). **No uploaded avatars**
+  colour** chosen in My settings (`pupil-settings.php#fun`; My account's copy
+  went on 5 October 2026). **No uploaded avatars**
   (Chris): nothing to moderate. A pupil can leave the leaderboards.
 - **Spaced repetition** (table `practiceWords`, Leitner boxes 0-5, due after
   0/1/3/7/14/30 days): right moves a word up a box, missed sends it to box 0,
@@ -973,8 +974,23 @@ changes. pupils without teachers don't get calendars by default."
   first everywhere a course mark is shown - My progress (four dials, 2 x 2:
   weighted, total, other questions, written - `MarkDialsHtml()`), Class
   results (a Weighted column in the grid and the lesson marksheet, and the
-  export), a pupil's work page - with the raw total smaller. Lesson-level
-  marks stay raw.
+  export), a pupil's work page - with the raw total smaller. **Each lesson's
+  mark in Class results' grid is its weighted mark too** (Chris, 5 Oct 2026:
+  "for teachers on the marks page the mark per lesson should be the weighted
+  mark"): `WeightedPercent()` of that lesson's own parts with the pupil's
+  weighting, out of what is answered and marked so far, the marks out of the
+  whole lesson small under it; it sorts by the weighted mark. Other
+  lesson-level marks (the export, My progress's lesson list) stay raw.
+- **Privacy screen on Class results** (Chris, 5 Oct 2026: "a blackout ruler
+  toggle ... when discussing marks with a pupil you can call them up, activate
+  the blackout ruler and only show them their marks without exposing other
+  pupils"; then "call the blackout button 'Privacy screen'"): a button above
+  the Marks grid and above one lesson's grid (`assets/blackout-ruler.js`).
+  Click a pupil's row, then Privacy screen: every other row leaves the table,
+  theirs sits under the headings, the screen above the headings and below the
+  row is black (fixed layers that follow scrolling). Up / Down or the buttons
+  on the black go to the previous / next pupil in the table's order; Esc or
+  Stop ends it. Nothing on the black names anyone.
 - **Every class marksheet is the same** (Chris, 1 Oct 2026 - a rule): a
   lesson's name in any column heading (Marks, Time on the site) opens that
   lesson's marksheet question by question, and the chosen group, class and
@@ -1977,7 +1993,13 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   never reused, cancelled not deleted; PDF at `invoice.php`; Paid with EFT
   reference; refunds as negative payments), bursary codes, AI costs per kind and
   per person, and a monthly CSV. **My account** (`account.php`, in the menu):
-  what the person may use and why, and a code box (10 tries an hour). Invoice
+  what the person may use and why, and a code box (10 tries an hour). **Laid
+  out like My settings** (Chris, 5 Oct 2026: "same design language, sidebar,
+  colours"): the coloured numbered list on the left picks one card
+  (`settings-tabs.js`) - 1 You, 2 Your classes (leave a class, join with a
+  code, set up classes), 3 What you can use, 4 Have a code?, 5 Subscriptions
+  and invoices. The exam, SQL and practice-name forms it repeated are only in
+  My settings now; the practice page links there. Invoice
   seller details come from config `invoiceSeller` (name, address, email, phone,
   bank) - **not set yet**.
 - **Teacher groups (step 2, 24 September 2026)** - `lib/groups.php`, tables
