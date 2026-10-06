@@ -1010,3 +1010,26 @@ questions, they have no teacher preview (`ApiRequireLesson`'s
   (`tools/publish-test.py`), tell Chris.
 - When the pilot is approved it becomes lesson 1 of the draft course and
   `catpilot` goes.
+
+**Grade 10 written, 6 October 2026** (Chris: "do the whole set of cat
+theory lessons. be interesting and creative - and more simple than the it
+course, more step by step explanations for CAT level. plan videos for the
+lessons ... all video content must be available in the text as well"; then
+"new full courses named by grade as for it", Grade 10 first). Course
+`cattheory10`, **CAT Theory - Grade 10**, a draft (teachers and admins only):
+all 36 lessons of section 3.2, with its own glossary, `caps.php` and
+`sags.php` (SAGs topic `P1` = Appendix M 8.1, file management). Lesson 1 is
+the pilot, made simpler; `catpilot` stays for the Word, Excel and Access
+samples. Written to [cat-theory-writing.md](cat-theory-writing.md) (simpler
+and step by step, a recurring cast - Thabo, Lerato, Gogo Dlamini, Mr Botha's
+bakery, Ms Naidoo at Phumlani Secondary), then reviewed lesson by lesson for
+pitch, voice, facts, answers and marks. **79 videos planned** (4-8 minutes
+each) in [cat-videos/](cat-videos/README.md), each marked by a `// VIDEO`
+comment in its lesson; everything in them is in the text. CAT marking voice
+`cat` in bin/markqueue.php. A CAT lesson shows a drawing's `cat-<name>.svg`
+redraw automatically once it exists; the 202 IT drawings used and the new
+ones wished for are in [../brand/cat-art-requests.md](../brand/cat-art-requests.md).
+**Open:** Chris's verdict; prices and dated facts for the yearly list (each
+lesson's doc comment); File Explorer and Settings screens/simulations
+([cat-screens-wanted.md](cat-screens-wanted.md)) once the VM captures them; Grade 11
+(28 lessons) and Grade 12 (30) after Grade 10 is approved.
