@@ -1033,3 +1033,11 @@ ones wished for are in [../brand/cat-art-requests.md](../brand/cat-art-requests.
 lesson's doc comment); File Explorer and Settings screens/simulations
 ([cat-screens-wanted.md](cat-screens-wanted.md)) once the VM captures them; Grade 11
 (28 lessons) and Grade 12 (30) after Grade 10 is approved.
+
+**Jev standard and the CAT drawings, 6 October 2026** (Chris: "use of jev
+must be standard in all course development"). CAT Theory 10: 193 of 196
+written questions carry Jev `points` (Jev marks when sure, Claude when not);
+11 own-words reveals; typed near-misses and the Practice game "Say what it
+means" judged by Jev; `bin/check-jev.php` run on all 36 lessons and its 73
+flags worked through. The Art chat's 202 redraws, 10 lesson pictures and
+101 new drawings are in (AIPascalCourse c101bc6 and before); on test and live.
