@@ -29,6 +29,10 @@ in the lesson text.
   new point, add it to the lesson first.
 - When a video is on YouTube, the lesson's `// VIDEO` comment becomes a
   `video` block with its id - never before (ids are never invented).
+- **Finished videos go in the one flat 'for upload' folder** (Chris, 6
+  October 2026), with their thumbnail, captions and YouTube text - not left
+  in a folder tree. Chris moves each to 'uploaded' once it is on YouTube.
+  The video chat owns the folder's path (tutorial-videos.md).
 - The draft narration is a starting point. Make the video straight away;
   Chris corrects from the video (tutorial-videos.md, 5 October 2026).
 
