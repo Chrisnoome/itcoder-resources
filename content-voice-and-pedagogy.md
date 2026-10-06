@@ -65,6 +65,9 @@ September 2026: many pupils skipped it). An opened reveal stays open on that
 browser (`localStorage`, nothing marked), and a pupil who scrolls past a closed
 one gets a bar at the bottom: "You scrolled past a ... button" with **Take me
 back** / **Not now** (`app.js`, `SetUpReveal`/`DrawRevealBar`).
+Where the guess is an idea rather than a number, add `'id'`, `'ownWords'` and
+`'hints'`: the pupil says it in their own words and Jev says right / not yet
+with a hint, unmarked (6 October 2026; platform.md, "Own words on a reveal").
 **A question may never test a word or fact that isn't in always-visible prose**
 - not only in a popup or a reveal's hidden `explain`.
 
@@ -184,6 +187,30 @@ marking-house-style.md (style never marked) is deliberately different.
   store (`markqueue.php`, `lib/analyse.php`) and on display;
   `bin/reformat-feedback.php --apply` fixes stored text;
   `php bin/check-feedback-format.php` checks. Keep the example in the prompt.
+
+## 4b. Jev first, in every course (Chris, 6 October 2026)
+
+"Use of jev must be standard in all course development - in making,
+interactive activities, wherever it would be useful." Jev (TypeSafe,
+`lib/jev.php`) makes the quick yes/no judgments; Claude handles only what Jev
+is unsure of, or what needs written words. In every lesson:
+
+- **Written questions carry `'points'`** - groups of creditable ideas, Jev
+  judging each and code counting "any TWO" (`WrittenPoints()`,
+  `JevMarkWritten()`, hooked into `bin/markqueue.php`). Sure: Jev marks, with
+  feedback built from the points. Unsure: Claude marks from `markerRubric`.
+  Ideas are clean statements - the pupil sees them.
+- **Typed answers with 'rules'** are marked point by point by Jev
+  (`JevMarkTypedRules()`); **term answers** that match no wording go to Jev
+  before Claude (`JevTermVerdict()`).
+- **Own-words checks** on a `reveal` (`'ownWords'`, `'hints'`): an instant
+  Jev "yes" or "not yet" before the pupil opens the answer.
+- **Practice**: "Say what it means" - the pupil's own definition, judged by
+  Jev.
+- **Writing checks**: `php bin/check-jev.php <course> [lesson]` when a lesson
+  is written or changed (ambiguous options, why lines that give the answer
+  away, doubtful ideas, captions that give answers away).
+- Any new system or costing names its Jev judgments and a Jev cost line.
 
 ## 5. Videos, animations, try-its and diagrams
 
@@ -656,6 +683,8 @@ chart rendered.
       idea, or bands from `markMax` 10 with `showRubric`; exact detail in
       `markerRubric`
 - [ ] Videos only where vetted - no Pascal placeholders
+- [ ] **Jev** (§4b): every written question has `'points'`; an own-words
+      reveal where an explanation is asked for; `bin/check-jev.php` run on the lesson
 - [ ] A `study` block (Pascal); SAGs coverage in `content/<course>/sags.php` and
       CAPS coverage in `caps.php`, or `'enrichment' => true` (`php bin/check-sags.php`)
 - [ ] Run the checks in platform.md, "Checks to run"

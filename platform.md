@@ -295,6 +295,15 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `.learn-memorise`'s amber), teal = watch/try, green = question, cream =
   optional (`enrichment`), blue = quote, **plum = not examined but useful**
   (`goodtoknow`: `#EFE9F5`, `#8A6BB0`, `#5B4380`). Keep plum for that only.
+- **Own words on a reveal** (Chris, 6 Oct 2026: "Instant mini-answers ...
+  Jev gives an instant right / not yet, with a hint"): a `reveal` with an
+  `'id'`, `'ownWords' => [idea, ...]` (every idea must be there) and optional
+  `'hints'` (same order, a nudge not the answer) shows "Say it in your own
+  words first" and **Check my answer** above its button. Jev checks each
+  idea (`JevOwnWords()`, `public/api/ownwords.php`, `assets/ownwords.js` /
+  `.css`): right opens the reveal; not yet lists the hints for the missing
+  ideas. Unmarked, nothing stored, 8 checks per reveal per session, costed
+  as `ownwords`; the reveal button always works.
 - **Copy to console on every listing** (Chris, 1 Oct 2026): a whole program
   gets the button as before; a fragment (one loop, part of a unit) keeps
   its short listing and carries its complete program in a hidden
@@ -545,6 +554,20 @@ inside `GameSync()`; their XP counts towards the course XP and rank.
   three the answer is shown. Not in today's challenge; no spaced repetition.
   `php bin/check-ordering.php --run` compiles and runs every Parsons program
   (fpc from Lazarus, JDK 21) and checks it prints its `'output'`.
+- **Say what it means** (ninth game, `'explain'`, Chris 6 Oct 2026: "the
+  glossary word games accept your own words for a definition, judged by
+  Jev"): every course with a glossary. The pupil sees a term and types what
+  it means (300 characters); `api/practice-explain.php` asks Jev at once
+  (`JevOwnWords()`, one idea: "it means the same as this definition") -
+  right: 4 XP and the next word; not quite: the real definition, and the word
+  counts as missed; Jev unavailable: "Checking isn't working right now", the
+  word is skipped (neither right nor missed). **10 words a round** (`'words'`
+  in PracticeGames()), not in today's challenge. The verdicts live in the
+  session and `practice-finish.php` scores this game **only** from them (the
+  page's list is ignored). Cap: 200 checks a pupil a day (session count or
+  `aiUsage` kind `practice:explain`, whichever is more). Tested on CAT Theory
+  terms: right answers 0.94, half-right 0.44-0.70 (not quite at 0.85), wrong
+  0.03-0.05.
 - The server picks the words and issues a one-time round token; the page
   reports which words were right; the server caps the score at the round's
   words and refuses impossibly fast rounds. XP per word: flash cards 1,
@@ -2230,6 +2253,17 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-titles.php` - titles <= 55 visible characters (Good to Know
   <= 36; video titles exempt).
 - `php bin/check-figures.php` - every illustration in `Figure ()`.
+- `php bin/check-jev.php <course> [lesson]` - Jev reads every question as it
+  is written (Chris, 6 October 2026): a wrong quiz/select option a teacher
+  could defend, a right one that is not clearly right, a `why` hint that
+  gives the answer away, a typed answer list or `explain` that is wrong, a
+  written `points` idea that would not earn a mark, a figure or doodle
+  caption just before a question that answers it. One Jev request per
+  question, costed as `devcheck`; thresholds and wording are constants at
+  the top. Not part of the routine run - it costs Jev calls; run it on a
+  lesson when it is written or changed. A flag is a question for the
+  writer: read the question before changing anything. Exit 1 on a flag, 2
+  when Jev gives no answer.
 - `php bin/check-db-locks.php` - a write never fails because a read was left
   open (1 October 2026: pupils' saves failed with "database is locked" in
   class time). lib/db.php's DbStatement closes every statement a row was

@@ -147,6 +147,28 @@ lessons.
 - One `Scenario()` near the end, 3-5 parts, an SA situation, as the pilot.
 - One `study` block last, with `keyTerms`.
 
+## Jev in every lesson
+
+Chris, 6 October 2026: "use of jev must be standard in all course
+development - in making, interactive activities, wherever it would be
+useful". So, in every lesson:
+
+- **Every `written` question carries `'points'`** - groups of creditable
+  ideas that Jev judges one by one, with code counting "any TWO" (shape and
+  rules: `WrittenPoints()` in `lib/jev.php`). Jev marks the answer when it is
+  sure; Claude marks only the unsure ones, using `markerRubric`. The groups add
+  up to `markMax`. Ideas are clean statements - the pupil sees them in the
+  feedback.
+- **Typed term answers** that match no listed wording go to Jev first
+  (`JevTermVerdict()`), so list the usual wordings, not every misspelling.
+- **Own-words checks**: a `reveal` with `'id'`, `'ownWords'` (the ideas a
+  right answer must get) and `'hints'` lets the pupil type an answer first and
+  get an instant Jev "yes" or "not yet". Use one or two per lesson where a
+  "decide first, then open" prompt asks for an explanation.
+- **Before a lesson is called done**, run `php bin/check-jev.php <course>
+  <lesson>`: Jev flags ambiguous options, why lines that give the answer away,
+  doubtful ideas and captions that give answers away.
+
 ## Drawings and pictures
 
 - `Doodle()` and `DesignFigure()` take a name in `public/assets/doodles/`.
