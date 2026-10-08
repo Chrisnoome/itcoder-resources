@@ -254,3 +254,53 @@ in the lesson text.
 | Video | Title | Min | Plan |
 |---|---|---|---|
 | catprac-00.1 | How to work with software simulations | 7 | [simulations.md](simulations.md) |
+| catword-01.1 | The Word window and typing your first document | 8 | [catword-start.md](catword-start.md) |
+| catword-01.2 | Saving your work in the cloud, with a good name | 6 | [catword-start.md](catword-start.md) |
+| catword-02.1 | Selecting, undo, cut, copy and paste | 8 | [catword-editing.md](catword-editing.md) |
+| catword-02.2 | Find and replace, symbols and AutoCorrect | 6 | [catword-editing.md](catword-editing.md) |
+| catword-03.1 | Fonts, sizes, colours and effects | 9 | [catword-fonts.md](catword-fonts.md) |
+| catword-03.2 | Change Case and the Format Painter | 5 | [catword-fonts.md](catword-fonts.md) |
+| catword-04.1 | Marks, styles, alignment and spacing | 8 | [catword-paragraphs.md](catword-paragraphs.md) |
+| catword-04.2 | Indents, borders and shading | 6 | [catword-paragraphs.md](catword-paragraphs.md) |
+| catword-05.1 | Bulleted and numbered lists | 7 | [catword-lists.md](catword-lists.md) |
+| catword-05.2 | Tab stops | 6 | [catword-lists.md](catword-lists.md) |
+| catword-06.1 | Margins, orientation and size | 6 | [catword-pagelayout.md](catword-pagelayout.md) |
+| catword-06.2 | Columns, headers and the page background | 8 | [catword-pagelayout.md](catword-pagelayout.md) |
+| catword-07.1 | Making a table | 7 | [catword-tables.md](catword-tables.md) |
+| catword-07.2 | Formatting a table and its data | 7 | [catword-tables.md](catword-tables.md) |
+| catword-08.1 | Pictures and text wrapping | 7 | [catword-illustrations.md](catword-illustrations.md) |
+| catword-08.2 | Shapes, WordArt and SmartArt | 8 | [catword-illustrations.md](catword-illustrations.md) |
+| catword-09.1 | Spelling, grammar and the Editor | 7 | [catword-proofing.md](catword-proofing.md) |
+| catword-09.2 | Views, printing and PDF | 7 | [catword-proofing.md](catword-proofing.md) |
+| catword-10.1 | Hyperlinks and copying between programs | 7 | [catword-integration.md](catword-integration.md) |
+| catword-10.2 | Finding help and fixing problems | 7 | [catword-integration.md](catword-integration.md) |
+| catexcel-01.1 | Your first look at Excel | 7 | [catexcel-start.md](catexcel-start.md) |
+| catexcel-01.2 | Saving a workbook in Google Drive | 5 | [catexcel-start.md](catexcel-start.md) |
+| catexcel-02.1 | Typing and fixing data | 6 | [catexcel-entering.md](catexcel-entering.md) |
+| catexcel-02.2 | Rows, AutoFill and sheets | 7 | [catexcel-entering.md](catexcel-entering.md) |
+| catexcel-03.1 | Your first formulas | 7 | [catexcel-formulas.md](catexcel-formulas.md) |
+| catexcel-03.2 | Why a formula points at cells | 6 | [catexcel-formulas.md](catexcel-formulas.md) |
+| catexcel-04.1 | Making a sheet easy to read | 6 | [catexcel-formatting.md](catexcel-formatting.md) |
+| catexcel-04.2 | Number formats and ###### | 6 | [catexcel-formatting.md](catexcel-formatting.md) |
+| catexcel-05.1 | The five basic functions | 8 | [catexcel-functions.md](catexcel-functions.md) |
+| catexcel-05.2 | Ranges and range names | 4 | [catexcel-functions.md](catexcel-functions.md) |
+| catexcel-06.1 | Reading Excel's error values | 7 | [catexcel-more.md](catexcel-more.md) |
+| catexcel-07.1 | Making and finishing a chart | 8 | [catexcel-charts.md](catexcel-charts.md) |
+| catexcel-08.1 | A sheet onto paper | 7 | [catexcel-printing.md](catexcel-printing.md) |
+| catexcel-08.2 | Wrong answers with no error | 5 | [catexcel-printing.md](catexcel-printing.md) |
+| catpowerpoint-01.1 | The PowerPoint window, views and new slides | 7 | [catpowerpoint-start.md](catpowerpoint-start.md) |
+| catpowerpoint-01.2 | Designs and the rules of a good slide | 7 | [catpowerpoint-start.md](catpowerpoint-start.md) |
+| catpowerpoint-02.1 | Typing, levels and formatting on slides | 7 | [catpowerpoint-text.md](catpowerpoint-text.md) |
+| catpowerpoint-02.2 | Replace, and slides from a Word outline | 6 | [catpowerpoint-text.md](catpowerpoint-text.md) |
+| catpowerpoint-03.1 | Tables and charts on slides | 7 | [catpowerpoint-objects.md](catpowerpoint-objects.md) |
+| catpowerpoint-03.2 | Pictures, shapes and SmartArt | 6 | [catpowerpoint-objects.md](catpowerpoint-objects.md) |
+| catpowerpoint-04.1 | Transitions and animation - and when to leave them out | 8 | [catpowerpoint-animation.md](catpowerpoint-animation.md) |
+| catpowerpoint-05.1 | Running the show and speaker notes | 6 | [catpowerpoint-slideshow.md](catpowerpoint-slideshow.md) |
+| catpowerpoint-05.2 | A show that runs by itself, printing and saving | 7 | [catpowerpoint-slideshow.md](catpowerpoint-slideshow.md) |
+| catpowerpoint-06.1 | From a report to a presentation | 8 | [catpowerpoint-pat.md](catpowerpoint-pat.md) |
+| catpowerpoint-06.2 | Finishing and checking | 6 | [catpowerpoint-pat.md](catpowerpoint-pat.md) |
+| cathtml-01.1 | Your first web page in Notepad++ | 8 | [cathtml-whatis.md](cathtml-whatis.md) |
+| cathtml-02.1 | The skeleton of a web page | 7 | [cathtml-structure.md](cathtml-structure.md) |
+| cathtml-03.1 | Paragraphs, line breaks and lines | 6 | [cathtml-text.md](cathtml-text.md) |
+| cathtml-04.1 | Bold, italic, underline - and finding the mistakes | 8 | [cathtml-formatting.md](cathtml-formatting.md) |
+| cathtml-05.1 | Colour, fonts and lines: attributes | 8 | [cathtml-design.md](cathtml-design.md) |

@@ -2,9 +2,10 @@
 
 **Status (8 October 2026): phase 1 built, not committed or published** - the
 `upload` block, consent, keeping/opening/log/delete, the year-end job,
-.docx/.xlsx/.pptx/.html reading, exact and Jev checks with Claude when Jev is
-unsure, the teacher's view, and the worked example "Format the notice" at the
-end of the CAT pilot's Word lesson. How it works: platform.md, "Uploaded
+.docx/.xlsx/.pptx/.html reading (.accdb too, the same day), exact and Jev
+checks with Claude when Jev is unsure, the teacher's view, and the worked
+examples "Format the notice" at the end of the CAT pilot's Word lesson and
+"The chess club's table" at the end of its Access lesson. How it works: platform.md, "Uploaded
 work, marked"; the rule format: lib/uploadmark.php. Still open: the consent
 question below, the cron line for `bin/upload-retention.php` on the server,
 and what is "Not in the first build".
@@ -41,10 +42,9 @@ The gate is one function, so the rule can change without touching the blocks.
 
 - **Stored outside the web root**, `data/uploads/<pupilId>/<courseId>/<lessonId>/<blockId>-<n>.<ext>`,
   served only through a PHP endpoint that checks who is asking.
-- **Allowed types per block** (`.docx`, `.xlsx`, `.pptx`, `.html`/`.htm`;
-  `.accdb` later - it needs `mdbtools` on the server, not installed yet), a
-  10 MB cap, and a content check (a .docx must be a real ZIP with
-  `word/document.xml`).
+- **Allowed types per block** (`.docx`, `.xlsx`, `.pptx`, `.html`/`.htm`,
+  `.accdb`), a 10 MB cap, and a content check (a .docx must be a real ZIP
+  with `word/document.xml`; an .accdb must be a real Access file).
 - **Who may open it:** the pupil; teachers of a class the pupil is in;
   admins only through a "support" action that asks for a reason. **Every
   opening is logged** (who, when, which file, why for admins), and the pupil
@@ -82,8 +82,15 @@ results per pupil; a teacher may change a mark with a reason, as for written
 answers. The existing `taskreview` machinery (lib/tasks.php, task-upload.php)
 is the starting point for storage and the queue.
 
+**Access, built 8 October 2026** (Chris: "build the access marker now";
+mdbtools installed on the server the same day): `lib/accdb.php` reads tables,
+field properties, primary keys, relationships, queries (from MSysQueries)
+and data; a query is marked by **what it returns** - the pupil's query and
+the model answer are run on the pupil's own data (in-memory SQLite) and
+compared; what cannot be re-run goes to Jev. platform.md, "Access (.accdb)".
+The example: "The chess club's table" in the CAT pilot's Access lesson.
+
 ## Not in the first build
 
-`.accdb` (needs `mdbtools` on the server - ask Chris before installing),
-whole-document judgements by Sonnet ("is the layout sensible"), and the PAT
+Whole-document judgements by Sonnet ("is the layout sensible"), and the PAT
 pre-check for CAT.

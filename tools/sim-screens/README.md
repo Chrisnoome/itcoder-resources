@@ -6,7 +6,14 @@ step, each step marked with two tries, Excel first). A simulation block
 (`lib/simulation.php` in the platform) shows one real screen per step; this
 folder makes those screens.
 
-**Where to run (Chris, 5 October 2026): the video VM first.** Only if the VM
+**Where to run (8 October 2026): the CAT VM `itcoder-cat`, through
+`vm-shots.ps1`** - `pwsh -File vm-shots.ps1 <script>` copies the script and
+office-kit in, runs it in the VM's desktop (one run at a time, a lock file),
+and brings back `out\<script>-*` and any files it made (`files\<script>\`).
+Starter files go to the cloud too: `G:\My Drive\CAT\<App>\` in the VM. The
+practical courses' writers use it (courses/cat-practical-writing.md).
+
+**Before that (Chris, 5 October 2026): the video VM first.** Only if the VM
 is busy (the install-video chat records there) run on Chris's PC, and ask him
 for hands-off first.
 

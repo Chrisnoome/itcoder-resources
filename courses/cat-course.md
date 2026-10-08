@@ -1078,3 +1078,23 @@ folders made). Before the courses: clearer simulation steps, a wrong-try
 pop-up and a "Try this" practice simulation at the start of each course;
 uploaded work marked (cat-uploads-design.md); an `html` block with a live
 preview.
+
+**mdbtools installed on the server, 8 October 2026** (Chris: "yes, install
+mdbtools on the server"): mdbtools 1.0.0 (Ubuntu 24.04), for test and live.
+The decision-14 test, on a Grade 12-style `.accdb` built in real Access in
+the CAT VM (two tables, a relationship, a calculated field, a validation
+rule, a join query with criteria and a descending sort, a totals query with
+GROUP BY and HAVING; kept as `AIPascalCourse/tests/uploads/access/Shop.accdb`):
+- **Read cleanly:** table and field names and types (`mdb-schema`), data
+  (`mdb-export` - but a calculated field exports as 0: work it out, don't
+  read it), the calculated field's expression and every validation rule and
+  text (`mdb-prop <file> <table>`), and the relationship (`mdb-export
+  MSysRelationships`: table, field, referenced table and field).
+- **`mdb-queries` is lossy** - it drops joins and their conditions, DESC,
+  aliases, GROUP BY and HAVING. **Read queries from `mdb-export
+  MSysQueries`** instead (the name from `MSysObjects` by ObjectId): it holds
+  every part - fields with their aliases (attribute 6), joins with the
+  condition (7), tables (5), WHERE (8), GROUP BY (9), HAVING (10), ORDER BY
+  with "d" for descending (11). `mdb-schema --relations` printed nothing.
+- So the Access upload marker is feasible on `.accdb`; `.mdb` is not needed.
+  Not built yet - with the Grade 11 Access course.

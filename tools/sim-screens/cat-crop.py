@@ -18,6 +18,25 @@ CROPS = {
     'cat-excel':  ('excel',  (0, TITLE_BAR, 720, 500)),
     'cat-word':   ('word',   (0, TITLE_BAR, 1290, 700)),
     'cat-access': ('access', (0, TITLE_BAR, 1150, 965)),
+    # catexcel lessons 5-8 (the CAT VM, 100% scaling, title bar 0-57): columns A-F and the ribbon's left half.
+    'catexcel-functions': ('catexcel', (0, 58, 760, 690)),
+    'catexcel-more':      ('catexcel', (0, 58, 760, 690)),
+    'catexcel-charts':    ('catexcel', (0, 58, 940, 720)),      # the chart, and the Insert tab's galleries
+    'catexcel-printing':  ('catexcel', (0, 58, 1180, 760)),     # the Page Setup dialog and Backstage reach further
+    # catexcel lessons 1-4: only the practice screens fit one box; the other scripts mix window widths
+    # and dialogs - work/catexcel-crop.py crops those (and paints out the VM's Add-ins and Claude groups).
+    'catexcel-practice':  ('catexcel', (0, TITLE_BAR, 900, 490)),
+    # catpowerpoint lessons 1-6 (the CAT VM, an 1800 x 880 window - the ribbon unfolded; title bar 0-60):
+    # the whole window inside its frame, the status bar kept (its view buttons are taught).
+    # After cropping by hand (see catpowerpoint-text.ps1 and courses/cat-practical-notes/catpowerpoint.md): text ol-1..3
+    # (a 1010-high window: box (9, 58, 1791, 1001)), start lay-2 (from catpowerpoint-startlay), and slideshow pdf-4
+    # (the OneDrive account name in the Save dialog's folder list painted over with "OneDrive").
+    'catpowerpoint-start':     ('catpowerpoint', (9, 58, 1791, 871)),
+    'catpowerpoint-text':      ('catpowerpoint', (9, 58, 1791, 871)),
+    'catpowerpoint-objects':   ('catpowerpoint', (9, 58, 1791, 871)),
+    'catpowerpoint-animation': ('catpowerpoint', (9, 58, 1791, 871)),
+    'catpowerpoint-slideshow': ('catpowerpoint', (9, 58, 1791, 871)),
+    'catpowerpoint-pat':       ('catpowerpoint', (9, 58, 1791, 871)),
 }
 
 # Places on Access's own grids, which UI Automation can't see - read off the pictures (window pixels).
@@ -29,6 +48,12 @@ READ_OFF = {
         'validRule':    [403, 800, 390, 18],  # the Validation Rule box in Field Properties
         'gradeCrit':    [593, 777, 143, 18],  # the Criteria box under Grade
         'runTop':       [88, 104, 52, 56],
+    },
+    'catexcel-functions': {
+        'nameBox':      [20, 236, 128, 26],   # the Name Box (UI Automation gives it no name)
+    },
+    'catexcel-more': {
+        'nameBox':      [20, 236, 128, 26],
     },
 }
 
