@@ -208,6 +208,78 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   the teacher's mark counts. Counts **10** against the daily AI cap; the same
   file twice is not re-checked. Uploads need `public/.user.ini` (PHP 10M/12M)
   and nginx `client_max_body_size 12m` (set by both publish scripts).
+- **Uploaded work, marked** (Chris, 8 October 2026: "Build uploads first";
+  design and his decisions: [courses/cat-uploads-design.md](courses/cat-uploads-design.md)).
+  Block **`upload`** - `lib/uploads.php` (the block, consent, keeping,
+  opening, deleting), `lib/uploadmark.php` (the checks and marking - **the
+  rule format is its doc comment**), `lib/officexml.php` (reads .docx, .xlsx,
+  .pptx and .html; ZipArchive, or its own ZIP reader where the zip extension
+  is off - the local XAMPP), `public/upload.php` (every POST),
+  `public/upload-file.php` (the only way to a file), `public/my-uploads.php`,
+  `api/upload-status.php`, `assets/uploads.css`. Tables `uploadWork` (one row
+  per try), `uploadAccessLog`; `pupils.uploadConsentAt/By/Role`.
+  ```
+  ['type' => 'upload', 'id' => 'upNotice', 'program' => 'word', 'title' => '...', 'prompt' => '<p>...</p>',
+   'files' => ['/assets/practical/word/Notice.docx'], 'accept' => ['docx'], 'tries' => 2,
+   'checks' => [['marks' => 1, 'say' => 'pupil line', 'exact' => ['docx.paragraph' => ['find' => 'Market Day', 'style' => 'Heading1']], 'fix' => '...'],
+                ['marks' => 1, 'say' => '...', 'jev' => 'yes/no about `entry_line`', 'extract' => ['entry_line' => ['docx.paragraph' => ['find' => 'Entry is']]]]]]
+  ```
+  - **Consent first (decision 17):** `UploadConsentState()` is the one rule.
+    Before the first upload the block shows why the file is kept, how long,
+    who can open it, how to delete it and what goes to the AI services; a
+    pupil under 18 agrees with a parent or guardian (named), 18 or older
+    alone. **No:** nothing is uploaded or marked, the block says why, the
+    rest of the lesson is untouched; they can change their mind (block or My
+    uploads). Taking the agreement back deletes every file; marks stay.
+    Open for Chris: whether a school's agreement covers its pupils
+    (popia-checklist.md "Children") - change `UploadConsentState()` only.
+  - **Marking:** exact checks in code, Jev checks with one Jev request on the
+    values the check `extract`s (never the file; an injection Noul guards
+    the pupil's text), in the upload request itself - well under a second.
+    Unsure (or no Jev, or the file talks to the marker): the try is
+    `queued` and `bin/markqueue.php` (any worker, after an analysis, before
+    practice answers) asks Claude (`anthropicModel`) with the same values;
+    the block looks again every 5 s and the bell rings. Feedback is built
+    from the checks' own words (`say`, what was found, `fix`), in the site's
+    shape. Costed as `upload`; **no daily cap** (Jev first, Claude rarely).
+    Two tries by default, **the better mark stands**, never doubled; the
+    same file twice costs no try; a failed marking does not count.
+  - **Marks:** the block's mark is a `quizResponses` row (`response` =
+    {uploadId, mark, tries}; `UploadSettle()`), so every total, My marks,
+    Class results, a pupil's work page, mark queries and a teacher's change
+    of mark (`teacherMark`) see it. Not part of Practice (the block says so).
+    **Left out of the count** (`UploadBlockCounts()`, called from
+    `PupilLessonMarks()` - the one place totals, ticks, behind and practice
+    summaries go through) in practice runs, and for a pupil who said no or
+    took it back and has no mark: their lesson can still be finished
+    (review, 8 Oct 2026). Deleting an account removes its files too
+    (`DeletePupilFiles()`, both delete paths). XML parts with a DOCTYPE are
+    refused after parsing (UTF-16 entity bombs), no `LIBXML_PARSEHUGE`, 8 MB a
+    part. Built .docx files carry `compatibilityMode` 15 and Aptos fonts, so
+    Word 365 opens them normally; a real Word-saved fixture is
+    `tests/uploads/Notice-done.docx`.
+  - **Keeping:** `data/uploads/<pupilId>/<courseId>/<lessonId>/<blockId>-<n>.<ext>`
+    beside the database. Types per block (docx, xlsx, pptx, html/htm), 10 MB,
+    and a content check (a .docx must be a real ZIP with `word/document.xml`;
+    ZIP bombs and DOCTYPEs refused). `.accdb` later (needs `mdbtools` - ask
+    Chris before installing).
+  - **Opening (`upload-file.php`):** the pupil; a trusted teacher of a class
+    (not as TIC) the pupil is in, in that course (`UploadViewerRole()`); the
+    administrator only through the support form, with a reason. Always a
+    download (`Content-Security-Policy: sandbox`, nosniff) - a pupil's web
+    page is never shown as a page of the site. **Every opening and delete is
+    in `uploadAccessLog`**, and the pupil reads their own on My uploads.
+  - **Deleting:** the pupil, any time, on My uploads (the mark stays; the
+    evidence for a query goes - the button says so). **The year-end job**
+    `bin/upload-retention.php` (daily) deletes every file past `deleteAfter`
+    (31 December of the year uploaded) and the folders of deleted accounts:
+    `15 2 * * * www-data /usr/bin/php /var/www/itcoder/bin/upload-retention.php >> /var/log/itcoder-uploads.log 2>&1`
+    (**not installed on the server yet**).
+  - **Teachers:** `WorkAutoAnswers()` (lib/workanswers.php) shows the try that
+    counts, each check and how it was decided (read from the file / Jev /
+    Claude, with Jev's number) and "Open the file" (logged).
+  - Starter files built by code: `bin/make-practical-files.php`
+    (`public/assets/practical/word/Notice.docx`). Check: `bin/check-uploads.php`.
 - **Question blocks fold** (Chris, 25 September 2026; `app.js`): a settled
   question's header shows "earned / out of marks"; pupils' settled questions
   start folded (a live answer stays open); teachers and admins can fold any.
@@ -240,7 +312,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   copy, dropped into SQL 1, Theory Gr 10 databasesintro, Gr 11 dataerrors and
   dbms11, Gr 12 datacollection, Pascal 24-25 and Java 25-27. A new database
   lesson gets both.
-- **Block types:** `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
+- **Block types:** `upload` (uploaded work, marked - see "Uploaded work, marked" above; 8 Oct 2026), `prose`, `video`, `activity`, `quiz`, `written`, `reveal`,
   `typed`, `checkedcode`, `order`, `select` (tick all correct, no more), `match`
   (dropdown per row), `gridtyped`, **`labelpic`** (label the picture: drag
   each name, and one or two extras that belong nowhere, into boxes on a
@@ -337,6 +409,40 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `AutoMarkedEarned()` (through `PupilLessonMarks()`, the one lesson-total
   function, 1 October 2026) - never `QuizMarkEarned()` on a per-line row,
   and any query feeding it selects `firstResponse`.
+- **Software simulations** (`simulation` blocks, lib/simulation.php,
+  assets/simulation.js and simulation.css, api/sim-answer.php; the block
+  format and rules are in content-voice-and-pedagogy.md section 5).
+  **8 October 2026 (Chris: "try to make the instructions and steps for
+  software simulations clearer ... when they click wrong pop up a message
+  that tells them they clicked in the wrong place - and the sequence is
+  important, that they need to read the screen and be accurate"):** each
+  step has a "Do this" line above the picture - an action badge (Click,
+  Double-click, Right-click, Type, Press keys; `SimStepForPage()` now sends
+  a click's `button`) and the `say` in large type - under "Step 2 of 5",
+  and a short "Done - next step" when it is right. Every simulation shows a
+  "How it works" box above Start (`SimHowItWorksHtml()`, in place of the
+  MarksNoteHtml line): read the instruction, do that one thing, the steps
+  go in order, two tries (full marks, then half, then we show where it
+  was), be accurate. A first wrong try opens a pop-up over the block (a
+  modal dialog through `Itc.Modal`: focus on OK, Tab kept inside, Escape or
+  OK closes it and the focus goes back) - "You clicked in the wrong place." /
+  "That is not what goes in here." / "Those are not the right keys.", the
+  instruction again, the hint, and "be accurate, the steps go in order, one
+  more try"; after the second miss the page shows where it was and says
+  "Two misses - here is where it was. No marks for this step. Go on to the
+  next one." **`'practice' => true`** makes a 'Try this - practice, no
+  marks' run: the same two tries and pop-up, checked try by try by
+  api/sim-answer.php, but its run lives only in the session and is never
+  stored; it ends with "That is how every simulation works. Now you are
+  ready for the real ones." and "Try it again" (`{restart: true}`). It is
+  not a question: `LessonSimulations()` leaves it out (so
+  `LessonMarkedQuestions()`, the totals and "N of M answered" never see
+  it; `LessonSimulationsAll()` has it, for the endpoint and the check), and
+  the page gives it no data-question and data-uncounted="1".
+  `SimulationPractice ('word')` builds the CAT courses' practice one (a
+  click, typing, a key press); every course with simulations starts with
+  it. `bin/check-simulations.php` checks practice ones too, and that none
+  is a marked question.
 - **Popups:** `Gloss($term, $def)` (glossary - shows the course glossary's
   definition when the term is in it, `lib/glossary.php`) and `Aside($marker, $text)` (joke,
   anecdote) in `lib/content.php`.
@@ -368,6 +474,48 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   instant, for everyone, costed as 'sqlcheck', no daily cap - but clause by
   clause, each clause scoring like a match line (sql-runner-design.md,
   "Access answers, AI-marked").
+- **`html` blocks** (CAT decision 18, Chris 8 Oct 2026: "Yes, build it now";
+  lib/html.php, api/html-answer.php, assets/html-block.js / .css): an HTML box
+  (`'starter'`, often broken on purpose as the exams' files are) with a live
+  preview beside it (below on a narrow screen) in an `<iframe sandbox="">`
+  filled through `srcdoc` - no scripts, forms, pop-ups, top navigation or
+  same-origin. The preview drops scripts, frames, `<link>`, `<meta>`,
+  `<base>`, `on...` handlers and `url()`; a picture loads only from
+  `/assets/practical/html/<'images'>/` (a plain file name is looked for
+  there; anything else is not shown, and the preview says so); a link keeps
+  its look but does not open (a `#bookmark` does). A browser-tab strip above
+  it shows the `<title>`. **Marked check by check from the code**, as the
+  memos mark it: `'checks' => [['marks' => 1, 'say' => what earns it, 'hint'
+  => a nudge after a first try that missed it, 'exact' => rule and/or 'jev' =>
+  'Does ... `pupil_html` ...?'], ...]`; no `'marks'` on the block; each check
+  met right first time earns its marks x 2, met only on the second try x 1
+  (the per-line rule; `HtmlMarkEarned()`), out of 2 x the checks' marks. Two
+  tries; after the first the pupil sees the marks so far and the missed
+  checks' hints, never which checks; once finished, the check list in the
+  feedback shape ("Marks for: ...", "Where you lost marks:") and the
+  `'model'` answer. **`'exact'` rules** (DOMDocument, any case, quotes
+  optional): pick `'tag'`, optionally `'parent'` (direct, e.g. `['ul',
+  'ol']`) and `'inside'` (any depth); test `'attr'` with `'present'` (true =
+  there and not blank / false = absent), `'equals'` (one or a list) or
+  `'contains'`, and/or `'text'` / `'textContains'` (`'case' => true` makes
+  capitals count; spaces squeezed, curly quotes straightened); how many: at
+  least one passes (default), `'count'` (0 = none may), `'min'`/`'max'`, or
+  `'every'` (at least `'min'` picked, all pass); `'closed' => true` reads the
+  raw source - the tag opened, every one closed, properly nested
+  (`<p><b>..</p></b>` fails). `'exact'` may be a list of rules that must all
+  hold. **`'jev'` checks**: Jev (`JevHtmlVerdicts()`; the pupil's HTML in its
+  own field plus an injection question) decides when sure; unsure, no key,
+  or HTML that talks to the marker -> Claude (`HtmlCheckWithClaude()`, the
+  CheckSqlAnswer pattern; if it fails the try is not used). A check with
+  both: the rule first, and only HTML that passes it goes to Jev. Costed as
+  `htmlcheck`. Stored in quizResponses as `{html, met, notes}`; the box opens
+  on the last HTML checked, with its preview; typing not yet checked is kept
+  on that device only. `php bin/check-html.php [course] [--live]` checks
+  every block (keys, rules, hints, marks adding up, pictures) and marks its
+  model (full marks) and starter (not). Worked example: catpilot lesson 5,
+  "Fix Botha's Bakery's page". On a localhost testbed the preview's pictures
+  do not load (Chrome's private-network rule stops a sandboxed frame reaching
+  127.0.0.1); on the site they do.
 
 ## Page layout rules (Chris, 28 Sep 2026)
 
@@ -2342,6 +2490,17 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-titles.php` - titles <= 55 visible characters (Good to Know
   <= 36; video titles exempt).
 - `php bin/check-figures.php` - every illustration in `Figure ()`.
+- `php bin/check-html.php [course] [--live]` - every `html` block: its checks
+  and rules, the marks adding up, its pictures, the model answer full marks
+  and the starter not (`--live` asks Jev about the model's `'jev'` checks).
+- `php bin/check-uploads.php [--no-jev]` - every `upload` block (kinds,
+  checks well formed, marks, starter files), the CAT pilot's "Format the
+  notice" against a done-right and a done-wrong .docx made on the spot (with
+  ZipArchive and with the own ZIP reader: `php -d extension=zip` locally),
+  the Excel, PowerPoint and web page rules, and a walk-through on a throwaway
+  database (consent, upload, mark, the better try, opening and the log,
+  delete, the year end). Without `--no-jev` it asks Jev about the Jev check
+  (and Claude if Jev is unsure) - a few cents.
 - `php bin/check-jev.php <course> [lesson]` - Jev reads every question as it
   is written (Chris, 6 October 2026): a wrong quiz/select option a teacher
   could defend, a right one that is not clearly right, a `why` hint that

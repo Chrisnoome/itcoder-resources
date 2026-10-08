@@ -137,6 +137,16 @@ than recognising it.
   Start with the first mark, then compare each next one and swap if it is
   bigger."
 
+**Software simulations: practice first** (Chris, 8 October 2026: "at the
+start of the course, before doing the first software simulation do a 'try
+this' that walks them through a software simulation"): every course with
+simulations starts with the practice simulation before its first real one -
+a prose block titled "Try this first: how simulations work", then
+`SimulationPractice ('word')` (lib/simulation.php; Word only so far, the
+other programs follow the same pattern from their own screens). It has no
+marks and is not a question. Model: CAT pilot `word`. More in the
+simulations bullet of section 5.
+
 **Scoring (quiz, typed, order, select; match per line):** `marks` is the base
 (min 1, declare it deliberately); right first time earns `marks x 2`, second
 time `marks`, else 0. A question marked line by line (match, a grid, a
@@ -352,7 +362,12 @@ is unsure of, or what needs written words. In every lesson:
   taken out of AI lesson 4; its block is in git history (commit 208b117) and
   its screens stay in `public/assets/sims/excel/vram-*.png` for a course that
   teaches spreadsheets. Check with `php bin/check-simulations.php`, then play it
-  through.
+  through. **Clearer steps** (Chris, 8 October 2026): write each `say` as one
+  plain instruction - the page puts it in large type beside an action badge
+  (Click, Double-click, Right-click, Type, Press keys), and repeats it in the
+  pop-up after a wrong try - and give every step a hint that helps without
+  giving the target away. A course's first simulation is always the
+  practice one (section 4).
 - **Mark and correct** (1 October 2026 - lib/markcorrect.php; Chris): a
   `written` question with `'markCorrect'`: an exam question and somebody's
   answer to it, which the pupil marks (where each mark is earned or lost, and

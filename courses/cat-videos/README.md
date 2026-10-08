@@ -248,3 +248,9 @@ in the lesson text.
 | cat12-29.2 | Planning the PAT year | 6 | [patcaps.md](patcaps.md) |
 | cat12-30.1 | The IEB PAT, task by task | 8 | [patieb.md](patieb.md) |
 | cat12-30.2 | Pre-checking your PAT against the rubric | 6 | [patieb.md](patieb.md) |
+
+## CAT practical courses
+
+| Video | Title | Min | Plan |
+|---|---|---|---|
+| catprac-00.1 | How to work with software simulations | 7 | [simulations.md](simulations.md) |

@@ -589,6 +589,11 @@ in this plan.
    `iframe` with `sandbox` and no network, a tag/attribute comparison, an AI
    second opinion, and the usual "show it again on return" behaviour
    (platform.md, "Everything a pupil finished is shown again on return").
+   **Built 8 October 2026** (not yet committed or published): the `html`
+   block type - checks with `'exact'` rules and Jev questions, Claude when
+   Jev is unsure - documented in platform.md ("`html` blocks"), checked by
+   `bin/check-html.php`, with a worked example in catpilot lesson 5 ("Fix
+   Botha's Bakery's page").
 7. **The spreadsheet grid and formula evaluator** (decision 19) - **not**
    the cheap formula-as-text version §2.2 recommended; Chris chose the full
    grid. A grid the pupil types into, an evaluator for the ~58 functions the
@@ -1057,3 +1062,19 @@ Grade 11 practical items not yet taught (adjusting and troubleshooting audio
 settings; backing up to an external drive); `performance11` is 34 CAPS
 marks; dated facts and prices in each lesson's doc comment for the yearly
 list; the CAPS PAT lesson to be checked against the DBE's PAT document.
+
+**The practical courses begin, 8 October 2026** (Chris: "do the cat practical
+courses"). **Their own VM** (Chris: "Clone it for CAT"): `itcoder-cat`, a copy
+of the video VM `itcoder-win11` at its "apps" checkpoint (Office installed), in
+`D:\VMs\itcoder-cat`, 6 cores and 8 GB like the video VM (the host has room
+for both), computer name ITCODER-CAT. The video chat keeps `itcoder-win11`.
+Driven with `E:\itcoder-videos\host-hv.ps1` dot-sourced and then
+`$vm = 'itcoder-cat'`. **Files in the cloud** (Chris: "cat files also must be
+stored using the cloud - google drive"): Google Drive is installed and signed
+in by Chris with the course account; practice and starter files live in
+`G:\My Drive\CAT\` (Word, Excel, Access, PowerPoint, HTML). Checkpoints:
+`cat-base` (Drive installed, not signed in) and `cat-gdrive` (signed in, CAT
+folders made). Before the courses: clearer simulation steps, a wrong-try
+pop-up and a "Try this" practice simulation at the start of each course;
+uploaded work marked (cat-uploads-design.md); an `html` block with a live
+preview.
