@@ -1345,6 +1345,12 @@ changes. pupils without teachers don't get calendars by default."
     for Claude), after which the live notes are cleared.
   - Self-marked questions have no AI marker: their corrections are for the
     download (an answer to accept in the lesson file).
+- **"Hand in now?"** (Chris, 8 October 2026: "some pupils are handing in by
+  accident"): Hand it in on a written answer first asks "You may only hand in
+  this work once. Are you sure you meant to hand it in now - and that you have
+  read and checked your work? Hand in now?" Yes / No (app.js
+  `ConfirmHandIn()`). No, Escape or a click outside leave it open; the focus
+  starts on No. Not in practice, where a round can be done again.
 - **Allow pasting** (Chris, 1 October 2026: "a temporary allow paste option
   ... on the pupil query page put in an allow paste checkbox for that
   pupil"): a tick beside Reset on a written query. With the reset, that
