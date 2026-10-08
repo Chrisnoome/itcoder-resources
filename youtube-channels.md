@@ -185,7 +185,7 @@ YouTube auto-dubs and auto-translates titles into many languages; Chris chose to
 ## Pascal tutorials (8 October 2026)
 
 Uploaded from `E:\itcoder-videos\for upload` (the video chat's flat folder - its .mp4 files ARE the -final renders,
-renamed), private until Chris checks them. Titles, descriptions, cards from each `.youtube.md` there; thumbnails
+renamed). Made Public the same day (Chris: "Public now"); en-GB captions checked on each watch page. Titles, descriptions, cards from each `.youtube.md` there; thumbnails
 `brand/youtube/pascal/thumbs/tut-NN-*.png`; en-GB captions from the folder's .srt. All in the Pascal playlist.
 
 | Tutorial | ID | Cards |
