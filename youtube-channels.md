@@ -181,3 +181,23 @@ our en-GB caption track on the watch page (18's Studio "Catalan" row is not show
 How: Studio's own `video_editor/edit_video` with `infoCardEdit.infoCards` [{videoId, teaserStartMs,
 videoInfoCard: {videoId}}] replaces a video's whole card list; `creator/list_creator_info_cards` {videoId} reads it.
 YouTube auto-dubs and auto-translates titles into many languages; Chris chose to keep it on (4 Oct 2026).
+
+## Pascal tutorials (8 October 2026)
+
+Uploaded from `E:\itcoder-videos\for upload` (the video chat's flat folder - its .mp4 files ARE the -final renders,
+renamed), private until Chris checks them. Titles, descriptions, cards from each `.youtube.md` there; thumbnails
+`brand/youtube/pascal/thumbs/tut-NN-*.png`; en-GB captions from the folder's .srt. All in the Pascal playlist.
+
+| Tutorial | ID | Cards |
+|---|---|---|
+| 16.1 Creating a Class (new version; old GgEOY8EcL4A for Chris to delete) | 9Cjt_8qoLB8 | 6:00 -> 20.1, 9:08 -> File Explorer |
+| 17.1 Text File Basics | 1-EY_n6fCrc | - |
+| 17.2 Where's the File? | nh5k5gArGQk | - |
+| 17.3 Cutting Up a Line | 6XFu2XMj8R8 | - |
+| 17.4 A Game on a Line | 3M4gYutMWhM | 0:39 -> 16.1 |
+| 20.1 An Array Manager Class | W5p4d9uG0og | 0:32 -> 16.1, 4:55 -> File Explorer |
+| 20.2 Saving and Loading the Shelf | JwcwT3DLynQ | 0:13 -> 20.1, 0:48 -> 17.4 |
+
+YouTube allows one card per target video: a second card to the same video is refused (400), so only the first
+mention gets a card. 21.1 (Why inheritance) is not up yet - its upload was cut off. Lessons: AIPascalCourse
+lesson16/17/20 link these (not published).
