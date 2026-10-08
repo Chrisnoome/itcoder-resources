@@ -216,7 +216,7 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   opening, deleting), `lib/uploadmark.php` (the checks and marking - **the
   rule format is its doc comment**), `lib/officexml.php` (reads .docx, .xlsx,
   .pptx and .html; ZipArchive, or its own ZIP reader where the zip extension
-  is off - the local XAMPP), `public/upload.php` (every POST),
+  is off - the local XAMPP; .accdb goes to `lib/accdb.php`), `public/upload.php` (every POST),
   `public/upload-file.php` (the only way to a file), `public/my-uploads.php`,
   `api/upload-status.php`, `assets/uploads.css`. Tables `uploadWork` (one row
   per try), `uploadAccessLog`; `pupils.uploadConsentAt/By/Role`.
@@ -261,10 +261,54 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     Word 365 opens them normally; a real Word-saved fixture is
     `tests/uploads/Notice-done.docx`.
   - **Keeping:** `data/uploads/<pupilId>/<courseId>/<lessonId>/<blockId>-<n>.<ext>`
-    beside the database. Types per block (docx, xlsx, pptx, html/htm), 10 MB,
-    and a content check (a .docx must be a real ZIP with `word/document.xml`;
-    ZIP bombs and DOCTYPEs refused). `.accdb` later (needs `mdbtools` - ask
-    Chris before installing).
+    beside the database. Types per block (docx, xlsx, pptx, html/htm, accdb),
+    10 MB, and a content check (a .docx must be a real ZIP with
+    `word/document.xml`; ZIP bombs and DOCTYPEs refused; an .accdb must start
+    with "Standard ACE DB" at byte 4 and be whole 4 KB pages).
+  - **Access (.accdb)** (Chris, 8 October 2026: "build the access marker
+    now"). `lib/accdb.php` reads the file with **mdbtools 1.0 - on the server
+    only** (installed 8 October 2026; on Windows/XAMPP an .accdb upload says
+    it can only be read on the server): `mdb-tables`, `mdb-schema` (access
+    backend: types, sizes; postgres backend with `--indexes`: **primary keys,
+    indexes, AutoNumber** - the only backend that prints them), `mdb-prop` per table (every
+    property set: validation rule and text, calculated expression, Format,
+    Default Value, Input Mask, Caption, Required, Decimal Places),
+    `mdb-json` for the data (2000 rows a table) and for MSysObjects,
+    MSysRelationships and **MSysQueries** (the queries' parts - never
+    `mdb-queries`, which is lossy). Each tool runs **without a shell**
+    (`proc_open` with a list), under `timeout` (10 s; 45 s the file) and
+    `prlimit` (512 MB, no files written), output capped. **The sandbox**
+    (review, 8 October 2026): `bin/accdb-sandbox.sh` runs all of mdbtools in
+    a throwaway systemd unit (own user, no network, no `/var/www`) like the
+    compile sandbox; the reader uses it when
+    `/usr/local/bin/itcoder-accdb-sandbox.sh` exists - **not installed yet,
+    waiting for Chris** (`deploy/accdb-sandbox.md` has the script, sudoers
+    line and steps). One Access read at a time per pupil, 20 s apart
+    (`UploadAccdbGate()`), and the same file as a marked try is refused
+    before it is read. Calculated fields
+    read as 0, so they are worked out. Subjects `accdb.table`, `accdb.field`,
+    `accdb.relationship`, `accdb.query` (tables, fields, criteria as typed in
+    the grid, sort, group by, having), `accdb.data`, and
+    **`accdb.queryResult`**: the pupil's query and the lesson's model answer
+    (Access SQL) are both **run** in an in-memory SQLite, **on the pupil's
+    own data and on the block's starter file's** (so deleting records never
+    makes a query without criteria right; data where the model answer gives
+    no rows does not count), and their rows compared - the exam's way.
+    The SQL is built by `lib/accdbquery.php` (expressions translated by
+    `lib/accdbsql.php` with Access's rules: Like, #dates#, &, IIf, Nz, text
+    without case, Round to even, TOP with ties ...; names in backticks, so a
+    missing name is an error, never text) and **run in a child PHP process**
+    (`bin/accdb-run.php`, under `timeout` 5 s and `prlimit`; SQLite with
+    `temp_store=MEMORY` and a heap limit); joins are costed from the real key
+    counts (200 000 rows at most) and texts a function makes are capped at
+    64 KB. A query it cannot re-run (a parameter or a field that isn't there,
+    Format(), an action query, an unknown function, one too slow or too big)
+    is refused with a reason and the check's own `jev` question decides
+    instead (a queryResult check must have one). Expressions (validation rules, criteria) compare without
+    spacing, case, quotes or brackets; `>=5` vs `5<=` is Jev's. The worked
+    example: "The chess club's table" at the end of the CAT pilot's Access
+    lesson (`upChess`); its files and Access's own query answers in
+    `tests/uploads/access/`.
   - **Opening (`upload-file.php`):** the pupil; a trusted teacher of a class
     (not as TIC) the pupil is in, in that course (`UploadViewerRole()`); the
     administrator only through the support form, with a reason. Always a
@@ -2430,6 +2474,22 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   for anyone with another source (school email or licence, a teacher's group,
   the old expiry date, the admin's AI-on switch) or a plan without one; a
   school's shared budget is not built. Check: `php bin/check-ai-budget.php`.
+- **The free trial, 8 October to 31 December 2026** (Chris, 8 October 2026:
+  "until december make all courses free with ai marking for all new
+  enrolments - a trial period"; he chose: accounts **made** from 8 October, to
+  the **end of 31 December**, the daily cap and **R15 of AI a month** each).
+  `TRIAL_FROM`, `TRIAL_UNTIL`, `TRIAL_AI_BUDGET_CENTS` and `IsOnTrial()` in
+  lib/billing.php: such an account opens every course that is open and on the
+  live site as a subscriber does (`TrialCovers()` in `AccessMode()`,
+  lib/access.php - ACCESS_CONTENT, so no progress features; never a pilot,
+  hidden or draft course), has AI marking everywhere (`Entitlements()`,
+  source "Free trial until 31 December 2026", `trial` true, not `paid`), and a
+  R15 monthly budget unless a plan of its own sets one (past it the cheaper
+  model, past twice it nothing until the 1st). The admin's AI-off switch still
+  wins. Older accounts are unchanged. Shown: a note on Subjects, the course
+  lines and "Because of" on My account, "free trial" in Admin › Users. On
+  1 January 2027 it simply stops - to end or extend it, change the constants.
+  Check: `php bin/check-trial.php` (local, rolled back).
 - **No prompt caching on marking** (4 October 2026): live data showed each
   marking call wrote about 3,100 tokens to the cache and read back about 240,
   adding 9.6% a call (costs-research.md 3.3).
