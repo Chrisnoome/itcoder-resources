@@ -2329,6 +2329,17 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   wait p90 over ~30 s -> raise `markWorkers`; load over cores or memory over
   85% -> bigger server; any "turned away" -> raise the live session cap.
   Check: `php bin/check-groups.php` (local database, rolled back).
+  **Jev on the Monitor** (Chris, 8 October 2026: "add jev ai stats to the
+  monitor page and other ai monitoring sections"): table `jevCalls` - every
+  `JevSystemOne()` call, answered or not (`JevLogCall()`: kind, ms, attempts,
+  last HTTP status, questions, how many it was unsure of by the marking's own
+  bars `JevUnsureCount()`, tokens, cost; no pupil). The Monitor's Jev section:
+  calls, failed, retried, time p50/p90/slowest, questions, **sure %** (the
+  rest went to Claude), tokens and cost for the last hour/day/week; by kind;
+  failures in words; whether the key is set. Claude and Jev are shown apart
+  (`AiEngineSql()`, lib/billing.php) in the Monitor's AI calls, Billing › AI
+  costs (**By AI**: each model), an account's AI use and Activity's AI tile
+  and squares. Jev's tiny costs show to R 0.0001 on the Monitor.
 - **Admin > Activity** (`admin-activity.php`, `lib/activity.php`; Chris, 8
   October 2026: "a heat map - time in 30 minute segments, number of users
   online ... tools to view use of the site for planning and management"; he
