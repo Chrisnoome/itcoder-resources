@@ -2329,6 +2329,23 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   wait p90 over ~30 s -> raise `markWorkers`; load over cores or memory over
   85% -> bigger server; any "turned away" -> raise the live session cap.
   Check: `php bin/check-groups.php` (local database, rolled back).
+- **Admin > Activity** (`admin-activity.php`, `lib/activity.php`; Chris, 8
+  October 2026: "a heat map - time in 30 minute segments, number of users
+  online ... tools to view use of the site for planning and management"; he
+  chose all four tools). Read-only, South African time. Tiles (people active,
+  a day on average, the busiest half hour, time on the site, new accounts, AI
+  calls and cost); the **heat map** of people online (or AI calls) per half
+  hour - a typical week (each weekday's average over the period) or day by
+  day - with the five busiest half hours; **each day**'s people and hours as
+  bars; **use by class** (accounts, active, last 7 days, hours, AI cost).
+  Period 7/30/90 days; everyone, pupils or teachers; one class.
+  **Where "online" comes from:** table `activitySlots` (person, half hour,
+  seconds), written by `RecordTime()` each time the time tracker reports in
+  (`ActivitySlot()`, lib/timespent.php) - from 8 October 2026. Days before the
+  first row are counted from what people did (sign-ins, answers, hand-ins,
+  programs, practice - `ActivityHistorySources()`), which misses readers; the
+  page says so. The privacy policy says the half hours are kept and shown only
+  as counts. Admin › Users shows the time under Joined and Last seen.
 - **Notifications (step 3, 24 September 2026)** - `lib/notifications.php`,
   table `notifications` (dedupeKey unique per person). A bell with an unread
   count on every signed-in page (`RenderMasthead` draws it when the nav has
