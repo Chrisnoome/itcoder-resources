@@ -42,6 +42,19 @@ this folder's git log.
     to"). Add a request to [comfyui-queue/](comfyui-queue/README.md) and
     show a stand-in on the site until the picture exists; never run
     ComfyUI yourself unless Chris says the GPU is ready.
+11. **Jev wherever practical - in marking and everywhere in a course**
+    (Chris, 6 October 2026: "always remember to use jev in question marking
+    where practical - and elsewhere in a course. this should be a permanent
+    note for all course development"; the same day: "use of jev must be
+    standard in all course development - in marking, interactive activities,
+    wherever it would be useful"). A judgment about a pupil's words that is a
+    quick yes/no, a choice or a score - a marking point, an idea there or not,
+    a term right, an own-words check, what a reply means - goes to **Jev**
+    (TypeSafe, `lib/jev.php`) first; **Claude** only for what Jev is unsure
+    of, for judgment, and for writing words (feedback). Building a question:
+    give a written question `points` Jev can mark, and keep its `rubric` (or
+    `markerRubric`) for what needs Claude. A marking brief has two parts -
+    **checks for Jev, notes for Claude** (platform.md, "Marking notes").
 
 ## Files
 

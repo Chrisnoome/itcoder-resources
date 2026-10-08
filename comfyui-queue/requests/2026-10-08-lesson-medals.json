@@ -1,0 +1,34 @@
+{
+  "id": "2026-10-08-lesson-medals",
+  "kind": "items",
+  "from": "the platform chat (lesson badges)",
+  "added": "2026-10-08",
+  "status": "waiting",
+  "why": "Chris, 8 October 2026: \"what has happened to proper bronze, silver and gold badges per lesson?\" - his choice: real medal art, and each lesson showing its medal. A lesson badge is bronze (finished), silver (70%) or gold (90%, most right first time). LessonMedalHtml() (AIPascalCourse lib/collectables.php) uses public/assets/lesson-medals/<tier>.png once it exists and draws a medal until then; it shows on Achievements (Lesson badges, Overview, Nearly there, Lately), the badge pop-up and each lesson on the course page, from 26 to 72 pixels - so a bold, simple silhouette that reads small.",
+  "style": "A glossy 3D game reward medal, smooth shiny polished metal with a soft studio light, like a reward in a mobile game, matching the site's glossy badge look. A round medal hanging from a short folded deep-blue ribbon, the medal face with a simple raised five-pointed star in the middle and a raised rim. The whole medal and ribbon centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [1024, 1024],
+  "variants": 3,
+  "items": [
+    {
+      "name": "bronze",
+      "prompt": "a bronze medal, warm reddish-brown polished bronze with copper highlights",
+      "out": "AIPascalCourse/public/assets/lesson-medals/bronze.png",
+      "outSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "name": "silver",
+      "prompt": "a silver medal, bright cool polished silver with white highlights",
+      "out": "AIPascalCourse/public/assets/lesson-medals/silver.png",
+      "outSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "name": "gold",
+      "prompt": "a gold medal, rich shining polished gold with a warm glow",
+      "out": "AIPascalCourse/public/assets/lesson-medals/gold.png",
+      "outSize": [256, 256],
+      "transparent": true
+    }
+  ]
+}

@@ -165,6 +165,13 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     `practiceAnswers` / `practiceWritten`, never the real tables. The page
     sends `practice` + `practiceRun` on every request (itc-core.js) and
     `ApiRequireLesson()` switches `AnswerTable()`.
+    - **It looks different** (Chris, 5 Oct 2026: "pupils need a background
+      colour change to show they are in practise mode so they don't do their
+      work there and get no marks"): `body.is-practising` - a lavender page
+      (#ece4f8) and a 6 px purple frame (#6a4ca3) round the whole screen,
+      over the masthead and the bottom bar, clicks passing through; the
+      "Practice - not for marks" banner white with a purple edge. The real
+      lesson stays white.
     - Written answers are AI-marked there too, by the worker after real
       marking and after any code analysis waiting. The daily cap
       `practiceAiPerDay` (10) is on **written answers handed in** - hints and
@@ -470,10 +477,18 @@ inside `GameSync()`; their XP counts towards the course XP and rank.
   tab)"); the "Eyes on the screen" achievement likewise counts only
   questions in a song (`GameCourseFeatures()`), so a course with no songs
   does not offer it.
-- **A lesson badge shows in its own metal** wherever it appears as an icon -
-  the pop-up and Lately use `LessonBadgeIcon()` (🥇 🥈 🥉), never one gold 🏅
-  for all three (Chris, 2 Oct 2026: "the lesson badges are gold - silver must
-  look silver, bronze look bronze").
+- **A lesson badge shows in its own metal** wherever it appears, never one
+  gold for all three (Chris, 2 Oct 2026: "the lesson badges are gold - silver
+  must look silver, bronze look bronze"), and as a **proper medal** (Chris, 8
+  Oct 2026: "what has happened to proper bronze, silver and gold badges per
+  lesson?" - his choice: real medal art, and each lesson showing its medal):
+  `LessonMedalHtml()` (lib/collectables.php) - the ComfyUI picture
+  `public/assets/lesson-medals/<tier>.png` (queue request
+  2026-10-08-lesson-medals) once made, a drawn medal on its ribbon until then -
+  on the Lesson badges tab, the Overview (each metal with its count), Nearly
+  there, Lately, the badge pop-up, and **beside each lesson on the course
+  page** (`LessonBadgeTiers()`; an earned medal shows even on a lesson that is
+  locked now).
 - **Rank emblems**: every rank reached. **Dances**: the 30 victory dances
   (reveal.js), kept with the account (the browser's old list is brought over).
 - **Art**: `tools/collect-art/make_collect_art.py` from each item's `art`
@@ -1007,13 +1022,28 @@ changes. pupils without teachers don't get calendars by default."
 - **Privacy screen on Class results** (Chris, 5 Oct 2026: "a blackout ruler
   toggle ... when discussing marks with a pupil you can call them up, activate
   the blackout ruler and only show them their marks without exposing other
-  pupils"; then "call the blackout button 'Privacy screen'"): a button above
-  the Marks grid and above one lesson's grid (`assets/blackout-ruler.js`).
-  Click a pupil's row, then Privacy screen: every other row leaves the table,
+  pupils"; then "call the blackout button 'Privacy screen'"; then "does the
+  privacy screen work on any grid with marks? if not, make it so"): **every
+  grid of several pupils' results has it** - Class results' Marks (all
+  lessons and one lesson), Time on the site, Practice, Habits (cards and
+  table), Term marks, and the Progress page's pupil cards. A new grid gets
+  it with `PrivacyScreenToolHtml()` above it, `data-privacy` on the table (a
+  pupil a tbody row) or list (a pupil a `[data-privacy-item]`), and
+  `PrivacyScreenScriptHtml()` on the page (`lib/privacyscreen.php`,
+  `assets/privacy-screen.js`); the button shows only when there are pupils.
+  Click a pupil's row or card, then Privacy screen: every other one leaves,
   theirs sits under the headings, the screen above the headings and below the
   row is black (fixed layers that follow scrolling). Up / Down or the buttons
   on the black go to the previous / next pupil in the table's order; Esc or
   Stop ends it. Nothing on the black names anyone.
+- **Big grids of pupils keep their headings in view** (Chris, 5 Oct 2026:
+  "pin this when scrolling down - need to see column headings"; then "Yes,
+  all of them"): Class results' Marks (all lessons and one lesson), Time on
+  the site and Habits table, and Term marks scroll in their own box no taller
+  than the screen under the masthead (`.pin-scroll`, `.habit-scroll`): the
+  whole heading block (every heading row) sticks to its top, the pupil's
+  name (`.who`) to its left. A new big grid of pupils gets `pin-scroll` on
+  its wrapper.
 - **Every class marksheet is the same** (Chris, 1 Oct 2026 - a rule): a
   lesson's name in any column heading (Marks, Time on the site) opens that
   lesson's marksheet question by question, and the chosen group, class and
@@ -1260,9 +1290,10 @@ changes. pupils without teachers don't get calendars by default."
   reply. The pupil gets a bell and an email (unless `pupils.emailsOff`) and
   sees the reply under the question. A changed mark is the teacher's mark on
   the answer (`writtenAnswers.teacherMark`, `quizResponses.teacherMark` -
-  `AutoMarkedEarned()` honours it everywhere) and goes to every admin by
-  bell and email and to **Mark corrections** (`public/admin-corrections.php`,
-  Admin menu) until ticked done.
+  `AutoMarkedEarned()` honours it everywhere) and goes to **Mark
+  corrections** (`public/admin-corrections.php`, Admin menu) with the reply
+  as its reason - no bell or email to the admins since 6 October 2026 (see
+  "Marking notes").
 - **Reset the question** (Chris, 1 October 2026): a third answer to a query
   (`markQueries.outcome = 'reset'`) - the question goes back to "not done".
   **Every reset archives, never deletes** (`ResetQuestion()`,
@@ -1278,9 +1309,42 @@ changes. pupils without teachers don't get calendars by default."
 - **Every changed mark reaches Mark corrections** (Chris, 1 October 2026: a
   mark changed by hand on Class results or the work page goes to the admins
   like a query's): `SetTeacherMark()` writes `teacherMark`, a row in
-  `markChanges` (the list reads only that table; `queryId` NULL = by hand)
-  and the admins' bell and email. A typed mark must be a whole number
-  (`ParseTeacherMark()` - "2.9" is refused, never rounded).
+  `markChanges` (the list reads only that table; `queryId` NULL = by hand).
+  A typed mark must be a whole number (`ParseTeacherMark()` - "2.9" is
+  refused, never rounded).
+- **Marking notes - the marking improves itself** (Chris, 6 October 2026:
+  "when i make a change to a mark you no longer need to notify me but create
+  a change log of the pupils answer, the new work and my reason. that log
+  must be downloadable from admin ... want a smooth virtuous cycle for
+  improving marking. is there a more efficient way to do this without coming
+  back to the chats here on desktop?"; his choices: on the site with the AI
+  drafting, and the reason asked but optional; then "this marking brief
+  should therefore maybe have two sections, stuff for jev to check and stuff
+  for claude to check").
+  - **No admin bell or email per change.** Each `markChanges` row keeps the
+    pupil's answer and the AI's feedback as they were (`answerText`,
+    `aiFeedback`) and the **reason**: a query's reply, or the **Why?** box
+    that opens after a mark is changed by hand (marks-edit.js,
+    `api/mark-reason.php`, only the teacher who changed it or an admin).
+  - **Admin > Corrections** groups the changes by question (Waiting / All).
+    For an AI-marked question, **Suggest marking notes** (Claude,
+    `SuggestMarkingNotes()`, costed as `marking-notes`) drafts a brief in two
+    parts from the corrections and reasons: **checks for Jev** (yes/no, one a
+    line, "Does the answer ...") and **notes for Claude** (judgment,
+    feedback); the admin edits and **Approves** (table `markingNotes`, the
+    question's corrections ticked done) or saves the draft.
+  - **The marker uses them from the next answer** (bin/markqueue.php
+    `MarkOneAnswer()`): a question with live checks or notes skips Jev's
+    `points` marking; Jev answers the checks (`JevMarkingChecks()`), and
+    Claude marks with Jev's YES / NO / UNSURE answers and the notes after the
+    rubric. No lesson file change, no publish.
+  - **Download for a chat** (Markdown, no names): each question, its rubric,
+    points and live checks and notes, and every correction with the answer,
+    what the AI said, the marks and the reason - for folding into the lesson
+    file now and then (ideas into `points` for Jev, judgment into the rubric
+    for Claude), after which the live notes are cleared.
+  - Self-marked questions have no AI marker: their corrections are for the
+    download (an answer to accept in the lesson file).
 - **Allow pasting** (Chris, 1 October 2026: "a temporary allow paste option
   ... on the pupil query page put in an allow paste checkbox for that
   pupil"): a tick beside Reset on a written query. With the reset, that
@@ -1288,6 +1352,25 @@ changes. pupils without teachers don't get calendars by default."
   `AllowPaste()` in lib/typing.php), nothing pasted is flagged, the lesson
   shows "Your teacher has switched pasting on", and the permission goes when
   they hand it in. For work the site lost - never as a general easing of 6.
+- **Voice in written answers** (Chris, 6 October 2026: "is there a way to
+  detect and accept input from voice apps like wispr flow? at the moment it
+  just refuses it as a paste"; he chose both of the ways below). A dictation
+  app such as Wispr Flow puts the words on the clipboard and presses Ctrl+V,
+  so it **cannot be told apart from a chatbot paste**, and a web page can
+  neither see nor start a desktop app (Chris asked; the answer is no).
+  - **Voice typing, per pupil**: a teacher's switch on the pupil's work page,
+    beside the spelling concession (`pupils.voiceTyping`, `SetVoiceTyping()` /
+    `PupilVoiceTyping()` in lib/typing.php). Their **prose** written answers
+    (never the code editor, `IsProseQuestion()`) take a paste and nothing
+    pasted is flagged (api/submit-written.php); the NB says "voice typing on
+    ... your own words only"; My settings tells them; the teacher's "How it
+    was entered" line says voice typing is on.
+  - **Speak, for every pupil**: a 🎤 Speak button under each prose written
+    answer (app.js `SetUpSpeech()`), the browser's own speech recognition
+    (Chrome and Edge, en-ZA; not Firefox - the button only shows where it
+    works). The page puts the words in at the cursor, so they count as typed,
+    never pasted; it carries on through pauses until Stop or Hand it in. The
+    sound goes to Google (Chrome) or Microsoft (Edge) - said in its tooltip.
 - **Reading options** (Chris, 1 October 2026, for dyslexia - remediation.md):
   My settings' **Reading** card - font (site / OpenDyslexic / Atkinson
   Hyperlegible), text size (normal / larger / largest), wider spacing,
