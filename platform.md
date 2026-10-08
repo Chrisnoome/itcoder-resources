@@ -1257,6 +1257,13 @@ changes. pupils without teachers don't get calendars by default."
   `.qlist-answers` and `[data-sortable]` - numbers, rand, % and dates as
   such, empties last, `<tfoot>` totals stay put. Never lesson tables. A
   table with its own sorting (`data-sort-type` headings) is left alone.
+  **The sort stays when the same page comes back** (Chris, 8 October 2026:
+  "changing settings for a user should not affect the current sort
+  order"): after a row's button (POST, then redirect), a filter or a reload
+  - kept in the tab's sessionStorage per page and table, used only while the
+  headings match; arriving from another page shows the server's order. A
+  page whose row buttons redirect back adds the row's anchor (Admin › Users:
+  `#u<id>`), and the row is scrolled to and lit up (`tr:target`).
 - **Billing, Make an invoice**: who (a school tick box, name, email,
   address) and what (a course or bundle - the description is only its name;
   a school: pupils x rate per pupil, remembered in the browser, and the
