@@ -4,10 +4,9 @@ Chris, 6 October 2026: "plan videos for the lessons that the video chat can
 create. aim for videos of - 10 minutes if possible. all video content must be
 available in the text as well."
 
-**79 videos for CAT Theory Grade 10** (36 lessons), about 8 hours in all,
-each under 10 minutes. One file per lesson. Each video has its place in the
-lesson (a `// VIDEO cat10-NN.n` comment in
-`AIPascalCourse/content/cattheory10/<lesson>.php`), scenes with draft narration
+**206 videos for CAT Theory Grades 10-12** (Grade 10: 79 videos for 36 lessons, Grade 11: 61 videos for 28 lessons, Grade 12: 66 videos for 30 lessons), about 24 hours in all, each under 10 minutes. One file per lesson. Each video has its place in the
+lesson (a `// VIDEO catNN-NN.n` comment in
+`AIPascalCourse/content/cattheory1N/<lesson>.php`), scenes with draft narration
 and `> Board` / `> Screen` directions, and a table showing where every point is
 in the lesson text.
 
@@ -40,6 +39,7 @@ in the lesson text.
 
 | Video | Title | Min | Plan |
 |---|---|---|---|
+| | **Grade 10** | | |
 | cat10-01.1 | What makes a computer a computer | 5 | [computer.md](computer.md) |
 | cat10-01.2 | Input, processing, output - and two more | 7 | [computer.md](computer.md) |
 | cat10-01.3 | Garbage in, garbage out | 4 | [computer.md](computer.md) |
@@ -119,3 +119,132 @@ in the lesson text.
 | cat10-35.2 | Sifting and summarising | 5 | [findjudge.md](findjudge.md) |
 | cat10-36.1 | From answers to a chart | 8 | [reports.md](reports.md) |
 | cat10-36.2 | The parts of a report | 6 | [reports.md](reports.md) |
+| | **Grade 11** | | |
+| cat11-01.1 | How the parts work together | 7 | [insidedeeper.md](insidedeeper.md) |
+| cat11-01.2 | Graphics cards and reading the advert | 8 | [insidedeeper.md](insidedeeper.md) |
+| cat11-02.1 | What makes a computer fast | 9 | [performance11.md](performance11.md) |
+| cat11-02.2 | Booting, step by step | 6 | [performance11.md](performance11.md) |
+| cat11-03.1 | Devices for users with disabilities | 7 | [accessio.md](accessio.md) |
+| cat11-03.2 | dpi, ppm and megapixels - reading the box | 9 | [accessio.md](accessio.md) |
+| cat11-04.1 | Memory, storage and the cloud as a service | 8 | [storagecloud.md](storagecloud.md) |
+| cat11-04.2 | Choosing storage, reading adverts and fixing a full drive | 9 | [storagecloud.md](storagecloud.md) |
+| cat11-05.1 | Installing software safely | 7 | [installing.md](installing.md) |
+| cat11-05.2 | Updates, patches and uninstalling | 6 | [installing.md](installing.md) |
+| cat11-06.1 | Cloud applications - Word in a browser | 6 | [cloudapps.md](cloudapps.md) |
+| cat11-06.2 | Sharing, comments and version history | 7 | [cloudapps.md](cloudapps.md) |
+| cat11-07.1 | How a blind person uses a computer | 7 | [assistive.md](assistive.md) |
+| cat11-07.2 | The accessibility settings, step by step | 7 | [assistive.md](assistive.md) |
+| cat11-08.1 | Will it run? Reading system requirements | 7 | [sysreqs.md](sysreqs.md) |
+| cat11-08.2 | Speeding up a slow computer | 8 | [sysreqs.md](sysreqs.md) |
+| cat11-09.1 | Setting up, sorting and grouping a folder | 6 | [filesproper.md](filesproper.md) |
+| cat11-09.2 | Searching well, and importing a CSV file | 8 | [filesproper.md](filesproper.md) |
+| cat11-09.3 | File details and passwords | 5 | [filesproper.md](filesproper.md) |
+| cat11-10.1 | LAN or WLAN? | 7 | [lanwlan.md](lanwlan.md) |
+| cat11-10.2 | What a LAN is made of | 8 | [lanwlan.md](lanwlan.md) |
+| cat11-11.1 | UTP or fibre? | 7 | [topologies.md](topologies.md) |
+| cat11-11.2 | STP, coaxial and what goes wrong with a signal | 8 | [topologies.md](topologies.md) |
+| cat11-11.3 | Seven topologies | 8 | [topologies.md](topologies.md) |
+| cat11-12.1 | Wired or wireless? Five ways to compare | 7 | [wiredwireless.md](wiredwireless.md) |
+| cat11-12.2 | Mbps, Gbps and reading the advert | 8 | [wiredwireless.md](wiredwireless.md) |
+| cat11-13.1 | Accounts and access rights | 7 | [netsafety.md](netsafety.md) |
+| cat11-13.2 | The rules you sign - AUPs and BYOD | 7 | [netsafety.md](netsafety.md) |
+| cat11-14.1 | Hotspots - public ones, and your own phone | 8 | [mobileinternet.md](mobileinternet.md) |
+| cat11-14.2 | What the G means - 4G, LTE and 5G | 6 | [mobileinternet.md](mobileinternet.md) |
+| cat11-14.3 | Where your data goes - and how to save it | 7 | [mobileinternet.md](mobileinternet.md) |
+| cat11-15.1 | Taming your inbox | 7 | [voipvideo.md](voipvideo.md) |
+| cat11-15.2 | Calls and meetings over the Internet | 8 | [voipvideo.md](voipvideo.md) |
+| cat11-16.1 | What makes a thing smart | 6 | [iot.md](iot.md) |
+| cat11-16.2 | Smart homes, farms and fleets - the good and the risky | 9 | [iot.md](iot.md) |
+| cat11-17.1 | VR or AR? | 8 | [fourir.md](fourir.md) |
+| cat11-17.2 | What VR and AR are for - and their limits | 7 | [fourir.md](fourir.md) |
+| cat11-18.1 | Five things that make a website easy to use | 8 | [usability.md](usability.md) |
+| cat11-18.2 | Forms, phones and everyone - judging a website step by step | 8 | [usability.md](usability.md) |
+| cat11-19.1 | Malware - how it gets in, and the signs | 7 | [threats11.md](threats11.md) |
+| cat11-19.2 | When the power fails - cuts, surges, the UPS and the inverter | 7 | [threats11.md](threats11.md) |
+| cat11-20.1 | Hacking people - social engineering and its tricks | 7 | [socialeng.md](socialeng.md) |
+| cat11-20.2 | Phishing, pharming and the SIM swap | 8 | [socialeng.md](socialeng.md) |
+| cat11-21.1 | Anti-malware, updates and firewalls | 7 | [protecting.md](protecting.md) |
+| cat11-21.2 | Two kinds of proof, and what the padlock means | 8 | [protecting.md](protecting.md) |
+| cat11-21.3 | Backups that work - the 3-2-1 rule | 6 | [protecting.md](protecting.md) |
+| cat11-22.1 | Working from anywhere | 7 | [digitalwork.md](digitalwork.md) |
+| cat11-22.2 | The gig economy - your boss is an app | 6 | [digitalwork.md](digitalwork.md) |
+| cat11-23.1 | What AI is - and why it can be confidently wrong | 8 | [ai.md](ai.md) |
+| cat11-23.2 | Using AI honestly at school | 5 | [ai.md](ai.md) |
+| cat11-24.1 | What big data is - and where it lives | 6 | [bigdata.md](bigdata.md) |
+| cat11-24.2 | Your data, their business - benefits and privacy | 7 | [bigdata.md](bigdata.md) |
+| cat11-25.1 | Who got it wrong? People, bugs and broken hardware | 7 | [whenwrong.md](whenwrong.md) |
+| cat11-25.2 | Validation and verification - allowed, or correct? | 7 | [whenwrong.md](whenwrong.md) |
+| cat11-26.1 | Checking your questions | 7 | [writequestions.md](writequestions.md) |
+| cat11-26.2 | The right questions to the right people | 8 | [writequestions.md](writequestions.md) |
+| cat11-27.1 | Checking a source like a fact-checker | 7 | [judgingai.md](judgingai.md) |
+| cat11-27.2 | AI as a source | 8 | [judgingai.md](judgingai.md) |
+| cat11-28.1 | Clean, sort, filter, count | 8 | [processingdata.md](processingdata.md) |
+| cat11-28.2 | Asking a database a question | 6 | [processingdata.md](processingdata.md) |
+| cat11-28.3 | Charts that fit the data | 7 | [processingdata.md](processingdata.md) |
+| | **Grade 12** | | |
+| cat12-01.1 | Two adverts, side by side | 8 | [choosing.md](choosing.md) |
+| cat12-01.2 | Reasons that earn marks | 7 | [choosing.md](choosing.md) |
+| cat12-02.1 | Finding the bottleneck | 8 | [performance.md](performance.md) |
+| cat12-02.2 | Why it is slow, and what to do about it | 8 | [performance.md](performance.md) |
+| cat12-03.1 | Five users, five computers | 9 | [recommending.md](recommending.md) |
+| cat12-03.2 | Recommending for a user with a disability | 8 | [recommending.md](recommending.md) |
+| cat12-04.1 | What the operating system does all day | 7 | [osallday.md](osallday.md) |
+| cat12-04.2 | Spooling, and single-user or multi-user | 5 | [osallday.md](osallday.md) |
+| cat12-04.3 | Task Manager, step by step | 6 | [osallday.md](osallday.md) |
+| cat12-05.1 | Housekeeping: clean-up, defragmenting and TRIM | 7 | [utilities.md](utilities.md) |
+| cat12-05.2 | Getting your files back | 6 | [utilities.md](utilities.md) |
+| cat12-05.3 | Troubleshooting, step by step | 8 | [utilities.md](utilities.md) |
+| cat12-06.1 | Web-based or installed - side by side | 7 | [webvsinstalled.md](webvsinstalled.md) |
+| cat12-06.2 | Recommending software for a scenario | 6 | [webvsinstalled.md](webvsinstalled.md) |
+| cat12-06.3 | User-centred design in a database form and a report | 5 | [webvsinstalled.md](webvsinstalled.md) |
+| cat12-07.1 | What your photo knows about you | 8 | [metadata.md](metadata.md) |
+| cat12-07.2 | Find any file in seconds | 7 | [metadata.md](metadata.md) |
+| cat12-08.1 | Sharing a folder - who, and read or edit | 8 | [sharing.md](sharing.md) |
+| cat12-08.2 | Locking files - passwords, 7-Zip and the .exe | 9 | [sharing.md](sharing.md) |
+| cat12-08.3 | Getting an old version back | 5 | [sharing.md](sharing.md) |
+| cat12-09.1 | What a WAN is, and joining the branches | 8 | [wan.md](wan.md) |
+| cat12-09.2 | The Internet, the biggest WAN | 7 | [wan.md](wan.md) |
+| cat12-10.1 | Streaming or downloading? | 6 | [netservices.md](netservices.md) |
+| cat12-10.2 | Cloud, grid and distributed computing | 7 | [netservices.md](netservices.md) |
+| cat12-11.1 | Capped, uncapped, throttled, shaped | 7 | [buyinginternet.md](buyinginternet.md) |
+| cat12-11.2 | Comparing two Internet packages | 7 | [buyinginternet.md](buyinginternet.md) |
+| cat12-12.1 | What your browser remembers | 7 | [browserfeatures.md](browserfeatures.md) |
+| cat12-12.2 | Cookies, extensions, pop-ups and blocking | 8 | [browserfeatures.md](browserfeatures.md) |
+| cat12-13.1 | Search like an expert - operators and filters | 8 | [seo.md](seo.md) |
+| cat12-13.2 | Searching with pictures | 6 | [seo.md](seo.md) |
+| cat12-13.3 | SEO - how websites climb the list | 6 | [seo.md](seo.md) |
+| cat12-14.1 | Deep web, dark web - what is really down there | 7 | [deepdark.md](deepdark.md) |
+| cat12-15.1 | Scams - the hook in every one | 8 | [compcrime.md](compcrime.md) |
+| cat12-15.2 | Bots, zombies and DDoS | 7 | [compcrime.md](compcrime.md) |
+| cat12-16.1 | Malware in depth - what each kind does, and how it spreads | 8 | [malwaredepth.md](malwaredepth.md) |
+| cat12-16.2 | Is my computer infected? The signs and the clean-up | 8 | [malwaredepth.md](malwaredepth.md) |
+| cat12-17.1 | The security checklist - prevent, detect, recover | 8 | [securityplan.md](securityplan.md) |
+| cat12-17.2 | Backups that work - the 3-2-1 rule | 6 | [securityplan.md](securityplan.md) |
+| cat12-18.1 | Fake news - spot it before you share it | 7 | [socialmedia12.md](socialmedia12.md) |
+| cat12-18.2 | What a post can do - your footprint, your reputation and bullying | 7 | [socialmedia12.md](socialmedia12.md) |
+| cat12-19.1 | The POPI Act and your rights | 8 | [lawrights.md](lawrights.md) |
+| cat12-19.2 | Copyright and fair use - whose is it, and when may I use it? | 7 | [lawrights.md](lawrights.md) |
+| cat12-19.3 | Identity theft - the warning signs and what to do | 6 | [lawrights.md](lawrights.md) |
+| cat12-20.1 | Computers against disease and disaster | 8 | [bigproblems.md](bigproblems.md) |
+| cat12-20.2 | The planet and the gap - green computing and the digital divide | 8 | [bigproblems.md](bigproblems.md) |
+| cat12-21.1 | What crypto changes - for people, business and the planet | 7 | [crypto.md](crypto.md) |
+| cat12-21.2 | Drones at work | 6 | [crypto.md](crypto.md) |
+| cat12-21.3 | Chatbots - helpful, or a wall? | 6 | [crypto.md](crypto.md) |
+| cat12-22.1 | Reformulating the problem | 7 | [reformulating.md](reformulating.md) |
+| cat12-22.2 | Taming the flood - folders, a source log and versions | 8 | [reformulating.md](reformulating.md) |
+| cat12-23.1 | From findings to recommendations | 7 | [report.md](report.md) |
+| cat12-23.2 | A professional report in Word | 9 | [report.md](report.md) |
+| cat12-24.1 | One big table, and what goes wrong | 6 | [normalising.md](normalising.md) |
+| cat12-24.2 | Normalising the tuck shop orders, step by step | 8 | [normalising.md](normalising.md) |
+| cat12-25.1 | Paper 1 - one tick per step | 7 | [capsp1.md](capsp1.md) |
+| cat12-25.2 | Three hours, seven files - a Paper 1 game plan | 6 | [capsp1.md](capsp1.md) |
+| cat12-26.1 | Section A without losing marks | 6 | [capsp2.md](capsp2.md) |
+| cat12-26.2 | Paper 2 - one mark per fact | 8 | [capsp2.md](capsp2.md) |
+| cat12-27.1 | The Data Files folder and Section A | 8 | [iebp1.md](iebp1.md) |
+| cat12-27.2 | Mark lines and Student_Screenshots | 6 | [iebp1.md](iebp1.md) |
+| cat12-28.1 | One box, one idea | 7 | [iebp2.md](iebp2.md) |
+| cat12-28.2 | Section C - the scenario and the stimulus | 7 | [iebp2.md](iebp2.md) |
+| cat12-29.1 | The CAPS PAT in three phases | 7 | [patcaps.md](patcaps.md) |
+| cat12-29.2 | Planning the PAT year | 6 | [patcaps.md](patcaps.md) |
+| cat12-30.1 | The IEB PAT, task by task | 8 | [patieb.md](patieb.md) |
+| cat12-30.2 | Pre-checking your PAT against the rubric | 6 | [patieb.md](patieb.md) |

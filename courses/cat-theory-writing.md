@@ -269,3 +269,32 @@ the server afterwards. So be careful:
 - `match` pairs: left keys unique; for groups, `groups` lists every value.
 - Don't commit, publish or touch any file outside your own lessons, video
   plans and notes file.
+
+## Grades 11 and 12 (Chris, 6 October 2026: "continue")
+
+Everything above applies. What changes:
+
+- **Courses:** `cattheory11` and `cattheory12` (drafts; each includes the
+  grades below it). Lesson maps: `content/cattheory11/index.php`,
+  `content/cattheory12/index.php` - ids, titles and summaries are set.
+- **Build on Grade 10.** The pupil has done CAT Theory 10
+  (`content/cattheory10/`). Do not teach a Grade 10 idea again - recap it in a
+  sentence and link the lesson (`/lesson.php?c=cattheory10&amp;id=<id>#anchor`).
+  Read the Grade 10 lessons on your topic first so the two grades agree.
+- **Pitch:** still simple and step by step, but a grade older: more
+  scenarios, more "explain why", more "compare", more of the 2-mark
+  "give TWO" questions the exam is made of. Grade 12 lessons lean on
+  scenarios and recommendations.
+- **Sources:** the IT Theory Grade 11 and 12 lessons (`content/theory11/`,
+  `content/theory12/`) mapped in [../cat-it-theory-reuse.md](../cat-it-theory-reuse.md)
+  sections 2.2 and 2.3; the Grade 11 / 12 lines of [../cat-caps.md](../cat-caps.md)
+  and [../cat-sags.md](../cat-sags.md); the exam analyses for how it is asked.
+- **Glossary rows:** grade 11 or 12, and `'course' => 'cattheory11'` (or 12)
+  in the extras, e.g. `['Cache', 11, true, 'performance11', 'cache', '...', ['course' => 'cattheory11']]`.
+  A term already in content/cattheory10/glossary.php is not added again -
+  Gloss() it and it shows Grade 10's definition.
+- **Coverage lines:** `[11, term, 'what']` / `[11, 'topic', 'what']` (12 for Grade 12).
+- **Videos:** `cat11-NN.n` / `cat12-NN.n`, same folder.
+- **Jev from the start:** every written question with `'points'`, own-words
+  reveals where a reveal asks for an explanation, and `bin/check-jev.php
+  <course> <lesson>` run on each finished lesson, its flags worked through.

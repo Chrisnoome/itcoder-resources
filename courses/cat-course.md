@@ -1041,3 +1041,19 @@ written questions carry Jev `points` (Jev marks when sure, Claude when not);
 means" judged by Jev; `bin/check-jev.php` run on all 36 lessons and its 73
 flags worked through. The Art chat's 202 redraws, 10 lesson pictures and
 101 new drawings are in (AIPascalCourse c101bc6 and before); on test and live.
+
+**Grades 11 and 12 written, 6-8 October 2026** (Chris: "continue"). Courses
+`cattheory11` (28 lessons) and `cattheory12` (30, including the four exam
+guides and the two PAT lessons, each for its own board), drafts that include
+the grades below and share Grade 10's glossary. Written to the same brief
+(section "Grades 11 and 12"), with Jev from the start: all 381 written
+questions carry Jev `points`, own-words reveals where they fit, and
+`bin/check-jev.php` run on every lesson (16 flags left across 888 questions,
+each judged). 127 more videos planned (206 for the three grades). The usage
+limit stopped the writers on 6 October with 22 lessons done; they were
+resumed on 8 October. **Open:** Chris's verdict; the redraws and new
+drawings for Grades 11-12 (brand/cat-art-requests.md sections 3-4); two IEB
+Grade 11 practical items not yet taught (adjusting and troubleshooting audio
+settings; backing up to an external drive); `performance11` is 34 CAPS
+marks; dated facts and prices in each lesson's doc comment for the yearly
+list; the CAPS PAT lesson to be checked against the DBE's PAT document.

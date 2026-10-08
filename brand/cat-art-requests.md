@@ -382,3 +382,238 @@ Lesson 16:
 - `cake-recipe` - a figure: proprietary = the cake with the recipe in a locked safe; open source = the cake and the recipe card handed round a crowd. The lesson's main analogy, now in words only.
 - `site-licence-umbrella` - a doodle: thirty small computers under one umbrella labelled SITE LICENCE.
 - `free-vs-freedom` - a doodle: a "FREE" price tag next to an open padlock. Caption: "Free as in price. Free as in freedom. Not the same thing."
+
+## 3. Grades 11 and 12: redraws still needed (189)
+
+Made 8 October 2026 from content/cattheory11 and cattheory12. Same as section 1: draw `cat-<name>.svg`; the lessons pick it up by name.
+
+- `access-buckets` (processingdata)
+- `access-count` (processingdata)
+- `access-no-undo` (sharing)
+- `ai-bookpile` (ai)
+- `ai-confident` (ai, judgingai, crypto)
+- `ai-giveaway` (ai)
+- `ai-rules-vs-examples` (ai)
+- `ai-study-spotter` (judgingai)
+- `ants-big-job` (netservices)
+- `anyone-link` (cloudapps, storagecloud, sharing)
+- `attenuation-repeater` (topologies)
+- `backhoe-fibre` (topologies, wan)
+- `backup-321` (protecting, securityplan)
+- `bandwidth-pipes` (wiredwireless, buyinginternet)
+- `bigdata-vs` (bigdata)
+- `bigp-distributed` (netservices)
+- `bigp-quake-phone` (bigproblems)
+- `bittorrent-swarm` (netservices)
+- `blockchain-stokvel` (crypto)
+- `bootstraps` (performance11)
+- `bouncer` (netsafety)
+- `card-superpower` (insidedeeper)
+- `certificate-check` (protecting)
+- `choose-advert` (insidedeeper)
+- `choose-steps` (choosing)
+- `choose-thumbs` (recommending)
+- `choose-up-to` (accessio, choosing)
+- `choose-watts` (recommending)
+- `client-server-p2p` (lanwlan)
+- `cloud-plug` (storagecloud)
+- `cloud-q-screen` (cloudapps)
+- `cloud-what-it-is` (netservices)
+- `compcrime-dumpster` (socialeng)
+- `compcrime-shoulder` (socialeng)
+- `compcrime-simswap` (socialeng, compcrime)
+- `compcrime-trojan` (malwaredepth)
+- `composite-key-pair` (normalising)
+- `consent-box` (writequestions, patcaps, patieb)
+- `cookie-set-and-track` (browserfeatures)
+- `copper-cables` (topologies)
+- `countdown-cal` (patcaps)
+- `cpu-ram-storage` (insidedeeper)
+- `crosstalk-pairs` (topologies)
+- `crumb-trail` (bigdata)
+- `crypto-lost-key` (crypto)
+- `crypto-miner` (compcrime, crypto)
+- `cyber-backdoor` (malwaredepth)
+- `cyber-mule` (compcrime)
+- `cyber-virus-vs-worm` (malwaredepth)
+- `cyber-worm` (malwaredepth)
+- `data-crystal-ball` (crypto, report)
+- `data-taxi` (insidedeeper)
+- `data-trail` (bigdata)
+- `dbms-librarian` (normalising)
+- `deepweb-bank` (deepdark)
+- `deepweb-disguise` (deepdark)
+- `deepweb-iceberg` (deepdark)
+- `deepweb-onion` (deepdark)
+- `deepweb-onion-tears` (deepdark)
+- `defrag-pieces` (performance)
+- `device-desktop` (recommending)
+- `dice` (writequestions)
+- `disk-cache` (performance)
+- `dust-fan` (performance)
+- `email-copies-vs-shared` (cloudapps)
+- `exam-acronym` (capsp2, iebp2)
+- `exam-clock` (capsp1, capsp2, iebp1, iebp2)
+- `farm-satellite` (buyinginternet, wan)
+- `fibre-inside` (topologies)
+- `firewall-guard` (netsafety)
+- `footprint-trail` (socialmedia12)
+- `fork-road` (webvsinstalled)
+- `form-life-story` (writequestions)
+- `gps-coordinates` (filesproper)
+- `gpu-gamer` (insidedeeper, recommending)
+- `gpu-integrated-dedicated` (insidedeeper)
+- `green-cloud` (bigproblems)
+- `green-drawer` (bigproblems)
+- `green-glue` (bigproblems)
+- `green-lifecycle` (bigproblems)
+- `group-chat-night` (netservices)
+- `gui-bad-form` (webvsinstalled)
+- `gui-good-form` (webvsinstalled)
+- `http-https-wifi` (mobileinternet, protecting)
+- `incognito-disguise` (browserfeatures)
+- `influencer-ad` (socialmedia12)
+- `install-extras` (installing)
+- `internet-owner` (wan)
+- `interview` (writequestions)
+- `iot-geyser` (iot)
+- `iot-parts` (iot)
+- `iot-revolutions` (fourir)
+- `join-tables` (normalising)
+- `juggler` (osallday)
+- `keys-home-affairs` (protecting)
+- `keys-padlock-honest` (protecting, browserfeatures)
+- `keys-padlocks` (netsafety)
+- `kitchen-cache` (performance11, browserfeatures)
+- `line-up` (writequestions, patieb)
+- `mob-hose` (buyinginternet)
+- `mob-range` (mobileinternet)
+- `moth-bug` (whenwrong)
+- `net-access-permissions` (netsafety)
+- `nh-attenuation` (topologies)
+- `nh-bus-break` (topologies)
+- `nh-crosstalk` (topologies)
+- `nh-q-picture1` (lanwlan)
+- `nh-school-network` (lanwlan)
+- `nh-topologies` (topologies)
+- `norm-1nf-order` (normalising)
+- `norm-2nf-order` (normalising)
+- `norm-3nf-order` (normalising)
+- `not-responding` (osallday)
+- `padlock-thief` (compcrime, securityplan)
+- `people-computer-says-no` (bigdata)
+- `people-no-s-iot` (iot)
+- `perf-bottleneck` (performance11)
+- `perf-data-path` (performance)
+- `perf-oxen-chickens` (performance)
+- `perf-q-screen` (sysreqs)
+- `perf-ssd-swap` (performance11)
+- `phishing-vs-pharming` (socialeng)
+- `phone-bill` (mobileinternet)
+- `printer-three-parts` (accessio)
+- `priv-balance` (lawrights)
+- `priv-id-number` (socialeng)
+- `priv-screenshot` (lawrights)
+- `protecting-firewall` (protecting)
+- `protecting-layers` (protecting)
+- `proto-wan` (wan)
+- `q18-browser` (browserfeatures)
+- `queue` (osallday)
+- `ram-plus-box` (performance11)
+- `ransomware-attack-stages` (malwaredepth)
+- `read-twice` (whenwrong, capsp2, iebp2)
+- `red-pen` (capsp1, capsp2, iebp1, patieb, report)
+- `ref-integrity-orphans` (normalising)
+- `remind-later` (installing)
+- `robot-homework` (ai, judgingai)
+- `router-sticker` (wiredwireless)
+- `router-ups` (threats11, securityplan)
+- `sa-cables` (wan)
+- `search-reverse` (seo)
+- `secplan-chain` (securityplan)
+- `secplan-house` (securityplan)
+- `seo-cloak-linkfarm` (seo)
+- `seo-crawl-index` (seo)
+- `seo-link-votes` (seo)
+- `seo-page-two` (seo)
+- `seo-snippet` (seo)
+- `seo-stuffed` (seo)
+- `shaping-vs-throttling` (buyinginternet)
+- `share-folder-groups` (sharing)
+- `shredder` (lawrights)
+- `site-tree-breadcrumbs` (usability)
+- `soc-echo` (socialmedia12)
+- `speak` (assistive)
+- `speed-throughput` (wiredwireless)
+- `staircase` (patcaps, patieb)
+- `star-extended` (topologies)
+- `stream-buffering` (mobileinternet, netservices)
+- `stream-vs-download` (netservices)
+- `sync-not-backup` (protecting, storagecloud, securityplan, utilities)
+- `thrash-run` (sysreqs)
+- `threats-botnet` (compcrime)
+- `threats-pebkac` (threats11)
+- `threats-usb-carpark` (threats11)
+- `threats-zombie-army` (compcrime)
+- `toolbox` (utilities)
+- `torrent-bakkies` (netservices)
+- `ups-inside` (threats11)
+- `validation-verification` (whenwrong)
+- `vpn-mousetrap` (netsafety)
+- `vpn-tunnel` (netsafety)
+- `wan-lte-adsl-fibre` (buyinginternet)
+- `web-hand-stamp` (browserfeatures)
+- `web-plugin-graveyard` (browserfeatures)
+- `webapp-waiter` (webvsinstalled)
+- `webinar-crowd` (voipvideo)
+- `who-changed-it` (cloudapps)
+- `work-aup-extract` (netsafety)
+- `work-bedtime` (digitalwork)
+- `work-gig-rating` (digitalwork)
+- `work-jobs-scale` (digitalwork)
+- `work-pyjamas` (digitalwork)
+- `xr-bump` (fourir)
+- `xr-headset` (fourir)
+- `xr-sick` (fourir)
+- `xr-spectrum` (fourir)
+
+Direct-path picture still blue: /assets/lessons/theory/pic-l17-setup.svg - draw it as /assets/lessons/cat/<same name>.svg.
+
+## 4. Grades 11 and 12: new drawings the writers wished for
+
+### From cat11notes/files-networks.md
+
+
+- **filesproper:** laundry - socks lined up smallest to biggest ("sorted") next to three baskets of socks, shirts and towels ("grouped"), Clicky holding a peg; a CSV line `Cake flour,10 kg,189.99` with each comma as a little fence post, values in separate pens (the delimiter); the archive attribute as a "changed!" sticker that the backup robot peels off as it copies.
+- **lanwlan:** Thabo at a lab desk with three numbered paths drawn from his PC - to the server (save), to the printer via the server (print), out through the router (web); the bakery's two computers and one printer joined with no server, Mr Botha as the "administrator" with a feather duster (peer-to-peer).
+- **topologies:** a CAT figure of all seven topologies including point-to-point and tree (the existing nh-topologies has five, no point-to-point or tree); the installer's plan from Start here - a star of blue copper lines to 30 desks and one orange glass line to the main building; lightning striking near a copper link between two buildings with sparks at both switches, and bouncing off a glass link.
+
+### From cat11notes/netsafety-mobile.md
+
+
+- **wiredwireless:** thirty straws in one milkshake (shared Wi-Fi speed) - Clicky trying to get a sip; a small "b" and a capital "B" as two characters, one carrying a stopwatch (speed), the other a suitcase (size).
+- **netsafety:** a school key ring - the caretaker's huge ring of keys beside a pupil's single locker key, captioned "only the access you need"; two Wi-Fi clouds, "school" and "pupils", with a wall between them (BYOD on a separate network).
+- **mobileinternet:** a phone sharing its data three ways at once - Wi-Fi waves to a tablet, a USB cable to a laptop, a Bluetooth link to a second laptop - each labelled with its catch (battery, one device, slow); two near-identical Wi-Fi names on a phone ("Mall_Free_WiFi" / "Mall Free WiFi") with Clicky holding a magnifying glass and a criminal's laptop under the food-court table; a data "fuel gauge" showing what eats 1 GB - weeks of WhatsApp text against half an hour of HD video.
+
+### From cat11notes/security.md
+
+
+- socialeng: Clicky walking round a fortress-like computer and simply knocking on the user's front door - "Why break in when you can ask?"
+- socialeng: six sticky notes on a fridge - trust, authority, fear, greed, curiosity, helpfulness - each with a fishing hook through it.
+- socialeng: a phone showing "No service" while everyone else at the braai has full bars - the SIM swap warning sign.
+- protecting: a house with a gate, burglar bars, an alarm, a dog and an insurance folder, each labelled with its computer twin (password, firewall, anti-malware, MFA, backup).
+- protecting: an asleep security guard with a calendar on the wall stuck on "TRIAL ENDED - 2 months ago" while bugs walk past.
+- protecting: the 3-2-1 rule as three suitcases - one on the laptop, one on a drive in the drawer, one on a cloud - with the drawer one on fire and the cloud one smiling.
+
+### From cat12notes/web-crime.md
+
+
+- **seo:** search-funnel - Thabo's timetable search as a funnel: each operator added (site:gov.za, filetype:pdf, after:) narrows a heap of results to three official ones, Clicky catching the last one.
+- **deepdark:** cat-deep-not-dark - two doors side by side: "deep web" is a school portal login screen with a friendly padlock; "dark web" is a door in a dark alley needing a special onion-shaped key; Clicky points at the "≠" between them.
+- **compcrime:** cat-seven-thefts - seven drawers labelled hardware, software, information, identity, bandwidth, time and services, each one open with Clicky as a masked thief taking a different thing (a clock for time, a Wi-Fi signal for bandwidth).
+- **compcrime:** cat-scam-hooks - a fishing line with five hooks, labelled greed or hope, urgency, fear, trust and "can't be reversed"; the bait on each is a phone message.
+- **compcrime:** cat-proof-of-payment - a WhatsApp proof of payment with a perfect stamp, next to the seller's banking app showing no money; Clicky with a magnifying glass between them.
+- **malwaredepth:** cat-signs-laptop - a laptop with six numbered call-outs (speed, browser, security, files, accounts, phone beside it), matching the signs table.
+- **malwaredepth:** cat-cleanup-steps - Clicky with a mop and a checklist: disconnect, scan, quarantine, offline scan, remove leftovers, change passwords elsewhere, reset, update.
+- **malwaredepth:** cat-bundled-installer - an installer screen with a ticked "Also install BuzzSearch toolbar", Express and Custom buttons, and Clicky unticking the box.
+
