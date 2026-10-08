@@ -125,7 +125,9 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   "got / out of (NN%)", `MarksPercent()`); `teacher.php?c=` (class, year
   filters); `pupil-work.php?c=&p=` (teachers only: every marked question, the
   answer, right answer, mark and feedback; same totals as `teacher.php`);
-  `admin.php`, `admin-users.php` (a name opens `admin-user.php?id=` - one account: role, status, AI marking and
+  `admin.php`, `admin-users.php` (columns, Chris 8 Oct 2026: Joined, Last seen, **Time on site** - all of
+  `timeSpent`, as the footer writes it - and **AI cost** - all of `aiUsage`, not only this month, in rand at
+  today's `UsdToZar()` as Billing › AI costs; each sorts; a name opens `admin-user.php?id=` - one account: role, status, AI marking and
   why, the actions, time, sign-ins, each course's progress and mark, the last 14 days, AI use, classes,
   subscriptions; Chris, 4 Oct 2026); `admin-teachers.php` in tabs - To approve (opens there when anything
   waits), Teachers, Groups, Schools - with figures across the top (Chris, 4 Oct 2026: "layout and structural
@@ -1263,7 +1265,9 @@ changes. pupils without teachers don't get calendars by default."
   - kept in the tab's sessionStorage per page and table, used only while the
   headings match; arriving from another page shows the server's order. A
   page whose row buttons redirect back adds the row's anchor (Admin › Users:
-  `#u<id>`), and the row is scrolled to and lit up (`tr:target`).
+  `#u<id>`), and the row is scrolled to and lit up (`tr:target`). The
+  Queries list (not a grid: oldest first) keeps its **Only flagged** filter
+  the same way, after answering a query.
 - **Billing, Make an invoice**: who (a school tick box, name, email,
   address) and what (a course or bundle - the description is only its name;
   a school: pupils x rate per pupil, remembered in the browser, and the
