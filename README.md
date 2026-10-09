@@ -55,6 +55,14 @@ this folder's git log.
     give a written question `points` Jev can mark, and keep its `rubric` (or
     `markerRubric`) for what needs Claude. A marking brief has two parts -
     **checks for Jev, notes for Claude** (platform.md, "Marking notes").
+12. **Finish with a question, and spend no tokens idling** (Chris, 9 October
+    2026: "tell chats when they have finished work to pop up a question
+    (create a visible yellow status dot) and cut any unnecessary background
+    tasks that consume tokens - token use running very high"). When a piece
+    of work is done, end the turn with a question (AskUserQuestion), so the
+    session shows Chris a yellow dot. Run no background work that is not
+    needed now: no loops, wake-ups, monitors or polling, and stop a
+    background run as soon as its answer is in.
 
 ## Files
 
