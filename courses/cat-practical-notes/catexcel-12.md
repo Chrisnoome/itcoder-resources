@@ -326,6 +326,13 @@ renderone (mirror copy): nestedif 86 573, countifs 61 915, lookups 75 788,
 text 82 945, dates 61 038, summaries 89 017, datatools 86 596, charts12
 80 945, scenario 65 763 bytes, no WARN. check-sags on the real tree OK.
 
-## Left over (9 October 2026, Chris: note them, stop)
+## simAxisMax re-shot (9 October 2026)
 
-- charts12 simAxisMax a-1 and a-2 (Format Axis pane, Maximum 1000) are still the old, cut-off pictures; two real double-clicks opened Format Shape. Next try: select the axis through COM and press Ctrl+1.
+- charts12 simAxisMax's Format Axis pictures re-taken in real Excel
+  (catexcel-charts12y.ps1): the vertical axis selected through COM, a real Ctrl+1
+  (Format Axis, not Format Shape), 1000 typed into Maximum. Cropped by
+  `work/catexcel-real-crop.py catexcel-charts12y 'a-\d' 9 58 1851 992` (no title
+  bar, the whole chart), as catexcel-charts12y-a-1/a-2; the Maximum box is now
+  [89.0, 51.3, 5.7, 2.8]. The done text no longer says the Major unit was set to
+  200 (the picture shows 100). The old catexcel-charts12-a-1/a-2 are no longer
+  used.

@@ -307,6 +307,16 @@ In a scratch copy of the repo with catdb as a draft course:
   (spares from the runs); they can be deleted.
 - *(Closed 9 October 2026: forms and reports are marked - see section 6.)*
 
-## Left over (9 October 2026, Chris: note them, stop)
+## The FunRun done copy (9 October 2026)
 
-- tests/uploads/catdb/FunRun-done.accdb has no frmRunners or rptDistance, so it scores 16/20 on upFunRun (the form and report checks); pupils' uploads are marked correctly. Remake it in real Access in the VM (never Enable Content) if the done copy is wanted at full marks.
+- tests/uploads/catdb/FunRun-done.accdb remade in real Access 365 in the VM
+  (tools/sim-screens/catdb-funrundone.ps1): the earlier file (table design and
+  queries, 16/20 on upFunRun) opened through COM and given frmRunners (tblRunners,
+  the nine fields, a title and =Date() in the Form Header) and rptDistance
+  (FirstName, Surname, Age, FinishMin grouped on Distance, =Count(*) and a label in
+  the Distance Footer). Content never enabled. No "Chris" or "Noome" in its bytes
+  (ASCII or UTF-16LE). scrub-office.py only handles zip files, so it does nothing
+  to an .accdb. The 20/20 is checked on the server.
+- The Group, Sort and Total pane stays open from earlier runs, and CreateGroupLevel
+  refuses while it shows: RunCommand 51 (acCmdSortingAndGrouping) closes it.
+  catdb-kit.ps1's NoGroupPane uses 205, which is Indent, not this pane.
