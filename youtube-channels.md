@@ -232,7 +232,7 @@ lesson order (31 videos). No cards. The new 21.3 render was not used (Chris: kee
 
 8.1 X0GmgfpSKJk was replaced by a new render, R0v0QrFBS1A (Chris deleted the old one).
 
-**Captions:** our en-GB .srt is on all 16 (checked on the watch pages). "Upload manual" on the Languages page
+**Captions:** our en-GB .srt is on all 15 still up (checked on the watch pages). "Upload manual" on the Languages page
 fails ("Upload captions failed"); only the editor's Options > Upload file works, and in that editor the first click
 on each control is often ignored. Studio stops responding for 30-60 s at a time; wait and carry on.
 Lessons: AIPascalCourse 2-8 (not published).
