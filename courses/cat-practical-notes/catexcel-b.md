@@ -13,7 +13,7 @@ written yet).
 | `functions` (5) | 54 / 54 | 4 (11 steps) | `upMarks10B`, 6 checks | AutoSum by Alt+=, Ctrl+R, COUNT against ABS, range names, Show Formulas |
 | `more` (6) | 68 / 58 | 4 (13 steps; 1 in the CAPS section) | `upLoaves`, 6 checks | title/summary sharpened in index.php: "More functions and error values" |
 | `charts` (7) | 52 / 48 | 3 (13 steps) | `upTuckShop`, 4 checks (2 exact, 2 Jev on the chart titles) | line chart in a CAPS section (IEB: Grade 11); data labels asked for but not checked (the xlsx reader does not read them) |
-| `printing` (8) | 40 / 46 | 3 (9 steps; Print Titles in the IEB section) | `upOrders`, 4 checks | Print Titles/Area/breaks/views in an IEB section (CAPS Grade 11); headers and footers in a CAPS section; the upload is the troubleshooting task, because page setup cannot be read from an uploaded workbook |
+| `printing` (8) | 46 / 49 (file header) | 5 (+ simLandscape, simHeader - 9 Oct; Print Titles in the IEB section) | `upOrders`, 4 checks | Print Titles/Area/breaks/views in an IEB section (CAPS Grade 11); headers and footers in a CAPS section; the upload is the troubleshooting task, because page setup cannot be read from an uploaded workbook |
 
 - **'more' = ** TODAY, MEDIAN, MODE, the relational operators (both boards,
   Grade 10); COUNTIF, COUNTA, COUNTBLANK, RANDBETWEEN (CAPS Grade 10 Term 3;
@@ -109,7 +109,7 @@ Wished for:
 
 ## 6. Anything unsure, and what the platform lacked
 
-*(9 October 2026, phase B: data labels and page setup are read and marked now. Orders-done remade in real Excel (`catexcel-done-fixes.ps1`: Landscape, Narrow margins), so it gets full marks. The Landscape simulation exists: simLandscape, the Orientation menu opened and Landscape chosen with real clicks (`catexcel-landscape.ps1`, land-3 and land-5). Still not captured: the Text menu for Header & Footer and File > Print with 2 copies typed.)*
+*(9 October 2026, phase B: data labels and page setup are read and marked now. Orders-done remade in real Excel (`catexcel-done-fixes.ps1`: Landscape, Narrow margins), so it gets full marks. The Landscape simulation exists: simLandscape, the Orientation menu opened and Landscape chosen with real clicks (`catexcel-landscape.ps1`, land-3 and land-5). Still not captured: the Text menu for Header & Footer and File > Print with 2 copies typed.)* *(9 October 2026, the last gaps: both done from catexcel-printing2.ps1's real-input pictures, which had been taken but not used - simHeader (CAPS section: head-1 the Text group button, head-2 the Text menu, head-3 the header, done head-4) and simPrintCopies' last step (printing2 print-2 with 2 typed into Copies, done print-3); cropped by work/catexcel-real-crop.py (9, 58, 1590, 1000). printing2's print-1 and the first run's print-1 showed Excel's Recent list (other workbooks, OneDrive - the school): printing2's is not used, and the list is painted out of catexcel-printing-print-1.png.)*
 
 - **Name Box after naming a range:** a name made through COM never showed in
   the Name Box on a PrintWindow picture (three runs: re-select, Goto, a

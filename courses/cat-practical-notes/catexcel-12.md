@@ -16,9 +16,9 @@ is 10-18). Videos `catexcel-19.1` to `catexcel-27.1` (16 plans, indexed in
 | 22 | `text` | Text functions | 68 / 72 | 4 + 1 IEB (SUBSTITUTE) | `upYearbook`, 6 checks |
 | 23 | `dates` | Dates and times | 44 / 48 | 2 + 1 IEB (EDATE) | `upStaffTimes`, 7 checks |
 | 24 | `summaries` | Subtotals, outlines and pivot tables | 40 / 60 | 1 + 1 IEB (pivot table) | `upMarketDay`, 4 checks; IEB `upMarketPivot`, 2 (1 Jev) |
-| 25 | `datatools` | Data validation and the data tools | 42 / 60 | 1 + 2 IEB (Remove Duplicates, Record Macro) | `upSportsDay`, 5 checks (1 Jev) |
-| 26 | `charts12` | Charts for a scenario | 42 / 50 | 2 + 1 IEB (sparklines) | `upRecycling`, 4 checks (2 Jev on titles) |
-| 27 | `scenario` | An exam-style task | 56 / 56 | 2 | `upFunDay`, 9 checks (a nine-task exam question) |
+| 25 | `datatools` | Data validation and the data tools | 44 / 62 | 2 (simCircleInvalid, 9 Oct) + 2 IEB (Remove Duplicates, Record Macro) | `upSportsDay`, 5 checks (1 Jev) |
+| 26 | `charts12` | Charts for a scenario | 46 / 56 | 4 (+ simAxisTitle12, simSelectData, 9 Oct) + 2 IEB (sparklines, simComboType) | `upRecycling`, 4 checks (2 Jev on titles) |
+| 27 | `scenario` | An exam-style task | 58 / 58 | 3 (+ simEvaluate, 9 Oct) | `upFunDay`, 9 checks (a nine-task exam question) |
 | | | **Total** | **444 / 514** | 22 + 9 IEB | 10 |
 
 Board sections: CHOOSE, INT/TRUNC, MATCH/INDEX, SUBSTITUTE, the five IEB
@@ -230,6 +230,29 @@ uploads, but not marked):
 - The stacked chart in `charts12` runs below the window's bottom edge (the
   axis's 0 is cut off in s-3, a-1, a-2). A re-run with a shorter chart
   (AddChart2 height 250) would be tidier.
+
+**9 October 2026, the last gaps** (the real-input runs' pictures had been
+taken but not used; cropped by `work/catexcel-real-crop.py ... 9 58 1851 992`,
+`--nopaint` on tabs with orange icons of their own - the add-in painter took
+the Formulas tab's Trace arrows and the Page Layout tab's Arrange icons for
+Claude's mark):
+- **Data Validation menu:** datatools simCircleInvalid - the arrow, Circle
+  Invalid Data, the red circles (catexcel-datatools2.ps1, k-0..k-2).
+- **Add Chart Element, Select Data, Change Chart Type:** charts12
+  simAxisTitle12 (e-0..e-3), simSelectData (d-1) - catexcel-charts122.ps1 -
+  and (IEB) simComboType (c-0..c-2, catexcel-charts12x.ps1: charts122's
+  Change Chart Type click had landed on Home's Format after an Esc).
+- **Evaluate Formula's later steps:** scenario simEvaluate - Evaluate twice,
+  C12 -> "BW" -> #N/A (catexcel-scenario2.ps1, e-2..e-4).
+- **The stacked chart re-shot:** simStacked now uses charts122 s-0..s-3 (the
+  whole chart, 0 on the axis), and simAxisMax's first step its s-3.
+  **Still open:** simAxisMax's a-1 and a-2 (the Format Axis pane, Maximum
+  1000) are the first run's, cut off at the bottom. Two re-runs
+  (catexcel-charts12x.ps1, a real double-click on the axis's numbers, the
+  second after clicking the chart) opened Format Shape instead of Format
+  Axis; given up after two tries. Next idea: select the axis through COM
+  (`$chart.Axes(2).Select()`), then Ctrl+1 for its pane, and take the
+  Maximum box's place from a picture.
 - Text to Columns: the wizard's step 1 is pictured, the split done through
   COM; Remove Duplicates' result message did not appear.
 

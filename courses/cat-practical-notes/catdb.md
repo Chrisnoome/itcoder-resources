@@ -17,7 +17,7 @@ Theory: cattheory11 `processingdata` (#totable, #database), `whenwrong`
 | 3 | `records` - Working with records | 11 | 44 / 46 | 5 | upMarket (6, 6) | IEB: The datasheet's look |
 | 4 | `properties` - Field properties | 11 | 40 / 42 | 4 | upCakeOrders (8, 8) | IEB: Rich Text and Append Only |
 | 5 | `validation` - Input masks and validation | 11 | 40 / 40 | 3 | upBursary (8, 8) |  |
-| 6 | `forms` - Forms | 11 | 40 / 42 | 3 | upStokvel (4, 4) | IEB: The tab order |
+| 6 | `forms` - Forms | 11 | 41 / 43 | 3 | upStokvel (4, 4) | IEB: The tab order |
 | 7 | `queries` - Queries | 11 | 40 / 42 | 2 | upTour (5, 8) | IEB: SQL View |
 | 8 | `criteria` - Criteria that do more | 11 | 42 / 40 | 2 | upAthletics (4, 8) | CAPS: A calculated field |
 | 9 | `reports` - Reports | 11 | 40 / 40 | 2 | upTourReport (4, 6) |  |
@@ -134,6 +134,25 @@ lib fix below is not made); the crosstab is not in an upload; the Field List
 drag onto a form (forms) is still described in a 'done' text; the done copies
 cannot be marked on this computer (no mdbtools) - check-uploads marks them on
 the server only.
+
+**9 October 2026 (the last gaps):**
+- **Validation rules are exact now.** lib/uploadmark.php reads an
+  accdb.field `validationRule` as a criterion on the check's own field (in
+  UploadRuleProblems() and UploadAccdbFieldMet(); `expression`, `default`,
+  `where`, `having` and query criteria are unchanged), so `>=8 And <=12`,
+  `<=12 And >=8`, `>= 8 and <= 12` and `[Grade]>=8 And [Grade]<=12` are one
+  rule. Lessons 5 (upBursary: Grade, Average, Applied) and 16 (upFunRun: Age)
+  use `exact` with an `any` of the usual right forms (Between, >= And <=, > And
+  <, In for Grade; <=Date(), <Date()+1, Not >Date(), <=Now() for Applied) and
+  `validationText => true` where the task asks for text. Proved locally (pure
+  PHP); **to prove on the server** with mdbtools: Bursary-done 8/8 and
+  FunRun-done 16/16, the starters 0 (Applied empty is now a plain "no", not a
+  Jev wait). A rule written another right way (8 Or 9 Or 10 Or 11 Or 12) is
+  now marked wrong - add it to the `any` if a pupil's appeal shows it.
+- **Field List drag done:** forms simAddFields is two steps - Add Existing
+  Fields, then PaidUp dragged with the real mouse from the Field List onto
+  the Detail under Monthly (`catdb-fielddrag.ps1`, catdb-forms-d-0..2, first
+  try). Forms marks 41 / 43.
 
 
 - **Forms and reports cannot be marked** - mdbtools cannot read

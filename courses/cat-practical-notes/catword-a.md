@@ -9,9 +9,9 @@ Course `catword`, lessons `start`, `editing`, `fonts`, `paragraphs`, `lists`
 |---|---|---|---|---|
 | `start` | The Word window and your first document | 56 / 56 | practice (unmarked); simNewDoc 2, simRuler 2, simTypeTitle 1, simSaveCloud 5; hotspot hsWordParts 5 | upBothaNotice 4 (no starter: a new document) |
 | `editing` | Moving around, selecting and editing | 46 / 46 | simDeleteRepeat 3, simUndo 1, simMoveSlip 4, simReplace 4 | upTripLetter 4 (Trip letter.docx) |
-| `fonts` | Formatting characters | 46 / 46 | simTitleFont 4, simColour 2, simSmallCaps 3, simPainter 2 | upSpecials 6 (Specials.docx) |
-| `paragraphs` | Formatting paragraphs | 42 / 42 | simShowHide 1, simAlign 2, simParaDialog 4, simBorder 2 | upLabRules 6 (Lab rules.docx) |
-| `lists` | Bullets, numbering and tabs | 40 / 40 | simBullets 1, simSort 2, simNumbering 2, simTabs 5 | upScones 4 (Scones.docx) |
+| `fonts` | Formatting characters | 46 / 46 | simTitleFont 4, simColour 2, simSmallCaps 3, simPainter 2, simChangeCase 2 (9 Oct) | upSpecials 6 (Specials.docx) |
+| `paragraphs` | Formatting paragraphs | 42 / 42 | simShowHide 1, simAlign 2, simParaDialog 4, simBorder 2, simShading 2, simLineSpacing 2 (9 Oct) | upLabRules 6 (Lab rules.docx) |
+| `lists` | Bullets, numbering and tabs | 40 / 40 | simBullets 1, simBulletLibrary 2 (9 Oct), simSort 2, simNumbering 2, simTabs 5 | upScones 4 (Scones.docx) |
 
 No BoardSection: every Grade 10 Word line in these lessons is in both
 syllabuses (the IEB names customised lists and tabs again in Grade 11; they
@@ -30,10 +30,17 @@ Unusual:
   opened again - real screens of each moment; targets read off the pictures
   (marked `// read off <picture>` in the lessons).
 - Menus mostly did not come out: only the Borders menu was pictured (drawn
-  onto the window where it opened). So choosing a bullet from the Bullet
-  Library, Shading colours, Line Spacing and Change Case are taught in the
-  text (with a picture of the button or the result), not simulated, and the
-  Symbol menu has no picture.
+  onto the window where it opened). The Symbol menu has no picture.
+  *(9 October 2026, the last gaps: done.)* The Bullet Library, Shading,
+  Line and Paragraph Spacing and Change Case menus are now real-click
+  simulations - simBulletLibrary (lists bl-1..3), simShading (paragraphs
+  sh-1..3, "Turquoise, Accent 4, Lighter 80%" - the VM's theme names Accent 4
+  so), simLineSpacing (paragraphs ls-1..3), simChangeCase (fonts cc-1..3) -
+  from `tools/sim-screens/catword-menus-x.ps1` (real mouse, screen grabs,
+  cropped below the title bar). Why catword-real10's pictures never came
+  back: its `Part ([string]$name ...)` overwrote the script's `$Name`
+  (PowerShell's names ignore case), so ScreenPic saved `<part>-<n>.png`,
+  which vm-shots does not fetch. catword-menus-x names it `$partName`.
 - The VM's Save As > Recent list shows a folder `catword-probe` (C:\simsiles)
   in the picture `catword-start-sa-1` and a probe.docx in `catword-start-saved`
   - from my test of SaveAs2. Harmless, but a retake after clearing Word's

@@ -21,7 +21,7 @@ was lifted while I wrote; nothing was committed or published.
 | # | Lesson | Title | Marks CAPS / IEB | Simulations (steps) | Upload (checks) |
 |---|---|---|---|---|---|
 | 21 | `tracking` | Tracking changes | 50 / 64 | simTrackOn 2, simAllMarkup 2, simDecide 2; IEB simCompare 2 | upFarewell 4 (Farewell letter.docx) |
-| 22 | `pagination` | Line and page breaks | 42 / 50 | simKeepNext 5, simBreakBefore 2; IEB simAccess 2 | upWater 4 (Water report.docx) |
+| 22 | `pagination` | Line and page breaks | 42 / 50 | simKeepNext 5, simBreakBefore 2, simProofLang 3 (9 Oct); IEB simAccess 2, simTranslate 3 (9 Oct) | upWater 4 (Water report.docx) |
 | 23 | `crossrefs` | Bookmarks and cross-references | 42 / 42 | simBookmark 3 (one typed), simCrossRef 2, simUpdate 2 (keys) | upCrossRefs 4 (Water report final.docx) |
 | 24 | `mergesources` | Mail merge from any source | 50 / 52 | simUseList 3, simFilter 2 | upMergeCsv 4 (Farewell invitation.docx + Farewell guests.csv; the MERGED document is uploaded) |
 | 25 | `linking` | Linking and embedding | 42 / 42 | simObject 2 | upLinkReport 4 (Botha report.docx + Botha sales.xlsx) |
@@ -198,7 +198,12 @@ Wished for:
   names; older Word versions differ.
 - `pagination`: the "Language" menu (Set Proofing Language) and the Translate
   menu could not be pictured; the language is taught with a status-bar
-  figure, Translate in prose.
+  figure, Translate in prose. *(9 October 2026: done.)* At Word's 1750 px
+  width the Review tab folds Translate and Language into one "Language"
+  button; real clicks open it (catword-menus-x.ps1): simProofLang (lg-1..4:
+  the folded group, Language, Set Proofing Language..., the Language box) and,
+  in the IEB section, simTranslate (tr-1..4: Translate > Translate Selection,
+  the Translator pane).
 - `crossrefs` upload: in the starter the table stays on page 1 either way, so
   the page check reads "on page 1" - it cannot tell a cross-reference from
   typed text (see 9).
