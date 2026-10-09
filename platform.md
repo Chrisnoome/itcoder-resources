@@ -2507,11 +2507,34 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
 
 Secrets live in `config/config.php` per project, never here.
 
-- **Anthropic:** written answers are marked by **Sonnet 5.5** (`markingModel`,
-  default `claude-sonnet-5-5`, $2/$10 per M tokens; Chris, 1 Oct 2026: "change
-  sonnet to sonnet 5.5 for marking"); everything else (quick checks, hints,
-  reviews) by `anthropicModel`, `claude-haiku-4-5-20251001`. Workspace-scoped key, or an
-  org key plus `anthropicWorkspaceId`. Workspace spend limit still to set.
+- **Anthropic: Haiku 5.5 for everything** (Chris, 9 October 2026, with $12.15
+  of credit left: "switch model to haiku 5.5"). Written answers: `markingModel`,
+  code default `claude-haiku-5-5` ($0.10/$0.50 per M tokens for prompts up to
+  100 000 tokens - 20 times cheaper than the Sonnet 5.5 it replaced; Chris had
+  chosen Sonnet 5.5 on 1 Oct 2026). Everything else (quick checks, hints,
+  reviews): `anthropicModel`, which live's and test's config.php still set to
+  `claude-haiku-4-5-20251001` until Chris runs `set-server-config.py
+  anthropicModel markingModel` with `claude-haiku-5-5`. **The newer models
+  refuse `temperature`/`top_p`/`top_k`** ("`temperature` is deprecated for
+  this model"): `CallClaude()` leaves them out unless `ClaudeTakesSampling()`
+  (the 4 family and older). A model missing from `AiPriceTable()` is costed
+  at the dearest price - add a new model's price **before** switching to it.
+  Past the month's budget, `MarkingModel()` uses `anthropicModel` only when it
+  is really cheaper. Workspace-scoped key, or an org key plus
+  `anthropicWorkspaceId`. Workspace spend limit still to set.
+- **What is left on the accounts** (Chris, 9 October 2026: "can you get
+  balances from claude and jev?"): neither can be read by a program -
+  Anthropic shows the prepaid credit only in its Console (the Admin API's cost
+  report gives spend, not balance, and needs an organisation), and TypeSafe's
+  API has no account call. So the admin types in what each dashboard says
+  (Admin › Billing › AI costs, table `aiBalances`), and `lib/aibalance.php`
+  takes off the spend recorded since (Claude from `aiUsage`, Jev from
+  `jevCalls`): the balance now, last week's spend a day, the days left; a new
+  reading says how far off the estimate was. Calls from the local testbed use
+  the same keys but are not in live's database, so the estimate runs high
+  until the next reading. **Low** (under $5, or under 7 days):
+  `AiBalanceWatch()`, run by the nightly `bin/backup.php`, gives every admin a
+  bell and an email once a day. Monitor shows the same in "AI credit left".
 - **The site is BestLessons, on both addresses** (Chris, 27 September 2026:
   "stop referring to itcoder. now changed to BestLessons"; itcoder.co.za
   "keep it, show BestLessons"). `BrandId()` is always `bestlessons` - name,
