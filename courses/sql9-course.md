@@ -90,3 +90,64 @@ with `'rules'` (Jev first), a scamSpotter-like evidence activity where it fits, 
   carcasses, Tumelo survives.)
 
 Videos: 8 planned for the video chat - [sql9-videos.md](sql9-videos.md).
+
+## Guided try-its, step gates and sequential lessons (Chris, 9 October 2026)
+
+Chris: "rather than give the correct code in the try it in mysql boxes, leave the box empty for
+them to type in the code. when run is clicked if the code is not correct explain what they are
+doing wrong. this course must be sequential - they can't progress onto new lessons without
+completing the previous - and in the lesson they can't progress to the next step until the
+previous important step is solved (these are the 'try it in mysql'). also - very important, make
+sure that they understand what they are trying to do and why ... they know nothing and need to be
+guided." And: "the pascal course must also be sequential" (the Grade 9 one, pascal9).
+His choices:
+- **Scope:** sql9 and pascal9 only.
+- **A lesson is complete** when every gate in it is solved and every marked question is answered
+  (right, or out of tries; a written answer handed in).
+- **Stuck:** every wrong Run explains what's wrong; after 3 wrong runs a stronger hint; after 5
+  the correct query is shown, and the pupil types it in and runs it to pass.
+- **Teachers** skip every lock, and can unlock a lesson for a pupil.
+
+### The guided try-it (the `sql` block with an `answer`)
+
+```php
+[
+    'type'     => 'sql',
+    'id'       => 'sql1All',
+    'database' => 'reserve',
+    'prompt'   => '<p>What to do, and why - in full sentences.</p>',
+    'sql'      => '',                       // what the box opens with: '' (empty) as a rule
+    'answer'   => 'SELECT * FROM tblRhinos;',   // the model: makes it a guided try-it
+    'order'    => false, 'names' => false,   // as on sqlquery: whether row order / field names count
+    'hints'    => ['After 3 wrong runs.', 'A stronger one, if a second is wanted (also after 3).'],
+    'gate'     => true,                      // default true when 'answer' is set
+],
+```
+
+- A `sql` block **without** `answer` is unchanged (a free try-it with code in it).
+- **Run** runs the pupil's SQL on the course's runner and always shows their result (or the
+  error). The result is compared with the model's, the way `sqlquery` compares
+  (`SqlQuestionCompare()`). Same result: **solved** - a green "Step solved" and the next part of
+  the lesson opens.
+- **Not the same:** an explanation of what they are doing wrong, in plain words for a 14-year-old,
+  never giving the query away: first what the code can say for sure (an SQL error put into plain
+  words - "there is no field called Name in tblRhinos; its fields are ..."; too many or too few
+  rows; a field missing or extra; the order), then an AI explanation comparing their SQL and
+  result with the task and the model (costed as `sqlhelp`).
+- Runs counted per pupil per block. 3 or more wrong: the hints show. 5 or more wrong: the model
+  query is shown under the box ("Type this in and run it"); it still has to be typed and run.
+- Unmarked - no marks; it is a step, not a question.
+
+### Step gates
+
+A block with `'gate' => true` (guided try-its, by default) holds the lesson: everything after
+an unsolved gate is hidden behind "Solve the step above to carry on", and opens as soon as it is
+solved (no reload). Answer APIs refuse a block that sits behind an unsolved gate. Pascal missions
+are not gates.
+
+### Sequential courses
+
+`'sequential' => true` on a course in `CourseIndex()` (sql9, pascal9): lesson N opens only when
+lesson N-1 is complete (above). A locked lesson shows on the course page with a lock and what is
+left in the lesson before; opening it shows that list with a link back. Teachers skip the locks;
+a teacher can unlock a lesson for a pupil.

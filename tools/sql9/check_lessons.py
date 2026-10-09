@@ -13,6 +13,8 @@ for les in order:
     src = open(f'{LESSONS}/{les}.php', encoding='utf-8').read()
     for kind, lit in pat.findall(src):
         body = lit[1:-1]
+        if body.strip() == "":
+            continue   # an empty guided try-it box: its answer is checked instead
         if lit[0] == '"':
             body = body.replace('\\n', '\n').replace('\\"', '"')
         else:
