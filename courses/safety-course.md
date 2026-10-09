@@ -25,9 +25,12 @@ machines -> the big case.
 
 1. **Case 01: The locked account** - phishing by SMS, WhatsApp and email. The three checks
    (sender, tone, link) and the findings form, introduced on the board's scam SMS. Look-alike
-   addresses (`kasibank-verify.co` vs `kasibank.co.za`). The inbox is a `match` block (six
-   messages, scam or safe) plus `markwords` (click the lines that rush you); a bespoke
-   `scamSpotter` activity, with the form filling in as you go, can replace them later.
+   addresses (`kasibank-verify.co` vs `kasibank.co.za`). The case load is the **`scamSpotter`**
+   activity (`public/assets/scam-spotter.js`, built 9 October 2026): six messages from the
+   block's `'messages'`, each worked through the findings form (sender, tone, link: red flag or
+   not) before a verdict; the form fills in with a note per check and the message is stamped
+   SCAM or CLEARED. Unmarked; the score is saved as activity state (only for enrolled pupils -
+   a teacher previewing the draft gets a 403 from api/activity.php, which is expected).
 2. **Case 02: The line-up** - how passwords are cracked (guessing, word lists, leaked lists),
    why length beats symbols, passphrases. The password line-up figure. Activity `crackTimer`:
    type a password, see a rough guess count and time, worked out in the browser and never sent
