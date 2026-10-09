@@ -594,7 +594,8 @@ in this plan.
    Jev is unsure - documented in platform.md ("`html` blocks"), checked by
    `bin/check-html.php`, with a worked example in catpilot lesson 5 ("Fix
    Botha's Bakery's page").
-7. **The spreadsheet grid and formula evaluator** (decision 19) - **not**
+7. **The spreadsheet grid and formula evaluator** (decision 19; **built
+   and live 9 October 2026, 16cca01** - 876 cases match Excel) - **not**
    the cheap formula-as-text version §2.2 recommended; Chris chose the full
    grid. A grid the pupil types into, an evaluator for the ~58 functions the
    two syllabuses name, and a per-step comparison with a model answer. The
@@ -1062,6 +1063,56 @@ Grade 11 practical items not yet taught (adjusting and troubleshooting audio
 settings; backing up to an external drive); `performance11` is 34 CAPS
 marks; dated facts and prices in each lesson's doc comment for the yearly
 list; the CAPS PAT lesson to be checked against the DBE's PAT document.
+
+**Theory approved and the open items closed, 9 October 2026** (Chris:
+"complete the course - theory approved"; the three courses are live and
+open). **The two IEB Grade 11 practical items** (Appendix M 8.1) are taught,
+each in an IEB section with Jev-pointed questions and a SAGs `P1` line:
+adjusting and troubleshooting audio settings in `accessio` `#sound` (Settings
+> System > Sound, output and input, the volume mixer, the no-sound and
+microphone checklists, the Audio troubleshooter, the sound driver; IEB 44 ->
+50), and backing up to an external drive in `protecting` `#backupDrive` (by
+hand, and with File History; IEB 54 -> 58) - Windows names checked against
+Microsoft's pages. **`performance11`** is now 40 CAPS / 48 IEB (three new
+questions for both boards: `w2CoresWord`, `q2LikeWithLike`, `s2FreeSpeed`).
+**The CAPS PAT lesson** (`patcaps`) was checked against the DBE's *CAT Learner
+Guidelines for PATs, Grade 12, 2026* (education.gov.za, Grade 12 PATs 2026 -
+not in the project files; read online) and corrected: the questionnaire is
+Phase 2, not Phase 1; Phase 1 sources are at least two websites and one
+other, with ten or more research questions and ONE focus question; the
+database must hold its own data, not the spreadsheet imported (the quiz
+`q29Import` taught the opposite); Phase 3 has two products, the report AND a
+website; 2026's marks (32 + 44 + 70 + 4 = 150), no PAT mark = no CAT result,
+moderation by subject advisors and Umalusi, AI help declared on the
+declaration. The phase dates stay as the CAPS term plans give them, with the
+teacher's dates as the final word. The video plan `cat-videos/patcaps.md`
+matches. **The writers' unsure facts** were checked on the web: two were
+wrong and fixed (Windows 10 home extended updates run to October 2027, not
+2026 - `cattheory10/os.php` and its video plan; Schneier's real words in
+`cattheory11/socialeng.php`), and Grade 12 `performance`'s RAMAC now says
+3.75 MB like Grade 10; four could not be verified (households owning a
+computer, Comrades RFID timing, the Douglas Adams quote's source, ATMs giving
+the card back first). **Dated facts and prices** are on the yearly list at
+last: a "CAT Theory" section at the end of
+[theory-yearly-update.md](theory-yearly-update.md), 235 rows for 83 of the 94
+lessons (prices, statistics, brands, laws and rates, Windows and Office paths,
+the exam guides' paper facts, the PAT rules). Found on the way and fixed: the
+printers reveal's "R1 300 more" (a R2 500 laser against the R900 inkjet is
+R1 600) and the 2 TB drive in `protecting` (now R1 400, as in `storage` and
+`storagecloud`). Left as they are: the router UPS at R700 (`threats11`) and
+about R800 (`securityplan`); "this year" dates tied to 2026 in `seo`,
+`findjudge` and `judgingai`, on the list for each January.
+
+**The practical courses are complete, 9 October 2026** (Chris: "complete
+simulations and marking"). `catword`, `catexcel`, `catpowerpoint`, `cathtml`
+and `catdb`, Grades 10-12, are open on the live site. Marking reads almost every
+taught skill: uploads of .docx/.docm/.xlsx/.pptx/.accdb/.html are checked
+exactly, Jev answers when unsure, and Access validation rules are compared as
+criteria (a620520). Every done-right file gets full marks and every starter
+less (check-uploads section 3b). Simulations use real-input screens taken in
+the CAT VM, with drag steps (297 simulations). Two small items are left,
+recorded in [cat-practical-notes/catdb.md](cat-practical-notes/catdb.md) and
+[catexcel-12.md](cat-practical-notes/catexcel-12.md).
 
 **The practical courses begin, 8 October 2026** (Chris: "do the cat practical
 courses"). **Their own VM** (Chris: "Clone it for CAT"): `itcoder-cat`, a copy
