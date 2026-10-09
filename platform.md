@@ -375,7 +375,9 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   a right one), **`dragwords`** (gaps in code or sentences, words from a
   tray) and **`labeloutput`** (for each output line, the code line that
   printed it) - all lib/codeq.php, 28 Sep 2026: `'language'` pascal, java,
-  sql or text, `'code'` with `[[markers]]` (`[[Student|Class name]]` a part,
+  sql, html (9 Oct 2026: the CAT HTML lessons - code font and line numbers,
+  tags coloured by codeq.js's `HtmlTokenize()`, a `<!-- -->` comment not
+  clickable, words counted as in sentences) or text, `'code'` with `[[markers]]` (`[[Student|Class name]]` a part,
   `[[aName]]` an answer, `[[String]]` a gap), scored per item like a match
   line, the answers never in the page before it is finished, the code
   coloured like any listing (public/assets/codeq.js), checked by
@@ -489,6 +491,29 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   click, typing, a key press); every course with simulations starts with
   it. `bin/check-simulations.php` checks practice ones too, and that none
   is a marked question.
+  **More step kinds (Chris, 9 October 2026: "complete simulations and
+  marking"):** `'drag' => ['from' => box, 'to' => box]` (badge Drag): press
+  inside `from`, let go inside `to` - pointer events (mouse, finger, pen;
+  `touch-action: none` on the picture), a faint dashed line while dragging;
+  a press without a move (under 1%) is not a try; keyboard: Tab to the
+  picture, arrow keys move a pointer (Shift = 5%), Enter or Space picks up
+  and lets go, Escape puts it down. The page sends both points;
+  `SimDragWrongPart()` says which was wrong and the reply carries `wrong:
+  'start' | 'end' | 'both'` for the pop-up ("You started in the right
+  place, but let go in the wrong place."); after two misses both boxes are
+  shown (1 and 2) with a line. `'button' => 'triple'` on a click step (badge
+  Triple-click): the page waits after a second quick click for a third; only
+  a triple-click is right (a plain click step still takes a double-click). A
+  click of the wrong kind says so in the pop-up ("That was a double-click -
+  this step needs a triple-click."). `'enter' => false` on a type step
+  (badge Type): Tab or a Done button ends the typing; Enter only says "Not
+  Enter this time" - for a box in a dialog box with more to do (Enter would
+  press its default button), a comment, a header. The server judges every
+  kind from the points, text or keys (never a verdict from the page); the
+  check wants a drag's two boxes inside the picture and not overlapping,
+  `button` only on clicks, `enter` only false and only on typing. Tested by
+  a CLI run of api/sim-answer.php on a throwaway database (`checkDbPath`)
+  and in the browser (mouse, keyboard, touch, phone width).
 - **Popups:** `Gloss($term, $def)` (glossary - shows the course glossary's
   definition when the term is in it, `lib/glossary.php`) and `Aside($marker, $text)` (joke,
   anecdote) in `lib/content.php`.
@@ -540,16 +565,30 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   checks' hints, never which checks; once finished, the check list in the
   feedback shape ("Marks for: ...", "Where you lost marks:") and the
   `'model'` answer. **`'exact'` rules** (DOMDocument, any case, quotes
-  optional): pick `'tag'`, optionally `'parent'` (direct, e.g. `['ul',
-  'ol']`) and `'inside'` (any depth); test `'attr'` with `'present'` (true =
+  optional; the full format in lib/html.php's header): pick `'tag'` (a name
+  or a list, `['tr', 'td']`) or `'comment' => true` (the `<!-- -->`
+  comments closed as typed; test their `'text'`/`'textContains'`),
+  optionally `'parent'` (direct, e.g. `['ul', 'ol']`) and `'inside'` (any
+  depth) - each a tag, a list, or a rule that picks (`['tag' => 'p', 'attr'
+  => 'align', 'equals' => 'center']`); test `'attr'` with `'present'` (true =
   there and not blank / false = absent), `'equals'` (one or a list) or
-  `'contains'`, and/or `'text'` / `'textContains'` (`'case' => true` makes
-  capitals count; spaces squeezed, curly quotes straightened); how many: at
-  least one passes (default), `'count'` (0 = none may), `'min'`/`'max'`, or
+  `'contains'`, and/or `'text'` (one of these) / `'textContains'` (this, or
+  every one of a list) (`'case' => true` makes capitals count; spaces
+  squeezed, curly quotes straightened); place: `'first'`/`'last' => true`
+  (first/last element in its parent), `'before'`/`'after'` (a tag or rule:
+  before/after every one of them in the page), `'order' => ['h1', 'p',
+  'ul']` (its children with these names in this order); how many: at least
+  one passes (default), `'count'` (0 = none may), `'min'`/`'max'`, or
   `'every'` (at least `'min'` picked, all pass); `'closed' => true` reads the
   raw source - the tag opened, every one closed, properly nested
-  (`<p><b>..</p></b>` fails). `'exact'` may be a list of rules that must all
-  hold. **`'jev'` checks**: Jev (`JevHtmlVerdicts()`; the pupil's HTML in its
+  (`<p><b>..</p></b>` fails); `['typedOrder' => ['</head>', '<body>']]` reads
+  the raw source too - these tags in this order as typed (the parser moves a
+  misplaced head back, so `'before'` cannot see it). Joins, as
+  lib/uploadmark.php's: `['any' => [rule, rule]]`, `['all' => [...]]`,
+  `['not' => rule]` - "centred with align or `<center>`" is an `'any'`.
+  `'exact'` may be a list of rules that must all hold (9 Oct 2026: Jev is
+  left for real judgement - alt text that says what a picture shows, a
+  readable colour, a sensible title). **`'jev'` checks**: Jev (`JevHtmlVerdicts()`; the pupil's HTML in its
   own field plus an injection question) decides when sure; unsure, no key,
   or HTML that talks to the marker -> Claude (`HtmlCheckWithClaude()`, the
   CheckSqlAnswer pattern; if it fails the try is not used). A check with
@@ -1879,9 +1918,8 @@ lib/jobqueue.php** (`ClaimNextQueued()` - the same conditional UPDATE and
 rowCount for written answers, analyses, reviews and pre-checks, so no job
 runs twice; `FinishJob()`, `FailJob()` - reason cut to 500 characters,
 `completedAt` stamped, never throws; `RescueStuck()`), 1 October 2026. Measured locally: 6 answers in ~6 s instead of ~40 s. The
-marking call puts the question + rubric in a `cache_control` block and the
-answer after it - but Haiku 4.5 caches only prefixes of 4096+ tokens and a
-marking prompt is ~1,100-1,800, so it rarely caches today; `aiUsage` records
+marking call caches its **system prompt** only (see "Prompt caching on the
+marking system prompt" below); `aiUsage` records
 `cacheWriteTokens`/`cacheReadTokens` and prices them (x1.25 / x0.1).
 
 **2. SQLite settings in `lib/db.php`:** WAL, 5s busy timeout, `synchronous =
@@ -2419,8 +2457,9 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   Check: `php bin/check-notifications.php` (local database, rolled back).
 - **Every AI call is costed:** `CallClaude()` records tokens and cost in
   `aiUsage` against `SetAiUsageContext()` (marking, analysis, review,
-  codecheck, style). Prices `AiPriceTable()` (Haiku 4.5 $1/$5 per M tokens;
-  cache reads counted at the full input price - an overestimate), rand via
+  codecheck, style). Prices `AiPriceTable()` (Haiku 5.5 $0.10/$0.50 per M
+  tokens; a cache write 1.25x the input price, a read 0.1x - Sonnet 5.5's reads
+  are really 0.05x, so its are slightly overstated), rand via
   `ExchangeRate()`: the ECB daily rate from api.frankfurter.dev (free, no key),
   saved in `exchange-rate.json` beside the database and refreshed when over 12
   hours old; config `usdToZar` fixes it instead (24 September 2026).
@@ -2490,9 +2529,21 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   lines and "Because of" on My account, "free trial" in Admin › Users. On
   1 January 2027 it simply stops - to end or extend it, change the constants.
   Check: `php bin/check-trial.php` (local, rolled back).
-- **No prompt caching on marking** (4 October 2026): live data showed each
-  marking call wrote about 3,100 tokens to the cache and read back about 240,
-  adding 9.6% a call (costs-research.md 3.3).
+- **Prompt caching on the marking system prompt** (Chris, 9 October 2026:
+  "look at implementing prompt caching with claude"). History: from 25
+  September to 4 October the question block was cached; live data showed each
+  marking call wrote about 3,100 tokens and read back about 240, adding 9.6% a
+  call (costs-research.md 3.3), so it was removed. Now `MarkOneAnswer()`
+  (bin/markqueue.php) sends `system` as one block with `cache_control`
+  (ephemeral, 5 minutes) and leaves the question and the answer uncached.
+  Haiku 5.5 caches from 512 tokens (Haiku 4.5 needed 4,096), and the system
+  prompt - with structured outputs' own, about 2,300 tokens - is the same for
+  every answer of a mark style, whatever the question. Measured 9 October
+  2026: two calls in a row, the second read 2,330 tokens from the cache and
+  cost $0.00037 against $0.00066 (-44%). A miss costs 1.25x on that prefix:
+  it pays while over about 22% of marking calls hit - watch Admin ›
+  Monitor's "From cache" for marking; take it out if it stays under that.
+  No other call is worth caching (prompts under 512 tokens, or rare).
 - **The house-style comment after a compile** goes only to someone who may use
   AI marking in that lesson (`StyleFeedbackFor()` in lib/compile.php, Chris 28
   Sep 2026: "only pupils with AI marking"); running code stays open to every
