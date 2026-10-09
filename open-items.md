@@ -629,8 +629,9 @@ Still open:
   3. Export the settings as a file pupils import (check how: an Export button,
      or the settings file copied into Lazarus's config folder), test the
      import on a clean profile, and attach it to the lesson as a download.
-  4. Write the lesson: where it goes in the course, ask Chris first. Usual
-     rules - glossary words, Jev-markable questions, even marks, a "Try this".
+  4. Write it as a **guide, like Set-up** (Chris chose, 9 Oct 2026): untested,
+     beside "Getting your computer set up" and the IDE guide, done once when
+     Lazarus is installed. Usual rules - glossary words, a "Try this".
   5. The tutorial video: [courses/tutorial-videos.md](courses/tutorial-videos.md)
      and the tutorial video rules, recorded in the same VM session; embed it
      in the lesson.
