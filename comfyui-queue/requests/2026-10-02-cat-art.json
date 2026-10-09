@@ -2,10 +2,13 @@
   "id": "2026-10-02-cat-art",
   "from": "the code review chat (checking the ComfyUI pictures before a publish)",
   "added": "2026-10-02",
-  "status": "waiting",
+  "status": "made",
   "why": "Chris, 2 October 2026: \"make sure the existing comfyui images are linked in and working\". All made pictures are linked and load; the only ones the site asks for that were never made are the CAT courses': the CAT pilot's course icon (lib/home.php HomeCourseLook, public/assets/course-art/<course>.png) and the 'data' rank family's nine emblems (lib/practice.php PracticeRankArtUrl, RankFamily() gives 'data' to the CAT courses; ranks Bit to Petabyte). Stand-ins show until then. Same looks as 2026-10-01-course-icons and 2026-10-01-rank-emblems.",
   "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
-  "size": [1024, 1024],
+  "size": [
+    1024,
+    1024
+  ],
   "variants": 2,
   "items": [
     {
@@ -13,17 +16,101 @@
       "prompt": "A chunky glossy laptop in warm orange and cream with a tiny spreadsheet grid and a document page floating above its screen",
       "style": "A glossy 3D icon object, smooth shiny plastic and enamel, soft studio light, like a premium app icon. The whole object centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
       "out": "AIPascalCourse/public/assets/course-art/catpilot.png",
-      "outSize": [256, 256],
+      "outSize": [
+        256,
+        256
+      ],
       "transparent": true
     },
-    { "name": "data-0", "prompt": "a single small glowing blue dot like one switch light, set on a plain round bronze medal frame", "out": "AIPascalCourse/public/assets/rank-art/data/0.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-1", "prompt": "four small glowing blue dots in a neat row, set on a round bronze medal frame with a thin ribbon", "out": "AIPascalCourse/public/assets/rank-art/data/1.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-2", "prompt": "eight glowing blue beads on a short silver rod, set on a round silver medal frame", "out": "AIPascalCourse/public/assets/rank-art/data/2.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-3", "prompt": "a small shiny microchip with gold pins, set on a round silver medal frame with a blue ribbon", "out": "AIPascalCourse/public/assets/rank-art/data/3.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-4", "prompt": "a little stack of three glossy floppy disks in bright colours, set on a round gold medal frame", "out": "AIPascalCourse/public/assets/rank-art/data/4.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-5", "prompt": "a shiny memory stick with a glowing light, set on a gold shield-shaped emblem", "out": "AIPascalCourse/public/assets/rank-art/data/5.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-6", "prompt": "a glossy solid-state drive with blue light lines across it, set on a gold shield with small wings", "out": "AIPascalCourse/public/assets/rank-art/data/6.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-7", "prompt": "a sleek hard drive with a spinning silver platter and a soft glow, set on a gold and enamel star-shaped emblem", "out": "AIPascalCourse/public/assets/rank-art/data/7.png", "outSize": [256, 256], "transparent": true },
-    { "name": "data-8", "prompt": "a tiny glowing data centre of server towers under a glass dome, set on a radiant gold crown-shaped emblem with gems", "out": "AIPascalCourse/public/assets/rank-art/data/8.png", "outSize": [256, 256], "transparent": true }
+    {
+      "name": "data-0",
+      "prompt": "a single small glowing blue dot like one switch light, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/data/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-1",
+      "prompt": "four small glowing blue dots in a neat row, set on a round bronze medal frame with a thin ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/data/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-2",
+      "prompt": "eight glowing blue beads on a short silver rod, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/data/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-3",
+      "prompt": "a small shiny microchip with gold pins, set on a round silver medal frame with a blue ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/data/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-4",
+      "prompt": "a little stack of three glossy floppy disks in bright colours, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/data/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-5",
+      "prompt": "a shiny memory stick with a glowing light, set on a gold shield-shaped emblem",
+      "out": "AIPascalCourse/public/assets/rank-art/data/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-6",
+      "prompt": "a glossy solid-state drive with blue light lines across it, set on a gold shield with small wings",
+      "out": "AIPascalCourse/public/assets/rank-art/data/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-7",
+      "prompt": "a sleek hard drive with a spinning silver platter and a soft glow, set on a gold and enamel star-shaped emblem",
+      "out": "AIPascalCourse/public/assets/rank-art/data/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "data-8",
+      "prompt": "a tiny glowing data centre of server towers under a glass dome, set on a radiant gold crown-shaped emblem with gems",
+      "out": "AIPascalCourse/public/assets/rank-art/data/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
   ]
 }

@@ -2,23 +2,86 @@
   "id": "2026-10-09-sql9-scenes",
   "from": "the online safety / Grade 9 SQL planning chat",
   "added": "2026-10-09",
-  "status": "waiting",
+  "status": "made",
   "why": "The Grade 9 intro to SQL course (the rhino case, AIResources/courses/sql9-course.md): scenes, landscapes and animals as realistic coloured-pencil drawings beside the ops-room data figures. Chris, 9 October 2026: 'more realistic coloured pencil sketches of scenes, landscape, animals, etc.' and the oxpecker mascot 'ox - but more realistic drawings'. Style: AIResources/brand/sql9-art-style.md. No lesson waits on these: each lesson shows its ops-room figure alone until the picture exists.",
   "style": "realistic coloured pencil drawing on warm off-white paper, visible pencil strokes and paper texture, natural colours, soft Limpopo bushveld light, wildlife field-guide illustration, no text, no letters, no logos",
-  "size": [1344, 768],
+  "size": [
+    1344,
+    768
+  ],
   "variants": 3,
   "items": [
-    { "name": "oxi-perched", "prompt": "a red-billed oxpecker bird perched on the back of a white rhino, bright red bill, yellow eye-ring, brown back, buff belly, alert and looking at the viewer", "out": "AIPascalCourse/public/assets/lessons/sql9/oxi-perched.webp", "size": [1024, 1024] },
-    { "name": "oxi-alarm", "prompt": "a red-billed oxpecker bird calling out with its red bill wide open, wings slightly raised in alarm, on a branch", "out": "AIPascalCourse/public/assets/lessons/sql9/oxi-alarm.webp", "size": [1024, 1024] },
-    { "name": "oxi-flying", "prompt": "a red-billed oxpecker bird in flight, wings spread, seen from the side, plain background", "out": "AIPascalCourse/public/assets/lessons/sql9/oxi-flying.webp", "size": [1024, 1024] },
-    { "name": "tumelo-collar", "prompt": "a female white rhino grazing in golden grass, wearing a simple red tracking collar around her neck, calm, late afternoon", "out": "AIPascalCourse/public/assets/lessons/sql9/tumelo-collar.webp" },
-    { "name": "reserve-landscape", "prompt": "wide bushveld landscape in Limpopo, South Africa, rolling hills, marula and mopane trees, a dirt track, golden late afternoon light", "out": "AIPascalCourse/public/assets/lessons/sql9/reserve-landscape.webp" },
-    { "name": "waterhole", "prompt": "a waterhole in the bushveld at dusk with rhino and zebra drinking, reflections in the water, peaceful", "out": "AIPascalCourse/public/assets/lessons/sql9/waterhole.webp" },
-    { "name": "camera-trap", "prompt": "a small green trail camera strapped to a tree trunk in the bush, close up, grass and a game path behind it", "out": "AIPascalCourse/public/assets/lessons/sql9/camera-trap.webp" },
-    { "name": "gate-night", "prompt": "a game reserve entrance gate at night lit by one lamp, a boom gate and a small guard hut, empty dirt road, stars", "out": "AIPascalCourse/public/assets/lessons/sql9/gate-night.webp" },
-    { "name": "ops-room", "prompt": "an anti-poaching control room in a game reserve at night, screens with maps on the wall, a radio on the desk, seen from behind with no people", "out": "AIPascalCourse/public/assets/lessons/sql9/ops-room.webp" },
-    { "name": "ranger-thandeka", "prompt": "a South African female game ranger in an olive uniform and bush hat, holding a radio and a laptop, standing beside a ranger vehicle, friendly and determined", "out": "AIPascalCourse/public/assets/lessons/sql9/ranger-thandeka.webp" },
-    { "name": "tracker-tower", "prompt": "a tall cell phone tower on a hill in the bushveld under a full moon, silhouetted trees", "out": "AIPascalCourse/public/assets/lessons/sql9/tower-moon.webp" },
-    { "name": "rhino-safe", "prompt": "a white rhino and her calf walking safely through tall grass at sunrise, a red-billed oxpecker riding on her back, hopeful mood", "out": "AIPascalCourse/public/assets/lessons/sql9/rhino-safe.webp" }
+    {
+      "name": "oxi-perched",
+      "prompt": "a red-billed oxpecker bird perched on the back of a white rhino, bright red bill, yellow eye-ring, brown back, buff belly, alert and looking at the viewer",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/oxi-perched.webp",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "oxi-alarm",
+      "prompt": "a red-billed oxpecker bird calling out with its red bill wide open, wings slightly raised in alarm, on a branch",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/oxi-alarm.webp",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "oxi-flying",
+      "prompt": "a red-billed oxpecker bird in flight, wings spread, seen from the side, plain background",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/oxi-flying.webp",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "tumelo-collar",
+      "prompt": "a female white rhino grazing in golden grass, wearing a simple red tracking collar around her neck, calm, late afternoon",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/tumelo-collar.webp"
+    },
+    {
+      "name": "reserve-landscape",
+      "prompt": "wide bushveld landscape in Limpopo, South Africa, rolling hills, marula and mopane trees, a dirt track, golden late afternoon light",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/reserve-landscape.webp"
+    },
+    {
+      "name": "waterhole",
+      "prompt": "a waterhole in the bushveld at dusk with rhino and zebra drinking, reflections in the water, peaceful",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/waterhole.webp"
+    },
+    {
+      "name": "camera-trap",
+      "prompt": "a small green trail camera strapped to a tree trunk in the bush, close up, grass and a game path behind it",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/camera-trap.webp"
+    },
+    {
+      "name": "gate-night",
+      "prompt": "a game reserve entrance gate at night lit by one lamp, a boom gate and a small guard hut, empty dirt road, stars",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/gate-night.webp"
+    },
+    {
+      "name": "ops-room",
+      "prompt": "an anti-poaching control room in a game reserve at night, screens with maps on the wall, a radio on the desk, seen from behind with no people",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/ops-room.webp"
+    },
+    {
+      "name": "ranger-thandeka",
+      "prompt": "a South African female game ranger in an olive uniform and bush hat, holding a radio and a laptop, standing beside a ranger vehicle, friendly and determined",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/ranger-thandeka.webp"
+    },
+    {
+      "name": "tracker-tower",
+      "prompt": "a tall cell phone tower on a hill in the bushveld under a full moon, silhouetted trees",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/tower-moon.webp"
+    },
+    {
+      "name": "rhino-safe",
+      "prompt": "a white rhino and her calf walking safely through tall grass at sunrise, a red-billed oxpecker riding on her back, hopeful mood",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/rhino-safe.webp"
+    }
   ]
 }
