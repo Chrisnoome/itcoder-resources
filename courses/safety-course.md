@@ -1,0 +1,65 @@
+# Course: Staying safe online (`safety`) - PLAN
+
+Grade 8, eight lessons, General Computing. **Listed as `soon`** in `CourseIndex()`
+(`AIPascalCourse/lib/course.php`, Chris, 9 October 2026); nothing written yet. Content will go
+in `content/safety/`.
+
+Art: the case file, Sniff and The Phisher - [../brand/safety-art-style.md](../brand/safety-art-style.md).
+Every figure and doodle in this course follows it, never the blue pen.
+
+## Purpose
+
+Every lesson is a case. By lesson 8 every pupil can take any suspicious message, login,
+app or friend request and work through the same findings form to a verdict, and knows what to do
+next: who to tell, what to change, where to report.
+
+Shape: spot the trick -> lock your accounts -> know what you give away -> people, not just
+machines -> the big case.
+
+## Lessons (draft - each earns the next)
+
+1. **Case 01: The locked account** - phishing by SMS, WhatsApp and email. The three checks
+   (sender, tone, link) and the findings form, introduced on the board's scam SMS. Look-alike
+   addresses (`kasibank-verify.co` vs `kasibank.co.za`). Activity `scamSpotter`: an inbox of
+   messages, flag or clear each, the form fills in as you go.
+2. **Case 02: The line-up** - how passwords are cracked (guessing, word lists, leaked lists),
+   why length beats symbols, passphrases. The password line-up figure. Activity `crackTimer`:
+   type a password, see a rough guess count and time, worked out in the browser and never sent
+   anywhere (the page says so).
+3. **Case 03: The second lock** - two-step verification, OTPs, why you never read an OTP to
+   anyone (the "bank calls you" scam), SIM swaps, a password manager.
+4. **Case 04: The leak** - data breaches: what leaks, why reused passwords spread the damage,
+   checking whether you were in one, the steps after a breach.
+5. **Case 05: What your apps know** - permissions, location, contacts, cookies and trackers,
+   "free" apps paid for with data. POPIA in Grade 8 words: what a company may keep about you
+   and what you can ask for. Activity `permissionAudit`: an app asks for permissions, pupil
+   allows or denies each, with the reason.
+6. **Case 06: The photo that travelled** - the digital footprint, screenshots last for ever,
+   location in photos, what happens to a shared picture, and the law in plain words.
+7. **Case 07: The fake friend** - social engineering, fake profiles, cyberbullying, the red
+   flags of someone grooming a child online, and who to tell (a trusted adult, the platform,
+   Childline 116).
+8. **Case 08: The big case** - one case file with several exhibits (a message, a login page,
+   an app, a friend request), each worked through the findings form; the final assessment
+   (markMax 30, banded rubric, on the AI course's model).
+
+## Course rules
+
+- **Fictional names for banks, shops and apps** in every exhibit (KasiBank, as on the board), so
+  no figure imitates a real company. Real services are named only in prose where a pupil needs
+  them (how to turn on two-step verification in WhatsApp, say).
+- **Dated facts** (scam types in the news, laws, app settings) go in a yearly-update list,
+  as for the AI course, checked every January.
+- Marking: Jev first, Claude for the unsure (as in every course).
+- Written questions markMax 4; lesson 8's capstone 30.
+
+- **Lessons 6 and 7: awareness and who to tell** (Chris, 9 October 2026). Red flags, the law
+  in plain words, and where to get help (a trusted adult, the platform's report button,
+  Childline 116). No scenario with explicit detail.
+
+## Questions for Chris
+
+- Does the school have counsellor wording for lessons 6 and 7 to follow?
+- Should parents get a short take-home page per lesson (the findings form, the settings to check)?
+- Glossary and Practice on the AI course's model (every word for every pupil)?
+- Videos: any you already use for online safety?

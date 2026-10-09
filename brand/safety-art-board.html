@@ -1,0 +1,383 @@
+<title>Safety Course Case Files</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;700&family=Black+Ops+One&family=Staatliches&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one column of numbered style plates, each a figure with a short spec beside it; mascots and a second subject below. */
+:root {
+  --bg: #f3f1ec;
+  --panel: #ffffff;
+  --ink: #1f1d1a;
+  --muted: #5f5a52;
+  --rule: #d9d4ca;
+  --accent: #b3141c;
+  --f-display: "Special Elite", "Courier New", monospace;
+  --f-body: "IBM Plex Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1b1a18; --panel: #262421; --ink: #ece8e1; --muted: #a8a196; --rule: #3a3732; --accent: #ef5a5f; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #1b1a18; --panel: #262421; --ink: #ece8e1; --muted: #a8a196; --rule: #3a3732; --accent: #ef5a5f; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-body); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 64px; display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 4vw, 40px); }
+h2 { font-size: 24px; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+h3 { font-size: 20px; }
+p { margin: 0; max-width: 68ch; }
+.lede { display: grid; gap: 10px; }
+.lede p { color: var(--muted); }
+.eyebrow { font: 600 12px/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+section { display: grid; gap: 20px; }
+.plate { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; background: var(--panel); border: 1px solid var(--rule); padding: 16px; }
+@media (max-width: 760px) { .plate { grid-template-columns: minmax(0, 1fr); } }
+.plate svg, .mascots svg, .wide svg { width: 100%; height: auto; display: block; }
+.spec { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.spec .tag { font: 700 13px/1 "Courier Prime", monospace; color: var(--accent); }
+.spec ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: var(--muted); }
+.swatches { display: flex; gap: 6px; flex-wrap: wrap; }
+.swatches span { width: 28px; height: 28px; border: 1px solid var(--rule); }
+.mascots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 820px) { .mascots { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mascots figure, .wide { margin: 0; background: var(--panel); border: 1px solid var(--rule); padding: 12px; display: grid; gap: 8px; }
+figcaption { font-size: 13.5px; color: var(--muted); }
+figcaption b { color: var(--ink); font-family: var(--f-display); font-weight: 400; font-size: 16px; display: block; }
+.note { border-left: 3px solid var(--accent); padding-left: 14px; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header class="lede">
+    <div class="eyebrow">Grade 8 · General Computing · Staying safe online</div>
+    <h1>Case files: the art style board</h1>
+    <p>Every lesson is a case to crack: a suspicious message, a weak password, an app that knows too much. Four ways to draw the case file, all on the same subject (a scam SMS), then four candidate mascots and a second subject. Pick a style and a mascot; the style doc follows the CAT one.</p>
+  </header>
+
+  <section>
+    <h2>Four case-file styles</h2>
+
+    <!-- A: Manila folder and red string -->
+    <div class="plate">
+      <svg viewBox="0 0 680 420" role="img" aria-label="Style A: a scam SMS pinned in a manila case folder, with red string to three clue cards and a SUSPECT stamp">
+        <path d="M10 40 v-22 q0-8 8-8 h222 q7 0 10 7 l10 23 z" fill="#c99f62"/>
+        <rect x="10" y="36" width="660" height="376" rx="6" fill="#d6b277"/>
+        <text x="26" y="30" font-family="Special Elite" font-size="13" fill="#3b2a14">CASE 01 · THE LOCKED ACCOUNT</text>
+        <g transform="rotate(-3 175 220)">
+          <rect x="60" y="62" width="230" height="318" fill="#fbf8f0" stroke="#bfb39c"/>
+          <rect x="75" y="77" width="200" height="248" fill="#2b2f36"/>
+          <text x="90" y="100" font-family="Courier Prime" font-size="11" fill="#d7dbe2">+27 63 555 0192</text>
+          <rect x="88" y="112" width="178" height="124" rx="10" fill="#e9eaee"/>
+          <g font-family="Courier Prime" font-size="11.5" fill="#1d1f24">
+            <text x="96" y="132">KasiBank: Your account</text>
+            <text x="96" y="149">has been LOCKED.</text>
+            <text x="96" y="166">Verify within 24 hrs</text>
+            <text x="96" y="183">or lose access:</text>
+            <text x="96" y="210" fill="#1f5fd1" text-decoration="underline">kasibank-verify.co/login</text>
+          </g>
+          <text x="80" y="356" font-family="Caveat" font-size="20" fill="#3b3326">Exhibit A · received 07:42</text>
+          <circle cx="175" cy="68" r="7" fill="#b3141c"/>
+        </g>
+        <g fill="none" stroke="#b3141c" stroke-width="2.2">
+          <path d="M422 82 Q300 60 190 100"/>
+          <path d="M422 190 Q300 170 168 150"/>
+          <path d="M422 296 Q320 300 230 214"/>
+        </g>
+        <g font-family="Special Elite" fill="#2a2116">
+          <g transform="rotate(1.5 525 100)"><rect x="410" y="62" width="235" height="76" fill="#f6efdc"/>
+            <text x="430" y="86" font-size="15">CLUE 1: WHO SENT IT?</text>
+            <text x="430" y="106" font-size="12.5">A cell number, not</text>
+            <text x="430" y="122" font-size="12.5">the bank's short code.</text></g>
+          <g transform="rotate(-1.5 525 205)"><rect x="410" y="168" width="235" height="76" fill="#f6efdc"/>
+            <text x="430" y="192" font-size="15">CLUE 2: THE RUSH</text>
+            <text x="430" y="212" font-size="12.5">Locked! 24 hours! The</text>
+            <text x="430" y="228" font-size="12.5">rush stops you checking.</text></g>
+          <g transform="rotate(1 525 310)"><rect x="410" y="274" width="235" height="76" fill="#f6efdc"/>
+            <text x="430" y="298" font-size="15">CLUE 3: THE ADDRESS</text>
+            <text x="430" y="318" font-size="12.5">kasibank-verify.co is</text>
+            <text x="430" y="334" font-size="12.5">not kasibank.co.za</text></g>
+        </g>
+        <g fill="#b3141c"><circle cx="422" cy="80" r="6"/><circle cx="422" cy="188" r="6"/><circle cx="422" cy="294" r="6"/></g>
+        <g transform="rotate(-10 560 382)" opacity=".88">
+          <rect x="478" y="358" width="164" height="48" rx="4" fill="none" stroke="#b3141c" stroke-width="4"/>
+          <text x="560" y="394" text-anchor="middle" font-family="Black Ops One" font-size="30" fill="#b3141c">SUSPECT</text>
+        </g>
+      </svg>
+      <div class="spec">
+        <div class="tag">A · MANILA FOLDER AND RED STRING</div>
+        <h3>The incident board</h3>
+        <ul>
+          <li>Kraft folder, evidence as a pinned Polaroid, clues on index cards.</li>
+          <li>Red string joins each clue to the exact spot it explains, so the diagram still reads as a labelled figure.</li>
+          <li>Typewriter labels, one rubber stamp per figure (SUSPECT, CLEARED, SCAM).</li>
+        </ul>
+        <div class="swatches" aria-label="Palette"><span style="background:#d6b277"></span><span style="background:#f6efdc"></span><span style="background:#b3141c"></span><span style="background:#2a2116"></span></div>
+      </div>
+    </div>
+
+    <!-- B: Noir -->
+    <div class="plate">
+      <svg viewBox="0 0 680 420" role="img" aria-label="Style B: film-noir ink drawing of the phone under a magnifying glass, with hard-boiled narration boxes">
+        <rect width="680" height="420" fill="#efebe2"/>
+        <g fill="#1a1a1a" opacity=".1">
+          <polygon points="0,40 680,0 680,26 0,66"/><polygon points="0,110 680,70 680,96 0,136"/>
+          <polygon points="0,180 680,140 680,166 0,206"/><polygon points="0,250 680,210 680,236 0,276"/>
+          <polygon points="0,320 680,280 680,306 0,346"/>
+        </g>
+        <rect x="70" y="40" width="216" height="350" rx="28" fill="#fff" stroke="#111" stroke-width="5"/>
+        <rect x="82" y="52" width="192" height="326" rx="18" fill="#f7f6f2" stroke="#111" stroke-width="2"/>
+        <text x="96" y="80" font-family="Courier Prime" font-size="11" font-weight="700" fill="#111">+27 63 555 0192</text>
+        <rect x="92" y="92" width="174" height="126" rx="10" fill="none" stroke="#111" stroke-width="2.5"/>
+        <g font-family="Courier Prime" font-size="11.5" fill="#111">
+          <text x="100" y="112">KasiBank: Your account</text>
+          <text x="100" y="129">has been LOCKED.</text>
+          <text x="100" y="146">Verify within 24 hrs</text>
+          <text x="100" y="163">or lose access:</text>
+          <text x="100" y="192" fill="#c4161c" font-weight="700">kasibank-verify.co/login</text>
+        </g>
+        <circle cx="180" cy="190" r="50" fill="none" stroke="#111" stroke-width="7"/>
+        <circle cx="180" cy="190" r="44" fill="none" stroke="#c4161c" stroke-width="2" stroke-dasharray="6 5"/>
+        <line x1="216" y1="226" x2="266" y2="290" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+        <g font-family="Courier Prime" font-size="13.5" font-style="italic">
+          <rect x="340" y="54" width="310" height="58" fill="#111"/>
+          <text x="354" y="78" fill="#f2efe8">07:42. The message came in hot.</text>
+          <text x="354" y="98" fill="#f2efe8">Said my account was locked.</text>
+          <rect x="340" y="132" width="310" height="58" fill="#111"/>
+          <text x="354" y="156" fill="#f2efe8">But banks don't text from a</text>
+          <text x="354" y="176" fill="#f2efe8">cell number. Strike one.</text>
+          <rect x="340" y="210" width="310" height="58" fill="#111"/>
+          <text x="354" y="234" fill="#f2efe8">And that address? Close.</text>
+          <text x="354" y="254" fill="#f2efe8">Too close. <tspan fill="#ff6b6f" font-weight="700">Strike two.</tspan></text>
+        </g>
+        <text x="650" y="350" text-anchor="end" font-family="Staatliches" font-size="46" fill="#c4161c">THE PHISHER</text>
+        <text x="650" y="388" text-anchor="end" font-family="Staatliches" font-size="28" fill="#111" letter-spacing="3">STRIKES AT DAWN</text>
+      </svg>
+      <div class="spec">
+        <div class="tag">B · FILM NOIR</div>
+        <h3>Black ink, one red</h3>
+        <ul>
+          <li>Heavy black line, Venetian-blind shadows, everything grey except the clue, which is red.</li>
+          <li>The explanation comes as the detective's narration in black caption boxes.</li>
+          <li>Strongest mood of the four; the narration voice needs care to stay clear for Grade 8.</li>
+        </ul>
+        <div class="swatches" aria-label="Palette"><span style="background:#efebe2"></span><span style="background:#111"></span><span style="background:#c4161c"></span><span style="background:#bdb8ad"></span></div>
+      </div>
+    </div>
+
+    <!-- C: Notebook -->
+    <div class="plate">
+      <svg viewBox="0 0 680 420" role="img" aria-label="Style C: a detective's notebook page with a pencil sketch of the phone, clues circled in red pencil and handwritten notes">
+        <rect width="680" height="420" fill="#fbfaf3"/>
+        <g stroke="#c9d6e8" stroke-width="1.2">
+          <line x1="0" y1="62" x2="680" y2="62"/><line x1="0" y1="92" x2="680" y2="92"/><line x1="0" y1="122" x2="680" y2="122"/>
+          <line x1="0" y1="152" x2="680" y2="152"/><line x1="0" y1="182" x2="680" y2="182"/><line x1="0" y1="212" x2="680" y2="212"/>
+          <line x1="0" y1="242" x2="680" y2="242"/><line x1="0" y1="272" x2="680" y2="272"/><line x1="0" y1="302" x2="680" y2="302"/>
+          <line x1="0" y1="332" x2="680" y2="332"/><line x1="0" y1="362" x2="680" y2="362"/><line x1="0" y1="392" x2="680" y2="392"/>
+        </g>
+        <line x1="58" y1="0" x2="58" y2="420" stroke="#e3a0a0" stroke-width="1.5"/>
+        <g fill="#e6e2d6"><circle cx="24" cy="50" r="8"/><circle cx="24" cy="150" r="8"/><circle cx="24" cy="250" r="8"/><circle cx="24" cy="350" r="8"/></g>
+        <text x="74" y="50" font-family="Caveat" font-size="28" font-weight="700" fill="#2d3a5a">Case notes: the locked account</text>
+        <g fill="none" stroke="#555" stroke-width="2" stroke-linecap="round">
+          <rect x="84" y="78" width="200" height="310" rx="22"/>
+          <rect x="86" y="80" width="197" height="306" rx="21" opacity=".5"/>
+          <rect x="98" y="134" width="172" height="124" rx="10"/>
+        </g>
+        <text x="104" y="114" font-family="Courier Prime" font-size="11" fill="#333">+27 63 555 0192</text>
+        <g font-family="Courier Prime" font-size="11.5" fill="#333">
+          <text x="106" y="154">KasiBank: Your account</text>
+          <text x="106" y="171">has been LOCKED.</text>
+          <text x="106" y="188">Verify within 24 hrs</text>
+          <text x="106" y="205">or lose access:</text>
+          <text x="106" y="234" fill="#1f5fd1">kasibank-verify.co/login</text>
+        </g>
+        <g fill="none" stroke="#c0392b" stroke-width="2.4" stroke-linecap="round">
+          <ellipse cx="156" cy="110" rx="58" ry="14" transform="rotate(-3 156 110)"/>
+          <ellipse cx="156" cy="180" rx="66" ry="14" transform="rotate(2 156 180)"/>
+          <ellipse cx="180" cy="230" rx="88" ry="15" transform="rotate(-2 180 230)"/>
+          <path d="M218 104 Q300 86 350 92"/><path d="M342 86 l10 6 l-10 6"/>
+          <path d="M224 176 Q300 168 350 172"/><path d="M342 166 l10 6 l-10 6"/>
+          <path d="M270 232 Q310 248 350 254"/><path d="M341 248 l10 6 l-11 5"/>
+        </g>
+        <g font-family="Caveat" font-size="22" fill="#2d3a5a">
+          <text x="360" y="98">1. not the bank's number!</text>
+          <text x="360" y="178">2. rushing me = red flag</text>
+          <text x="360" y="260">3. fake address!! .co ≠ .co.za</text>
+        </g>
+        <g font-family="Caveat" font-size="22" font-weight="700" fill="#c0392b">
+          <text x="360" y="328">Verdict: SCAM. Don't click.</text>
+          <text x="360" y="356">Phone the number on your card.</text>
+        </g>
+        <path d="M358 336 q100 6 190 -2" fill="none" stroke="#c0392b" stroke-width="2"/>
+      </svg>
+      <div class="spec">
+        <div class="tag">C · THE DETECTIVE'S NOTEBOOK</div>
+        <h3>Pencil and red pencil</h3>
+        <ul>
+          <li>Lined notebook page, grey pencil sketches, clues circled and arrowed in red pencil.</li>
+          <li>Handwritten notes read like a pupil's own working, which suits "do this, observe, explain".</li>
+          <li>Quietest of the four. Closest to the blue-pen courses in feel, so it is the least distinct.</li>
+        </ul>
+        <div class="swatches" aria-label="Palette"><span style="background:#fbfaf3"></span><span style="background:#c9d6e8"></span><span style="background:#555"></span><span style="background:#c0392b"></span><span style="background:#2d3a5a"></span></div>
+      </div>
+    </div>
+
+    <!-- D: Evidence bag -->
+    <div class="plate">
+      <svg viewBox="0 0 680 420" role="img" aria-label="Style D: the phone sealed in an evidence bag behind crime-scene tape, with a findings form marking three red flags">
+        <rect width="680" height="420" fill="#f4f4ef"/>
+        <g transform="rotate(-8 340 26)">
+          <rect x="-40" y="8" width="760" height="34" fill="#ffd400"/>
+          <text x="-30" y="32" font-family="Black Ops One" font-size="16" fill="#111" letter-spacing="2">EVIDENCE · DO NOT CROSS · EVIDENCE · DO NOT CROSS · EVIDENCE · DO NOT CROSS</text>
+        </g>
+        <rect x="56" y="72" width="256" height="330" rx="6" fill="#dde6ee" fill-opacity=".7" stroke="#8a9bb0" stroke-width="2"/>
+        <rect x="56" y="72" width="256" height="14" fill="#c62828"/>
+        <rect x="104" y="98" width="160" height="214" rx="18" fill="#2b2f36"/>
+        <rect x="114" y="122" width="140" height="132" rx="8" fill="#e9eaee"/>
+        <text x="118" y="114" font-family="Courier Prime" font-size="9.5" fill="#d7dbe2">+27 63 555 0192</text>
+        <g font-family="Courier Prime" font-size="9.6" fill="#1d1f24">
+          <text x="120" y="140">KasiBank: Your account</text>
+          <text x="120" y="155">has been LOCKED.</text>
+          <text x="120" y="170">Verify within 24 hrs</text>
+          <text x="120" y="185">or lose access:</text>
+          <text x="120" y="210" fill="#1f5fd1">kasibank-verify.co/login</text>
+        </g>
+        <rect x="74" y="324" width="220" height="64" fill="#fff" stroke="#8a9bb0"/>
+        <g font-family="Courier Prime" font-size="11" fill="#222">
+          <text x="84" y="342" font-weight="700">EVIDENCE · CASE 01 · ITEM A</text>
+          <text x="84" y="360">Type: SMS     Time: 07:42</text>
+          <text x="84" y="377">Logged by: Gr 8 detective</text>
+        </g>
+        <text x="350" y="96" font-family="Black Ops One" font-size="20" fill="#111">FINDINGS</text>
+        <g font-family="Courier Prime" font-size="13" fill="#222">
+          <line x1="350" y1="108" x2="650" y2="108" stroke="#111" stroke-width="2"/>
+          <text x="350" y="130" font-weight="700">CHECK</text><text x="440" y="130" font-weight="700">WHAT WE FOUND</text><text x="620" y="130" font-weight="700">FLAG</text>
+          <line x1="350" y1="140" x2="650" y2="140" stroke="#999"/>
+          <text x="350" y="166">Sender</text><text x="440" y="166">Unknown cell number</text>
+          <line x1="350" y1="180" x2="650" y2="180" stroke="#ccc"/>
+          <text x="350" y="206">Tone</text><text x="440" y="206">Threat + deadline</text>
+          <line x1="350" y1="220" x2="650" y2="220" stroke="#ccc"/>
+          <text x="350" y="246">Link</text><text x="440" y="246">Look-alike address</text>
+          <line x1="350" y1="260" x2="650" y2="260" stroke="#999"/>
+        </g>
+        <g fill="#c62828"><rect x="618" y="152" width="20" height="20"/><rect x="618" y="192" width="20" height="20"/><rect x="618" y="232" width="20" height="20"/></g>
+        <g stroke="#fff" stroke-width="3" stroke-linecap="round">
+          <path d="M622 156 l12 12 M634 156 l-12 12"/><path d="M622 196 l12 12 M634 196 l-12 12"/><path d="M622 236 l12 12 M634 236 l-12 12"/>
+        </g>
+        <g transform="rotate(-6 500 340)">
+          <rect x="390" y="300" width="230" height="76" fill="none" stroke="#c62828" stroke-width="4"/>
+          <text x="505" y="334" text-anchor="middle" font-family="Black Ops One" font-size="22" fill="#c62828">3 OF 3 RED FLAGS</text>
+          <text x="505" y="362" text-anchor="middle" font-family="Courier Prime" font-size="14" font-weight="700" fill="#c62828">VERDICT: SCAM</text>
+        </g>
+      </svg>
+      <div class="spec">
+        <div class="tag">D · EVIDENCE BAG AND FORMS</div>
+        <h3>Forensic lab</h3>
+        <ul>
+          <li>Crime-scene tape, sealed evidence bags with labels, findings recorded on a form.</li>
+          <li>The form is a checklist pupils can reuse: every scam gets the same three checks.</li>
+          <li>Cleanest for tables and comparisons; the least hand-drawn.</li>
+        </ul>
+        <div class="swatches" aria-label="Palette"><span style="background:#f4f4ef"></span><span style="background:#ffd400"></span><span style="background:#dde6ee"></span><span style="background:#c62828"></span><span style="background:#111"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Mascot candidates</h2>
+    <p>Drawn in plain ink here; the one you pick is redrawn in the chosen style. Like Clicky, it appears in margin doodles and at most once per figure.</p>
+    <div class="mascots">
+      <figure>
+        <svg viewBox="0 0 240 240" role="img" aria-label="Inspector Lock: a padlock in a deerstalker hat holding a magnifying glass">
+          <path d="M84 104 v-26 a36 36 0 0 1 72 0 v26" fill="none" stroke="#1b1b1b" stroke-width="9"/>
+          <path d="M70 58 q50 -40 100 0 l-8 14 h-84 z" fill="#a0784a" stroke="#1b1b1b" stroke-width="3"/>
+          <path d="M66 66 l-18 18 l26 -4 z M174 66 l18 18 l-26 -4 z" fill="#a0784a" stroke="#1b1b1b" stroke-width="3"/>
+          <rect x="62" y="100" width="116" height="100" rx="14" fill="#e8c35a" stroke="#1b1b1b" stroke-width="4"/>
+          <circle cx="98" cy="138" r="6" fill="#1b1b1b"/><circle cx="142" cy="138" r="6" fill="#1b1b1b"/>
+          <path d="M104 164 q16 10 32 0" fill="none" stroke="#1b1b1b" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M120 176 v12" stroke="#1b1b1b" stroke-width="4"/><circle cx="120" cy="172" r="6" fill="#1b1b1b"/>
+          <line x1="178" y1="150" x2="200" y2="140" stroke="#1b1b1b" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="206" cy="120" r="20" fill="#dff1ff" fill-opacity=".6" stroke="#1b1b1b" stroke-width="5"/>
+        </svg>
+        <figcaption><b>Inspector Lock</b>A padlock detective. Says "security" at a glance; can open (unsafe) and shut (safe).</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 240 240" role="img" aria-label="Sniff: a bloodhound with long droopy ears and a collar tag">
+          <ellipse cx="120" cy="122" rx="56" ry="64" fill="#c98b4f" stroke="#1b1b1b" stroke-width="4"/>
+          <path d="M70 92 q-34 30 -20 92 q20 10 34 -8 q-8 -50 2 -76 z" fill="#8a5a2e" stroke="#1b1b1b" stroke-width="4"/>
+          <path d="M170 92 q34 30 20 92 q-20 10 -34 -8 q8 -50 -2 -76 z" fill="#8a5a2e" stroke="#1b1b1b" stroke-width="4"/>
+          <ellipse cx="120" cy="158" rx="34" ry="24" fill="#e0b07c" stroke="#1b1b1b" stroke-width="3"/>
+          <ellipse cx="120" cy="146" rx="15" ry="10" fill="#1b1b1b"/>
+          <path d="M98 108 q8 -6 16 0 M126 108 q8 -6 16 0" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+          <circle cx="106" cy="114" r="5" fill="#1b1b1b"/><circle cx="134" cy="114" r="5" fill="#1b1b1b"/>
+          <path d="M110 168 q10 8 20 0" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+          <path d="M84 186 q36 14 72 0" fill="none" stroke="#b3141c" stroke-width="8"/>
+          <circle cx="120" cy="204" r="11" fill="#e8c35a" stroke="#1b1b1b" stroke-width="3"/>
+          <g stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round"><path d="M150 52 q8 -8 0 -16"/><path d="M164 58 q10 -10 0 -20"/></g>
+        </svg>
+        <figcaption><b>Sniff</b>A bloodhound who sniffs out scams. Warm and funny; "something smells phishy" writes itself.</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 240 240" role="img" aria-label="Hoot: an owl in round spectacles and a trench-coat collar">
+          <path d="M70 70 l14 -30 l16 26 M170 70 l-14 -30 l-16 26" fill="#7d8a96" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round"/>
+          <ellipse cx="120" cy="128" rx="62" ry="78" fill="#7d8a96" stroke="#1b1b1b" stroke-width="4"/>
+          <ellipse cx="120" cy="160" rx="38" ry="40" fill="#d6dbe0"/>
+          <circle cx="96" cy="108" r="22" fill="#fff" stroke="#1b1b1b" stroke-width="4"/>
+          <circle cx="144" cy="108" r="22" fill="#fff" stroke="#1b1b1b" stroke-width="4"/>
+          <line x1="118" y1="108" x2="122" y2="108" stroke="#1b1b1b" stroke-width="4"/>
+          <circle cx="98" cy="110" r="8" fill="#1b1b1b"/><circle cx="142" cy="110" r="8" fill="#1b1b1b"/>
+          <path d="M112 132 l8 12 l8 -12 z" fill="#e8a33a" stroke="#1b1b1b" stroke-width="2.5"/>
+          <path d="M64 168 l40 34 l16 -18 l16 18 l40 -34 l4 36 h-120 z" fill="#b89a6a" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <figcaption><b>Hoot</b>An owl in a trench coat. Sees in the dark, notices what others miss; the calm, wise one.</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 240 240" role="img" aria-label="The Phisher: a shadowy villain in a wide hat holding a fishing rod with an envelope on the hook">
+          <path d="M150 70 Q200 40 226 26" fill="none" stroke="#1b1b1b" stroke-width="4" stroke-linecap="round"/>
+          <path d="M226 26 v86" stroke="#1b1b1b" stroke-width="1.5"/>
+          <path d="M226 112 q0 12 -10 10" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+          <rect x="204" y="118" width="32" height="22" fill="#fff" stroke="#1b1b1b" stroke-width="3"/>
+          <path d="M204 118 l16 12 l16 -12" fill="none" stroke="#1b1b1b" stroke-width="2.5"/>
+          <path d="M60 220 q0 -90 50 -104 q50 14 50 104 z" fill="#2a2a2a"/>
+          <circle cx="110" cy="98" r="30" fill="#2a2a2a"/>
+          <ellipse cx="110" cy="74" rx="56" ry="10" fill="#1b1b1b"/>
+          <path d="M84 74 q4 -34 26 -34 q22 0 26 34 z" fill="#1b1b1b"/>
+          <ellipse cx="98" cy="100" rx="7" ry="4" fill="#fff"/><ellipse cx="122" cy="100" rx="7" ry="4" fill="#fff"/>
+          <path d="M96 116 q14 8 28 0" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="150" y1="70" x2="140" y2="150" stroke="#1b1b1b" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <figcaption><b>The Phisher</b>A recurring villain, not the hero. Pairs with any of the three: pupils learn to spot his tricks.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>A second subject: the password line-up</h2>
+    <figure class="wide">
+      <svg viewBox="0 0 680 360" role="img" aria-label="A police line-up of four passwords; each suspect's height shows roughly how long the password takes to crack, from instantly to centuries">
+        <rect width="680" height="360" fill="#e7e4dc"/>
+        <g stroke="#9c968a" stroke-width="1.5">
+          <line x1="120" y1="290" x2="660" y2="290"/><line x1="120" y1="230" x2="660" y2="230"/>
+          <line x1="120" y1="170" x2="660" y2="170"/><line x1="120" y1="110" x2="660" y2="110"/><line x1="120" y1="50" x2="660" y2="50"/>
+        </g>
+        <g font-family="Courier Prime" font-size="13" fill="#3a362f" text-anchor="end">
+          <text x="112" y="294">instantly</text><text x="112" y="234">minutes</text><text x="112" y="174">days</text>
+          <text x="112" y="114">years</text><text x="112" y="54">centuries</text>
+        </g>
+        <text x="20" y="24" font-family="Special Elite" font-size="15" fill="#3a362f">TIME TO CRACK (rough)</text>
+        <rect x="0" y="300" width="680" height="60" fill="#cfcbc0"/>
+        <g fill="#2a2a2a">
+          <circle cx="190" cy="270" r="10"/><rect x="176" y="282" width="28" height="22" rx="8"/>
+          <circle cx="320" cy="222" r="14"/><rect x="300" y="240" width="40" height="64" rx="12"/>
+          <circle cx="450" cy="150" r="16"/><rect x="426" y="170" width="48" height="134" rx="14"/>
+          <circle cx="585" cy="70" r="18"/><rect x="558" y="92" width="54" height="212" rx="16"/>
+        </g>
+        <g font-family="Courier Prime" font-size="13" font-weight="700" fill="#111" text-anchor="middle">
+          <rect x="150" y="312" width="80" height="30" fill="#fff" stroke="#111"/><text x="190" y="332">123456</text>
+          <rect x="268" y="312" width="104" height="30" fill="#fff" stroke="#111"/><text x="320" y="332">sipho2010</text>
+          <rect x="392" y="312" width="116" height="30" fill="#fff" stroke="#111"/><text x="450" y="332">Kasi!Bank7</text>
+          <rect x="520" y="312" width="150" height="30" fill="#fff" stroke="#111"/><text x="595" y="332" font-size="11">purple-taxi-river</text>
+        </g>
+      </svg>
+      <figcaption>Passwords as suspects: the taller, the longer to crack. Drawn plainly here; it takes the chosen style. Times are placeholders until the lesson is written and checked.</figcaption>
+    </figure>
+  </section>
+
+  <p class="note">My lean: A (the incident board) for figures, with D's findings form borrowed for the three-check routine, and Sniff plus The Phisher as hero and villain. A is the most distinct from the blue pen and from CAT's marker, and the red string keeps every label tied to its spot.</p>
+</div>
