@@ -325,3 +325,7 @@ formed, all passed; check-jev on each lesson - flags read (section 6);
 renderone (mirror copy): nestedif 86 573, countifs 61 915, lookups 75 788,
 text 82 945, dates 61 038, summaries 89 017, datatools 86 596, charts12
 80 945, scenario 65 763 bytes, no WARN. check-sags on the real tree OK.
+
+## Left over (9 October 2026, Chris: note them, stop)
+
+- charts12 simAxisMax a-1 and a-2 (Format Axis pane, Maximum 1000) are still the old, cut-off pictures; two real double-clicks opened Format Shape. Next try: select the axis through COM and press Ctrl+1.

@@ -306,3 +306,7 @@ In a scratch copy of the repo with catdb as a draft course:
 - A few cropped pictures in public/assets/sims/catdb are not used by any lesson
   (spares from the runs); they can be deleted.
 - *(Closed 9 October 2026: forms and reports are marked - see section 6.)*
+
+## Left over (9 October 2026, Chris: note them, stop)
+
+- tests/uploads/catdb/FunRun-done.accdb has no frmRunners or rptDistance, so it scores 16/20 on upFunRun (the form and report checks); pupils' uploads are marked correctly. Remake it in real Access in the VM (never Enable Content) if the done copy is wanted at full marks.
