@@ -2088,6 +2088,53 @@ pupils in Grades 9-11; email through **Brevo**, plus the bell.
   The lesson toolbar's "out of" and "N of M" now use the key too (they used
   to include the other board's questions).
 
+## Guided try-its, step gates and sequential courses (Chris, 9 October 2026)
+
+The contract is courses/sql9-course.md, "Guided try-its, step gates and
+sequential lessons"; the code is lib/sequence.php, lib/sql.php and
+api/sql-run.php.
+
+- **Guided try-it**: an `sql` block with an `'answer'` (keys: id, database,
+  prompt, sql - `''` as a rule, answer, order, names, hints, gate). Run shows
+  the result as always and compares it with the model query's
+  (`SqlQuestionExpected()` + `SqlQuestionCompare()`, as `sqlquery` does). Same
+  result: "Step solved". Not the same: `SqlGuidedExplain()` first - the code's
+  certainties in a 14-year-old's words with the database's real names (an SQL
+  error read from MySQL's, SQLite's or Java DB's message: no such field + the
+  table's fields + "Did you mean", no such table, a value with no quotes, a
+  misspelt keyword, a comma before FROM ...; fields missing or extra, too
+  many or too few rows, repeats, the order) - then `SqlGuidedAiHelp()`
+  (Claude, costed `sqlhelp`, kept per block and wording in `whyHints` under
+  `sqlstep:<id>`; dropped when it quotes the model query or a clause of it,
+  and the code's part stands alone when the AI fails). The verdict is by
+  result, never by an AI, so Jev has no part here. Progress: `sqlSteps` (runs,
+  wrongRuns, solved, solvedAt, lastSql) per pupil per block; 3 wrong runs
+  bring the hints, 5 the model query ("Type this in and run it" - shown, never
+  put in the box). Unmarked. A reload shows a solved step solved with the
+  pupil's SQL. A block that names no dialect runs in MySQL (`SqlBlockDialect()`
+  - the Grade 9 course; sql-answer.php had passed `''`).
+- **Step gates**: a guided try-it is a gate unless `'gate' => false`; nothing
+  else is (missions are not). lesson.php wraps every block after an unsolved
+  gate in `[data-held-by]` (the nearest unsolved gate above it -
+  `GateHolds()`) behind "Solve the step above to carry on"; sql-runner.js
+  opens them in place when it is solved, and a link to a held anchor
+  (contents, outline, carry on) goes to the panel. Server side
+  `ApiRequireLesson()` refuses a `questionId` behind an unsolved gate for every
+  answer endpoint (`ApiRequireUngated()`), and sql-run.php does the same.
+  A board or scenario's frame is never wrapped (only its parts hide).
+- **Sequential courses**: `'sequential' => true` in `CourseIndex()` (sql9,
+  pascal9). `LessonComplete()` = every gate solved + every marked question
+  answered (`PupilLessonProgress()`'s 'answered': settled, mission too, or
+  written handed in). Lesson N opens when lesson N-1 (index order, written,
+  shown to the pupil) is complete, or a teacher opened it (`lessonUnlocks`,
+  "Lessons in order" on pupil-work.php). Enforced on lesson.php (a locked page
+  listing what is left, with links), the course page (lock + "Opens when you
+  finish Lesson N"), `ApiRequireLesson()`, sql-run.php, study notes, the
+  Index search and the dashboard's next lesson. Teachers and admins skip it
+  all (`SequenceExempt()`).
+- Check: `php tests/sequence.test.php` (its own throwaway database; with the
+  local SQL runner running it also runs real SQLite and Java DB errors).
+
 ## Decisions that must not be undone
 
 **1. Written answers are queued, never marked in the web request.**
@@ -2909,6 +2956,9 @@ Secrets live in `config/config.php` per project, never here.
   `php bin/check-markcorrect.php`, `php bin/check-code-blocks.php` (Pascal and Java),
   `php bin/check-collectables.php`.
 - `node tests/tokeniser.test.js`; `node public/assets/*.test.js`.
+- `php tests/sequence.test.php` - guided try-its, step gates and sequential
+  lessons (9 October 2026), after any change to lib/sequence.php or the
+  guided parts of lib/sql.php.
 - Every `written` `markMax` even; every shown mark count matches the engine
   (decision 12); a new block with `.block-icon` is in the `position: relative`
   list (decision 21).
