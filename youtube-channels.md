@@ -233,7 +233,7 @@ lesson order (31 videos). No cards. The new 21.3 render was not used (Chris: kee
 8.1 X0GmgfpSKJk was replaced by a new render, R0v0QrFBS1A (Chris deleted the old one).
 
 **Captions:** our en-GB .srt is on 2.1, 2.2, 2.3, 3.1, 4.1, 4.2, 4.3 and 4.4. Still to do: 5.1, 5.2, 6.1, 6.2,
-7.1, 7.2 and 7.3 (files in `E:\itcoder-videosor upload`). "Upload manual" on the Languages page fails ("Upload
+7.1, 7.2 and 7.3 (files in `E:\itcoder-videos\for upload`). "Upload manual" on the Languages page fails ("Upload
 captions failed"); only the editor's Options > Upload file works, and in that editor the first click on each control
 is often ignored. Studio stops loading after a few captions; wait or come back later.
 Lessons: AIPascalCourse 2-8 (not published).
