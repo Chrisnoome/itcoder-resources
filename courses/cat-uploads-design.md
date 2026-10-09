@@ -34,9 +34,10 @@ upload and no marking for that pupil, and the block says why** - the rest of
 the lesson works as normal. The agreement is stored once per pupil
 (`pupils.uploadConsentAt`, and who gave it). For a pupil under 18 the wording
 asks for the parent's or guardian's agreement ("My parent or guardian and I
-agree ..."). **Open for Chris** (popia-checklist.md, "Children"): whether a
-school's own agreement covers its pupils, or a parent must confirm separately.
-The gate is one function, so the rule can change without touching the blocks.
+agree ..."). **Settled (Chris, 9 October 2026: "upload consent ok")**: the
+consent screen as built stands - the pupil agrees, and an under-18 names the
+parent or guardian who agrees with them; no separate parent confirmation
+(popia-checklist.md, "Children"). The gate is one function, so the rule can change without touching the blocks.
 
 ## Keeping, opening, deleting
 

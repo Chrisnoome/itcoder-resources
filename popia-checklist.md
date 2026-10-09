@@ -39,6 +39,13 @@ that consent. Where the site stands:
 | Pupils of a private tutor or a teacher with a personal address | None from a parent; the admin approves the teacher before any work is shown | Ask: must the site collect a parent's consent for these pupils (e.g. a parent's email confirmation)? |
 | Individual sign-ups under 18 (no teacher) | None | Ask: what consent step is needed at sign-up? |
 
+**Uploaded files (CAT, 9 October 2026):** Chris approved the upload consent
+screen as built ("upload consent ok"): before the first upload the pupil
+agrees, and a pupil under 18 names the parent or guardian agreeing with them;
+refused means no upload and no marking. Files are kept until 31 December,
+opened only by the pupil, their class teachers and (with a reason) an admin,
+every opening logged (courses/cat-uploads-design.md).
+
 ## Showing a child's work to an adult (section 19)
 
 Reasonable measures against unauthorised access. What the site does (Chris, 3
