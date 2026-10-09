@@ -2,9 +2,10 @@
 
 Grade 8, eight lessons, General Computing. **Draft** (teachers only) in `CourseIndex()`
 (`AIPascalCourse/lib/course.php`, 9 October 2026). Content in `content/safety/`.
-**Written:** lesson 1 `phishing`, lesson 2 `passwords` and lesson 3 `secondlock` (9 October
-2026), each checked on the local testbed and by `check-jev.php` (no flags). Lessons 4-8 not
-yet written.
+**Written:** lessons 1-4 - `phishing`, `passwords`, `secondlock`, `leak` (9 October 2026),
+each checked on the local testbed and by `check-jev.php` (no flags). Lessons 5-8 not yet
+written. Lessons 1-3 were pushed for Chris to publish (9 October); lesson 4 is committed after
+that push.
 
 Platform: the course's body class `course-safety` (lesson.php) gives its doodle captions
 Caveat (design-e.css); its fonts load with the others (design.php, lesson.php). Figures and
@@ -46,8 +47,10 @@ machines -> the big case.
    tricks - the "bank fraud department" call (spoofing), the WhatsApp "code sent by mistake",
    the SIM swap; switch it on (email first, WhatsApp's PIN, the password manager), backup
    codes. The case load is `scamSpotter` again with five code messages.
-4. **Case 04: The leak** - data breaches: what leaks, why reused passwords spread the damage,
-   checking whether you were in one, the steps after a breach.
+4. **Case 04: The leak** - data breaches and what leaks; POPIA's rule that the company must
+   tell you; credential stuffing (one key, every door); spear phishing with leaked details;
+   checking on Have I Been Pwned (linked; email only, with an adult); five steps after a leak.
+   The case load is `scamSpotter` with four after-the-leak messages.
 5. **Case 05: What your apps know** - permissions, location, contacts, cookies and trackers,
    "free" apps paid for with data. POPIA in Grade 8 words: what a company may keep about you
    and what you can ask for. Activity `permissionAudit`: an app asks for permissions, pupil
