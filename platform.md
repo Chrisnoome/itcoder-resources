@@ -24,6 +24,9 @@ open to outside subscribers.
 - Course status: `open` (catalogue), `draft` (teacher preview), `soon` (listed,
   no content, no Join, `RequireEnrolment()` refuses). `ActiveCourses()` = all
   but `soon`; class results, admin and checkers use it.
+  **No new course uses `draft`** (Chris, 9 October 2026: "no more draft"):
+  a course goes straight to `open` (or `soon` while it has no lessons).
+  Review happens locally; the only `draft` left is the retired CAT pilot.
 - One codebase: `Projects/AIPascalCourse`, live at `/var/www/itcoder`. v1
   (`Projects/AIWebCourse/itcoder`) is not deployed; it is only source material
   for the AI course.
