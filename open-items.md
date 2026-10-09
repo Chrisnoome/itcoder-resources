@@ -609,32 +609,22 @@ Still open:
   [courses/delphi-gui.md](courses/delphi-gui.md). Ask Chris its four
   questions first.
 
-- **WHEN THE VIDEO VM IS FREE: a Pascal lesson on making Lazarus format code
-  in the house style, with a style file and a video** (Chris, 9 Oct 2026:
-  "add a lesson to pascal - customizing how lazarus formats its code ... the
-  settings in the options menu and how to change capitalisation, layout,
-  spacing, etc to get close to the house style. export a style file that
-  they can import to attach to the lesson. schedule a video on this as well.
-  you will need the vm, so this will have to wait until the video producer
-  is finished"). Start only once the video-producer chat has finished with
-  the VM; checkpoint the VM first and restore it after.
-  1. In the VM's Lazarus, find every setting that touches layout: Tools ›
-     Options › Codetools (code creation, words/case, line splitting, spaces)
-     and the JEDI Code Format settings (capitalisation, spacing, indents,
-     line breaks). Note the exact menu names for the installed version.
-  2. Set them as close to [pascal-house-style.md](pascal-house-style.md) as
-     Lazarus allows (Capitalised reserved words, a space before `:` and `(`,
-     spaces round operators, indents, blank lines), and list what it cannot
-     do (naming, comment blocks - the site's own checks still catch those).
-  3. Export the settings as a file pupils import (check how: an Export button,
-     or the settings file copied into Lazarus's config folder), test the
-     import on a clean profile, and attach it to the lesson as a download.
-  4. Write it as a **guide, like Set-up** (Chris chose, 9 Oct 2026): untested,
-     beside "Getting your computer set up" and the IDE guide, done once when
-     Lazarus is installed. Usual rules - glossary words, a "Try this".
-  5. The tutorial video: [courses/tutorial-videos.md](courses/tutorial-videos.md)
-     and the tutorial video rules, recorded in the same VM session; embed it
-     in the lesson.
+- **Lazarus formats code - pictures, an IDE run and the video** (Chris, 9 Oct
+  2026: "add a lesson to pascal - customizing how lazarus formats its code
+  ... export a style file that they can import ... schedule a video on this
+  as well"). BUILT 10 Oct 2026, not published: the guide
+  `content/pascal/lazformat.php` (after Set-up) and its download, made by
+  `tools/lazformat/make_cfg.py` - see platform.md, "Lazarus formats code".
+  Still to do, in the video VM (checkpoint it first, restore after; its start
+  was not allowed on 10 Oct 2026, so ask Chris to allow it):
+  1. Copy the download over `%LOCALAPPDATA%\lazarus\jcfsettings.cfg` in
+     Lazarus there, press Ctrl+D on the guide's messy tuck shop program and
+     check the result matches the guide's second listing.
+  2. Pictures for the guide: Source > JEDI Code Format, and Tools > Options'
+     JCF Format Settings (Capitalisation, Spaces) and Codetools (Words,
+     Space) pages - check the guide's names against them.
+  3. The tutorial video: queued with the video-production chat (told 10 Oct
+     2026); embed it in the guide once it is on YouTube.
 
 - **AI lesson 9's isiZulu prompt** (1 Oct 2026) - written by Claude; a fluent
   speaker must check it (the lesson's `everySubject` card and its study

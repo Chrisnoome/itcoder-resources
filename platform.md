@@ -925,6 +925,36 @@ inside `GameSync()`; their XP counts towards the course XP and rank.
   aiming for (the Course achievements tab, rank emblems) still show their
   picture, greyed or locked - those are meant to be seen.
 
+## Lazarus formats code (Chris, 9 Oct 2026)
+
+Chris: "add a lesson to pascal - customizing how lazarus formats its code ...
+export a style file that they can import". A guide, like Set-up (his
+choice): `content/pascal/lazformat.php`, badge STYLE, number 0, right after
+Set-up, untested (enrichment in sags.php and caps.php).
+- **The download** `public/assets/practical/pascal/jcfsettings.cfg` is
+  Lazarus's JEDI Code Format settings file, made by
+  `tools/lazformat/make_cfg.py` from Lazarus 4's defaults. Pupils close
+  Lazarus and copy it over `%LOCALAPPDATA%\lazarus\jcfsettings.cfg` (the
+  IDE has no import button); Ctrl+D then formats the file.
+- **What it sets**: reserved words, operators, constants and types Mixed
+  Case; `private`/`public`/`Override`/`DownTo` exactly so; a space before
+  every declaration colon and before `(`, spaces round operators,
+  `Class (TObject)`; 2-space indent; no library indent in programs (else
+  `Var` and `Begin` move in); Case `Else` under `Case`; `Else If` nested as
+  the lessons write it; a statement after `Then`/`Do` on its own line; long
+  lines never re-broken; a procedure heading keeps its line breaks.
+- **Tested** with JCF's command-line build (lazbuild of
+  `C:\lazarus\components\jcf2\CommandLine\Lazarus\jcf.lpi`, to D:) on the 97
+  Pascal files of the tutorial videos: unchanged apart from its limits -
+  aligned Var colons closed up, `{$H+}` moved in when no `Uses` follows, a
+  program's `Uses` one unit a line, a `Try` inside a `Repeat` outdented,
+  write widths spaced (`average: 6: 1`). Begin ... End for single statements
+  is left off: JCF would add them to every Case branch too. The guide lists
+  what pupils still do by hand (names, comments, blank lines, Begin ... End).
+- **Not yet done**: pictures of the Options pages and a run of the import in
+  the IDE itself (the video VM's start was not allowed on 10 Oct 2026); the
+  tutorial video is queued with the video-production chat.
+
 ## Practice - word games from the glossary (Chris, 25 Sep 2026)
 
 - `practice.php?c=` (any course with a glossary), `assets/practice.js`,
