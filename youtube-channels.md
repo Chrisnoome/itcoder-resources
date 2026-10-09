@@ -220,3 +220,18 @@ pages, in the Pascal playlist in order (15 videos, no doubles).
 | 21.6 The Full Exam Example | 3mw-qdjIrLQ | - |
 
 16.1's card at 6:00 now points to the new 20.1. Lessons: AIPascalCourse lesson20/21 (not published).
+
+## Pascal tutorials 2.1-8.1 (9 October 2026)
+
+16 uploaded (Chris dragged them in his own Studio tab), Public, own thumbnails, in the Pascal playlist before 16.1 in
+lesson order (31 videos). No cards. The new 21.3 render was not used (Chris: keep the live one).
+
+2.1 Jk40JqPTV90 · 2.2 2S1NsFVw7LY · 2.3 Po8n7Xs5yiA · 3.1 xekcMdz9Yx8 · 4.1 MDQ9cpt-MeU · 4.2 2Ker_LZMLRQ ·
+4.3 gDsPhuOt0jE · 4.4 ncOowQ96NKk · 5.1 g7yi_eg0Ql8 · 5.2 u1OrRRxiJAU · 6.1 EjpcztZc9Fo · 6.2 QbkE3ybzDxc ·
+7.1 MaeEPepYcRo · 7.2 sPf0Tg6WqAQ · 7.3 53idNISQyMA · 8.1 X0GmgfpSKJk
+
+**Captions still to do** (Chris: "do the rest later" - Studio was too slow): our en-GB .srt is on 2.1, 2.2, 2.3, 3.1
+and 4.2 only; 4.1, 4.3, 4.4, 5.1, 5.2, 6.1, 6.2, 7.1, 7.2, 7.3 and 8.1 still need theirs (files in
+`E:\itcoder-videos\for upload`). "Upload manual" on the Languages page fails ("Upload captions failed"); only the
+editor's Options > Upload file works, and in that editor the first click on each control is often ignored.
+Lessons: AIPascalCourse 2-8 (not published).
