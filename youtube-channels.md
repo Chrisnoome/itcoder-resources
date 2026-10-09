@@ -201,3 +201,22 @@ renamed). Made Public the same day (Chris: "Public now"); en-GB captions checked
 YouTube allows one card per target video: a second card to the same video is refused (400), so only the first
 mention gets a card. 21.1 (Why inheritance) is not up yet - its upload was cut off. Lessons: AIPascalCourse
 lesson16/17/20 link these (not published).
+
+## More Pascal tutorials (9 October 2026)
+
+20.1 and 20.2 replaced by newer renders (old W5p4d9uG0og and JwcwT3DLynQ out of the playlist and lessons - for Chris to
+delete), and the inheritance series 21.1-21.6. All Public (Chris), thumbnails, en-GB captions checked on the watch
+pages, in the Pascal playlist in order (15 videos, no doubles).
+
+| Tutorial | ID | Cards |
+|---|---|---|
+| 20.1 An Array Manager Class (new) | zYzCZk9oG0E | 0:43 -> 16.1, 5:06 -> File Explorer |
+| 20.2 Saving and Loading the Shelf (new) | 1jI_MU7EP1g | 0:25 -> 20.1, 1:00 -> 17.4 |
+| 21.1 Why Inheritance? | hZWY-owPJkc | - |
+| 21.2 A Descendant of its Own | nNX6Bn9bezo | - |
+| 21.3 Changing an Inherited Method | 3Kh5JXDrJEE | - |
+| 21.4 One Array, Two Kinds | kAEaBWaXEEk | - |
+| 21.5 A File with Two Kinds of Line | zJR3PQyUIjA | - |
+| 21.6 The Full Exam Example | 3mw-qdjIrLQ | - |
+
+16.1's card at 6:00 now points to the new 20.1. Lessons: AIPascalCourse lesson20/21 (not published).
