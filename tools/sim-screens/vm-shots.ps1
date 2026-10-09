@@ -55,7 +55,25 @@ try {
 
   # Run it in the VM's desktop session (the agent), in Windows PowerShell 5.1.
   $job = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File 'C:\sims\sim-screens\$name.ps1' *> 'C:\sims\$name.log'; if (`$LASTEXITCODE) { throw ('exit ' + `$LASTEXITCODE + ': ' + (Get-Content 'C:\sims\$name.log' -Raw)) }"
-  Job "sims-$name" $job $TimeoutSec | Out-Null
+  # A job that times out or fails on the host keeps running in the VM and holds
+  # the agent, so every later run waits behind it (8 October 2026: a hung Word
+  # save held the queue for an hour). Stop it - and the Office it opened (under
+  # the lock, only this run's Office is open) - before letting go of the lock.
+  try { Job "sims-$name" $job $TimeoutSec | Out-Null }
+  catch {
+    $err = $_
+    $k = VmSession
+    try {
+      Invoke-Command -Session $k -ArgumentList $name {
+        param($n)
+        Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" | Where-Object { $_.CommandLine -match [regex]::Escape("\sim-screens\$n.ps1") } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+        Get-Process WINWORD, EXCEL, POWERPNT, MSACCESS, notepad++, msedge -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+        Remove-Item "C:\share\jobs\sims-$n.ps1" -ErrorAction SilentlyContinue
+        Get-ChildItem "$env:SystemDrive\Users\pupil\AppData\Roaming\Microsoft\Word" -Filter '~WRA*' -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue
+      }
+    } finally { Remove-PSSession $k }
+    throw $err
+  }
 
   $s = VmSession
   try {
@@ -68,6 +86,8 @@ try {
       $dest = Join-Path $here "files\$name"
       New-Item -ItemType Directory -Force $dest | Out-Null
       foreach ($f in $made) { Copy-Item $f -Destination $dest -FromSession $s -Force }
+      # The VM's Office is signed in as Chris and writes his name into every file it saves (9 October 2026).
+      & python (Join-Path $here 'scrub-office.py') $dest --fix | Select-Object -Last 1
       "$(@($made).Count) made files -> files\$name\"
     }
     Invoke-Command -Session $s -ArgumentList $name { param($n) Get-Content "C:\sims\$n.log" -ErrorAction SilentlyContinue }

@@ -195,3 +195,63 @@ cat-videos/simulations.md).
   writer, your program's case in `SimulationPractice()`, and your entry in
   `cat-crop.py`. If something in the platform is broken or missing, say so
   in your notes rather than changing it.
+
+## Grades 11 and 12 (Chris, 8 October 2026: "continue with grades 11 and 12 when grade 10 is done")
+
+Everything above applies. What changes:
+
+- **The same courses**, new chapters: a Grade 11 or 12 lesson has
+  `'grade' => 11` / `12` in the course's `index.php` (one course per program,
+  chapters by grade). Access (`catdb`, title "Databases") starts in Grade 11.
+  HTML Grade 11 is where **IEB** pupils start: its first lesson recaps the
+  Grade 10 chapter quickly and links to it (CAPS pupils have done it).
+- **You plan your own lessons** from the counts and chapters in
+  [cat-course.md](cat-course.md) 3.3 and the Grade 11 / 12 lines of
+  [../cat-caps.md](../cat-caps.md) (section 3) and [../cat-sags.md](../cat-sags.md)
+  (8.2-8.5). Every line in your range is taught somewhere; where the boards
+  differ by grade (CAPS teaches X in Grade 11, the IEB in Grade 12, or the
+  other way round), teach it where the earlier board has it, inside a
+  BoardSection for that board, and say in the note that the other board
+  meets it a year later. Ids are short words, unique in the course
+  (`styles`, `mailmerge`, `absolute`, `lookups`, `forms`).
+- **Build on Grade 10**: the pupil has done the Grade 10 lessons of the same
+  course (`content/<course>/`, grade 10 entries). Recap in a sentence and
+  link (`/lesson.php?c=<course>&amp;id=<id>#anchor`); never teach it again.
+- **Pitch**: a grade older - longer tasks, more "plan it for this scenario",
+  troubleshooting, integration between programs. Grade 12 leans on scenarios
+  like the practical exam (a starter file, a numbered task list, marked from
+  the file).
+- **Access uploads** are marked too (`.accdb`, `accdb.*` subjects in
+  `lib/uploadmark.php`; a query is marked by what it returns - read
+  platform.md "Access (.accdb)" and `content/catpilot/access.php`'s
+  `upChess`). Make starter databases with real Access in the VM.
+- **Index entries last**: add your lessons to the course's `index.php` only
+  when each lesson file is complete and passes the checks (an entry with no
+  file breaks shared checks). Two writers may share a course's index: re-read
+  it just before your edit and use the Edit tool.
+- **Glossary**: rows in `content/cattheory10/glossary.php`'s section for your
+  course, grade 11 or 12, `'course' => '<course>'`; skip terms that exist.
+  **Coverage**: `content/<course>/caps.php` and `sags.php`, `[11, ...]` /
+  `[12, ...]` lines (create the files for `catdb` in catpilot's format).
+- **Videos**: `<course>-<two-digit lesson number>.<n>`, numbering on from the
+  course's last lesson.
+- **The VM** is shared by every writer through `vm-shots.ps1`'s lock (90
+  minutes' wait). Known: Word's `SaveAs2` can hang in the VM - save the way
+  `work/catword-kit.ps1` does (File > Save As); right-click menus, many
+  galleries and drop-downs don't capture; dialogs' controls aren't exposed
+  to UI Automation (set state through COM, reopen, read targets off the
+  picture). If your run hangs, the helper now stops it and its Office.
+  Paint out the VM's "Add-ins"/"Claude" ribbon groups and any account name.
+- **Never leave a placeholder that breaks a check** in the shared tree (an
+  undefined constant, a missing picture, an index entry with no file).
+
+## The Office account's name (9 October 2026)
+
+The CAT VM's Office is signed in as Chris, and every file Word, Excel or
+PowerPoint saves carries his name (document properties, tracked changes,
+comments) - setting a local user name does not stop it. `vm-shots.ps1` now
+scrubs files it brings back from `C:\sims\files\`, but a file you copy out
+any other way, or a done-right copy you make or patch, must be scrubbed too:
+`python tools/sim-screens/scrub-office.py <folder> --fix` on your starter
+files and test fixtures before you report. The lead runs it before every
+commit as well.
