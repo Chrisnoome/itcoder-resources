@@ -641,6 +641,25 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   "Fix Botha's Bakery's page". On a localhost testbed the preview's pictures
   do not load (Chrome's private-network rule stops a sandboxed frame reaching
   127.0.0.1); on the site they do.
+- **`mission` blocks** (the Grade 9 Pascal course "Station Kestrel",
+  courses/pascal9-course.md, Chris 9 Oct 2026; lib/mission.php,
+  api/mission-answer.php, assets/mission-block.js, `.mission-*` in style.css):
+  a code box (Run, the input box and the terminal unchanged - it is in
+  `LessonCodeQuestions()`) that is also marked like the HTML block. Each check
+  is a **test** (`'input'` typed in; `'expect'`, `'absent'`, `'exact'`; case,
+  spacing and line breaks ignored except in `exact`; a purely numeric expect
+  matches a number of that value - `50` = `50.00`, never `150`), a **source**
+  rule (words in the code, comments and strings left out) or a **`'jev'`**
+  question on `pupil_code` and `pupil_output` (Claude when Jev is unsure;
+  costed as `missioncheck`). One compile per different input; at most 3
+  checks at once server-wide (a busy station uses no try); the layout check
+  first (no try). Two tries; each check doubled when met first time. Every try
+  shows each test's input and the pupil's own output with a tick or cross,
+  never the expect. Stored `{code, met, notes, runs}`.
+  `php bin/check-missions.php [course | content/folder]`: the model meets
+  every rule check, the starter does not; `php tests/mission.test.php` tests
+  the matching on real programs. The testbed runs Crt programs with a
+  stand-in Crt that writes the server's ANSI codes (lib/testbed-crt/crt.pas).
 - **`sheet` blocks - the spreadsheet grid and its formula evaluator** (CAT
   decision 19, courses/cat-course.md 3.0 item 19 and 4 item 7; Chris 9 Oct
   2026: "complete simulations and marking"). Files: `lib/sheetcalc.php` (the

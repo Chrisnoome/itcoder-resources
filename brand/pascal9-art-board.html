@@ -1,0 +1,266 @@
+<title>Station Kestrel Style Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;600&family=Righteous&family=Press+Start+2P&family=VT323&family=Caveat:wght@500;700&family=Patrick+Hand&display=swap">
+<style>
+/* Layout: a briefing sheet - four style panels in a 2-up grid, then mascots, then the terminal look. */
+:root {
+  --bg: #eef1f4; --fg: #17202b; --muted: #5a6573; --line: #cdd5de; --card: #ffffff; --accent: #d9640f;
+  --display: "Chakra Petch", "Segoe UI", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #10151c; --fg: #e4e9ef; --muted: #98a3b1; --line: #2a3441; --card: #18202a; --accent: #f08a3c; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #10151c; --fg: #e4e9ef; --muted: #98a3b1; --line: #2a3441; --card: #18202a; --accent: #f08a3c; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(26px, 4vw, 38px); letter-spacing: .01em; }
+h2 { font-size: 22px; margin-top: 44px; }
+.eyebrow { font: 600 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.lede { max-width: 68ch; color: var(--muted); margin: 8px 0 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr)); gap: 20px; margin-top: 18px; }
+.panel { border-radius: 6px; overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
+.panel svg.scene { display: block; width: 100%; height: auto; }
+.panel .body { padding: 16px 18px 18px; display: grid; gap: 12px; flex: 1; }
+.panel h3 { margin: 0; font-size: 20px; display: flex; gap: 10px; align-items: baseline; }
+.panel h3 .k { font: 600 13px var(--mono); padding: 2px 7px; border-radius: 3px; }
+.panel p { margin: 0; font-size: 14px; }
+.term { font-size: 13px; line-height: 1.45; padding: 12px 14px; border-radius: 4px; margin: 0; white-space: pre; overflow-x: auto; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font: 12px var(--mono); padding: 2px 8px; border-radius: 99px; }
+
+/* A - Blueprint + CRT */
+.pa { background: #0f355a; color: #dfeaf5; border-color: #0f355a; }
+.pa h3 { font-family: "IBM Plex Mono", monospace; letter-spacing: .04em; text-transform: uppercase; font-size: 17px; }
+.pa h3 .k { background: #ffb000; color: #1a1206; }
+.pa .term { background: #1a1206; color: #ffb000; font-family: "IBM Plex Mono", monospace; box-shadow: inset 0 0 24px rgba(255,176,0,.18); }
+.pa .tags span { border: 1px solid #5d86ad; color: #b9d0e6; }
+
+/* B - Space-age poster */
+.pb { background: #f2e3c6; color: #1d2a3a; border-color: #e0cba3; }
+.pb h3 { font-family: "Righteous", sans-serif; font-weight: 400; font-size: 23px; }
+.pb h3 .k { background: #c4512b; color: #f2e3c6; }
+.pb .term { background: #1d2a3a; color: #f2e3c6; font-family: "IBM Plex Mono", monospace; border-left: 8px solid #e8a33d; }
+.pb .tags span { background: #1f6f78; color: #f2e3c6; }
+
+/* C - Pixel */
+.pc { background: #1d1832; color: #f4f0ff; border-color: #1d1832; }
+.pc h3 { font-family: "Press Start 2P", monospace; font-size: 13px; line-height: 1.6; }
+.pc h3 .k { background: #ff77a8; color: #1d1832; font-family: "Press Start 2P", monospace; font-size: 10px; }
+.pc .term { background: #000; color: #29adff; font-family: "VT323", monospace; font-size: 19px; line-height: 1.15; border: 4px solid #5f574f; border-radius: 0; }
+.pc .tags span { background: #29366f; color: #ffec27; border-radius: 0; }
+
+/* D - Crew notebook */
+.pd { background: #fbfaf4 linear-gradient(#dfe7ef 1px, transparent 1px) 0 0 / 100% 22px; color: #26313d; border-color: #e3e0d3; }
+.pd h3 { font-family: "Caveat", cursive; font-size: 30px; font-weight: 700; }
+.pd h3 .k { background: #f6d55c; color: #26313d; transform: rotate(-3deg); }
+.pd p { font-family: "Patrick Hand", "Comic Sans MS", cursive; font-size: 17px; line-height: 1.4; }
+.pd .term { background: #20262c; color: #d8f5d0; font-family: "IBM Plex Mono", monospace; transform: rotate(-.6deg); box-shadow: 3px 4px 0 rgba(0,0,0,.12); }
+.pd .tags span { border: 1.5px dashed #6d7a88; color: #3c4855; font-family: "Patrick Hand", cursive; font-size: 14px; }
+
+.mascots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; margin-top: 18px; }
+.mascot { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 14px; display: grid; gap: 8px; min-width: 0; }
+.mascot svg { width: 100%; height: auto; max-height: 170px; background: #0f355a; border-radius: 4px; }
+.mascot b { font-family: var(--display); font-size: 18px; }
+.mascot p { margin: 0; font-size: 14px; color: var(--muted); }
+.note { margin-top: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; max-width: 80ch; }
+.note p { margin: 0 0 8px; } .note p:last-child { margin: 0; }
+code { font-family: var(--mono); font-size: .92em; }
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">Grade 9 · term 2 · Pascal · pascal9</div>
+  <h1>Station Kestrel: pick an art style</h1>
+  <p class="lede">The same station, the same oxygen-counter screen and the same mission card, drawn four ways. Choose a style, a mascot, and whether the "screen they need" pictures follow the style or stay one plain terminal look.</p>
+
+  <div class="grid">
+
+    <!-- A -->
+    <section class="panel pa">
+      <svg class="scene" viewBox="0 0 520 230" role="img" aria-label="Blueprint drawing of the station">
+        <rect width="520" height="230" fill="#0f355a"/>
+        <g stroke="#2a5a86" stroke-width="1"><path d="M0 23H520M0 46H520M0 69H520M0 92H520M0 115H520M0 138H520M0 161H520M0 184H520M0 207H520"/><path d="M26 0V230M52 0V230M78 0V230M104 0V230M130 0V230M156 0V230M182 0V230M208 0V230M234 0V230M260 0V230M286 0V230M312 0V230M338 0V230M364 0V230M390 0V230M416 0V230M442 0V230M468 0V230M494 0V230"/></g>
+        <g fill="none" stroke="#e8f1fa" stroke-width="1.6">
+          <path d="M120 112H400"/>
+          <rect x="60" y="72" width="60" height="80"/><path d="M60 92H120M60 112H120M60 132H120M80 72V152M100 72V152"/>
+          <rect x="400" y="72" width="60" height="80"/><path d="M400 92H460M400 112H460M400 132H460M420 72V152M440 72V152"/>
+          <rect x="220" y="92" width="80" height="40" rx="8"/><circle cx="260" cy="88" r="16"/>
+          <rect x="300" y="104" width="22" height="16"/><rect x="198" y="104" width="22" height="16"/>
+          <path d="M322 112h14" stroke-dasharray="3 3"/>
+        </g>
+        <g fill="#ffb000" font-family="IBM Plex Mono, monospace" font-size="11">
+          <path d="M260 60V40H300" stroke="#ffb000" fill="none"/><text x="304" y="44">HAB-1 / CREW 6</text>
+          <path d="M90 160v22h-40" stroke="#ffb000" fill="none"/><text x="14" y="198">ARRAY P</text>
+          <path d="M336 112v-40h60" stroke="#ffb000" fill="none"/><text x="400" y="56">DOCK-A</text>
+          <circle cx="336" cy="112" r="5" fill="none" stroke="#ffb000"><animate attributeName="r" values="4;9;4" dur="2s" repeatCount="indefinite"/></circle>
+        </g>
+        <text x="14" y="22" fill="#9fc0de" font-family="IBM Plex Mono, monospace" font-size="11">DWG KS-01  STATION KESTREL  SCALE 1:400</text>
+      </svg>
+      <div class="body">
+        <h3><span class="k">A</span>Blueprint and amber CRT</h3>
+        <p>Engineering drawings on blueprint grid for the station and its systems; amber-on-black terminals for every program screen. Calm, technical, reads well on a projector. Pairs with realistic coloured-pencil or painted scenes from ComfyUI for the crew and Earth views.</p>
+<pre class="term">KESTREL LIFE SUPPORT - OXYGEN
+=============================
+Crew aboard     : 6
+Oxygen in tank  : 1200 litres
+Use per person  : 4 litres/hour
+-----------------------------
+Air left        : 50.0 hours
+                = 2 days 2 hours
+STATUS: AMBER - call the ship</pre>
+        <div class="tags"><span>IBM Plex Mono</span><span>#0f355a</span><span>#ffb000</span><span>SVG drawn</span></div>
+      </div>
+    </section>
+
+    <!-- B -->
+    <section class="panel pb">
+      <svg class="scene" viewBox="0 0 520 230" role="img" aria-label="Space-age poster of the station over Earth">
+        <rect width="520" height="230" fill="#1d2a3a"/>
+        <circle cx="430" cy="52" r="30" fill="#e8a33d"/>
+        <g fill="#f2e3c6"><circle cx="40" cy="30" r="1.6"/><circle cx="120" cy="60" r="1.2"/><circle cx="210" cy="24" r="1.6"/><circle cx="330" cy="40" r="1.2"/><circle cx="480" cy="120" r="1.4"/><circle cx="70" cy="100" r="1.2"/></g>
+        <path d="M-20 230 Q260 140 540 230Z" fill="#1f6f78"/>
+        <path d="M-20 230 Q260 160 540 230Z" fill="#c4512b" opacity=".85"/>
+        <g transform="translate(0,-8)">
+          <rect x="70" y="96" width="70" height="44" fill="#e8a33d"/><rect x="380" y="96" width="70" height="44" fill="#e8a33d"/>
+          <path d="M140 118H380" stroke="#f2e3c6" stroke-width="5"/>
+          <rect x="215" y="98" width="90" height="40" rx="20" fill="#f2e3c6"/>
+          <circle cx="260" cy="96" r="18" fill="#1f6f78" stroke="#f2e3c6" stroke-width="5"/>
+          <rect x="305" y="110" width="22" height="16" rx="4" fill="#c4512b"/>
+        </g>
+        <text x="24" y="44" fill="#f2e3c6" font-family="Righteous, sans-serif" font-size="30">KESTREL</text>
+        <text x="26" y="66" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="3">ORBIT 412 KM · CREW OF 6</text>
+      </svg>
+      <div class="body">
+        <h3><span class="k">B</span>Space-age poster</h3>
+        <p>Flat 1970s travel-poster shapes in rust, ochre, teal and cream: a big sun, layered Earth, rounded type. Bold and warm, the most "fun" look. Each lesson opens on a poster for its system (OXYGEN, AIRLOCK, DOCKING).</p>
+<pre class="term">KESTREL LIFE SUPPORT - OXYGEN
+=============================
+Crew aboard     : 6
+Oxygen in tank  : 1200 litres
+Use per person  : 4 litres/hour
+-----------------------------
+Air left        : 50.0 hours
+                = 2 days 2 hours
+STATUS: AMBER - call the ship</pre>
+        <div class="tags"><span>Righteous</span><span>rust · ochre · teal</span><span>SVG drawn</span></div>
+      </div>
+    </section>
+
+    <!-- C -->
+    <section class="panel pc">
+      <svg class="scene" viewBox="0 0 130 58" role="img" aria-label="Pixel-art station" shape-rendering="crispEdges">
+        <rect width="130" height="58" fill="#1d1832"/>
+        <g fill="#fff1e8"><rect x="8" y="6" width="1" height="1"/><rect x="40" y="12" width="1" height="1"/><rect x="96" y="5" width="1" height="1"/><rect x="118" y="20" width="1" height="1"/><rect x="22" y="30" width="1" height="1"/></g>
+        <rect x="0" y="50" width="130" height="8" fill="#008751"/><rect x="0" y="48" width="130" height="2" fill="#29adff"/>
+        <rect x="14" y="20" width="16" height="18" fill="#29366f"/><g fill="#29adff"><rect x="15" y="21" width="6" height="7"/><rect x="23" y="21" width="6" height="7"/><rect x="15" y="30" width="6" height="7"/><rect x="23" y="30" width="6" height="7"/></g>
+        <rect x="100" y="20" width="16" height="18" fill="#29366f"/><g fill="#29adff"><rect x="101" y="21" width="6" height="7"/><rect x="109" y="21" width="6" height="7"/><rect x="101" y="30" width="6" height="7"/><rect x="109" y="30" width="6" height="7"/></g>
+        <rect x="30" y="28" width="70" height="2" fill="#c2c3c7"/>
+        <rect x="53" y="22" width="24" height="14" fill="#c2c3c7"/><rect x="55" y="24" width="20" height="10" fill="#83769c"/>
+        <rect x="58" y="26" width="3" height="3" fill="#ffec27"/><rect x="64" y="26" width="3" height="3" fill="#ffec27"/><rect x="70" y="26" width="3" height="3" fill="#ff004d"/>
+        <rect x="77" y="27" width="5" height="4" fill="#ff77a8"/>
+        <rect x="88" y="10" width="8" height="5" fill="#ffa300"/><rect x="86" y="11" width="2" height="3" fill="#ff004d"/>
+      </svg>
+      <div class="body">
+        <h3><span class="k">C</span>Pixel station</h3>
+        <p>An 8-bit game world: the station as a sprite, systems as rooms that light up as missions are done, a level map for the course. Feels like making a game. The terminal is a chunky monitor.</p>
+<pre class="term">KESTREL LIFE SUPPORT - OXYGEN
+=============================
+Crew aboard     : 6
+Oxygen in tank  : 1200 litres
+Use per person  : 4 litres/hour
+-----------------------------
+Air left        : 50.0 hours
+                = 2 days 2 hours
+STATUS: AMBER - call the ship</pre>
+        <div class="tags"><span>Press Start 2P</span><span>VT323</span><span>16-colour</span><span>SVG drawn</span></div>
+      </div>
+    </section>
+
+    <!-- D -->
+    <section class="panel pd">
+      <svg class="scene" viewBox="0 0 520 230" role="img" aria-label="Notebook sketch of the station">
+        <rect width="520" height="230" fill="#fbfaf4"/>
+        <g stroke="#dfe7ef"><path d="M0 22H520M0 44H520M0 66H520M0 88H520M0 110H520M0 132H520M0 154H520M0 176H520M0 198H520M0 220H520"/></g>
+        <path d="M30 0V230" stroke="#f2b8b8" stroke-width="1.5"/>
+        <g fill="none" stroke="#3a4654" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M140 116c60 -2 180 2 242 0"/>
+          <path d="M84 80l56 2 -2 70 -56 -2z"/><path d="M86 104l52 1M85 128l53 1M103 81l-1 70M121 82l-1 70"/>
+          <path d="M382 82l58 -1 1 70 -58 1z"/><path d="M383 106l57 -1M383 128l58 0M401 82l1 70M421 81l0 70"/>
+          <path d="M222 96c20 -3 56 -3 78 1 4 12 4 28 0 38 -24 3 -56 3 -78 -1 -3 -12 -3 -26 0 -38z"/>
+          <path d="M244 96c2 -18 32 -18 34 0"/>
+        </g>
+        <path d="M232 112c10 -4 50 -4 60 0" stroke="#f6d55c" stroke-width="10" opacity=".7" fill="none"/>
+        <g font-family="Caveat, cursive" font-size="20" fill="#2c5f9e">
+          <text x="300" y="60">crew sleep here (6)</text><path d="M298 62c-14 6 -22 16 -26 30" stroke="#2c5f9e" fill="none" stroke-width="1.5"/>
+          <text x="44" y="186">solar panels - 4 kW each?</text>
+          <text x="330" y="190">dock: CHECK SPEED!</text>
+        </g>
+        <rect x="430" y="14" width="70" height="22" fill="#f6d55c" opacity=".75" transform="rotate(6 465 25)"/>
+        <text x="40" y="28" font-family="Caveat, cursive" font-size="24" fill="#3a4654">Day 1 - after the storm</text>
+      </svg>
+      <div class="body">
+        <h3><span class="k">D</span>Crew notebook</h3>
+        <p>The commander's notebook: pencil sketches on graph paper, handwritten notes, tape and highlighter. Friendly and close to what pupils do when they plan a program on paper; the terminal is a printout taped in.</p>
+<pre class="term">KESTREL LIFE SUPPORT - OXYGEN
+=============================
+Crew aboard     : 6
+Oxygen in tank  : 1200 litres
+Use per person  : 4 litres/hour
+-----------------------------
+Air left        : 50.0 hours
+                = 2 days 2 hours
+STATUS: AMBER - call the ship</pre>
+        <div class="tags"><span>Caveat</span><span>Patrick Hand</span><span>pencil + highlighter</span></div>
+      </div>
+    </section>
+  </div>
+
+  <h2>Mascot: the station's maintenance robot</h2>
+  <p class="lede">One light on the robot shows the mission's status: amber while the system is down, green when the pupil's program passes. Drawn in whichever style is chosen.</p>
+  <div class="mascots">
+    <div class="mascot">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Round drone robot">
+        <circle cx="80" cy="60" r="32" fill="#dfe7ef"/><circle cx="80" cy="60" r="32" fill="none" stroke="#9fb3c8" stroke-width="3"/>
+        <circle cx="80" cy="56" r="13" fill="#1a1206"/><circle cx="80" cy="56" r="7" fill="#ffb000"/>
+        <path d="M48 60h-18M112 60h18" stroke="#9fb3c8" stroke-width="4"/><ellipse cx="26" cy="60" rx="10" ry="3" fill="#9fb3c8"/><ellipse cx="134" cy="60" rx="10" ry="3" fill="#9fb3c8"/>
+        <circle cx="80" cy="84" r="3" fill="#7ee081"/>
+      </svg>
+      <b>Bolt</b>
+      <p>A floating drone, one big eye-light and two little rotors. Curious, cheerful, gets in the way.</p>
+    </div>
+    <div class="mascot">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Boxy wheeled robot">
+        <rect x="56" y="34" width="48" height="40" rx="6" fill="#e8a33d"/><rect x="62" y="42" width="36" height="16" rx="3" fill="#1a1206"/>
+        <circle cx="72" cy="50" r="4" fill="#7ee081"/><circle cx="88" cy="50" r="4" fill="#7ee081"/>
+        <rect x="62" y="74" width="36" height="16" fill="#c4512b"/><circle cx="66" cy="96" r="8" fill="#26313d"/><circle cx="94" cy="96" r="8" fill="#26313d"/>
+        <path d="M104 56l20 -8 8 -14" stroke="#dfe7ef" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M80 34v-12" stroke="#dfe7ef" stroke-width="3"/><circle cx="80" cy="20" r="4" fill="#ffb000"/>
+      </svg>
+      <b>Widget</b>
+      <p>A boxy wheeled helper with one long arm and an antenna light. Practical, a bit grumpy, always carrying a tool.</p>
+    </div>
+    <div class="mascot">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Six-legged hull crawler robot">
+        <g stroke="#9fb3c8" stroke-width="4" stroke-linecap="round" fill="none"><path d="M62 66l-18 14 -6 14M58 58l-24 4 -8 12M62 50l-16 -12 -4 -12"/><path d="M98 66l18 14 6 14M102 58l24 4 8 12M98 50l16 -12 4 -12"/></g>
+        <ellipse cx="80" cy="58" rx="24" ry="20" fill="#dfe7ef"/><circle cx="72" cy="54" r="5" fill="#1a1206"/><circle cx="88" cy="54" r="5" fill="#1a1206"/>
+        <circle cx="72" cy="54" r="2" fill="#29adff"/><circle cx="88" cy="54" r="2" fill="#29adff"/><circle cx="80" cy="68" r="3.5" fill="#ffb000"/>
+      </svg>
+      <b>Tiko</b>
+      <p>A six-legged hull crawler that walks on the outside of the station, magnets on its feet. Quick and twitchy, like a gecko.</p>
+    </div>
+    <div class="mascot">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Small humanoid robot">
+        <rect x="64" y="22" width="32" height="26" rx="10" fill="#f2e3c6"/><rect x="69" y="30" width="22" height="10" rx="5" fill="#1d2a3a"/>
+        <circle cx="75" cy="35" r="3" fill="#7ee081"/><circle cx="85" cy="35" r="3" fill="#7ee081"/>
+        <rect x="62" y="52" width="36" height="34" rx="8" fill="#1f6f78"/><circle cx="80" cy="66" r="5" fill="#ffb000"/>
+        <path d="M62 60l-16 12M98 60l16 -14" stroke="#f2e3c6" stroke-width="6" stroke-linecap="round"/><path d="M70 86v14M90 86v14" stroke="#f2e3c6" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <b>Kip</b>
+      <p>A small humanoid in a work suit with a chest light; waves, points, holds up signs. The easiest to draw doing things.</p>
+    </div>
+  </div>
+
+  <h2>The "screen they need" pictures</h2>
+  <div class="note">
+    <p>Every mission shows the terminal the crew wants before the pupil writes a line. These are drawn from <strong>real fpc runs</strong> of the model answers, with the Crt colours kept.</p>
+    <p><strong>Option 1:</strong> one terminal look for the whole course (black, light text, Crt colours), so it matches what pupils see in the Run box. <strong>Option 2:</strong> the terminal dressed in the chosen style, as in each panel above.</p>
+  </div>
+</div>
