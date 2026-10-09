@@ -230,8 +230,19 @@ lesson order (31 videos). No cards. The new 21.3 render was not used (Chris: kee
 4.3 gDsPhuOt0jE · 4.4 ncOowQ96NKk · 5.1 g7yi_eg0Ql8 · 5.2 u1OrRRxiJAU · 6.1 EjpcztZc9Fo · 6.2 QbkE3ybzDxc ·
 7.1 MaeEPepYcRo · 7.2 sPf0Tg6WqAQ · 7.3 53idNISQyMA · 8.1 X0GmgfpSKJk
 
-**Captions still to do** (Chris: "do the rest later" - Studio was too slow): our en-GB .srt is on 2.1, 2.2, 2.3, 3.1
-and 4.2 only; 4.1, 4.3, 4.4, 5.1, 5.2, 6.1, 6.2, 7.1, 7.2, 7.3 and 8.1 still need theirs (files in
-`E:\itcoder-videos\for upload`). "Upload manual" on the Languages page fails ("Upload captions failed"); only the
-editor's Options > Upload file works, and in that editor the first click on each control is often ignored.
+8.1 X0GmgfpSKJk was replaced by a new render, R0v0QrFBS1A (Chris deleted the old one).
+
+**Captions:** our en-GB .srt is on 2.1, 2.2, 2.3, 3.1, 4.1, 4.2, 4.3 and 4.4. Still to do: 5.1, 5.2, 6.1, 6.2,
+7.1, 7.2 and 7.3 (files in `E:\itcoder-videosor upload`). "Upload manual" on the Languages page fails ("Upload
+captions failed"); only the editor's Options > Upload file works, and in that editor the first click on each control
+is often ignored. Studio stops loading after a few captions; wait or come back later.
 Lessons: AIPascalCourse 2-8 (not published).
+
+## Pascal tutorials 8.1-9.2 (9 October 2026)
+
+6 uploaded by Chris, Public (Chris: "Public now"), own thumbnails, in the Pascal playlist after 7.3 and before 16.1
+(36 videos). No cards. Lesson links: AIPascalCourse 894eac1, lessons 8 and 9 (not published).
+
+8.1 R0v0QrFBS1A · 8.2 FttBUIy9nNY · 8.3 Games7wYixM · 8.4 D-JU0U1lfWo · 9.1 ZIdHuyHH3WE · 9.2 cfkA2JrgWWU
+
+**Captions still to do** on all six.
