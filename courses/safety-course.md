@@ -2,8 +2,9 @@
 
 Grade 8, eight lessons, General Computing. **Draft** (teachers only) in `CourseIndex()`
 (`AIPascalCourse/lib/course.php`, 9 October 2026). Content in `content/safety/`.
-**Written:** lesson 1, `phishing`, and lesson 2, `passwords` (9 October 2026), both checked
-on the local testbed and by `check-jev.php` (no flags). Lessons 3-8 not yet written.
+**Written:** lesson 1 `phishing`, lesson 2 `passwords` and lesson 3 `secondlock` (9 October
+2026), each checked on the local testbed and by `check-jev.php` (no flags). Lessons 4-8 not
+yet written.
 
 Platform: the course's body class `course-safety` (lesson.php) gives its doodle captions
 Caveat (design-e.css); its fonts load with the others (design.php, lesson.php). Figures and
@@ -40,9 +41,11 @@ machines -> the big case.
    attacks at 10 billion guesses a second. Every time in the lesson and in the line-up figure
    (`doodles/safety-lineup.svg`, drawn by a script from the same numbers) is checked by
    `node tests/crack-timer.test.js` - change one, change all three.
-3. **Case 03: The second lock** - two-step verification, OTPs, why you never read an OTP to
-   anyone (the "bank calls you" scam), SIM swaps, and protecting the password manager's master
-   password.
+3. **Case 03: The second lock** - know / have / are, two-step verification (2FA); OTPs by
+   SMS, authenticator app or an "Is this you?" tap (passkeys as a margin note); three code
+   tricks - the "bank fraud department" call (spoofing), the WhatsApp "code sent by mistake",
+   the SIM swap; switch it on (email first, WhatsApp's PIN, the password manager), backup
+   codes. The case load is `scamSpotter` again with five code messages.
 4. **Case 04: The leak** - data breaches: what leaks, why reused passwords spread the damage,
    checking whether you were in one, the steps after a breach.
 5. **Case 05: What your apps know** - permissions, location, contacts, cookies and trackers,
