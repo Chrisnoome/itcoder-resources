@@ -1,0 +1,308 @@
+<title>Rhino Case Art Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=Alfa+Slab+One&family=VT323&family=Public+Sans:wght@400;600;700&family=Bungee&family=Permanent+Marker&display=swap">
+<style>
+/* Layout: numbered style plates (figure + spec), mascots in a row, then a smaller social media section. */
+:root {
+  --bg: #f1efe9; --panel: #ffffff; --ink: #1e1d1a; --muted: #5d5a52; --rule: #d8d3c8; --accent: #8a5a1c;
+  --f-display: "Alfa Slab One", Georgia, serif; --f-body: "Public Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1a1916; --panel: #25231f; --ink: #ece8df; --muted: #a9a294; --rule: #3a372f; --accent: #e0a24a; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #1a1916; --panel: #25231f; --ink: #ece8df; --muted: #a9a294; --rule: #3a372f; --accent: #e0a24a; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-body); }
+.wrap { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 64px; display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(28px, 4vw, 40px); }
+h2 { font-size: 23px; border-bottom: 3px solid var(--ink); padding-bottom: 6px; }
+h3 { font-size: 19px; }
+p { margin: 0; max-width: 70ch; }
+.lede { display: grid; gap: 10px; } .lede p { color: var(--muted); }
+.eyebrow { font: 700 12px/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+section { display: grid; gap: 20px; }
+.plate { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; background: var(--panel); border: 1px solid var(--rule); padding: 16px; }
+@media (max-width: 780px) { .plate { grid-template-columns: minmax(0, 1fr); } }
+svg { width: 100%; height: auto; display: block; }
+.spec { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.tag { font: 700 13px/1 "IBM Plex Mono", monospace; color: var(--accent); }
+.spec ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: var(--muted); }
+.sw { display: flex; gap: 6px; flex-wrap: wrap; } .sw span { width: 26px; height: 26px; border: 1px solid var(--rule); }
+.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 820px) { .grid4, .grid3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .grid3 { grid-template-columns: minmax(0, 1fr); } }
+figure { margin: 0; background: var(--panel); border: 1px solid var(--rule); padding: 12px; display: grid; gap: 8px; }
+figcaption { font-size: 13.5px; color: var(--muted); }
+figcaption b { display: block; color: var(--ink); font-family: var(--f-display); font-weight: 400; font-size: 16px; }
+.note { border-left: 3px solid var(--accent); padding-left: 14px; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header class="lede">
+    <div class="eyebrow">Grade 9 · General Computing · Intro to SQL</div>
+    <h1>The rhino case: art style board</h1>
+    <p>Four ways to draw the course, all showing lesson 1's figure: the query, the <code>rhinos</code> table, and Tumelo's row with her last zone. Then four mascot candidates, and three quick options for the social media course that shares the term.</p>
+  </header>
+
+  <section>
+    <h2>Four styles for the SQL course</h2>
+
+    <!-- A: Field notebook -->
+    <div class="plate">
+      <svg viewBox="0 0 680 400" role="img" aria-label="Style A: a ranger's field notebook, pencil table with a watercolour wash on Tumelo's row and a sketched map">
+        <rect width="680" height="400" fill="#f7f1e1"/>
+        <g stroke="#cfc4a8" stroke-width="1"><line x1="0" y1="40" x2="680" y2="40"/><line x1="0" y1="380" x2="680" y2="380"/></g>
+        <path d="M30 222 q120 -20 300 6 q10 22 -10 34 q-150 10 -290 -6 q-14 -16 0 -34 z" fill="#e8b85c" opacity=".55"/>
+        <path d="M470 120 q60 -40 150 0 q30 70 -20 130 q-90 40 -150 -20 q-30 -60 20 -110 z" fill="#a9c48e" opacity=".5"/>
+        <g transform="rotate(-3 150 70)"><rect x="40" y="52" width="250" height="40" rx="6" fill="#fffaf0" stroke="#7a6a4a" stroke-width="1.5"/>
+          <circle cx="56" cy="72" r="5" fill="none" stroke="#7a6a4a" stroke-width="1.5"/>
+          <text x="70" y="77" font-family="IBM Plex Mono" font-size="13" fill="#3a3326">SELECT name, last_seen, zone FROM rhinos</text></g>
+        <g font-family="Caveat" font-size="20" fill="#3a3326">
+          <text x="44" y="138">name</text><text x="150" y="138">last seen</text><text x="270" y="138">zone</text>
+          <text x="44" y="172">Themba</text><text x="150" y="172">8 Feb</text><text x="270" y="172">C3</text>
+          <text x="44" y="206">Naledi</text><text x="150" y="206">8 Feb</text><text x="270" y="206">C1</text>
+          <text x="44" y="242" font-weight="700">Tumelo</text><text x="150" y="242" font-weight="700">5 Feb</text><text x="270" y="242" font-weight="700">K7</text>
+          <text x="44" y="278">Bheki</text><text x="150" y="278">7 Feb</text><text x="270" y="278">D2</text>
+          <text x="44" y="312">Lerato</text><text x="150" y="312">8 Feb</text><text x="270" y="312">C3</text>
+        </g>
+        <g stroke="#6e6656" stroke-width="1.2" fill="none"><path d="M36 146 h290"/><path d="M140 116 v210 M260 116 v210"/></g>
+        <text x="340" y="250" font-family="Caveat" font-size="22" fill="#8a3b1c">&#8592; 3 days silent!</text>
+        <g stroke="#5c5444" stroke-width="1.3" fill="none"><path d="M480 140 q40 -20 70 6 q30 -14 60 10"/><path d="M490 180 q50 -10 80 10 q20 10 40 0"/><path d="M500 220 q40 6 70 -6"/></g>
+        <text x="520" y="190" font-family="Caveat" font-size="24" font-weight="700" fill="#8a3b1c">K7</text>
+        <path d="M548 176 l8 -18 l8 18 z" fill="#8a3b1c"/>
+        <g fill="none" stroke="#3a3326" stroke-width="2" stroke-linecap="round"><path d="M470 330 q20 -40 70 -30 q30 6 50 30 q-40 14 -70 10 q-30 -2 -50 -10 z"/><path d="M500 302 l-6 -18 l14 12"/><path d="M590 332 q10 6 18 0"/></g>
+        <text x="470" y="370" font-family="Caveat" font-size="18" fill="#5c5444">sketched at the waterhole</text>
+      </svg>
+      <div class="spec">
+        <div class="tag">A · THE FIELD NOTEBOOK</div>
+        <h3>Pencil and watercolour</h3>
+        <ul>
+          <li>A ranger's notebook: hand-ruled tables, watercolour washes behind the row that matters, pencil maps and animal sketches.</li>
+          <li>Warm and calm, and close to Chris's hand-drawn feel.</li>
+          <li>SQL sits on luggage tags clipped to the page, so code always reads as code.</li>
+        </ul>
+        <div class="sw"><span style="background:#f7f1e1"></span><span style="background:#e8b85c"></span><span style="background:#a9c48e"></span><span style="background:#8a3b1c"></span><span style="background:#3a3326"></span></div>
+      </div>
+    </div>
+
+    <!-- B: Ops room -->
+    <div class="plate">
+      <svg viewBox="0 0 680 400" role="img" aria-label="Style B: the anti-poaching ops room, a dark tactical screen with a green terminal table and a contour map with a pulsing pin">
+        <rect width="680" height="400" fill="#16201a"/>
+        <g stroke="#24342a" stroke-width="1"><path d="M0 40 H680 M0 80 H680 M0 120 H680 M0 160 H680 M0 200 H680 M0 240 H680 M0 280 H680 M0 320 H680 M0 360 H680"/><path d="M40 0 V400 M120 0 V400 M200 0 V400 M280 0 V400 M360 0 V400 M440 0 V400 M520 0 V400 M600 0 V400"/></g>
+        <rect x="24" y="24" width="352" height="352" fill="#0e1611" stroke="#3f6b48"/>
+        <text x="40" y="52" font-family="IBM Plex Mono" font-size="12.5" fill="#9fe870">&gt; SELECT name, last_seen, zone</text>
+        <text x="40" y="70" font-family="IBM Plex Mono" font-size="12.5" fill="#9fe870">  FROM rhinos;</text>
+        <g font-family="IBM Plex Mono" font-size="13" fill="#9fe870">
+          <text x="40" y="112" fill="#5fae5a">NAME       LAST_SEEN   ZONE</text>
+          <text x="40" y="140">Themba     2027-02-08  C3</text>
+          <text x="40" y="168">Naledi     2027-02-08  C1</text>
+          <rect x="34" y="180" width="330" height="24" fill="#f2b33d" opacity=".9"/>
+          <text x="40" y="197" fill="#16201a" font-weight="600">Tumelo     2027-02-05  K7</text>
+          <text x="40" y="226">Bheki      2027-02-07  D2</text>
+          <text x="40" y="254">Lerato     2027-02-08  C3</text>
+          <text x="40" y="300" fill="#5fae5a">5 rows · 0.002 s</text>
+          <text x="40" y="350" fill="#f2b33d">! COLLAR R02 SILENT 72 H</text>
+        </g>
+        <g fill="none" stroke="#3f6b48" stroke-width="1.4"><path d="M420 90 q80 -40 200 10"/><path d="M410 140 q100 -30 220 20"/><path d="M420 200 q90 -20 210 30"/><path d="M430 260 q80 0 190 30"/><path d="M440 320 q70 10 170 30"/></g>
+        <text x="400" y="56" font-family="IBM Plex Mono" font-size="12" fill="#5fae5a">MABASO RESERVE · SECTOR K</text>
+        <circle cx="548" cy="214" r="22" fill="none" stroke="#f2b33d" stroke-width="2" opacity=".5"/>
+        <circle cx="548" cy="214" r="12" fill="none" stroke="#f2b33d" stroke-width="2"/>
+        <circle cx="548" cy="214" r="4" fill="#f2b33d"/>
+        <text x="576" y="210" font-family="IBM Plex Mono" font-size="14" fill="#f2b33d">K7</text>
+        <text x="576" y="228" font-family="IBM Plex Mono" font-size="11" fill="#f2b33d">last fix 17:40</text>
+      </svg>
+      <div class="spec">
+        <div class="tag">B · THE OPS ROOM</div>
+        <h3>Tactical screens</h3>
+        <ul>
+          <li>The anti-poaching control room: dark screens, a terminal-green table, contour maps, an amber alert row.</li>
+          <li>Feels like real SQL work: query, rows, time taken. The console look matches the SQL runner.</li>
+          <li>The most exciting look, but the least hand-made. It needs care to stay readable in print.</li>
+        </ul>
+        <div class="sw"><span style="background:#16201a"></span><span style="background:#9fe870"></span><span style="background:#f2b33d"></span><span style="background:#3f6b48"></span></div>
+      </div>
+    </div>
+
+    <!-- C: Lino-cut -->
+    <div class="plate">
+      <svg viewBox="0 0 680 400" role="img" aria-label="Style C: a bold lino-cut poster in black, ochre and red earth, with a carved rhino and a chunky table">
+        <rect width="680" height="400" fill="#f3e6c8"/>
+        <rect x="0" y="300" width="680" height="100" fill="#d9822b"/>
+        <circle cx="560" cy="110" r="70" fill="#a23b20"/>
+        <path d="M400 300 q20 -90 110 -96 q30 -36 70 -24 l18 -40 l12 46 q36 10 46 50 q10 30 -6 64 z" fill="#1b1712"/>
+        <g stroke="#f3e6c8" stroke-width="3" stroke-linecap="round"><path d="M450 270 l20 -30 M480 280 l20 -40 M512 276 l16 -36"/></g>
+        <circle cx="592" cy="214" r="5" fill="#f3e6c8"/>
+        <rect x="36" y="40" width="320" height="44" fill="#1b1712"/>
+        <text x="50" y="68" font-family="IBM Plex Mono" font-weight="600" font-size="13" fill="#f3e6c8">SELECT name, last_seen, zone FROM rhinos</text>
+        <g font-family="Alfa Slab One" font-size="17" fill="#1b1712">
+          <text x="40" y="124">NAME</text><text x="170" y="124">SEEN</text><text x="280" y="124">ZONE</text>
+        </g>
+        <rect x="36" y="132" width="320" height="5" fill="#1b1712"/>
+        <g font-family="IBM Plex Mono" font-weight="600" font-size="15" fill="#1b1712">
+          <text x="40" y="162">Themba</text><text x="170" y="162">8 Feb</text><text x="280" y="162">C3</text>
+          <text x="40" y="192">Naledi</text><text x="170" y="192">8 Feb</text><text x="280" y="192">C1</text>
+          <rect x="34" y="202" width="324" height="28" fill="#a23b20"/>
+          <text x="40" y="222" fill="#f3e6c8">Tumelo</text><text x="170" y="222" fill="#f3e6c8">5 Feb</text><text x="280" y="222" fill="#f3e6c8">K7</text>
+          <text x="40" y="254">Bheki</text><text x="170" y="254">7 Feb</text><text x="280" y="254">D2</text>
+          <text x="40" y="284">Lerato</text><text x="170" y="284">8 Feb</text><text x="280" y="284">C3</text>
+        </g>
+        <text x="40" y="356" font-family="Alfa Slab One" font-size="34" fill="#1b1712">FIND TUMELO</text>
+      </svg>
+      <div class="spec">
+        <div class="tag">C · THE LINO-CUT POSTER</div>
+        <h3>Black, ochre and red earth</h3>
+        <ul>
+          <li>Bold carved shapes and flat colour, like a South African print or a conservation poster.</li>
+          <li>Very distinct from every other course, and it photographs well for thumbnails.</li>
+          <li>Simple shapes only, so detailed diagrams (JOINs) need care.</li>
+        </ul>
+        <div class="sw"><span style="background:#f3e6c8"></span><span style="background:#1b1712"></span><span style="background:#d9822b"></span><span style="background:#a23b20"></span></div>
+      </div>
+    </div>
+
+    <!-- D: Trail cam -->
+    <div class="plate">
+      <svg viewBox="0 0 680 400" role="img" aria-label="Style D: trail-camera evidence, night-vision photos with timestamps beside a printed table marked with highlighter">
+        <rect width="680" height="400" fill="#e9e6df"/>
+        <g transform="rotate(-2 180 200)">
+          <rect x="30" y="40" width="300" height="320" fill="#ffffff" stroke="#cfcac0"/>
+          <text x="46" y="66" font-family="IBM Plex Mono" font-size="11.5" fill="#333">SELECT name, last_seen, zone FROM rhinos</text>
+          <line x1="46" y1="78" x2="314" y2="78" stroke="#999"/>
+          <g font-family="IBM Plex Mono" font-size="13" fill="#222">
+            <text x="46" y="104" font-weight="600">name      last_seen   zone</text>
+            <text x="46" y="134">Themba    2027-02-08  C3</text>
+            <text x="46" y="164">Naledi    2027-02-08  C1</text>
+            <path d="M40 182 q130 -6 270 2 l-2 22 q-130 6 -268 -2 z" fill="#ffe94d" opacity=".85"/>
+            <text x="46" y="198" font-weight="600">Tumelo    2027-02-05  K7</text>
+            <text x="46" y="228">Bheki     2027-02-07  D2</text>
+            <text x="46" y="258">Lerato    2027-02-08  C3</text>
+          </g>
+          <text x="46" y="320" font-family="Permanent Marker" font-size="20" fill="#c0392b">3 days?!</text>
+        </g>
+        <g transform="rotate(3 510 140)">
+          <rect x="380" y="40" width="270" height="180" fill="#2c4a2c"/>
+          <rect x="380" y="40" width="270" height="180" fill="url(#noise)" opacity=".5"/>
+          <path d="M410 200 q40 -60 100 -60 q20 -30 50 -20 l12 -26 l8 30 q30 10 36 40 l0 36 z" fill="#9fd19a" opacity=".75"/>
+          <text x="392" y="60" font-family="VT323" font-size="20" fill="#d8f5c9">CAM K7-03</text>
+          <text x="520" y="210" font-family="VT323" font-size="20" fill="#d8f5c9">05/02 17:40</text>
+        </g>
+        <g transform="rotate(-3 510 300)">
+          <rect x="390" y="238" width="250" height="140" fill="#1d331d"/>
+          <circle cx="470" cy="320" r="14" fill="#d8f5c9" opacity=".9"/><circle cx="560" cy="320" r="14" fill="#d8f5c9" opacity=".9"/>
+          <text x="402" y="258" font-family="VT323" font-size="20" fill="#d8f5c9">CAM K7-01</text>
+          <text x="520" y="370" font-family="VT323" font-size="20" fill="#d8f5c9">07/02 02:14</text>
+          <text x="420" y="300" font-family="Permanent Marker" font-size="16" fill="#ffe94d">headlights?</text>
+        </g>
+        <defs><pattern id="noise" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="none"/><circle cx="1" cy="1" r=".8" fill="#000"/><circle cx="4" cy="3" r=".6" fill="#fff"/></pattern></defs>
+      </svg>
+      <div class="spec">
+        <div class="tag">D · TRAIL-CAMERA EVIDENCE</div>
+        <h3>Night-vision photos and printouts</h3>
+        <ul>
+          <li>Grainy green trail-camera shots with timestamps, beside query results printed and marked with highlighter and marker.</li>
+          <li>The data feels like real evidence, and timestamps teach dates and times for free.</li>
+          <li>Closest to the safety course's evidence feel, without copying its case file.</li>
+        </ul>
+        <div class="sw"><span style="background:#e9e6df"></span><span style="background:#2c4a2c"></span><span style="background:#d8f5c9"></span><span style="background:#ffe94d"></span><span style="background:#c0392b"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Mascot candidates</h2>
+    <p>Drawn plainly here; the one you pick is redrawn in the chosen style.</p>
+    <div class="grid4">
+      <figure>
+        <svg viewBox="0 0 240 200" role="img" aria-label="Oxi, a red-billed oxpecker">
+          <path d="M60 130 q10 -50 70 -56 q40 -2 60 24 q-20 40 -70 50 q-40 6 -60 -18 z" fill="#8a6a46" stroke="#1e1d1a" stroke-width="3"/>
+          <path d="M130 120 q30 6 60 -10 q-10 30 -50 34 z" fill="#a8865c" stroke="#1e1d1a" stroke-width="2.5"/>
+          <circle cx="168" cy="86" r="22" fill="#9a7650" stroke="#1e1d1a" stroke-width="3"/>
+          <circle cx="174" cy="82" r="8" fill="#f2c94c" stroke="#1e1d1a" stroke-width="2"/><circle cx="175" cy="82" r="3.5" fill="#1e1d1a"/>
+          <path d="M188 88 l30 4 l-30 8 z" fill="#d8352a" stroke="#1e1d1a" stroke-width="2.5"/>
+          <path d="M60 130 l-34 14 l30 2" fill="#6e5236" stroke="#1e1d1a" stroke-width="2.5"/>
+          <path d="M110 176 v14 M140 172 v16" stroke="#1e1d1a" stroke-width="3"/>
+        </svg>
+        <figcaption><b>Oxi the oxpecker</b>The rhino's lookout bird. Oxpeckers call an alarm when danger comes, so Oxi spots clues and squawks a warning.</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 240 200" role="img" aria-label="Scout, an anti-poaching tracker dog">
+          <path d="M70 180 q-6 -70 50 -80 q50 6 50 80 z" fill="#b07a3c" stroke="#1e1d1a" stroke-width="3"/>
+          <path d="M84 60 l-6 -40 l30 26 M156 60 l6 -40 l-30 26" fill="#8a5a26" stroke="#1e1d1a" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M80 70 q40 -36 80 0 q8 40 -16 56 q-24 12 -48 0 q-24 -16 -16 -56 z" fill="#b07a3c" stroke="#1e1d1a" stroke-width="3"/>
+          <path d="M104 106 q16 18 32 0 q-2 22 -16 26 q-14 -4 -16 -26 z" fill="#3a2a1a"/>
+          <circle cx="104" cy="84" r="5" fill="#1e1d1a"/><circle cx="136" cy="84" r="5" fill="#1e1d1a"/>
+          <rect x="92" y="138" width="56" height="14" rx="4" fill="#2f5d3a" stroke="#1e1d1a" stroke-width="2"/>
+          <text x="120" y="149" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#fff">K9</text>
+        </svg>
+        <figcaption><b>Scout the tracker dog</b>Reserves really use dog units against poachers. Scout follows a trail, the way a query follows the data.</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 240 200" role="img" aria-label="Ranger Thandeka with a laptop and a radio">
+          <circle cx="120" cy="64" r="28" fill="#8a5a3c" stroke="#1e1d1a" stroke-width="3"/>
+          <path d="M88 52 q32 -34 64 0 l4 -6 q-36 -30 -72 0 z" fill="#4a5a32" stroke="#1e1d1a" stroke-width="2.5"/>
+          <path d="M78 46 h84" stroke="#1e1d1a" stroke-width="4"/>
+          <circle cx="110" cy="66" r="3.5" fill="#1e1d1a"/><circle cx="130" cy="66" r="3.5" fill="#1e1d1a"/><path d="M110 78 q10 8 20 0" fill="none" stroke="#1e1d1a" stroke-width="2.5"/>
+          <path d="M70 196 q0 -90 50 -96 q50 6 50 96 z" fill="#6b7a45" stroke="#1e1d1a" stroke-width="3"/>
+          <rect x="88" y="140" width="64" height="40" rx="4" fill="#ddd" stroke="#1e1d1a" stroke-width="2.5"/>
+          <text x="96" y="164" font-family="IBM Plex Mono" font-size="8" fill="#1e1d1a">SELECT *</text>
+          <rect x="160" y="112" width="14" height="32" rx="3" fill="#1e1d1a"/>
+        </svg>
+        <figcaption><b>Ranger Thandeka</b>The head ranger who asks for the pupil's help. She's human and a role model, with a laptop in one hand and a radio in the other.</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 240 200" role="img" aria-label="Tumelo the rhino wearing a tracking collar">
+          <path d="M30 160 q0 -60 70 -70 q50 -6 90 16 q30 18 24 54 z" fill="#8f8f8a" stroke="#1e1d1a" stroke-width="3"/>
+          <path d="M190 110 l26 -34 l-4 40 z" fill="#d9d4c4" stroke="#1e1d1a" stroke-width="2.5"/>
+          <path d="M176 120 l14 -18 l2 22 z" fill="#d9d4c4" stroke="#1e1d1a" stroke-width="2"/>
+          <circle cx="172" cy="126" r="4" fill="#1e1d1a"/>
+          <rect x="120" y="96" width="18" height="70" rx="5" fill="#d8352a" stroke="#1e1d1a" stroke-width="2.5" transform="rotate(-12 129 131)"/>
+          <rect x="122" y="150" width="16" height="12" rx="2" fill="#1e1d1a" transform="rotate(-12 130 156)"/>
+          <path d="M60 160 v24 M100 162 v22 M160 162 v22 M190 158 v24" stroke="#1e1d1a" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <figcaption><b>Tumelo herself</b>The missing rhino as the face of the course. Every lesson ends with her collar's status, and the last one with her safe.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Three quick options for the social media course</h2>
+    <p>The same subject in each: the like button as a slot machine, the film's idea that apps are built to keep you scrolling.</p>
+    <div class="grid3">
+      <figure>
+        <svg viewBox="0 0 300 220" role="img" aria-label="Neon notification style: glowing hearts and red badges on a dark screen">
+          <rect width="300" height="220" fill="#151026"/>
+          <rect x="96" y="22" width="108" height="176" rx="16" fill="#221a3d" stroke="#ff4fa3" stroke-width="3"/>
+          <g fill="#ff4fa3"><path d="M150 96 c-14 -18 -36 -4 -26 14 l26 24 l26 -24 c10 -18 -12 -32 -26 -14 z"/></g>
+          <circle cx="182" cy="40" r="14" fill="#ff3b3b"/><text x="182" y="45" text-anchor="middle" font-family="Bungee" font-size="12" fill="#fff">99+</text>
+          <g font-family="Bungee" font-size="12" fill="#3ee8ff"><text x="16" y="60">+1 like</text><text x="214" y="96">+12</text><text x="22" y="150">ping!</text><text x="214" y="170">+3</text></g>
+        </svg>
+        <figcaption><b>1 · Neon notifications</b>Glowing hearts, red badges, a dark screen. It looks like the apps themselves, so pupils recognise it at once.</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 300 220" role="img" aria-label="Slot machine style: a retro slot machine whose reels show a heart, a thumbs-up and a bell">
+          <rect width="300" height="220" fill="#fff4dc"/>
+          <rect x="70" y="30" width="160" height="160" rx="14" fill="#d8352a" stroke="#1e1d1a" stroke-width="3"/>
+          <rect x="88" y="70" width="124" height="60" rx="6" fill="#fff" stroke="#1e1d1a" stroke-width="3"/>
+          <g font-size="28" text-anchor="middle"><text x="110" y="112">♥</text><text x="150" y="112">👍</text><text x="190" y="112">🔔</text></g>
+          <path d="M230 80 h20 v-30" fill="none" stroke="#1e1d1a" stroke-width="5"/><circle cx="250" cy="44" r="10" fill="#f2c94c" stroke="#1e1d1a" stroke-width="3"/>
+          <text x="150" y="168" text-anchor="middle" font-family="Bungee" font-size="16" fill="#fff4dc">PULL TO REFRESH</text>
+        </svg>
+        <figcaption><b>2 · The slot machine</b>A retro arcade look. Pull to refresh really is a slot-machine pull, so the metaphor teaches persuasive design.</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 300 220" role="img" aria-label="Puppet strings collage: a paper hand above a phone, with strings to a small figure">
+          <rect width="300" height="220" fill="#ece6da"/>
+          <path d="M110 20 h80 l10 30 h-100 z" fill="#c9b79a" stroke="#1e1d1a" stroke-width="2.5"/>
+          <g stroke="#1e1d1a" stroke-width="1.5"><path d="M120 50 l-10 90 M150 50 v80 M180 50 l12 92"/></g>
+          <rect x="118" y="120" width="64" height="90" rx="8" fill="#fff" stroke="#1e1d1a" stroke-width="3"/>
+          <circle cx="150" cy="150" r="10" fill="none" stroke="#1e1d1a" stroke-width="2.5"/><path d="M134 186 q16 -20 32 0" fill="none" stroke="#1e1d1a" stroke-width="2.5"/>
+          <text x="20" y="100" font-family="Permanent Marker" font-size="15" fill="#d8352a">who's</text><text x="20" y="120" font-family="Permanent Marker" font-size="15" fill="#d8352a">in charge?</text>
+        </svg>
+        <figcaption><b>3 · Puppet strings collage</b>Cut paper, string and marker, echoing the film's own puppet imagery. It's thoughtful rather than flashy, and suits the critical-thinking lessons.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <p class="note">My lean: <strong>D (trail-camera evidence)</strong> for SQL, because timestamps and printed results are the data pupils query, with <strong>Oxi the oxpecker</strong> as the mascot and Thandeka as the ranger in the story. For social media, <strong>2 (the slot machine)</strong>, because its picture is the film's main idea.</p>
+</div>
