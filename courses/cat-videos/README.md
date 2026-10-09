@@ -274,6 +274,38 @@ in the lesson text.
 | catword-09.2 | Views, printing and PDF | 7 | [catword-proofing.md](catword-proofing.md) |
 | catword-10.1 | Hyperlinks and copying between programs | 7 | [catword-integration.md](catword-integration.md) |
 | catword-10.2 | Finding help and fixing problems | 7 | [catword-integration.md](catword-integration.md) |
+| catword-11.1 | Heading styles and a table of contents | 8 | [catword-references.md](catword-references.md) |
+| catword-11.2 | Citations and a bibliography | 7 | [catword-references.md](catword-references.md) |
+| catword-12.1 | Changing and updating a style | 8 | [catword-styles.md](catword-styles.md) |
+| catword-12.2 | New styles and the Design tab | 8 | [catword-styles.md](catword-styles.md) |
+| catword-13.1 | Your own bullets and numbers | 7 | [catword-multilevel.md](catword-multilevel.md) |
+| catword-13.2 | Numbered headings, spacing and drop caps | 8 | [catword-multilevel.md](catword-multilevel.md) |
+| catword-14.1 | Section breaks and a landscape page | 7 | [catword-sections.md](catword-sections.md) |
+| catword-14.2 | Columns and a cover page | 7 | [catword-sections.md](catword-sections.md) |
+| catword-15.1 | Fields and a different first page | 7 | [catword-headers.md](catword-headers.md) |
+| catword-15.2 | Page numbers and sections with their own headers | 8 | [catword-headers.md](catword-headers.md) |
+| catword-16.1 | Footnotes and captions | 7 | [catword-footnotes.md](catword-footnotes.md) |
+| catword-16.2 | A table of figures and an index | 8 | [catword-footnotes.md](catword-footnotes.md) |
+| catword-17.1 | The main document and the data source | 8 | [catword-mailmerge.md](catword-mailmerge.md) |
+| catword-17.2 | Merge fields, preview and finish | 7 | [catword-mailmerge.md](catword-mailmerge.md) |
+| catword-18.1 | Labels and fixing a merge | 8 | [catword-labels.md](catword-labels.md) |
+| catword-18.2 | E-mail merges and rules | 6 | [catword-labels.md](catword-labels.md) |
+| catword-19.1 | Text, csv and rtf files into Word | 7 | [catword-importing.md](catword-importing.md) |
+| catword-19.2 | Paste Special, links and Find and Replace | 8 | [catword-importing.md](catword-importing.md) |
+| catword-20.1 | Templates and a form | 8 | [catword-templates.md](catword-templates.md) |
+| catword-20.2 | Printing, PDF and sharing | 6 | [catword-templates.md](catword-templates.md) |
+
+18 videos, about 133 minutes. The README's header counts need the lead's
+update when these rows go in.
+| catword-21.1 | Track Changes and the markup | 7 | [catword-tracking.md](catword-tracking.md) |
+| catword-21.2 | Accepting and rejecting changes | 7 | [catword-tracking.md](catword-tracking.md) |
+| catword-22.1 | Keeping text together | 8 | [catword-pagination.md](catword-pagination.md) |
+| catword-22.2 | Language and accessibility | 6 | [catword-pagination.md](catword-pagination.md) |
+| catword-23.1 | Bookmarks and cross-references | 8 | [catword-crossrefs.md](catword-crossrefs.md) |
+| catword-24.1 | Choosing a data source | 7 | [catword-mergesources.md](catword-mergesources.md) |
+| catword-24.2 | Filtering and finishing the merge | 7 | [catword-mergesources.md](catword-mergesources.md) |
+| catword-25.1 | Paste, embed or link | 8 | [catword-linking.md](catword-linking.md) |
+| catword-26.1 | Recording and running a macro (IEB) | 8 | [catword-macros.md](catword-macros.md) |
 | catexcel-01.1 | Your first look at Excel | 7 | [catexcel-start.md](catexcel-start.md) |
 | catexcel-01.2 | Saving a workbook in Google Drive | 5 | [catexcel-start.md](catexcel-start.md) |
 | catexcel-02.1 | Typing and fixing data | 6 | [catexcel-entering.md](catexcel-entering.md) |
@@ -288,6 +320,41 @@ in the lesson text.
 | catexcel-07.1 | Making and finishing a chart | 8 | [catexcel-charts.md](catexcel-charts.md) |
 | catexcel-08.1 | A sheet onto paper | 7 | [catexcel-printing.md](catexcel-printing.md) |
 | catexcel-08.2 | Wrong answers with no error | 5 | [catexcel-printing.md](catexcel-printing.md) |
+| catexcel-09.1 | Sorting a list | 7 | [catexcel-sorting.md](catexcel-sorting.md) |
+| catexcel-09.2 | Filters and finishing touches | 8 | [catexcel-sorting.md](catexcel-sorting.md) |
+| catexcel-10.1 | Absolute references and F4 | 7 | [catexcel-absolute.md](catexcel-absolute.md) |
+| catexcel-10.2 | Range names and a percentage of a total | 6 | [catexcel-absolute.md](catexcel-absolute.md) |
+| catexcel-11.1 | Rounding is not formatting: the ROUND function | 7 | [catexcel-rounding.md](catexcel-rounding.md) |
+| catexcel-11.2 | Circular references and Excel's help | 6 | [catexcel-rounding.md](catexcel-rounding.md) |
+| catexcel-12.1 | Highlight Cells Rules and a pass mark in a cell | 7 | [catexcel-condformat.md](catexcel-condformat.md) |
+| catexcel-12.2 | Data bars, colour scales, icon sets and the Rules Manager | 7 | [catexcel-condformat.md](catexcel-condformat.md) |
+| catexcel-13.1 | The IF function: one question, two answers | 8 | [catexcel-if.md](catexcel-if.md) |
+| catexcel-13.2 | When IF goes wrong | 6 | [catexcel-if.md](catexcel-if.md) |
+| catexcel-14.1 | COUNTIF and SUMIF: a summary table | 8 | [catexcel-sumif.md](catexcel-sumif.md) |
+| catexcel-15.1 | Sheets: copy, link and freeze | 8 | [catexcel-sheets.md](catexcel-sheets.md) |
+| catexcel-15.2 | Protect a sheet, and two windows at once | 6 | [catexcel-sheets.md](catexcel-sheets.md) |
+| catexcel-16.1 | Making a sheet fit the page | 8 | [catexcel-printoptions.md](catexcel-printoptions.md) |
+| catexcel-16.2 | Breaks, print areas and a print plan | 7 | [catexcel-printoptions.md](catexcel-printoptions.md) |
+| catexcel-17.1 | A chart that says what it means | 8 | [catexcel-graphs.md](catexcel-graphs.md) |
+| catexcel-17.2 | A chart in Word that keeps up | 6 | [catexcel-graphs.md](catexcel-graphs.md) |
+| catexcel-18.1 | Bringing a CSV file into Excel | 8 | [catexcel-importing.md](catexcel-importing.md) |
+| catexcel-18.2 | Sorting by your own order, filtering by your own rules | 7 | [catexcel-importing.md](catexcel-importing.md) |
+| catexcel-19.1 | A nested IF, step by step | 8 | [catexcel-nestedif.md](catexcel-nestedif.md) |
+| catexcel-19.2 | AND and OR inside IF | 6 | [catexcel-nestedif.md](catexcel-nestedif.md) |
+| catexcel-20.1 | COUNTIFS and SUMIFS | 7 | [catexcel-countifs.md](catexcel-countifs.md) |
+| catexcel-20.2 | Rounding up and down | 5 | [catexcel-countifs.md](catexcel-countifs.md) |
+| catexcel-21.1 | VLOOKUP and HLOOKUP | 9 | [catexcel-lookups.md](catexcel-lookups.md) |
+| catexcel-21.2 | XLOOKUP | 4 | [catexcel-lookups.md](catexcel-lookups.md) |
+| catexcel-22.1 | Joining and cutting text | 7 | [catexcel-text.md](catexcel-text.md) |
+| catexcel-22.2 | FIND, LEN and the username | 6 | [catexcel-text.md](catexcel-text.md) |
+| catexcel-23.1 | Dates are numbers | 7 | [catexcel-dates.md](catexcel-dates.md) |
+| catexcel-23.2 | Times and hours worked | 5 | [catexcel-dates.md](catexcel-dates.md) |
+| catexcel-24.1 | Subtotals and the outline | 7 | [catexcel-summaries.md](catexcel-summaries.md) |
+| catexcel-24.2 | A pivot table in five clicks (IEB) | 6 | [catexcel-summaries.md](catexcel-summaries.md) |
+| catexcel-25.1 | A drop-down list and other validation rules | 8 | [catexcel-datatools.md](catexcel-datatools.md) |
+| catexcel-26.1 | Stacked columns, the axis and the labels | 8 | [catexcel-charts12.md](catexcel-charts12.md) |
+| catexcel-26.2 | A chart made of pictures | 4 | [catexcel-charts12.md](catexcel-charts12.md) |
+| catexcel-27.1 | Planning and troubleshooting an exam task | 9 | [catexcel-scenario.md](catexcel-scenario.md) |
 | catpowerpoint-01.1 | The PowerPoint window, views and new slides | 7 | [catpowerpoint-start.md](catpowerpoint-start.md) |
 | catpowerpoint-01.2 | Designs and the rules of a good slide | 7 | [catpowerpoint-start.md](catpowerpoint-start.md) |
 | catpowerpoint-02.1 | Typing, levels and formatting on slides | 7 | [catpowerpoint-text.md](catpowerpoint-text.md) |
@@ -304,3 +371,31 @@ in the lesson text.
 | cathtml-03.1 | Paragraphs, line breaks and lines | 6 | [cathtml-text.md](cathtml-text.md) |
 | cathtml-04.1 | Bold, italic, underline - and finding the mistakes | 8 | [cathtml-formatting.md](cathtml-formatting.md) |
 | cathtml-05.1 | Colour, fonts and lines: attributes | 8 | [cathtml-design.md](cathtml-design.md) |
+| cathtml-06.1 | HTML in ten minutes: a quick start | 9 | [cathtml-quickstart.md](cathtml-quickstart.md) |
+| cathtml-07.1 | Bulleted and numbered lists | 7 | [cathtml-lists.md](cathtml-lists.md) |
+| cathtml-08.1 | Pictures on a web page | 8 | [cathtml-images.md](cathtml-images.md) |
+| cathtml-09.1 | Links to pages, websites and files | 8 | [cathtml-links.md](cathtml-links.md) |
+| cathtml-10.1 | Tables: rows, cells and headings | 7 | [cathtml-tables.md](cathtml-tables.md) |
+| cathtml-11.1 | One website, not four pages: design and colour | 8 | [cathtml-goodpage.md](cathtml-goodpage.md) |
+| cathtml-12.1 | Formatting a table: border, padding, spacing and alignment | 8 | [cathtml-tableformat.md](cathtml-tableformat.md) |
+| cathtml-13.1 | Spanning rows and columns | 7 | [cathtml-spanning.md](cathtml-spanning.md) |
+| cathtml-14.1 | Fixing a broken page, step by step | 8 | [cathtml-fixing.md](cathtml-fixing.md) |
+| cathtml-15.1 | Building a page for a scenario | 8 | [cathtml-scenario.md](cathtml-scenario.md) |
+| catdb-01.1 | Your first look at Access | 8 | [catdb-whatfor.md](catdb-whatfor.md) |
+| catdb-02.1 | Building a table in Design View | 8 | [catdb-tables.md](catdb-tables.md) |
+| catdb-03.1 | Records: enter, delete, sort, filter and replace | 8 | [catdb-records.md](catdb-records.md) |
+| catdb-03.2 | Importing a CSV file into Access | 4 | [catdb-records.md](catdb-records.md) |
+| catdb-04.1 | Field properties | 8 | [catdb-properties.md](catdb-properties.md) |
+| catdb-05.1 | Input masks and validation rules | 9 | [catdb-validation.md](catdb-validation.md) |
+| catdb-06.1 | Making and using a form | 9 | [catdb-forms.md](catdb-forms.md) |
+| catdb-07.1 | Your first queries in Design View | 9 | [catdb-queries.md](catdb-queries.md) |
+| catdb-08.1 | AND, OR and NOT in the design grid | 8 | [catdb-criteria.md](catdb-criteria.md) |
+| catdb-09.1 | A report on a query, with totals | 9 | [catdb-reports.md](catdb-reports.md) |
+| catdb-10.1 | Wildcards, Is Null and dates | 8 | [catdb-advqueries.md](catdb-advqueries.md) |
+| catdb-11.1 | Calculated fields in a query | 8 | [catdb-calculated.md](catdb-calculated.md) |
+| catdb-12.1 | Totals queries: Group By and Sum | 8 | [catdb-totals.md](catdb-totals.md) |
+| catdb-13.1 | A grouped report with group totals | 8 | [catdb-groupreports.md](catdb-groupreports.md) |
+| catdb-14.1 | From a question to a report | 8 | [catdb-answers.md](catdb-answers.md) |
+| catdb-15.1 | Related tables and a join | 7 | [catdb-mainform.md](catdb-mainform.md) |
+| catdb-15.2 | A subform and a main form (IEB) | 6 | [catdb-mainform.md](catdb-mainform.md) |
+| catdb-16.1 | A whole database task, start to finish | 9 | [catdb-scenario.md](catdb-scenario.md) |
