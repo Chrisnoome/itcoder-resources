@@ -88,3 +88,5 @@ with `'rules'` (Jev first), a scamSpotter-like evidence activity where it fits, 
   40 minutes.
 - Any rhino-poaching content too sensitive for the class? (Plan: no violence shown, no
   carcasses, Tumelo survives.)
+
+Videos: 8 planned for the video chat - [sql9-videos.md](sql9-videos.md).

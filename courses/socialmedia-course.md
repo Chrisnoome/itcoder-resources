@@ -50,3 +50,5 @@ combined with the slot machine (Chris, 9 October 2026).
 - Lessons are **about 40 minutes** (Chris, 9 October 2026): the film in three parts of about
   31 minutes, with questions at the breaks (lessons 1-3), lesson 4 for the discussion.
 - The film's age rating and the school's policy - any parts to skip?
+
+Videos: 5 planned for the video chat - [socialmedia-videos.md](socialmedia-videos.md).
