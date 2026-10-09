@@ -882,6 +882,11 @@ inside `GameSync()`; their XP counts towards the course XP and rank.
   locked now).
 - **Rank emblems**: every rank reached. **Dances**: the 30 victory dances
   (reveal.js), kept with the account (the browser's old list is brought over).
+  Each collected dance **plays again on a press** on the Dances tab (Chris,
+  9 Oct 2026: "allow them to animate the dances when viewing them in
+  collections / achievements"): `ItcReveal.dancer()` draws the figure in the
+  dance's first pose; a press dances it for 8 s, with its beat when the
+  pupil's reveal sound is on, one at a time; a second press stops it.
 - **Art**: `tools/collect-art/make_collect_art.py` from each item's `art`
   prompt (ComfyUI, glossy 3D toy, a glow by rarity, transparent background) to
   `public/assets/collect/<course>/<code>.webp`; a rarity-coloured gem until then.
@@ -1901,7 +1906,10 @@ changes. pupils without teachers don't get calendars by default."
   50-59 muted, 60-69 pleased, 70-79 celebrating, each a random gesture and
   line; 80%+ a random victory dance (30, the blue-pen stick figure posed by
   joint angles on the beat), fanfare and a beat, confetti, gold rays, and "5
-  of 30 collected" (this browser). All sound is synthesised (Web Audio), no
+  of 30 collected" (this browser). The victory dance goes on until Continue
+  (it stopped at 7 s before 9 Oct 2026, when Chris said "the dances are not
+  animating"), and it starts before the dance is collected, so a collection
+  problem cannot keep the figure still. All sound is synthesised (Web Audio), no
   files. A mute button on the reveal; `prefers-reduced-motion` stills it.
 - **My settings** (`public/pupil-settings.php`, like Teacher settings): the
   reveal's animation and sound (`pupils.revealAnim`, `revealSound`, on by
