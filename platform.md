@@ -281,9 +281,10 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     (review, 8 October 2026): `bin/accdb-sandbox.sh` runs all of mdbtools in
     a throwaway systemd unit (own user, no network, no `/var/www`) like the
     compile sandbox; the reader uses it when
-    `/usr/local/bin/itcoder-accdb-sandbox.sh` exists - **not installed yet,
-    waiting for Chris** (`deploy/accdb-sandbox.md` has the script, sudoers
-    line and steps). One Access read at a time per pupil, 20 s apart
+    `/usr/local/bin/itcoder-accdb-sandbox.sh` exists - **installed 8 October
+    2026 (Chris: "Install it"), reinstalled 9 October 2026 to pass the
+    form and report designs (MSysAccessStorage) out**; reinstall it whenever
+    `bin/accdb-sandbox.sh` changes (`deploy/accdb-sandbox.md`). One Access read at a time per pupil, 20 s apart
     (`UploadAccdbGate()`), and the same file as a marked try is refused
     before it is read. Calculated fields
     read as 0, so they are worked out. Subjects `accdb.table`, `accdb.field`,
@@ -309,6 +310,42 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     example: "The chess club's table" at the end of the CAT pilot's Access
     lesson (`upChess`); its files and Access's own query answers in
     `tests/uploads/access/`.
+  - **Everything the CAT courses teach** (Chris, 9 October 2026: "complete
+    simulations and marking" - the writers' gap lists in
+    `courses/cat-practical-notes/`). Word: character formats (highlight,
+    strike, super/subscript, small/all caps, shading, language), paragraph
+    spacing, line spacing, indents, borders, shading, tab stops, keep
+    settings, list type/level/number format, typed page break vs "Page break
+    before", empty paragraphs; sections (paper, columns, line numbers, page
+    numbers, title page); page colour, watermark, hyphenation, protection,
+    mail merge (`docx.settings`); tables and cells (style, merged, shading,
+    a formula field vs a typed number); fields (TOC, REF, MERGEFIELD, DATE,
+    XE/INDEX ...), links, bookmarks, foot/endnotes, captions, content
+    controls, tracked changes left in vs accepted, comments, pictures and
+    shapes (kind, wrap, alt text); **.docm**: accepted, its macros read from
+    `vbaProject.bin` as bytes (`lib/officevba.php`: compound file + MS-OVBA,
+    bounded) and **never run** (`docx.macro`: name, key, code). Excel: a
+    cell's look (bold, fill, borders, merged, wrap, locked ...), sorted
+    ranges, names, page setup (print area/titles, fit, margins, header and
+    footer codes as [Page]), freeze, hidden and grouped rows/columns/sheets,
+    sheet and workbook protection, validation, filter, sort, conditional
+    formats (rank, icons, colours, the look given), charts (titles, axes,
+    labels, legend, trendline, combo, chart sheet), sparklines, pivot
+    tables, tables, notes, links. PowerPoint: transition timing, animations
+    (effect, start, target), notes, background, footer/number/date, objects
+    per slide, links and action buttons, hidden slides, theme, slide size,
+    sections, Set Up Slide Show. Access: `accdb.object` (forms, reports,
+    macros by name - MSysObjects) and **`accdb.form` / `accdb.report`**
+    (record source, bound fields, calculated boxes, totals in footers,
+    group levels, title) from **MSysAccessStorage** - Access's design
+    "Blob" read for its text properties (`AccdbDesigns()`); the sandbox
+    script gives that table from 9 October 2026, so **the installed sandbox
+    must be installed again** (`deploy/accdb-sandbox.md`) before a design
+    rule can decide on the server (until then it is undecided: its Jev
+    fallback). `file.name`: the name the file was uploaded under. The rule
+    format is the doc comment of `lib/uploadmark.php`; fixtures made by
+    real Office 365 in the CAT VM are in `tests/uploads/reader/`
+    (`tools/sim-screens/uploadmark-fixtures*.ps1`).
   - **Opening (`upload-file.php`):** the pupil; a trusted teacher of a class
     (not as TIC) the pupil is in, in that course (`UploadViewerRole()`); the
     administrator only through the support form, with a reason. Always a
@@ -601,6 +638,127 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   "Fix Botha's Bakery's page". On a localhost testbed the preview's pictures
   do not load (Chrome's private-network rule stops a sandboxed frame reaching
   127.0.0.1); on the site they do.
+- **`sheet` blocks - the spreadsheet grid and its formula evaluator** (CAT
+  decision 19, courses/cat-course.md 3.0 item 19 and 4 item 7; Chris 9 Oct
+  2026: "complete simulations and marking"). Files: `lib/sheetcalc.php` (the
+  evaluator), `public/assets/sheetcalc.js` (the same evaluator, function for
+  function, for the browser), `lib/sheet.php` (the block), `api/sheet-answer.php`,
+  `assets/sheet-block.js` / `.css`, `block-icons/sheet.svg`.
+  - **The evaluator** works Excel formulas out as Excel 365 does: operators
+    with Excel's precedence (`=-2^2` is 4, `^` left to right, `%`, `&`,
+    comparisons with numbers < text < TRUE/FALSE, text ignoring capitals),
+    relative/absolute/mixed references, ranges (`A:A`, `1:3`), other sheets
+    (`Prices!A2`, `'Price list'!A1`), range names, array constants and Excel
+    365's array arithmetic (`=SUM(B2:B6*C2:C6)`, `=SUMPRODUCT((O1:O6="North")*P1:P6)`,
+    `=SUM(IF(A1:A8>5,1,0))`), the error values passed on as Excel passes them,
+    dates as serials in the 1900 system (with Excel's 29 February 1900),
+    numbers kept to 15 digits as Excel keeps them, a circular reference showing
+    0 and named. **115 functions**, among them every one of the **82 the CAPS and
+    IEB lists and the catexcel lessons name** (`SheetSyllabusFunctions()`; the
+    check fails if one goes missing). TODAY is the block's `'today'` (default
+    today); RAND/RANDBETWEEN come from a seed (block id, cell, call), so server
+    and browser agree. A formula that would spill shows its first value. Not
+    done: spilling into other cells, the intersection/union operators, R1C1,
+    locale formats (`.` decimal, `,` separator; `am`/`pm` as South African Excel
+    shows them). **Safety:** a formula is tokenised and parsed into plain arrays
+    and worked out by a switch - never `eval`, never a callable named by the
+    formula, never a regular expression built from the pupil's text (wildcards
+    are matched by hand, in one pass); only the functions in `SheetFunctions()`
+    exist (anything else `#NAME?`); limits on formula length (1 000), nesting
+    in a formula (64) and along a chain of cells (3 000 operations), a chain of
+    cells (250), a worked-out block (10 000 values) and text (32 767, checked
+    before REPT or `&` builds anything). **Work is budgeted** (`SheetBudget`,
+    code review 9 Oct 2026: a stored answer took a page down): every step is
+    paid for *before* it is done - an operation, a cell read, each cell of a
+    range (ranges read only as far as the sheet has data), each pass of a loop,
+    text by its length - and WORKDAY/NETWORKDAYS are worked out, not walked day
+    by day. A book has 200 000 steps unless it shares a budget; past it, or past
+    the chain or depth limits, the cell shows **`#BUSY!`** (not an Excel error)
+    instead of the page dying. Marking works out every answer cell and copy on
+    the data shown first, within 20 000 steps (lessons' answers take tens to
+    hundreds): an answer that needs more is **refused** - "takes too much work
+    to work out", the try not used, nothing stored - and the rest of the
+    marking shares one budget (at most 800 000 steps, about 0.4 s). Each grid
+    on a page (`SheetGridHtml()`, the teacher's `SheetWorkAnswers()`) has 60 000
+    steps of its own, so even a forged row shows `#BUSY!`, not a dead page.
+    About 0.5 microseconds a step in PHP 8.2.
+  - **Kept in step with real Excel:** `tests/sheetcalc-cases.json` - a fixture
+    workbook (three sheets, names) and **876 formulas with what Excel 365 gave**
+    in the CAT VM (`AIResources/tools/sim-screens/sheetcalc-excel.ps1`,
+    `Range.Formula2`, en-ZA: results in `tools/sim-screens/files/sheetcalc-excel/`).
+    Both engines must give every one: `php bin/check-sheets.php` and
+    `node public/assets/sheetcalc.test.js`. The two intended differences are
+    marked with a `note` (a spill Excel blocked). Hyphens and the characters a
+    regular expression would treat specially (`-`, `[`, `^`, `.`, `$`, `{`, `|`,
+    `\`, `+`) are among the cases. A new case needs Excel's value:
+    add its formula, put the formula list into the `$json` line of
+    `sheetcalc-excel.ps1` (it is the case file's fixture and formulas as JSON),
+    run `pwsh -File vm-shots.ps1 sheetcalc-excel`, and copy Excel's answer in as
+    `expect` (`{"v": ...}` or `{"e": "#N/A"}`).
+  - **The block:** a grid of the block's `'cells'` (or `'sheets' => ['Orders' =>
+    [...], 'Prices' => [...]]` with tabs), `'size'`, `'formats'` (Excel number
+    formats), `'widths'` (characters), `'names'`, `'starter'` (a formula to fix),
+    `'today'`; the **yellow cells** are the pupil's - every check's `'cell'`
+    (one cell or a range filled by the pupil); `'copyTo'` cells show the
+    pupil's formula copied as the fill handle would (and are marked too:
+    `'absolute' => true` says it is there to test the `$` signs - the check
+    script makes sure the formula without them fails). Like Excel: click or
+    arrow keys, type to replace, F2/double click/the formula bar to edit, Enter
+    down, Tab across, Escape, a click on a cell while typing a formula after an
+    operator puts its address in, Ctrl+D/Ctrl+R and dragging the fill handle,
+    Delete, Ctrl+` and a Show formulas button; on a phone a tap on a yellow cell
+    types in the formula bar and the grid scrolls inside itself. Rendered on
+    the server too (values worked out by PHP), so a finished answer comes back
+    as it was, read-only.
+  - **Marked from the formulas**, as the memos mark a spreadsheet: `'checks'
+    => [['marks', 'say', 'hint', 'cell', 'model' => '=B2*C2', 'copyTo',
+    'absolute', 'requires' => [['VLOOKUP', 'XLOOKUP']], 'jev'], ...]` (the
+    `'jev'` question names the pupil's formula as `pupil_formula`, the model's
+    as `model_formula`). An answer cell must hold a formula (a
+    typed answer: not met), Excel must accept it, it must use what `'requires'`
+    names (a list inside = any one) **with a range or cell of the sheets as one
+    of its parts** (`=VLOOKUP(1,{1},1)*IF(...)` does not count), and its value -
+    and every copy's - must be the model formula's in the same place **on the
+    data shown and on each of the block's hidden `'variations'`** (other
+    prices, codes, quantities; `'today' => '2027/03/01'` in a variation moves
+    TODAY and NOW), so `=6*48` or `=(D7-50)/2` fails. Each check is worked out beside the pupil's
+    own other cells (carried forward: a right `=E4*F4` is right even when F4
+    is wrong). Any formula that works is right (`=SUM(D2:D6)`, `=D2+D3+...`,
+    INDEX/MATCH where allowed). A model that is not a formula (`'CK03'`) is
+    data the pupil types, compared as text. A `'jev'` check whose rules pass
+    goes to Jev (`JevSheetVerdicts()`, the formulas in their own fields plus an
+    injection question), Claude when Jev is unsure (`SheetCheckWithClaude()`);
+    costed as `sheetcheck`. Notes say what is wrong in words, never the fix
+    ("D9 gives 1935, which is not the right answer", "right for this data but
+    not when the data changes - is a number typed in where a cell belongs?",
+    "copied to F8, it gives #N/A there"). Marks as the HTML block: each check
+    doubled right first time, once on the second try (`SheetMarkEarned()`);
+    stored as `{cells, met, notes}`; two tries, the same cells twice refused.
+  - `php bin/check-sheets.php [course] [--live]`: the 876 cases, the copies,
+    refused formulas, typed and shown values, the syllabus list, safety
+    (formulas that reach for the server, a chain of 400 cells, a circle) and
+    **hostile workloads, each under 1 s and 32 MB** (SEARCH over `REPT("a",4000)`,
+    SUMPRODUCT of 8 x `A1:A999999`, 20 x `NETWORKDAYS(1,1000000)`, nested IF
+    arrays, 21 blocks multiplied, long text compared, a chain of long formulas;
+    the same in `sheetcalc.test.js` for the browser); every block's keys, marks
+    adding up, models Excel would take with known functions and no error
+    values, every answer cell changing in some variation, **every cell a model
+    or its copy points at changed by some variation** (put the cell's value in
+    its place - `=8*C3` for `=B3*C3` - and some variation must tell), a
+    variation moving `'today'` when a model uses TODAY or NOW, `'absolute'`
+    failing without `$`, the model full marks, the starter and the model's
+    answers typed in as numbers none. Then the rules on themselves: a loose
+    block and a fixed TODAY are caught; the review's `=8*C3`, `=B4*40` fail in
+    lesson 3; a lookup on an array fails `'requires'` in lesson 21; a hostile
+    answer there is refused at marking, and stored anyway (forged) it still
+    shows in the grid and to a teacher in under 1 s, as `#BUSY!`. Worked examples: catexcel lesson 3 (Grade 10,
+    "The whole order", 8 marks) and lesson 21 (Grade 12, "Six orders, looked
+    up", two sheets, 12 marks).
+  - **The `.xlsx` inspector can use it later:** `lib/uploadmark.php` compares a
+    cell's `<f>` text and Excel's saved value; working the formula out again
+    with `lib/sheetcalc.php` on changed data (the same variations idea) would
+    tell a real formula from one with numbers typed in. Not wired in yet
+    (another chat was extending uploadmark.php on 9 October 2026).
 
 ## Page layout rules (Chris, 28 Sep 2026)
 
@@ -2666,6 +2824,11 @@ Secrets live in `config/config.php` per project, never here.
 - `php bin/check-html.php [course] [--live]` - every `html` block: its checks
   and rules, the marks adding up, its pictures, the model answer full marks
   and the starter not (`--live` asks Jev about the model's `'jev'` checks).
+- `php bin/check-sheets.php [course] [--live]` and `node
+  public/assets/sheetcalc.test.js` - the spreadsheet evaluator against Excel's
+  own answers (both engines, tests/sheetcalc-cases.json) and every `sheet`
+  block: models full marks, starters and typed answers none (see "`sheet`
+  blocks" above).
 - `php bin/check-uploads.php [--no-jev]` - every `upload` block (kinds,
   checks well formed, marks, starter files), the CAT pilot's "Format the
   notice" against a done-right and a done-wrong .docx made on the spot (with
