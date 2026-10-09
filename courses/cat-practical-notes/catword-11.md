@@ -326,7 +326,8 @@ Price list done, Camp form done (.docx).
 
 ## 10. What the platform lacked
 
-- **lib/officexml.php does not read**: footnotes and endnotes (footnotes.xml),
+- *(Closed 9 October 2026: the reader reads these now - docx.note, docx.section, docx.contentControl, docx.settings protection; the uploads mark them.)*
+- **lib/officexml.php did not read**: footnotes and endnotes (footnotes.xml),
   numbering formats and start values (numbering.xml: a list is only "a list"),
   w:pgNumType (page number format, Start at), w:titlePg (Different First Page
   is seen only through a 'first' footer part - Jev decides), w:cols (columns),
@@ -342,6 +343,6 @@ Price list done, Camp form done (.docx).
   words, so a table of figures and a caption with the same words cannot both
   be checked exactly (the caption is a Jev check). A `style` selector
   ("the first paragraph in the Caption style") would help.
-- No triple-click or drag step in simulations (Grade 10's note still holds).
+- No triple-click or drag step in simulations - both exist since 9 October 2026 (platform.md); a drag here needs new screens.
 - vm-shots' lock is not first come, first served: one run waited 90 minutes
   and failed, others waited over an hour.

@@ -214,7 +214,8 @@ values - starter "400 pupils.  These" / "PLEASE ORDER BY THURSDAY." and done
 
 ## 9. What the platform lacked
 
-- **lib/officexml.php does not read** highlight, strikethrough, sub/
+- *(Closed 9 October 2026: the reader reads these now; the uploads mark highlight and small caps (Specials), spacing and borders (Lab rules), list types and the dot-leader tab (Scones), the empty paragraphs, and the file's name (Botha notice).)*
+- **lib/officexml.php did not read** highlight, strikethrough, sub/
   superscript, small caps, line or paragraph spacing, indents, borders,
   shading, tab stops, list type (bulleted vs numbered) or list level. So
   the uploads cannot check those, and the lessons' upload tasks leave them
@@ -227,7 +228,9 @@ values - starter "400 pupils.  These" / "PLEASE ORDER BY THURSDAY." and done
 - **The uploaded file's name is not checked** - lesson 1 asks for a good
   name (Botha notice 2026-12-16) but no rule can see it.
 - No **triple-click** step kind in simulations (left, right, double only);
-  lesson 2 selects a line with a click in the left margin instead.
+  lesson 2 selected a line with a click in the left margin instead. Since
+  9 October 2026 `'button' => 'triple'` exists, and simMoveSlip's first
+  step is a triple-click on the paragraph (same screens).
 - No way to capture Word's menus reliably (they are not new top-level
   windows most of the time), and Word's dialog boxes expose no controls to
   UI Automation - so no click-through in a dialog, and targets in dialogs

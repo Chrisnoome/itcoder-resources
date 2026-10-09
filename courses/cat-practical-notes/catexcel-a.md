@@ -236,6 +236,8 @@ that every picture is in.
 
 ## 8. What the platform lacked
 
+*(9 October 2026, phase B: the reader now reads formatting, names, page setup, validation, filters, charts and pivots, and the uploads mark them; bin/check-uploads.php (3b) marks every catexcel done copy and starter on each run - start's upBothaPrices left out, as one check reads the uploaded file's name.)*
+
 - **xlsx formatting** - lib/officexml.php reads values, formulas and number
   formats only. Bold, font size, fill, borders, merged cells, alignment,
   wrap, column widths and cell styles are invisible to an upload check, so

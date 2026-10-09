@@ -168,7 +168,7 @@ try {
   $r = Words12 $done '[page]'; $r.Text = ''; $r.InsertCrossReference('Bookmark', 7, 'MeterTable', $false, $false)
   $r = Words12 $done '[heading]'; $r.Text = ''
   $items = $done.GetCrossReferenceItems(1)                                                                       # wdRefTypeHeading
-  $k = 0; for ($i = 1; $i -le $items.Count; $i++) { if ($items[$i - 1] -match 'Recommendations') { $k = $i } }
+  $k = 0; $i = 0; foreach ($it in $items) { $i++; if ("$it" -match 'Recommendations') { $k = $i } }   # a 1-based array: count, not index
   if ($k -gt 0) { $r.InsertCrossReference('Heading', -1, $k, $false, $false) } else { $r.Text = 'Recommendations' }   # wdContentText
   [void]$done.Fields.Update()
   "  done intro: $((ParaLike $done 'Phumlani Secondary pays').Text)"

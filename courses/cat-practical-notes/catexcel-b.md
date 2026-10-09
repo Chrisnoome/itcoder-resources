@@ -109,6 +109,8 @@ Wished for:
 
 ## 6. Anything unsure, and what the platform lacked
 
+*(9 October 2026, phase B: data labels and page setup are read and marked now. Orders-done remade in real Excel (`catexcel-done-fixes.ps1`: Landscape, Narrow margins), so it gets full marks. The Landscape simulation exists: simLandscape, the Orientation menu opened and Landscape chosen with real clicks (`catexcel-landscape.ps1`, land-3 and land-5). Still not captured: the Text menu for Header & Footer and File > Print with 2 copies typed.)*
+
 - **Name Box after naming a range:** a name made through COM never showed in
   the Name Box on a PrintWindow picture (three runs: re-select, Goto, a
   redraw). The simulation's step after typing the name therefore uses the

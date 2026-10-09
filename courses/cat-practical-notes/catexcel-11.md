@@ -16,9 +16,9 @@ Grade 10 is 1-9 (`sorting` is 9) and Grade 12 is 19-27
 | 14 | `sumif` | COUNTIF and SUMIF | 42 / 50 | 4 (1 IEB) | `upMarketDay11` (MarketDay11.xlsx), 6 |
 | 15 | `sheets` | Working with sheets and windows | 66 / 74 | 5 (1 CAPS, 1 IEB) | `upMarkBook11B` (MarkBook11B.xlsx), 6 |
 | 16 | `printoptions` | Print options | 54 / 60 | 5 (1 CAPS, 1 IEB) | none marked: page setup cannot be read; an unmarked "Do it in Excel" with MarkBook11.xlsx |
-| 17 | `graphs` | More charts, and linking them | 72 / 72 | 5 (1 CAPS) | `upBakerySales` (BakerySales.xlsx), 4 exact + 2 Jev |
+| 17 | `graphs` | More charts, and linking them | 74 / 74 | 6 (1 CAPS) | `upBakerySales` (BakerySales.xlsx), 4 exact + 2 Jev |
 | 18 | `importing` | Importing, exporting, and advanced sorting and filtering | 40 / 68 | 4 (2 IEB) | `upBakeryBook` (BakeryBook.xlsx + TillSales.csv), 6 exact |
-| | **Total** | | **524 / 588** | 38 | 8 |
+| | **Total** | | **526 / 590** | 39 | 8 |
 
 Board sections: absolute (AutoFill Options, IEB), rounding (RAND, IEB), sumif
 (COUNTA and COUNTBLANK, IEB), sheets (Protect Sheet, CAPS; windows, splits
@@ -41,6 +41,8 @@ checks. The Jev checks (condformat 1, graphs 2) were read with the values Jev
 sees.
 
 ## Lessons written - by writer
+
+*(9 October 2026, phase B: names, conditional-format rank/formula/icon sets, freeze panes and protection are read and marked now. Writer C's BakerySales-done (axis titles) remade and MarkBook11-done made (printoptions had none) in real Excel by `catexcel-done-fixes.ps1`; both get full marks in bin/check-uploads.php (3b).)*
 
 ### Writer A (absolute, rounding, condformat)
 
@@ -440,8 +442,10 @@ All run in the mirror after `sync.sh printoptions graphs importing`
   hasFormula.
 - No **docx chart** reading: a linked chart in Word cannot be uploaded and
   marked.
-- Simulations lack a drag step (dragging a page break, the chart range
-  outline) - taught in prose.
+- Simulations lacked a drag step (dragging a page break, the chart range
+  outline) - taught in prose. Since 9 October 2026 there is one: graphs has
+  simDragSeries (drag the blue outline's corner, el-6 to sd-3, +2 marks).
+  The page break drag needs an "after" screen of Page Break Preview.
 - Facts I am reasonably but not fully sure of: Word pasting an Excel chart
   **linked** by default (seen in this VM; the PowerPoint lesson does not say
   which is default); Excel's Advanced Filter re-filling its boxes from the

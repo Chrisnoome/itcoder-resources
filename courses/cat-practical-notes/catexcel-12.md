@@ -191,7 +191,9 @@ Wished for (one line each):
 
 ## 6. What the platform could not mark, and other doubts
 
-**Not readable by lib/officexml.php** (taught, simulated and set in the
+*(9 October 2026, phase B: validation, pivots, outlines, page breaks, chart details and sparklines are read and marked now. SportsDay-done (input message, Stop alert) remade in real Excel by `catexcel-done-fixes.ps1`; it gets full marks in bin/check-uploads.php (3b). The screens below that could not be made are still missing.)*
+
+**Not readable by lib/officexml.php** (as it was - taught, simulated and set in the
 uploads, but not marked):
 - **data validation** rules (lists, whole-number rules, messages) -
   `datatools` marks what the rules lead to (the circled grades fixed) and

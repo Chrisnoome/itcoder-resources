@@ -125,6 +125,17 @@ access-where-having, access-related.
 
 ## 6. Unsure, gaps and platform notes
 
+**9 October 2026 (phase B):** forms and reports are marked now (accdb.form,
+accdb.report: lessons 6, 9, 13, 14, 15, 16). A drag step: mainform's new
+simRelDrag - TeamID dragged onto TeamID with the real mouse in the VM, Enforce
+Referential Integrity ticked, Create (`catdb-reldrag.ps1`, screens
+catdb-mainform-r-1..4). Still open: the validation rules stay Jev checks (the
+lib fix below is not made); the crosstab is not in an upload; the Field List
+drag onto a form (forms) is still described in a 'done' text; the done copies
+cannot be marked on this computer (no mdbtools) - check-uploads marks them on
+the server only.
+
+
 - **Forms and reports cannot be marked** - mdbtools cannot read
   MSysAccessStorage. Lessons 6 (forms), 9 (reports), 13 (grouped reports), 14
   (answers), 15 (subform, main form) and 16 teach and simulate them, and the
@@ -275,5 +286,4 @@ In a scratch copy of the repo with catdb as a draft course:
   Content on a database from elsewhere.
 - A few cropped pictures in public/assets/sims/catdb are not used by any lesson
   (spares from the runs); they can be deleted.
-- Forms, reports, the subform and the main form are taught and simulated but not
-  marked (MSysAccessStorage) - see section 6.
+- *(Closed 9 October 2026: forms and reports are marked - see section 6.)*

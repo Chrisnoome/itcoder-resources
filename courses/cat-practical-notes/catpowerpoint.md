@@ -240,7 +240,18 @@ and tests/uploads/catpowerpoint/; each starter scores 0 and each done-right
 copy full marks on the exact checks (scratch runner on UploadMarkFile; the pat
 Jev check left to Jev).
 
-**What the platform lacks for presentations** (lib/officexml.php
+**Closed 9 October 2026 (phase B):** the reader now reads the theme,
+pictures, charts, tables, SmartArt, animations, notes, links, slide numbers
+and the show settings, and all six uploads mark them (slideshow has
+upBakeryTV). bin/check-uploads.php (3b) marks each done copy (full marks)
+and starter on every run. A drag step: start's new simMove (a slide dragged
+in the Slides pane, real mouse in the VM - `catpowerpoint-move.ps1`, screens
+catpowerpoint-start-mv-1/-2). Left: the Print page (printing notes and
+handouts) is still prose with a question.
+
+The list as it was:
+
+**What the platform lacked for presentations** (lib/officexml.php
 `OfficePptx()` reads each slide's layout, transition and text only):
 
 - the **theme / design** - so no upload checks "a design was applied";

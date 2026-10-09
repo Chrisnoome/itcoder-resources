@@ -286,6 +286,10 @@ site's copy.
 
 ## 9. What the platform lacked
 
+*(9 October 2026: the reader now reads revisions, the break flags, language,
+alt text, bookmarks, fields, .docm macros and comments; the uploads mark them.
+OLE objects are read as fields (LINK) only.)*
+
 - **Tracked changes**: lib/officexml.php reads inserted text as in and
   deleted text as out, so an accepted change and an undecided one look the
   same - only rejections and new text can be marked. Suggested: count
@@ -306,9 +310,10 @@ site's copy.
   anything. Suggested: accept .docm, and a `docm.macro` test (name, key)
   that never executes it.
 - **OLE objects** (embedded or linked, icons) are not read.
-- **Simulations**: no step for "choose from a drop-down list" - the
-  cross-reference simulation's last three choices are described in its
-  'done' text.
+- **Simulations**: no step for "choose from a drop-down list". *(Closed 9
+  October 2026: simCrossRef now has the choices as steps - the two lists
+  opened with real keys in the VM (`catword-crossrefs-x.ps1`, F4), Bookmark,
+  Page number, Insert - screens x-3, x-4, x-4a, x-4b, and x-5 the real result.)*
 - `bin/check-*.php` need an index entry to see a lesson; I checked before
   indexing with a scratch mirror of the repo (lib, bin and content/catword
   copied, the rest junctions).

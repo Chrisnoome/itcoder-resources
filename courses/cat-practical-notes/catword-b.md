@@ -212,6 +212,19 @@ wait for the lock):
 
 ## 8. Starter files made
 
+**Done (9 October 2026, phase B):** the stand-ins are replaced by real Word
+and Excel files - `catword-b-files.ps1` now packs each .docx from
+Document.WordOpenXML (the kit's SaveDoc route, as SaveAs2 still hangs) and
+remade Newsletter, SaturdaySales (.docx, .xlsx), ThaboEssay, SalesReport and
+their done copies, plus Specials done, Camp form done and Water report final
+done. Word's own count of the essay is 66. The illustrations upload
+(upEwaste) exists: `catword-ewaste-files.ps1` made E-waste project.docx and
+its done copy. bin/check-uploads.php (3b) now marks every catword done copy
+(full marks) and its starter (never full) on each run.
+
+The history:
+
+
 **Word's SaveAs2 hung in the CAT VM from about 17:30 on 8 October 2026 -
 for every script, and for a plain new document in a WinRM job too (Excel
 and PowerPoint still saved).** So the starter files are **stand-ins** made
@@ -239,7 +252,8 @@ Other writers' scripts that save Word files will hang too.
 
 ## 9. What the platform lacked
 
-- **lib/officexml.php does not read** text columns (w:cols), the watermark
+- *(Closed 9 October 2026: the reader reads all of these now, and the uploads mark columns, the watermark, the hyperlink, the table style, merged cells, the SUM field, the comment, and the e-waste page's WordArt, picture wrapping, SmartArt and text box.)*
+- **lib/officexml.php did not read** text columns (w:cols), the watermark
   (a shape in the header), page colour (w:background), page borders
   (w:pgBorders), hyphenation (w:autoHyphenation), line numbers
   (w:lnNumType), paper size as a test (the section has widthCm/heightCm but
@@ -252,7 +266,9 @@ Other writers' scripts that save Word files will hang too.
   `illustrations` has **no upload**; `integration` leaves the hyperlink
   unmarked; `tables` cannot tell a SUM field from a typed 215.
 - No **triple-click** step and no **drag** step in simulations: the table
-  grid is a click on a square, not a drag.
+  grid is a click on a square, not a drag. (Both kinds exist since 9
+  October 2026, and `'enter' => false` for typing; the grid stays a click -
+  that is how Word works.)
 - A **type** step always ends with Enter. In a dialog box that is OK (fine
   for one box), but it rules out typing in two boxes of one dialog, or in a
   table cell (Enter makes a new line there) - the table lesson uses a keys
