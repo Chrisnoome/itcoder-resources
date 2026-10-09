@@ -2,14 +2,14 @@
 
 Grade 8, eight lessons, General Computing. **Draft** (teachers only) in `CourseIndex()`
 (`AIPascalCourse/lib/course.php`, 9 October 2026). Content in `content/safety/`.
-**Written:** lessons 1-4 - `phishing`, `passwords`, `secondlock`, `leak` (9 October 2026),
-each checked on the local testbed and by `check-jev.php` (no flags). Lessons 5-8 not yet
-written. Lessons 1-3 were pushed for Chris to publish (9 October); lesson 4 is committed after
-that push.
-
-**Local only (9 October 2026):** `lib/course.php` has `'status' => 'open'` for Chris's review
-on localhost, uncommitted. It must go back to `'draft'` before any publish - otherwise four of
-eight lessons go live to pupils.
+**Complete and open** (9 October 2026): all eight lessons written - `phishing`, `passwords`,
+`secondlock`, `leak`, `apps`, `footprint`, `fakefriend`, `bigcase` - and the course opened at
+Chris's request ("complete the course ... and publish live"). Lessons 1-4 were checked on the
+testbed and by Jev; 5-8 were written without a review pass (Chris: "no need for checking") -
+lint and the content checks pass. 14 links from IT Theory and CAT Theory point here
+(theory10 malware, socialmedia, netiquette; theory11 protecting, compcrime; theory12
+privacylaw; cattheory10 threats, safety x3; cattheory11 protecting, bigdata, socialeng).
+Videos: 16 planned for the video chat - [safety-videos/README.md](safety-videos/README.md).
 
 Platform: the course's body class `course-safety` (lesson.php) gives its doodle captions
 Caveat (design-e.css); its fonts load with the others (design.php, lesson.php). Figures and
