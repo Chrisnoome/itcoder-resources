@@ -2,8 +2,8 @@
 
 Grade 8, eight lessons, General Computing. **Draft** (teachers only) in `CourseIndex()`
 (`AIPascalCourse/lib/course.php`, 9 October 2026). Content in `content/safety/`.
-**Written:** lesson 1, `phishing` (9 October 2026), checked on the local testbed and by
-`check-jev.php` (no flags). Lessons 2-8 not yet written.
+**Written:** lesson 1, `phishing`, and lesson 2, `passwords` (9 October 2026), both checked
+on the local testbed and by `check-jev.php` (no flags). Lessons 3-8 not yet written.
 
 Platform: the course's body class `course-safety` (lesson.php) gives its doodle captions
 Caveat (design-e.css); its fonts load with the others (design.php, lesson.php). Figures and
@@ -31,12 +31,18 @@ machines -> the big case.
    not) before a verdict; the form fills in with a note per check and the message is stamped
    SCAM or CLEARED. Unmarked; the score is saved as activity state (only for enrolled pupils -
    a teacher previewing the draft gets a 403 from api/activity.php, which is expected).
-2. **Case 02: The line-up** - how passwords are cracked (guessing, word lists, leaked lists),
-   why length beats symbols, passphrases. The password line-up figure. Activity `crackTimer`:
-   type a password, see a rough guess count and time, worked out in the browser and never sent
-   anywhere (the page says so).
+2. **Case 02: The line-up** - how passwords are cracked (login page vs a stolen list of
+   hashes; common list, name + numbers, look-alike swaps, everything), **length beats funny
+   characters**, passphrases with a link to **xkcd 936** (linked, not copied - CC BY-NC and the
+   site sells subscriptions), **one secret phrase plus a different part for each site**, and
+   **password managers, for and against** (Chris, 9 October 2026 - managers moved here from
+   lesson 3). Try-it **`crackTimer`** (`public/assets/safety-tryit.js`): the cheapest of four
+   attacks at 10 billion guesses a second. Every time in the lesson and in the line-up figure
+   (`doodles/safety-lineup.svg`, drawn by a script from the same numbers) is checked by
+   `node tests/crack-timer.test.js` - change one, change all three.
 3. **Case 03: The second lock** - two-step verification, OTPs, why you never read an OTP to
-   anyone (the "bank calls you" scam), SIM swaps, a password manager.
+   anyone (the "bank calls you" scam), SIM swaps, and protecting the password manager's master
+   password.
 4. **Case 04: The leak** - data breaches: what leaks, why reused passwords spread the damage,
    checking whether you were in one, the steps after a breach.
 5. **Case 05: What your apps know** - permissions, location, contacts, cookies and trackers,
