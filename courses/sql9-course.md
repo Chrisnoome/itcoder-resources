@@ -6,9 +6,11 @@ poachers** storyline, **its own art style** (a style board first, as for CAT and
 course), and a term shared with the social media course
 ([socialmedia-course.md](socialmedia-course.md)): **social media first, then SQL**.
 
+**Written and open, 9 October 2026** - all 8 lessons in `content/sql9/`, the database `content/sql/db/reserve.php` (built and clue-checked by `tools/sql9/`, every model answer run in SQLite). Not yet run on MySQL: the local runner has no MySQL - check on the test site.
+
 General Computing, Grade 9. **8 lessons** (term 1: 2 lessons per 7-day cycle, about 15
 lessons; social media takes 6, SQL 8, one spare). Status `open` from the start (no draft -
-platform.md). Content in `AIPascalCourse/content/sql9/`. **Not started - plan only.**
+platform.md). Content in `AIPascalCourse/content/sql9/`. 
 
 ## The story
 

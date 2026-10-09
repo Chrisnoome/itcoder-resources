@@ -4,9 +4,10 @@ Chris, 9 October 2026: term 1 of Grade 9 is shared between this course and the i
 ([sql9-course.md](sql9-course.md)), **social media first**, "allow time for watching the
 netflix show the social dilemma (just over 3 lessons)".
 
+**Written and open, 9 October 2026** - all 6 lessons in `content/socialmedia/`, the feedRanker try-it in `public/assets/socialmedia-tryit.js`. The film is cut at about 31 and 62 minutes - the exact timings are not known, so the teacher pauses at the nearest scene change.
+
 General Computing, Grade 9. **6 lessons** (2 per 7-day cycle; SQL takes 8, one spare). Status
-`open` from the start. Content in `AIPascalCourse/content/socialmedia/`. **Not started - plan
-only.**
+`open` from the start. Content in `AIPascalCourse/content/socialmedia/`. 
 
 ## The film
 

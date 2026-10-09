@@ -1,0 +1,20 @@
+{
+ "L1": ["SELECT RhinoName, LastSeenDate, LastSeenTime, Zone FROM tblRhinos WHERE RhinoName = 'Tumelo'", null],
+ "L2": ["SELECT SightDate, SightTime, Zone, RangerID FROM tblSightings WHERE RhinoID = 2", null],
+ "L2b": ["SELECT RhinoID, SightDate, SightTime FROM tblSightings WHERE Zone = 'K7' AND SightDate >= '2027-03-12'", null],
+ "L3": ["SELECT TrapID, SnapDate, SnapTime, WhatSeen, Notes FROM tblCameraTraps WHERE Zone = 'K7' AND (WhatSeen = 'Vehicle' OR WhatSeen = 'Person')", null],
+ "L3b": ["SELECT SnapDate, SnapTime, Notes FROM tblCameraTraps WHERE Notes LIKE '%BX%'", null],
+ "L4": ["SELECT LogDate, LogTime, Gate, Plate, Direction FROM tblGateLog WHERE Plate LIKE 'BX%' ORDER BY LogDate, LogTime", null],
+ "L4b": ["SELECT DISTINCT Plate FROM tblGateLog WHERE Plate LIKE 'BX%'", null],
+ "L4c": ["SELECT LogDate, LogTime, Plate, Direction FROM tblGateLog WHERE Gate = 'East' ORDER BY LogDate DESC, LogTime DESC LIMIT 4", null],
+ "L5": ["SELECT COUNT(*) FROM tblGateLog WHERE Plate = 'BX 48 LM GP' AND Direction = 'In'", null],
+ "L5b": ["SELECT MIN(LogTime), MAX(LogTime), SUM(Passengers), AVG(Passengers) FROM tblGateLog WHERE Plate = 'BX 48 LM GP' AND Direction = 'In'", null],
+ "L5c": ["SELECT COUNT(*) FROM tblGateLog WHERE Direction = 'In' AND LogTime >= '20:00'", null],
+ "L6": ["SELECT RangerID, COUNT(*) FROM tblShifts WHERE Zone = 'K7' GROUP BY RangerID", null],
+ "L6b": ["SELECT RangerID, COUNT(*) FROM tblShifts WHERE Zone = 'K7' AND ShiftDate IN ('2027-03-02','2027-03-05','2027-03-08','2027-03-10','2027-03-12') GROUP BY RangerID", null],
+ "L6c": ["SELECT RangerID, COUNT(*) FROM tblShifts GROUP BY RangerID", null],
+ "L7": ["SELECT tblVehicles.Plate, tblPeople.PersonName, tblPeople.Role, tblPeople.Phone FROM tblVehicles JOIN tblPeople ON tblVehicles.OwnerID = tblPeople.PersonID WHERE tblVehicles.Plate = 'BX 48 LM GP'", null],
+ "L7b": ["SELECT tblPeople.PersonName, tblPhonePings.PingDate, tblPhonePings.PingTime, tblPhonePings.Zone FROM tblPhonePings JOIN tblPeople ON tblPhonePings.Phone = tblPeople.Phone WHERE tblPhonePings.Zone = 'K7' AND tblPhonePings.PingDate = '2027-03-13' AND tblPhonePings.PingTime < '05:00'", null],
+ "L8": ["SELECT ShiftDate, Zone FROM tblShifts WHERE RangerID = 4 AND ShiftDate > '2027-03-14'", null],
+ "L8b": ["SELECT tblPeople.PersonName, COUNT(*) FROM tblPhonePings JOIN tblPeople ON tblPhonePings.Phone = tblPeople.Phone WHERE tblPhonePings.Zone = 'K7' AND tblPhonePings.PingTime < '05:00' GROUP BY tblPeople.PersonName", null]
+}
