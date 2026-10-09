@@ -1,8 +1,13 @@
 # Course: Staying safe online (`safety`) - PLAN
 
-Grade 8, eight lessons, General Computing. **Listed as `soon`** in `CourseIndex()`
-(`AIPascalCourse/lib/course.php`, Chris, 9 October 2026); nothing written yet. Content will go
-in `content/safety/`.
+Grade 8, eight lessons, General Computing. **Draft** (teachers only) in `CourseIndex()`
+(`AIPascalCourse/lib/course.php`, 9 October 2026). Content in `content/safety/`.
+**Written:** lesson 1, `phishing` (9 October 2026), checked on the local testbed and by
+`check-jev.php` (no flags). Lessons 2-8 not yet written.
+
+Platform: the course's body class `course-safety` (lesson.php) gives its doodle captions
+Caveat (design-e.css); its fonts load with the others (design.php, lesson.php). Figures and
+doodles are `public/assets/doodles/safety-*.svg`, made by a script (the board's drawings).
 
 Art: the case file, Sniff and The Phisher - [../brand/safety-art-style.md](../brand/safety-art-style.md).
 Every figure and doodle in this course follows it, never the blue pen.
@@ -20,8 +25,9 @@ machines -> the big case.
 
 1. **Case 01: The locked account** - phishing by SMS, WhatsApp and email. The three checks
    (sender, tone, link) and the findings form, introduced on the board's scam SMS. Look-alike
-   addresses (`kasibank-verify.co` vs `kasibank.co.za`). Activity `scamSpotter`: an inbox of
-   messages, flag or clear each, the form fills in as you go.
+   addresses (`kasibank-verify.co` vs `kasibank.co.za`). The inbox is a `match` block (six
+   messages, scam or safe) plus `markwords` (click the lines that rush you); a bespoke
+   `scamSpotter` activity, with the form filling in as you go, can replace them later.
 2. **Case 02: The line-up** - how passwords are cracked (guessing, word lists, leaked lists),
    why length beats symbols, passphrases. The password line-up figure. Activity `crackTimer`:
    type a password, see a rough guess count and time, worked out in the browser and never sent
