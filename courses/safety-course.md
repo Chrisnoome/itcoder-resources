@@ -7,6 +7,10 @@ each checked on the local testbed and by `check-jev.php` (no flags). Lessons 5-8
 written. Lessons 1-3 were pushed for Chris to publish (9 October); lesson 4 is committed after
 that push.
 
+**Local only (9 October 2026):** `lib/course.php` has `'status' => 'open'` for Chris's review
+on localhost, uncommitted. It must go back to `'draft'` before any publish - otherwise four of
+eight lessons go live to pupils.
+
 Platform: the course's body class `course-safety` (lesson.php) gives its doodle captions
 Caveat (design-e.css); its fonts load with the others (design.php, lesson.php). Figures and
 doodles are `public/assets/doodles/safety-*.svg`, made by a script (the board's drawings).
