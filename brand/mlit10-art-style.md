@@ -32,8 +32,12 @@ The look comes from spaza walls, barbershop boards and taxi-rank signs.
   bubbles.
 - **Lettering.**
   - **Bungee** for titles, in capitals, with a hard black drop shadow offset 3 px.
-  - **Shrikhand** for the one-line "slogan" under a title and for punchlines.
+  - **Permanent Marker** for the one-line "slogan" under a title and for punchlines. The
+    board showed Shrikhand, but the lesson page does not load it; the art keeps to fonts
+    `lib/design.php` already loads.
   - **Bungee** at small sizes for speech bubbles and stamps.
+  - Batch 1's chalkboard writing is **Caveat** (700), roughened with a small displacement
+    filter (`filterUnits="userSpaceOnUse"`, or thin horizontal lines vanish).
 - **Flourishes.** A wavy pinstripe underline (3 px black) under titles. Drawn
   sign-painter's lines only; no gradients.
 - **The year map** is a minibus-taxi route: a thick black road line with 12 painted stops,

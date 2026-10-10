@@ -1,5 +1,13 @@
 # Course: Grade 10 Mathematical Literacy - a year of scenarios (`mlit10`) - PLAN
 
+**Status (10 October 2026):** batch 1, Kota Kitchen, is written: 8 lessons in
+`AIPascalCourse/content/mlit10/` (the whole year's 71 lessons are in `index.php`; the rest
+show as "coming soon"), with its art from `tools/mlit10/make_art.py`, `caps.php`,
+`sags.php` and `glossary.php`. Every numeric answer was tried on the testbed with lenient
+typings (R 33, 2.5m, 3¾, R135 per kg, 2h30). The numeric answer type is built
+(platform.md, "Typed answers"). Next: the graph-and-grid engine, which batch 2 (Car Wash)
+needs. The course row is `open`, so it shows on the site once published.
+
 Chris, 10 October 2026: "maths lit lends itself to different scenarios and graphical
 themes. plan out a course for grade 10 that covers caps and sags grade 10 over a normal
 school year. each batch of lessons can follow a scenario - like the games for the grade

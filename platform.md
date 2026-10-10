@@ -587,8 +587,15 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     a fraction or %. "1,500" is read both ways.
   - A wrong number with a typical slip (unit, decimals, rounding, out by
     10/100/1 000, % vs decimal, sign) gets a fixed why-wrong line from code,
-    never the AI (`NumericNearMiss()`). The line under the box says how to
-    type a number.
+    never the AI (`NumericNearMiss()`). "Rounding" is said only when the pupil's
+    number IS the answer rounded at some place, so a place-value slip (37 400
+    for 37 040) goes to the usual AI hint instead. The line under the box says
+    how to type a number, and the spelling notice is not shown.
+  - Also read: mixed numbers and fraction characters (2¼, 2 1/4), and a rate
+    in rand (R135/kg, R135 per kg, R22,50 a litre).
+  - Give a numeric question `'kind' => 'calc'` - its eyebrow reads "Work it
+    out". `php bin/check-numeric.php [course]` checks every spec parses and
+    that the shown answer (first in the list) is accepted by its own spec.
   **Theory courses** (Chris, 26 September 2026: "anticipate typical pupil
   errors that are still correct answers"): `LenientTerms()` (set from
   `CourseMarkStyle() === 'theory'`) also compares `TheoryTermKey()` - no
