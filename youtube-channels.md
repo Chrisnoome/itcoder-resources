@@ -239,6 +239,9 @@ Lessons: AIPascalCourse 2-8, published live 10 October 2026.
 **Open:** 7.2 and 7.3 show a grey box on the public site (i.ytimg hqdefault is the 1097-byte placeholder at every size),
 though Studio has their thumbnails and both were re-uploaded on 9 October. Chris: wait and check later; if still blank,
 re-upload (or pick an auto frame, save, then put ours back).
+10 October: still blank. A frame from the video (Select from video) did not reach the public site either, so the
+fault is in YouTube's copy of the video, not our thumbnail; ours is back on 7.2. Chris: wait another day. If still
+blank, re-upload the two .mp4 files (in E:\itcoder-videos\uploaded) and redo metadata, captions, playlist, lesson links.
 
 ## Pascal tutorials 8.1-9.2 (9 October 2026)
 
