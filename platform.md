@@ -805,6 +805,65 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
     with `lib/sheetcalc.php` on changed data (the same variations idea) would
     tell a real formula from one with numbers typed in. Not wired in yet
     (another chat was extending uploadmark.php on 9 October 2026).
+- **`graph` blocks - drawing on a grid** (the graph-and-grid engine for the
+  Maths Lit course, courses/mlit10-course.md "Platform work" item 1; Chris
+  10 Oct 2026: built before batch 2, no paper fallback, **"all modes"** in the
+  first version, marked **"code + Jev labels"**; the Mathematics course will
+  use it too). Files: `lib/graph.php` (the whole block - its comment is the
+  authoring reference), `api/graph-answer.php`, `assets/graph-block.js` /
+  `.css`, `block-icons/graph.svg`; demos `tests/graph-demos.php`.
+  - **Modes and tools:** `points` (Plot), `line` (Plot; Line: tap one end, then
+    the other - its ends are plotted too), `step` (Step: tap one end, then the
+    other - it stays flat; tap an end's dot to make it open or closed), `bars`
+    (`'categories'` = a bar graph, a bar a square wide with a square between;
+    `'bins'` = a histogram, touching bars on the intervals; Bar: tap above it at
+    the height), `boxplot` (a number-line strip; Mark: tap the five values) and
+    `scale` (Rectangle: tap a corner, then the opposite one - floor plans). All:
+    Rub out, Undo, Clear; a press that moves drags what is under it; taps land
+    on the nearest `'snap'` of a square (default 0,5). `'tools'` overrides.
+  - **Axes:** `'axes' => ['x' => [min, max, one square's value], 'y' => ...]`
+    (or `['min', 'max', 'step', 'every' => numbered every n squares, 'label' =>
+    the axis's name, given]`) - a whole number of squares, at most 60. Or
+    `['squares' => 12]`: **the pupil chooses the scale** (two boxes: "starts at",
+    "one square =", decimal comma fine) and their drawing is read on it - the
+    drawing is kept in squares, so it stays put when they change the scale.
+    Heading, x label and y label boxes round the grid (`'labels'` overrides;
+    an axis with a given name has no box). `'table'` shows the data above.
+    `'given'` draws elements in grey that are not the pupil's.
+  - **Marked per element against the model, within `'tol'` squares (default
+    0,5 - "half a grid square")**, each check its own marks: `'points'`
+    (each plotted, a pupil's point used once), `'line'` (every bit of the path
+    within tol of a line drawn), `'joined' => true|false` (continuous: the
+    pupil's own points joined in order; discrete: plotted, no line - and at
+    least two points), `'steps'` (+ `'ends' => true`: the open/closed dots,
+    written as interval brackets `'(]'`), `'bars'` (by category name, "0-5"
+    for a bin, or in order), `'box'` (five values or `min/q1/median/q3/max`),
+    `'rects'` (+ `'anywhere'`, `'turn'`), `'clean'` (nothing drawn the model
+    does not have; an empty grid does not earn it), `'scale' => 'x'|'y'` (a
+    chosen scale that starts at or below the smallest value, reaches the
+    largest, fills at least half the axis, one square 1/2/2,5/5 x 10^n;
+    `'zero' => true`). **Labels**: `'label' => 'heading'|'x'|'y'`, optional
+    `'words'` groups checked by code first, then **Jev** (`JevGraphVerdicts()`,
+    each label in its own field plus an injection question; a default question
+    per box, or `'jev'` naming `pupil_label`/`model_label`), **Claude only when
+    Jev is unsure** (`GraphCheckWithClaude()`); costed as `graphcheck`. Notes
+    say what is wrong, never where it belongs ("2 of the 5 points are not
+    plotted where they belong", "the median is not in the right place").
+  - As the HTML block: two tries, each check doubled right first time, once
+    on the second (`GraphMarkEarned()`); the same drawing twice refused;
+    hints for the checks missed; stored `{draw, met, notes}`; the server draws
+    the grid and the drawing as SVG (`GraphSvg()`), so a reload, the verdict's
+    model answer (green) and a teacher's page show it with no script; what is
+    drawn before Check is kept on that device only. `'gate' => true` works as
+    on any question. At most 40 of each kind of element. Works on a phone
+    (the SVG scales to the width; `touch-action: none` on the grid while it can
+    be drawn on).
+  - `php bin/check-graphs.php [course] [--live]`: every block and the 8 demos -
+    keys, axes, bins, each check's one kind and its keys, marks adding up, the
+    model on the grid with words for every label box; the model full marks, an
+    empty graph none (`--live` asks Jev about the models' labels: all 7 sure on
+    10 Oct 2026). `php tests/graph.test.php` (137 checks): numbers both ways,
+    the drawing made safe, every check kind right/just inside/just outside/wrong.
 
 ## Page layout rules (Chris, 28 Sep 2026)
 
@@ -3008,6 +3067,8 @@ Secrets live in `config/config.php` per project, never here.
   own answers (both engines, tests/sheetcalc-cases.json) and every `sheet`
   block: models full marks, starters and typed answers none (see "`sheet`
   blocks" above).
+- `php bin/check-graphs.php [course] [--live]` and `php tests/graph.test.php`
+  - every `graph` block and the demos (see "`graph` blocks" above).
 - `php bin/check-uploads.php [--no-jev]` - every `upload` block (kinds,
   checks well formed, marks, starter files), the CAT pilot's "Format the
   notice" against a done-right and a done-wrong .docx made on the spot (with
