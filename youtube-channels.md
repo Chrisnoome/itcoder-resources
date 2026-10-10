@@ -269,7 +269,19 @@ Java 2.2 PQ3ZcSB_bgw · Java 2.3 PoP4TPoW0PM. No 11.2 yet (no files in the uploa
 Public, in the playlist between 21.2 and 21.4, lesson 21 points at it. Chris deletes 3Kh5JXDrJEE.
 7.3 had been set to Private (not by Chris, he says); set back to Public.
 
-**Still to do** (Studio stopped loading; Chris: "Thumbnails only, captions later", then it stalled entirely):
-- Thumbnails: set on 9.3 (unchecked), 10.1, 10.2, 10.3, 10.4. Still to do: 11.1-13.4, Java 2.1-2.3 and 21.3
-  (3Yh18Gou1bk). PNGs in `E:\itcoder-videos\for upload`.
-- Captions (en-GB .srt, same folder): all 20, including the new 21.3.
+**Thumbnails:** all 20 set (10.3 and 10.4 needed a second go). **Captions still to do** on all 20, including
+the new 21.3 (.srt files in the upload folder).
+
+## Pascal 14.1-15.2 and Java 5.1-5.3, and a new Java 2.3 (10 October 2026)
+
+Public; titles and descriptions from the .youtube.md files. Pascal playlist: 14.1-15.2 before 16.1 (58 videos).
+Java playlist: 5.1-5.3 and the new Java 2.3 added, the old 2.3 removed (order not checked yet). Lesson links:
+AIPascalCourse 545d6c1 (Pascal 14 and 15, Java 5; Java lesson 2 points at the new 2.3; not published).
+
+14.1 PCzM7Aq6uZ4 · 14.2 vobaT0edsrY · 14.3 SE7kVVR2NwA · 14.4 oqXClkCq9xM · 15.1 DELWXBWSE1U · 15.2 lPiW3fYVigw ·
+Java 5.1 roapeaaURaU · Java 5.2 dU0G7jXS3mo · Java 5.3 RpqFp56De1E · Java 2.3 (new render) -DNsFK_Qpnk.
+Chris deletes the old ones: 21.3 3Kh5JXDrJEE and Java 2.3 PoP4TPoW0PM.
+
+**Still to do:** thumbnails and captions for all 10; check the Java playlist order; 15.3 (being uploaded).
+Studio context: if capturing it from the draft dialog fails, edit a video's title on its edit page and Save - the
+real metadata_update goes out by XMLHttpRequest, so hook XHR as well as fetch.
