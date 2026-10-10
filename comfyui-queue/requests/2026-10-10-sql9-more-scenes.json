@@ -1,0 +1,88 @@
+{
+  "id": "2026-10-10-sql9-more-scenes",
+  "kind": "items",
+  "from": "the General Computing courses chat (rhino case)",
+  "added": "2026-10-10",
+  "status": "waiting",
+  "why": "Chris, 10 October 2026: \"rhino course can use more pictures - they are beautiful\". Twelve more coloured-pencil scenes for the Grade 9 SQL course, in the same style as 2026-10-09-sql9-scenes (brand/sql9-art-style.md); placed with Sql9Scene() in content/sql9/ once picked. No harm shown: no weapons, no injured animals. Do not run while the GPU is busy with videos (Chris).",
+  "style": "realistic coloured pencil drawing on warm off-white paper, visible pencil strokes and paper texture, natural colours, soft Limpopo bushveld light, wildlife field-guide illustration, no text, no letters, no logos",
+  "size": [
+    1344,
+    768
+  ],
+  "variants": 3,
+  "items": [
+    {
+      "name": "night-patrol",
+      "prompt": "two game rangers walking on a dirt track at night with torches, starry sky, bushveld silhouettes",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/night-patrol.webp",
+      "where": "lesson 6 (who was on duty)"
+    },
+    {
+      "name": "zebra-herd",
+      "prompt": "a small herd of zebra grazing in golden grass in the bushveld, late afternoon light",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/zebra-herd.webp",
+      "where": "lesson 2 (sightings)"
+    },
+    {
+      "name": "leopard-night",
+      "prompt": "a leopard walking past a tree at night, lit by a soft camera flash, eyes glowing",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/leopard-night.webp",
+      "where": "lesson 3 (camera traps)"
+    },
+    {
+      "name": "logbook",
+      "prompt": "an open handwritten logbook with ruled lines and a pen beside it on a wooden desk in a guard hut, lit by a desk lamp, the writing too small to read",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/logbook.webp",
+      "where": "lesson 4 (the gate log)"
+    },
+    {
+      "name": "pickup-night",
+      "prompt": "a grey pickup truck on a dirt track at night with its headlights on, dust in the light beams, bush on both sides",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/pickup-night.webp",
+      "where": "lesson 4 or 5 (the BX plate)"
+    },
+    {
+      "name": "rhino-tracks",
+      "prompt": "rhino footprints pressed into red sand on a game path, close up, a few grass stalks",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/rhino-tracks.webp",
+      "where": "lesson 2 (where was she?)"
+    },
+    {
+      "name": "tracker-dog",
+      "prompt": "an anti-poaching tracker dog, a Belgian Malinois, sitting alert beside a ranger's boots on a dirt road",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/tracker-dog.webp",
+      "where": "lesson 6 or 7"
+    },
+    {
+      "name": "map-pins",
+      "prompt": "a paper map of a game reserve pinned to a corkboard with red pins and red string joining them, a torch beside it",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/map-pins.webp",
+      "where": "lesson 7 (connecting the dots)"
+    },
+    {
+      "name": "radio-hand",
+      "prompt": "a ranger's hand holding a two-way radio, bushveld behind out of focus, dusk",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/radio-hand.webp",
+      "where": "lesson 1 or 6"
+    },
+    {
+      "name": "dawn-bushveld",
+      "prompt": "sunrise over the bushveld, an acacia tree silhouetted against an orange sky, mist in the valley",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/dawn-bushveld.webp",
+      "where": "lesson 8 (the next night)"
+    },
+    {
+      "name": "elephant-waterhole",
+      "prompt": "an elephant drinking at a waterhole at midday, reflections in the water, birds at the edge",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/elephant-waterhole.webp",
+      "where": "lesson 5 (the pattern)"
+    },
+    {
+      "name": "rhino-mud",
+      "prompt": "a white rhino rolling in a mud wallow, splashes of mud, peaceful, late afternoon",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/rhino-mud.webp",
+      "where": "lesson 3 or 8"
+    }
+  ]
+}

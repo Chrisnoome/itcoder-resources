@@ -2143,17 +2143,42 @@ api/sql-run.php.
   put in the box). Unmarked. A reload shows a solved step solved with the
   pupil's SQL. A block that names no dialect runs in MySQL (`SqlBlockDialect()`
   - the Grade 9 course; sql-answer.php had passed `''`).
-- **Step gates**: a guided try-it is a gate unless `'gate' => false`; nothing
-  else is (missions are not). lesson.php wraps every block after an unsolved
-  gate in `[data-held-by]` (the nearest unsolved gate above it -
-  `GateHolds()`) behind "Solve the step above to carry on"; sql-runner.js
-  opens them in place when it is solved, and a link to a held anchor
+- **Step gates**: a guided try-it is a gate unless `'gate' => false`. Since
+  10 October 2026 (Chris: "these should all be progress gated") `'gate' =>
+  true` makes ANY marked block a gate (anything in `LessonMarkedQuestions()`:
+  quiz, typed, select, order, match, markwords, labelcode, html, sheet,
+  mission, sqlquery, written ...) and a `code` try-it too. Off unless set, so
+  a mission is a gate only when it says so. `GateRule()` (lib/sequence.php)
+  names what solves each: `sql` - the guided try-it's Run gave the model's
+  result (sqlSteps); `answer` - answered the way `LessonComplete()` counts it
+  (self-marked settled: right or out of tries, a mission too; written handed
+  in; a question that does not count for the pupil's board holds nothing);
+  `run` - a `code` try-it that has compiled and run without a compile error
+  (codeSubmissions `compileOk = 1`; the compile worker and
+  api/live-result.php also write a solved sqlSteps row via
+  `GateStepSolved()`, because codeSubmissions keeps only the latest run and a
+  later broken run must not shut the lesson again). `'gate'` on anything
+  else (prose, a free sql box) holds nothing. lesson.php wraps every block
+  after an unsolved gate in `[data-held-by]` (the nearest unsolved gate above
+  it - `GateHolds()`) behind "Solve the step above to carry on" with a line
+  on what opens it (`GatePanelHint()`) and `data-gate-rule`. app.js's
+  `BestLessonsGates.solved (questionId, rule)` opens them in place, called at
+  each kind's moment: FillVerdict once a question is settled (every
+  self-marked type, html, sheet, mission, simulation, dilemma, sqlquery go
+  through it), a written answer handed in, a code Run that compiled, a
+  console run that compiled (console.js), a guided try-it solved
+  (sql-runner.js). A rule that does not match the panel's opens nothing (a
+  mission's Run compiling is not its Check settling). A link to a held anchor
   (contents, outline, carry on) goes to the panel. Server side
   `ApiRequireLesson()` refuses a `questionId` behind an unsolved gate for every
-  answer endpoint (`ApiRequireUngated()`), and sql-run.php does the same.
-  A board or scenario's frame is never wrapped (only its parts hide).
+  answer endpoint (`ApiRequireUngated()`, the same rule), and sql-run.php does
+  the same. A board or scenario's frame is never wrapped (only its parts
+  hide). Gates and the lesson order always read the real work, never a
+  practice run's (`RealLessonProgress()`).
 - **Sequential courses**: `'sequential' => true` in `CourseIndex()` (sql9,
-  pascal9). `LessonComplete()` = every gate solved + every marked question
+  pascal9; safety and socialmedia from 10 October 2026 - Chris wants every
+  General Computing course and new ones, the HTML course next, sequential).
+  `LessonComplete()` = every gate solved + every marked question
   answered (`PupilLessonProgress()`'s 'answered': settled, mission too, or
   written handed in). Lesson N opens when lesson N-1 (index order, written,
   shown to the pupil) is complete, or a teacher opened it (`lessonUnlocks`,
@@ -2163,7 +2188,10 @@ api/sql-run.php.
   Index search and the dashboard's next lesson. Teachers and admins skip it
   all (`SequenceExempt()`).
 - Check: `php tests/sequence.test.php` (its own throwaway database; with the
-  local SQL runner running it also runs real SQLite and Java DB errors).
+  local SQL runner running it also runs real SQLite and Java DB errors). Its
+  quiz, code, mission and written gates sit in a made-up course written into
+  the test's own folder (`$GLOBALS['checkContentDirs']`, read by
+  `CourseContentDir()`), never content/.
 
 ## Decisions that must not be undone
 

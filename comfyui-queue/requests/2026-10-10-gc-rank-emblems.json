@@ -1,0 +1,376 @@
+{
+  "id": "2026-10-10-gc-rank-emblems",
+  "kind": "items",
+  "from": "the General Computing courses chat (levels)",
+  "added": "2026-10-10",
+  "status": "waiting",
+  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Nine levels each for the new courses (lib/practice.php PracticeRanks(): safety Witness to Case Closer, socialmedia Scroller to Attention Master, sql9 Visitor to Reserve Warden, pascal9 Trainee to Mission Director); the frame grows bronze to silver to gold as for the 2026-10-01 emblems. PracticeRankEmblem() draws the old emblem until the file exists. Do not run while the GPU is busy with videos (Chris).",
+  "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 2,
+  "items": [
+    {
+      "name": "safety-0",
+      "prompt": "a single magnifying glass over a fingerprint, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-1",
+      "prompt": "a police-style notebook with a red pencil, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-2",
+      "prompt": "a pair of binoculars, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-3",
+      "prompt": "a red warning flag on a fishing hook, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-4",
+      "prompt": "a trail of glowing footprints, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-5",
+      "prompt": "a detective hat and a magnifying glass, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-6",
+      "prompt": "a shield with a padlock in the middle, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-7",
+      "prompt": "a shiny badge shaped like a shield with a star, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "safety-8",
+      "prompt": "a closed manila case file tied with red string, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/safety/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-0",
+      "prompt": "a phone with a glowing thumb-scroll arrow, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-1",
+      "prompt": "a glowing heart-shaped like button, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-2",
+      "prompt": "an eye wide open with a tiny phone reflected in it, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-3",
+      "prompt": "a pause button glowing softly, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-4",
+      "prompt": "a big glowing question mark, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-5",
+      "prompt": "a magnifying glass over a speech bubble, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-6",
+      "prompt": "a slider switch turned to off, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-7",
+      "prompt": "a calm hourglass with glowing sand, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia-8",
+      "prompt": "a crown resting on a phone that is switched off, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/socialmedia/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-0",
+      "prompt": "an entrance ticket to a game reserve, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-1",
+      "prompt": "a ranger bush hat, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-2",
+      "prompt": "a pair of binoculars on a strap, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-3",
+      "prompt": "rhino footprints in red sand, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-4",
+      "prompt": "a ranger radio, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-5",
+      "prompt": "a glowing tablet showing a simple bar chart, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-6",
+      "prompt": "a map of a bushveld reserve with a red pin, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-7",
+      "prompt": "a ranger badge with a rhino on it, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-8",
+      "prompt": "a golden rhino head in profile, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-0",
+      "prompt": "a small antenna sending signal waves, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-1",
+      "prompt": "a cadet wing pin, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-2",
+      "prompt": "a headset with a microphone, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-3",
+      "prompt": "a spanner and a glowing circuit board, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-4",
+      "prompt": "a cog wheel with a glowing core, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-5",
+      "prompt": "a mission control console with glowing buttons, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-6",
+      "prompt": "a sleek spacecraft pilot helmet, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-7",
+      "prompt": "a space station with solar panels, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9-8",
+      "prompt": "a planet ringed by a glowing orbit path, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/pascal9/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
+  ]
+}
