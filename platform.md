@@ -2732,6 +2732,26 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   (`AiEngineSql()`, lib/billing.php) in the Monitor's AI calls, Billing › AI
   costs (**By AI**: each model), an account's AI use and Activity's AI tile
   and squares. Jev's tiny costs show to R 0.0001 on the Monitor.
+  **Laid out like My settings, with YouTube** (Chris, 10 October 2026: "is
+  there a way to add youtube stats to the sites monitor page? also, the
+  monitor page needs better ui layout - like the setting on the pupils
+  settings page"): numbered tabs on the left (`settings-tabs.js`; the #hash
+  keeps the tab across the 30 s refresh) - Server, Right now, Speed, AI
+  credit left, AI calls, Jev, YouTube - one card at a time, each with a
+  **red dot** when it needs a look (load >= cores or memory >= 85%; a queue
+  waiting over 120 s, the live daemon down or sessions refused; marking wait
+  p90 over 30 s in the last hour; an AI balance low; Jev without a key or
+  failing in the last hour; YouTube without a key or its last refresh
+  failed), big figures as tiles; on a phone the tabs sit on top and a wide
+  table scrolls inside its card. **YouTube** (`lib/youtubestats.php`): the
+  YouTube Data API v3 with an API key (config `youtubeApiKey`, set with
+  `tools/set-server-config.py youtubeApiKey`, in the install kit's
+  questions; channel `youtubeChannelId`, default BestLessons) - channel,
+  uploads, video statistics; refreshed at most hourly when the Monitor is
+  open (about 5 of the 10 000 free units a day), cached in
+  `youtube-stats.json` beside the database with a daily snapshot kept 60
+  days for the 7- and 30-day change; tiles, by subject (title prefix), most
+  watched and newest. With no key the tab shows the setup steps.
 - **Admin > Activity** (`admin-activity.php`, `lib/activity.php`; Chris, 8
   October 2026: "a heat map - time in 30 minute segments, number of users
   online ... tools to view use of the site for planning and management"; he
