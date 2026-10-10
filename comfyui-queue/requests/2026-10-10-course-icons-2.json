@@ -3,7 +3,7 @@
   "kind": "items",
   "from": "the General Computing courses chat (home page icons)",
   "added": "2026-10-10",
-  "status": "waiting",
+  "status": "done",
   "why": "Chris, 10 October 2026: \"schedule icon generation for any missing icons in any course\". The home page course badge for every course made since 2026-10-01-course-icons (lib/home.php HomeCourseLook() - keep each object in that course's two colours). Until a file exists the card shows its line icon. catexcel reuses the picked catsheets.png (same course, renamed).",
   "style": "A glossy 3D icon object, smooth shiny plastic and enamel, soft studio light, like a premium app icon. The whole object centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
   "size": [
@@ -20,7 +20,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia",
@@ -30,7 +31,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9",
@@ -40,7 +42,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9",
@@ -50,7 +53,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "clubweb",
@@ -60,7 +64,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "cattheory10",
@@ -70,7 +75,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory11",
@@ -80,7 +86,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 3
     },
     {
       "name": "cattheory12",
@@ -90,7 +97,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "catpowerpoint",
@@ -100,7 +108,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     }
   ]
 }
