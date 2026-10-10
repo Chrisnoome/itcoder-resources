@@ -295,3 +295,14 @@ isContentEdited:false, contentUpdateTime:<now in microseconds>, captionsFile:{da
 base64,<the .srt>'}}]}. Load the .srt files into the page through a file input made in the page (file_upload, all at
 once), read them with FileReader. The reply is only a responseContext; check the watch page for the en-GB track.
 29 caption files went up in under a minute this way (10 October 2026).
+
+## Pascal 11.2, 15.3-15.6 and Java 3.1, 3.2, 4.1 (10 October 2026)
+
+Public; titles, descriptions and captions by API, thumbnails in Studio (all checked: captions on the watch pages,
+thumbnails in the content list). 15.3 was re-rendered: the new upload YOWQbBKKZI0 replaces sLMHjwsVgvM (out of the
+playlist and lesson 15; Chris deletes it). Pascal playlist 64 videos in lesson order (11.2 after 11.1; 15.3-15.6
+before 16.1); Java playlist: installs, 2.1-2.3, 3.1, 3.2, 4.1, 5.1-5.3 (both read back). Lesson links:
+AIPascalCourse 306d96f (Pascal 11 and 15, Java 3 and 4).
+
+11.2 pGAMDl4QYTI · 15.3 YOWQbBKKZI0 · 15.4 bVZPNmTeITU · 15.5 fT5aBy0CivY · 15.6 JPn44CgafYg ·
+Java 3.1 2YKcW8VoALY · Java 3.2 cu3e5XkjbuE · Java 4.1 jv2ARtnNFk4.
