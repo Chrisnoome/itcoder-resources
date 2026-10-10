@@ -2752,7 +2752,7 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   failed), big figures as tiles; on a phone the tabs sit on top and a wide
   table scrolls inside its card. **YouTube** (`lib/youtubestats.php`): the
   YouTube Data API v3 with an API key (config `youtubeApiKey`, set with
-  `tools/set-server-config.py youtubeApiKey`, in the install kit's
+  `tools/set-server-config.py youtube --site both`, which sets live and test and tests the key from each; in the install kit's
   questions; channel `youtubeChannelId`, default BestLessons) - channel,
   uploads, video statistics; refreshed at most hourly when the Monitor is
   open (about 5 of the 10 000 free units a day), cached in
