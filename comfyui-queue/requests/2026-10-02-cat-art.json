@@ -2,7 +2,7 @@
   "id": "2026-10-02-cat-art",
   "from": "the code review chat (checking the ComfyUI pictures before a publish)",
   "added": "2026-10-02",
-  "status": "made",
+  "status": "done",
   "why": "Chris, 2 October 2026: \"make sure the existing comfyui images are linked in and working\". All made pictures are linked and load; the only ones the site asks for that were never made are the CAT courses': the CAT pilot's course icon (lib/home.php HomeCourseLook, public/assets/course-art/<course>.png) and the 'data' rank family's nine emblems (lib/practice.php PracticeRankArtUrl, RankFamily() gives 'data' to the CAT courses; ranks Bit to Petabyte). Stand-ins show until then. Same looks as 2026-10-01-course-icons and 2026-10-01-rank-emblems.",
   "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
   "size": [
@@ -20,7 +20,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "data-0",
@@ -30,7 +31,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "data-1",
@@ -40,7 +42,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "data-2",
@@ -50,7 +53,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "data-3",
@@ -60,7 +64,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "data-4",
@@ -70,7 +75,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "data-5",
@@ -80,7 +86,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "data-6",
@@ -90,7 +97,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "data-7",
@@ -100,7 +108,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "data-8",
@@ -110,7 +119,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     }
   ]
 }
