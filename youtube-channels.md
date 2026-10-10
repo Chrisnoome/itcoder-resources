@@ -235,12 +235,15 @@ lesson order (31 videos). No cards. The new 21.3 render was not used (Chris: kee
 **Captions:** our en-GB .srt is on all 15 still up (checked on the watch pages). "Upload manual" on the Languages page
 fails ("Upload captions failed"); only the editor's Options > Upload file works, and in that editor the first click
 on each control is often ignored. Studio stops responding for 30-60 s at a time; wait and carry on.
-Lessons: AIPascalCourse 2-8 (not published).
+Lessons: AIPascalCourse 2-8, published live 10 October 2026.
+**Open:** 7.2 and 7.3 show a grey box on the public site (i.ytimg hqdefault is the 1097-byte placeholder at every size),
+though Studio has their thumbnails and both were re-uploaded on 9 October. Chris: wait and check later; if still blank,
+re-upload (or pick an auto frame, save, then put ours back).
 
 ## Pascal tutorials 8.1-9.2 (9 October 2026)
 
 6 uploaded by Chris, Public (Chris: "Public now"), own thumbnails, in the Pascal playlist after 7.3 and before 16.1
-(36 videos). No cards. Lesson links: AIPascalCourse 894eac1, lessons 8 and 9 (not published).
+(36 videos). No cards. Lesson links: AIPascalCourse 894eac1, lessons 8 and 9, published live 10 October 2026.
 
 8.1 R0v0QrFBS1A · 8.2 FttBUIy9nNY · 8.3 Games7wYixM · 8.4 D-JU0U1lfWo · 9.1 ZIdHuyHH3WE · 9.2 cfkA2JrgWWU
 
