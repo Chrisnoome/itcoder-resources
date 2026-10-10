@@ -4,8 +4,8 @@
   "from": "the General Computing courses chat (Tuck-shop tycoon)",
   "added": "2026-10-10",
   "status": "waiting",
-  "command": "python tools/badge-art/make_badges.py tuckshop",
+  "command": "python tools/badge-art/make_badges.py",
   "cwd": "AIResources",
-  "minutes": 10,
-  "why": "Chris, 10 October 2026: \"add level and achievement icons to the art queue\". The achievement badges for the new Grade 7 course Tuck-shop tycoon (tuckshop, about 21): its look is in LOOKS in make_badges.py (a board-game token in red and lime with a dark green rim). Only missing badges are made, straight into public/assets/badges/tuckshop/. Its level emblems are in 2026-10-10-gc-rank-emblems (tuckshop-0 to -8)."
+  "minutes": 20,
+  "why": "Chris, 10 October 2026: \"add level and achievement icons to the art queue\". The achievement badges for the new Grade 7 course Tuck-shop tycoon (tuckshop, about 21): its look is in LOOKS in make_badges.py (a board-game token in red and lime with a dark green rim). Only missing badges are made, straight into public/assets/badges/tuckshop/. Its level emblems are in 2026-10-10-gc-rank-emblems (tuckshop-0 to -8). Inside the machine (machine) added too: run without a course name, the script makes every missing badge (tuckshop and machine, about 42)."
 }

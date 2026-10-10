@@ -85,6 +85,7 @@ what each must show. Make them in this order. Mark a video **done** in its plan 
 | Station Kestrel (`pascal9`) | 9 | [pascal9-videos.md](pascal9-videos.md) | 12 |
 | Club website (`clubweb`) | 8 | [clubweb-videos.md](clubweb-videos.md) | 8 |
 | Tuck-shop tycoon (`tuckshop`) | 7 | [tuckshop-videos.md](tuckshop-videos.md) | 8 |
+| Inside the machine (`machine`) | 7 | [machine-videos.md](machine-videos.md) | 7 |
 
 ## Where
 

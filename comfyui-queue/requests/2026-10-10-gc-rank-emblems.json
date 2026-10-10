@@ -4,7 +4,7 @@
   "from": "the General Computing courses chat (levels)",
   "added": "2026-10-10",
   "status": "waiting",
-  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Nine levels each for the new courses (lib/practice.php PracticeRanks(): safety Witness to Case Closer, socialmedia Scroller to Attention Master, sql9 Visitor to Reserve Warden, pascal9 Trainee to Mission Director); the frame grows bronze to silver to gold as for the 2026-10-01 emblems. PracticeRankEmblem() draws the old emblem until the file exists. Do not run while the GPU is busy with videos (Chris). Added the same day: clubweb (Blank Page to Webmaster) and the CAT sets Chris approved - cattheory (Gr 10-12 and the pilot), catword, catexcel, catpowerpoint, cathtml, catdb. Tuck-shop tycoon (tuckshop, Grade 7) added 10 October 2026: Shop Helper to Tuck-shop Tycoon.",
+  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Nine levels each for the new courses (lib/practice.php PracticeRanks(): safety Witness to Case Closer, socialmedia Scroller to Attention Master, sql9 Visitor to Reserve Warden, pascal9 Trainee to Mission Director); the frame grows bronze to silver to gold as for the 2026-10-01 emblems. PracticeRankEmblem() draws the old emblem until the file exists. Do not run while the GPU is busy with videos (Chris). Added the same day: clubweb (Blank Page to Webmaster) and the CAT sets Chris approved - cattheory (Gr 10-12 and the pilot), catword, catexcel, catpowerpoint, cathtml, catdb. Tuck-shop tycoon (tuckshop, Grade 7) added 10 October 2026: Shop Helper to Tuck-shop Tycoon. Inside the machine (machine, Grade 7) added 10 October 2026: Dust Speck to Master Engineer.",
   "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
   "size": [
     1024,
@@ -1086,6 +1086,96 @@
       "name": "tuckshop-8",
       "prompt": "a top hat on a pile of gold coins, set on a jewelled gold starburst frame with a soft glow",
       "out": "AIPascalCourse/public/assets/rank-art/tuckshop/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-0",
+      "prompt": "a single speck of glowing dust, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-1",
+      "prompt": "a small yellow electric spark, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-2",
+      "prompt": "a single glowing switch, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-3",
+      "prompt": "a row of eight tiny light switches, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-4",
+      "prompt": "a copper circuit road with a running spark, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-5",
+      "prompt": "a computer processor chip with a silver lid, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-6",
+      "prompt": "a green circuit board seen from above, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-7",
+      "prompt": "a small screwdriver crossed over a circuit board, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "machine-8",
+      "prompt": "a gold gear wrapped around a glowing processor chip, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/machine/8.png",
       "outSize": [
         256,
         256
