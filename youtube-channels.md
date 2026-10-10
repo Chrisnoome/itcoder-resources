@@ -306,3 +306,11 @@ AIPascalCourse 306d96f (Pascal 11 and 15, Java 3 and 4).
 
 11.2 pGAMDl4QYTI · 15.3 YOWQbBKKZI0 · 15.4 bVZPNmTeITU · 15.5 fT5aBy0CivY · 15.6 JPn44CgafYg ·
 Java 3.1 2YKcW8VoALY · Java 3.2 cu3e5XkjbuE · Java 4.1 jv2ARtnNFk4.
+
+## Comments (checked 11 October 2026)
+
+All 109 BestLessons videos: comments on, not made for kids, anyone may comment. Moderation "Strict" (hold a wider range
+of possibly inappropriate comments for review) on all of them - the 13 older IT songs and "Output in Pascal" were on
+"Hold all" until today (Chris: "Match the rest"). New uploads come in as Strict. The other channels are empty.
+By API: get_creator_videos mask {commentFilter, allowComments, mfkSettings:{all}}; set with metadata_update
+commentOptions (send all five new* fields as Studio does - just the mode alone is silently ignored).
