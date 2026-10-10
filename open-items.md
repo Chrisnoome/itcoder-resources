@@ -615,8 +615,9 @@ Still open:
   as well"). BUILT 10 Oct 2026, not published: the guide
   `content/pascal/lazformat.php` (after Set-up) and its download, made by
   `tools/lazformat/make_cfg.py` - see platform.md, "Lazarus formats code".
-  Still to do, in the video VM (checkpoint it first, restore after; its start
-  was not allowed on 10 Oct 2026, so ask Chris to allow it):
+  Not published (Chris, 10 Oct 2026: wait for the next round). Still to do,
+  by the video-production chat while it records this video (Chris's choice,
+  10 Oct 2026):
   1. Copy the download over `%LOCALAPPDATA%\lazarus\jcfsettings.cfg` in
      Lazarus there, press Ctrl+D on the guide's messy tuck shop program and
      check the result matches the guide's second listing.
