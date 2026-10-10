@@ -135,7 +135,10 @@ def opener(n, batch, lesson_in_batch, of, title, slogan, says):
     svg.add(f'<rect x="18" y="18" width="524" height="264" rx="2" fill="none" stroke="{RED}" stroke-width="2"/>')
     svg.text(36, 50, f'{BATCHES[batch - 1].upper()} · LESSON {lesson_in_batch} OF {of}', 13, INK)
     lines = wrap(title.upper(), 13)
-    size = 34 if max(len(l) for l in lines) <= 11 else 29
+    if len(lines) > 2:
+        lines = wrap(title.upper(), 15)
+    longest = max(len(l) for l in lines)
+    size = 34 if longest <= 11 else (29 if longest <= 13 else 25)
     for i, line in enumerate(lines):
         shadow_text(svg, 36, 96 + i * (size + 8), line, size, RED if i == 0 else BLUE)
     yy = 96 + len(lines) * (size + 8) - 4
@@ -347,8 +350,8 @@ def d_jobdone():
     svg.add(f'<rect x="6" y="6" width="308" height="188" rx="4" fill="none" stroke="{INK}" stroke-width="4"/>')
     svg.add(f'<g transform="rotate(-12 110 90)"><rect x="34" y="54" width="160" height="70" rx="6" fill="none" stroke="{RED}" stroke-width="5"/>'
             f'<rect x="42" y="62" width="144" height="54" rx="3" fill="none" stroke="{RED}" stroke-width="2"/></g>')
-    svg.text(114, 96, 'JOB', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
-    svg.text(114, 122, 'DONE', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    svg.text(116, 90, 'JOB', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    svg.text(116, 114, 'DONE', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
     hadi(svg, 196, 96, 1.05)
     svg.text(160, 186, 'next stop: the car wash', 15, INK, 'middle', font=MARKER)
     svg.save()
@@ -416,7 +419,194 @@ def fraction_wall():
     svg.save()
 
 
+# ------------------------------------------- batch 2: Car Wash Saturday ----
+# Theme A: roadside plank signs and soap bubbles in bright primaries on sky blue.
+
+SKY, ROAD, PLANK, PLANK_DARK, SOAP = '#8fd3ff', '#7a8a95', '#fbf6ea', '#6b4a2b', '#ffffff'
+NUM = "'Figtree', 'Segoe UI', Arial, sans-serif"
+
+
+def sky_board(name, w, h, label):
+    svg = Svg(name, w, h, label, bg=SKY)
+    svg.add(f'<rect x="0" y="{h - 26}" width="{w}" height="26" fill="{ROAD}"/>')
+    svg.add(f'<path d="M0 {h - 13} H{w}" stroke="{WHITE}" stroke-width="2" stroke-dasharray="14 10"/>')
+    return svg
+
+
+def bubbles(svg, spots):
+    for x, y, r in spots:
+        svg.add(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{SOAP}" fill-opacity=".35" stroke="{SOAP}" stroke-width="2"/>'
+                f'<circle cx="{x - r / 3}" cy="{y - r / 3}" r="{max(1.5, r / 5)}" fill="{SOAP}"/>')
+
+
+def plank(svg, x, y, w, h, lines, rot=0):
+    """A hand-painted plank sign on one post: lines = [(text, size, colour, font)]."""
+    cx = x + w / 2
+    svg.add(f'<g transform="rotate({rot} {cx} {y + h / 2})">'
+            f'<rect x="{cx - 4}" y="{y + h - 2}" width="8" height="40" fill="{PLANK_DARK}"/>'
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="3" fill="{PLANK}" stroke="{PLANK_DARK}" stroke-width="3"/>')
+    total = sum(s + 6 for _, s, _, _ in lines)
+    yy = y + (h - total) / 2
+    for text, size, colour, font in lines:
+        yy += size + 2
+        svg.text(cx, yy, text, size, colour, 'middle', font=font)
+        yy += 4
+    svg.add('</g>')
+
+
+def car(svg, x, y, colour, s=1.0):
+    svg.add(f'<g transform="translate({x} {y}) scale({s})">'
+            f'<path d="M0 22 L6 10 Q10 2 20 2 H44 Q52 2 56 10 L64 22 Z" fill="{colour}" stroke="{INK}" stroke-width="2.5" stroke-linejoin="round"/>'
+            f'<rect x="-4" y="20" width="72" height="14" rx="5" fill="{colour}" stroke="{INK}" stroke-width="2.5"/>'
+            f'<path d="M14 10 H30 V20 H9Z M34 10 H50 L55 20 H34Z" fill="#cfefff" stroke="{INK}" stroke-width="1.5"/>'
+            f'<circle cx="12" cy="34" r="6" fill="{INK}"/><circle cx="52" cy="34" r="6" fill="{INK}"/></g>')
+
+
+def d_hire():
+    svg = sky_board('hire', 320, 200, 'The pressure washer costs R150 for the day, whether you wash 1 car or 40')
+    plank(svg, 20, 24, 170, 80, [('WASHER HIRE', 16, RED, BUNGEE), ('R150 a day', 20, BLUE, HAND), ('1 car or 40', 15, INK, HAND)], -3)
+    hadi(svg, 200, 98, 1.0)
+    bubble(svg, 196, 22, 112, ['SAME PRICE', 'ALL DAY!'], 226, 104, size=10)
+    bubbles(svg, [(36, 150, 9), (176, 140, 6)])
+    svg.save()
+
+
+def d_sponges():
+    svg = sky_board('sponges', 330, 200, 'One washer takes 24 minutes a car, two take 12, three take 8: more washers, less time')
+    rows = [(1, '24 min'), (2, '12 min'), (3, '8 min')]
+    for r, (n, t) in enumerate(rows):
+        y = 18 + r * 52
+        for k in range(n):
+            svg.add(f'<rect x="{20 + k * 34}" y="{y}" width="28" height="18" rx="6" fill="#ffe14d" stroke="{INK}" stroke-width="2"/>'
+                    f'<circle cx="{26 + k * 34}" cy="{y + 6}" r="2" fill="{INK}" opacity=".4"/><circle cx="{38 + k * 34}" cy="{y + 12}" r="2" fill="{INK}" opacity=".4"/>')
+        svg.text(140, y + 16, '→', 20, INK, 'middle', font=NUM)
+        svg.text(170, y + 17, t, 20, BLUE, font=BUNGEE)
+    svg.text(250, 160, 'WASHERS × MIN', 11, RED, 'middle', font=BUNGEE)
+    svg.text(250, 178, '= 24', 14, RED, 'middle', font=BUNGEE)
+    bubbles(svg, [(300, 40, 10), (288, 90, 6)])
+    svg.save()
+
+
+def d_dots():
+    svg = Svg('dots', 330, 200, 'Cars are counted in whole numbers, so the points are not joined; water flows all the time, so its line is joined', bg=WHITE, rx=8)
+    for gx in range(2):
+        ox = 20 + gx * 160
+        svg.add(f'<path d="M{ox} 150 H{ox + 130} M{ox} 150 V40" stroke="{INK}" stroke-width="2"/>')
+        if gx == 0:
+            for i in range(6):
+                svg.add(f'<circle cx="{ox + 10 + i * 22}" cy="{146 - i * 20}" r="4.5" fill="{BLUE}"/>')
+            svg.text(ox + 65, 178, 'cars: dots only', 14, INK, 'middle', font=HAND)
+        else:
+            svg.add(f'<path d="M{ox} 150 L{ox + 120} 50" stroke="{RED}" stroke-width="3"/>')
+            svg.text(ox + 65, 178, 'water: a line', 14, INK, 'middle', font=HAND)
+    svg.text(165, 26, 'JOIN THE DOTS?', 14, INK, 'middle', font=BUNGEE)
+    svg.save()
+
+
+def d_hose():
+    svg = sky_board('hose', 320, 200, 'The hose runs 12 litres every minute')
+    svg.add(f'<path d="M20 150 Q60 110 110 130 T200 90" fill="none" stroke="#2f9e44" stroke-width="9" stroke-linecap="round"/>'
+            f'<rect x="196" y="80" width="26" height="16" rx="4" fill="{RED}" stroke="{INK}" stroke-width="2"/>')
+    for k in range(6):
+        svg.add(f'<path d="M224 {84 + k * 2} q{30 + k * 8} {-10 + k * 6} {50 + k * 10} {10 + k * 10}" fill="none" stroke="{WHITE}" stroke-width="2.5" opacity=".9"/>')
+    plank(svg, 20, 16, 150, 60, [('12 LITRES', 16, BLUE, BUNGEE), ('every minute', 16, INK, HAND)], 3)
+    svg.save()
+
+
+def d_queue():
+    svg = sky_board('queue', 340, 200, 'The queue of cars grows in the morning, shrinks at lunch and grows again')
+    for i, c in enumerate(['#e63b2e', '#ffd84d', '#1d4fd8', '#7bc96f']):
+        car(svg, 16 + i * 80, 120, c, .95)
+    hadi(svg, 236, 20, .85)
+    bubble(svg, 20, 18, 190, ['THE QUEUE IS', 'A STORY TOO'], 226, 80, size=11)
+    svg.save()
+
+
+def d_jobdone2():
+    svg = Svg('jobdone2', 320, 200, 'Hadi with a JOB DONE stamp after the car wash', bg=SIGN, rx=8)
+    svg.add(f'<rect x="6" y="6" width="308" height="188" rx="4" fill="none" stroke="{INK}" stroke-width="4"/>')
+    svg.add(f'<g transform="rotate(-12 110 90)"><rect x="34" y="54" width="160" height="70" rx="6" fill="none" stroke="{RED}" stroke-width="5"/>'
+            f'<rect x="42" y="62" width="144" height="54" rx="3" fill="none" stroke="{RED}" stroke-width="2"/></g>')
+    svg.text(116, 90, 'JOB', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    svg.text(116, 114, 'DONE', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    hadi(svg, 196, 96, 1.05)
+    svg.text(160, 186, 'next stop: Radio 10', 15, INK, 'middle', font=MARKER)
+    svg.save()
+
+
+def plot(name, label, xr, yr, xlab, ylab, heading, series, w=520, h=340, xevery=1, yevery=1):
+    """A plain, exact graph to read values from (a document, not a theme): grid,
+    numbered axes, heading and labels. xr/yr = (min, max, step); series =
+    [('dots'|'line', [(x, y), ...], colour)]."""
+    svg = Svg(name, w, h, label, bg=WHITE, rx=6)
+    L, R, T, B = 70, w - 24, 46, h - 58
+    (x0, x1, xs), (y0, y1, ys) = xr, yr
+    X = lambda v: L + (v - x0) / (x1 - x0) * (R - L)
+    Y = lambda v: B - (v - y0) / (y1 - y0) * (B - T)
+    nx, ny = round((x1 - x0) / xs), round((y1 - y0) / ys)
+    for i in range(nx + 1):
+        v = x0 + i * xs
+        svg.add(f'<path d="M{X(v):.1f} {T} V{B}" stroke="#d6e2ea" stroke-width="1"/>')
+        if i % xevery == 0:
+            svg.text(X(v), B + 18, f'{v:g}'.replace('.', ','), 12, INK, 'middle', font=NUM)
+    for i in range(ny + 1):
+        v = y0 + i * ys
+        svg.add(f'<path d="M{L} {Y(v):.1f} H{R}" stroke="#d6e2ea" stroke-width="1"/>')
+        if i % yevery == 0:
+            svg.text(L - 8, Y(v) + 4, f'{v:g}'.replace('.', ','), 12, INK, 'end', font=NUM)
+    zero_y = Y(0) if y0 <= 0 <= y1 else B
+    svg.add(f'<path d="M{L} {zero_y:.1f} H{R}" stroke="{INK}" stroke-width="1.8"/><path d="M{L} {T} V{B}" stroke="{INK}" stroke-width="1.8"/>')
+    for kind, pts, colour in series:
+        if kind == 'line':
+            svg.add('<path d="M' + ' L'.join(f'{X(a):.1f} {Y(b):.1f}' for a, b in pts) + f'" fill="none" stroke="{colour}" stroke-width="2.6"/>')
+        for a, b in pts if kind == 'dots' else []:
+            svg.add(f'<circle cx="{X(a):.1f}" cy="{Y(b):.1f}" r="4.2" fill="{colour}"/>')
+    svg.text((L + R) / 2, 26, heading, 15, INK, 'middle', 700, NUM)
+    svg.text((L + R) / 2, h - 16, xlab, 13, INK, 'middle', 600, NUM)
+    svg.add(f'<text x="18" y="{(T + B) / 2}" font-family="{NUM}" font-size="13" font-weight="600" fill="{INK}" text-anchor="middle" transform="rotate(-90 18 {(T + B) / 2})">{esc(ylab)}</text>')
+    svg.save()
+
+
+def story_choice():
+    """Four small queue graphs, A to D, for the story question."""
+    svg = Svg('storychoice', 560, 200, 'Four graphs of queue length over the day, labelled A to D', bg=WHITE, rx=6)
+    shapes = {
+        'A': [(0, 0), (2, 6), (4, 2), (5, 8), (7, 0)],
+        'B': [(0, 0), (2, 2), (4, 4), (5, 6), (7, 8)],
+        'C': [(0, 8), (2, 2), (4, 6), (5, 0), (7, 8)],
+        'D': [(0, 4), (7, 4)],
+    }
+    for i, (k, pts) in enumerate(shapes.items()):
+        ox = 14 + i * 136
+        svg.add(f'<path d="M{ox + 10} 160 H{ox + 124} M{ox + 10} 160 V40" stroke="{INK}" stroke-width="1.8"/>')
+        svg.add('<path d="M' + ' L'.join(f'{ox + 10 + a * 16:.1f} {160 - b * 14:.1f}' for a, b in pts) + f'" fill="none" stroke="{BLUE}" stroke-width="2.6"/>')
+        svg.text(ox + 67, 30, k, 18, RED, 'middle', font=BUNGEE)
+        svg.text(ox + 67, 182, 'time of day', 11, INK, 'middle', font=NUM)
+    svg.save()
+
+
 if __name__ == '__main__':
+    openers2 = [
+        (9,  2, 1, 5, 'Three kinds of relationship', 'Fixed, together, or opposite?', ['R150 NO', 'MATTER WHAT']),
+        (10, 2, 2, 5, 'Tables of values',            'One thing depends on the other.', ['WHICH ONE', 'DEPENDS?']),
+        (11, 2, 3, 5, 'Formula to graph',            'Plot it, then join it - or not.', ['JOIN THE', 'DOTS?']),
+        (12, 2, 4, 5, 'Reading the graph',           'Across, up, read it off.',       ['ACROSS,', 'THEN UP!']),
+        (13, 2, 5, 5, 'The graph tells a story',     'Every line has a plot.',         ['ONCE UPON', 'A GRAPH']),
+    ]
+    for o in openers2:
+        opener(*o)
+    d_hire(); d_sponges(); d_dots(); d_hose(); d_queue(); d_jobdone2()
+    plot('incomegraph', 'Income from the car wash: R60 for every car washed, from 0 to 10 cars',
+         (0, 10, 1), (0, 600, 50), 'Number of cars washed', 'Income (R)', 'Income from washing cars',
+         [('dots', [(c, 60 * c) for c in range(11)], BLUE)], yevery=2)
+    plot('tankgraph', 'Water left in a 480 litre tank used at 12 litres a minute, from 0 to 40 minutes',
+         (0, 40, 5), (0, 480, 40), 'Time (minutes)', 'Water left in the tank (litres)', 'Water left in the tank',
+         [('line', [(0, 480), (40, 0)], RED)], yevery=2)
+    plot('profitgraph', 'Profit from the car wash: R60 a car less the R150 hire, from 0 to 10 cars',
+         (0, 10, 1), (-150, 450, 50), 'Number of cars washed', 'Profit (R)', 'Profit from the car wash',
+         [('dots', [(c, 60 * c - 150) for c in range(11)], BLUE)], yevery=1)
+    story_choice()
+
     openers = [
         (1, 1, 1, 8, 'The price board',       'Write it the way South Africa reads it.', ['COMMA, NOT', 'POINT!']),
         (2, 1, 2, 8, 'Cash-up',               'Add up the day - no phone needed.',        ['× BEFORE +!']),
