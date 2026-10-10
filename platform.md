@@ -572,6 +572,23 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   wrong against "2"): a whole number with leading zeros matches the same
   number, every course - only when the listed answer has no leading zero of
   its own, so a padded answer ("00000101") must still be typed as it is.
+  **Numeric answers** (Chris, 10 October 2026, for the Maths Lit courses;
+  `lib/numeric.php`, `tests/numeric.test.php`): any `typed` answer list or
+  `gridtyped` cell may include a spec, **after** the wording shown as the
+  model answer: `'answer' => ['R1 302,50', 'num:1302,5 R']`.
+  - The value can be exact (`num:1302,5`), a range (`num:14,7..15,1 cm`, for
+    ruler readings) or give-or-take (`num:36,6~0,2 °C`).
+  - Flags: a unit; `unit!` (the unit must be typed); `dp2` (exactly 2
+    decimals); `pct` (a proportion, so 37,5% and 3/8 are accepted too).
+  - `time:14:13` accepts 14h13 and 2:13 pm; `dur:2:18` accepts 2 h 18 min,
+    138 min and 2,3 hours.
+  - The pupil may type R or the unit before or after the number, spaces as
+    thousands separators, a decimal comma or point, a minus sign or brackets,
+    a fraction or %. "1,500" is read both ways.
+  - A wrong number with a typical slip (unit, decimals, rounding, out by
+    10/100/1 000, % vs decimal, sign) gets a fixed why-wrong line from code,
+    never the AI (`NumericNearMiss()`). The line under the box says how to
+    type a number.
   **Theory courses** (Chris, 26 September 2026: "anticipate typical pupil
   errors that are still correct answers"): `LenientTerms()` (set from
   `CourseMarkStyle() === 'theory'`) also compares `TheoryTermKey()` - no
