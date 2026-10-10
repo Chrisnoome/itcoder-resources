@@ -1,0 +1,392 @@
+<title>Tuck-shop Tycoon Style Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter+Tight:wght@400;600&family=Courier+Prime:wght@400;700&family=Bagel+Fat+One&family=Alfa+Slab+One&family=Fredoka:wght@500;700&family=Bree+Serif&family=Baloo+2:wght@600;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Layout: briefing sheet - six style panels (2-up), six mascots, then how the spreadsheet sits in the lesson. */
+:root {
+  --bg: #f2f0ea; --fg: #1d1c18; --muted: #5c584e; --line: #d8d2c4; --card: #ffffff; --accent: #1f8a5b;
+  --display: "Bricolage Grotesque", "Segoe UI", sans-serif; --body: "Inter Tight", "Segoe UI", sans-serif; --mono: "Space Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #151512; --fg: #ecebe5; --muted: #a29d90; --line: #33312b; --card: #1f1e1a; --accent: #5fd39b; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #151512; --fg: #ecebe5; --muted: #a29d90; --line: #33312b; --card: #1f1e1a; --accent: #5fd39b; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; }
+h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 4vw, 40px); }
+h2 { font-size: 23px; margin-top: 44px; }
+.eyebrow { font: 700 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.lede { max-width: 70ch; color: var(--muted); margin: 8px 0 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr)); gap: 20px; margin-top: 18px; }
+.panel { border-radius: 6px; overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
+.panel svg { display: block; width: 100%; height: auto; }
+.panel .body { padding: 16px 18px 18px; display: grid; gap: 10px; flex: 1; align-content: start; }
+.panel h3 { margin: 0; font-size: 21px; display: flex; gap: 10px; align-items: baseline; }
+.panel h3 .k { font: 700 13px var(--mono); padding: 2px 7px; border-radius: 3px; }
+.panel p { margin: 0; font-size: 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font: 12px var(--mono); padding: 2px 8px; border-radius: 99px; }
+/* A - till slip */
+.pa { background: #ecebe6; color: #1a1a1a; border-color: #d6d4cc; }
+.pa h3 { font-family: "Courier Prime", monospace; font-weight: 700; font-size: 22px; }
+.pa h3 .k { background: #d7262e; color: #fff; }
+.pa .tags span { border: 1.5px dashed #1a1a1a; }
+/* B - sticker-bomb snacks */
+.pb { background: #ffe3f1; color: #241133; border-color: #f6c6df; }
+.pb h3 { font-family: "Bagel Fat One", sans-serif; font-weight: 400; font-size: 24px; color: #ff3d8b; }
+.pb h3 .k { background: #241133; color: #ffe14d; }
+.pb .tags span { background: #3ec7ff; color: #241133; }
+/* C - enamel shop sign */
+.pc { background: #f1e6cf; color: #2b2015; border-color: #ddcaa6; }
+.pc h3 { font-family: "Alfa Slab One", serif; font-weight: 400; font-size: 21px; color: #1d5c4a; }
+.pc h3 .k { background: #b8402b; color: #f1e6cf; }
+.pc .tags span { background: #1d5c4a; color: #f1e6cf; }
+/* D - board-game tycoon */
+.pd { background: #dff0e2; color: #10301d; border-color: #bcdcc3; }
+.pd h3 { font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 24px; }
+.pd h3 .k { background: #e8483b; color: #fff; }
+.pd .tags span { background: #fff; color: #10301d; border: 1.5px solid #10301d; }
+/* E - linocut market print */
+.pe { background: #e6d3b3; color: #1b1612; border-color: #d0b98f; }
+.pe h3 { font-family: "Bree Serif", serif; font-size: 23px; }
+.pe h3 .k { background: #e2601c; color: #1b1612; }
+.pe .tags span { background: #1b1612; color: #e6d3b3; }
+/* F - clay snacks */
+.pf { background: #eef1ff; color: #2c2a4a; border-color: #d6dbf5; }
+.pf h3 { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 25px; color: #6a5cff; }
+.pf h3 .k { background: #ffb4a2; color: #2c2a4a; }
+.pf .tags span { background: #c9f2dd; color: #2c2a4a; }
+.mascots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; margin-top: 18px; }
+.mascot { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 14px; display: grid; gap: 8px; min-width: 0; align-content: start; }
+.mascot svg { width: 100%; height: auto; max-height: 170px; background: #f6f1e4; border-radius: 4px; }
+.mascot b { font-family: var(--display); font-size: 19px; }
+.mascot b .k { font: 700 12px var(--mono); color: var(--accent); margin-right: 6px; }
+.mascot p { margin: 0; font-size: 14px; color: var(--muted); }
+.note { margin-top: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; max-width: 82ch; }
+.note p { margin: 0 0 8px; } .note p:last-child { margin: 0; }
+.sheetdemo { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; }
+.sheetdemo figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 14px; min-width: 0; }
+.sheetdemo figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.scroll { overflow-x: auto; }
+table.sh { border-collapse: collapse; font: 13px/1.3 "Segoe UI", Calibri, sans-serif; font-variant-numeric: tabular-nums; background: #fff; color: #222; }
+table.sh th { background: #f1f1f1; color: #555; font-weight: 400; padding: 3px 8px; border: 1px solid #d4d4d4; }
+table.sh td { padding: 3px 8px; border: 1px solid #d4d4d4; min-width: 64px; }
+table.sh td.n { text-align: right; }
+table.sh td.y { background: #fff6b3; outline: 2px solid #1f8a5b; outline-offset: -2px; }
+table.sh td.h { font-weight: 700; }
+.fbar { font: 13px Consolas, monospace; background: #fff; color: #222; border: 1px solid #d4d4d4; padding: 4px 8px; margin-bottom: 6px; }
+.fbar b { color: #1f8a5b; margin-right: 8px; }
+</style>
+
+<div class="wrap">
+<p class="eyebrow">Grade 7 · Tuck-shop tycoon · spreadsheets, 8 lessons</p>
+<h1>Tuck-shop tycoon: pick a look</h1>
+<p class="lede">The class runs the school tuck shop for a term: a price list, the day's takings, profit, best sellers, a chart, and a fundraiser budget at the end. Every Grade 7/8 course needs its own art style, and none of these six is used by another course. Pick a style and a mascot, or combine two, as you did for the club website.</p>
+
+<h2>Six styles</h2>
+<div class="grid">
+
+<!-- A -->
+<div class="panel pa">
+<svg viewBox="0 0 500 260" role="img" aria-label="A till slip with prices and a red price sticker">
+<rect width="500" height="260" fill="#ecebe6"/>
+<g transform="rotate(-3 200 130)">
+<path d="M120 14h170v206l-10 10-10-10-10 10-10-10-10 10-10-10-10 10-10-10-10 10-10-10-10 10-10-10-10 10-10-10-10 10-10-10-10 10z" fill="#fffef8" stroke="#c9c7bd"/>
+<g font-family="Courier Prime, monospace" font-size="12" fill="#1a1a1a">
+<text x="205" y="38" text-anchor="middle" font-weight="700" font-size="14">RIDGEVIEW TUCK SHOP</text>
+<text x="205" y="54" text-anchor="middle">Tue 14/10  11:02  Till 1</text>
+<line x1="134" y1="64" x2="276" y2="64" stroke="#1a1a1a" stroke-dasharray="3 3"/>
+<text x="134" y="82">2 x Mince pie</text><text x="276" y="82" text-anchor="end">36.00</text>
+<text x="134" y="100">1 x Juice</text><text x="276" y="100" text-anchor="end">12.00</text>
+<text x="134" y="118">3 x Lollipop</text><text x="276" y="118" text-anchor="end">7.50</text>
+<line x1="134" y1="128" x2="276" y2="128" stroke="#1a1a1a" stroke-dasharray="3 3"/>
+<text x="134" y="148" font-weight="700" font-size="15">TOTAL</text><text x="276" y="148" text-anchor="end" font-weight="700" font-size="15">R55.50</text>
+<text x="134" y="166">CASH</text><text x="276" y="166" text-anchor="end">60.00</text>
+<text x="134" y="182">CHANGE</text><text x="276" y="182" text-anchor="end">4.50</text>
+</g>
+<g fill="#1a1a1a"><rect x="150" y="194" width="3" height="16"/><rect x="156" y="194" width="1.5" height="16"/><rect x="160" y="194" width="4" height="16"/><rect x="167" y="194" width="2" height="16"/><rect x="172" y="194" width="1.5" height="16"/><rect x="176" y="194" width="3" height="16"/><rect x="182" y="194" width="1.5" height="16"/><rect x="186" y="194" width="4" height="16"/><rect x="193" y="194" width="2" height="16"/><rect x="198" y="194" width="3" height="16"/><rect x="204" y="194" width="1.5" height="16"/><rect x="208" y="194" width="2" height="16"/><rect x="213" y="194" width="4" height="16"/><rect x="220" y="194" width="1.5" height="16"/><rect x="224" y="194" width="3" height="16"/><rect x="230" y="194" width="2" height="16"/><rect x="235" y="194" width="1.5" height="16"/><rect x="239" y="194" width="4" height="16"/><rect x="246" y="194" width="2" height="16"/><rect x="251" y="194" width="3" height="16"/><rect x="257" y="194" width="1.5" height="16"/></g>
+</g>
+<g transform="translate(372 92) rotate(12)">
+<circle r="46" fill="#d7262e"/><circle r="38" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 4"/>
+<text y="-4" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="13" fill="#fff">SPECIAL</text>
+<text y="18" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="24" fill="#fff">R12</text>
+</g>
+<g transform="translate(340 180)" font-family="Courier Prime, monospace" font-size="12" fill="#1a1a1a"><rect width="120" height="54" fill="#fffef8" stroke="#1a1a1a"/><text x="10" y="22">=B2*C2</text><text x="10" y="42" font-weight="700">= R36.00</text></g>
+</svg>
+<div class="body">
+<h3><span class="k">A</span> Till slip</h3>
+<p>Everything looks like it came out of the till: thermal receipts, dashed lines, typewriter numbers, barcodes and a red price-gun sticker for the important bits. Black ink on paper, with one shop red. Lesson openers are a receipt that grows each week.</p>
+<div class="tags"><span>receipts</span><span>monospace</span><span>one red</span><span>very cheap to draw</span></div>
+</div>
+</div>
+
+<!-- B -->
+<div class="panel pb">
+<svg viewBox="0 0 500 260" role="img" aria-label="Bold cartoon snacks with thick outlines and a sale sticker">
+<rect width="500" height="260" fill="#ffe3f1"/>
+<g fill="#241133" opacity=".12"><circle cx="40" cy="40" r="5"/><circle cx="90" cy="210" r="5"/><circle cx="460" cy="40" r="5"/><circle cx="430" cy="220" r="5"/><circle cx="250" cy="24" r="5"/></g>
+<g stroke="#241133" stroke-width="5" stroke-linejoin="round">
+<path d="M88 70 L178 60 L188 214 L80 222 Z" fill="#241133" transform="translate(7 7)"/>
+<path d="M88 70 L178 60 L188 214 L80 222 Z" fill="#ffd23f"/>
+<path d="M82 92 L180 82" fill="none"/><path d="M82 200 L186 192" fill="none"/>
+<ellipse cx="134" cy="142" rx="30" ry="24" fill="#ff7a2f"/>
+<rect x="232" y="96" width="70" height="118" rx="8" fill="#241133" transform="translate(7 7)"/>
+<rect x="232" y="96" width="70" height="118" rx="8" fill="#3ec7ff"/>
+<rect x="232" y="126" width="70" height="44" fill="#fff"/>
+<path d="M286 96 L296 62" fill="none"/>
+<line x1="390" y1="120" x2="390" y2="226"/>
+<circle cx="390" cy="96" r="38" fill="#241133" transform="translate(6 6)"/>
+<circle cx="390" cy="96" r="38" fill="#ff3d8b"/>
+<path d="M390 96 m-24 0 a24 24 0 1 1 24 24 a16 16 0 1 1 -16 -16 a8 8 0 1 1 8 8" fill="none" stroke="#fff" stroke-width="5"/>
+</g>
+<g transform="translate(222 40) rotate(-10)">
+<path d="M0 -34 L9 -12 L33 -16 L17 3 L30 24 L6 18 L-3 40 L-11 18 L-34 22 L-19 3 L-31 -16 L-8 -11 Z" fill="#ffe14d" stroke="#241133" stroke-width="4" stroke-linejoin="round"/>
+<text y="9" text-anchor="middle" font-family="Bagel Fat One, sans-serif" font-size="16" fill="#241133">R5!</text>
+</g>
+</svg>
+<div class="body">
+<h3><span class="k">B</span> Sticker bomb</h3>
+<p>Snacks drawn like stickers: fat black outlines, flat candy colours, hard offset shadows and starbursts. Loud, fun and very Grade 7. Numbers sit on sticker labels, and every lesson adds a sticker to the shop counter.</p>
+<div class="tags"><span>thick outlines</span><span>candy colours</span><span>offset shadow</span><span>loud</span></div>
+</div>
+</div>
+
+<!-- C -->
+<div class="panel pc">
+<svg viewBox="0 0 500 260" role="img" aria-label="An old enamel shop sign on a cream wall">
+<rect width="500" height="260" fill="#f1e6cf"/>
+<g fill="#b98a55" opacity=".18"><circle cx="60" cy="40" r="22"/><circle cx="440" cy="220" r="30"/><circle cx="470" cy="60" r="12"/></g>
+<rect x="70" y="36" width="300" height="140" rx="16" fill="#1d5c4a"/>
+<rect x="80" y="46" width="280" height="120" rx="10" fill="none" stroke="#f1e6cf" stroke-width="3"/>
+<rect x="88" y="54" width="264" height="104" rx="7" fill="none" stroke="#e9b949" stroke-width="1.5"/>
+<text x="220" y="100" text-anchor="middle" font-family="Alfa Slab One, serif" font-size="34" fill="#f1e6cf">TUCK SHOP</text>
+<text x="220" y="134" text-anchor="middle" font-family="Alfa Slab One, serif" font-size="15" fill="#e9b949" letter-spacing="3">EST. 2027 · GRADE 7</text>
+<circle cx="84" cy="50" r="4" fill="#cfc2a6"/><circle cx="356" cy="50" r="4" fill="#cfc2a6"/><circle cx="84" cy="162" r="4" fill="#cfc2a6"/><circle cx="356" cy="162" r="4" fill="#cfc2a6"/>
+<path d="M330 150 q12 6 22 -2 q4 10 -6 18 q-12 4 -16 -16z" fill="#8a4b2a" opacity=".55"/>
+<g transform="translate(400 70)">
+<rect x="-8" y="0" width="70" height="120" rx="10" fill="#b8402b"/>
+<rect x="0" y="10" width="54" height="100" rx="6" fill="none" stroke="#f1e6cf" stroke-width="2"/>
+<text x="27" y="48" text-anchor="middle" font-family="Alfa Slab One, serif" font-size="16" fill="#f1e6cf">ICE</text>
+<text x="27" y="68" text-anchor="middle" font-family="Alfa Slab One, serif" font-size="12" fill="#f1e6cf">COLD</text>
+<text x="27" y="96" text-anchor="middle" font-family="Alfa Slab One, serif" font-size="18" fill="#e9b949">R9</text>
+</g>
+<rect x="70" y="196" width="300" height="40" rx="6" fill="#b8402b"/>
+<text x="220" y="223" text-anchor="middle" font-family="Alfa Slab One, serif" font-size="16" fill="#f1e6cf" letter-spacing="2">OPEN · BREAK 1 &amp; 2</text>
+</svg>
+<div class="body">
+<h3><span class="k">C</span> Enamel shop sign</h3>
+<p>Old general-dealer signs: rounded enamel plates, double borders, slab lettering, rivets and a little rust. Bottle green, brick red and mustard on a cream wall. Calm, warm and grown-up, with plenty of room for the numbers.</p>
+<div class="tags"><span>retro</span><span>slab type</span><span>three colours</span><span>calm</span></div>
+</div>
+</div>
+
+<!-- D -->
+<div class="panel pd">
+<svg viewBox="0 0 500 260" role="img" aria-label="A board game with priced squares, a pawn, dice and play money">
+<rect width="500" height="260" fill="#dff0e2"/>
+<g transform="translate(40 30)">
+<rect width="270" height="200" fill="#fff" stroke="#10301d" stroke-width="3"/>
+<g stroke="#10301d" stroke-width="2">
+<rect x="0" y="0" width="54" height="40" fill="#ffd84d"/><rect x="54" y="0" width="54" height="40" fill="#fff"/><rect x="108" y="0" width="54" height="40" fill="#8fd3ff"/><rect x="162" y="0" width="54" height="40" fill="#fff"/><rect x="216" y="0" width="54" height="40" fill="#e8483b"/>
+<rect x="216" y="40" width="54" height="40" fill="#fff"/><rect x="216" y="80" width="54" height="40" fill="#b6e388"/><rect x="216" y="120" width="54" height="40" fill="#fff"/><rect x="216" y="160" width="54" height="40" fill="#ffd84d"/>
+<rect x="0" y="40" width="54" height="40" fill="#fff"/><rect x="0" y="80" width="54" height="40" fill="#e8483b"/><rect x="0" y="120" width="54" height="40" fill="#fff"/><rect x="0" y="160" width="54" height="40" fill="#8fd3ff"/>
+<rect x="54" y="160" width="54" height="40" fill="#fff"/><rect x="108" y="160" width="54" height="40" fill="#b6e388"/><rect x="162" y="160" width="54" height="40" fill="#fff"/>
+</g>
+<g font-family="Fredoka, sans-serif" font-weight="700" font-size="12" fill="#10301d" text-anchor="middle">
+<text x="27" y="25">GO</text><text x="81" y="25">R8</text><text x="135" y="25">R12</text><text x="189" y="25">R5</text><text x="243" y="25">R18</text>
+<text x="243" y="105">R9</text><text x="27" y="105">R15</text><text x="135" y="185">R7</text>
+</g>
+<text x="135" y="96" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="22" fill="#10301d">TUCK-SHOP</text>
+<text x="135" y="120" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="22" fill="#e8483b">TYCOON</text>
+<g transform="translate(244 128)"><ellipse cx="0" cy="26" rx="12" ry="4" fill="#10301d" opacity=".25"/><path d="M-9 26 q9 -30 0 -38 a8 8 0 1 1 0 0 q9 8 18 38z" fill="#6a4cff" stroke="#10301d" stroke-width="2"/><circle cx="0" cy="-14" r="8" fill="#6a4cff" stroke="#10301d" stroke-width="2"/></g>
+</g>
+<g transform="translate(350 54) rotate(-8)"><rect width="110" height="56" rx="4" fill="#b6e388" stroke="#10301d" stroke-width="2"/><rect x="6" y="6" width="98" height="44" fill="none" stroke="#10301d" stroke-dasharray="3 2"/><text x="55" y="36" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="20" fill="#10301d">R50</text></g>
+<g transform="translate(360 92) rotate(5)"><rect width="110" height="56" rx="4" fill="#ffd84d" stroke="#10301d" stroke-width="2"/><rect x="6" y="6" width="98" height="44" fill="none" stroke="#10301d" stroke-dasharray="3 2"/><text x="55" y="36" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="20" fill="#10301d">R20</text></g>
+<g transform="translate(372 172) rotate(14)"><rect width="44" height="44" rx="8" fill="#fff" stroke="#10301d" stroke-width="2.5"/><circle cx="12" cy="12" r="4" fill="#10301d"/><circle cx="22" cy="22" r="4" fill="#10301d"/><circle cx="32" cy="32" r="4" fill="#10301d"/></g>
+<g transform="translate(428 186) rotate(-10)"><rect width="44" height="44" rx="8" fill="#e8483b" stroke="#10301d" stroke-width="2.5"/><circle cx="13" cy="13" r="4" fill="#fff"/><circle cx="31" cy="13" r="4" fill="#fff"/><circle cx="13" cy="31" r="4" fill="#fff"/><circle cx="31" cy="31" r="4" fill="#fff"/></g>
+</svg>
+<div class="body">
+<h3><span class="k">D</span> Board-game tycoon</h3>
+<p>The term is a board game: each lesson is a square on the board, prices sit on the squares, play money and dice in the margins, and a pawn moves round as the class finishes lessons. Bright primary colours with dark green outlines.</p>
+<div class="tags"><span>game board</span><span>play money</span><span>a pawn that moves</span><span>primary colours</span></div>
+</div>
+</div>
+
+<!-- E -->
+<div class="panel pe">
+<svg viewBox="0 0 500 260" role="img" aria-label="A two-colour block print of a market stall with a striped awning">
+<rect width="500" height="260" fill="#e6d3b3"/>
+<g fill="#1b1612">
+<path d="M60 70 L440 70 L452 110 L48 110 Z"/>
+</g>
+<g fill="#e2601c">
+<path d="M82 72 L118 72 L114 108 L74 108 Z"/><path d="M158 72 L194 72 L194 108 L154 108 Z"/><path d="M234 72 L270 72 L274 108 L234 108 Z"/><path d="M310 72 L346 72 L354 108 L314 108 Z"/><path d="M386 72 L422 72 L434 108 L394 108 Z"/>
+</g>
+<path d="M48 110 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 36 0" fill="#1b1612"/>
+<rect x="64" y="110" width="8" height="120" fill="#1b1612"/><rect x="428" y="110" width="8" height="120" fill="#1b1612"/>
+<path d="M60 186 L440 186 L440 232 L60 232 Z" fill="#1b1612"/>
+<g fill="#e6d3b3"><path d="M76 196 l40 0 l-2 26 l-36 0z"/><path d="M380 196 l44 0 l0 26 l-44 0z"/></g>
+<g fill="#e2601c"><circle cx="150" cy="168" r="16"/><circle cx="182" cy="170" r="14"/><circle cx="166" cy="150" r="13"/></g>
+<g fill="#1b1612"><path d="M230 140 l40 0 l4 46 l-48 0z"/><path d="M296 150 q18 -24 36 0 l0 36 l-36 0z"/></g>
+<g fill="#e6d3b3"><path d="M238 150 l24 0 l-1 6 l-22 0z"/><path d="M304 166 l20 0 l0 4 l-20 0z"/></g>
+<text x="250" y="48" text-anchor="middle" font-family="Bree Serif, serif" font-size="30" fill="#1b1612">TUCK SHOP</text>
+<g stroke="#1b1612" stroke-width="1.4" opacity=".5"><line x1="20" y1="244" x2="140" y2="244"/><line x1="200" y1="250" x2="330" y2="250"/><line x1="380" y1="244" x2="480" y2="244"/><line x1="30" y1="22" x2="110" y2="22"/><line x1="390" y1="20" x2="470" y2="20"/></g>
+</svg>
+<div class="body">
+<h3><span class="k">E</span> Linocut market print</h3>
+<p>Two-colour block prints, like a market poster: black and one burnt orange on kraft paper, chunky cut shapes, carved lines and a slightly rough edge. A spaza-stall feel that is clearly South African without any brands.</p>
+<div class="tags"><span>two colours</span><span>kraft paper</span><span>carved shapes</span><span>local</span></div>
+</div>
+</div>
+
+<!-- F -->
+<div class="panel pf">
+<svg viewBox="0 0 500 260" role="img" aria-label="Soft clay-like snacks: a muffin, a juice box and a stack of coins">
+<defs>
+<radialGradient id="fm" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffd7a8"/><stop offset="1" stop-color="#e2955a"/></radialGradient>
+<radialGradient id="fj" cx=".3" cy=".25" r=".9"><stop offset="0" stop-color="#b9f5d6"/><stop offset="1" stop-color="#56c48e"/></radialGradient>
+<radialGradient id="fc" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff2a8"/><stop offset="1" stop-color="#e8b93a"/></radialGradient>
+<radialGradient id="fp" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffd0c4"/><stop offset="1" stop-color="#f08a72"/></radialGradient>
+</defs>
+<rect width="500" height="260" fill="#eef1ff"/>
+<ellipse cx="250" cy="226" rx="220" ry="18" fill="#c9cdee"/>
+<g>
+<path d="M78 150 h96 l-12 70 h-72 z" fill="url(#fp)"/>
+<g stroke="#d9705a" stroke-width="3" opacity=".6"><line x1="96" y1="156" x2="102" y2="216"/><line x1="126" y1="156" x2="126" y2="216"/><line x1="156" y1="156" x2="150" y2="216"/></g>
+<ellipse cx="126" cy="140" rx="60" ry="40" fill="url(#fm)"/>
+<g fill="#5b3a2a"><ellipse cx="108" cy="128" rx="6" ry="4"/><ellipse cx="140" cy="122" rx="5" ry="4"/><ellipse cx="128" cy="146" rx="6" ry="4"/><ellipse cx="156" cy="140" rx="5" ry="4"/></g>
+</g>
+<g>
+<rect x="216" y="90" width="78" height="128" rx="16" fill="url(#fj)"/>
+<rect x="232" y="128" width="46" height="46" rx="23" fill="#fff" opacity=".85"/>
+<circle cx="255" cy="151" r="12" fill="#ffb347"/>
+<path d="M276 90 q6 -26 22 -38" stroke="#6a5cff" stroke-width="8" stroke-linecap="round" fill="none"/>
+</g>
+<g>
+<ellipse cx="380" cy="214" rx="46" ry="14" fill="#c99a20"/><rect x="334" y="196" width="92" height="18" fill="#d9aa2c"/><ellipse cx="380" cy="196" rx="46" ry="14" fill="url(#fc)"/>
+<rect x="334" y="178" width="92" height="18" fill="#d9aa2c"/><ellipse cx="380" cy="178" rx="46" ry="14" fill="url(#fc)"/>
+<rect x="334" y="160" width="92" height="18" fill="#d9aa2c"/><ellipse cx="380" cy="160" rx="46" ry="14" fill="url(#fc)"/>
+<ellipse cx="380" cy="160" rx="24" ry="7" fill="none" stroke="#c99a20" stroke-width="3"/>
+</g>
+<g fill="#2c2a4a"><circle cx="112" cy="160" r="0"/></g>
+<text x="250" y="48" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="30" fill="#6a5cff">R4.50 each</text>
+</svg>
+<div class="body">
+<h3><span class="k">F</span> Clay snacks</h3>
+<p>Soft, squishy shapes, as if modelled in plasticine: rounded, gently shaded, pastel colours on a light lilac table. Friendly and calm; the numbers stay crisp beside the soft objects. Close to the ComfyUI pictures, so the two can mix.</p>
+<div class="tags"><span>soft 3D</span><span>pastels</span><span>rounded</span><span>mixes with ComfyUI</span></div>
+</div>
+</div>
+
+</div>
+
+<h2>Six mascots</h2>
+<div class="mascots">
+
+<div class="mascot">
+<svg viewBox="0 0 200 160" role="img" aria-label="A five rand coin with a face">
+<circle cx="100" cy="82" r="56" fill="#d9b44a" stroke="#8a6a1c" stroke-width="4"/>
+<circle cx="100" cy="82" r="44" fill="#c8c8c8" stroke="#8a6a1c" stroke-width="2"/>
+<circle cx="86" cy="76" r="6" fill="#222"/><circle cx="114" cy="76" r="6" fill="#222"/><circle cx="88" cy="74" r="2" fill="#fff"/><circle cx="116" cy="74" r="2" fill="#fff"/>
+<path d="M84 96 q16 14 32 0" stroke="#222" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M46 92 l-22 -10" stroke="#8a6a1c" stroke-width="5" stroke-linecap="round"/><path d="M154 92 l24 -22" stroke="#8a6a1c" stroke-width="5" stroke-linecap="round"/>
+<path d="M84 136 l-6 16 M116 136 l6 16" stroke="#8a6a1c" stroke-width="5" stroke-linecap="round"/>
+</svg>
+<b><span class="k">1</span>Randy the R5</b>
+<p>A chatty five-rand coin who knows the price of everything and keeps asking "and the profit?". Good at money; bad at waiting.</p>
+</div>
+
+<div class="mascot">
+<svg viewBox="0 0 200 160" role="img" aria-label="A packet of chips with arms and a cheeky grin">
+<path d="M64 28 L136 22 L144 140 L58 146 Z" fill="#ffd23f" stroke="#241133" stroke-width="4" stroke-linejoin="round"/>
+<path d="M60 44 L138 38 M58 128 L142 122" stroke="#241133" stroke-width="3"/>
+<circle cx="86" cy="76" r="7" fill="#241133"/><circle cx="114" cy="74" r="7" fill="#241133"/>
+<path d="M84 96 q18 14 34 -2" stroke="#241133" stroke-width="4" fill="#ff7a2f" stroke-linecap="round"/>
+<path d="M60 90 l-28 -18 M140 86 l26 -24" stroke="#241133" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="170" cy="56" rx="10" ry="7" fill="#ff7a2f" stroke="#241133" stroke-width="2"/>
+</svg>
+<b><span class="k">2</span>Chips</b>
+<p>A cheeky packet of chips, the shop's best seller and very proud of it. Always checking the sales column to see if it is still number one.</p>
+</div>
+
+<div class="mascot">
+<svg viewBox="0 0 200 160" role="img" aria-label="An old cash register with a face on its drawer">
+<rect x="44" y="70" width="112" height="70" rx="8" fill="#1d5c4a" stroke="#10301d" stroke-width="4"/>
+<path d="M60 70 L72 34 L128 34 L140 70 Z" fill="#e9b949" stroke="#10301d" stroke-width="4" stroke-linejoin="round"/>
+<rect x="82" y="16" width="36" height="20" rx="3" fill="#f1e6cf" stroke="#10301d" stroke-width="3"/>
+<text x="100" y="31" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="12" fill="#10301d">R0</text>
+<circle cx="82" cy="94" r="7" fill="#f1e6cf"/><circle cx="118" cy="94" r="7" fill="#f1e6cf"/><circle cx="83" cy="95" r="3" fill="#10301d"/><circle cx="119" cy="95" r="3" fill="#10301d"/>
+<rect x="74" y="114" width="52" height="12" rx="6" fill="#f1e6cf"/>
+<g fill="#f1e6cf"><circle cx="80" cy="50" r="4"/><circle cx="94" cy="50" r="4"/><circle cx="108" cy="50" r="4"/><circle cx="122" cy="50" r="4"/></g>
+</svg>
+<b><span class="k">3</span>Till</b>
+<p>The shop's old cash register: grumpy, exact, and never wrong about a total. Rings "ka-ching!" when a formula is right and huffs at typed-in numbers.</p>
+</div>
+
+<div class="mascot">
+<svg viewBox="0 0 200 160" role="img" aria-label="A plaited koeksister with a happy face">
+<g stroke="#5b2c10" stroke-width="3" stroke-linejoin="round">
+<path d="M72 24 q-26 50 8 120 l18 0 q-30 -70 -6 -120z" fill="#c8641e"/>
+<path d="M100 22 q-14 60 0 124 l16 0 q-14 -64 0 -124z" fill="#d9772c"/>
+<path d="M128 24 q26 50 -8 120 l-18 0 q30 -70 6 -120z" fill="#c8641e"/>
+</g>
+<g fill="#fff" opacity=".55"><circle cx="84" cy="60" r="3"/><circle cx="110" cy="44" r="3"/><circle cx="122" cy="100" r="3"/><circle cx="92" cy="120" r="3"/></g>
+<circle cx="90" cy="78" r="6" fill="#2a1508"/><circle cx="112" cy="78" r="6" fill="#2a1508"/>
+<path d="M88 96 q12 10 24 0" stroke="#2a1508" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
+<b><span class="k">4</span>Sista Koek</b>
+<p>A sticky, syrupy koeksister who runs the shop's Friday bake sale. Warm and encouraging, a bit of a show-off about her plaits, and very local.</p>
+</div>
+
+<div class="mascot">
+<svg viewBox="0 0 200 160" role="img" aria-label="A pocket calculator with a face on its screen">
+<rect x="56" y="12" width="88" height="136" rx="12" fill="#6a5cff" stroke="#2c2a4a" stroke-width="4"/>
+<rect x="68" y="26" width="64" height="34" rx="4" fill="#c9f2dd" stroke="#2c2a4a" stroke-width="2"/>
+<circle cx="88" cy="42" r="5" fill="#2c2a4a"/><circle cx="112" cy="42" r="5" fill="#2c2a4a"/><path d="M90 52 q10 6 20 0" stroke="#2c2a4a" stroke-width="3" fill="none"/>
+<g fill="#eef1ff" stroke="#2c2a4a" stroke-width="2"><rect x="68" y="72" width="16" height="14" rx="3"/><rect x="92" y="72" width="16" height="14" rx="3"/><rect x="116" y="72" width="16" height="14" rx="3"/><rect x="68" y="94" width="16" height="14" rx="3"/><rect x="92" y="94" width="16" height="14" rx="3"/><rect x="116" y="94" width="16" height="14" rx="3"/><rect x="68" y="116" width="16" height="14" rx="3"/><rect x="92" y="116" width="16" height="14" rx="3"/></g>
+<rect x="116" y="116" width="16" height="14" rx="3" fill="#ffb4a2" stroke="#2c2a4a" stroke-width="2"/>
+</svg>
+<b><span class="k">5</span>Calc</b>
+<p>A pocket calculator who is jealous of the spreadsheet: "I can add too!" - until the prices change and Calc has to start all over again. The joke teaches why formulas beat typed answers.</p>
+</div>
+
+<div class="mascot">
+<svg viewBox="0 0 200 160" role="img" aria-label="A friendly mielie cob with leaves for arms">
+<path d="M70 54 q-30 40 -6 96 q20 -40 26 -70z" fill="#5aa04a" stroke="#2f5a26" stroke-width="3"/>
+<path d="M130 54 q30 40 6 96 q-20 -40 -26 -70z" fill="#5aa04a" stroke="#2f5a26" stroke-width="3"/>
+<ellipse cx="100" cy="82" rx="30" ry="64" fill="#f6c93d" stroke="#a87a10" stroke-width="3"/>
+<g fill="#e8b22a"><circle cx="88" cy="40" r="5"/><circle cx="100" cy="36" r="5"/><circle cx="112" cy="40" r="5"/><circle cx="84" cy="120" r="5"/><circle cx="100" cy="126" r="5"/><circle cx="116" cy="120" r="5"/></g>
+<circle cx="90" cy="74" r="6" fill="#3a2a08"/><circle cx="110" cy="74" r="6" fill="#3a2a08"/>
+<path d="M88 94 q12 10 24 0" stroke="#3a2a08" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
+<b><span class="k">6</span>Mielie</b>
+<p>A laid-back mielie from the braai stand next to the tuck shop. Slow to panic, good at sharing out, and the one who says "let's check the numbers first".</p>
+</div>
+
+</div>
+<div class="note">
+<p>Mascots can be a pair, like Tag and Gat: one who rushes and one who checks. Randy and Till, or Chips and Calc, work well that way.</p>
+</div>
+
+<h2>The spreadsheet in the lesson</h2>
+<div class="sheetdemo">
+<figure>
+<div class="fbar"><b>D2</b>=B2*C2</div>
+<div class="scroll">
+<table class="sh">
+<tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+<tr><th>1</th><td class="h">Item</td><td class="h">Price</td><td class="h">Sold</td><td class="h">Takings</td></tr>
+<tr><th>2</th><td>Mince pie</td><td class="n">R18.00</td><td class="n">24</td><td class="n y">R432.00</td></tr>
+<tr><th>3</th><td>Fruit juice</td><td class="n">R12.00</td><td class="n">31</td><td class="n y">R372.00</td></tr>
+<tr><th>4</th><td>Lollipop</td><td class="n">R2.50</td><td class="n">58</td><td class="n y">R145.00</td></tr>
+<tr><th>5</th><td>Koeksister</td><td class="n">R6.00</td><td class="n">40</td><td class="n y">R240.00</td></tr>
+</table>
+</div>
+<figcaption>The spreadsheet block looks like Excel on purpose, so it carries over to the computer lab. The yellow cells are the pupil's. It marks the formula itself and tries it on hidden changed prices, so typing 432 instead of =B2*C2 doesn't count.</figcaption>
+</figure>
+<div class="note" style="margin-top:0">
+<p><b>What the art style changes:</b> the lesson openers, the step pictures, the side notes, factoids and jokes, the level emblems and the badges. The spreadsheet itself stays plain, like Excel.</p>
+<p><b>What it can't mark:</b> formatting (lesson 6) and charts (lesson 7). Those lessons use spot-the-problem pictures and questions, with the formulas in the block, and an optional Excel task in the lab.</p>
+<p><b>Level names</b> come after the style (shop-themed, for example Shop Helper up to Tuck-shop Tycoon).</p>
+</div>
+</div>
+
+</div>

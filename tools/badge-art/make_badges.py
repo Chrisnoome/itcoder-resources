@@ -57,6 +57,7 @@ LOOKS = {
     "cattheory12":   "a star-shaped badge in plum purple enamel with a gold rim of thin circuit lines",
     "catexcel":      "a square badge with rounded corners in fresh green enamel with a faint grid pattern and a white rim",
     "catpowerpoint": "a rounded rectangle badge in teal enamel with a gold rim, shaped like a presentation screen on a stand",
+    "tuckshop":      "a board-game token badge in bright red and lime green enamel with a dark green rim, a little striped shop awning across the top",
 }
 
 # Each achievement's picture, without text.
