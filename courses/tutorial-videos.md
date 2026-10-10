@@ -86,6 +86,7 @@ what each must show. Make them in this order. Mark a video **done** in its plan 
 | Club website (`clubweb`) | 8 | [clubweb-videos.md](clubweb-videos.md) | 8 |
 | Tuck-shop tycoon (`tuckshop`) | 7 | [tuckshop-videos.md](tuckshop-videos.md) | 8 |
 | Inside the machine (`machine`) | 7 | [machine-videos.md](machine-videos.md) | 7 |
+| Fact or fake (`factfake`) | 8 | [factfake-videos.md](factfake-videos.md) | 6 |
 
 ## Where
 

@@ -4,7 +4,7 @@
   "from": "the General Computing courses chat (Tuck-shop tycoon)",
   "added": "2026-10-10",
   "status": "waiting",
-  "why": "Chris, 10 October 2026: \"add level and achievement icons to the art queue\". The home page icon for the new Grade 7 course Tuck-shop tycoon (tuckshop), in its colours (lib/home.php HomeCourseLook(): red #e8483b to dark green #10301d). Same style as 2026-10-10-course-icons-2. Inside the machine (machine) added: its colours are board green #0f5132 to copper #c99a1a.",
+  "why": "Chris, 10 October 2026: \"add level and achievement icons to the art queue\". The home page icon for the new Grade 7 course Tuck-shop tycoon (tuckshop), in its colours (lib/home.php HomeCourseLook(): red #e8483b to dark green #10301d). Same style as 2026-10-10-course-icons-2. Inside the machine (machine) added: its colours are board green #0f5132 to copper #c99a1a. Fact or fake (factfake) added: colours chat green #1f9d63 to near-black #0b0f14.",
   "style": "A glossy 3D icon object, smooth shiny plastic and enamel, soft studio light, like a premium app icon. The whole object centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
   "size": [
     1024,
@@ -26,6 +26,16 @@
       "name": "machine",
       "prompt": "A small dark green circuit board with gold copper tracks and a silver processor chip in the middle, a tiny yellow spark of electricity on it",
       "out": "AIPascalCourse/public/assets/course-art/machine.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake",
+      "prompt": "A glossy green magnifying glass held over a phone showing a chat bubble with a tick, small cyan sparkles",
+      "out": "AIPascalCourse/public/assets/course-art/factfake.png",
       "outSize": [
         256,
         256
