@@ -252,3 +252,24 @@ blank, re-upload the two .mp4 files (in E:\itcoder-videos\uploaded) and redo met
 
 Captions: our en-GB .srt on all six (checked on the watch pages). 9.2's thumbnail did not save the first time
 (Studio showed a video frame); uploaded again and checked.
+
+## Pascal 9.3-13.4 and Java 2.1-2.3 (10 October 2026)
+
+Uploaded by Chris; Public (Chris: "Public now"); titles and descriptions from the .youtube.md files (`<` and `>` in
+four description lines written as full-width ＜ ＞, because YouTube refuses angle brackets). Pascal playlist: 9.3-13.4
+after 9.2, before 16.1 (52 videos). Java playlist: 2.1-2.3 after the three install videos. Lesson links:
+AIPascalCourse b69a9fd (Pascal lessons 9-13, Java lesson 2; not published).
+
+9.3 xyiXbn7qKQM · 10.1 iNaM9lY1Iqs · 10.2 DC7qkKiYXbI · 10.3 UPu3f_flFJo · 10.4 zQZHtuz6HbY · 11.1 EXW_31E1AMY ·
+11.3 6OpOWhIna1s · 11.4 _O5ZqY4rNds · 12.1 wy1OZ_I3YmI · 12.2 BFGC4xN06-s · 12.3 RGbFKFoGOGo · 12.4 u3yT6xFMKsg ·
+13.1 gGWSc6JpszY · 13.2 30gDcgRNiZc · 13.3 4qkuK3K7m_0 · 13.4 fczWqf9WE0I · Java 2.1 9_BKLvjmLJw ·
+Java 2.2 PQ3ZcSB_bgw · Java 2.3 PoP4TPoW0PM. No 11.2 yet (no files in the upload folder).
+
+21.3: the new render 3Yh18Gou1bk replaced 3Kh5JXDrJEE (Chris: "Replace the live one") - same title and description,
+Public, in the playlist between 21.2 and 21.4, lesson 21 points at it. Chris deletes 3Kh5JXDrJEE.
+7.3 had been set to Private (not by Chris, he says); set back to Public.
+
+**Still to do** (Studio stopped loading; Chris: "Thumbnails only, captions later", then it stalled entirely):
+- Thumbnails: set on 9.3 (unchecked), 10.1, 10.2, 10.3, 10.4. Still to do: 11.1-13.4, Java 2.1-2.3 and 21.3
+  (3Yh18Gou1bk). PNGs in `E:\itcoder-videos\for upload`.
+- Captions (en-GB .srt, same folder): all 20, including the new 21.3.
