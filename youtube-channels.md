@@ -282,6 +282,10 @@ AIPascalCourse 545d6c1 (Pascal 14 and 15, Java 5; Java lesson 2 points at the ne
 Java 5.1 roapeaaURaU · Java 5.2 dU0G7jXS3mo · Java 5.3 RpqFp56De1E · Java 2.3 (new render) -DNsFK_Qpnk.
 Chris deletes the old ones: 21.3 3Kh5JXDrJEE and Java 2.3 PoP4TPoW0PM.
 
-**Still to do:** thumbnails and captions for all 10; check the Java playlist order; 15.3 (being uploaded).
-Studio context: if capturing it from the draft dialog fails, edit a video's title on its edit page and Save - the
-real metadata_update goes out by XMLHttpRequest, so hook XHR as well as fetch.
+15.3 sLMHjwsVgvM (uploaded later by Chris; it landed in the Java playlist - moved to Pascal, before 16.1, 59
+videos; lesson 15 link: AIPascalCourse e58ceda). Java playlist checked: installs, 2.1, 2.2, 2.3 (new), 5.1-5.3.
+Thumbnails: all 11 set and checked in the content list.
+**Still to do:** captions for all 11 (and the 20 in the batch above).
+Studio context: hook fetch and XHR straight after navigating (before Studio finishes booting - a later hook sees
+nothing), then change the title on the edit page with execCommand('insertText') (typed keys often don't register)
+and Save; the metadata_update context it sends works. A context built from ytcfg is ignored silently.
