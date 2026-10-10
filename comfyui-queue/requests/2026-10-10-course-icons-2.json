@@ -1,0 +1,106 @@
+{
+  "id": "2026-10-10-course-icons-2",
+  "kind": "items",
+  "from": "the General Computing courses chat (home page icons)",
+  "added": "2026-10-10",
+  "status": "waiting",
+  "why": "Chris, 10 October 2026: \"schedule icon generation for any missing icons in any course\". The home page course badge for every course made since 2026-10-01-course-icons (lib/home.php HomeCourseLook() - keep each object in that course's two colours). Until a file exists the card shows its line icon. catexcel reuses the picked catsheets.png (same course, renamed).",
+  "style": "A glossy 3D icon object, smooth shiny plastic and enamel, soft studio light, like a premium app icon. The whole object centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 3,
+  "items": [
+    {
+      "name": "safety",
+      "prompt": "A deep red leather case-file folder tied shut with red string, a small brass padlock hanging from the string",
+      "out": "AIPascalCourse/public/assets/course-art/safety.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "socialmedia",
+      "prompt": "A glossy hot-pink and purple smartphone with a glowing neon notification bell bursting out of its screen",
+      "out": "AIPascalCourse/public/assets/course-art/socialmedia.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9",
+      "prompt": "A dark green and charcoal database cylinder with a brass magnifying glass leaning on it and a small grey rhino figure beside it",
+      "out": "AIPascalCourse/public/assets/course-art/sql9.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "pascal9",
+      "prompt": "A small navy and indigo space station with two solar panel wings and a glowing antenna, a few tiny stars around it",
+      "out": "AIPascalCourse/public/assets/course-art/pascal9.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb",
+      "prompt": "Chunky isometric toy building blocks in coral pink and bright blue stacked into the shape of a little web page window",
+      "out": "AIPascalCourse/public/assets/course-art/clubweb.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory10",
+      "prompt": "A violet hardback textbook standing slightly open with a small glowing computer chip on its cover",
+      "out": "AIPascalCourse/public/assets/course-art/cattheory10.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory11",
+      "prompt": "An indigo blue laptop with a small open book resting on its keyboard",
+      "out": "AIPascalCourse/public/assets/course-art/cattheory11.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory12",
+      "prompt": "A plum purple graduation cap resting on top of a glowing computer chip",
+      "out": "AIPascalCourse/public/assets/course-art/cattheory12.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint",
+      "prompt": "A teal presentation screen on a little stand showing three rising bars, with a small gold pointer beside it",
+      "out": "AIPascalCourse/public/assets/course-art/catpowerpoint.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
+  ]
+}

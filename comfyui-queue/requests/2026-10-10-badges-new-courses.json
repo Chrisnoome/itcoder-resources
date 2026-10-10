@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-10-badges-new-courses",
+  "kind": "script",
+  "from": "the General Computing courses chat (achievements)",
+  "added": "2026-10-10",
+  "status": "waiting",
+  "command": "python tools/badge-art/make_badges.py",
+  "cwd": "AIResources",
+  "minutes": 75,
+  "why": "Chris, 10 October 2026: \"schedule icon generation for any missing icons in any course\". Achievement badges for the 10 courses that have none yet (safety, socialmedia, sql9, pascal9, clubweb, cattheory10/11/12, catexcel, catpowerpoint - their looks added to LOOKS in make_badges.py) plus 2 missing each in catword, cathtml and catdb: about 220 badges. The script makes only badges whose file is missing, straight into public/assets/badges/<course>/ (no picking step, like 2026-10-01-badge-art); Chris checks them on the site."
+}

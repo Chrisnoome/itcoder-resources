@@ -46,6 +46,17 @@ LOOKS = {
     "cattheory": "a round badge in sunset orange and red enamel with a bronze rim",
     "catdb":     "a hexagonal badge in deep maroon enamel with a gold rim of stacked discs",
     "catpilot":  "a round badge in sky blue enamel with a white rim and a small paper plane flying around the edge",
+    # Added 10 October 2026 for the courses made since (each in its own course's colours and art style).
+    "safety":        "a detective's shield badge in deep red enamel with a brass rim and a short piece of red string tied across one corner",
+    "socialmedia":   "a round badge in hot pink and purple glass with a glowing neon-tube rim, like the lights on a slot machine",
+    "sql9":          "a game ranger's badge in dark olive green enamel with a brushed bronze rim and a small rhino horn shape at the top",
+    "pascal9":       "a space mission patch badge in deep navy and indigo enamel with a silver rim, tiny pixel stars and a small space station at the top",
+    "clubweb":       "a chunky square badge built from isometric coral pink and bright blue blocks with a thick white rim, like a comic sticker",
+    "cattheory10":   "a round badge in violet enamel with a silver rim of thin circuit lines",
+    "cattheory11":   "a shield-shaped badge in indigo blue enamel with a silver rim of thin circuit lines",
+    "cattheory12":   "a star-shaped badge in plum purple enamel with a gold rim of thin circuit lines",
+    "catexcel":      "a square badge with rounded corners in fresh green enamel with a faint grid pattern and a white rim",
+    "catpowerpoint": "a rounded rectangle badge in teal enamel with a gold rim, shaped like a presentation screen on a stand",
 }
 
 # Each achievement's picture, without text.
