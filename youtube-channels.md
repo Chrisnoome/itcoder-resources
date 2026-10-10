@@ -269,8 +269,8 @@ Java 2.2 PQ3ZcSB_bgw · Java 2.3 PoP4TPoW0PM. No 11.2 yet (no files in the uploa
 Public, in the playlist between 21.2 and 21.4, lesson 21 points at it. Chris deletes 3Kh5JXDrJEE.
 7.3 had been set to Private (not by Chris, he says); set back to Public.
 
-**Thumbnails:** all 20 set (10.3 and 10.4 needed a second go). **Captions still to do** on all 20, including
-the new 21.3 (.srt files in the upload folder).
+**Thumbnails:** all 20 set (10.3 and 10.4 needed a second go). **Captions:** our en-GB .srt on all 20 (checked on
+the watch pages).
 
 ## Pascal 14.1-15.2 and Java 5.1-5.3, and a new Java 2.3 (10 October 2026)
 
@@ -285,7 +285,13 @@ Chris deletes the old ones: 21.3 3Kh5JXDrJEE and Java 2.3 PoP4TPoW0PM.
 15.3 sLMHjwsVgvM (uploaded later by Chris; it landed in the Java playlist - moved to Pascal, before 16.1, 59
 videos; lesson 15 link: AIPascalCourse e58ceda). Java playlist checked: installs, 2.1, 2.2, 2.3 (new), 5.1-5.3.
 Thumbnails: all 11 set and checked in the content list.
-**Still to do:** captions for all 11 (and the 20 in the batch above).
+Captions: our en-GB .srt on all 11 (checked on the watch pages).
 Studio context: hook fetch and XHR straight after navigating (before Studio finishes booting - a later hook sees
 nothing), then change the title on the edit page with execCommand('insertText') (typed keys often don't register)
 and Save; the metadata_update context it sends works. A context built from ytcfg is ignored silently.
+**Captions by API (fast):** with that context, POST globalization/update_captions {videoId, channelId, operations:
+[{ttsTrackId:{lang:'en-GB',kind:'',name:''}, userIntent:'USER_INTENT_EDIT_LATEST_DRAFT', vote:'VOTE_PUBLISH',
+isContentEdited:false, contentUpdateTime:<now in microseconds>, captionsFile:{dataUri:'data:application/octet-stream;
+base64,<the .srt>'}}]}. Load the .srt files into the page through a file input made in the page (file_upload, all at
+once), read them with FileReader. The reply is only a responseContext; check the watch page for the en-GB track.
+29 caption files went up in under a minute this way (10 October 2026).
