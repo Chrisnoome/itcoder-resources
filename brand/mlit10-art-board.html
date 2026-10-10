@@ -1,0 +1,206 @@
+<title>Maths Lit 10 Style Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500&family=Patrick+Hand&family=Bungee&family=Zilla+Slab:wght@600;700&family=Caveat:wght@600&family=Cabin+Sketch:wght@700&family=Shrikhand&family=Special+Elite&family=Bagel+Fat+One&family=Fredoka:wght@600&display=swap">
+<style>
+/* Layout: pick-a-look board - four course frames (2-up), then the twelve batches, each with theme A (planned) and theme B (alternative) side by side. */
+:root{
+  --bg:#eef2f1; --fg:#17232f; --muted:#56656f; --line:#cfd9d6; --card:#ffffff; --accent:#b8860b; --accent-ink:#2a1d00;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10181e;--fg:#e3ebe9;--muted:#97a7ae;--line:#2b3b46;--card:#18232c;--accent:#f0b82a;--accent-ink:#1d1400;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10181e;--fg:#e3ebe9;--muted:#97a7ae;--line:#2b3b46;--card:#18232c;--accent:#f0b82a;--accent-ink:#1d1400;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--body)}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,4.5vw,44px);font-weight:800}
+h2{font-size:24px;font-weight:750;margin-top:46px}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lede{max-width:72ch;color:var(--muted);margin:8px 0 0}
+.k{font:500 12px var(--mono);padding:3px 7px;border-radius:3px;background:var(--accent);color:var(--accent-ink);margin-right:8px;vertical-align:2px}
+.frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:20px;margin-top:18px}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.frame svg{display:block;width:100%;height:auto}
+.frame .body{padding:14px 18px 18px;display:grid;gap:8px}
+.frame h3{font-size:21px}
+.frame p{margin:0;font-size:14px}
+.frame ul{margin:0;padding-left:1.1em;font-size:14px;color:var(--muted)}
+.batches{display:grid;gap:14px;margin-top:18px}
+.batch{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.batch{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.batch .info{grid-column:1/-1}}
+@media (max-width:520px){.batch{grid-template-columns:minmax(0,1fr)}}
+.batch .info h3{font-size:19px}
+.batch .info p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.opt{min-width:0}
+.opt svg{display:block;width:100%;height:auto;border-radius:4px;border:1px solid var(--line)}
+.opt b{display:block;font-size:13.5px;margin-top:6px}
+.opt span{display:block;font-size:12.5px;color:var(--muted)}
+.opt .tag{display:inline-block;font:500 11px var(--mono);padding:1px 6px;border-radius:3px;border:1px solid var(--line);margin-right:4px;color:var(--fg)}
+.note{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px;max-width:84ch}
+.note p{margin:0 0 8px}.note p:last-child{margin:0}
+</style>
+
+<div class="wrap">
+  <div class="note" style="margin:0 0 18px"><p><b>Chris's choice (10 October 2026):</b> <b>F2 Sign-painter streets</b>, with Hadi the hadeda drawn the riso-passport way (no black outline, two slightly misregistered layers, grain) in F2's colours. All batch themes are option <b>A</b>.</p></div>
+  <div class="eyebrow">Style board · mlit10 · 10 October 2026</div>
+  <h1>Maths Lit Grade 10: pick a look</h1>
+  <p class="lede">There are two layers. The <b>course frame</b> stays the same all year: lesson openers, the year map, margin doodles, emblems, and the hadeda. Each <b>batch theme</b> changes the scenes and documents for that scenario. Pick one frame below, then theme A or B for each batch. The real-looking documents (bills, slips, plans, maps) stay plain and realistic inside every theme, because pupils have to read them the way they will in the exam.</p>
+
+  <h2>The course frame: four options</h2>
+  <div class="frames" id="frames"></div>
+
+  <h2>The twelve batch themes</h2>
+  <p class="lede">A is the theme from the plan, and B is an alternative. Each was checked against the other courses (tuck-shop board game, clubweb comic, pascal9 pixel, sql9 coloured pencil, socialmedia neon, safety case file, CAT marker) so that no look is reused.</p>
+  <div class="batches" id="batches"></div>
+
+  <div class="note">
+    <p><b>How it gets drawn.</b> The frame, doodles and most themes are SVG drawn by a script (<code>tools/mlit10/make_art.py</code>), as for tuckshop and clubweb. Themes tagged <span class="tag" style="font:500 11px var(--mono)">ComfyUI</span> need realistic pictures from the queue. The course icon, badges and the nine rank emblems (10c to R200) go through ComfyUI in the frame's style.</p>
+    <p><b>Graph engine.</b> Graphs that pupils draw use the engine's own plain grid in every batch, so the engine needs no theming per batch.</p>
+  </div>
+</div>
+
+<script>
+/* ---------- the hadeda, in any treatment ---------- */
+function hadeda(o){
+  const s=o.s||1, x=o.x||0, y=o.y||0, sw=o.sw||0, ol=o.ol||'none';
+  const g=`
+   <path d="M86 40 L104 47 L88 50Z" fill="${o.body}" stroke="${ol}" stroke-width="${sw}" stroke-linejoin="round"/>
+   <path d="M30 42 Q34 22 60 23 Q84 25 90 41 Q82 55 58 56 Q38 57 30 42Z" fill="${o.body}" stroke="${ol}" stroke-width="${sw}" stroke-linejoin="round"/>
+   <path d="M47 33 Q64 27 80 38 Q66 45 48 42Z" fill="${o.wing}"/>
+   <path d="M55 35 Q66 32 76 38 Q66 41 56 40Z" fill="${o.wing2||o.wing}" opacity=".9"/>
+   <path d="M33 40 Q26 34 24 27" fill="none" stroke="${ol==='none'?o.body:ol}" stroke-width="${ol==='none'?9:9+sw}" stroke-linecap="round"/>
+   <path d="M33 40 Q26 34 24 27" fill="none" stroke="${o.body}" stroke-width="9" stroke-linecap="round"/>
+   <circle cx="23" cy="25" r="8.5" fill="${o.head||o.body}" stroke="${ol}" stroke-width="${sw}"/>
+   <path d="M17 26 Q6 31 1 48" fill="none" stroke="${o.bill}" stroke-width="3.6" stroke-linecap="round"/>
+   <path d="M19 28 L28 30" stroke="${o.cheek||'#f3efe6'}" stroke-width="1.6" stroke-linecap="round"/>
+   <circle cx="21" cy="23" r="${o.eyeR||2.1}" fill="${o.eye||'#1b1b1b'}"/>
+   <path d="M53 56 L51 72 M51 72 L45 75 M51 72 L56 75 M62 56 L64 72 M64 72 L58 75 M64 72 L69 75" fill="none" stroke="${o.leg}" stroke-width="2.2" stroke-linecap="round"/>
+   ${o.mouth?`<path d="M3 47 q-4 -2 -6 -6" stroke="${o.bill}" stroke-width="2" fill="none"/>`:''}`;
+  return `<g transform="translate(${x} ${y}) scale(${s})" ${o.filter?`filter="${o.filter}"`:''}>${g}</g>`;
+}
+function bubble(x,y,w,h,txt,o){
+  o=o||{};
+  return `<g transform="translate(${x} ${y})"><path d="M0 6 Q0 0 6 0 H${w-6} Q${w} 0 ${w} 6 V${h-6} Q${w} ${h} ${w-6} ${h} H24 L10 ${h+12} L14 ${h} H6 Q0 ${h} 0 ${h-6}Z" fill="${o.fill||'#fff'}" stroke="${o.stroke||'#111'}" stroke-width="${o.sw||2}"/>
+  <text x="${w/2}" y="${h/2+5}" text-anchor="middle" font-family="${o.font||'Patrick Hand'}" font-size="${o.size||15}" fill="${o.color||'#111'}">${txt}</text></g>`;
+}
+const svg=(w,h,inner,bg)=>`<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" role="img">${bg?`<rect width="${w}" height="${h}" fill="${bg}"/>`:''}${inner}</svg>`;
+const T=(x,y,t,f,sz,c,extra='')=>`<text x="${x}" y="${y}" font-family="${f}" font-size="${sz}" fill="${c}" ${extra}>${t}</text>`;
+
+/* ---------- frames ---------- */
+const batchNames=['Kota','Car wash','Radio 10','Shoebox','Plan Wars','Bake-Off','Matchday','Games','Trip Fund','Room','Weather','Road trip'];
+const frames=[
+ {k:'F1',name:'The life binder',
+  desc:'The year is a ring binder with a coloured index tab for each batch. Pages are graph paper, sticky notes carry the asides, and the hadeda is a cut-paper sticker with a white edge.',
+  pts:['Calm and practical. It looks like the file a household keeps.','Batch themes slot in as the "page" behind each tab.','Rank emblems are coins and notes clipped to the binder.'],
+  art(){
+    let grid='';for(let i=0;i<=520;i+=16)grid+=`<path d="M${i} 0V300" stroke="#cfe3ea" stroke-width="1"/>`;for(let j=0;j<=300;j+=16)grid+=`<path d="M0 ${j}H520" stroke="#cfe3ea" stroke-width="1"/>`;
+    const cols=['#ef6f4a','#8f6bd6','#e05a8a','#3d9b6a','#2f8f86','#f0a12a','#2b7bd0','#c9a400','#4f9c3a','#2a5fa8','#58a9c9','#7a7f86'];
+    let tabs='';cols.forEach((c,i)=>{tabs+=`<g><rect x="478" y="${18+i*22}" width="38" height="19" rx="4" fill="${c}"/><text x="497" y="${31+i*22}" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#fff">${i+1}</text></g>`});
+    let rings='';[60,150,240].forEach(y=>rings+=`<circle cx="22" cy="${y}" r="9" fill="#fff" stroke="#9aa5ad" stroke-width="3"/><rect x="14" y="${y-3}" width="22" height="6" rx="3" fill="#b9c2c8"/>`);
+    return svg(520,300,`${grid}<rect x="0" y="0" width="44" height="300" fill="#e8eef0"/>${rings}${tabs}
+     ${T(64,52,'Batch 1 · Kota Kitchen','Archivo',13,'#4b5a64','font-weight="600" letter-spacing="1"')}
+     ${T(64,90,'1.4 Round it how?','Archivo',34,'#17232f','font-weight="800" font-stretch="80%"')}
+     <rect x="64" y="108" width="230" height="10" fill="#ffe36b" opacity=".8"/>
+     ${T(64,116,'up, down or off — the context decides','Patrick Hand',17,'#17232f')}
+     <g transform="rotate(-4 380 200)"><rect x="300" y="150" width="150" height="110" fill="#fff27a"/><path d="M300 150h150v10h-150z" fill="#f2e05c"/>${T(312,186,'Rolls come in','Patrick Hand',18,'#3a3000')}${T(312,208,'packs of 6.','Patrick Hand',18,'#3a3000')}${T(312,236,'Round UP!','Patrick Hand',22,'#c0392b')}</g>
+     <g><path d="M120 280 q-8 -70 70 -86 q90 -6 100 60 q4 30 -20 30z" fill="#fff" opacity=".0"/></g>
+     <g filter="url(#stk)">${hadeda({x:70,y:150,s:1.75,body:'#7d7368',wing:'#2f9e7a',wing2:'#8c5bc9',bill:'#2b2724',leg:'#5d544a',ol:'#ffffff',sw:5})}</g>
+     <defs><filter id="stk"><feDropShadow dx="2" dy="3" stdDeviation="1.5" flood-opacity=".25"/></filter></defs>`,'#f8fbfb')}},
+ {k:'F2',name:'Sign-painter streets',
+  desc:'Hand-painted South African street signage of the kind on spaza walls, barbershops and taxi ranks: bold lettering with drop shadows and pinstripe flourishes. The year map is a minibus route with 12 painted stops, and the hadeda is a flat bright sign painting with a thick black outline.',
+  pts:['Loud, local and funny. It is the most South African of the four.','Lettering carries the jokes, as on a real shop sign.','Rank emblems are painted coin and banknote signs.'],
+  art(){
+    let stops='';for(let i=0;i<12;i++){const x=40+i*40;stops+=`<circle cx="${x}" cy="262" r="9" fill="${i<3?'#e63b2e':'#fff'}" stroke="#111" stroke-width="3"/>`}
+    return svg(520,300,`<rect width="520" height="300" fill="#f7c948"/>
+     <rect x="14" y="14" width="492" height="272" fill="none" stroke="#111" stroke-width="4"/>
+     <rect x="20" y="20" width="480" height="260" fill="none" stroke="#e63b2e" stroke-width="2" stroke-dasharray="1 0"/>
+     ${T(38,62,'BATCH 1 · KOTA KITCHEN','Bungee',15,'#111')}
+     ${T(41,113,'ROUND IT','Bungee',44,'#111')}${T(38,110,'ROUND IT','Bungee',44,'#e63b2e')}
+     ${T(41,158,'HOW?','Bungee',44,'#111')}${T(38,155,'HOW?','Bungee',44,'#1d4fd8')}
+     <path d="M38 172 q30 -12 60 0 t60 0" stroke="#111" stroke-width="3" fill="none"/>
+     ${T(38,200,'Up, down or off — ask the context!','Shrikhand',17,'#111')}
+     <path d="M40 262 H480" stroke="#111" stroke-width="5"/>${stops}
+     <defs><filter id="grain2"><feTurbulence baseFrequency=".9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+     <filter id="rgrain"><feTurbulence baseFrequency=".85" numOctaves="2" seed="5" result="n"/><feColorMatrix in="n" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0" result="dots"/><feComposite in="dots" in2="SourceGraphic" operator="in" result="d"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="d"/></feMerge></filter></defs>
+     <g id="hadi"><g filter="url(#rgrain)">${hadeda({x:300,y:62,s:2.05,body:'#8a7d6e',wing:'#16b37a',wing2:'#16b37a',bill:'#111',leg:'#111',cheek:'#f7c948',eye:'#111'})}</g>
+     <g style="mix-blend-mode:multiply" opacity=".85">${hadeda({x:304,y:59,s:2.05,body:'none',wing:'#7b3fe4',wing2:'#7b3fe4',bill:'#111',leg:'none',cheek:'none',eye:'#7b3fe4',eyeR:0})}</g>
+     </g>
+     ${bubble(330,28,150,34,'SQUAWK! Round UP!',{font:'Bungee',size:11,sw:3})}`)}},
+ {k:'F3',name:'Riso passport',
+  desc:'The year is a passport. Each finished batch earns a stamp, and everything is printed in two risograph inks, fluoro pink and teal, with slightly misregistered layers and grain. The hadeda is a two-colour riso print.',
+  pts:['Feels like a zine. It is crafty and current, and pupils like to collect the stamps.','Two inks keep every figure cheap to draw and consistent.','Rank emblems are stamped coins.'],
+  art(){
+    let st='';const lab=['KOTA','WASH','RADIO'];for(let i=0;i<3;i++){const x=330+(i%2)*90,y=60+Math.floor(i/2)*90+(i===2?0:0);st+=`<g transform="rotate(${[-8,6,-3][i]} ${x} ${y})"><circle cx="${x}" cy="${y}" r="34" fill="none" stroke="#00838a" stroke-width="3" opacity=".85"/><circle cx="${x}" cy="${y}" r="27" fill="none" stroke="#00838a" stroke-width="1.5" stroke-dasharray="3 3" opacity=".85"/>${T(x,y+5,lab[i],'Zilla Slab',13,'#00838a','text-anchor="middle" font-weight="700"')}</g>`}
+    return svg(520,300,`<defs><filter id="grain"><feTurbulence baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .14 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs>
+     <rect width="520" height="300" fill="#f4efe6"/>
+     <path d="M260 0V300" stroke="#e2d8c8" stroke-width="2"/>
+     ${T(30,48,'PASSPORT · GRADE 10','Zilla Slab',14,'#ff48b0','font-weight="700" letter-spacing="2"')}
+     ${T(31,96,'Round it','Zilla Slab',40,'#00838a','font-weight="700" opacity=".9"')}${T(28,93,'Round it','Zilla Slab',40,'#ff48b0','font-weight="700" style="mix-blend-mode:multiply"')}
+     ${T(31,138,'how?','Zilla Slab',40,'#00838a','font-weight="700" opacity=".9"')}${T(28,135,'how?','Zilla Slab',40,'#ff48b0','font-weight="700" style="mix-blend-mode:multiply"')}
+     <g style="mix-blend-mode:multiply" opacity=".9">${hadeda({x:42,y:160,s:1.45,body:'#00a3ab',wing:'#00838a',bill:'#00838a',leg:'#00838a',cheek:'#f4efe6',eye:'#00838a'})}</g>
+     <g style="mix-blend-mode:multiply" opacity=".85">${hadeda({x:46,y:157,s:1.45,body:'none',wing:'#ff48b0',wing2:'#ff48b0',bill:'#ff48b0',leg:'none',cheek:'none',eye:'#ff48b0',eyeR:0})}</g>
+     ${st}
+     <g transform="rotate(4 400 240)"><rect x="330" y="205" width="140" height="66" fill="none" stroke="#ff48b0" stroke-width="3"/>${T(400,233,'NEXT STAMP','Zilla Slab',13,'#ff48b0','text-anchor="middle" font-weight="700"')}${T(400,255,'1.5 · ratio','Zilla Slab',13,'#ff48b0','text-anchor="middle"')}</g>
+     <rect width="520" height="300" fill="#000" filter="url(#grain)" opacity=".5"/>`)}},
+ {k:'F4',name:'Field notebook',
+  desc:'A naturalist\'s field notebook. The hadeda is drawn as a bird-guide study in ink line with a loose watercolour wash, and the asides are handwritten field notes. The year map is a list of "sightings", one per batch.',
+  pts:['Quiet and crafted. It is the most grown-up of the four, for 15-year-olds who think they\'ve outgrown cartoons.','The hadeda is a real bird, so a field guide is its natural home.','Rank emblems are coins drawn as specimen studies.'],
+  art(){
+    let lines='';for(let j=40;j<300;j+=22)lines+=`<path d="M20 ${j}H500" stroke="#c9d7e0" stroke-width="1"/>`;
+    return svg(520,300,`<defs><filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="9"/><feGaussianBlur stdDeviation="1.4"/></filter></defs>
+     <rect width="520" height="300" fill="#f6f3ea"/>${lines}<path d="M64 0V300" stroke="#e8a3a3" stroke-width="1.2"/>
+     ${T(80,34,'Sighting no. 1 · Kota Kitchen','Caveat',20,'#5a6b75')}
+     ${T(80,80,'Round it how?','Archivo',32,'#22313b','font-weight="800" font-stretch="80%"')}
+     <g filter="url(#wc)" opacity=".75">${hadeda({x:250,y:96,s:2.3,body:'#9a8c7c',wing:'#3fa98a',wing2:'#9a7bd1',bill:'#9a8c7c',leg:'#9a8c7c',cheek:'#9a8c7c',eye:'#9a8c7c',eyeR:0})}</g>
+     ${hadeda({x:250,y:96,s:2.3,body:'none',wing:'none',wing2:'none',bill:'#2a2622',leg:'#2a2622',ol:'#2a2622',sw:.7,cheek:'#f6f3ea',eye:'#2a2622'})}
+     ${T(80,120,'Bostrychia hagedash','Caveat',19,'#5a6b75','font-style="italic"')}
+     ${T(80,150,'Call: a loud "ha-ha-de-dah"','Caveat',19,'#22313b')}
+     ${T(80,174,'— louder still at a','Caveat',19,'#22313b')}
+     ${T(80,198,'rounding error.','Caveat',19,'#22313b')}
+     <path d="M190 210 q40 18 70 -10" fill="none" stroke="#22313b" stroke-width="1.2" marker-end="url(#ar)"/>
+     ${T(80,262,'Packs of 6 → always round UP.','Caveat',22,'#b5443a')}`)}}
+];
+document.getElementById('frames').innerHTML=frames.map(f=>`<article class="frame">${f.art()}<div class="body"><h3><span class="k">${f.k}</span>${f.name}</h3><p>${f.desc}</p><ul>${f.pts.map(p=>`<li>${p}</li>`).join('')}</ul></div></article>`).join('');
+
+/* ---------- batch thumbnails (240 x 150) ---------- */
+const W=240,H=150;
+const B=[
+ {n:1,name:'Kota Kitchen',topic:'Numbers',
+  A:{t:'Chalkboard menu',d:'Chalk lettering on black boards with sticky price tags.',art:()=>svg(W,H,`<rect x="8" y="8" width="224" height="134" rx="4" fill="#26302b" stroke="#8a5a32" stroke-width="8"/>${T(120,44,'KOTA MENU','Cabin Sketch',24,'#f4f1e8','text-anchor="middle"')}${T(28,74,'¼ Kota ........ R35,00','Cabin Sketch',14,'#e8e4d8')}${T(28,96,'Vetkoek ....... R12,50','Cabin Sketch',14,'#e8e4d8')}${T(28,118,'Chips (L) ..... R28,00','Cabin Sketch',14,'#e8e4d8')}<g transform="rotate(8 200 110)"><rect x="176" y="96" width="46" height="28" fill="#ffd84d"/>${T(199,115,'-10%','Fredoka',14,'#3a2c00','text-anchor="middle"')}</g>`,'#5d3b20')},
+  B:{t:'Spaza wall mural',d:'A hand-painted shop wall: flat yellow, blue lettering, red outline.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#f7c600"/><rect x="0" y="118" width="${W}" height="32" fill="#1d5fd0"/>${T(124,58,"THANDI'S",'Shrikhand',30,'#c8102e','text-anchor="middle"')}${T(120,54,"THANDI'S",'Shrikhand',30,'#1d3fa8','text-anchor="middle"')}${T(120,92,'KOTAS · R35','Bungee',22,'#111','text-anchor="middle"')}${T(120,140,'OPEN SAT 8–4','Bungee',13,'#fff','text-anchor="middle"')}`)}},
+ {n:2,name:'Car Wash Saturday',topic:'Patterns',
+  A:{t:'Roadside signs + bubbles',d:'Painted plank signs and soap bubbles in bright primaries.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#8fd3ff"/><rect x="0" y="118" width="${W}" height="32" fill="#7a8a95"/><rect x="40" y="38" width="130" height="54" fill="#fff" stroke="#6b4a2b" stroke-width="4"/><rect x="100" y="92" width="8" height="30" fill="#6b4a2b"/>${T(105,62,'CAR WASH','Bungee',18,'#e63b2e','text-anchor="middle"')}${T(105,84,'R60 a car','Patrick Hand',18,'#1d3fa8','text-anchor="middle"')}${[[190,40,16],[210,72,10],[180,90,8],[30,108,12],[200,108,14]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="#fff" fill-opacity=".35" stroke="#fff" stroke-width="2"/><circle cx="${x-r/3}" cy="${y-r/3}" r="${r/5}" fill="#fff"/>`).join('')}`)},
+  B:{t:'Pop-art halftone',d:'Comic-print halftone dots and SPLASH bursts.',art:()=>svg(W,H,`<defs><pattern id="ht" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.4" fill="#ff3d8b"/></pattern></defs><rect width="${W}" height="${H}" fill="#ffe14d"/><rect width="${W}" height="${H}" fill="url(#ht)" opacity=".55"/><path d="M120 18 L134 50 L170 38 L150 66 L184 84 L146 88 L152 124 L124 100 L100 128 L98 92 L60 94 L88 70 L62 44 L100 50Z" fill="#fff" stroke="#111" stroke-width="3"/>${T(122,82,'SPLASH!','Bagel Fat One',22,'#1d3fa8','text-anchor="middle"')}`)}},
+ {n:3,name:'Radio 10 Survey',topic:'Data (1)',
+  A:{t:'Retro radio studio',d:'Wood panels, VU meters, cassette labels, ON AIR lamp.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#5a3a24"/><rect x="16" y="20" width="110" height="74" rx="6" fill="#f1e2b8" stroke="#2b1c10" stroke-width="3"/><path d="M30 80 A42 42 0 0 1 112 80" fill="none" stroke="#2b1c10" stroke-width="2"/><path d="M96 80 A42 42 0 0 1 112 80" fill="none" stroke="#c8102e" stroke-width="5"/><path d="M71 82 L95 46" stroke="#2b1c10" stroke-width="2.5"/>${T(71,40,'VU','IBM Plex Mono',11,'#2b1c10','text-anchor="middle"')}<rect x="140" y="30" width="86" height="54" rx="4" fill="#e9e4da" stroke="#2b1c10" stroke-width="2"/><rect x="148" y="38" width="70" height="16" fill="#fff"/>${T(183,50,'RADIO 10 · A','Special Elite',9,'#2b1c10','text-anchor="middle"')}<circle cx="164" cy="68" r="8" fill="#2b1c10"/><circle cx="202" cy="68" r="8" fill="#2b1c10"/><rect x="70" y="108" width="100" height="26" rx="4" fill="#c8102e"/>${T(120,126,'ON AIR','Bungee',14,'#fff','text-anchor="middle"')}`)},
+  B:{t:'Photocopied zine',d:'Black-and-white xerox flyers with cut-out letters and tape.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#efeee9"/>${[['W',20,40,'#111','#fff'],['H',44,44,'#fff','#111'],['A',68,38,'#111','#fff'],['T',92,44,'#fff','#111']].map(([c,x,y,bg,fg])=>`<rect x="${x}" y="${y-26}" width="22" height="30" fill="${bg}" stroke="#111"/>${T(x+11,y,c,'Special Elite',24,fg,'text-anchor="middle"')}`).join('')}${T(124,40,'do you','Special Elite',18,'#111')}${T(20,90,'LISTEN TO?','Archivo',30,'#111','font-weight="800" font-stretch="75%"')}<rect x="150" y="104" width="60" height="16" fill="#f3e9a5" opacity=".8" transform="rotate(-8 180 112)"/>${T(20,132,'survey · 5 min · tick ONE box','IBM Plex Mono',10,'#111')}`)}},
+ {n:4,name:"Gogo's Shoebox",topic:'Finance docs',
+  A:{t:'Paper collage',d:'Kraft paper, crumpled slips, paperclips, rubber stamps.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#c9a77c"/><g transform="rotate(-7 80 75)"><rect x="30" y="20" width="80" height="110" fill="#fbfaf6"/>${[38,50,62,74,86,98].map(y=>`<path d="M40 ${y}H${y%24?100:85}" stroke="#9aa" stroke-width="2"/>`).join('')}</g><g transform="rotate(5 160 70)"><rect x="110" y="26" width="110" height="80" fill="#fff"/><rect x="110" y="26" width="110" height="16" fill="#3d7fc1"/>${T(118,38,'MUNICIPAL ACCOUNT','IBM Plex Mono',8,'#fff')}${T(118,60,'Water   R412,80','IBM Plex Mono',9,'#333')}${T(118,74,'Electr. R986,10','IBM Plex Mono',9,'#333')}</g><g transform="rotate(-14 170 112)"><rect x="140" y="96" width="70" height="28" fill="none" stroke="#c8102e" stroke-width="3"/>${T(175,117,'PAID','Special Elite',18,'#c8102e','text-anchor="middle"')}</g><path d="M60 14 v22 a6 6 0 0 0 12 0 v-18" fill="none" stroke="#7d8790" stroke-width="2.5"/>`)},
+  B:{t:'Photo flat-lay',d:'A realistic top-down photo of a real shoebox of slips.',comfy:true,art:()=>svg(W,H,`<defs><radialGradient id="ph" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#b9a07f"/><stop offset="1" stop-color="#6e5a43"/></radialGradient><filter id="sh"><feDropShadow dx="3" dy="4" stdDeviation="3" flood-opacity=".4"/></filter></defs><rect width="${W}" height="${H}" fill="url(#ph)"/><rect x="34" y="22" width="172" height="106" fill="#e9e1d2" filter="url(#sh)"/><rect x="42" y="30" width="156" height="90" fill="#d8ccb6"/><g filter="url(#sh)"><rect x="56" y="38" width="60" height="70" fill="#fff" transform="rotate(-9 86 73)"/><rect x="100" y="44" width="80" height="54" fill="#f6f6f2" transform="rotate(7 140 70)"/></g>${T(120,142,'realistic photo · ComfyUI','IBM Plex Mono',9,'#fff','text-anchor="middle"')}`)}},
+ {n:5,name:'Plan Wars',topic:'Tariffs',
+  A:{t:'Game-show "versus"',d:'A split screen, a giant VS, and plan cards with stat bars.',art:()=>svg(W,H,`<path d="M0 0H140L100 150H0Z" fill="#e63b2e"/><path d="M140 0H240V150H100Z" fill="#1d4fd8"/>${T(120,92,'VS','Bagel Fat One',44,'#ffd84d','text-anchor="middle" stroke="#111" stroke-width="2"')}<rect x="14" y="24" width="70" height="96" rx="6" fill="#fff"/>${T(49,42,'PLAN A','Bungee',11,'#e63b2e','text-anchor="middle"')}${[60,76,92].map((y,i)=>`<rect x="22" y="${y}" width="54" height="7" fill="#eee"/><rect x="22" y="${y}" width="${[44,22,34][i]}" height="7" fill="#e63b2e"/>`).join('')}<rect x="156" y="24" width="70" height="96" rx="6" fill="#fff"/>${T(191,42,'PLAN B','Bungee',11,'#1d4fd8','text-anchor="middle"')}${[60,76,92].map((y,i)=>`<rect x="164" y="${y}" width="54" height="7" fill="#eee"/><rect x="164" y="${y}" width="${[28,48,30][i]}" height="7" fill="#1d4fd8"/>`).join('')}`)},
+  B:{t:'Supermarket flyer',d:'Loud yellow specials flyer with starbursts and slashed prices.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#fff23b"/><rect x="0" y="0" width="${W}" height="30" fill="#c8102e"/>${T(120,22,'MEGA DATA DEALS','Bungee',16,'#fff','text-anchor="middle"')}<path d="M70 50l8 14 16-4-8 14 14 8-16 4 4 16-14-8-8 14-6-15-16 2 10-12-12-10 16-2-2-16 14 8z" fill="#c8102e"/>${T(76,92,'SAVE','Bungee',11,'#fff','text-anchor="middle"')}${T(140,70,'10 GB','Archivo',26,'#111','font-weight="800"')}${T(140,96,'R199','Archivo',22,'#c8102e','font-weight="800"')}<path d="M138 112H200" stroke="#111" stroke-width="2"/>${T(140,108,'R249','Archivo',14,'#111')}`)}},
+ {n:6,name:'The Great Bake-Off',topic:'Measurement',
+  A:{t:'Retro recipe cards',d:'Index cards, dial scales and measuring cups in pastel enamel.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#cdeee0"/><rect x="18" y="18" width="130" height="114" fill="#fffdf6"/><path d="M18 40H148" stroke="#e86a6a" stroke-width="2"/>${[58,74,90,106].map(y=>`<path d="M18 ${y}H148" stroke="#a9c9e8"/>`).join('')}${T(26,34,'Showstopper Sponge','Patrick Hand',14,'#333')}${T(26,70,'2 cups flour (500 g)','Patrick Hand',12,'#333')}${T(26,86,'180 °C · 35 min','Patrick Hand',12,'#333')}<circle cx="192" cy="62" r="32" fill="#ffe1e8" stroke="#555" stroke-width="2.5"/>${Array.from({length:12},(_,i)=>{const a=i*30*Math.PI/180;return `<path d="M${192+26*Math.cos(a)} ${62+26*Math.sin(a)}L${192+30*Math.cos(a)} ${62+30*Math.sin(a)}" stroke="#555" stroke-width="1.5"/>`}).join('')}<path d="M192 62L212 48" stroke="#c8102e" stroke-width="2.5"/><path d="M170 104h44l-6 30h-32z" fill="#fff" stroke="#555" stroke-width="2"/>`)},
+  B:{t:'TV-show set',d:'Pink bunting, studio lights and a cake on a stand.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#fbe3ea"/><path d="M0 14 Q120 44 240 14" fill="none" stroke="#7a5" stroke-width="1.5"/>${Array.from({length:9},(_,i)=>{const x=10+i*26,y=18+Math.sin(i/8*Math.PI)*24;return `<path d="M${x} ${y}l20 0l-10 18z" fill="${['#ff7aa2','#7fd3ff','#ffd84d'][i%3]}"/>`}).join('')}<rect x="80" y="74" width="80" height="40" rx="4" fill="#fff" stroke="#c96" stroke-width="2"/><rect x="80" y="74" width="80" height="10" fill="#ff9ec0"/><path d="M90 114h60l-8 16h-44z" fill="#dcd4cf"/>${T(120,144,'★ THE BIG BAKE ★','Fredoka',12,'#8a2b4b','text-anchor="middle"')}`)}},
+ {n:7,name:'Matchday',topic:'Scale, maps',
+  A:{t:'Stadium wayfinding',d:'Colour-coded zones, pictograms and big arrows.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#14213d"/><rect x="14" y="20" width="100" height="52" rx="4" fill="#ffd60a"/>${T(64,54,'K','Archivo',34,'#14213d','text-anchor="middle" font-weight="800"')}<path d="M126 46h70l-14-14M196 46l-14 14" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>${['#e63946','#2a9d8f','#ffd60a','#4895ef'].map((c,i)=>`<rect x="${14+i*54}" y="92" width="48" height="40" rx="3" fill="${c}"/>${T(38+i*54,118,'ABCD'[i]+'–'+'EFGH'[i],'IBM Plex Mono',11,'#14213d','text-anchor="middle"')}`).join('')}`)},
+  B:{t:'Vintage match programme',d:'A cream programme cover with a halftone pitch and old type.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#efe4c8"/><rect x="12" y="12" width="216" height="126" fill="none" stroke="#1f3b2b" stroke-width="3"/><rect x="34" y="50" width="172" height="62" fill="#2f6b45"/><rect x="34" y="50" width="172" height="62" fill="none" stroke="#efe4c8" stroke-width="2"/><path d="M120 50V112" stroke="#efe4c8" stroke-width="2"/><circle cx="120" cy="81" r="14" fill="none" stroke="#efe4c8" stroke-width="2"/>${T(120,40,'CUP FINAL','Zilla Slab',20,'#1f3b2b','text-anchor="middle" font-weight="700"')}${T(120,130,'Official programme · scale 1:500','Zilla Slab',10,'#1f3b2b','text-anchor="middle"')}`)}},
+ {n:8,name:'Games Night',topic:'Probability',
+  A:{t:'Paper-cut dice and spinner',d:'Layered paper craft with soft shadows, like a pop-up card.',art:()=>svg(W,H,`<defs><filter id="pc"><feDropShadow dx="2" dy="3" stdDeviation="1.6" flood-opacity=".3"/></filter></defs><rect width="${W}" height="${H}" fill="#2d6a63"/><g filter="url(#pc)"><circle cx="78" cy="76" r="52" fill="#f4efe6"/>${['#ff8c69','#ffd166','#06d6a0','#118ab2'].map((c,i)=>{const a0=i*90,a1=a0+90,r=46,p=(a)=>[78+r*Math.cos(a*Math.PI/180),76+r*Math.sin(a*Math.PI/180)];const[s,e]=[p(a0),p(a1)];return `<path d="M78 76L${s[0]} ${s[1]}A${r} ${r} 0 0 1 ${e[0]} ${e[1]}Z" fill="${c}"/>`}).join('')}<path d="M78 76L104 46" stroke="#222" stroke-width="4" stroke-linecap="round"/><circle cx="78" cy="76" r="6" fill="#222"/></g><g filter="url(#pc)"><rect x="152" y="40" width="64" height="64" rx="10" fill="#fff"/>${[[168,56],[200,56],[184,72],[168,88],[200,88]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="5" fill="#222"/>`).join('')}</g>`)},
+  B:{t:'Fairground',d:'A striped awning, ADMIT ONE tickets and a prize wheel.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#1b1f3b"/>${Array.from({length:8},(_,i)=>`<path d="M${i*30} 0h30v26q-15 12-30 0z" fill="${i%2?'#fff':'#e63946'}"/>`).join('')}<g transform="rotate(-8 80 95)"><rect x="34" y="72" width="96" height="44" fill="#ffd166"/><circle cx="34" cy="94" r="7" fill="#1b1f3b"/><circle cx="130" cy="94" r="7" fill="#1b1f3b"/>${T(82,100,'ADMIT ONE','Bungee',12,'#1b1f3b','text-anchor="middle"')}</g><circle cx="186" cy="92" r="36" fill="#fff"/>${Array.from({length:8},(_,i)=>{const a=i*45*Math.PI/180;return `<path d="M186 92L${186+36*Math.cos(a)} ${92+36*Math.sin(a)}" stroke="#e63946" stroke-width="3"/>`}).join('')}`)}},
+ {n:9,name:'The Trip Fund',topic:'Finance',
+  A:{t:'Travel posters and stamps',d:'Flat sunset bands, mountain silhouettes and passport stamps.',art:()=>svg(W,H,`${['#ffb26b','#ff7b54','#d1495b','#6a2c70'].map((c,i)=>`<rect y="${i*26}" width="${W}" height="27" fill="${c}"/>`).join('')}<circle cx="170" cy="64" r="24" fill="#ffe6a7"/><path d="M0 150V96L40 70L80 100L120 62L170 104L210 80L240 96V150Z" fill="#2b2d42"/>${T(20,40,'SEE THE COAST','Bungee',16,'#fff')}<g transform="rotate(-10 196 128)"><rect x="160" y="110" width="72" height="30" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/>${T(196,130,'SAVED R4 800','IBM Plex Mono',9,'#fff','text-anchor="middle"')}</g>`)},
+  B:{t:'Savings-jar ticket',d:'A jar filling with coins and a progress ticket to the target.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#e6f2ea"/><path d="M50 30h60v10q14 6 14 24v62q0 10-10 10H46q-10 0-10-10V64q0-18 14-24z" fill="#fff" stroke="#2f6b45" stroke-width="3"/>${[120,110,100,90,80].map((y,i)=>`<ellipse cx="${80+(i%2)*4}" cy="${y}" rx="22" ry="5" fill="#e0b84a" stroke="#9a7a1a"/>`).join('')}<rect x="140" y="40" width="86" height="70" rx="6" fill="#fff" stroke="#2f6b45" stroke-width="2" stroke-dasharray="5 3"/>${T(183,62,'TRIP FUND','Fredoka',13,'#2f6b45','text-anchor="middle"')}<rect x="152" y="74" width="62" height="10" fill="#d9e8de"/><rect x="152" y="74" width="40" height="10" fill="#2f6b45"/>${T(183,100,'64% to target','IBM Plex Mono',9,'#2f6b45','text-anchor="middle"')}`)}},
+ {n:10,name:'Room Rescue',topic:'Area, plans',
+  A:{t:'Blueprint + flat-pack',d:'White lines on blue for plans; clean line drawings for assembly.',art:()=>{let g='';for(let i=0;i<=W;i+=12)g+=`<path d="M${i} 0V${H}" stroke="#2c5aa0" stroke-width=".6"/>`;for(let j=0;j<=H;j+=12)g+=`<path d="M0 ${j}H${W}" stroke="#2c5aa0" stroke-width=".6"/>`;return svg(W,H,`${g}<path d="M30 24H150V120H30Z" fill="none" stroke="#fff" stroke-width="3"/><path d="M30 92H58" stroke="#1f4e93" stroke-width="5"/><path d="M58 92A28 28 0 0 0 30 64" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="3 2"/><path d="M90 24v-6" stroke="#fff"/><path d="M30 14H150" stroke="#fff" stroke-width="1"/>${T(90,11,'3 600','IBM Plex Mono',9,'#fff','text-anchor="middle"')}<g stroke="#fff" fill="none" stroke-width="1.5"><path d="M172 60l30-14 30 14-30 14z"/><path d="M172 60v28l30 14v-28M232 60v28l-30 14"/></g>${T(200,124,'step 3 of 12','IBM Plex Mono',9,'#fff','text-anchor="middle"')}`,'#1f4e93')}},
+  B:{t:'Interior mood board',d:'Paint chips, fabric squares and tape on a cork board.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#c89f6d"/>${['#2a9d8f','#e9c46a','#f4a261','#e76f51'].map((c,i)=>`<g transform="rotate(${[-6,3,-2,5][i]} ${40+i*50} 60)"><rect x="${18+i*52}" y="22" width="42" height="70" fill="#fff"/><rect x="${22+i*52}" y="26" width="34" height="46" fill="${c}"/>${T(39+i*52,86,'R'+[289,315,249,299][i],'IBM Plex Mono',8,'#333','text-anchor="middle"')}</g>`).join('')}<rect x="40" y="104" width="160" height="30" fill="#f4efe6"/>${T(120,124,'3,2 L covers 32 m²','Patrick Hand',15,'#333','text-anchor="middle"')}`)}},
+ {n:11,name:'Weather Watch',topic:'Data (2)',
+  A:{t:'Weather chart',d:'Isobar contour lines, H and L, and wind barbs in a cool sky palette.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#e8f3f8"/>${[0,1,2,3,4].map(i=>`<path d="M${-20+i*6} ${30+i*22} C 60 ${10+i*24}, 140 ${60+i*18}, 260 ${20+i*24}" fill="none" stroke="#3a7ca5" stroke-width="1.4"/>`).join('')}${T(70,62,'H','Archivo',26,'#1d4f73','font-weight="800"')}${T(180,112,'L','Archivo',26,'#c0392b','font-weight="800"')}<g stroke="#1d4f73" stroke-width="2"><path d="M130 40v24M130 40l10-6M130 46l10-6"/></g>${T(14,140,'1 012 hPa','IBM Plex Mono',9,'#1d4f73')}`)},
+  B:{t:'TV weather map',d:'A bright map with sun and cloud icons and big temperatures.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#2b6cb0"/><path d="M30 40 Q70 18 120 30 Q170 20 210 44 Q228 80 196 112 Q150 136 96 126 Q44 118 28 86Z" fill="#68b36b" stroke="#fff" stroke-width="2"/><circle cx="80" cy="60" r="12" fill="#ffd166"/>${T(80,90,'24°','Archivo',18,'#fff','text-anchor="middle" font-weight="800"')}<path d="M150 74a12 12 0 0 1 22-6 10 10 0 0 1 4 20h-26a8 8 0 0 1 0-14z" fill="#fff"/>${T(164,110,'17°','Archivo',18,'#fff','text-anchor="middle" font-weight="800"')}`)}},
+ {n:12,name:'The Road Trip',topic:'Revision',
+  A:{t:'Scrapbook of postcards',d:'Every stop is a postcard in an earlier batch\'s theme, taped into the book.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#e9e2d0"/>${[['#26302b',-8,20,22,'KOTA'],['#1f4e93',5,92,30,'ROOM'],['#14213d',-3,160,18,'BLOCK K']].map(([c,r,x,y,t])=>`<g transform="rotate(${r} ${x+35} ${y+45})"><rect x="${x}" y="${y}" width="70" height="92" fill="#fff"/><rect x="${x+5}" y="${y+5}" width="60" height="62" fill="${c}"/>${T(x+35,y+84,t,'Bungee',9,'#333','text-anchor="middle"')}<rect x="${x+20}" y="${y-6}" width="30" height="12" fill="#f3e9a5" opacity=".85"/></g>`).join('')}`)},
+  B:{t:'Highway signage',d:'Green N-road direction boards with distances and exits.',art:()=>svg(W,H,`<rect width="${W}" height="${H}" fill="#9fc4d8"/><rect x="0" y="118" width="${W}" height="32" fill="#555"/><path d="M118 118v32" stroke="#fff" stroke-width="3" stroke-dasharray="8 6"/><rect x="30" y="18" width="180" height="84" rx="6" fill="#006b3f" stroke="#fff" stroke-width="3"/><rect x="42" y="28" width="34" height="20" fill="#fff"/>${T(59,43,'N3','Archivo',14,'#006b3f','text-anchor="middle" font-weight="800"')}${T(42,74,'Durban','Archivo',22,'#fff','font-weight="700"')}${T(196,74,'570 km','Archivo',14,'#fff','text-anchor="end"')}${T(42,94,'Harrismith  220 km','Archivo',12,'#fff')}`)}}
+];
+document.getElementById('batches').innerHTML=B.map(b=>`<article class="batch"><div class="info"><h3><span class="k">${b.n}</span>${b.name}</h3><p>${b.topic}</p></div>
+ ${['A','B'].map(k=>`<div class="opt">${b[k].art()}<b>${b.n}${k} · ${b[k].t}</b><span>${b[k].comfy?'<span class="tag">ComfyUI</span>':''}${b[k].d}</span></div>`).join('')}</article>`).join('');
+</script>
