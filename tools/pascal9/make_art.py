@@ -425,8 +425,246 @@ def draw_storm():
     pic.save('storm')
 
 
+SPANNER = [
+    ".......lllll",
+    "llllllllg...",
+    "gggggggg....",
+    ".......lllll",
+]
+Z_LETTER = ["yyy", "..y", ".y.", "yyy"]
+SPARKLE = [".c.", "ccc", ".c."]
+
+
+def bolt_sleeping(pic, x, y):
+    """Bolt with its eye-light off: a closed eye, a line where the light was."""
+    pic.sprite(x, y, BOLT, {'E': BLACK, 'y': BLACK})
+    pic.rect(x + 6, y + 7, 4, 1, GREY)
+
+
+def draw_margin_art():
+    """The margin doodles (content-voice-and-pedagogy.md 5b): small, one idea each, Bolt and the crew."""
+    # Bolt with a spanner
+    pic = Pic(32, 18, 'Bolt holding a spanner')
+    bolt(pic, 1, 2, ORANGE)
+    pic.sprite(17, 7, SPANNER)
+    pic.sprite(28, 2, SPARKLE, {'c': YELLOW})
+    pic.save('bolt-spanner')
+
+    # Bolt staring at a semicolon
+    pic = Pic(32, 18, 'Bolt staring at a big semicolon')
+    bolt(pic, 1, 3, ORANGE)
+    pic.sprite(21, 3, ["yyy", "yyy", "...", "...", "yyy", "yyy", ".yy", ".y.", "y.."])
+    pic.sprite(27, 0, [".yyy.", "y...y", "...y.", "..y..", ".....", "..y.."], {'y': WHITE})
+    pic.save('bolt-semicolon')
+
+    # The 1947 logbook page with the moth taped to it
+    pic = Pic(34, 24, 'A logbook page with a moth taped to it, 1947')
+    pic.rect(2, 1, 30, 22, WHITE)
+    pic.rect(2, 22, 30, 1, LIGHT)
+    for line_y in (4, 7, 17, 20):
+        pic.rect(5, line_y, 24 if line_y != 20 else 14, 1, LIGHT)
+    pic.sprite(11, 9, [
+        "BB.....BB",
+        "BPB.k.BPB",
+        "BBBBkBBBB",
+        ".BBBkBBB.",
+        "..BB.BB..",
+    ])
+    pic.rect(8, 10, 3, 2, LIGHT)
+    pic.rect(20, 10, 3, 2, LIGHT)
+    pic.text(29, 21, '1947', NAVY, 4, TITLE, 'end')
+    pic.save('moth')
+
+    # The mission patch
+    pic = Pic(26, 26, 'The Station Kestrel mission patch')
+    for row in range(26):
+        half = int(math.sqrt(max(0, 13 * 13 - (row - 12.5) ** 2)) + 0.5)
+        if half > 0:
+            pic.rect(13 - half, row, half * 2, 1, ORANGE)
+    for row in range(2, 24):
+        half = int(math.sqrt(max(0, 11 * 11 - (row - 12.5) ** 2)) + 0.5)
+        if half > 0:
+            pic.rect(13 - half, row, half * 2, 1, NAVY)
+    for sx, sy in [(7, 6), (18, 5), (5, 15), (20, 17), (12, 4)]:
+        pic.px(sx, sy, WHITE)
+    pic.rect(6, 11, 4, 4, BLUE)
+    pic.rect(16, 11, 4, 4, BLUE)
+    pic.rect(10, 12, 6, 2, LIGHT)
+    pic.rect(11, 10, 4, 6, LIGHT)
+    pic.px(12, 12, YELLOW)
+    pic.px(13, 12, YELLOW)
+    pic.text(13, 21, 'KS-1', YELLOW, 3.4, TITLE, 'middle')
+    pic.save('patch')
+
+    # Bolt, splashed with paint in every colour
+    pic = Pic(32, 20, 'Bolt splashed with paint in every colour')
+    bolt(pic, 8, 3, ORANGE)
+    for sx, sy, colour in [(12, 7, PINK), (19, 13, BLUE), (13, 14, GREEN), (21, 6, YELLOW)]:
+        pic.rect(sx, sy, 2, 1, colour)
+    for sx, sy, colour in [(1, 2, RED), (2, 12, BLUE), (26, 1, GREEN), (27, 11, PINK), (4, 7, YELLOW),
+                           (25, 16, ORANGE), (1, 17, GREEN), (28, 6, BLUE)]:
+        pic.sprite(sx, sy, ["c.c", ".c.", "c.c"] if sx % 2 else SPARKLE, {'c': colour})
+    pic.save('bolt-paint')
+
+    # Bolt waiting, a speech bubble with three dots
+    pic = Pic(34, 20, 'Bolt waiting, a speech bubble with three dots')
+    bolt(pic, 1, 5, ORANGE)
+    pic.rect(17, 1, 16, 9, WHITE)
+    pic.rect(16, 2, 18, 7, WHITE)
+    pic.rect(17, 10, 3, 1, WHITE)
+    pic.rect(16, 11, 2, 1, WHITE)
+    for dot_x in (20, 24, 28):
+        pic.rect(dot_x, 5, 2, 2, BLACK)
+    pic.save('bolt-wait')
+
+    # Sipho and his tomato plant
+    pic = Pic(28, 18, 'Sipho the botanist beside his tomato plant')
+    crew_member(pic, 3, 3, CREW[3])
+    pic.rect(17, 13, 8, 4, BROWN)
+    pic.rect(16, 12, 10, 2, BROWN)
+    pic.rect(20, 4, 1, 8, DARKGREEN)
+    pic.sprite(15, 2, [
+        "..GG.GG...",
+        ".GGdGdGG..",
+        "GGr.G.rGG.",
+        ".G..G...G.",
+        "..GGrGG...",
+        "...rGr....",
+        "....G.....",
+    ])
+    pic.save('sipho-plant')
+
+    # Bolt and a never-ending decimal
+    pic = Pic(52, 20, 'Bolt with a long paper strip of decimals')
+    bolt(pic, 1, 4, ORANGE)
+    pic.rect(16, 10, 34, 6, WHITE)
+    pic.rect(16, 16, 34, 1, LIGHT)
+    pic.text(18, 15, '0.3333333', BLACK, 6, TEXT)
+    pic.save('bolt-decimals')
+
+    # An open locker with a sock inside
+    pic = Pic(28, 24, 'An open locker with an old sock inside')
+    pic.rect(4, 1, 14, 22, LIGHT)
+    pic.rect(5, 2, 12, 20, BLACK)
+    pic.rect(5, 9, 12, 1, GREY)
+    pic.rect(18, 2, 6, 20, GREY)
+    pic.rect(19, 3, 4, 18, LIGHT)
+    pic.rect(19, 11, 1, 3, YELLOW)
+    pic.sprite(8, 12, [
+        "..pp..",
+        "..pp..",
+        "..pp..",
+        "..ppp.",
+        ".ppppp",
+        ".wwww.",
+    ])
+    pic.sprite(24, 0, [".yyy", "y..y", "..y.", ".y..", "....", ".y.."], {'y': YELLOW})
+    pic.save('locker-sock')
+
+    # Meal packs, five spare
+    pic = Pic(34, 20, 'A pile of sealed meal packs')
+    for row_index, row_y in enumerate((12, 6, 0)):
+        count = 4 - row_index
+        for pack in range(count):
+            px = 1 + row_index * 4 + pack * 8
+            pic.rect(px, row_y + 2, 7, 6, WHITE)
+            pic.rect(px, row_y + 2, 7, 1, LIGHT)
+            pic.rect(px + 1, row_y + 4, 5, 2, ORANGE)
+            pic.px(px + 3, row_y + 7, GREY)
+    pic.save('packs')
+
+    # Bolt and a home-made dice with seven dots
+    pic = Pic(32, 18, 'Bolt with a dice that has seven dots')
+    bolt(pic, 1, 3, ORANGE)
+    pic.rect(19, 4, 11, 11, WHITE)
+    pic.rect(19, 14, 11, 1, LIGHT)
+    for dot_x, dot_y in [(21, 6), (21, 9), (21, 12), (24, 9), (27, 6), (27, 9), (27, 12)]:
+        pic.px(dot_x, dot_y, BLACK)
+    pic.save('bolt-dice')
+
+    # Lena the pilot at her controls
+    pic = Pic(30, 18, 'Lena the pilot with her headset, at the controls')
+    crew_member(pic, 3, 3, CREW[4])
+    pic.rect(3, 3, 1, 4, GREY)
+    pic.rect(4, 6, 2, 1, GREY)
+    pic.rect(14, 10, 14, 7, GREY)
+    pic.rect(15, 11, 12, 3, BLACK)
+    pic.rect(16, 12, 3, 1, GREEN)
+    pic.rect(20, 12, 2, 1, YELLOW)
+    pic.rect(23, 12, 3, 1, GREEN)
+    pic.rect(20, 6, 1, 4, LIGHT)
+    pic.rect(19, 5, 3, 2, RED)
+    pic.save('lena')
+
+    # A spacewalk: a crew member on a tether outside the hull
+    pic = Pic(40, 24, 'A crew member on a spacewalk, tied to the station by a tether')
+    pic.rect(0, 0, 40, 24, SPACE)
+    stars(pic, 12, 11)
+    pic.rect(0, 16, 12, 8, LIGHT)
+    pic.rect(0, 16, 12, 1, WHITE)
+    pic.rect(3, 19, 2, 2, YELLOW)
+    pic.rect(11, 18, 2, 3, GREY)
+    crew_member(pic, 26, 4, ('', '', BLUE, WHITE, WHITE, RED))
+    for step, (tx, ty) in enumerate([(13, 18), (15, 17), (17, 17), (19, 16), (21, 15), (23, 14), (25, 13)]):
+        pic.px(tx, ty, YELLOW)
+    pic.save('spacewalk')
+
+    # A South African robot (traffic light), Bolt beside it
+    pic = Pic(32, 26, 'A traffic light - a robot - and Bolt beside it')
+    pic.rect(22, 15, 2, 11, GREY)
+    pic.rect(19, 0, 8, 17, BLACK)
+    pic.rect(21, 2, 4, 4, RED)
+    pic.rect(21, 7, 4, 4, ORANGE)
+    pic.rect(21, 12, 4, 4, GREEN)
+    bolt(pic, 1, 9, GREEN)
+    pic.save('robot')
+
+    # Bolt asleep
+    pic = Pic(28, 20, 'Bolt asleep, its eye-light off')
+    bolt_sleeping(pic, 1, 5)
+    pic.sprite(18, 6, Z_LETTER)
+    pic.sprite(22, 1, Z_LETTER)
+    pic.save('bolt-sleep')
+
+    # The command keypad
+    pic = Pic(26, 26, 'The command console keypad, buttons 1 to 4')
+    pic.rect(1, 1, 24, 24, GREY)
+    pic.rect(2, 2, 22, 22, LIGHT)
+    pic.rect(4, 3, 18, 5, BLACK)
+    pic.rect(5, 5, 8, 1, GREEN)
+    for index, (bx, by) in enumerate([(4, 10), (14, 10), (4, 17), (14, 17)]):
+        pic.rect(bx, by, 8, 6, GREY)
+        pic.rect(bx, by, 8, 5, [BLUE, GREEN, ORANGE, RED][index])
+        pic.text(bx + 4, by + 4, str(index + 1), WHITE, 4, TITLE, 'middle')
+    pic.save('keypad')
+
+    # Bolt with a clipboard of ticks
+    pic = Pic(32, 20, 'Bolt with a clipboard of test results')
+    bolt(pic, 1, 4, ORANGE)
+    pic.rect(18, 2, 12, 16, BROWN)
+    pic.rect(19, 4, 10, 13, WHITE)
+    pic.rect(21, 1, 6, 2, GREY)
+    for row_y in (6, 10, 14):
+        pic.sprite(20, row_y - 1, ["..G", "GG."], {'G': GREEN})
+        pic.rect(24, row_y, 4, 1, LIGHT)
+    pic.save('bolt-clipboard')
+
+    # A mug of cold coffee
+    pic = Pic(28, 20, 'A mug of coffee gone cold, with a snowflake above it')
+    pic.rect(6, 7, 12, 12, WHITE)
+    pic.rect(6, 18, 12, 1, LIGHT)
+    pic.rect(7, 8, 10, 2, BROWN)
+    pic.rect(18, 9, 3, 1, WHITE)
+    pic.rect(20, 10, 1, 4, WHITE)
+    pic.rect(18, 14, 3, 1, WHITE)
+    pic.rect(9, 12, 6, 1, BLUE)
+    pic.sprite(9, 0, ["b.b.b", ".bbb.", "bbbbb", ".bbb.", "b.b.b"])
+    pic.save('coffee')
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    draw_margin_art()
     draw_station_scene()
     draw_ground()
     draw_bolts()
