@@ -4,7 +4,7 @@
   "from": "the General Computing courses chat (levels)",
   "added": "2026-10-10",
   "status": "waiting",
-  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Nine levels each for the new courses (lib/practice.php PracticeRanks(): safety Witness to Case Closer, socialmedia Scroller to Attention Master, sql9 Visitor to Reserve Warden, pascal9 Trainee to Mission Director); the frame grows bronze to silver to gold as for the 2026-10-01 emblems. PracticeRankEmblem() draws the old emblem until the file exists. Do not run while the GPU is busy with videos (Chris).",
+  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Nine levels each for the new courses (lib/practice.php PracticeRanks(): safety Witness to Case Closer, socialmedia Scroller to Attention Master, sql9 Visitor to Reserve Warden, pascal9 Trainee to Mission Director); the frame grows bronze to silver to gold as for the 2026-10-01 emblems. PracticeRankEmblem() draws the old emblem until the file exists. Do not run while the GPU is busy with videos (Chris). Added the same day: clubweb (Blank Page to Webmaster) and the CAT sets Chris approved - cattheory (Gr 10-12 and the pilot), catword, catexcel, catpowerpoint, cathtml, catdb.",
   "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
   "size": [
     1024,
@@ -366,6 +366,636 @@
       "name": "pascal9-8",
       "prompt": "a planet ringed by a glowing orbit path, set on a jewelled gold starburst frame with a soft glow",
       "out": "AIPascalCourse/public/assets/rank-art/pascal9/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-0",
+      "prompt": "a blank sheet of paper, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-1",
+      "prompt": "a pair of angle brackets, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-2",
+      "prompt": "a big bold capital letter H, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-3",
+      "prompt": "lines of text on a page, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-4",
+      "prompt": "a bulleted list on a card, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-5",
+      "prompt": "two chain links joined, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-6",
+      "prompt": "a single web page in a browser window, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-7",
+      "prompt": "a stack of browser windows, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-8",
+      "prompt": "a golden globe wrapped in a web, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-0",
+      "prompt": "a round power button, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-1",
+      "prompt": "a computer monitor showing a desktop, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-2",
+      "prompt": "a document file icon, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-3",
+      "prompt": "a yellow folder, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-4",
+      "prompt": "three computers joined by cables, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-5",
+      "prompt": "a fluffy cloud with an upload arrow, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-6",
+      "prompt": "a brick wall with a shield, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-7",
+      "prompt": "a headset with a spanner, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cattheory-8",
+      "prompt": "a server rack with a crown, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/cattheory/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-0",
+      "prompt": "a blank sheet of paper, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-1",
+      "prompt": "a typewriter key, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-2",
+      "prompt": "a bold letter B and an italic letter I, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-3",
+      "prompt": "a paint brush over a paragraph, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-4",
+      "prompt": "a neat table grid, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-5",
+      "prompt": "a page with columns and margins, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-6",
+      "prompt": "a stack of envelopes, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-7",
+      "prompt": "a red pen correcting a page, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-8",
+      "prompt": "a printed book, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-0",
+      "prompt": "a single highlighted grid cell, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-1",
+      "prompt": "a block of highlighted cells, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-2",
+      "prompt": "an equals sign in a cell, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-3",
+      "prompt": "a sigma sum symbol, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-4",
+      "prompt": "a bar chart, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-5",
+      "prompt": "a magnifying glass over a table, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-6",
+      "prompt": "a rotating table with arrows, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-7",
+      "prompt": "a line graph going up, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catexcel-8",
+      "prompt": "a wizard hat on a spreadsheet grid, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/catexcel/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-0",
+      "prompt": "a blank slide, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-1",
+      "prompt": "three bullet points, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-2",
+      "prompt": "a slide with boxes laid out, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-3",
+      "prompt": "a picture frame, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-4",
+      "prompt": "two slides with an arrow between them, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-5",
+      "prompt": "a star with motion lines, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-6",
+      "prompt": "an open storybook, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-7",
+      "prompt": "a microphone on a stand, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catpowerpoint-8",
+      "prompt": "a spotlight on a stage, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/catpowerpoint/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-0",
+      "prompt": "a plain text page, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-1",
+      "prompt": "a pair of angle brackets, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-2",
+      "prompt": "a tag with a label tied on, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-3",
+      "prompt": "a table grid, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-4",
+      "prompt": "two chain links joined, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-5",
+      "prompt": "a page wireframe, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-6",
+      "prompt": "a web page in a browser window, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-7",
+      "prompt": "a globe made of linked pages, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "cathtml-8",
+      "prompt": "a crown on a browser window, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/cathtml/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-0",
+      "prompt": "a single labelled box, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-1",
+      "prompt": "a row of filled boxes, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-2",
+      "prompt": "a table of rows, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-3",
+      "prompt": "a golden key, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-4",
+      "prompt": "a magnifying glass over a table, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-5",
+      "prompt": "a form with input boxes, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-6",
+      "prompt": "a printed report with a chart, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-7",
+      "prompt": "two tables joined by a line, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catdb-8",
+      "prompt": "a cylinder database with a crown, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/catdb/8.png",
       "outSize": [
         256,
         256
