@@ -137,8 +137,10 @@ def opener(n, batch, lesson_in_batch, of, title, slogan, says):
     lines = wrap(title.upper(), 13)
     if len(lines) > 2:
         lines = wrap(title.upper(), 15)
+    if len(lines) > 2:
+        lines = wrap(title.upper(), 17)
     longest = max(len(l) for l in lines)
-    size = 34 if longest <= 11 else (29 if longest <= 13 else 25)
+    size = 34 if longest <= 11 else (29 if longest <= 13 else (25 if longest <= 15 else 22))
     for i, line in enumerate(lines):
         shadow_text(svg, 36, 96 + i * (size + 8), line, size, RED if i == 0 else BLUE)
     yy = 96 + len(lines) * (size + 8) - 4
@@ -585,7 +587,145 @@ def story_choice():
     svg.save()
 
 
+# ------------------------------------------- batch 3: Radio 10 Survey -----
+# Theme A: a retro radio studio - wood panels, cream VU meters with a red
+# zone, cassette labels in a typewriter face, the ON AIR lamp.
+
+WOOD3, WOOD3_DARK, CREAM3, TYPE = '#5a3a24', '#2b1c10', '#f1e2b8', "'Special Elite', 'Courier New', monospace"
+
+
+def studio(name, w, h, label):
+    svg = Svg(name, w, h, label, bg=WOOD3, rx=8)
+    for i in range(1, 6):
+        svg.add(f'<path d="M0 {i * h / 6:.0f} H{w}" stroke="{WOOD3_DARK}" stroke-width="1" opacity=".35"/>')
+    return svg
+
+
+def vu(svg, x, y, w=120, needle=0.7, caption='VU'):
+    h = w * .62
+    svg.add(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{CREAM3}" stroke="{WOOD3_DARK}" stroke-width="3"/>')
+    cx, cy, r = x + w / 2, y + h * .9, w * .4
+    svg.add(f'<path d="M{cx - r} {cy} A{r} {r} 0 0 1 {cx + r} {cy}" fill="none" stroke="{WOOD3_DARK}" stroke-width="2"/>')
+    svg.add(f'<path d="M{cx + r * .5} {cy - r * .866} A{r} {r} 0 0 1 {cx + r} {cy}" fill="none" stroke="{RED}" stroke-width="5"/>')
+    import math
+    a = math.pi * (1 - needle)
+    svg.add(f'<path d="M{cx} {cy} L{cx + r * 1.05 * math.cos(a):.1f} {cy - r * 1.05 * math.sin(a):.1f}" stroke="{WOOD3_DARK}" stroke-width="2.5"/>')
+    svg.text(cx, y + 18, caption, 11, WOOD3_DARK, 'middle', font=TYPE)
+
+
+def cassette(svg, x, y, label, w=150):
+    h = w * .62
+    svg.add(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="#e9e4da" stroke="{WOOD3_DARK}" stroke-width="2.5"/>'
+            f'<rect x="{x + 10}" y="{y + 8}" width="{w - 20}" height="{h * .3}" fill="{WHITE}" stroke="{WOOD3_DARK}" stroke-width="1"/>'
+            f'<circle cx="{x + w * .3}" cy="{y + h * .65}" r="{w * .08}" fill="{WOOD3_DARK}"/><circle cx="{x + w * .7}" cy="{y + h * .65}" r="{w * .08}" fill="{WOOD3_DARK}"/>')
+    svg.text(x + w / 2, y + 8 + h * .22, label, 12, WOOD3_DARK, 'middle', font=TYPE)
+
+
+def on_air(svg, x, y, lit=True):
+    svg.add(f'<rect x="{x}" y="{y}" width="110" height="34" rx="6" fill="{RED if lit else "#7a2a22"}" stroke="{WOOD3_DARK}" stroke-width="3"/>')
+    svg.text(x + 55, y + 23, 'ON AIR', 16, WHITE if lit else '#c99', 'middle')
+
+
+def d_leading():
+    svg = studio('leading', 330, 200, 'A leading question pushes people to one answer; a fair question does not')
+    cassette(svg, 14, 20, 'SIDE A: LEADING', 150)
+    svg.text(89, 130, '"Don\'t you agree', 13, CREAM3, 'middle', font=TYPE)
+    svg.text(89, 148, 'amapiano is best?"', 13, CREAM3, 'middle', font=TYPE)
+    cassette(svg, 170, 20, 'SIDE B: FAIR', 150)
+    svg.text(245, 130, '"Which kind of music', 13, CREAM3, 'middle', font=TYPE)
+    svg.text(245, 148, 'do you like most?"', 13, CREAM3, 'middle', font=TYPE)
+    svg.text(165, 186, 'same tape, different answers', 12, '#e0c89a', 'middle', font=HAND)
+    svg.save()
+
+
+def d_soup():
+    svg = studio('soup', 320, 200, 'You taste a spoonful to know the whole pot - a sample tells you about the population, if it is stirred well')
+    svg.add(f'<path d="M50 90 h150 v60 q0 26 -26 26 h-98 q-26 0 -26 -26z" fill="#c8102e" stroke="{WOOD3_DARK}" stroke-width="3"/>'
+            f'<ellipse cx="125" cy="90" rx="75" ry="12" fill="#e2603c" stroke="{WOOD3_DARK}" stroke-width="3"/>'
+            f'<path d="M190 60 L250 30" stroke="{CREAM3}" stroke-width="5" stroke-linecap="round"/><ellipse cx="186" cy="64" rx="14" ry="7" fill="{CREAM3}"/>')
+    svg.text(250, 110, 'sample', 16, CREAM3, 'middle', font=TYPE)
+    svg.text(125, 140, 'population', 14, WHITE, 'middle', font=TYPE)
+    svg.text(160, 192, 'stir first: a random sample', 12, '#e0c89a', 'middle', font=HAND)
+    svg.save()
+
+
+def d_tally():
+    svg = studio('tally', 320, 200, 'Tally marks in fives: four strokes and a fifth across them')
+    svg.add(f'<rect x="20" y="20" width="200" height="160" rx="4" fill="{CREAM3}" stroke="{WOOD3_DARK}" stroke-width="3"/>')
+    rows = [('Amapiano', 11), ('Hip hop', 7), ('Gospel', 4)]
+    for r, (g, n) in enumerate(rows):
+        y = 56 + r * 44
+        svg.text(32, y, g, 14, WOOD3_DARK, font=TYPE)
+        x = 120
+        for k in range(n):
+            grp, pos = divmod(k, 5)
+            if pos < 4:
+                svg.add(f'<path d="M{x + grp * 34 + pos * 6} {y - 16} v20" stroke="{WOOD3_DARK}" stroke-width="2.2"/>')
+            else:
+                svg.add(f'<path d="M{x + grp * 34 - 4} {y} L{x + grp * 34 + 24} {y - 16}" stroke="{RED}" stroke-width="2.2"/>')
+    hadi(svg, 222, 98, .85)
+    svg.save()
+
+
+def d_middle():
+    svg = studio('middle', 330, 200, 'Seven learners in a line, shortest listening time to longest: the median is the one in the middle')
+    vals = [15, 20, 30, 45, 50, 75, 240]
+    for i, v in enumerate(vals):
+        x = 26 + i * 42
+        hh = 30 + i * 9
+        col = '#ffd84d' if i == 3 else CREAM3
+        svg.add(f'<g stroke="{col}" stroke-width="3" fill="none" stroke-linecap="round"><circle cx="{x}" cy="{150 - hh}" r="7"/><path d="M{x} {157 - hh} V{150} M{x} {150} l-7 14 M{x} 150 l7 14 M{x} {165 - hh} l-9 8 M{x} {165 - hh} l9 8"/></g>')
+        svg.text(x, 186, str(v), 12, col, 'middle', font=TYPE)
+    svg.text(152, 24, 'THE MEDIAN STANDS IN THE MIDDLE', 11, '#ffd84d', 'middle')
+    svg.save()
+
+
+def d_vu():
+    svg = studio('vumeter', 320, 200, 'Two VU meters: one reading high, one low - the range is the gap between the highest and the lowest')
+    vu(svg, 20, 30, 130, .9, 'HIGHEST')
+    vu(svg, 170, 30, 130, .12, 'LOWEST')
+    svg.text(160, 150, 'range = highest - lowest', 15, CREAM3, 'middle', font=TYPE)
+    on_air(svg, 105, 160)
+    svg.save()
+
+
+def d_outlier():
+    svg = studio('outlier', 330, 200, 'One learner listens for 240 minutes and drags the mean up; the median does not move')
+    for i, v in enumerate([45, 45, 50, 60, 240]):
+        x = 30 + i * 56
+        hh = min(v, 130) * .9
+        svg.add(f'<rect x="{x}" y="{160 - hh}" width="36" height="{hh}" fill="{"#ffd84d" if v == 240 else CREAM3}" stroke="{WOOD3_DARK}" stroke-width="2"/>')
+        svg.text(x + 18, 180, str(v), 12, CREAM3, 'middle', font=TYPE)
+    svg.add(f'<path d="M244 24 l10 -10 l10 10" stroke="#ffd84d" stroke-width="3" fill="none"/>')
+    hadi(svg, 210, 4, .7, 'shout')
+    svg.text(70, 30, 'OUTLIER!', 16, '#ffd84d', 'middle')
+    svg.save()
+
+
+def d_jobdone3():
+    svg = Svg('jobdone3', 320, 200, 'Hadi with a JOB DONE stamp after the Radio 10 survey', bg=SIGN, rx=8)
+    svg.add(f'<rect x="6" y="6" width="308" height="188" rx="4" fill="none" stroke="{INK}" stroke-width="4"/>')
+    svg.add(f'<g transform="rotate(-12 110 90)"><rect x="34" y="54" width="160" height="70" rx="6" fill="none" stroke="{RED}" stroke-width="5"/>'
+            f'<rect x="42" y="62" width="144" height="54" rx="3" fill="none" stroke="{RED}" stroke-width="2"/></g>')
+    svg.text(116, 90, 'JOB', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    svg.text(116, 114, 'DONE', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    hadi(svg, 196, 96, 1.05)
+    svg.text(160, 186, 'next: the Term 1 test', 15, INK, 'middle', font=MARKER)
+    svg.save()
+
+
 if __name__ == '__main__':
+    openers3 = [
+        (14, 3, 1, 5, 'Ask a good question',  'Ask it fair, or the answers lie.', ['NO LEADING', 'QUESTIONS!']),
+        (15, 3, 2, 5, 'Collecting it',        'Taste the soup: one well-stirred spoon.', ['WHO DO', 'WE ASK?']),
+        (16, 3, 3, 5, 'Sorting it',           'Count it, group it, table it.', ['FOUR AND', 'A CROSS']),
+        (17, 3, 4, 5, 'The middle and the spread', 'Mean, median, mode - and range.', ['MIDDLE', 'OF WHAT?']),
+        (18, 3, 5, 5, 'Which average tells the truth?', 'One loud number can fool a mean.', ['SQUAWK!', 'OUTLIER!']),
+    ]
+    for o in openers3:
+        opener(*o)
+    d_leading(); d_soup(); d_tally(); d_middle(); d_vu(); d_outlier(); d_jobdone3()
+
     openers2 = [
         (9,  2, 1, 5, 'Three kinds of relationship', 'Fixed, together, or opposite?', ['R150 NO', 'MATTER WHAT']),
         (10, 2, 2, 5, 'Tables of values',            'One thing depends on the other.', ['WHICH ONE', 'DEPENDS?']),
