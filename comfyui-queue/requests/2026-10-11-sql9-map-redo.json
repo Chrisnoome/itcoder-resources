@@ -1,0 +1,23 @@
+{
+  "id": "2026-10-11-sql9-map-redo",
+  "kind": "items",
+  "from": "the art chat (Chris's picks of 2026-10-11-sql9-scene-redo)",
+  "added": "2026-10-11",
+  "status": "waiting",
+  "why": "Chris, 11 October 2026: the redone map-pins still crossed its threads in one big X - 'need multiple pins tracing paths - different threads for different paths. must look like a map, not a sketch or photo'. Third try, with routes that never cross.",
+  "style": "realistic coloured pencil drawing on warm off-white paper, visible pencil strokes and paper texture, natural colours, soft Limpopo bushveld light, wildlife field-guide illustration, no text, no letters, no logos",
+  "size": [
+    1344,
+    768
+  ],
+  "variants": 3,
+  "items": [
+    {
+      "name": "map-pins",
+      "prompt": "overhead view of a printed topographic map of a game reserve with green bush, blue rivers, a dam, contour lines and pale dirt roads, flat on a corkboard. Three separate winding routes, each marked by four or five map pins joined by its own coloured thread: a red route along the river in the north, a blue route along a road in the south, a yellow route curving down the east side. The three threads stay apart and never cross each other; no X shape, no straight diagonal lines",
+      "style": "a clean printed cartographic map in muted natural colours, crisp map linework, the corkboard edge visible, no text, no letters, no labels, no logos",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/map-pins.webp",
+      "where": "lesson 7 (connecting the dots)"
+    }
+  ]
+}

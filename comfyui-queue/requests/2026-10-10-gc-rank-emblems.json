@@ -3,8 +3,8 @@
   "kind": "items",
   "from": "the General Computing courses chat (levels)",
   "added": "2026-10-10",
-  "status": "waiting",
-  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Nine levels each for the new courses (lib/practice.php PracticeRanks(): safety Witness to Case Closer, socialmedia Scroller to Attention Master, sql9 Visitor to Reserve Warden, pascal9 Trainee to Mission Director); the frame grows bronze to silver to gold as for the 2026-10-01 emblems. PracticeRankEmblem() draws the old emblem until the file exists. Do not run while the GPU is busy with videos (Chris). Added the same day: clubweb (Blank Page to Webmaster) and the CAT sets Chris approved - cattheory (Gr 10-12 and the pilot), catword, catexcel, catpowerpoint, cathtml, catdb. Tuck-shop tycoon (tuckshop, Grade 7) added 10 October 2026: Shop Helper to Tuck-shop Tycoon. Inside the machine (machine, Grade 7) added 10 October 2026: Dust Speck to Master Engineer. Fact or fake (factfake, Grade 8) added 11 October 2026: Scroller to Truth Keeper.",
+  "status": "made",
+  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Nine levels each for the new courses (lib/practice.php PracticeRanks(): safety Witness to Case Closer, socialmedia Scroller to Attention Master, sql9 Visitor to Reserve Warden, pascal9 Trainee to Mission Director); the frame grows bronze to silver to gold as for the 2026-10-01 emblems. PracticeRankEmblem() draws the old emblem until the file exists. Do not run while the GPU is busy with videos (Chris). Added the same day: clubweb (Blank Page to Webmaster) and the CAT sets Chris approved - cattheory (Gr 10-12 and the pilot), catword, catexcel, catpowerpoint, cathtml, catdb. Tuck-shop tycoon (tuckshop, Grade 7) added 10 October 2026: Shop Helper to Tuck-shop Tycoon. Inside the machine (machine, Grade 7) added 10 October 2026: Dust Speck to Master Engineer.",
   "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
   "size": [
     1024,
@@ -20,7 +20,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-1",
@@ -30,7 +31,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-2",
@@ -40,7 +42,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-3",
@@ -50,7 +53,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-4",
@@ -60,7 +64,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-5",
@@ -70,7 +75,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-6",
@@ -80,7 +86,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-7",
@@ -90,7 +97,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "safety-8",
@@ -100,7 +108,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-0",
@@ -110,7 +119,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-1",
@@ -120,7 +130,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-2",
@@ -130,7 +141,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-3",
@@ -140,7 +152,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-4",
@@ -150,7 +163,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-5",
@@ -160,7 +174,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-6",
@@ -170,7 +185,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-7",
@@ -180,7 +196,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "socialmedia-8",
@@ -190,7 +207,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-0",
@@ -210,7 +228,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-2",
@@ -220,7 +239,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-3",
@@ -240,7 +260,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-5",
@@ -250,7 +271,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-6",
@@ -260,7 +282,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-7",
@@ -270,7 +293,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-8",
@@ -280,7 +304,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-0",
@@ -290,7 +315,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-1",
@@ -300,7 +326,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-2",
@@ -310,7 +337,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-3",
@@ -320,7 +348,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-4",
@@ -330,7 +359,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-5",
@@ -340,7 +370,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-6",
@@ -350,7 +381,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-7",
@@ -360,7 +392,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "pascal9-8",
@@ -370,7 +403,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "clubweb-0",
@@ -390,7 +424,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "clubweb-2",
@@ -400,7 +435,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "clubweb-3",
@@ -410,7 +446,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "clubweb-4",
@@ -420,7 +457,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "clubweb-5",
@@ -430,7 +468,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "clubweb-6",
@@ -440,7 +479,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "clubweb-7",
@@ -450,7 +490,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "clubweb-8",
@@ -460,7 +501,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-0",
@@ -470,7 +512,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-1",
@@ -480,7 +523,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-2",
@@ -490,7 +534,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-3",
@@ -500,7 +545,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-4",
@@ -510,7 +556,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-5",
@@ -520,7 +567,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-6",
@@ -530,7 +578,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-7",
@@ -540,7 +589,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cattheory-8",
@@ -550,7 +600,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-0",
@@ -570,7 +621,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-2",
@@ -580,7 +632,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-3",
@@ -590,7 +643,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-4",
@@ -600,7 +654,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-5",
@@ -610,7 +665,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-6",
@@ -620,7 +676,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-7",
@@ -630,7 +687,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-8",
@@ -640,7 +698,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-0",
@@ -650,7 +709,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-1",
@@ -660,7 +720,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-2",
@@ -670,7 +731,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-3",
@@ -680,7 +742,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-4",
@@ -690,7 +753,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-5",
@@ -700,7 +764,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-6",
@@ -710,7 +775,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-7",
@@ -720,7 +786,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catexcel-8",
@@ -730,7 +797,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-0",
@@ -740,7 +808,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-1",
@@ -750,7 +819,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-2",
@@ -760,7 +830,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-3",
@@ -770,7 +841,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-4",
@@ -780,7 +852,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-5",
@@ -790,7 +863,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-6",
@@ -800,7 +874,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-7",
@@ -810,7 +885,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catpowerpoint-8",
@@ -820,7 +896,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cathtml-0",
@@ -830,7 +907,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "cathtml-1",
@@ -840,7 +918,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cathtml-2",
@@ -850,7 +929,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cathtml-3",
@@ -860,7 +940,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cathtml-4",
@@ -870,7 +951,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cathtml-5",
@@ -880,7 +962,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cathtml-6",
@@ -890,7 +973,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 2
     },
     {
       "name": "cathtml-7",
@@ -900,7 +984,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "cathtml-8",
@@ -910,7 +995,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-0",
@@ -920,7 +1006,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-1",
@@ -930,7 +1017,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-2",
@@ -940,7 +1028,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-3",
@@ -950,7 +1039,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-4",
@@ -960,7 +1050,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-5",
@@ -970,7 +1061,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-6",
@@ -980,7 +1072,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-7",
@@ -990,7 +1083,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catdb-8",
@@ -1000,7 +1094,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-0",
@@ -1010,7 +1105,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-1",
@@ -1020,7 +1116,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-2",
@@ -1030,7 +1127,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-3",
@@ -1040,7 +1138,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-4",
@@ -1050,7 +1149,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-5",
@@ -1060,7 +1160,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-6",
@@ -1070,7 +1171,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-7",
@@ -1080,7 +1182,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "tuckshop-8",
@@ -1090,7 +1193,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-0",
@@ -1100,7 +1204,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-1",
@@ -1110,7 +1215,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-2",
@@ -1120,7 +1226,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-3",
@@ -1130,7 +1237,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-4",
@@ -1140,7 +1248,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-5",
@@ -1150,7 +1259,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-6",
@@ -1160,7 +1270,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-7",
@@ -1170,7 +1281,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "machine-8",
@@ -1180,97 +1292,8 @@
         256,
         256
       ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-0",
-      "prompt": "a phone showing a chat bubble, set on a plain round bronze medal frame",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/0.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-1",
-      "prompt": "a pause button, set on a round bronze medal frame",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/1.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-2",
-      "prompt": "a search bar with a magnifying glass, set on a bronze medal frame with a small ribbon",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/2.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-3",
-      "prompt": "a small detective magnifying glass, set on a round silver medal frame",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/3.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-4",
-      "prompt": "three overlapping browser windows, set on a silver medal frame with a ribbon",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/4.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-5",
-      "prompt": "a photo with a circular arrow around it, set on a silver star-shaped frame",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/5.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-6",
-      "prompt": "a robot face with a question mark, set on a round gold medal frame",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/6.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-7",
-      "prompt": "a green tick inside a speech bubble, set on a gold star-shaped frame with a ribbon",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/7.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
-    },
-    {
-      "name": "factfake-8",
-      "prompt": "a shining shield with a magnifying glass on it, set on a jewelled gold starburst frame with a soft glow",
-      "out": "AIPascalCourse/public/assets/rank-art/factfake/8.png",
-      "outSize": [
-        256,
-        256
-      ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     }
   ]
 }

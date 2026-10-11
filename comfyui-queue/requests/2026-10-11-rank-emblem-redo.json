@@ -1,0 +1,56 @@
+{
+  "id": "2026-10-11-rank-emblem-redo",
+  "kind": "items",
+  "from": "the art chat (Chris's picks of 2026-10-10-gc-rank-emblems)",
+  "added": "2026-10-11",
+  "status": "waiting",
+  "why": "Chris, 11 October 2026, picking the level emblems: four first-rank or rhino emblems to make again - clubweb 0 and catword 0 were a blank white page, sql9 0 carried text and sql9 3 was a paw print instead of a rhino's three-toed track.",
+  "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 3,
+  "items": [
+    {
+      "name": "sql9-0",
+      "prompt": "a single young acacia seedling with two small green leaves growing from red soil, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "sql9-3",
+      "prompt": "a single white rhino footprint pressed into red sand: one large rounded pad with three broad rounded toes at the front like a clover, no claws, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/sql9/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "clubweb-0",
+      "prompt": "a single shiny coral-red toy building brick, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/clubweb/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "catword-0",
+      "prompt": "a fountain pen nib, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/catword/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
+  ]
+}

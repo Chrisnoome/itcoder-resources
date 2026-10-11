@@ -1,0 +1,43 @@
+{
+  "id": "2026-10-11-sql9-scene-redo",
+  "kind": "items",
+  "from": "the art chat (Chris's picks of 2026-10-10-sql9-more-scenes)",
+  "added": "2026-10-11",
+  "status": "made",
+  "why": "Chris rejected four of the twelve new Grade 9 SQL scenes on 11 October 2026 and asked for these to be made again: map-pins (\"pins incorrect - make 1 big x - need multiple pins tracing paths - different threads for different paths. must look like a map, not a sketch or photo\"), night-patrol (\"why flaming torches? real electric torches\"), rhino-tracks (paw prints, not a rhino's three-toed track) and rhino-mud. Same outputs as the first request.",
+  "style": "realistic coloured pencil drawing on warm off-white paper, visible pencil strokes and paper texture, natural colours, soft Limpopo bushveld light, wildlife field-guide illustration, no text, no letters, no logos",
+  "size": [
+    1344,
+    768
+  ],
+  "variants": 3,
+  "items": [
+    {
+      "name": "map-pins",
+      "prompt": "overhead view of a printed topographic map of a game reserve, with green bush areas, blue rivers, a dam, contour lines and pale dirt roads, flat on a corkboard; about twelve map pins placed along three separate routes, each route traced by its own coloured thread (red, blue and yellow) running pin to pin along roads and rivers, the threads winding and never crossing in one big X",
+      "style": "a clean printed cartographic map in muted natural colours, crisp map linework, the corkboard edge visible, no text, no letters, no labels, no logos",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/map-pins.webp",
+      "where": "lesson 7 (connecting the dots)"
+    },
+    {
+      "name": "night-patrol",
+      "prompt": "two game rangers in khaki uniforms walking on a dirt track at night, each holding a modern electric LED flashlight with a white beam of light, starry sky, dark bushveld tree silhouettes; no fire, no flames",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/night-patrol.webp",
+      "where": "lesson 6 (who was on duty)",
+      "picked": 2
+    },
+    {
+      "name": "rhino-tracks",
+      "prompt": "close-up of a single white rhino footprint pressed into red sand on a game path: one large rounded pad with three broad rounded toes at the front, like a three-leaf clover, no claws and no small toe pads, a few grass stalks",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/rhino-tracks.webp",
+      "where": "lesson 2 (where was she?)"
+    },
+    {
+      "name": "rhino-mud",
+      "prompt": "a white rhino standing at the edge of a mud wallow, its grey body coated in wet mud, with two horns on its snout, the long front horn and a shorter one behind it, correct rhino anatomy, peaceful, late afternoon light",
+      "out": "AIPascalCourse/public/assets/lessons/sql9/rhino-mud.webp",
+      "where": "lesson 3 or 8",
+      "picked": 2
+    }
+  ]
+}
