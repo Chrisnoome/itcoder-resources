@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grade 11 English Style Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Inter+Tight:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&family=Alfa+Slab+One&family=Spectral:ital,wght@0,600;1,600&family=Oswald:wght@600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Dela+Gothic+One&family=Limelight&family=Kalam:wght@400;700&family=Caveat:wght@600&family=Lilita+One&family=Nunito:wght@800&display=swap">
+<style>
+/* Layout: pick-a-look board - six course frames (2-up), three mascots, three level-name sets, then what the art must do. */
+:root {
+  --bg: #f2f0ec; --fg: #1d1b19; --muted: #5d5852; --line: #dcd6cc; --card: #ffffff; --accent: #a8361f;
+  --display: "Fraunces", Georgia, serif; --body: "Inter Tight", "Segoe UI", sans-serif; --mono: "Space Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #15130f; --fg: #eeeae3; --muted: #aaa398; --line: #34302a; --card: #1f1c18; --accent: #f08a6c; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #15130f; --fg: #eeeae3; --muted: #aaa398; --line: #34302a; --card: #1f1c18; --accent: #f08a6c; color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.55 var(--body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; }
+h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 4.4vw, 42px); }
+h2 { font-size: 24px; margin-top: 46px; }
+.eyebrow { font: 700 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.lede { max-width: 74ch; color: var(--muted); margin: 8px 0 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr)); gap: 20px; margin-top: 18px; }
+.panel { border-radius: 6px; overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
+.panel svg { display: block; width: 100%; height: auto; }
+.panel .body { padding: 16px 18px 18px; display: grid; gap: 10px; flex: 1; align-content: start; }
+.panel h3 { margin: 0; font-size: 22px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.panel h3 .k { font: 700 13px var(--mono); padding: 2px 7px; border-radius: 3px; }
+.panel p { margin: 0; font-size: 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font: 12px var(--mono); padding: 2px 8px; border-radius: 99px; }
+.pa { background: #efe4cc; color: #1a1714; border-color: #d8c9a8; }
+.pa h3 { font-family: "Alfa Slab One", serif; font-weight: 400; }
+.pa h3 .k { background: #c23b22; color: #efe4cc; }
+.pa .tags span { border: 1.5px solid #1a1714; color: #1a1714; }
+.pb { background: #f6f5f0; color: #2a2d33; border-color: #dcdad2; }
+.pb h3 { font-family: "Oswald", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
+.pb h3 .k { background: #ffcc29; color: #2a2d33; }
+.pb .tags span { background: #2a2d33; color: #f6f5f0; }
+.pc { background: #fffdf8; color: #111; border-color: #111; }
+.pc h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 20px; }
+.pc h3 .k { background: #ff2d55; color: #fff; }
+.pc .tags span { border: 1.5px solid #111; color: #111; }
+.pd { background: #16121d; color: #ece7dc; border-color: #16121d; }
+.pd h3 { font-family: "Limelight", serif; font-weight: 400; color: #ffe08a; }
+.pd h3 .k { background: #8c1c2b; color: #ece7dc; }
+.pd .tags span { background: #ece7dc; color: #16121d; }
+.pe { background: #fbf6ea; color: #3a3631; border-color: #e4dccb; }
+.pe h3 { font-family: "Fraunces", serif; font-style: italic; font-weight: 600; }
+.pe h3 .k { background: #3f5d8f; color: #fbf6ea; font-style: normal; }
+.pe .tags span { background: #d9788d33; color: #3a3631; border: 1px solid #d9788d; }
+.pf { background: #1f8fa6; color: #fff; border-color: #1f8fa6; }
+.pf h3 { font-family: "Lilita One", sans-serif; font-weight: 400; letter-spacing: .02em; }
+.pf h3 .k { background: #ffc531; color: #2a1f5c; }
+.pf .tags span { background: #6a4cf2; color: #fff; }
+.mascots, .levels, .musts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; margin-top: 18px; }
+.mascot, .lv, .must { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; min-width: 0; align-content: start; }
+.mascot svg { width: 100%; height: auto; max-height: 170px; background: #f4efe4; border-radius: 4px; }
+.mascot b, .lv b, .must b { font-family: var(--display); font-size: 19px; }
+.mascot p, .lv p, .must p { margin: 0; font-size: 14px; color: var(--muted); }
+.lv ol { margin: 0; padding-left: 1.6em; font-size: 14.5px; columns: 2; column-gap: 18px; }
+.lv li::marker { font: 700 12px var(--mono); color: var(--accent); }
+.must ul { margin: 0; padding-left: 1.1em; font-size: 14px; }
+.must li { margin-bottom: 4px; }
+.note { margin-top: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; max-width: 84ch; }
+.note p { margin: 0 0 8px; } .note p:last-child { margin: 0; }
+code { font: 13px var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="eyebrow">Style board · eng11 · Grade 11 English Home Language · IEB + CAPS · about 100 lessons</p>
+<h1>Grade 11 English: pick a look</h1>
+<p class="lede">The <b>course frame</b> stays the same all year: lesson openers, the year map, margin doodles, the asides' look, badges, rank emblems and the mascot. Grade 11 is the deepening year (Macbeth, Frankenstein or the class's own novel, the unseen poem, the literary essay, film study for the IEB), so these looks are a step more grown-up than Grade 10. Pupils' own world stays in every scene: group chats, short-video apps, games and memes, all made up, with no newspapers, no TV news and no real brands. Each frame below avoids every look already used by another course, and the Grade 10 and Grade 12 directions.</p>
+
+<h2>The course frame: six options</h2>
+<div class="grid">
+
+<div class="panel pa">
+<svg viewBox="0 0 520 300" role="img" aria-label="Linocut lesson opener: Macbeth title, a carved red moon behind three witch silhouettes, an aside box, a reversed-letter doodle and a print-run year map">
+<defs>
+<pattern id="aI" width="4.4" height="300" patternUnits="userSpaceOnUse"><rect x=".5" width="3.4" height="300" fill="#1a1714"/></pattern>
+<pattern id="aN" width="4.4" height="300" patternUnits="userSpaceOnUse"><path d="M2.2 0V300" stroke="#1a1714" stroke-width=".9"/></pattern>
+<pattern id="aH" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><path d="M0 1H5" stroke="#1a1714" stroke-width="1.4"/></pattern>
+</defs>
+<rect width="520" height="300" fill="#efe4cc"/>
+<rect x="9" y="9" width="502" height="282" fill="none" stroke="#1a1714" stroke-width="5"/>
+<circle cx="420" cy="92" r="58" fill="#c23b22"/>
+<path d="M372 76h34M384 94h60M366 112h40M428 62h36M440 122h30" stroke="#efe4cc" stroke-width="3" stroke-linecap="round"/>
+<path d="M318 150q40-14 80-4q50 10 108-6v14q-58 14-108 6q-40-8-80 4z" fill="url(#aH)"/>
+<path d="M296 244Q330 186 400 196Q460 204 507 176V244Z" fill="#1a1714"/>
+<path d="M354 206Q356 160 364 142Q366 124 376 122Q386 124 386 136L392 140L385 142Q388 162 390 206ZM400 206Q402 156 410 138Q412 118 422 116Q432 118 432 130L438 134L431 136Q434 158 436 206ZM482 206Q480 160 472 142Q470 124 460 122Q450 124 450 136L444 140L451 142Q448 162 446 206Z" fill="#1a1714"/>
+<path d="M386 160L402 182M432 156L422 182M450 160L438 182" stroke="#1a1714" stroke-width="4" stroke-linecap="round"/>
+<path d="M366 172l6 28M412 166l6 34M466 172l-6 28" stroke="#efe4cc" stroke-width="2"/>
+<path d="M398 216h44q-2 20-22 20q-20 0-22-20z" fill="#efe4cc"/><rect x="394" y="208" width="52" height="7" rx="3" fill="#efe4cc"/><circle cx="410" cy="201" r="3" fill="#efe4cc"/><circle cx="424" cy="196" r="2.2" fill="#efe4cc"/>
+<path d="M330 52l4 8l4-8l-4-8zM492 160l3 6l3-6l-3-6z" fill="#1a1714"/>
+<text x="28" y="64" font-family="Alfa Slab One" font-size="44" fill="#1a1714">MACBETH</text>
+<text x="30" y="90" font-family="Spectral" font-style="italic" font-weight="600" font-size="17" fill="#c23b22">Act 1 · the witches' bargain</text>
+<rect x="28" y="100" width="256" height="27" fill="#1a1714"/>
+<text x="156" y="119" text-anchor="middle" font-family="Spectral" font-style="italic" font-weight="600" font-size="14" fill="#efe4cc">“Fair is foul, and foul is fair”</text>
+<rect x="28" y="138" width="256" height="58" fill="none" stroke="#1a1714" stroke-width="2"/>
+<rect x="28" y="138" width="60" height="17" fill="#c23b22"/><text x="58" y="151" text-anchor="middle" font-family="Alfa Slab One" font-size="10" fill="#efe4cc">ASIDE</text>
+<g font-family="Spectral" font-weight="600" font-size="12" fill="#1a1714"><text x="38" y="172">Shakespeare's own king, James I,</text><text x="38" y="188">wrote a whole book about witches.</text></g>
+<rect x="30" y="208" width="68" height="28" rx="2" fill="#1a1714"/>
+<text transform="scale(-1 1)" x="-64" y="227" text-anchor="middle" font-family="Alfa Slab One" font-size="12" fill="#efe4cc">MACBETH</text>
+<g font-family="Spectral" font-style="italic" font-weight="600" font-size="12" fill="#1a1714"><text x="108" y="220">Carved it backwards.</text><text x="108" y="235">Very on-theme.</text></g>
+<rect x="30.8" y="258" width="57.2" height="14" fill="url(#aI)"/><rect x="88.5" y="258" width="3.4" height="14" fill="#c23b22"/><rect x="92.4" y="258" width="48.4" height="14" fill="url(#aN)"/>
+<rect x="149.6" y="258" width="110" height="14" fill="url(#aN)"/><rect x="268.4" y="258" width="110" height="14" fill="url(#aN)"/><rect x="387.2" y="258" width="110" height="14" fill="url(#aN)"/>
+<g font-family="Spectral" font-weight="600" font-size="9.5" fill="#1a1714"><text x="31" y="284">T1 · print 14 of 100</text><text x="150" y="284">T2</text><text x="269" y="284">T3</text><text x="388" y="284">T4</text></g>
+</svg>
+<div class="body">
+<h3><span class="k">A</span> Carved in ink</h3>
+<p>A linocut print: cream paper <code>#efe4cc</code>, one black ink <code>#1a1714</code> and a vermilion second block <code>#c23b22</code>. Carved white gouge marks cut through the solid shapes, and hatching stands in for shading. Titles in Alfa Slab One, notes in Spectral italic. Asides are a ruled box with a red tab, and quotations sit on a solid black "carved" banner. <b>Year map: the print run.</b> 100 notches in four blocks; each lesson printed inks its notch, and today's notch is red.</p>
+<div class="tags"><span>linocut</span><span>two inks</span><span>gouge marks</span><span>serious, literary</span></div>
+</div>
+</div>
+
+<div class="panel pb">
+<svg viewBox="0 0 520 300" role="img" aria-label="Film storyboard lesson opener: slate header, three pencil storyboard frames (wide, low angle, close-up), a yellow director's note, a clapper doodle and an editing-timeline year map">
+<defs>
+<pattern id="bP" width="4.4" height="300" patternUnits="userSpaceOnUse"><rect x=".6" width="3.2" height="300" fill="#ffcc29"/></pattern>
+<pattern id="bU" width="4.4" height="300" patternUnits="userSpaceOnUse"><rect x=".6" width="3.2" height="300" fill="#5a5f68"/></pattern>
+</defs>
+<rect width="520" height="300" fill="#f6f5f0"/>
+<rect width="520" height="40" fill="#2a2d33"/>
+<path d="M0 0h20l-14 40H0zM34 0h20l-14 40H20zM68 0h20l-14 40H54zM102 0h20l-14 40H88z" fill="#f6f5f0"/>
+<text x="140" y="25" font-family="Courier Prime" font-weight="700" font-size="12" fill="#f6f5f0">SCENE 38 · TAKE 1 · FILM STUDY</text>
+<circle cx="490" cy="20" r="6" fill="#e5322d"/><text x="478" y="25" text-anchor="end" font-family="Courier Prime" font-weight="700" font-size="12" fill="#e5322d">REC</text>
+<text x="20" y="80" font-family="Oswald" font-weight="600" font-size="30" fill="#2a2d33">WHY THE CAMERA LOOKS UP</text>
+<text x="20" y="102" font-family="Courier Prime" font-size="13" fill="#5a5f68">Shot list for the class reel: the low-angle shot</text>
+<g fill="#fff" stroke="#2a2d33" stroke-width="2"><rect x="20" y="114" width="150" height="78"/><rect x="185" y="114" width="150" height="78"/><rect x="350" y="114" width="150" height="78"/></g>
+<g stroke="#5a5f68" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M20 172h150M40 172v-30h14v30M130 172v-22h10v22"/><circle cx="95" cy="156" r="4"/><path d="M95 160v8l-4 4M95 168l4 4M91 163h8"/>
+<path d="M185 192l40-78M335 192l-40-78"/></g>
+<path d="M230 192l18-54h24l18 54z" fill="#c9ccd2" stroke="#2a2d33" stroke-width="1.6"/><circle cx="260" cy="128" r="11" fill="#c9ccd2" stroke="#2a2d33" stroke-width="1.6"/>
+<path d="M202 186v-38" stroke="#ffcc29" stroke-width="4" stroke-linecap="round"/><path d="M194 152l8-12l8 12z" fill="#ffcc29"/>
+<g fill="#fff" stroke="#2a2d33" stroke-width="1.8"><path d="M384 154q16-14 32 0q-16 10-32 0zM434 154q16-14 32 0q-16 10-32 0z"/></g>
+<circle cx="400" cy="151" r="4.5" fill="#2a2d33"/><circle cx="450" cy="151" r="4.5" fill="#2a2d33"/>
+<path d="M382 136l30 8M468 136l-30 8" stroke="#2a2d33" stroke-width="2.5" stroke-linecap="round"/>
+<g font-family="Courier Prime" font-weight="700" font-size="10.5" fill="#2a2d33"><text x="20" y="206">1 · WIDE: where are we?</text><text x="185" y="206">2 · LOW ANGLE: power</text><text x="350" y="206">3 · CLOSE-UP: fear</text></g>
+<g transform="translate(20 216) rotate(-1.5)"><rect width="252" height="38" fill="#ffcc29"/><text x="10" y="15" font-family="Courier Prime" font-weight="700" font-size="10" fill="#2a2d33">DIRECTOR'S NOTE (ASIDE)</text><text x="10" y="30" font-family="Courier Prime" font-size="10" fill="#2a2d33">Low angle: they look powerful. Or scary.</text></g>
+<rect x="296" y="222" width="26" height="18" fill="#2a2d33"/><path d="M294 212l26-6l2 8l-26 6z" fill="#2a2d33"/><path d="M300 216l5-8M308 214l5-8" stroke="#f6f5f0" stroke-width="2"/>
+<g font-family="Courier Prime" font-style="italic" font-size="11" fill="#2a2d33"><text x="332" y="226">Take 47: Banquo still</text><text x="332" y="241">won't stay dead.</text></g>
+<rect x="20" y="262" width="480" height="26" rx="4" fill="#2a2d33"/>
+<rect x="30.8" y="266" width="110" height="18" fill="url(#bP)"/><rect x="149.6" y="266" width="52.8" height="18" fill="url(#bP)"/><rect x="202.4" y="266" width="57.2" height="18" fill="url(#bU)"/><rect x="268.4" y="266" width="110" height="18" fill="url(#bU)"/><rect x="387.2" y="266" width="110" height="18" fill="url(#bU)"/>
+<path d="M204.6 256v36" stroke="#e5322d" stroke-width="2"/><path d="M199 254h11l-5.5 7z" fill="#e5322d"/>
+</svg>
+<div class="body">
+<h3><span class="k">B</span> Director's cut</h3>
+<p>Every lesson is a shoot for the class's video reel on a made-up short-video app. Pencil storyboard frames on off-white <code>#f6f5f0</code>, graphite <code>#2a2d33</code> lines, cue-tape yellow <code>#ffcc29</code> for arrows and notes, and a red <code>#e5322d</code> REC dot. Titles in Oswald capitals; shot notes in Courier Prime, like a script. Asides are yellow director's notes. Perfect for IEB film study, and it turns a poem or a scene into "shots". <b>Year map: the editing timeline.</b> Four clips (terms) of 25 frames; the played part is yellow and a red playhead marks today.</p>
+<div class="tags"><span>storyboard</span><span>camera terms</span><span>video-app world</span><span>film study</span></div>
+</div>
+</div>
+
+<div class="panel pc">
+<svg viewBox="0 0 520 300" role="img" aria-label="Manga lesson opener: Frankenstein title, a huge stitched eye with focus lines and a red THUD sound effect, a narration aside box, a small creature doodle and a row of volume spines as the year map">
+<defs>
+<pattern id="cD" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.1" fill="#111"/></pattern>
+<pattern id="cR" width="4.4" height="300" patternUnits="userSpaceOnUse"><rect x=".6" width="3.2" height="300" fill="#111"/></pattern>
+<pattern id="cN" width="4.4" height="300" patternUnits="userSpaceOnUse"><path d="M2.2 0V300" stroke="#111" stroke-width=".7"/></pattern>
+<clipPath id="cP"><path d="M16 84H340L310 240H16Z"/></clipPath>
+</defs>
+<rect width="520" height="300" fill="#fffdf8"/>
+<text x="18" y="52" font-family="Dela Gothic One" font-size="30" fill="#111">FRANKENSTEIN</text>
+<rect x="338" y="24" width="70" height="30" fill="#ff2d55"/><text x="373" y="45" text-anchor="middle" font-family="Dela Gothic One" font-size="16" fill="#fff">CH. 5</text>
+<text x="20" y="74" font-family="Dela Gothic One" font-size="12" fill="#111">the creature opens its eyes</text>
+<g clip-path="url(#cP)"><rect x="16" y="84" width="330" height="160" fill="#fff"/>
+<circle cx="170" cy="162" r="160" fill="none" stroke="#111" stroke-width="200" stroke-dasharray="2 9"/>
+<ellipse cx="170" cy="162" rx="98" ry="46" fill="#fff"/>
+<path d="M100 122Q170 100 240 118" stroke="#fff" stroke-width="10" fill="none"/>
+<path d="M100 122Q170 100 240 118M118 104l6 15M148 100l6 15M178 100l6 15M208 103l6 15" stroke="#111" stroke-width="2.6" fill="none"/>
+<path d="M88 164Q170 112 252 164Q170 206 88 164Z" fill="#fff" stroke="#111" stroke-width="4"/>
+<circle cx="170" cy="161" r="30" fill="url(#cD)" stroke="#111" stroke-width="3"/><circle cx="170" cy="161" r="13" fill="#111"/><circle cx="160" cy="152" r="6" fill="#fff"/>
+<text transform="translate(26 230) rotate(-8)" font-family="Dela Gothic One" font-size="34" fill="#ff2d55" stroke="#111" stroke-width="1.4">THUD</text>
+<text transform="translate(258 222) rotate(-8)" font-family="Dela Gothic One" font-size="16" fill="#ff2d55" stroke="#111" stroke-width=".8">thud</text></g>
+<path d="M16 84H340L310 240H16Z" fill="none" stroke="#111" stroke-width="3"/>
+<rect x="330" y="96" width="174" height="76" fill="#fff" stroke="#111" stroke-width="2"/><rect x="330" y="96" width="174" height="16" fill="#111"/>
+<text x="338" y="108" font-family="Dela Gothic One" font-size="9" fill="#fff">ASIDE</text><rect x="466" y="96" width="38" height="16" fill="url(#cD)"/>
+<g font-family="Inter Tight" font-weight="600" font-size="11" fill="#111"><text x="338" y="129">Mary Shelley started this</text><text x="338" y="145">book at 18, on a dare to</text><text x="338" y="161">write a ghost story.</text></g>
+<rect x="340" y="186" width="32" height="32" rx="5" fill="#fff" stroke="#111" stroke-width="2"/><rect x="340" y="186" width="32" height="9" fill="#111"/>
+<path d="M346 204h6M360 204h6M350 212q6-3 12 0M343 199l4 3" stroke="#111" stroke-width="1.6" fill="none"/>
+<path d="M378 188q4 6 0 10q-4-4 0-10z" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<g font-family="Inter Tight" font-style="italic" font-size="11.5" fill="#111"><text x="386" y="198">He just wanted a name.</text><text x="386" y="213">Not "it".</text></g>
+<g fill="#fff" stroke="#111" stroke-width="2"><rect x="29" y="252" width="113.6" height="22"/><rect x="147.8" y="252" width="113.6" height="22"/><rect x="266.6" y="252" width="113.6" height="22"/><rect x="385.4" y="252" width="113.6" height="22"/></g>
+<rect x="30.8" y="255" width="110" height="16" fill="url(#cR)"/><rect x="149.6" y="255" width="110" height="16" fill="url(#cR)"/><rect x="268.4" y="255" width="22" height="16" fill="url(#cR)"/><rect x="291" y="255" width="3.2" height="16" fill="#ff2d55"/><rect x="294.8" y="255" width="83.6" height="16" fill="url(#cN)"/><rect x="387.2" y="255" width="110" height="16" fill="url(#cN)"/>
+<g font-family="Dela Gothic One" font-size="9" fill="#111"><text x="30" y="290">VOL. 1</text><text x="149" y="290">VOL. 2</text><text x="268" y="290">VOL. 3 · ch 56</text><text x="387" y="290">VOL. 4</text></g>
+</svg>
+<div class="body">
+<h3><span class="k">C</span> Ink and screentone</h3>
+<p>Black-and-white manga ink on warm white <code>#fffdf8</code>: brush outlines in <code>#111</code>, dotted screentone for shading, focus lines that zoom in on the moment that matters, and one accent only, signal red <code>#ff2d55</code>, for sound effects and "now". Titles and SFX in Dela Gothic One. Asides are narration boxes with a black header. Each lesson is a chapter in a made-up webcomic app. <b>Year map: four volume spines</b> of 25 chapters; read chapters are inked, and today is red.</p>
+<div class="tags"><span>manga</span><span>screentone</span><span>focus lines</span><span>dramatic close-ups</span></div>
+</div>
+</div>
+
+<div class="panel pd">
+<svg viewBox="0 0 520 300" role="img" aria-label="Theatre lesson opener: velvet curtains, a spotlight on a microphone, a gaffer-tape cue aside, a phone-on-tripod doodle and dressing-room mirror bulbs as the year map">
+<defs>
+<pattern id="dL" width="4.4" height="300" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="286" r="1.7" fill="#ffd76a"/></pattern>
+<pattern id="dO" width="4.4" height="300" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="286" r="1.4" fill="none" stroke="#6b5f55" stroke-width=".8"/></pattern>
+</defs>
+<rect width="520" height="300" fill="#16121d"/>
+<path d="M408 30L196 250H316L432 30Z" fill="#ffe8a6" opacity=".2"/>
+<path d="M0 236H520V300H0Z" fill="#3a2a22"/><path d="M0 252H520" stroke="#2a1e18" stroke-width="2"/>
+<ellipse cx="256" cy="248" rx="70" ry="13" fill="#ffe8a6" opacity=".45"/>
+<path d="M0 0h70q-14 90 4 300H0Z" fill="#8c1c2b"/><path d="M22 0q-8 150 4 300M46 0q-10 150 6 300" stroke="#5e1020" stroke-width="5" fill="none"/>
+<path d="M520 0h-70q14 90-4 300H520Z" fill="#8c1c2b"/><path d="M498 0q8 150-4 300M474 0q10 150-6 300" stroke="#5e1020" stroke-width="5" fill="none"/>
+<path d="M0 0H520V22q-26 14-52 0q-26 14-52 0q-26 14-52 0q-26 14-52 0q-26 14-52 0q-26 14-52 0q-26 14-52 0q-26 14-52 0q-26 14-52 0q-26 14-52 0Z" fill="#a3263a"/>
+<g transform="rotate(130 420 30)"><rect x="406" y="20" width="28" height="20" rx="3" fill="#2a2a2a" stroke="#6b5f55"/><rect x="430" y="24" width="6" height="12" fill="#ffe8a6"/></g>
+<path d="M256 248V172" stroke="#cfc8bc" stroke-width="3"/><path d="M240 250h32" stroke="#cfc8bc" stroke-width="4" stroke-linecap="round"/><rect x="250" y="156" width="12" height="18" rx="6" fill="#2a2a2a" stroke="#cfc8bc" stroke-width="2"/>
+<path d="M302 256l14 7M316 256l-14 7" stroke="#ece7dc" stroke-width="4"/>
+<text x="84" y="64" font-family="Limelight" font-size="26" fill="#ffe08a">THE PREPARED</text>
+<text x="84" y="92" font-family="Limelight" font-size="26" fill="#ffe08a">SPEECH</text>
+<text x="86" y="114" font-family="Kalam" font-size="15" fill="#ece7dc">Orals · own the spot</text>
+<g transform="translate(84 126) rotate(-2)"><path d="M0 2l4-2l4 2l4-2v50l-4-2l-4 2l-4-2zM176 0l4 2l-4 2l4 2v44l-4-2l4-2z" fill="#ece7dc"/><rect x="4" width="174" height="50" fill="#ece7dc"/>
+<text x="12" y="17" font-family="Kalam" font-weight="700" font-size="12" fill="#8c1c2b">CUE 14 · ASIDE</text><text x="12" y="32" font-family="Kalam" font-weight="700" font-size="12" fill="#1a1a1a">Breathe in for four</text><text x="12" y="45" font-family="Kalam" font-weight="700" font-size="12" fill="#1a1a1a">before your first line.</text></g>
+<path d="M104 236l8-28l8 28M112 208v28" stroke="#cfc8bc" stroke-width="2" fill="none"/><rect x="101" y="186" width="22" height="22" rx="3" fill="#2a2a2a" stroke="#cfc8bc" stroke-width="2"/><circle cx="112" cy="197" r="4" fill="#e5322d"/>
+<g font-family="Kalam" font-size="12.5" fill="#ece7dc"><text x="132" y="200">Take 9. The phone</text><text x="132" y="215">has seen things.</text></g>
+<g fill="none" stroke="#8a7a66" stroke-width="1.2"><rect x="29" y="279" width="113.6" height="14" rx="3"/><rect x="147.8" y="279" width="113.6" height="14" rx="3"/><rect x="266.6" y="279" width="113.6" height="14" rx="3"/><rect x="385.4" y="279" width="113.6" height="14" rx="3"/></g>
+<rect x="30.8" y="280" width="110" height="12" fill="url(#dL)"/><rect x="149.6" y="280" width="110" height="12" fill="url(#dL)"/><rect x="268.4" y="280" width="88" height="12" fill="url(#dL)"/><circle cx="358.6" cy="286" r="3" fill="#fff"/><circle cx="358.6" cy="286" r="6" fill="#ffe8a6" opacity=".35"/><rect x="361" y="280" width="17.4" height="12" fill="url(#dO)"/><rect x="387.2" y="280" width="110" height="12" fill="url(#dO)"/>
+<g font-family="Limelight" font-size="10" fill="#ffe08a"><text x="30" y="273">ACT I</text><text x="149" y="273">ACT II</text><text x="268" y="273">ACT III · cue 71</text><text x="387" y="273">ACT IV</text></g>
+</svg>
+<div class="body">
+<h3><span class="k">D</span> Backstage</h3>
+<p>The school stage from the wings: near-black <code>#16121d</code>, velvet red <code>#8c1c2b</code>, spotlight gold <code>#ffe8a6</code> and gaffer-tape cream <code>#ece7dc</code>. Each lesson's key idea stands in the spotlight. Titles in Limelight, like a playbill; notes handwritten in Kalam on tape strips, which are also the asides ("CUE 14"). Built for Macbeth, orals and reading aloud, and pupils film their speeches on their phones. <b>Year map: the dressing-room mirror.</b> Four mirrors (Acts I to IV) ringed with 25 bulbs each; bulbs light up as lessons finish.</p>
+<div class="tags"><span>theatre</span><span>spotlight</span><span>tape labels</span><span>orals + drama</span></div>
+</div>
+</div>
+
+<div class="panel pe">
+<svg viewBox="0 0 520 300" role="img" aria-label="Watercolour sketchbook lesson opener: an open spiral sketchbook with an annotated poem on the left, a painted landscape with daffodils and a cloud on the right, a washi-taped aside card, and a four-season wash strip as the year map">
+<defs>
+<filter id="eW" filterUnits="userSpaceOnUse" x="0" y="0" width="520" height="300"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter>
+</defs>
+<rect width="520" height="300" fill="#e9e1cf"/>
+<rect x="14" y="14" width="492" height="272" rx="4" fill="#fbf6ea"/>
+<path d="M260 22V226" stroke="#8b857a" stroke-width="6" stroke-dasharray="4 8" stroke-linecap="round"/>
+<g filter="url(#eW)">
+<rect x="276" y="28" width="216" height="110" fill="#9db8dc" opacity=".65"/>
+<path d="M276 120q50-34 100-10q60-30 116 4v44H276Z" fill="#7fae7a" opacity=".75"/>
+<path d="M276 140q80-16 216 6v26H276Z" fill="#3f5d8f" opacity=".35"/>
+<g fill="#f2c84b"><circle cx="300" cy="150" r="5"/><circle cx="318" cy="158" r="5"/><circle cx="342" cy="150" r="5"/><circle cx="364" cy="160" r="5"/><circle cx="392" cy="152" r="5"/><circle cx="420" cy="162" r="5"/><circle cx="452" cy="154" r="5"/><circle cx="474" cy="162" r="5"/></g>
+<path d="M84 104h96" stroke="#d9788d" stroke-width="7" opacity=".45"/>
+</g>
+<path d="M360 70q-4-18 16-18q6-14 24-8q16-6 22 10q16 2 12 16z" fill="#fff" stroke="#5b5750" stroke-width="1.3"/>
+<g stroke="#5b5750" stroke-width="1.6"><path d="M440 66v-6M446 66v-10M452 66v-14"/><path d="M438 50l16 16M454 50l-16 16" stroke="#d9788d" stroke-width="2"/></g>
+<path d="M300 132q4-12 8-24M326 136q-2-10 6-22M470 140q2-10-2-20" stroke="#5b5750" stroke-width=".9" fill="none"/>
+<text x="30" y="52" font-family="Fraunces" font-style="italic" font-weight="600" font-size="22" fill="#3a3631">The unseen poem</text>
+<text x="30" y="74" font-family="Caveat" font-weight="600" font-size="17" fill="#7a7469">read it three times, pencil in hand</text>
+<g font-family="Fraunces" font-weight="600" font-size="11.5" fill="#3a3631"><text x="30" y="106">I wandered lonely as a cloud</text><text x="30" y="126">That floats on high o'er vales and hills,</text></g>
+<ellipse cx="72" cy="122" rx="20" ry="9" fill="none" stroke="#3f5d8f" stroke-width="1.3"/>
+<text x="30" y="148" font-family="Caveat" font-weight="600" font-size="15" fill="#c25d73">simile! and why is a cloud lonely?</text>
+<g transform="rotate(-1.5 130 186)"><rect x="30" y="160" width="214" height="54" fill="#fff" stroke="#e4dccb"/><rect x="104" y="153" width="60" height="14" fill="#d9788d" opacity=".55"/>
+<g font-family="Caveat" font-weight="600" font-size="15" fill="#3a3631"><text x="40" y="186">Once for the story, twice for</text><text x="40" y="204">the sound, then once for you.</text></g></g>
+<g font-family="Caveat" font-weight="600" font-size="17" fill="#3a3631"><text x="290" y="194">Lonely as a cloud.</text><text x="290" y="214">Zero bars.</text></g>
+<g filter="url(#eW)"><rect x="30.8" y="236" width="110" height="16" fill="#e2b04a" opacity=".85"/><rect x="149.6" y="236" width="110" height="16" fill="#d9788d" opacity=".85"/><rect x="268.4" y="236" width="110" height="16" fill="#3f5d8f" opacity=".75"/><rect x="387.2" y="236" width="61.6" height="16" fill="#7fae7a" opacity=".9"/></g>
+<rect x="387.2" y="236" width="110" height="16" fill="none" stroke="#5b5750" stroke-width=".9" stroke-dasharray="3 2"/>
+<ellipse cx="451" cy="244" rx="9" ry="12" fill="none" stroke="#3a3631" stroke-width="1.4"/>
+<g font-family="Caveat" font-weight="600" font-size="14" fill="#5b5750"><text x="31" y="270">T1 summer</text><text x="150" y="270">T2 autumn</text><text x="269" y="270">T3 winter</text><text x="388" y="270">T4 spring · 90</text></g>
+</svg>
+<div class="body">
+<h3><span class="k">E</span> The sketchbook</h3>
+<p>An open spiral sketchbook: cream page <code>#fbf6ea</code>, soft-edged watercolour washes (indigo <code>#3f5d8f</code>, sap green <code>#7fae7a</code>, rose <code>#d9788d</code>, ochre <code>#e2b04a</code>) and pencil <code>#5b5750</code> notes. Titles in Fraunces italic; annotations handwritten in Caveat, with words circled and underlined the way you annotate a poem. Asides are cards held by washi tape. Calm and reflective, made for poetry and the creative essay. <b>Year map: four seasons.</b> A wash strip per term (summer, autumn, winter, spring) that gets painted in, lesson by lesson; today is pencil-circled.</p>
+<div class="tags"><span>watercolour</span><span>annotation</span><span>washi tape</span><span>quiet, poetic</span></div>
+</div>
+</div>
+
+<div class="panel pf">
+<svg viewBox="0 0 520 300" role="img" aria-label="Mobile game map lesson opener: a Summary Island ribbon, a tip bubble, an island with seven gem points on a dotted path (four collected), a word-count doodle and four world islands as the year map">
+<defs>
+<pattern id="fW" width="40" height="22" patternUnits="userSpaceOnUse"><path d="M4 12q5-5 10 0q5-5 10 0" stroke="#fff" stroke-width="1.6" fill="none" opacity=".35"/></pattern>
+<pattern id="fG" width="4.4" height="300" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="272" r="1.7" fill="#ffc531"/></pattern>
+<pattern id="fN" width="4.4" height="300" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="272" r="1.4" fill="#fff" opacity=".85"/></pattern>
+</defs>
+<rect width="520" height="300" fill="#27b9cf"/><rect width="520" height="300" fill="url(#fW)"/>
+<path d="M286 70Q380 30 460 70Q512 110 480 170Q440 220 340 210Q260 200 262 140Q264 96 286 70Z" fill="#ffe0a3"/>
+<path d="M298 82Q380 48 452 80Q494 112 468 162Q432 200 344 196Q280 188 278 140Q280 102 298 82Z" fill="#5fc06a"/>
+<path d="M300 160Q318 126 334 124Q352 122 370 130Q388 130 404 112Q420 98 440 100Q470 116 462 150Q448 178 402 180" stroke="#fff" stroke-width="5" stroke-dasharray="1 10" stroke-linecap="round" fill="none"/>
+<g stroke="#b07a00" stroke-width="2" fill="#ffc531"><path d="M300 150l8 10l-8 10l-8-10z"/><path d="M334 114l8 10l-8 10l-8-10z"/><path d="M370 120l8 10l-8 10l-8-10z"/><path d="M404 102l8 10l-8 10l-8-10z"/></g>
+<g stroke="#fff" stroke-width="2" fill="none" stroke-dasharray="3 2"><path d="M462 140l8 10l-8 10l-8-10z"/><path d="M402 170l8 10l-8 10l-8-10z"/></g>
+<path d="M440 104c-10-12-10-22 0-26c10 4 10 14 0 26z" fill="#6a4cf2" stroke="#fff" stroke-width="2"/><circle cx="440" cy="86" r="4" fill="#fff"/>
+<path d="M440 104l8 10l-8 10l-8-10z" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 2"/>
+<g transform="translate(460 54)"><circle r="18" fill="#fff"/><text y="6" text-anchor="middle" font-family="Lilita One" font-size="16" fill="#6a4cf2">4/7</text></g>
+<path d="M16 18h236l-12 20l12 20H16Z" fill="#6a4cf2"/><text x="28" y="45" font-family="Lilita One" font-size="21" fill="#fff">SUMMARY ISLAND</text>
+<rect x="16" y="66" width="236" height="26" rx="13" fill="#fff"/><text x="30" y="84" font-family="Lilita One" font-size="13.5" fill="#3b2a8f">Find the 7 points · 90 words max</text>
+<path d="M16 116a12 12 0 0 1 12-12h212a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12h-160l-12 10l-2-10h-38a12 12 0 0 1-12-12z" fill="#fff" stroke="#3b2a8f" stroke-width="2.5"/>
+<rect x="26" y="96" width="44" height="18" rx="9" fill="#ff5d8f"/><text x="48" y="109" text-anchor="middle" font-family="Lilita One" font-size="11" fill="#fff">ASIDE</text>
+<g font-family="Nunito" font-weight="800" font-size="11.5" fill="#2a1f5c"><text x="28" y="131">A point is one idea, in your own</text><text x="28" y="148">words. Not a quote. Not an example.</text></g>
+<rect x="24" y="190" width="100" height="14" rx="7" fill="#fff"/><rect x="24" y="190" width="110" height="14" rx="7" fill="#ff4d4d"/><text x="70" y="201" text-anchor="middle" font-family="Lilita One" font-size="11" fill="#fff">91 / 90</text>
+<g font-family="Nunito" font-weight="800" font-size="12.5" fill="#fff"><text x="144" y="196">91 words:</text><text x="144" y="212">the boss wins.</text></g>
+<g fill="#ffe0a3"><ellipse cx="85.8" cy="272" rx="62" ry="15"/><ellipse cx="204.6" cy="272" rx="62" ry="15"/><ellipse cx="323.4" cy="272" rx="62" ry="15"/><ellipse cx="442.2" cy="272" rx="62" ry="15"/></g>
+<g fill="#5fc06a"><ellipse cx="85.8" cy="272" rx="57" ry="10"/><ellipse cx="204.6" cy="272" rx="57" ry="10"/><ellipse cx="323.4" cy="272" rx="57" ry="10"/><ellipse cx="442.2" cy="272" rx="57" ry="10"/></g>
+<rect x="30.8" y="266" width="92.4" height="12" fill="url(#fG)"/><rect x="127.6" y="266" width="13.2" height="12" fill="url(#fN)"/><rect x="149.6" y="266" width="110" height="12" fill="url(#fN)"/><rect x="268.4" y="266" width="110" height="12" fill="url(#fN)"/><rect x="387.2" y="266" width="110" height="12" fill="url(#fN)"/>
+<circle cx="125.4" cy="272" r="4.5" fill="#6a4cf2" stroke="#fff" stroke-width="2"/>
+<g font-family="Lilita One" font-size="11" fill="#fff"><text x="30" y="251">WORLD 1 · level 22</text><text x="149" y="251">WORLD 2</text><text x="268" y="251">WORLD 3</text><text x="387" y="251">WORLD 4</text></g>
+</svg>
+<div class="body">
+<h3><span class="k">F</span> Level map</h3>
+<p>A bright mobile puzzle-game world (made up, not any real game): sea teal <code>#27b9cf</code>, sand <code>#ffe0a3</code>, grass <code>#5fc06a</code>, level purple <code>#6a4cf2</code> and star gold <code>#ffc531</code>. Each skill is an island to clear: the seven summary points are gems on the path. Titles in Lilita One on a ribbon; body in Nunito ExtraBold. Asides are tooltip bubbles. Flat glossy shapes, no pixels, no hand-made paper. <b>Year map: four worlds</b> (terms) of 25 levels; cleared levels turn gold and a purple pin marks today.</p>
+<div class="tags"><span>mobile game</span><span>collect the points</span><span>worlds + levels</span><span>bright, fast</span></div>
+</div>
+</div>
+
+</div>
+
+<h2>Three mascots</h2>
+<div class="mascots">
+<div class="mascot">
+<svg viewBox="0 0 300 160" role="img" aria-label="Quill the secretary bird, with pen-nib quills for a crest, stamping on the words very unique">
+<path d="M112 84q-40 6-64 28q30-4 56-14z" fill="#2b2b2b"/>
+<ellipse cx="148" cy="82" rx="42" ry="27" fill="#d6d6d0" stroke="#2b2b2b" stroke-width="2.5"/>
+<path d="M118 78q28 22 62 6q-10 22-40 22q-18 0-22-28z" fill="#2b2b2b"/>
+<path d="M176 70q10-18 20-32" stroke="#d6d6d0" stroke-width="13" stroke-linecap="round"/><path d="M176 70q10-18 20-32" stroke="#2b2b2b" stroke-width="2.5" fill="none" opacity=".25"/>
+<circle cx="198" cy="34" r="14" fill="#e6e6e0" stroke="#2b2b2b" stroke-width="2.5"/>
+<ellipse cx="204" cy="33" rx="9" ry="7" fill="#f07c1e"/><circle cx="205" cy="32" r="2.6" fill="#2b2b2b"/>
+<path d="M210 30q14 2 12 12q-6-6-12-4z" fill="#4a4a4a"/>
+<g stroke="#2b2b2b" stroke-width="2" stroke-linecap="round"><path d="M188 26l-28-14M186 32l-30-6M188 38l-26 4"/></g>
+<g fill="#2b2b2b"><path d="M160 12l-6-5l1 7zM156 26l-8-3l3 6zM162 42l-8 1l5 5z"/></g>
+<path d="M136 104v14l-8 34M162 104v14l10 30" stroke="#2b2b2b" stroke-width="4" fill="none"/><rect x="130" y="102" width="12" height="16" rx="4" fill="#2b2b2b"/><rect x="156" y="102" width="12" height="16" rx="4" fill="#2b2b2b"/>
+<path d="M118 152h18M164 148l16-2" stroke="#2b2b2b" stroke-width="3" stroke-linecap="round"/>
+<text x="196" y="150" font-family="Fraunces" font-style="italic" font-weight="600" font-size="15" fill="#2b2b2b">very unique</text><path d="M192 145h88" stroke="#c23b22" stroke-width="3"/>
+</svg>
+<b>Quill, the secretary bird</b>
+<p>Stamps on waffle the way secretary birds stamp on snakes. Nags about clichés, padding and "very unique": cut it, then cut it again. Its crest is a row of pen nibs.</p>
+</div>
+<div class="mascot">
+<svg viewBox="0 0 300 160" role="img" aria-label="Folio the pangolin holding an open book, with big red quotation marks floating above">
+<defs><pattern id="mS" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M0 10Q7-2 14 10" fill="#c99a6a" stroke="#5a3b20" stroke-width="1.5"/></pattern></defs>
+<path d="M226 120q40-6 44-34q2-20-16-22" stroke="#b9885a" stroke-width="16" stroke-linecap="round" fill="none"/>
+<path d="M84 126Q86 62 152 58Q222 60 236 118Q238 128 226 128H92Q82 128 84 126Z" fill="url(#mS)" stroke="#5a3b20" stroke-width="2.5"/>
+<path d="M92 122Q66 108 40 116Q50 128 92 130Z" fill="#e3c3a0" stroke="#5a3b20" stroke-width="2"/>
+<circle cx="70" cy="114" r="3" fill="#2b2b2b"/>
+<path d="M36 96l22 8v24l-22-8zM58 104l22-8v24l-22 8z" fill="#fff" stroke="#5a3b20" stroke-width="2" stroke-linejoin="round"/>
+<path d="M42 106l12 4M42 112l12 4M62 110l12-4M62 116l12-4" stroke="#b9b2a6" stroke-width="1.2"/>
+<path d="M120 128v14M196 128v14" stroke="#5a3b20" stroke-width="7" stroke-linecap="round"/>
+<text x="96" y="46" font-family="Fraunces" font-weight="800" font-size="52" fill="#c23b22">“</text><text x="180" y="46" font-family="Fraunces" font-weight="800" font-size="52" fill="#c23b22">”</text>
+</svg>
+<b>Folio, the pangolin</b>
+<p>Armoured in pages, and curls into a ball at any claim without a quotation. Nags about evidence in essays and contextual answers: "Point, quote, explain. Where's your quote?"</p>
+</div>
+<div class="mascot">
+<svg viewBox="0 0 300 160" role="img" aria-label="Shade the chameleon on a branch, its body shifting from green to purple, between a formal and an informal message tag">
+<defs><linearGradient id="mG" x1="0" x2="1"><stop offset="0" stop-color="#5bb85b"/><stop offset=".55" stop-color="#4aa7a0"/><stop offset="1" stop-color="#8a5bd6"/></linearGradient></defs>
+<path d="M20 128q120-12 260 4" stroke="#7a5230" stroke-width="9" stroke-linecap="round" fill="none"/>
+<path d="M196 100q30 4 34 24q2 18-16 18q-14 0-12-12q2-8 10-6" stroke="url(#mG)" stroke-width="10" stroke-linecap="round" fill="none"/>
+<path d="M94 106q6-40 56-42q44 0 52 38q-30 16-108 4z" fill="url(#mG)" stroke="#2b4a2b" stroke-width="2.5"/>
+<path d="M98 100q-16-24-6-40q18 4 26 24q-6 10-20 16z" fill="#5bb85b" stroke="#2b4a2b" stroke-width="2.5"/>
+<circle cx="104" cy="84" r="10" fill="#7fd07f" stroke="#2b4a2b" stroke-width="2"/><circle cx="100" cy="84" r="3.5" fill="#2b2b2b"/>
+<path d="M120 64q30-14 70 0" stroke="#2b4a2b" stroke-width="2" fill="none" stroke-dasharray="2 5"/>
+<path d="M118 108l-6 18M178 108l8 18" stroke="#2b4a2b" stroke-width="5" stroke-linecap="round"/>
+<g font-family="Fraunces" font-style="italic" font-weight="600" font-size="14"><rect x="18" y="22" width="76" height="26" rx="5" fill="#fff" stroke="#5bb85b" stroke-width="2"/><text x="28" y="40" fill="#2b4a2b">Dear Sir,</text>
+<rect x="210" y="22" width="68" height="26" rx="13" fill="#8a5bd6"/><text x="228" y="40" fill="#fff">heyy</text></g>
+</svg>
+<b>Shade, the chameleon</b>
+<p>Changes colour for every audience. Nags about register, tone and format in transactional writing: "You wrote a eulogy like a voice note. Who is reading this?"</p>
+</div>
+</div>
+<div class="note"><p><b>Pick one, or a pair.</b> Quill and Folio work well as a double act (one cuts, one proves). Shade could also be the guide just for the transactional and orals lessons. Like Hadi in maths lit, the mascot is drawn in the chosen frame's style, so a linocut Folio looks carved and a manga Folio looks inked.</p></div>
+
+<h2>Three sets of level names (nine ranks)</h2>
+<div class="levels">
+<div class="lv">
+<b>1 · The writer's path</b>
+<ol><li>Scribbler</li><li>Note-taker</li><li>Drafter</li><li>Reviser</li><li>Wordsmith</li><li>Essayist</li><li>Critic</li><li>Author</li><li>Laureate</li></ol>
+<p>Plain and aspirational: from first scribbles to a laureate. It follows the writing process the course teaches (draft, revise, argue), and it works with any frame.</p>
+</div>
+<div class="lv">
+<b>2 · The company</b>
+<ol><li>Groundling</li><li>Stagehand</li><li>Prompter</li><li>Understudy</li><li>Chorus</li><li>Player</li><li>Lead</li><li>Director</li><li>Bard</li></ol>
+<p>Shakespeare's theatre, from the cheap standing crowd to the Bard. Each rank comes with a factoid (a groundling paid a penny to stand). Best with D (Backstage) or B (Director's cut).</p>
+</div>
+<div class="lv">
+<b>3 · Ink to print</b>
+<ol><li>Inkblot</li><li>Doodle</li><li>Footnote</li><li>Margin note</li><li>Paragraph</li><li>Chapter</li><li>Manuscript</li><li>First edition</li><li>Classic</li></ol>
+<p>A piece of writing growing up, from a blot to a classic that people still study. A bit funny at the bottom ("Footnote") and proud at the top. Best with A (Carved in ink) or E (The sketchbook).</p>
+</div>
+</div>
+
+<h2>What the art must do</h2>
+<div class="musts">
+<div class="must">
+<b>The year map</b>
+<ul><li>About 100 lessons in four terms, drawn as the chosen frame's own metaphor: a print run, an edit timeline, volumes, mirrors, seasons or worlds.</li><li>Every lesson opener shows the map with today marked in the accent colour, so pupils see how far they've come.</li><li>IEB-only and CAPS-only lessons show a small board badge on their slot.</li></ul>
+</div>
+<div class="must">
+<b>Margin doodles</b>
+<ul><li>The joke is drawn, and the caption is the joke: "Carved it backwards. Very on-theme." It is never labelled "Joke".</li><li>Doodles poke fun at the set texts (Banquo, the creature, Lady Macbeth's hand-washing) and at the pupils' own world (word counts, phone takes, no signal).</li><li>Small, in the frame's style, and placed beside the text, never on top of it.</li></ul>
+</div>
+<div class="must">
+<b>Asides and factoids</b>
+<ul><li>Asides have one fixed look per frame (a tabbed box, a director's note, a narration box, a tape strip, a taped card or a tooltip). They use the word "aside" because it is also a drama term.</li><li>Factoids are about writers and their worlds (Shelley at 18, groundlings paying a penny), always checked and never invented.</li><li>Scenes stay in the pupils' media: group chats, short-video apps, games and memes, all made up. No newspapers, no TV news and no real brands.</li></ul>
+</div>
+<div class="must">
+<b>Badges and rank emblems</b>
+<ul><li>Nine rank emblems for the chosen level names, plus unit badges (Macbeth, the novel, poetry, the essay, summary, orals, film study for the IEB).</li><li>All in the frame's style and palette. The course icon, badges and emblems go through ComfyUI; openers, doodles and the year map are SVG drawn by a script.</li><li>Set texts are only quoted when they are public domain or a short extract, as the plan sets out.</li></ul>
+</div>
+</div>
+<div class="note"><p><b>How to choose:</b> pick one frame (A to F), one mascot (or a pair) and one set of level names. The chosen style then gets written up as <code>brand/eng11-art-style.md</code>, like <code>mlit10-art-style.md</code>.</p></div>
+</div>
+</body>
+</html>

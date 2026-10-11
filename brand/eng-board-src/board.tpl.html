@@ -1,0 +1,517 @@
+<title>English Strands Style Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter+Tight:wght@400;600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Syne:wght@700;800&display=swap">
+<style>
+/* Layout: pick-a-look board. Three language looks (L1-L3), three writing looks (W1-W3, each the sibling of the L with the same number), three mascot candidates in three poses, then how the strands fit. */
+:root{
+  --bg:#f3f1ec; --fg:#1c1b19; --muted:#5f5b53; --line:#dcd6ca; --card:#ffffff; --accent:#b4432c;
+  --display:"Fraunces",Georgia,serif; --body:"Inter Tight","Segoe UI",sans-serif; --mono:"DM Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#151412;--fg:#eeebe4;--muted:#a9a397;--line:#34312b;--card:#1e1c19;--accent:#ff8a6b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151412;--fg:#eeebe4;--muted:#a9a397;--line:#34312b;--card:#1e1c19;--accent:#ff8a6b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 var(--body)}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+h1,h2{font-family:var(--display);font-weight:800;margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,4.4vw,42px)}
+h2{font-size:24px;margin-top:48px}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.lede{max-width:74ch;color:var(--muted);margin:8px 0 0}
+.sub{max-width:74ch;color:var(--muted);margin:6px 0 0;font-size:14px}
+.opts{display:grid;gap:22px;margin-top:18px}
+.opt{border-radius:8px;overflow:hidden;border:1px solid var(--line);min-width:0}
+.opt>header{padding:16px 18px 4px;display:grid;gap:4px}
+.opt h3{margin:0;font-size:24px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.opt h3 .k{font:500 12px var(--mono);padding:3px 7px;border-radius:3px;letter-spacing:.06em}
+.opt h3 .sib{font:500 11.5px var(--mono);opacity:.75}
+.opt .pitch{margin:0;font-size:14.5px;max-width:80ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:16px;padding:12px 18px 6px}
+.cols>*{min-width:0}
+.opener svg{display:block;width:100%;height:auto;border-radius:4px}
+.side{display:grid;gap:12px;align-content:start}
+.ex{border-radius:6px;padding:14px 15px;font-size:14px;line-height:1.6}
+.ex .lab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 6px}
+.ex .q{margin:0 0 8px;font-weight:600}
+.ex .txt{margin:0 0 10px;font-size:15.5px;line-height:1.75}
+.ex ol{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.ex ol li{display:grid;grid-template-columns:22px 1fr;gap:6px;font-size:13.5px;line-height:1.45}
+.ex ol li>i{font-style:normal;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700}
+.ex .ans{margin:10px 0 0;font-size:13.5px;padding-top:8px}
+.aside{border-radius:6px;padding:11px 14px;font-size:13.5px;line-height:1.5}
+.aside b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.grades{display:flex;flex-wrap:wrap;gap:8px;padding:10px 18px 4px}
+.grades span{font:500 12px var(--mono);padding:4px 10px 4px 8px;border-radius:4px;display:inline-flex;align-items:center;gap:7px}
+.grades span i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:8px 18px 18px}
+.tags span{font:12px var(--mono);padding:2px 8px;border-radius:99px}
+del{text-decoration-thickness:2px}
+ins{text-decoration:none}
+
+/* L1 tracing overlay + W1 drafting table: studio paper, cobalt construction lines, signal red */
+.l1,.w1{background:#f6f4ee;color:#16181d}
+.l1 h3,.w1 h3{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:30px}
+.l1 .k,.w1 .k{background:#2747d6;color:#fff}
+.l1 .ex,.w1 .ex{background:#fff;border:1px solid #d7dcf3;font-family:"Instrument Sans",sans-serif;background-image:linear-gradient(#2747d60d 1px,transparent 1px),linear-gradient(90deg,#2747d60d 1px,transparent 1px);background-size:16px 16px}
+.l1 .lab,.w1 .lab{font-family:"JetBrains Mono",monospace;color:#2747d6}
+.l1 .m{outline:1.6px solid #2747d6;outline-offset:1px;padding:0 2px;position:relative;font-weight:600}
+.l1 .m sup{font:700 9px "JetBrains Mono",monospace;color:#fff;background:#2747d6;border-radius:50%;padding:1px 4px;margin-left:2px;vertical-align:8px}
+.l1 ol li>i,.w1 ol li>i{background:#2747d6;color:#fff;font-family:"JetBrains Mono",monospace}
+.l1 .ans,.w1 .ans{border-top:1px dashed #2747d6}
+.l1 .tick{color:#ff4b2b;font-weight:700}
+.l1 .aside,.w1 .aside{background:#16181d;color:#f6f4ee;font-family:"Instrument Sans",sans-serif}
+.l1 .aside b,.w1 .aside b{font-family:"JetBrains Mono",monospace;color:#ff8a73}
+.l1 .grades span,.w1 .grades span{background:#fff;border:1px solid #d7dcf3;color:#16181d}
+.l1 .tags span,.w1 .tags span{border:1.5px solid #2747d6;color:#2747d6}
+.w1 del{color:#9a9a9a;text-decoration-color:#ff4b2b}
+.w1 ins{color:#ff4b2b;font-weight:600}
+.w1 ins{border-bottom:1.5px dotted #ff4b2b}
+.w1 sup{font:700 9px "JetBrains Mono",monospace;color:#fff;background:#2747d6;border-radius:50%;padding:1px 4px;vertical-align:8px}
+.w1 .meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font:500 11.5px "JetBrains Mono",monospace;color:#2747d6;margin-top:8px}
+
+/* L2 specimen cabinet + W2 field notebook: cream card, sepia ink, oxblood pins */
+.l2,.w2{background:#efe5cf;color:#2d2117}
+.l2 h3,.w2 h3{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:700;font-size:32px}
+.l2 .k,.w2 .k{background:#8c2f39;color:#fbf3e3;font-family:"Courier Prime",monospace}
+.l2 .ex,.w2 .ex{background:#fbf6e8;border:1px solid #d6c39c;box-shadow:3px 3px 0 #d8c9a6;font-family:"Cormorant Garamond",serif;font-size:16px}
+.l2 .ex ol li,.w2 .ex ol li{font-family:"Courier Prime",monospace;font-size:12.5px}
+.l2 .lab,.w2 .lab{font-family:"Courier Prime",monospace;color:#8c2f39}
+.l2 .q{font-family:"Courier Prime",monospace;font-size:13px;font-weight:700}
+.l2 .pt{border-bottom:2px solid #8c2f39;position:relative;padding-left:9px}
+.l2 .pt::before{content:"";position:absolute;left:0;top:.45em;width:7px;height:7px;border-radius:50%;background:#8c2f39;box-shadow:inset -1px -1px 0 #5e1d25}
+.l2 .pt sup{font:700 10px "Courier Prime",monospace;color:#8c2f39}
+.l2 .cut{text-decoration:line-through;text-decoration-color:#8c2f39;text-decoration-thickness:1.5px;color:#7d6b55}
+.l2 ol li>i,.w2 ol li>i{background:#8c2f39;color:#fbf3e3;font-family:"Courier Prime",monospace}
+.l2 .ans,.w2 .ans{border-top:1px solid #d6c39c;font-family:"Courier Prime",monospace;font-size:12.5px}
+.l2 .aside,.w2 .aside{background:#2d2117;color:#efe5cf;font-family:"Cormorant Garamond",serif;font-size:16px}
+.l2 .aside b,.w2 .aside b{font-family:"Courier Prime",monospace;color:#e2a3aa;font-size:11px}
+.l2 .grades span,.w2 .grades span{background:#fbf6e8;border:1px solid #d6c39c;font-family:"Courier Prime",monospace}
+.l2 .tags span,.w2 .tags span{background:#2d2117;color:#efe5cf;font-family:"Courier Prime",monospace}
+.w2 .ex{background-image:repeating-linear-gradient(#fbf6e8 0 25px,#cfd6dd 25px 26px)}
+.w2 .txt{line-height:26px;font-size:17px}
+.w2 del{color:#7d6b55;text-decoration-color:#8c2f39}
+.w2 ins{font-family:"Kalam",cursive;color:#8c2f39;font-size:15px;font-weight:700}
+.w2 .note{font-family:"Kalam",cursive;color:#8c2f39;font-size:14px;line-height:1.35}
+.w2 .meta{font:12px "Courier Prime",monospace;color:#8c2f39;margin-top:8px}
+
+/* L3 contact sheet + W3 developing tray: darkroom black, safelight red, amber */
+.l3,.w3{background:#141414;color:#eeeae2;border-color:#141414}
+.l3 h3,.w3 h3{font-family:"Syne",sans-serif;font-weight:800;font-size:25px}
+.l3 .k,.w3 .k{background:#ff3b30;color:#141414}
+.l3 .ex,.w3 .ex{background:#1e1e1e;border:1px solid #333;font-family:"Inter Tight",sans-serif}
+.l3 .lab,.w3 .lab{font-family:"DM Mono",monospace;color:#ffb000}
+.l3 .txt{font-family:"Syne",sans-serif;font-weight:700;font-size:16px}
+.l3 .m{border:2px solid #ff3b30;border-radius:999px;padding:0 6px;white-space:nowrap}
+.l3 .m sup{font:500 10px "DM Mono",monospace;color:#ffb000;margin-left:3px}
+.l3 small{font-size:11px;color:#bdbdbd}
+.l3 ol li>i,.w3 ol li>i{background:#ffb000;color:#141414;font-family:"DM Mono",monospace}
+.l3 .ans,.w3 .ans{border-top:1px solid #333;color:#ffcf66}
+.l3 .aside,.w3 .aside{background:#3a0f0c;color:#ffd9d5;border:1px solid #6a1d17}
+.l3 .aside b,.w3 .aside b{font-family:"DM Mono",monospace;color:#ff6a5f}
+.l3 .grades span,.w3 .grades span{background:#1e1e1e;border:1px solid #333;color:#eeeae2;font-family:"DM Mono",monospace}
+.l3 .tags span,.w3 .tags span{border:1.5px solid #ffb000;color:#ffb000;font-family:"DM Mono",monospace}
+.w3 .txt{font-size:15px}
+.w3 .faint{color:#6d6d6d}
+.w3 del{color:#7a7a7a;text-decoration-color:#ff3b30}
+.w3 ins{color:#ffb000;font-weight:600}
+.w3 .meta{display:flex;gap:6px;align-items:center;font:500 11px "DM Mono",monospace;color:#ffb000;margin-top:10px;flex-wrap:wrap}
+.w3 .meta i{width:22px;height:10px;display:inline-block;border-radius:2px}
+
+/* Mascots */
+.mascots{display:grid;gap:18px;margin-top:18px}
+.mascot{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:grid;gap:10px;min-width:0}
+.poses{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:10px}
+.poses figure{margin:0;min-width:0}
+.poses svg{display:block;width:100%;height:auto;border-radius:6px;background:#f7f2e8}
+.poses figcaption{font:500 11.5px var(--mono);color:var(--muted);margin-top:4px;text-align:center}
+.mascot h3{margin:0;font-family:var(--display);font-size:24px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.mascot h3 small{font:500 12px var(--mono);color:var(--accent)}
+.mascot p{margin:0;font-size:14.5px}
+.mascot dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;font-size:14px}
+.mascot dt{font:500 11.5px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding-top:2px}
+.mascot dd{margin:0}
+.note{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;max-width:86ch}
+.note p{margin:0 0 9px}.note p:last-child{margin:0}
+.fam{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px;margin-top:14px}
+.fam div{border-radius:6px;padding:10px 12px;font-size:13.5px}
+.fam b{display:block;font-size:15px}
+.fam .f1{background:#f6f4ee;color:#16181d;border:1px solid #d7dcf3}.fam .f1 b{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:20px;color:#2747d6}
+.fam .f2{background:#efe5cf;color:#2d2117;border:1px solid #d6c39c}.fam .f2 b{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:21px;color:#8c2f39}
+.fam .f3{background:#141414;color:#eeeae2;border:1px solid #333}.fam .f3 b{font-family:"Syne",sans-serif;font-weight:800;color:#ff5a4e}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+{{DEFS}}
+</defs></svg>
+
+<div class="wrap">
+<p class="eyebrow">English Home Language · Grades 10-12 · IEB and CAPS · strand looks</p>
+<h1>The language and writing strands, and the mascot</h1>
+<p class="lede">No course-wide frame, as you asked. Each strand has a look of its own, and every grade uses it. <strong>Language</strong> covers comprehension, summary, visual literacy, language in context and editing. <strong>Writing</strong> covers essays, transactional pieces and process writing. Literature gets per-work art on the sibling board. Every writing look is the sibling of the language look with the same number: the same paper, ink and type family, used for a different job. So pick a <em>number</em>, not two separate looks. The texts in the art are set in the pupils' own media: posts, short-video ads, gamer blogs. Every app, brand and account is made up.</p>
+
+<div class="fam">
+<div class="f1"><b>Family 1 · Studio</b>L1 Tracing overlay + W1 Drafting table. Clean, modern and precise. It feels like a design studio.</div>
+<div class="f2"><b>Family 2 · Museum</b>L2 Specimen cabinet + W2 Field notebook. Warm and bookish. Words are collected, pinned and labelled.</div>
+<div class="f3"><b>Family 3 · Darkroom</b>L3 Contact sheet + W3 Developing tray. Moody and photographic. It suits visual literacy, and drafts "develop".</div>
+</div>
+
+<h2>Language strand: three options</h2>
+<p class="sub">Each shows a lesson opener, a worked example (a text with marks and callouts), an aside, and the accent for each grade.</p>
+<div class="opts">
+
+<article class="opt l1">
+<header><h3><span class="k">L1</span> Tracing overlay</h3>
+<p class="pitch">The text sits on studio paper. A sheet of tracing paper is taped over it, and the analysis is drawn on that sheet: cobalt construction lines, outlined words, numbered leader lines, and one signal-red line for the key idea. It is precise and calm, and it looks like a designer taking a text apart.</p></header>
+<div class="cols">
+<figure class="opener" style="margin:0">
+<svg viewBox="0 0 520 300" role="img" aria-label="Lesson opener: Tone and diction. A made-up app post with three words outlined, and a tracing sheet over it with numbered notes">
+<defs><pattern id="l1g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2747d6" stroke-opacity=".09"/></pattern></defs>
+<rect width="520" height="300" fill="#f6f4ee"/><rect width="520" height="300" fill="url(#l1g)"/>
+<text x="28" y="32" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10.5" letter-spacing="2" fill="#2747d6">LANGUAGE · READING · 04</text>
+<text x="26" y="70" font-family="Instrument Serif, serif" font-style="italic" font-size="40" fill="#16181d">Tone and diction</text>
+<path d="M28 82H236" stroke="#ff4b2b" stroke-width="2.5"/>
+<g transform="rotate(-3 140 190)">
+<rect x="36" y="104" width="206" height="176" rx="14" fill="#000" opacity=".06" transform="translate(3 4)"/>
+<rect x="36" y="104" width="206" height="176" rx="14" fill="#fff" stroke="#16181d" stroke-opacity=".12"/>
+<circle cx="58" cy="126" r="10" fill="#ffb4a3"/><path d="M52 131c2-5 10-5 12 0" fill="#e2735d"/><circle cx="58" cy="123" r="3.5" fill="#e2735d"/>
+<text x="74" y="123" font-family="Instrument Sans, sans-serif" font-weight="700" font-size="11" fill="#16181d">kaya.edits</text>
+<text x="74" y="135" font-family="Instrument Sans, sans-serif" font-size="9" fill="#7a7d86">Loop · 2 h</text>
+<g font-family="Instrument Sans, sans-serif" font-weight="600" font-size="14" fill="#16181d">
+<text x="52" y="164">Oh</text><text x="78" y="164">GREAT.</text><text x="144" y="164">Monday.</text>
+<text x="52" y="192">Literally</text><text x="126" y="192">my fave.</text>
+<text x="52" y="220">Can't wait.</text><text x="135" y="220">Truly.</text></g>
+<g fill="none" stroke="#2747d6" stroke-width="1.6"><rect x="74" y="149" width="64" height="21" rx="2"/><rect x="48" y="177" width="72" height="21" rx="2"/><rect x="131" y="205" width="48" height="21" rx="2"/></g>
+<g font-family="JetBrains Mono, monospace" font-weight="700" font-size="8.5" fill="#fff"><circle cx="74" cy="149" r="6" fill="#2747d6"/><text x="71.6" y="152">1</text><circle cx="48" cy="177" r="6" fill="#2747d6"/><text x="45.6" y="180">2</text><circle cx="131" cy="205" r="6" fill="#2747d6"/><text x="128.6" y="208">3</text></g>
+<path d="M55 252c-3-4 1-8 4-5 3-3 7 1 4 5l-4 4z" fill="#ff4b2b"/><text x="68" y="256" font-family="Instrument Sans, sans-serif" font-size="9.5" fill="#7a7d86">2.4k   ·   318 replies</text>
+</g>
+<rect x="226" y="96" width="276" height="188" fill="#fff" fill-opacity=".62" stroke="#2747d6" stroke-opacity=".3"/>
+<rect x="330" y="88" width="64" height="16" fill="#e9dfbf" opacity=".75" transform="rotate(-4 362 96)"/>
+<g stroke="#2747d6" stroke-width="1" fill="none"><circle cx="238" cy="108" r="5"/><path d="M230 108h16M238 100v16"/><circle cx="490" cy="272" r="5"/><path d="M482 272h16M490 264v16"/></g>
+<g stroke="#2747d6" stroke-width="1.2" stroke-dasharray="3 3" fill="none"><path d="M139 152L262 128"/><path d="M121 183L262 180"/><path d="M180 212L262 232"/></g>
+<g font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#fff"><circle cx="268" cy="128" r="7" fill="#2747d6"/><text x="265.3" y="131">1</text><circle cx="268" cy="180" r="7" fill="#2747d6"/><text x="265.3" y="183">2</text><circle cx="268" cy="232" r="7" fill="#2747d6"/><text x="265.3" y="235">3</text></g>
+<g font-family="JetBrains Mono, monospace" font-weight="700" font-size="10.5" fill="#2747d6" letter-spacing="1"><text x="282" y="126">TONE</text><text x="282" y="178">DICTION</text><text x="282" y="230">FULL STOPS</text></g>
+<g font-family="Instrument Sans, sans-serif" font-size="12" fill="#16181d"><text x="282" y="143">sarcastic: says "great",</text><text x="282" y="157">means the opposite</text><text x="282" y="195">casual, exaggerated:</text><text x="282" y="209">"literally", "fave"</text><text x="282" y="247">one-word sentence =</text><text x="282" y="261">a flat, deadpan ending</text></g>
+<path d="M282 147H420" stroke="#ff4b2b" stroke-width="2"/>
+</svg>
+</figure>
+<div class="side">
+<div class="ex">
+<p class="lab">Worked example · 2 marks</p>
+<p class="q">Comment on the tone of this post.</p>
+<p class="txt">Oh <span class="m">GREAT.<sup>1</sup></span> Monday. <span class="m">Literally<sup>2</sup></span> my fave. Can't wait. <span class="m">Truly.<sup>3</sup></span></p>
+<ol>
+<li><i>1</i><span>Capital letters and a full stop make the praise loud but flat. It says the opposite of what it means.</span></li>
+<li><i>2</i><span>The casual, exaggerated word choice makes the post sound mocking, not sincere.</span></li>
+<li><i>3</i><span>A one-word sentence lands the joke with a deadpan finish.</span></li>
+</ol>
+<p class="ans"><b>Answer:</b> The tone is sarcastic <span class="tick">✓</span>: "GREAT" and "Truly" praise Monday while the writer clearly dreads it <span class="tick">✓</span>.</p>
+</div>
+<div class="aside"><b>Examiner's eye</b>Name the tone in one word, then prove it with a quotation. A tone word on its own scores nothing.</div>
+</div>
+</div>
+<div class="grades"><span><i style="background:#2747d6"></i>Gr 10 · cobalt lines</span><span><i style="background:#0f8a7e"></i>Gr 11 · teal lines</span><span><i style="background:#6b3fd4"></i>Gr 12 · violet lines</span></div>
+<div class="tags"><span>tracing sheet</span><span>leader lines</span><span>outlined words</span><span>one red line</span><span>Instrument Serif + JetBrains Mono</span></div>
+</article>
+
+<article class="opt l2">
+<header><h3><span class="k">L2</span> Specimen cabinet</h3>
+<p class="pitch">Words and ideas are collected like natural-history specimens. They are pinned on cream card, labelled in typewriter type and sorted into trays and jars. Summary points become specimens, and an example is something you leave out of the tray. It is warm and bookish, and the method makes sense to pupils.</p></header>
+<div class="cols">
+<figure class="opener" style="margin:0">
+<svg viewBox="0 0 520 300" role="img" aria-label="Lesson opener: Summary, 7 points in 90 words. Seven pinned specimen cards in a tray, one empty slot for a cut example, and a jar labelled 90 words">
+<defs><linearGradient id="l2jar" x1="0" x2="1"><stop offset="0" stop-color="#d9e6e2" stop-opacity=".55"/><stop offset=".5" stop-color="#f4f8f6" stop-opacity=".35"/><stop offset="1" stop-color="#b9cfc8" stop-opacity=".6"/></linearGradient>
+<g id="l2pin"><ellipse cx="1.5" cy="2" rx="4.5" ry="3" fill="#000" opacity=".18"/><circle r="4.6" fill="#8c2f39"/><circle cx="-1.4" cy="-1.5" r="1.5" fill="#fff" opacity=".7"/></g>
+<g id="l2card"><rect x="2" y="3" width="84" height="58" fill="#d8c9a6"/><rect width="84" height="58" fill="#fbf6e8" stroke="#cdbb98"/></g></defs>
+<rect width="520" height="300" fill="#efe5cf"/>
+<rect x="10" y="10" width="500" height="280" fill="none" stroke="#4a3423" stroke-width="1.2"/><rect x="15" y="15" width="490" height="270" fill="none" stroke="#4a3423" stroke-width=".5"/>
+<text x="30" y="40" font-family="Courier Prime, monospace" font-size="10" letter-spacing="2" fill="#8c2f39">PLATE VII · LANGUAGE · SUMMARY</text>
+<text x="28" y="76" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="38" fill="#2d2117">Summary</text>
+<text x="196" y="76" font-family="Cormorant Garamond, serif" font-weight="600" font-size="22" fill="#4a3423">7 points in 90 words</text>
+<g font-family="Courier Prime, monospace" font-size="8.5" fill="#8c2f39">
+<use href="#l2card" x="28" y="104"/><use href="#l2card" x="120" y="104"/><use href="#l2card" x="212" y="104"/><use href="#l2card" x="304" y="104"/>
+<use href="#l2card" x="28" y="176"/><use href="#l2card" x="120" y="176"/><use href="#l2card" x="212" y="176"/>
+<rect x="304" y="176" width="84" height="58" fill="none" stroke="#a8916a" stroke-dasharray="4 3"/>
+<text x="36" y="124">No. 1</text><text x="128" y="124">No. 2</text><text x="220" y="124">No. 3</text><text x="312" y="124">No. 4</text><text x="36" y="196">No. 5</text><text x="128" y="196">No. 6</text><text x="220" y="196">No. 7</text></g>
+<use href="#l2pin" x="78" y="114"/><use href="#l2pin" x="170" y="114"/><use href="#l2pin" x="262" y="114"/><use href="#l2pin" x="354" y="114"/><use href="#l2pin" x="78" y="186"/><use href="#l2pin" x="170" y="186"/><use href="#l2pin" x="262" y="186"/>
+<g font-family="Cormorant Garamond, serif" font-weight="600" font-size="13.5" fill="#2d2117">
+<text x="36" y="142">screens delay</text><text x="36" y="156">sleep</text>
+<text x="128" y="142">pings wake</text><text x="128" y="156">the brain</text>
+<text x="220" y="142">light fools the</text><text x="220" y="156">body clock</text>
+<text x="312" y="142">scrolling</text><text x="312" y="156">eats hours</text>
+<text x="36" y="214">tired means</text><text x="36" y="228">moody</text>
+<text x="128" y="214">marks slip</text>
+<text x="220" y="214">charge it in</text><text x="220" y="228">another room</text></g>
+<text x="312" y="198" font-family="Courier Prime, monospace" font-size="8.5" fill="#7d6b55">example:</text>
+<text x="312" y="214" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="600" font-size="13" fill="#7d6b55">"my cousin..."</text>
+<path d="M310 210H384" stroke="#8c2f39" stroke-width="1.5"/>
+<text x="312" y="229" font-family="Courier Prime, monospace" font-weight="700" font-size="9" fill="#8c2f39">NOT A POINT</text>
+<path d="M412 116h62v10h-62z" fill="#7d6b55"/><path d="M410 114h66v6h-66z" fill="#a08a6b"/>
+<path d="M414 126h58c6 0 10 6 10 14v108c0 8-6 14-14 14h-50c-8 0-14-6-14-14V140c0-8 4-14 10-14Z" fill="url(#l2jar)" stroke="#4a3423" stroke-width="1.2"/>
+<g transform="rotate(-8 440 230)"><rect x="416" y="228" width="40" height="8" fill="#fbf6e8" stroke="#cdbb98" stroke-width=".6"/></g><rect x="424" y="238" width="44" height="8" fill="#fbf6e8" stroke="#cdbb98" stroke-width=".6"/><g transform="rotate(6 446 250)"><rect x="420" y="246" width="42" height="8" fill="#fbf6e8" stroke="#cdbb98" stroke-width=".6"/></g>
+<rect x="416" y="160" width="54" height="50" fill="#fbf6e8" stroke="#4a3423" stroke-width=".8"/>
+<text x="443" y="190" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="700" font-size="28" fill="#2d2117">90</text>
+<text x="443" y="203" text-anchor="middle" font-family="Courier Prime, monospace" font-size="8" fill="#8c2f39">WORDS MAX</text>
+<path d="M410 140c-2 30-2 70 0 100" stroke="#fff" stroke-width="3" opacity=".6" fill="none" stroke-linecap="round"/>
+<text x="30" y="266" font-family="Courier Prime, monospace" font-size="9.5" fill="#4a3423">Source: a Loop explainer, 350 words</text>
+</svg>
+</figure>
+<div class="side">
+<div class="ex">
+<p class="lab">Worked example · point-finding</p>
+<p class="q">Find the points. Leave the examples behind.</p>
+<p class="txt">Your phone is not just a clock. <span class="pt">Each ping nudges your brain awake<sup>2</sup></span>, even when you don't check it. <span class="pt">The glow tells your body it is still daytime<sup>3</sup></span>, so sleep comes later. <span class="cut">My cousin once scrolled until 4 a.m. and fell asleep in a maths test.</span></p>
+<ol>
+<li><i>2</i><span>Notifications wake the brain. (In your own words: 4 words.)</span></li>
+<li><i>3</i><span>Screen light delays sleep. (4 words)</span></li>
+<li><i>×</i><span>The cousin is an example, not a point. It stays out of the tray.</span></li>
+</ol>
+<p class="ans">Running count: 8 / 90 words · points found: 2 / 7</p>
+</div>
+<div class="aside"><b>Curator's rule</b>An example is never a point. If you can take it out and the argument still stands, take it out.</div>
+</div>
+</div>
+<div class="grades"><span><i style="background:#8c2f39"></i>Gr 10 · oxblood pins</span><span><i style="background:#2f5d46"></i>Gr 11 · bottle-green pins</span><span><i style="background:#2a3a66"></i>Gr 12 · midnight pins</span></div>
+<div class="tags"><span>pinned specimens</span><span>typed labels</span><span>trays and jars</span><span>Cormorant + Courier Prime</span></div>
+</article>
+
+<article class="opt l3">
+<header><h3><span class="k">L3</span> Contact sheet</h3>
+<p class="pitch">A photographer's darkroom. Texts and adverts appear as frames on a strip of film, and a loupe magnifies the detail that matters. Safelight red and amber notes do the analysis. It is made for visual literacy (adverts, campaigns, cartoons), and it gives comprehension a cinematic, moody feel.</p></header>
+<div class="cols">
+<figure class="opener" style="margin:0">
+<svg viewBox="0 0 520 300" role="img" aria-label="Lesson opener: Reading an advert. A film strip with four frames of a made-up energy-drink ad, a loupe magnifying the slogan NEVER LOG OFF, and amber notes">
+<defs><radialGradient id="l3glow" cx=".85" cy="0" r=".7"><stop offset="0" stop-color="#ff3b30" stop-opacity=".38"/><stop offset="1" stop-color="#ff3b30" stop-opacity="0"/></radialGradient>
+<pattern id="l3sp" width="18" height="10" patternUnits="userSpaceOnUse"><rect x="4" y="2" width="9" height="6" rx="1.6" fill="#2b2b2b"/></pattern>
+<linearGradient id="l3f1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b2bd6"/><stop offset="1" stop-color="#ff3d8b"/></linearGradient>
+<clipPath id="l3lc"><circle cx="322" cy="152" r="46"/></clipPath></defs>
+<rect width="520" height="300" fill="#141414"/><rect width="520" height="300" fill="url(#l3glow)"/>
+<circle cx="478" cy="22" r="7" fill="#ff3b30"/><circle cx="478" cy="22" r="14" fill="#ff3b30" opacity=".25"/>
+<text x="26" y="34" font-family="DM Mono, monospace" font-weight="500" font-size="10.5" letter-spacing="2" fill="#ff5a4e">LANGUAGE · VISUAL LITERACY · 07</text>
+<text x="24" y="68" font-family="Syne, sans-serif" font-weight="800" font-size="31" fill="#f4f1ea">Reading an advert</text>
+<rect y="86" width="520" height="132" fill="#060606"/><rect y="88" width="520" height="10" fill="url(#l3sp)"/><rect y="206" width="520" height="10" fill="url(#l3sp)"/>
+<text x="140" y="104" font-family="DM Mono, monospace" font-size="6.5" fill="#ffb000" opacity=".7" letter-spacing="1">SAFETY FILM 400   ▸ 12   ▸ 12A</text>
+<rect x="18" y="108" width="112" height="90" fill="url(#l3f1)"/>
+<rect x="60" y="122" width="30" height="62" rx="6" fill="#d6ff3a"/><rect x="60" y="122" width="30" height="7" rx="3" fill="#b5d81f"/><rect x="64" y="132" width="5" height="46" rx="2" fill="#fff" opacity=".45"/>
+<text x="75" y="163" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="11" fill="#141414">ZAP</text>
+<path d="M78 140l-7 12h6l-4 10 9-13h-6l4-9z" fill="#141414"/>
+<rect x="142" y="108" width="112" height="90" fill="#1c3f8f"/>
+<circle cx="198" cy="140" r="15" fill="#0d1f4a"/><path d="M170 198c2-26 54-26 56 0z" fill="#0d1f4a"/><path d="M181 140a17 17 0 0 1 34 0" stroke="#d6ff3a" stroke-width="4" fill="none"/><rect x="177" y="136" width="8" height="12" rx="3" fill="#d6ff3a"/><rect x="211" y="136" width="8" height="12" rx="3" fill="#d6ff3a"/>
+<rect x="208" y="166" width="20" height="13" rx="2" fill="#8fd2ff" opacity=".9"/>
+<rect x="266" y="108" width="112" height="90" fill="#0f0f0f"/>
+<text x="322" y="146" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="17" fill="#fff">NEVER</text><text x="322" y="166" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="17" fill="#fff">LOG OFF.</text><path d="M286 174h72" stroke="#d6ff3a" stroke-width="3"/>
+<text x="322" y="190" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" fill="#9a9a9a">*not for under-16s</text>
+<rect x="390" y="108" width="112" height="90" fill="#262626"/><rect x="420" y="112" width="52" height="82" rx="7" fill="#101010" stroke="#555"/><path d="M440 142l14 9-14 9z" fill="#fff"/>
+<text x="446" y="178" text-anchor="middle" font-family="DM Mono, monospace" font-size="6.5" fill="#d6ff3a">@zap.energy</text><text x="446" y="188" text-anchor="middle" font-family="DM Mono, monospace" font-size="6" fill="#bbb">♥ 1.2M</text>
+<g font-family="DM Mono, monospace" font-size="7" fill="#ffb000"><text x="22" y="214">07</text><text x="146" y="214">07A</text><text x="270" y="214">08</text><text x="394" y="214">08A</text></g>
+<circle cx="326" cy="157" r="50" fill="#000" opacity=".45"/>
+<g clip-path="url(#l3lc)"><rect x="270" y="100" width="110" height="110" fill="#0f0f0f"/><text x="322" y="146" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="19" fill="#fff">NEVER</text><text x="322" y="166" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="19" fill="#fff">LOG OFF.</text><path d="M284 176h76" stroke="#d6ff3a" stroke-width="4"/><text x="322" y="195" text-anchor="middle" font-family="DM Mono, monospace" font-size="8" fill="#c9c9c9">*not for under-16s</text></g>
+<circle cx="322" cy="152" r="46" fill="none" stroke="#d9d9d9" stroke-width="7"/><circle cx="322" cy="152" r="42.5" fill="none" stroke="#777" stroke-width="1"/><path d="M290 126a40 40 0 0 1 22-14" stroke="#fff" stroke-width="2" opacity=".5" fill="none" stroke-linecap="round"/>
+<g stroke="#ffb000" stroke-width="1" fill="none"><path d="M60 228V246"/><path d="M196 228V246"/><path d="M322 202V246"/></g>
+<g font-family="DM Mono, monospace" font-size="10.5" fill="#ffb000"><text x="30" y="262">① audience: gamers,</text><text x="30" y="276">  15-19, up late</text><text x="176" y="262">② the "always on"</text><text x="176" y="276">  promise</text><text x="320" y="262">③ imperative + absolute,</text><text x="320" y="276">  then small print that</text><text x="320" y="290">  contradicts it</text></g>
+</svg>
+</figure>
+<div class="side">
+<div class="ex">
+<p class="lab">Worked example · 3 marks</p>
+<p class="q">How does the advert target its audience? Refer to the copy.</p>
+<p class="txt"><span class="m">NEVER LOG OFF.<sup>1</sup></span> ZAP: energy for <span class="m">the next round.<sup>2</sup></span> <small><span class="m">*Not for under-16s<sup>3</sup></span></small></p>
+<ol>
+<li><i>1</i><span>The imperative and the absolute "never" turn staying awake into a challenge.</span></li>
+<li><i>2</i><span>Gaming slang ("the next round") speaks straight to young gamers.</span></li>
+<li><i>3</i><span>The small print says the opposite of what the pictures show: a hint that the advert knows its real audience.</span></li>
+</ol>
+<p class="ans">Answer: gamer slang and a dare-like imperative aim at teens, while the tiny warning lets the brand deny it.</p>
+</div>
+<div class="aside"><b>Safelight tip</b>Read the small print last, but quote it first. That is where adverts hide what they are really doing.</div>
+</div>
+</div>
+<div class="grades"><span><i style="background:#ff3b30"></i>Gr 10 · red safelight</span><span><i style="background:#ffb000"></i>Gr 11 · amber safelight</span><span><i style="background:#2fcf7a"></i>Gr 12 · green safelight</span></div>
+<div class="tags"><span>film frames</span><span>loupe</span><span>safelight glow</span><span>Syne + DM Mono</span></div>
+</article>
+</div>
+
+<h2>Writing strand: three options</h2>
+<p class="sub">Each shows a lesson opener, a draft with edits, an aside, and the grade accents (the same as its sibling language look).</p>
+<div class="opts">
+
+<article class="opt w1">
+<header><h3><span class="k">W1</span> Drafting table <span class="sib">sibling of L1</span></h3>
+<p class="pitch">The same studio paper and cobalt grid, but now the pupil builds instead of taking apart. Drafts are stacked sheets with version tabs, the essay's structure is drawn as a layout with construction lines, and the red proof-reader's marks (caret, delete, new paragraph) show the edits.</p></header>
+<div class="cols">
+<figure class="opener" style="margin:0">
+<svg viewBox="0 0 520 300" role="img" aria-label="Lesson opener: The discursive essay. Stacked draft sheets v1 to v3; the top sheet shows a balance beam over two columns, for and against, with red proof marks">
+<defs><pattern id="w1g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2747d6" stroke-opacity=".09"/></pattern></defs>
+<rect width="520" height="300" fill="#f6f4ee"/><rect width="520" height="300" fill="url(#w1g)"/>
+<text x="28" y="32" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10.5" letter-spacing="2" fill="#2747d6">WRITING · ESSAY · 03</text>
+<text x="26" y="66" font-family="Instrument Serif, serif" font-style="italic" font-size="29" fill="#16181d">The discursive</text>
+<text x="26" y="98" font-family="Instrument Serif, serif" font-style="italic" font-size="29" fill="#16181d">essay</text>
+<path d="M28 114H190" stroke="#ff4b2b" stroke-width="2.5"/>
+<text x="28" y="140" font-family="JetBrains Mono, monospace" font-weight="500" font-size="9.5" fill="#16181d">TOPIC: phones in class.</text><text x="28" y="153" font-family="JetBrains Mono, monospace" font-weight="500" font-size="9.5" fill="#16181d">Ban them?</text>
+<g font-family="Instrument Sans, sans-serif" font-size="12" fill="#16181d"><text x="48" y="188">both sides, fairly</text><text x="48" y="214">strongest point last</text><text x="48" y="240">your verdict at the end</text></g>
+<g font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#fff"><circle cx="34" cy="184" r="7" fill="#2747d6"/><text x="31.3" y="187">1</text><circle cx="34" cy="210" r="7" fill="#2747d6"/><text x="31.3" y="213">2</text><circle cx="34" cy="236" r="7" fill="#2747d6"/><text x="31.3" y="239">3</text></g>
+<g transform="rotate(5 370 160)"><rect x="232" y="36" width="262" height="240" fill="#fff" stroke="#d7dcf3"/><rect x="250" y="26" width="30" height="12" fill="#e4e8fb"/><text x="257" y="35" font-family="JetBrains Mono, monospace" font-size="8" fill="#2747d6">v1</text></g>
+<g transform="rotate(2 370 160)"><rect x="230" y="38" width="262" height="240" fill="#fff" stroke="#d7dcf3"/><rect x="286" y="28" width="30" height="12" fill="#e4e8fb"/><text x="293" y="37" font-family="JetBrains Mono, monospace" font-size="8" fill="#2747d6">v2</text></g>
+<rect x="228" y="42" width="262" height="240" fill="#fff" stroke="#c9d1f1"/><rect x="322" y="31" width="30" height="12" fill="#2747d6"/><text x="329" y="40" font-family="JetBrains Mono, monospace" font-size="8" fill="#fff">v3</text>
+<g stroke="#2747d6" fill="none" stroke-width="1.3"><path d="M262 78H456"/><path d="M359 78l-10 18h20z" fill="#e4e8fb"/><path d="M270 78v12M448 78v12"/><path d="M256 90h28l-14 10zM434 90h28l-14 10z" fill="#e4e8fb"/><path d="M228 66H490" stroke-dasharray="2 4" stroke-opacity=".5"/></g>
+<g font-family="JetBrains Mono, monospace" font-weight="700" font-size="8.5" fill="#2747d6"><text x="246" y="118">FOR</text><text x="374" y="118">AGAINST</text><text x="246" y="250">CONCLUSION</text></g>
+<rect x="244" y="104" width="230" height="4" fill="#d9dcea"/>
+<g fill="#d9dcea"><rect x="246" y="126" width="108" height="4"/><rect x="246" y="134" width="100" height="4"/><rect x="246" y="142" width="104" height="4"/><rect x="246" y="158" width="108" height="4"/><rect x="246" y="166" width="96" height="4"/><rect x="246" y="174" width="102" height="4"/><rect x="246" y="190" width="104" height="4"/><rect x="246" y="198" width="90" height="4"/>
+<rect x="374" y="126" width="100" height="4"/><rect x="374" y="134" width="96" height="4"/><rect x="374" y="142" width="100" height="4"/><rect x="374" y="158" width="92" height="4"/><rect x="374" y="166" width="100" height="4"/><rect x="374" y="174" width="84" height="4"/><rect x="374" y="190" width="100" height="4"/><rect x="374" y="198" width="98" height="4"/>
+<rect x="246" y="256" width="226" height="4"/><rect x="246" y="264" width="180" height="4"/></g>
+<g stroke="#ff4b2b" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M300 180l4 8 4-8"/><path d="M386 146h56"/><path d="M442 146c6-6 10 2 4 4"/><path d="M362 156v22"/></g>
+<text x="292" y="200" font-family="Instrument Sans, sans-serif" font-style="italic" font-weight="600" font-size="10" fill="#ff4b2b" transform="translate(0 12)">evidence?</text>
+<text x="452" y="166" font-family="Instrument Serif, serif" font-size="18" fill="#ff4b2b">¶</text>
+<text x="246" y="236" font-family="JetBrains Mono, monospace" font-size="8" fill="#2747d6">412 / 400-450 words ✓</text>
+</svg>
+</figure>
+<div class="side">
+<div class="ex">
+<p class="lab">Draft v2 → v3 · body paragraph</p>
+<p class="txt"><del>In my opinion</del> Phones <ins>can</ins> distract <del>alot</del> <ins>a great deal</ins><sup>1</sup>, but a ban <del>is stupid and</del><sup>2</sup> ignores how often we use them to look things up<ins>, check a timetable or translate a word</ins><sup>3</sup>.</p>
+<ol>
+<li><i>1</i><span>"A lot" is two words, and "a great deal" suits the formal register better.</span></li>
+<li><i>2</i><span>"Stupid" is emotive. A discursive essay weighs both sides; it does not sneer at one.</span></li>
+<li><i>3</i><span>Three concrete uses turn the claim into evidence.</span></li>
+</ol>
+<div class="meta"><span>CAPS 400-450 · IEB 500-600 (SBA)</span><span>v3 · 412 words</span></div>
+</div>
+<div class="aside"><b>Layout rule</b>One side per paragraph, topic sentence first. Hold back "I think" until the conclusion.</div>
+</div>
+</div>
+<div class="grades"><span><i style="background:#2747d6"></i>Gr 10 · cobalt</span><span><i style="background:#0f8a7e"></i>Gr 11 · teal</span><span><i style="background:#6b3fd4"></i>Gr 12 · violet</span></div>
+<div class="tags"><span>version tabs</span><span>structure as layout</span><span>proof-reader's marks</span><span>same type as L1</span></div>
+</article>
+
+<article class="opt w2">
+<header><h3><span class="k">W2</span> Field notebook <span class="sib">sibling of L2</span></h3>
+<p class="pitch">The specimen collector's own notebook: ruled cream pages, an elastic band, a pressed fynbos sprig, and drafts kept as dated entries. Formats are drawn like field sketches with handwritten oxblood notes, and edits are crossings-out and insertions in the margin. Warm and personal, it fits process writing.</p></header>
+<div class="cols">
+<figure class="opener" style="margin:0">
+<svg viewBox="0 0 520 300" role="img" aria-label="Lesson opener: Open letter, format and register. A notebook spread with a pressed fynbos sprig on the left and a sketched open letter with handwritten notes on the right">
+<defs><pattern id="w2r" width="10" height="18" patternUnits="userSpaceOnUse"><path d="M0 17.5H10" stroke="#b9c6d2" stroke-width=".7"/></pattern>
+<linearGradient id="w2gut" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset=".5" stop-color="#000" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient></defs>
+<rect width="520" height="300" fill="#d9c7a3"/>
+<rect x="18" y="18" width="488" height="268" rx="8" fill="#5a3a26"/>
+<rect x="24" y="22" width="238" height="258" rx="3" fill="#fbf5e6"/><rect x="262" y="22" width="238" height="258" rx="3" fill="#fbf5e6"/>
+<rect x="24" y="58" width="476" height="216" fill="url(#w2r)"/>
+<rect x="244" y="22" width="36" height="258" fill="url(#w2gut)"/>
+<rect x="484" y="18" width="9" height="268" fill="#8c2f39"/><rect x="484" y="18" width="3" height="268" fill="#b04a55"/>
+<text x="40" y="44" font-family="Courier Prime, monospace" font-size="9.5" letter-spacing="2" fill="#8c2f39">FIELD NOTES · WRITING · 12 MAY</text>
+<text x="38" y="88" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="700" font-size="36" fill="#2d2117">Open letter</text>
+<text x="40" y="111" font-family="Cormorant Garamond, serif" font-weight="600" font-size="19" fill="#4a3423">format and register</text>
+<g font-family="Kalam, cursive" font-size="13" fill="#8c2f39"><text x="40" y="140">Who's it for? The one</text><text x="40" y="158">person you name, and</text><text x="40" y="176">everyone else reading.</text></g>
+<g transform="translate(56 266) rotate(62) scale(.72)">
+<path d="M0 0C-4-40-2-80 6-118" stroke="#5e6b3a" stroke-width="2.2" fill="none"/>
+<g fill="#6f7f45"><path d="M-1-20c-12-4-18-12-18-18 8 2 15 8 18 18z"/><path d="M0-36c12-4 18-12 18-18-8 2-15 8-18 18z"/><path d="M1-54c-11-4-17-12-17-18 8 2 14 8 17 18z"/><path d="M2-70c11-4 16-12 16-18-8 2-13 8-16 18z"/><path d="M4-86c-10-3-15-10-15-16 7 2 12 7 15 16z"/></g>
+<g transform="translate(6 -122)"><path d="M0 8C-14 6-18-8-12-20-4-14-2-6 0 8Z" fill="#d97a8c"/><path d="M0 8C14 6 18-8 12-20 4-14 2-6 0 8Z" fill="#c45d72"/><path d="M0 8C-6-4-6-18 0-28 6-18 6-4 0 8Z" fill="#ea9aa9"/><path d="M-3-14c1-6 5-6 6 0" stroke="#fbe3e7" stroke-width="1" fill="none"/></g></g>
+<rect x="74" y="246" width="40" height="12" fill="#efe3bf" opacity=".85" transform="rotate(-20 94 252)"/><rect x="118" y="230" width="36" height="11" fill="#efe3bf" opacity=".85" transform="rotate(35 136 235)"/>
+<g font-family="Cormorant Garamond, serif" fill="#2d2117"><text x="280" y="60" font-weight="600" font-size="12.5">An open letter to</text><text x="280" y="78" font-weight="700" font-size="15">everyone who</text><text x="280" y="94" font-weight="700" font-size="15">films fights</text><text x="280" y="114" font-style="italic" font-weight="600" font-size="14">Dear bystanders,</text><text x="280" y="232" font-style="italic" font-weight="600" font-size="13">Yours in hope,</text><text x="280" y="250" font-weight="600" font-size="13">Lwazi, Grade 11</text></g>
+<g fill="#cdbfa3"><rect x="280" y="128" width="112" height="3.5"/><rect x="280" y="140" width="104" height="3.5"/><rect x="280" y="152" width="110" height="3.5"/><rect x="280" y="170" width="112" height="3.5"/><rect x="280" y="182" width="96" height="3.5"/><rect x="280" y="194" width="108" height="3.5"/><rect x="280" y="206" width="70" height="3.5"/></g>
+<g stroke="#8c2f39" stroke-width="1.4" fill="none" stroke-linecap="round"><path d="M410 72c-6 0-14 2-20 6"/><path d="M390 78l4-6M390 78l7 1"/><path d="M410 112c-8 0-14 0-18 0"/><path d="M392 112l5-4M392 112l5 4"/><path d="M410 170c-6 2-10 4-14 4"/><path d="M396 174l6-5M396 174l5 3"/><path d="M410 240c-10 0-20 0-24 0"/><path d="M386 240l5-4M386 240l5 4"/></g>
+<g font-family="Kalam, cursive" font-size="11.5" fill="#8c2f39"><text x="414" y="68">public</text><text x="414" y="81">heading</text><text x="414" y="108">a group,</text><text x="414" y="121">not a name</text><text x="414" y="166">firm, not</text><text x="414" y="179">rude</text><text x="414" y="236">sign-off</text><text x="414" y="249">+ name</text></g>
+</svg>
+</figure>
+<div class="side">
+<div class="ex">
+<p class="lab">Entry 3 · second draft</p>
+<p class="txt">Dear <del>whoever</del> <ins>bystanders</ins>,<br>You <del>guys</del> film it, you post it, <del>and then like</del> and then you scroll on. <ins>Tonight</ins> someone's worst day is your content.</p>
+<p class="note">"guys" and "like" are chat, not letter. Keep the anger, lose the slang. The last line is your strongest, so end a paragraph on it.</p>
+<div class="meta">248 words · IEB 250-300 · CAPS 180-200</div>
+</div>
+<div class="aside"><b>Field note</b>An open letter names one reader but is written for everyone looking over their shoulder. Pitch the register for the crowd.</div>
+</div>
+</div>
+<div class="grades"><span><i style="background:#8c2f39"></i>Gr 10 · oxblood ink</span><span><i style="background:#2f5d46"></i>Gr 11 · bottle-green ink</span><span><i style="background:#2a3a66"></i>Gr 12 · midnight ink</span></div>
+<div class="tags"><span>ruled pages</span><span>pressed fynbos</span><span>handwritten notes</span><span>+ Kalam for the hand</span></div>
+</article>
+
+<article class="opt w3">
+<header><h3><span class="k">W3</span> Developing tray <span class="sib">sibling of L3</span></h3>
+<p class="pitch">The darkroom again, but now the prints are the pupil's drafts. Draft 1 hangs faint on the line, draft 2 is coming through, and the final copy is sharp. Process writing becomes something you can see: each draft develops for longer. Edits show in amber under the safelight.</p></header>
+<div class="cols">
+<figure class="opener" style="margin:0">
+<svg viewBox="0 0 520 300" role="img" aria-label="Lesson opener: Blog post, voice and audience. Three blog drafts pegged on a line under a red safelight, from faint to sharp, above an exposure test strip">
+<defs><radialGradient id="w3glow" cx=".15" cy="0" r=".75"><stop offset="0" stop-color="#ff3b30" stop-opacity=".34"/><stop offset="1" stop-color="#ff3b30" stop-opacity="0"/></radialGradient>
+<filter id="w3b1" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.6"/></filter><filter id="w3b2" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation=".6"/></filter>
+<g id="w3post"><rect width="132" height="142" fill="#f2efe8"/><rect x="10" y="10" width="112" height="40" fill="#3a3a3a"/><circle cx="30" cy="30" r="10" fill="#777"/><path d="M48 40l14-16 12 12 8-6 30 10z" fill="#5a5a5a"/>
+<text x="10" y="66" font-family="Syne, sans-serif" font-weight="800" font-size="10.5" fill="#141414">I quit ranked</text><text x="10" y="79" font-family="Syne, sans-serif" font-weight="800" font-size="10.5" fill="#141414">for a month</text>
+<g fill="#9a9a9a"><rect x="10" y="88" width="108" height="3"/><rect x="10" y="96" width="100" height="3"/><rect x="10" y="104" width="112" height="3"/><rect x="10" y="112" width="90" height="3"/><rect x="10" y="124" width="104" height="3"/><rect x="10" y="132" width="70" height="3"/></g></g></defs>
+<rect width="520" height="300" fill="#131313"/><rect width="520" height="300" fill="url(#w3glow)"/>
+<circle cx="40" cy="16" r="7" fill="#ff3b30"/><circle cx="40" cy="16" r="15" fill="#ff3b30" opacity=".22"/>
+<text x="70" y="22" font-family="DM Mono, monospace" font-weight="500" font-size="10.5" letter-spacing="2" fill="#ff5a4e">WRITING · BLOG · 02</text>
+<text x="70" y="52" font-family="Syne, sans-serif" font-weight="800" font-size="24" fill="#f4f1ea">Blog post: voice and audience</text>
+<path d="M0 74C160 84 360 84 520 76" stroke="#8a8a8a" stroke-width="1.4" fill="none"/>
+<g transform="translate(26 84) rotate(-2)"><g filter="url(#w3b1)" opacity=".32"><use href="#w3post"/></g></g>
+<g transform="translate(194 86) rotate(1)"><g filter="url(#w3b2)" opacity=".68"><use href="#w3post"/></g></g>
+<g transform="translate(362 84) rotate(-1)"><use href="#w3post"/><ellipse cx="62" cy="122" rx="56" ry="11" fill="none" stroke="#ffb000" stroke-width="1.8"/></g>
+<g fill="#c9a06a"><rect x="86" y="72" width="8" height="20" rx="2"/><rect x="254" y="74" width="8" height="20" rx="2"/><rect x="422" y="72" width="8" height="20" rx="2"/></g>
+<g font-family="DM Mono, monospace" font-size="9.5" fill="#ffb000"><text x="30" y="246">DRAFT 1 · 20 s</text><text x="198" y="246">DRAFT 2 · 40 s</text><text x="366" y="246">FINAL · 60 s</text></g>
+<g><rect x="30" y="262" width="58" height="22" fill="#e9e6df"/><rect x="88" y="262" width="58" height="22" fill="#bdb9b1"/><rect x="146" y="262" width="58" height="22" fill="#8f8b84"/><rect x="204" y="262" width="58" height="22" fill="#5f5c57"/><rect x="262" y="262" width="58" height="22" fill="#33312e"/></g>
+<text x="334" y="277" font-family="DM Mono, monospace" font-size="9.5" fill="#d7d3cc">test strip: voice, flat → yours</text>
+</svg>
+</figure>
+<div class="side">
+<div class="ex">
+<p class="lab">Draft 2 → final · opening line</p>
+<p class="txt"><del>This blog will discuss my experience of not playing ranked games for one month.</del> <ins>Honestly? I didn't miss it.</ins> <span class="faint">For thirty days I logged in, looked at the queue, and logged out again</span><ins>, and nobody noticed but me</ins>.</p>
+<ol>
+<li><i>1</i><span>A blog starts with a voice, not an announcement. Cut the "this blog will discuss" line.</span></li>
+<li><i>2</i><span>The rhetorical question sets a chatty register that suits the readers.</span></li>
+<li><i>3</i><span>The added clause gives the post a personal edge.</span></li>
+</ol>
+<div class="meta"><i style="background:#5f5c57"></i>draft 2 <i style="background:#e9e6df"></i>→ final · 274 words · IEB 250-300</div>
+</div>
+<div class="aside"><b>Darkroom rule</b>No draft is ruined; it just isn't developed yet. Leave it in longer: read it aloud and fix what sounds flat.</div>
+</div>
+</div>
+<div class="grades"><span><i style="background:#ff3b30"></i>Gr 10 · red</span><span><i style="background:#ffb000"></i>Gr 11 · amber</span><span><i style="background:#2fcf7a"></i>Gr 12 · green</span></div>
+<div class="tags"><span>pegged prints</span><span>drafts that develop</span><span>test strip</span><span>same type as L3</span></div>
+</article>
+</div>
+
+<h2>Mascots: three candidates</h2>
+<p class="sub">Each candidate is drawn in layers: base, shadow, highlight and a cool rim light, with the light coming from the top left. All three are shown greeting, reacting to a mistake, and celebrating. They are South African animals, and none of them is the hadeda.</p>
+<div class="mascots">
+
+<section class="mascot">
+<div class="poses">
+{{RATEL}}
+</div>
+<h3>Ratel <small>honey badger · the editor</small></h3>
+<p>Fearless and blunt, and secretly kind. Ratel wears a green editor's visor and never puts down the red pencil. It will chew through any sentence, but it never bites the writer.</p>
+<dl><dt>Nags about</dt><dd>comma splices, waffle and "very", going over the word limit, unclear "it" and "they", the apostrophe in "it's"</dd>
+<dt>Grades</dt><dd>One Ratel for all three grades. Only the visor changes, in the grade accent (cobalt, teal, violet, or the family's colours). Ratel's look stays the same, so pupils recognise it.</dd>
+<dt>Fits</dt><dd>Language strand: editing, summary and language in context</dd></dl>
+</section>
+
+<section class="mascot">
+<div class="poses">
+{{FOLIO}}
+</div>
+<h3>Folio <small>ground pangolin · the archivist</small></h3>
+<p>Shy and precise. Folio keeps every quotation filed and curls up at sloppy evidence. Pangolins really do walk on their hind legs, so Folio always holds something: a book, a card or a scroll.</p>
+<dl><dt>Nags about</dt><dd>summaries over 90 words, examples posing as points, quotations without the line, retelling the plot instead of answering</dd>
+<dt>Grades</dt><dd>Suits a family. In Gr 10 a pup rides on Folio's tail, as pangolin young really do. In Gr 11 the pup walks alongside, and in Gr 12 it has grown and has its own glasses. It is a gentle way to show the pupils growing up.</dd>
+<dt>Fits</dt><dd>Language strand and the literature essays (evidence and quotation)</dd></dl>
+</section>
+
+<section class="mascot">
+<div class="poses">
+{{QUILL}}
+</div>
+<h3>Quill <small>secretary bird · the stickler</small></h3>
+<p>Tall, formal and theatrical, with a red bow tie. The crest is a fan of quill pens, and one ends in a gold nib. Real secretary birds stamp on snakes; Quill stamps on clichés.</p>
+<dl><dt>Nags about</dt><dd>clichés ("at the end of the day"), a missing salutation or sign-off, register slips, one-sentence paragraphs, the wrong format for the task</dd>
+<dt>Grades</dt><dd>One bird, but the crest grows a quill each year: four in Gr 10, five in Gr 11, and six with the gold nib in Gr 12. It is a quiet "level up" pupils can spot.</dd>
+<dt>Fits</dt><dd>Writing strand: essays, transactional writing and orals</dd></dl>
+</section>
+</div>
+<div class="note"><p><b>A thought before you choose:</b> one mascot per strand also works. Ratel could nag in the language sections and Quill in the writing sections, which would make the strand switch even clearer. Folio would suit the literature essays if you want a third. Or pick one of them to cover the whole course.</p></div>
+
+<h2>How the strands fit</h2>
+<div class="note">
+<p><b>The course page and lesson list</b> show each lesson in its strand's look. A small swatch and icon sit on every row: the chosen family's paper for language and its sibling for writing. Literature rows use the work's own colour from the literature board. The list scrolls like a varied timetable, not like one wallpaper.</p>
+<p><b>Language lessons</b> (comprehension, summary, visual literacy, language in context, editing) all use the L look. The grade accent changes the lines, pins or safelight, so a Gr 11 page still feels like Gr 11.</p>
+<p><b>Writing lessons</b> (essays, transactional, process writing and drafts) use the W sibling. It has the same type family and paper, so a pupil can tell it is the same course but a different kind of work.</p>
+<p><b>Literature units</b> use the per-work looks from the sibling board: Elsinore for <i>Hamlet</i>, the Pacific for <i>Life of Pi</i>, and so on. A literature essay lesson keeps the work's art for its pictures, but its draft-and-edit cards use the W look, so the writing skills look the same wherever they appear.</p>
+<p><b>The mascot</b> crosses every strand unchanged. It is the one constant, and it carries the margin jokes as doodles.</p>
+</div>
+</div>
