@@ -73,6 +73,9 @@ Both are safe to re-run and never delete anything.
 `/var/log/itcoder-remind.log` and adds the cron line for `bin/remind.php`
 (weekdays 04:30 UTC) - live only; the test site never gets it. Email keys go to
 live with `tools/set-server-config.py mail` (it asks for the key; never printed).
+The same way it adds `bin/behind.php` (weekdays 04:45 UTC) and, from 11 October
+2026 (Chris chose this over a one-off line by hand), `bin/school-calendars.php`
+(01:15 UTC, `/var/log/itcoder-school-calendars.log`) - live only.
 
 ## When something goes wrong
 

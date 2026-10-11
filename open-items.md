@@ -684,11 +684,11 @@ Still open:
 
 ## Operations and housekeeping
 
-- **The school calendar cron line on live and test** (2026-10-11): `15 1 * * *`
-  `bin/school-calendars.php` -> `/var/log/itcoder-school-calendars.log` (log made first, owned by
-  www-data - vps-access.md). In the install kit's cron step; the running servers need it added once,
-  after the publish that carries lib/schoolcalendar.php. Until then a link is read only when its
-  school's admin saves it.
+- **The school calendar cron line on live** (2026-10-11): `15 1 * * *` `bin/school-calendars.php` ->
+  `/var/log/itcoder-school-calendars.log`. deploy-live.py now adds it (Chris, 11 Oct 2026); the code
+  went live that day without it, so it arrives with the **next** live publish - check `crontab -u
+  www-data -l` then and remove this item. Until then a link is read only when its school's admin
+  saves it. Live only, like the reminder emails.
 - **Deploy order: new tables after new code** (2026-10-01). deploy-live.py uploads all of the code (step 3) and
   only then runs setup.php (step 6): for about 90 seconds on 1 Oct, pages that read the new pasteAllowed table
   failed (10 "no such table" errors in nginx's log, none after setup). Run setup.php right after lib/ and

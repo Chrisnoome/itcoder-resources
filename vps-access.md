@@ -90,8 +90,8 @@ print(vps.run('nginx -t'))
     (empty when idle is normal)
   - `30 2 * * *` `/var/www/itcoder/bin/backup.php` -> `itcoder-backup.log`
   - `15 1 * * *` `/var/www/itcoder/bin/school-calendars.php` -> `itcoder-school-calendars.log`
-    (schools' calendar links, read every night - 11 Oct 2026; in the install kit. **Not on live or
-    test yet** - open-items.md)
+    (schools' calendar links, read every night - 11 Oct 2026; in the install kit; added by
+    deploy-live.py from the next live publish after 11 Oct 2026, live only)
   - `30 4 * * 1-5` `/var/www/itcoder/bin/remind.php` -> `itcoder-remind.log`
     (06:30 SA time; weekly reminders to pupils behind - added by deploy-live.py
     from 27 Sep 2026, live only; the server clock is UTC)

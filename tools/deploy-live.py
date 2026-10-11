@@ -182,6 +182,16 @@ Step('add the behind cron line (only if absent)',
      "echo '45 4 * * 1-5 /usr/bin/php /var/www/itcoder/bin/behind.php >> /var/log/itcoder-behind.log 2>&1' >> /tmp/ct.txt "
      "&& crontab -u www-data /tmp/ct.txt && echo added; fi; rm -f /tmp/ct.txt")
 
+# Schools' calendar links, read every night (11 October 2026, bin/school-calendars.php):
+# 01:15 UTC. It only reads the links and tells each school's admin what changed - it
+# never saves a calendar by itself. Live only.
+Step('create the school calendars log', 'touch /var/log/itcoder-school-calendars.log && chown www-data:www-data /var/log/itcoder-school-calendars.log && chmod 640 /var/log/itcoder-school-calendars.log && ls -l /var/log/itcoder-school-calendars.log')
+Step('add the school calendars cron line (only if absent)',
+     "crontab -u www-data -l > /tmp/ct.txt; "
+     "if grep -q 'itcoder/bin/school-calendars.php' /tmp/ct.txt; then echo 'already there'; else "
+     "echo '15 1 * * * /usr/bin/php /var/www/itcoder/bin/school-calendars.php >> /var/log/itcoder-school-calendars.log 2>&1' >> /tmp/ct.txt "
+     "&& crontab -u www-data /tmp/ct.txt && echo added; fi; rm -f /tmp/ct.txt")
+
 print('\n== 8. verify ==')
 Step('every php file parses',
      "find %s/lib %s/bin %s/public %s/content -name '*.php' -exec php -l {} + 2>&1 "
