@@ -2818,6 +2818,25 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   `youtube-stats.json` beside the database with a daily snapshot kept 60
   days for the 7- and 30-day change; tiles, by subject (title prefix), most
   watched and newest. With no key the tab shows the setup steps.
+  **Where viewers are and how they find the channel** (Chris, 11 October 2026:
+  "add geography and sources to youtube"; he chose countries, traffic sources,
+  the websites that send viewers and devices): private figures, so the
+  **YouTube Analytics API with the owner's one-time Connect**
+  (`lib/youtubeanalytics.php`, `public/admin-youtube.php`) - the API key cannot
+  read them. Connect reuses the site's Google sign-in client
+  (googleClientId/Secret) with the one scope `yt-analytics.readonly`, offline;
+  the redirect `https://<address>/admin-youtube.php` must be in that client's
+  Authorised redirect URIs and the YouTube Analytics API enabled in its project
+  (the tab shows the exact steps and address). The refresh token is kept in
+  `youtube-oauth.json` beside the database (chmod 600; not in git, not in the
+  backups - after a restore or a new server, press Connect again); Disconnect
+  revokes it at Google. Reports ask for the configured channel, so an account
+  that does not own it is told so at Connect. Last 7 / 28 (default) / 90 days
+  ending yesterday (`?ytdays=`), each period fetched only when looked at and
+  kept six hours in `youtube-analytics.json`: totals, top 10 countries (names
+  from a list - the server's PHP has no intl), traffic sources in words,
+  outside websites (`EXT_URL` detail), devices. The red dot also shows until
+  it is connected or when its last refresh failed.
 - **Admin > Activity** (`admin-activity.php`, `lib/activity.php`; Chris, 8
   October 2026: "a heat map - time in 30 minute segments, number of users
   online ... tools to view use of the site for planning and management"; he
@@ -2898,6 +2917,12 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   fails like any failed call (admin's "Re-mark all failed" retries it).
   **Raised to US$50 a day and lowered to 60 a person** (Chris, 4 October 2026,
   before selling subscriptions; set in live's config.php and the code defaults).
+  **150 a person from 11 October 2026** (Chris, after a pupil did five theory
+  lessons in a day - 59 marked answers - and his last four stopped at 60).
+  **An answer stopped by a daily limit is held, not handed back**
+  (`MarkingHeldTillTomorrow()`): the page says "Handed in ... will be marked
+  automatically tomorrow - no need to hand it in again" (no resubmit button),
+  and bin/markqueue.php puts it back in the queue once the UTC day has turned.
 - **A monthly AI budget per paid plan** (Chris, 4 October 2026: "cheaper model,
   then stop" - pricing-suggestions.md section 2): `plans.aiMonthlyBudgetCents`
   (rand cents; Admin > Billing > Plans, "AI a month"; R10 a course, R15 a
