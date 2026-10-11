@@ -309,6 +309,42 @@ def jokes10():
     j.save()
 
 
+def garden():
+    """The garden-club plot: 6 m x 4 m, three beds of 1,5 m x 4 m with 0,75 m paths, a 1 m gate."""
+    w, h = 560, 420
+    svg = blueprint('garden', w, h, 'Plan of the vegetable garden: a plot 6 000 by 4 000 mm with three beds, each 1 500 by 4 000 mm, separated by paths of 750 mm, and a 1 000 mm gate in the bottom side')
+    u = 70
+    ox, oy = 70, 50
+    X = lambda m: ox + m * u
+    Y = lambda m: oy + m * u
+    svg.add(f'<rect x="{X(0)}" y="{Y(0)}" width="{6 * u}" height="{4 * u}" fill="none" stroke="{WHITE}" stroke-width="3" stroke-dasharray="10 4"/>')
+    for k, x in enumerate([0, 2.25, 4.5]):
+        svg.add(f'<rect x="{X(x)}" y="{Y(0)}" width="{1.5 * u}" height="{4 * u}" fill="#2f7d4f" fill-opacity=".55" stroke="{WHITE}" stroke-width="1.5"/>')
+        svg.text(X(x + 0.75), Y(2) + 4, f'BED {k + 1}', 11, WHITE, 'middle', 700, MONO)
+    svg.add(f'<rect x="{X(1.375)}" y="{Y(4) - 3}" width="{u}" height="6" fill="{BLUE_BG}"/><path d="M{X(1.375)} {Y(4)} l{u * .8:.0f} {-u * .45:.0f}" stroke="#ffd166" stroke-width="3"/>')
+    svg.text(X(1.875), Y(4) + 40, 'GATE 1 000', 11, '#ffd166', 'middle', 600, MONO)
+    svg.text(X(3), Y(0) - 14, '6 000', 12, WHITE, 'middle', 600, MONO)
+    svg.text(X(0) - 12, Y(2) + 4, '4 000', 12, WHITE, 'end', 600, MONO)
+    svg.text(X(0.75), Y(4) + 22, '1 500', 11, PALE, 'middle', 600, MONO)
+    svg.text(X(1.875), Y(4) + 22, '750', 11, PALE, 'middle', 600, MONO)
+    svg.text(w / 2, h - 12, 'Garden club plot (dimensions in mm) - fence along the dashed line', 11, PALE, 'middle', 600, MONO)
+    svg.save()
+
+
+def term3_assessment():
+    opener(60, 10, 1, 2, 'Assignment workshop', 'Fence, beds, budget - start to finish.', ['A WHOLE', 'GARDEN!'], 'TERM 3 ASSESSMENT · 1 OF 2')
+    opener(61, 10, 2, 2, 'Term 3 test', 'Money, measuring and plans.', ['RULER', 'READY?'], 'TERM 3 ASSESSMENT · 2 OF 2')
+    garden()
+    j = jcard('assign3', 'A cabbage with a face, sitting proudly in a neat garden bed with a fence')
+    j.add(f'<rect x="40" y="120" width="220" height="40" fill="#8a5a3c" stroke="{INK}" stroke-width="3"/>')
+    for x in range(40, 270, 22):
+        j.add(f'<path d="M{x} 160 V96" stroke="{INK}" stroke-width="3"/>')
+    j.add(f'<path d="M36 104 H264 M36 130 H264" stroke="{INK}" stroke-width="2"/>')
+    j.add(f'<circle cx="150" cy="96" r="34" fill="#7bc96f" stroke="{INK}" stroke-width="3"/><path d="M126 84 q24 -26 48 0 M132 108 q18 14 36 0" stroke="#2f7d4f" stroke-width="3" fill="none"/>')
+    face(j, 150, 96, 14)
+    j.save()
+
+
 if __name__ == '__main__':
     classroom('roomplan', False, 'Floor plan of Classroom 10B at a scale of 1 to 100: the walls, two windows on the top wall, a door on the bottom wall, a cupboard, the teacher\'s desk, six learner tables and a quarter-circle rug in the bottom-right corner; no dimensions are written, so they must be measured')
     classroom('roomplan-dims', True, 'Floor plan of Classroom 10B at a scale of 1 to 100 with dimensions in millimetres: 8 000 by 6 000 inside, two windows of 2 000')
@@ -323,3 +359,4 @@ if __name__ == '__main__':
         opener(*o)
     lshape(); rug(); plan_symbols(); flatpack(); truck(); d_tools(); d_jobdone10()
     jokes10()
+    term3_assessment()
