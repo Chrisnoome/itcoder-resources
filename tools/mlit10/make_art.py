@@ -127,13 +127,13 @@ def wrap(title, width):
 
 # ------------------------------------------------------- lesson openers ----
 
-def opener(n, batch, lesson_in_batch, of, title, slogan, says):
+def opener(n, batch, lesson_in_batch, of, title, slogan, says, kicker=None):
     """A lesson's opening sign: the batch, the lesson title, a slogan, the
     minibus route of the year with this batch's stop circled, and Hadi."""
     svg = Svg(f'open-{n:02d}', 560, 300, f'Lesson {n}: {title}', bg=SIGN, rx=8)
     svg.add(f'<rect x="10" y="10" width="540" height="280" rx="4" fill="none" stroke="{INK}" stroke-width="5"/>')
     svg.add(f'<rect x="18" y="18" width="524" height="264" rx="2" fill="none" stroke="{RED}" stroke-width="2"/>')
-    svg.text(36, 50, f'{BATCHES[batch - 1].upper()} · LESSON {lesson_in_batch} OF {of}', 13, INK)
+    svg.text(36, 50, kicker or f'{BATCHES[batch - 1].upper()} · LESSON {lesson_in_batch} OF {of}', 13, INK)
     lines = wrap(title.upper(), 13)
     if len(lines) > 2:
         lines = wrap(title.upper(), 15)
@@ -724,6 +724,8 @@ if __name__ == '__main__':
     ]
     for o in openers3:
         opener(*o)
+    opener(19, 3, 1, 2, 'Investigation workshop', 'Question, collect, sort, sum up, conclude.', ['SHOW YOUR', 'THINKING'], 'TERM 1 ASSESSMENT · 1 OF 2')
+    opener(20, 3, 2, 2, 'Term 1 test', 'Read twice, show working, give units.', ['UNITS!', 'SQUAWK!'], 'TERM 1 ASSESSMENT · 2 OF 2')
     d_leading(); d_soup(); d_tally(); d_middle(); d_vu(); d_outlier(); d_jobdone3()
 
     openers2 = [

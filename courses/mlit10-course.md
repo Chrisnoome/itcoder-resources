@@ -5,7 +5,7 @@
 show as "coming soon"), with its art from `tools/mlit10/make_art.py`, `caps.php`,
 `sags.php` and `glossary.php`. Every numeric answer was tried on the testbed with lenient
 typings (R 33, 2.5m, 3¾, R135 per kg, 2h30). The numeric answer type is built
-(platform.md, "Typed answers"). Next: the Term 1 assessment lessons (investigation workshop, Term 1 test), then batch 4. The course row is `open`, so it shows on the site once published.
+(platform.md, "Typed answers"). The Term 1 assessment lessons (investigation workshop, Term 1 test) are written too, so Term 1 (20 lessons) is complete. Next: batch 4, Gogo's Shoebox. The course row is `open`, so it shows on the site once published.
 
 Chris, 10 October 2026: "maths lit lends itself to different scenarios and graphical
 themes. plan out a course for grade 10 that covers caps and sags grade 10 over a normal
