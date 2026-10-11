@@ -75,7 +75,7 @@ def trip_receipt():
     row(svg, 34, 266, y, 'ITEMS: 17', '', 11, font=MONO); y += 24
     row(svg, 34, 266, y, 'VAT INCLUDED @ 15%', '42,51', 11, font=MONO); y += 20
     row(svg, 34, 266, y, 'Z = ZERO-RATED (NO VAT)', '', 10, font=MONO, colour=DOCGREY); y += 30
-    svg.text(150, y, '12 SEP  06:05  TILL 1', 10, DOCGREY, 'middle', 400, MONO); y += 24
+    svg.text(150, y, '28 AUG  16:40  TILL 1', 10, DOCGREY, 'middle', 400, MONO); y += 24
     svg.text(150, y, 'THANK YOU - SALA KAHLE', 11, DOCINK, 'middle', 600, MONO)
     svg.save()
 
