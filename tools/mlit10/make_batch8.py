@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from make_art import Svg, opener, hadi, SIGN, INK, RED, BLUE, WHITE, NUM, HAND, MARKER
 from make_jokes import jcard, face
 
+NAVY_INK = '#14213d'
 TEAL, CREAM, CORAL, SUN, MINT, SEA = '#2d6a63', '#f4efe6', '#ff8c69', '#ffd166', '#06d6a0', '#118ab2'
 COLOURS = {'Red': CORAL, 'Yellow': SUN, 'Green': MINT, 'Blue': SEA}
 SHADOW = '<defs><filter id="pc8" x="-10%" y="-10%" width="130%" height="130%"><feDropShadow dx="2" dy="3" stdDeviation="1.6" flood-opacity=".3"/></filter></defs>'
@@ -163,6 +164,23 @@ def jokes8():
     j.save()
 
 
+def term2_assessment():
+    opener(42, 8, 1, 2, 'Assignment workshop', 'Method, answer, unit - every time.', ['SHOW THE', 'WORKING!'], 'TERM 2 ASSESSMENT · 1 OF 2')
+    opener(43, 8, 2, 2, 'June exam practice', 'Paper 1, Paper 2, no panic.', ['UNITS!', 'SQUAWK!'], 'TERM 2 ASSESSMENT · 2 OF 2')
+    j = jcard('assign2', 'A gym contract with a face, sweating as it lifts a dumbbell')
+    j.add(f'<rect x="110" y="40" width="80" height="104" fill="{WHITE}" stroke="{INK}" stroke-width="3"/>')
+    for k in range(3):
+        j.add(f'<path d="M122 {100 + k * 12} h56" stroke="#9aa5ad" stroke-width="2"/>')
+    j.text(150, 60, 'CONTRACT', 11, NAVY_INK, 'middle')
+    face(j, 150, 78, 12, 'flat')
+    j.add(f'<path d="M110 74 L80 28 M190 74 L220 28" stroke="{INK}" stroke-width="4" stroke-linecap="round"/>'
+          f'<path d="M56 28 H244" stroke="{INK}" stroke-width="6" stroke-linecap="round"/>'
+          f'<rect x="44" y="12" width="14" height="32" rx="3" fill="{INK}"/><rect x="242" y="12" width="14" height="32" rx="3" fill="{INK}"/>')
+    j.add(f'<path d="M196 84 q6 10 0 16" stroke="{SEA}" stroke-width="4" fill="none" stroke-linecap="round"/>')
+    j.text(150, 170, '24 MONTHS', 13, RED, 'middle')
+    j.save()
+
+
 if __name__ == '__main__':
     for o in [(39, 8, 1, 3, 'How likely?', 'From impossible to certain.', ['70% CHANCE', 'OF RAIN?']),
               (40, 8, 2, 3, 'Fair or not?', 'Theory says one thing. Spin and see.', ['IS IT', 'RIGGED?']),
@@ -173,3 +191,4 @@ if __name__ == '__main__':
     spinner_fig('spinner31', ['Red', 'Red', 'Red', 'Blue'], 'A spinner with four equal sections: three red and one blue', "LWAZI'S SPINNER")
     d_dice(); d_jobdone8()
     jokes8()
+    term2_assessment()
