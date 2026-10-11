@@ -367,7 +367,18 @@ is unsure of, or what needs written words. In every lesson:
   (Click, Double-click, Right-click, Type, Press keys), and repeats it in the
   pop-up after a wrong try - and give every step a hint that helps without
   giving the target away. A course's first simulation is always the
-  practice one (section 4).
+  practice one (section 4). **More step kinds** (9 October 2026): a
+  **drag** (`'drag' => ['from' => [x, y, w, h], 'to' => [x, y, w, h]]` -
+  the fill handle dragged to a cell, a range outline's corner, a column
+  edge, a sheet tab, a page break; the two boxes must not overlap, and the
+  `to` box covers only where letting go gives the right result - not the
+  next row); a **triple-click** (`'button' => 'triple'` - a whole paragraph
+  in Word); and **typing without Enter** (`'enter' => false` - a box in a
+  dialog box with more to do, where Enter would press OK or Find Next; a
+  comment; a header; a table cell). Write the `say` of a no-Enter step
+  without "then press Enter" (the page says "press Tab or click Done"). Use
+  them as the program really behaves; a drag needs a screen of the moment
+  before it and, for `done`, the result.
 - **Mark and correct** (1 October 2026 - lib/markcorrect.php; Chris): a
   `written` question with `'markCorrect'`: an exam question and somebody's
   answer to it, which the pupil marks (where each mark is earned or lost, and
@@ -505,6 +516,11 @@ what makes a lesson worth reading, never what a pupil needs.
   (numbers go stale); no invented statistics. Unsure? Leave it out.
 - **Jokes** in the lesson's voice: short, kind, local where it fits (Joburg,
   Eskom, taxis, braais), never at a pupil's expense or about a group of people.
+  **A joke is never labelled "Joke"** (Chris, 11 October 2026: "don't put the
+  word 'joke' above a joke. rather do an appropriate drawing"): draw the joke
+  as a `Doodle()` in the course's art style, with the joke as its caption -
+  never `MarginNote ('...', 'Joke')`. Model: the Maths Lit Grade 10 course,
+  `tools/mlit10/make_jokes.py`.
 - With no room for a margin (a phone, or the console open) doodles hide and
   notes sit in the text as small grey boxes - so a note must read well between
   two paragraphs.

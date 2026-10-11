@@ -744,19 +744,19 @@ def hline(svg, x1, x2, y, dash=False, colour=DOCLINE):
 
 
 def municipal_bill():
-    svg = doc('municipalbill', 560, 620, 'Mzansi Metro municipal account for Mrs N Nkosi, March: electricity, water, refuse, sewerage, rates and VAT, total due R3 894,73 by 15 April')
+    svg = doc('municipalbill', 560, 620, 'Mzansi Metro municipal account for Mrs N Nkosi, February: electricity, water, refuse, sewerage, rates and VAT, total due R3 894,73 by 15 March')
     svg.add(f'<rect x="8" y="8" width="544" height="64" fill="#1f5c8b"/>')
     svg.text(28, 40, 'MZANSI METRO MUNICIPALITY', 18, WHITE, 'start', 700, DOC)
     svg.text(28, 60, 'Consolidated municipal account - tax invoice', 12, '#d6e6f2', 'start', 400, DOC)
     rows = [('Account holder', 'Mrs N Nkosi'), ('Address', '14 Mahlangu Street, Mzansi'), ('Account number', '5520 3318 07'),
-            ('Statement date', '25 March'), ('Due date', '15 April')]
+            ('Statement date', '25 February'), ('Due date', '15 March')]
     for i, (a, b) in enumerate(rows):
         row(svg, 28, 300, 100 + i * 20, a, '', 12, colour=DOCGREY)
         svg.text(170, 100 + i * 20, b, 12, DOCINK, 'start', 600, DOC)
     svg.add(f'<rect x="330" y="86" width="200" height="86" rx="4" fill="#eef5fb" stroke="#1f5c8b"/>')
     svg.text(430, 112, 'AMOUNT DUE', 12, '#1f5c8b', 'middle', 700, DOC)
     svg.text(430, 144, 'R3 894,73', 26, DOCINK, 'middle', 800, DOC)
-    svg.text(430, 164, 'by 15 April', 11, DOCGREY, 'middle', 400, DOC)
+    svg.text(430, 164, 'by 15 March', 11, DOCGREY, 'middle', 400, DOC)
     y = 210
     svg.text(28, y, 'ACCOUNT SUMMARY', 12, '#1f5c8b', 'start', 700, DOC); hline(svg, 28, 532, y + 6)
     for a, b in [('Previous balance', 'R3 512,40'), ('Payment received - thank you', '-R3 512,40'), ('Balance brought forward', 'R0,00')]:
@@ -785,7 +785,7 @@ def municipal_bill():
 
 
 def till_slip():
-    svg = Svg('tillslip', 300, 640, 'Ubuntu Foods till slip: eight items, three zero-rated, total R512,91, VAT included R42,77, cash R600, change R87,09', bg='#f3f4f5', rx=4)
+    svg = Svg('tillslip', 300, 640, 'Ubuntu Foods till slip: eight items, three zero-rated, total R512,91, VAT included R42,77, paid by card', bg='#f3f4f5', rx=4)
     teeth = ''.join(f' L{280 - 10 * (k + 1)} {614 + (12 if k % 2 == 0 else 0)}' for k in range(26))
     svg.add(f'<path d="M20 10 H280 V614{teeth} L20 10 Z" fill="{PAPER}" stroke="{DOCLINE}"/>')
     svg.text(150, 44, 'UBUNTU FOODS', 18, DOCINK, 'middle', 700, MONO)
@@ -800,8 +800,8 @@ def till_slip():
     hline(svg, 34, 266, y - 6, True, DOCINK)
     y += 14
     row(svg, 34, 266, y, 'TOTAL', 'R512,91', 14, True, MONO); y += 26
-    row(svg, 34, 266, y, 'CASH', '600,00', 11, font=MONO); y += 20
-    row(svg, 34, 266, y, 'CHANGE', '87,09', 11, font=MONO); y += 30
+    row(svg, 34, 266, y, 'CARD - KHAYA BANK', '512,91', 11, font=MONO); y += 20
+    row(svg, 34, 266, y, 'CHANGE', '0,00', 11, font=MONO); y += 30
     row(svg, 34, 266, y, 'ITEMS: 8', '', 11, font=MONO); y += 24
     row(svg, 34, 266, y, 'VAT INCLUDED @ 15%', '42,77', 11, font=MONO); y += 20
     row(svg, 34, 266, y, 'Z = ZERO-RATED (NO VAT)', '', 10, font=MONO, colour=DOCGREY); y += 30
@@ -820,7 +820,7 @@ def store_statement():
     for x, t, a in [(36, 'Date', 'start'), (110, 'Description', 'start'), (524, 'Amount', 'end')]:
         svg.text(x, y, t, 11, DOCINK, a, 700, DOC)
     for d, t, amt in [('1 Mar', 'Opening balance', 'R1 450,00'), ('3 Mar', 'Purchase - school shoes and jersey', 'R899,00'),
-                      ('10 Mar', 'Payment received - thank you', '-R600,00'), ('28 Mar', 'Interest on balance', 'R24,50')]:
+                      ('20 Mar', 'Payment received - thank you', '-R600,00'), ('28 Mar', 'Interest on balance', 'R24,50')]:
         y += 26
         svg.text(36, y, d, 12, DOCINK, 'start', 400, DOC); svg.text(110, y, t, 12, DOCINK, 'start', 400, DOC); svg.text(524, y, amt, 12, DOCINK, 'end', 400, DOC)
         hline(svg, 28, 532, y + 8)
