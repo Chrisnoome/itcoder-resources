@@ -2322,6 +2322,57 @@ api/sql-run.php.
   the test's own folder (`$GLOBALS['checkContentDirs']`, read by
   `CourseContentDir()`), never content/.
 
+## School and teacher settings (Chris, 11 Oct 2026)
+
+Chris: "think of other possible settings for schools and teachers"; he chose all four groups offered (AI and
+marking rules, deadlines and late work, school identity and billing, year-end and privacy) and "Yes, build them
+now". **The school's admin sets the school's rules** on `public/school-settings.php` (linked from Teacher settings ›
+Marking and deadlines and from Admin › People › Schools; `schools.rules`, JSON); **every teacher may change any rule
+for their own classes** (Teacher settings › Marking and deadlines; `pupils.teacherRules` holds only the ones they
+changed - "As the school: ..." goes back). **A pupil follows the teacher `PupilTeacher()` names** for the course,
+and that teacher's school; with neither, `RULE_DEFAULTS` - what the site did before. All in `lib/schoolrules.php`.
+
+- **AI marking off for a grade** (`aiOffGrades`): read in `Entitlements()` (step 5c, `PupilAiOffReason()` - the
+  pupil's newest class's grade). **Never over a paid subscription**; the site admin's AI on switch still wins. The
+  pupil's written and code answers cannot be handed in, as for any account without AI marking.
+- **Hold AI marks until a teacher checks them** (`holdAiMarks`): bin/markqueue.php marks as usual, sets
+  `writtenAnswers.heldAt` and sends no bell. `WrittenHeld()` (lib/content.php) - done, held, not released, no
+  teacher mark - makes the answer "handed in, not marked" in `QuestionStanding()` (so every total waits), the lesson
+  says `WrittenHeldText()` with no "Show my result", the poll (api/feedback.php) stops with the same words, My marks
+  shows nothing. **Marks to check** (`public/marks-to-check.php`, a Teaching tab with a count while the rule is on or
+  any wait): release as it is (`ReleaseHeldMark()`: `releasedAt` and the "marked" bell) or with the teacher's own
+  mark (`TeacherSetMark()`, which releases it too). A teacher's view of the pupil's work shows it as held.
+- **Hints** (`hints`): the code-block hint, a SQL step's hints and the own-words missing-idea hints. **Why-wrong**
+  (`whyWrong`): `WhyWrong()` after a wrong first try and `WhyWrongPending()` on reload. The try-it engines' unmet-check
+  notes are marking feedback and stay.
+- **Resubmits** (`resubmits`, 0-3; null = none): a marked written or code answer short of full marks may be handed
+  in again, re-marked and charged like a first hand-in; the new mark replaces the old (`writtenAnswers.handIns`,
+  `WrittenResubmitsLeft()`). **Never over a teacher's own mark**, never while held.
+- **Work after a completion date** (`latePolicy`: accept | flag | lock): the date is the lesson's `due` in the plan a
+  teacher's completion-date rule makes (`LessonDueDate()`; no completion date, nothing is late). Flag: "late" beside
+  the answers on the pupil's work page and the lesson's due day. Lock: `ApiRequireLesson()` refuses the pupil's
+  answers after the due day (never practice, never a teacher), and the lesson says so; the lesson can still be read.
+- **The behind emails** (`behindEmail`): the daily "you are behind" email (`BehindCheck()`) and the parents' "behind"
+  draft on the progress check. **The site holds no parent's address** - teachers send those drafts themselves.
+- **The school's logo** (`lib/schoollogo.php`): PNG, JPEG or WebP up to 600 KB (never SVG), kept in
+  `UploadRoot()/schools/<id>/` outside the web folder, served by `public/school-logo.php`; beside the BestLessons
+  logo in the masthead for the school's teachers and for pupils whose teacher is there (looked up once every ten
+  minutes a session), on screen and in print.
+- **Billing details** (`schools.billingName`, `billingEmail`, `billingAddress`, `orderNumber`, `vatNumber`): Make an
+  invoice fills them from "A school on the site"; `invoice.php` prints the buyer's VAT number and order number
+  (`invoices.schoolId`, `orderNumber`, `buyerVat`). The school's **licence** - active school subscriptions for its
+  name or domains, seats signed up, the renewal day - shows to its admin.
+- **Year end** (`lib/yearend.php`): for a year the school has grades in, every grade moves to the next grade of the
+  next year (the school's, or one made with that grade's courses), each class with its teachers, a new name (10A ->
+  11A), a new class code and every pupil who had joined, still joined; Grade 12 leaves (`pupils.leftSchoolAt`,
+  `leftSchoolId`); the old grades and classes are archived - **no mark is lost**. A grade whose next grade has no
+  courses on the site stays. The admin sees the whole list, ticks that they checked it and confirms; one
+  transaction, all or nothing.
+- **Leavers' work** (`leaverMonths`: 6, 12, 18, 24 or 36 months, or kept): once due, a leaver is listed for the
+  school's admin, who ticks them and types DELETE (`DeleteLeavers()`: the account, every table of work by cascade,
+  their files). **Nothing is ever deleted by itself** (Chris: "never run it automatically on live without the school
+  admin confirming"); a leaver with their own subscription or a class again is never listed.
+
 ## Decisions that must not be undone
 
 **1. Written answers are queued, never marked in the web request.**
