@@ -1765,7 +1765,12 @@ changes. pupils without teachers don't get calendars by default."
   grades, year plan on or off (courseSettings, applied in CourseIndex() by
   `ApplyCourseSettings()`); per lesson Course / Free / Locked
   (lessonSettings); **prices** per course and **packages** (bundles) of courses - a
-  plan's scope `bundle:<id>` covers its courses (Entitlements()). Part of Admin › Courses and
+  plan's scope `bundle:<id>` covers its courses (Entitlements()).
+  **Remove a course** (Chris, 11 Oct 2026: "no option to delete courses on the courses page"; he chose the admin
+  removing one): Remove on each course row sets `courseSettings.visibility` = 'removed'; `CourseIndex()` then leaves
+  it out everywhere - lists, pages (404), menus, joining - and `CourseIndex(true)` is only for the card's **Removed
+  courses** list, whose Restore puts it back as Live. Pupils' work is kept; the lesson files stay in the code
+  (deleting those is a code job). Part of Admin › Courses and
   billing since 11 Oct 2026 (above).
 - **Invitations** (`lib/invites.php`, `public/invite.php`, also the group
   page): type, paste or upload a text/CSV file; each address gets an email
