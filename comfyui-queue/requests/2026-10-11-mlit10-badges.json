@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-11-mlit10-badges",
+  "kind": "script",
+  "from": "the mlit10 chat (at the art chat's request)",
+  "added": "2026-10-11",
+  "status": "waiting",
+  "command": "python tools/badge-art/make_badges.py",
+  "cwd": "AIResources",
+  "minutes": 30,
+  "why": "mlit10 had no LOOKS entry in make_badges.py, so every badge run stopped with KeyError: 'mlit10'. The entry is added (a rand-coin badge in the course's sign-painter yellow and red, with Hadi the hadeda at the top); this run makes its 21 achievement badges."
+}

@@ -61,6 +61,7 @@ LOOKS = {
     "machine":       "a square chip-shaped badge in dark green circuit-board enamel with gold copper tracks and a silver centre, gold pins around the edge",
     "factfake":      "a rounded speech-bubble-shaped badge in chat green enamel with a cyan scanner-bracket rim and a small magnifying glass at the top",
     "botmaze":       "a square badge made of brown cardboard with masking-tape corners, a red felt-pen rim and a small grey robot head with one orange eye at the top",
+    "mlit10":        "a round coin-shaped badge like a South African rand coin, in warm sign-painter yellow and red enamel with a polished brass-and-silver bimetal rim, and a small grey-green hadeda bird with a long curved beak at the top",
 }
 
 # Each achievement's picture, without text.
