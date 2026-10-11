@@ -132,9 +132,20 @@ small VPS, deployed by uploading folders, readable by anyone. Don't "modernise".
   `timeSpent`, as the footer writes it - and **AI cost** - all of `aiUsage`, not only this month, in rand at
   today's `UsdToZar()` as Billing › AI costs; each sorts; a name opens `admin-user.php?id=` - one account: role, status, AI marking and
   why, the actions, time, sign-ins, each course's progress and mark, the last 14 days, AI use, classes,
-  subscriptions; Chris, 4 Oct 2026); `admin-teachers.php` in tabs - To approve (opens there when anything
-  waits), Teachers, Groups, Schools - with figures across the top (Chris, 4 Oct 2026: "layout and structural
-  improvement - always good gui design").
+  subscriptions; Chris, 4 Oct 2026); `admin-teachers.php` - To approve (opens there when anything
+  waits), Teachers, Classes. **Admin > People and Admin > Courses and billing** (Chris, 11 Oct 2026:
+  "combine users, teachers, schools into one tab with a similar style as monitor. do the same for
+  billing, courses"): each is one tab in the role tab bar, laid out like Monitor - a numbered,
+  coloured list on the left, one card on the right, a count and a red dot where something waits
+  (`lib/adminsections.php`: `AdminSectionGroups()`, `AdminSectionsNav()`, `AdminSectionHead()`).
+  People = Users (`admin-users.php`, one account `admin-user.php`), To approve, Teachers, Classes
+  (`admin-teachers.php`, switched in place: `#approve`, `#teachers`, `#classes`), Schools
+  (`admin-schools.php`). Courses and billing = Courses, Free lessons, Prices, Packages
+  (`admin-courses.php`, in place) and Plans, Subscriptions, Invoices, Codes, AI costs, Monthly
+  export (`admin-billing.php?tab=`). A part on another page is a link; a part on the page switches
+  in place (`settings-tabs.js`; a card marked `data-default` opens first). A wide list scrolls
+  inside its card with its row buttons kept in sight. A new admin part goes into
+  `AdminSectionGroups()`, nowhere else.
 - **Class results and pupil-work list pupils only** - `IsPupilAccount()`: a
   `students.dlshcch.co.za` address that is not a teacher.
 - **Everything a pupil finished is shown again on return** - every question
@@ -1406,6 +1417,23 @@ calendar for that)". His choices (27 Sep 2026):
   calendar counts only while the school has none, or for a teacher at no
   school. Each grade's plan (database, revision weeks, order) is the grade's,
   set by its TIC (`CohortPlannerOptions()`, lib/schoolplan.php).
+- **A school's own calendar from a link or a file** (Chris, 11 Oct 2026: "school needs a link /
+  upload for their own calendar option"; he chose: it sets the term dates and holidays, Jev sorts
+  each event, the admin checks and saves, a link is re-read nightly). `public/school-calendar.php`
+  (the school's admin from Teacher settings › School calendar; site admins from People › Schools):
+  the calendar's iCal link (https or webcal - Google, Outlook, Apple, a school system) or an .ics
+  file. `lib/schoolcalendar.php` reads every event of `PLANNER_YEAR` (yearly events moved into it;
+  cancelled and other repeating events left out), **Jev** chooses what each title is
+  (`SCHOOL_EVENT_KINDS`: a whole term, term starts, term ends, school closed, mid-year exams, Grade
+  12 prelims, year-end exams, Grade 12 finals, not for the plan; under `SCHOOL_EVENT_SURE`
+  confidence it is marked to check; a keyword guess when Jev cannot answer) and **code** works out
+  the dates (`SchoolCalendarPlan()`: terms paired in order, the first four; exam seasons; closures
+  as days off). Saving sets the school's own term and exam dates through `SaveSchoolCalendar()`
+  (three terms or more) and its days off - the ones from the calendar replace the ones read before
+  (`fromCalendar`), hand-typed ones stay. **`bin/school-calendars.php`** reads every link again at
+  01:15 UTC: a changed calendar is kept and the school's admin gets a bell to check it - **nothing is
+  applied until they save**. Fetch: public addresses only, 3 redirects, 10 s, 2 MB. Columns
+  `schools.calendarUrl`, `calendarFeed` (JSON), `calendarAppliedAt`.
 - **Sign-ins recorded** from 27 Sep 2026 (table `signIns`, written in
   `SignIn()`; in the privacy policy).
 - **Monday nudge:** on a teacher's first page of a teaching week by their
@@ -1622,6 +1650,23 @@ changes. pupils without teachers don't get calendars by default."
   School calendar card the term and exam dates always show, filled in from
   the calendar chosen; changing a term date saves the school's own dates
   (`SaveTeacherCalendar()`).
+- **Prices** (Courses and billing › Prices; Chris, 11 Oct 2026: "need easy ways to price courses,
+  combine courses into subject package" - he chose a price per course, packages built from them):
+  every course's price **a month, a term (3 months) and a year** in one grid, by subject
+  (`courseSettings.monthCents`, `termCents`, `yearCents`; `CoursePrice()`, lib/access.php: a free
+  course is 0, an empty box is not sold). A subject's row sets all its courses at once; **Fill the
+  empty term and year boxes from the month** (term 3x, year 9x the month). Pricing a course never
+  changes who sees it. A red dot on Prices while a subscription course has no price at all.
+- **Packages** (the bundles - Courses and billing › Packages, 11 Oct 2026): choosing a subject (and
+  grades) ticks its courses; priced as **its courses' total less a package %** (`packagePercent`,
+  shown live as it is typed, to the nearest rand, offered for a period only when every course in it
+  is priced for that period, following any change on Prices) or by typed prices (month, term,
+  year) - `PackageFullCents()`; `bundles.subject`, `termCents`, `packagePercent`.
+- **Selling one course or package** (11 Oct 2026): Give a subscription, Make codes and Make an
+  invoice pick a course or package and a period and take its price; `SalePlanId()` makes the plan
+  behind it (`sell-course-pascal-year`, `sell-bundle-3-term`: a pupil plan, the price of the day, 1,
+  3 or 12 months, R10 / R15 AI a month), so subscriptions and codes keep standing on a plan. **Plans**
+  lists the teacher and school licences (and any plan made by hand); a plan's scope can be a package.
 - **Bundles** (Manage courses, Chris 28 Sep 2026): a price empty or 0 means
   that option (monthly / yearly) is not offered; **Offered to new buyers**
   (was "On sale" - it only ever meant this; plans already using the bundle
@@ -1650,10 +1695,10 @@ changes. pupils without teachers don't get calendars by default."
   Queries list (not a grid: oldest first) keeps its **Only flagged** filter
   the same way, after answering a query.
 - **Billing, Make an invoice**: who (a school tick box, name, email,
-  address) and what (a course or bundle - the description is only its name;
+  address) and what (a course or package - the description is its name and the period;
   a school: pupils x rate per pupil, remembered in the browser, and the
-  invoice line says so; a person: the bundle's price for the period,
-  filled in) side by side; the subscription is a searchable choice.
+  invoice line says so; a person: the course's or package's price for the period
+  (a month, a term, a year), filled in) side by side; the subscription is a searchable choice.
 - **Billing, AI costs**: tiles for the total and the average a pupil, a
   course and a call; by kind, **by course** and per person, each with a
   total row.
@@ -1719,8 +1764,9 @@ changes. pupils without teachers don't get calendars by default."
   subscription, live / pilot (test site only) / hidden (admins only), order,
   grades, year plan on or off (courseSettings, applied in CourseIndex() by
   `ApplyCourseSettings()`); per lesson Course / Free / Locked
-  (lessonSettings); **bundles** of courses with month and year prices - a
-  plan's scope `bundle:<id>` covers its courses (Entitlements()).
+  (lessonSettings); **prices** per course and **packages** (bundles) of courses - a
+  plan's scope `bundle:<id>` covers its courses (Entitlements()). Part of Admin › Courses and
+  billing since 11 Oct 2026 (above).
 - **Invitations** (`lib/invites.php`, `public/invite.php`, also the group
   page): type, paste or upload a text/CSV file; each address gets an email
   "<teacher> has invited you to join <site> using this email address".
@@ -2517,8 +2563,9 @@ settings. reduce complexity in navigation", "and the same with pupils") -
 practice), **My account** (Account, Settings, Notifications, Messages, Join a
 class), **Teaching** (Class results, Progress, Term marks, Queries, Messages,
 Pupils and groups, Year planner, Set up classes, Settings) and **Admin**
-(Users, Teachers, Schools, Billing, Courses, Marking, Corrections, Images,
-Messages to us, Monitor), each with a line on what it holds and what waits.
+(People, Activity, Courses and billing, Marking, Corrections, Images,
+Messages to us, Monitor - People and Courses and billing each gather several pages, 11 Oct 2026),
+each with a line on what it holds and what waits.
 **Every page of a role carries that role's tab bar** under the masthead
 (`RolePages()`, `RoleTabsHtml()`; `RenderMasthead()` draws it on any
 signed-in page whose script is a tab - a new role page is added to
@@ -2717,8 +2764,9 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
 - **Billing (step 1, no gateway yet):** tables `plans`, `subscriptions`,
   `invoices`, `payments`, `accessCodes`, `codeRedemptions`, `aiUsage` (end of
   `schema.sql`). Money in cents, rand; VAT stored as 0 (not registered).
-  **Admin > Billing** (`admin-billing.php`): plans, give a subscription (by
-  email, or a school licence by domains), invoices (numbered `ITC-YYYY-NNNN`,
+  **Admin > Billing** (`admin-billing.php`, part of Courses and billing since 11 Oct 2026): plans,
+  give a subscription (a course or package for a period by email, or a licence - a school's by
+  domains), invoices (numbered `ITC-YYYY-NNNN`,
   never reused, cancelled not deleted; PDF at `invoice.php`; Paid with EFT
   reference; refunds as negative payments), bursary codes, AI costs per kind and
   per person, and a monthly CSV. **My account** (`account.php`, in the menu):
@@ -2769,7 +2817,7 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   again or remove, invite pupils from an approved school domain, archive.
   Pupils: an invitations box on Subjects and My account (Join / No thanks;
   joining enrols them), and Leave under Your groups (`invitation.php`). Admin >
-  **Teachers and groups** (`admin-teachers.php`): make a teacher
+  **People › Teachers and Classes** (`admin-teachers.php`): make a teacher
   (`pupils.teacherGrantedAt` - sign-in no longer resets it; config
   `teacherEmails` still works), approve school domains (they only help find
   pupils), turn a year's classes into groups (pupils accepted, Staff/Other
