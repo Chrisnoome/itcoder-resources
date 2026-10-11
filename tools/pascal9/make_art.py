@@ -678,4 +678,5 @@ def main():
         draw_map(lesson)
 
 
-main()
+if __name__ == '__main__':
+    main()
