@@ -1,6 +1,6 @@
 # English Home Language, Grades 10-12 (`eng10`, `eng11`, `eng12`) - PLAN
 
-**Status (11 October 2026):** sources collected and summarised. Plan drafted and
+**Status (11 October 2026):** plan, art and lesson lists done. Plan page: https://claude.ai/artifact/BxwSDJfiRwSBtpUzA8wHSt (`english-plan-page.html`, rebuilt by `tools/build_plan_page.py`). No lessons have been written yet.
 waiting for Chris's decisions (below). No lessons have been written yet.
 
 Chris, 11 October 2026: "collect documents and plan courses for both ieb and caps - one
@@ -169,6 +169,36 @@ svg".
   - Every literature work gets its own look, as on the literature board.
   - The mascots are **Ratel** (language) and **Quill** (writing).
   - The level names are **Draft to classic**.
+
+## Lesson lists (11 October 2026)
+
+- [eng10-lessons.md](eng10-lessons.md): 153 entries. CAPS path 99, IEB path 102.
+- [eng11-lessons.md](eng11-lessons.md): 163 entries. CAPS path 100, IEB path 104.
+- [eng12-lessons.md](eng12-lessons.md): 214 entries. CAPS path 96, IEB path 103.
+
+Each file has an open-points section.
+
+**Chris's rulings on those open points:**
+- **June exam in Gr 10/11:** examine only what has been taught (poetry + the drama; the
+  IEB pupils write the Shakespeare essay + transactional). The full Gr 12 format is used
+  in November.
+- **IEB Gr 10/11 lengths, accepted:**
+
+  | | Gr 10 | Gr 11 |
+  |---|---|---|
+  | Literary essay | about 400 words | about 500 words |
+  | Transactional | 200-250 words | about 250 words |
+  | Extended writing | 400-500 words | 400-500 words |
+  | Film study | 600-800 words, one film | 800-1000 words |
+
+  Change them if De La Salle's practice differs.
+- **IEB marking rules follow the memos:**
+  - Summary: drop to the bottom of the category from 94 words; stop reading at 100.
+  - Literary essay: third person by default, first person allowed.
+- **Critics' quotations:** use real ones only once verified against a source. Otherwise
+  write our own statement, labelled as a "critical view". Never invent attributions.
+- **Copyright:** the server is in SA (Absolute Hosting), so SA terms (life + 50 years)
+  decide what can be shown in full.
 
 ## Open questions for Chris
 
