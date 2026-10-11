@@ -953,7 +953,103 @@ def d_jobdone4():
     svg.save()
 
 
+# ------------------------------------------- batch 5: Plan Wars -----------
+# Theme A: a game-show "versus" screen - a diagonal red/blue split, a big
+# yellow VS, plan cards with stat bars.
+
+VS_RED, VS_BLUE, VS_YELLOW = '#e63b2e', '#1d4fd8', '#ffd84d'
+
+
+def versus(name, w, h, label):
+    svg = Svg(name, w, h, label, rx=8)
+    svg.add(f'<path d="M0 0 H{w * .58} L{w * .42} {h} H0Z" fill="{VS_RED}"/><path d="M{w * .58} 0 H{w} V{h} H{w * .42}Z" fill="{VS_BLUE}"/>')
+    return svg
+
+
+def plan_card(svg, x, y, w, title, bars, colour):
+    h = 34 + len(bars) * 24
+    svg.add(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{WHITE}" stroke="{INK}" stroke-width="2.5"/>')
+    svg.text(x + w / 2, y + 22, title, 12, colour, 'middle')
+    for i, (lab, frac) in enumerate(bars):
+        yy = y + 34 + i * 24
+        svg.text(x + 8, yy + 9, lab, 10, INK, 'start', 600, NUM)
+        svg.add(f'<rect x="{x + 58}" y="{yy}" width="{w - 68}" height="10" rx="3" fill="#e8e8e8"/><rect x="{x + 58}" y="{yy}" width="{(w - 68) * frac:.1f}" height="10" rx="3" fill="{colour}"/>')
+
+
+def vs_badge(svg, cx, cy, s=1.0):
+    svg.text(cx + 3 * s, cy + 3 * s, 'VS', int(40 * s), INK, 'middle')
+    svg.text(cx, cy, 'VS', int(40 * s), VS_YELLOW, 'middle')
+
+
+def d_versus():
+    svg = versus('versus', 330, 200, 'Two plans face off: compare the total cost for the way you actually use it')
+    plan_card(svg, 14, 26, 120, 'PLAN A', [('fee', .3), ('per min', .8), ('data', .5)], VS_RED)
+    plan_card(svg, 196, 26, 120, 'PLAN B', [('fee', .8), ('per min', .3), ('data', .6)], VS_BLUE)
+    vs_badge(svg, 165, 112)
+    svg.text(165, 186, 'WHO WINS? IT DEPENDS ON YOU', 11, WHITE, 'middle')
+    svg.save()
+
+
+def d_blocks():
+    svg = versus('blocks', 330, 200, 'Block tariff: the first 350 units are cheaper, every unit after that costs more')
+    svg.add(f'<rect x="20" y="40" width="290" height="130" rx="6" fill="{WHITE}" stroke="{INK}" stroke-width="2.5"/>')
+    for i in range(10):
+        x = 32 + i * 27
+        hgt = 34 if i < 5 else 58
+        col = '#7bc96f' if i < 5 else VS_RED
+        svg.add(f'<rect x="{x}" y="{150 - hgt}" width="22" height="{hgt}" fill="{col}" stroke="{INK}" stroke-width="1.5"/>')
+    svg.text(98, 66, 'BLOCK 1: R2,80', 11, '#2f7d32', 'middle')
+    svg.text(234, 66, 'BLOCK 2: R3,40', 11, VS_RED, 'middle')
+    svg.add(f'<path d="M165 46 V160" stroke="{INK}" stroke-width="2" stroke-dasharray="4 3"/>')
+    svg.text(165, 26, '350 UNITS', 13, VS_YELLOW, 'middle')
+    svg.text(165, 190, 'units used this month →', 11, WHITE, 'middle', 600, NUM)
+    svg.save()
+
+
+def d_phone():
+    svg = versus('phone', 320, 200, 'A phone showing 100 free minutes used up and out-of-bundle minutes ticking')
+    svg.add(f'<rect x="110" y="16" width="100" height="170" rx="14" fill="{INK}"/><rect x="118" y="30" width="84" height="138" rx="4" fill="#e9f3ff"/>')
+    svg.text(160, 56, '100 MIN', 12, VS_BLUE, 'middle')
+    svg.add(f'<rect x="128" y="64" width="64" height="10" rx="3" fill="{VS_BLUE}"/>')
+    svg.text(160, 98, 'USED UP', 10, INK, 'middle')
+    svg.text(160, 128, '+R1,20', 16, VS_RED, 'middle')
+    svg.text(160, 146, 'a minute', 11, INK, 'middle', 600, NUM)
+    hadi(svg, 222, 98, .8, 'shout')
+    svg.save()
+
+
+def d_taxi():
+    svg = versus('taxi', 330, 200, 'A minibus taxi with a flat fare sign and an e-hailing car with a fare that grows with distance')
+    bx = 22
+    svg.add(f'<g transform="translate({bx} 70)"><rect x="0" y="0" width="120" height="56" rx="12" fill="{WHITE}" stroke="{INK}" stroke-width="3"/>'
+            + ''.join(f'<rect x="{10 + k * 26}" y="10" width="20" height="16" fill="#9fd3f5" stroke="{INK}" stroke-width="1.5"/>' for k in range(4))
+            + f'<path d="M0 38 H120" stroke="{VS_RED}" stroke-width="4"/><circle cx="26" cy="58" r="9" fill="{INK}"/><circle cx="94" cy="58" r="9" fill="{INK}"/></g>')
+    svg.text(82, 56, 'R18 ANY TRIP', 12, VS_YELLOW, 'middle')
+    car(svg, 214, 92, VS_YELLOW, 1.0)
+    svg.text(246, 56, 'R15 + R8,50/KM', 12, VS_YELLOW, 'middle')
+    vs_badge(svg, 165, 160, .7)
+    svg.save()
+
+
+def d_jobdone5():
+    svg = Svg('jobdone5', 320, 200, 'Hadi with a JOB DONE stamp after Plan Wars', bg=SIGN, rx=8)
+    svg.add(f'<rect x="6" y="6" width="308" height="188" rx="4" fill="none" stroke="{INK}" stroke-width="4"/>')
+    svg.add(f'<g transform="rotate(-12 110 90)"><rect x="34" y="54" width="160" height="70" rx="6" fill="none" stroke="{RED}" stroke-width="5"/>'
+            f'<rect x="42" y="62" width="144" height="54" rx="3" fill="none" stroke="{RED}" stroke-width="2"/></g>')
+    svg.text(116, 90, 'JOB', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    svg.text(116, 114, 'DONE', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    hadi(svg, 196, 96, 1.05)
+    svg.text(160, 186, 'next stop: the Bake-Off', 15, INK, 'middle', font=MARKER)
+    svg.save()
+
+
 if __name__ == '__main__':
+    for o in [(25, 5, 1, 4, 'Prepaid electricity', 'The first units are the cheapest.', ['BLOCK 2', 'COSTS MORE']),
+              (26, 5, 2, 4, 'Phone and data', 'Free minutes are not free forever.', ['OUT OF', 'BUNDLE!']),
+              (27, 5, 3, 4, 'Taxi, bus or e-hailing', 'A fee, a rate, or both?', ['R18 FLAT!']),
+              (28, 5, 4, 4, 'Tariffs as graphs', 'Draw the deal, see the deal.', ['STEP BY', 'STEP'])]:
+        opener(*o)
+    d_versus(); d_blocks(); d_phone(); d_taxi(); d_jobdone5()
     for o in [(21, 4, 1, 4, 'The municipal bill', 'Read every line before you pay.', ['DUE DATE!', 'SQUAWK!']),
               (22, 4, 2, 4, 'Till slips and accounts', 'Keep the slip. Check the slip.', ['CHECK', 'THE SLIP']),
               (23, 4, 3, 4, 'The bank statement', 'Money in, money out, what is left.', ['DEBIT OR', 'CREDIT?']),
