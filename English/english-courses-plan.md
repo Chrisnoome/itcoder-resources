@@ -1,6 +1,6 @@
 # English Home Language, Grades 10-12 (`eng10`, `eng11`, `eng12`) - PLAN
 
-**Status (11 October 2026):** plan, art and lesson lists done. Plan page: https://claude.ai/artifact/BxwSDJfiRwSBtpUzA8wHSt (`english-plan-page.html`, rebuilt by `tools/build_plan_page.py`). No lessons have been written yet.
+**Status (11 October 2026):** plan, art and lesson lists done. Plan page: https://claude.ai/artifact/BxwSDJfiRwSBtpUzA8wHSt (`english-plan-page.html`, rebuilt by `tools/build_plan_page.py`). Five Gr 10 sample lessons written (see "Grade 10 samples" below).
 
 Chris, 11 October 2026: "collect documents and plan courses for both ieb and caps - one
 course per year. english 1st language. put it in its own folder". Then: "base 10 and 11
@@ -27,8 +27,9 @@ on grd 12 - same format and mark distribution".
   output 80-90 words in every grade.
 - **Set texts:** the pupil uses their own copy. Lessons quote only short extracts.
   Public-domain texts can be shown in full (see "Copyright" below).
-- New-course musts apply to all three courses: progress gated, an art style of its
-  own, level names of its own, and margin extras. Status `open`/`soon`, never draft.
+- New-course musts apply to all three courses, **except gating**: an art style of
+  its own, level names of its own, and margin extras. **Not progress gated**
+  (Chris, 11 October 2026): no `'sequential'`, no `'gate'` blocks. Status `open`/`soon`, never draft.
   Jev marks first.
 
 ## What each board examines (Grade 12, applied to 10 and 11 too)
@@ -214,3 +215,50 @@ Each file has an open-points section.
    is still the March 2021 version.
 5. **Look, level names, mascot:** one style board per course.
 6. **Course length:** about 72 lessons per grade, like mlit10?
+
+## Grade 10 samples (11 October 2026)
+
+A cloud session wrote five sample lessons and wired `eng10` in as an **open** course.
+The hand-over is [eng10-samples-handover.md](eng10-samples-handover.md).
+
+| No. | Key | Strand |
+|---|---|---|
+| 15 | `tone-diction-intention` | Language |
+| 34 | `rj-act1` | Literature |
+| 42 | `argumentative-essay` | Writing |
+| 52 | `unseen-method` | Poetry |
+| 105 | `prepared-speech` | Orals |
+
+- **No gating.** This overrides the new-course musts for English.
+- **`rj-act1` replaced `rj-opener`.** The Act 1 reading guide (lesson 34) was written
+  in place of the short opener (lesson 33). `rj-opener` is still on the list and not
+  yet written.
+- **Numbering (Chris's ruling, 11 October 2026):** the platform's usual numbering.
+  Shared lessons are 1-96 in order. Stream-only lessons are 101+ internally and show
+  their CAPS or IEB badge. The lesson list keeps its own planning numbers (1-153). So
+  the samples are list no. 15 = site lesson 11, 34 = 23, 42 = 31, 52 = 38 and
+  105 = 68.
+- **Art:** `tools/eng10/make_art.py` makes the drawings in
+  `AIPascalCourse/public/assets/doodles/eng10-*.svg`. Add a new function for each new
+  drawing, each with a fresh pattern id.
+
+**Chris's rulings on the samples (11 October 2026):**
+- **IEB extended writing:** keep the split 6 / 16 / 8 out of 30.
+- **Long essays get a big writing box.** Any written answer worth 20 or more marks now
+  gets a box of about 78% of the screen height (Chris: "make the essay writing window
+  sizeable so they can read / see more at once").
+- **Speech tasks are board-appropriate.** The pupil's board (or the teacher's choice)
+  decides which version they see:
+  - The script task is now one task per board. CAPS `w105CapsScript` is out of 10
+    (content and research 4 / structure 3 / language and register 3). IEB
+    `w105IebScript` is out of 20 (content and substance 8 / structure 6 / language and
+    register 6).
+  - The self-check checklists stay as they were: CAPS 3/2/3/2 and IEB 6/4/6/4.
+- **Essays get Jev checks.** A written block can now carry `'jevChecks'`: up to 8
+  yes/no questions that Jev answers before Claude marks the band rubric. The two
+  argumentative essays have 8 checks each.
+- **English marking voice.** `CourseMarkStyle()` sends eng10, eng11 and eng12 to
+  `'english'`. The marker credits any valid reading and wants exact tone words and
+  short quotations. An answer on only one of two texts gets at most half. Essays are
+  judged holistically by band, never as a checklist.
+- **The empty staging folder** (`eng10-samples-staging`) was deleted.

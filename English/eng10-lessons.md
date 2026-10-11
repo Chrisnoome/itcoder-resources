@@ -1,7 +1,9 @@
 # English Home Language Grade 10 (`eng10`): the lesson list - PLAN
 
-**Grade 10 · school year 2027 · status: PLAN (11 October 2026).** No lessons are
-written yet.
+**Grade 10 · school year 2027 · status: PLAN (11 October 2026).** Five sample
+lessons are written (marked **WRITTEN** below, files in `AIPascalCourse/content/eng10/`).
+**Not progress gated** (Chris, 11 October 2026): no `'sequential'` on the course and no
+`'gate'` blocks.
 
 Grade 10 opens the FET phase, so the course starts with orientation: each board's exam
 format, the four strands, and how marking works. After that it follows the DBE Grade 10
@@ -27,8 +29,8 @@ cited as "SAG §"), [../brand/eng-art-style.md](../brand/eng-art-style.md).
 ## Rules that apply to every lesson
 
 These are stated once here and not repeated per lesson.
-- **Gated practice and margin extras.** Every lesson has at least one gated guided
-  try-it, and margin extras: a Ratel (language) or Quill (writing) drawing with the joke
+- **Guided practice and margin extras.** Every lesson has at least one guided
+  try-it (not gated: the course is not progress gated), and margin extras: a Ratel (language) or Quill (writing) drawing with the joke
   as its caption, an aside ("Examiner's eye" / "Layout rule"), and a factoid.
 - **Art.** Language lessons use L1 Tracing overlay. Writing lessons use W1 Drafting
   table. Each literature work and poem has its own look. The Grade 10 accent is cobalt
@@ -205,7 +207,7 @@ runs through Term 3.
 | 12 | formal-letter | The formal letter: application, business, thanks and sympathy | W | shared | — | Gr 10 TT list; CAPS ref §1.4 (formal letters) | CAPS Task 2, P3 cat A; IEB P2 Sec B (formal letters) |
 | 13 | caps-tt-rehearsal | CAPS rehearsal: one transactional text, 180-200 words, marked on App D | W | caps | — | T1 W4-5; CAPS ref §1.4 (length), §3 App D | CAPS Task 2 |
 | 14 | ieb-blog-open-letter | IEB formats: the blog and the open letter (10 + 10) | W | ieb | — | SAG §1.5 (formats), D18; IEB ref §3.2 (open letter set in 2024 and 2025) | IEB P2 Sec B |
-| 15 | tone-diction-intention | Reading for tone, diction and the writer's intention | L | shared | — | T1 R&V; CAPS ref §1.3 (critical language awareness); SAG §1.4 Q1 | CAPS Task 4, P1 Q1; IEB P1 Q1 |
+| 15 | tone-diction-intention | **WRITTEN** (`tone-diction-intention.php`) Reading for tone, diction and the writer's intention | L | shared | — | T1 R&V; CAPS ref §1.3 (critical language awareness); SAG §1.4 Q1 | CAPS Task 4, P1 Q1; IEB P1 Q1 |
 | 16 | figures-for-effect | Figures of speech: say why, not just what | L | shared | — | CAPS ref §1.3 ("why was it used?"), §1.5 App 1 vocabulary | CAPS P1 Q1, Q5; IEB P1 Q1, Q3-4 |
 | 17 | thinking-on-feet | Thinking on your feet: a 2-minute shape for any topic | Oral | caps | — | T1 W4-9 unprepared speech; CAPS ref §1.2 (2-3 min) | CAPS Task 3 |
 | 18 | caps-unprepared-practice | Unprepared speech rehearsal: draw a topic, one minute to think, two to talk | Oral | caps | — | T1 W6-7 | CAPS Task 3 |
@@ -229,7 +231,7 @@ runs through Term 3.
 | # | id | Lesson | Strand | Stream | Text | Covers (CAPS / SAGs refs) | Prepares for |
 |---|---|---|---|---|---|---|---|
 | 33 | rj-opener | *Romeo and Juliet* opener: Verona, the 1590s stage and a prologue that gives away the ending | Lit | shared | text:romeo-juliet | T1 Lit (drama); CAPS ref §1.3 (drama features); SAG §1.5 (Shakespeare) | CAPS P2 Sec C; IEB P2 Q1 |
-| 34 | rj-act1 | Reading guide 1: the Prologue and Act 1, the feud and the feast | Lit | shared | text:romeo-juliet | CAPS ref §1.3 (plot, dialogue, the sonnet in 1.5) | CAPS P2 Sec C; IEB P2 Q1 |
+| 34 | rj-act1 | **WRITTEN** (`rj-act1.php`) Reading guide 1: the Prologue and Act 1, the feud and the feast | Lit | shared | text:romeo-juliet | CAPS ref §1.3 (plot, dialogue, the sonnet in 1.5) | CAPS P2 Sec C; IEB P2 Q1 |
 | 35 | rj-act2 | Reading guide 2: Act 2, the balcony and the secret wedding | Lit | shared | text:romeo-juliet | CAPS ref §1.3 (soliloquy, dramatic irony) | CAPS P2 Sec C; IEB P2 Q1 |
 | 36 | rj-act3 | Reading guide 3: Act 3, Mercutio's death and the banishment | Lit | shared | text:romeo-juliet | CAPS ref §1.3 (turning point, ironic twist) | CAPS P2 Sec C; IEB P2 Q1 |
 
@@ -252,7 +254,7 @@ just before its ATP week" rule.
 | # | id | Lesson | Strand | Stream | Text | Covers (CAPS / SAGs refs) | Prepares for |
 |---|---|---|---|---|---|---|---|
 | 41 | descriptive-essay | The descriptive essay: show it with the senses | W | shared | — | T2 W1 essays N/D/A; CAPS ref §1.4 | CAPS Task 5, P3 Sec A; IEB extended writing |
-| 42 | argumentative-essay | The argumentative essay: one side, well defended | W | shared | — | T2 W1; CAPS ref §1.4 (argumentative = one-sided) | CAPS Task 5, P3 Sec A; IEB extended writing |
+| 42 | argumentative-essay | **WRITTEN** (`argumentative-essay.php`) The argumentative essay: one side, well defended | W | shared | — | T2 W1; CAPS ref §1.4 (argumentative = one-sided) | CAPS Task 5, P3 Sec A; IEB extended writing |
 | 43 | picture-prompts | Picture prompts: finding the essay in an image | W | shared | — | T2 W1 "+vis"; CAPS ref §3 P3 (2-3 picture topics) | CAPS Task 5, P3 Sec A |
 | 44 | embedding-quotes | Short quotes, woven into your own sentence (essay step 2) | Lit | shared | — | T2 W1 "review poetry and literary essay"; IEB ref §4 (rigour list: embedded quotes, present tense) | Literary essay (both boards) |
 | 45 | reading-aloud | Reading aloud: phrasing, pace and sense units | Oral | shared | — | T2 W2-3; SAG §1.7 (unprepared reading) | CAPS Task 6; IEB oral: unprepared reading (10) |
@@ -262,7 +264,7 @@ just before its ATP week" rule.
 | 49 | essay-revising | Revising a draft: proof-reader's marks and the second read | W | shared | — | CAPS ref §1.4 (plan, draft, revise, edit, proofread) | CAPS Task 5; IEB extended writing |
 | 50 | caps-essay-rehearsal | CAPS essay rehearsal: 300-350 words, timed, phrase or picture topic (App C) | W | caps | — | T2 W4-5; CAPS ref §1.4, §3 App C | CAPS Task 5 |
 | 51 | ieb-extended-1 | Extended writing piece 1: plan, draft one, redraft (process) | W | ieb | — | SAG §1.6 Sec 1 (at most two drafts, final marked); IEB ref §4 (2026 "writing process task") | IEB SBA: extended writing 1 |
-| 52 | unseen-method | The unseen poem: a method, not a panic | Lit | shared | — | T2 W4-5 unseen poems; IEB ref §4 ("Process not panic") | CAPS P2 Q5; IEB P1 Q4 |
+| 52 | unseen-method | **WRITTEN** (`unseen-method.php`) The unseen poem: a method, not a panic | Lit | shared | — | T2 W4-5 unseen poems; IEB ref §4 ("Process not panic") | CAPS P2 Q5; IEB P1 Q4 |
 | 53 | caps-unseen-practice | Unseen poem rehearsal: ten marks of contextual questions | Lit | caps | — | CAPS ref §3 P2 Q5 | CAPS Task 7 (P2), P2 Q5 |
 | 54 | ieb-unseen-pair | An unseen poem paired with a seen one (15) | Lit | ieb | — | SAG §1.4 Q4; IEB ref §3.3 (always an unseen + a seen poem) | IEB P1 Q4 |
 | 55 | poem-death-be-not-proud | 'Death, be not proud' (Donne): arguing with Death | Lit | shared | text:poems10a | T2 W6-7 seen poems | CAPS P2 Sec A; IEB P1 Q3 |
@@ -330,7 +332,7 @@ just before its ATP week" rule.
 | 102 | poem-invictus | 'Invictus' (Henley): the unconquerable self | Lit | shared | text:poems10a | T3 Lit | CAPS P2 Sec A; IEB P1 Q3 |
 | 103 | poem-dulce | 'Dulce et Decorum Est' (Owen): the old lie | Lit | shared | text:poems10a | T3 Lit | CAPS P2 Sec A; IEB P1 Q3 |
 | 104 | poem-if-we-must-die | 'If We Must Die' (McKay): a sonnet as a raised fist | Lit | shared | text:poems10a | T3 Lit | CAPS P2 Sec A; IEB P1 Q3 |
-| 105 | prepared-speech | The prepared speech: a topic with substance, cue cards, 4-5 minutes | Oral | shared | — | T3 W2-11 prepared speech; CAPS ref §1.2; SAG §1.7 (talk to them, not at them), D5 | CAPS Task 9; IEB oral: prepared speech (20) |
+| 105 | prepared-speech | **WRITTEN** (`prepared-speech.php`) The prepared speech: a topic with substance, cue cards, 4-5 minutes | Oral | shared | — | T3 W2-11 prepared speech; CAPS ref §1.2; SAG §1.7 (talk to them, not at them), D5 | CAPS Task 9; IEB oral: prepared speech (20) |
 | 106 | caps-prepared-rehearsal | Prepared speech rehearsal: record, review, re-record | Oral | caps | — | T3 W8-9 | CAPS Task 9 |
 | 107 | tt-dialogue-speech | The dialogue and the written speech | W | shared | — | T3 W8-9 TT; Gr 10 TT list | CAPS P3 cat C; IEB P2 Sec B (speeches) |
 | 108 | ieb-extended-2 | Extended writing piece 2: a different genre, two drafts | W | ieb | — | SAG §1.6 Sec 1 ("distinctly different in style or genre") | IEB SBA: extended writing 2 |

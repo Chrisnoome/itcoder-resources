@@ -1942,6 +1942,34 @@ changes. pupils without teachers don't get calendars by default."
     for Claude), after which the live notes are cleared.
   - Self-marked questions have no AI marker: their corrections are for the
     download (an answer to accept in the lesson file).
+- **English helpers (`lib/englishtext.php`, October 2026).** English lessons that quote texts start with `require_once dirname (__DIR__, 2) . '/lib/englishtext.php';`.
+  - `SourceText()` puts any quoted material (Text A/B, poems, play extracts, scripts, pupils' essays) in a source box with its own face, label and attribution. `PoemHtml()` and `PlayHtml()` build the inside of poem and play boxes.
+  - `TextDock()` keeps the named texts in a side window (a bottom panel on phones) while the questions about them are on screen.
+  - `ForExam()` and `ForExamText()` show an exam-specific fact (length, time, marks) in the viewer's exam only. Never mention CAPS or IEB in pupil-facing text for such facts.
+  - `AnswerExamples()` shows strong, middling and weak example answers with reasons.
+  - `SourceQuote()` and `SceneTimeline()` make visual summaries.
+  - `...AnalysisPanel([...])` is a guided, step-by-step analysis that builds a `written` answer in a console window. It returns a prose block and the written block, and the hand-in counts as typed.
+  - Every `written` box shows a live word count, with its target taken from "N to M words" or "about N words" in the prompt.
+  Assets: `public/assets/english-text.css`, `english-text.js` and `analysis-panel.js`, loaded from the body by the helpers until lesson.php's `<head>` takes them. Full notes: `AIResources/platform-english-helpers.md`.
+- **Jev checks in the lesson file** (Chris, 11 October 2026: English essays
+  get Jev checks, not points).
+  - A `written` block may carry `'jevChecks' => [question, ...]`: yes/no questions,
+    at most 8 together with the live marking-notes checks.
+  - `QuestionMarkingChecks()` in lib/markingnotes.php puts the lesson's checks first,
+    then the live ones. bin/markqueue.php uses it, and `MarkOneAnswer()` falls back to
+    `jevChecks` for callers such as remark-written.
+  - Jev answers the checks, and Claude marks the band rubric with the answers in
+    front of it. It is meant for essays, where `points` would be too crude.
+- **English marking voice** (11 October 2026). `CourseMarkStyle()` sends eng10, eng11
+  and eng12 to `'english'` (bin/markqueue.php):
+  - any valid reading is credited;
+  - a tone answer needs an exact tone word, proved from the text;
+  - evidence is short quotations;
+  - an answer on only one of two texts gets at most half;
+  - essays are placed holistically in a band, never ticked off a checklist.
+- **The essay box** (Chris, 11 October 2026: "make the essay writing window sizeable").
+  A written block worth 20 marks or more gets `data-long="1"` (public/lesson.php). Its
+  box is at least 78% of the screen height (style.css), and it can still be resized.
 - **"Hand in now?"** (Chris, 8 October 2026: "some pupils are handing in by
   accident"): Hand it in on a written answer first asks "You may only hand in
   this work once. Are you sure you meant to hand it in now - and that you have

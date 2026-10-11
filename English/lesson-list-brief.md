@@ -61,7 +61,7 @@ This is for the agents writing `English/eng10-lessons.md`, `eng11-lessons.md` an
   TV news, no real brands. (The real exams use op-eds and real campaigns. Our practice
   texts are written in the same register but set in teen media. Note this tension
   once.)
-- **Every lesson** gets at least one gated guided try-it and margin extras (a Ratel or
+- **Every lesson** gets at least one guided try-it (not gated - Chris, 11 Oct 2026) and margin extras (a Ratel or
   Quill drawing with the joke as its caption, an aside, a factoid). Don't list these
   per lesson; state it once.
 - **Marking:** Jev first, using each board's rubrics. The summary word count is checked
