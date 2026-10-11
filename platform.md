@@ -1924,6 +1924,12 @@ changes. pupils without teachers don't get calendars by default."
     line, "Does the answer ...") and **notes for Claude** (judgment,
     feedback); the admin edits and **Approves** (table `markingNotes`, the
     question's corrections ticked done) or saves the draft.
+  - **Dismiss** (Chris, 11 Oct 2026: "an option to dismiss without changing
+    the marker instructions"): under each question's corrections while any
+    wait, for AI-marked and self-marked alike - `DismissCorrections()` ticks
+    them done and drops an unapproved draft; the live checks and notes stay as
+    they are; each correction's Undo brings it back. A question that leaves the
+    Waiting list (Dismiss, Approve) shows its line at the top of the page.
   - **The marker uses them from the next answer** (bin/markqueue.php
     `MarkOneAnswer()`): a question with live checks or notes skips Jev's
     `points` marking; Jev answers the checks (`JevMarkingChecks()`), and

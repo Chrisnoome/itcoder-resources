@@ -225,3 +225,4 @@ pre-compaction files).
 - 2026-10-11: School and teacher rules (lib/schoolrules.php): AI marking off by grade, AI marks held for a teacher (Marks to check), hints and why-wrong on/off, resubmits, late work accepted/flagged/locked, behind emails on/off - the school's admin sets them, each teacher may change them; the school's logo, billing details on invoices and licence; the year end moves every grade up and Grade 12 leaves; leavers' work deleted only when due and confirmed with DELETE (lib/yearend.php).
 - 2026-10-11: Subjects page as picture rows - course picture and colours, lessons-done bar, a Start / Continue / Next button, subject icons (Chris chose rows over a swipe strip).
 - 2026-10-11: Admin can Remove a course (visibility 'removed', out of CourseIndex() everywhere, pupils' work kept) and Restore it.
+- 2026-10-11: Mark corrections: Dismiss a question's corrections without changing the marker (DismissCorrections()).
