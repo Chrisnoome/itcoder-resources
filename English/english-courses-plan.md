@@ -1,7 +1,6 @@
 # English Home Language, Grades 10-12 (`eng10`, `eng11`, `eng12`) - PLAN
 
 **Status (11 October 2026):** plan, art and lesson lists done. Plan page: https://claude.ai/artifact/BxwSDJfiRwSBtpUzA8wHSt (`english-plan-page.html`, rebuilt by `tools/build_plan_page.py`). No lessons have been written yet.
-waiting for Chris's decisions (below). No lessons have been written yet.
 
 Chris, 11 October 2026: "collect documents and plan courses for both ieb and caps - one
 course per year. english 1st language. put it in its own folder". Then: "base 10 and 11
