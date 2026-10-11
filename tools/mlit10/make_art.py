@@ -714,7 +714,253 @@ def d_jobdone3():
     svg.save()
 
 
+# ------------------------------------------- batch 4: Gogo's Shoebox ------
+# Theme A for the scenes: paper collage - kraft ground, tilted slips,
+# paperclips, rubber stamps. The DOCUMENTS themselves stay plain and realistic
+# (fictional names: Mzansi Metro, Ubuntu Foods, Thread & Co, Khaya Bank).
+
+KRAFT, PAPER, DOCINK, DOCGREY, DOCLINE = '#c9a77c', '#ffffff', '#1b1f24', '#5b6670', '#cfd6dc'
+DOC = "'Figtree', 'Segoe UI', Arial, sans-serif"
+MONO = "'IBM Plex Mono', Consolas, 'Courier New', monospace"
+
+
+def doc(name, w, h, label):
+    svg = Svg(name, w, h, label, bg='#f3f4f5', rx=4)
+    svg.add(f'<rect x="8" y="8" width="{w - 16}" height="{h - 16}" fill="{PAPER}" stroke="{DOCLINE}" stroke-width="1"/>')
+    return svg
+
+
+def row(svg, x1, x2, y, left, right, size=12, bold=False, font=DOC, colour=DOCINK, mid=None, midx=None):
+    w = 700 if bold else 400
+    svg.text(x1, y, left, size, colour, 'start', w, font)
+    if mid is not None:
+        svg.text(midx, y, mid, size, colour, 'end', w, font)
+    if right != '':
+        svg.text(x2, y, right, size, colour, 'end', w, font)
+
+
+def hline(svg, x1, x2, y, dash=False, colour=DOCLINE):
+    svg.add(f'<path d="M{x1} {y} H{x2}" stroke="{colour}" stroke-width="1"{" stroke-dasharray=\"3 3\"" if dash else ""}/>')
+
+
+def municipal_bill():
+    svg = doc('municipalbill', 560, 620, 'Mzansi Metro municipal account for Mrs N Nkosi, March: electricity, water, refuse, sewerage, rates and VAT, total due R3 894,73 by 15 April')
+    svg.add(f'<rect x="8" y="8" width="544" height="64" fill="#1f5c8b"/>')
+    svg.text(28, 40, 'MZANSI METRO MUNICIPALITY', 18, WHITE, 'start', 700, DOC)
+    svg.text(28, 60, 'Consolidated municipal account - tax invoice', 12, '#d6e6f2', 'start', 400, DOC)
+    rows = [('Account holder', 'Mrs N Nkosi'), ('Address', '14 Mahlangu Street, Mzansi'), ('Account number', '5520 3318 07'),
+            ('Statement date', '25 March'), ('Due date', '15 April')]
+    for i, (a, b) in enumerate(rows):
+        row(svg, 28, 300, 100 + i * 20, a, '', 12, colour=DOCGREY)
+        svg.text(170, 100 + i * 20, b, 12, DOCINK, 'start', 600, DOC)
+    svg.add(f'<rect x="330" y="86" width="200" height="86" rx="4" fill="#eef5fb" stroke="#1f5c8b"/>')
+    svg.text(430, 112, 'AMOUNT DUE', 12, '#1f5c8b', 'middle', 700, DOC)
+    svg.text(430, 144, 'R3 894,73', 26, DOCINK, 'middle', 800, DOC)
+    svg.text(430, 164, 'by 15 April', 11, DOCGREY, 'middle', 400, DOC)
+    y = 210
+    svg.text(28, y, 'ACCOUNT SUMMARY', 12, '#1f5c8b', 'start', 700, DOC); hline(svg, 28, 532, y + 6)
+    for a, b in [('Previous balance', 'R3 512,40'), ('Payment received - thank you', '-R3 512,40'), ('Balance brought forward', 'R0,00')]:
+        y += 22; row(svg, 28, 532, y, a, b)
+    y += 34
+    svg.text(28, y, 'CURRENT CHARGES', 12, '#1f5c8b', 'start', 700, DOC); hline(svg, 28, 532, y + 6)
+    y += 20
+    for a, b in [('Electricity', ''), ('  Meter readings: previous 48 216 kWh, current 48 791 kWh', ''), ('  Units used 575 kWh x R3,10 per kWh', 'R1 782,50'),
+                 ('Water', ''), ('  Meter readings: previous 1 204 kl, current 1 222 kl', ''), ('  Water used 18 kl x R38,00 per kl', 'R684,00'),
+                 ('Refuse removal (fixed)', 'R245,00'), ('Sewerage (fixed)', 'R310,00')]:
+        y += 21
+        bold = not a.startswith('  ')
+        row(svg, 28, 532, y, a.strip() if bold else '   ' + a.strip(), b, 12 if bold else 11, bold and b == '', colour=DOCINK if bold else DOCGREY)
+    y += 26; hline(svg, 330, 532, y - 14, True)
+    row(svg, 28, 532, y, 'Subtotal of charges with VAT', 'R3 021,50')
+    y += 21; row(svg, 28, 532, y, 'VAT at 15%', 'R453,23')
+    y += 21; row(svg, 28, 532, y, 'Property rates (no VAT)', 'R420,00')
+    y += 14; hline(svg, 28, 532, y, colour=DOCINK)
+    y += 22; row(svg, 28, 532, y, 'TOTAL DUE', 'R3 894,73', 14, True)
+    y += 40
+    svg.add(f'<rect x="28" y="{y - 16}" width="504" height="64" rx="4" fill="#fff6e5" stroke="#e0a43a"/>')
+    svg.text(40, y + 2, 'Pay by the due date. Accounts in arrears may have their electricity', 11, DOCINK, 'start', 400, DOC)
+    svg.text(40, y + 18, 'supply restricted and interest charged on the overdue amount.', 11, DOCINK, 'start', 400, DOC)
+    svg.text(40, y + 36, 'Pay at any Mzansi Metro office, by EFT (reference: your account number) or at a store.', 11, DOCGREY, 'start', 400, DOC)
+    svg.save()
+
+
+def till_slip():
+    svg = Svg('tillslip', 300, 640, 'Ubuntu Foods till slip: eight items, three zero-rated, total R512,91, VAT included R42,77, cash R600, change R87,09', bg='#f3f4f5', rx=4)
+    teeth = ''.join(f' L{280 - 10 * (k + 1)} {614 + (12 if k % 2 == 0 else 0)}' for k in range(26))
+    svg.add(f'<path d="M20 10 H280 V614{teeth} L20 10 Z" fill="{PAPER}" stroke="{DOCLINE}"/>')
+    svg.text(150, 44, 'UBUNTU FOODS', 18, DOCINK, 'middle', 700, MONO)
+    svg.text(150, 62, 'Mzansi Plaza  VAT no. 4120 3355 18', 10, DOCGREY, 'middle', 400, MONO)
+    svg.text(150, 78, 'TAX INVOICE', 11, DOCINK, 'middle', 600, MONO)
+    hline(svg, 34, 266, 90, True, DOCINK)
+    items = [('BROWN BREAD 700G', '19,99 Z'), ('MAIZE MEAL 10KG', '109,99 Z'), ('EGGS LARGE X18', '54,99 Z'), ('SUNFLOWER OIL 2L', '79,98'),
+             ('TEA BAGS X100', '49,99'), ('WASHING POWDER 2KG', '89,99'), ('POLONY 1KG', '54,99'), ('WHITE SUGAR 2.5KG', '52,99')]
+    y = 112
+    for a, b in items:
+        row(svg, 34, 266, y, a, b, 11, font=MONO); y += 22
+    hline(svg, 34, 266, y - 6, True, DOCINK)
+    y += 14
+    row(svg, 34, 266, y, 'TOTAL', 'R512,91', 14, True, MONO); y += 26
+    row(svg, 34, 266, y, 'CASH', '600,00', 11, font=MONO); y += 20
+    row(svg, 34, 266, y, 'CHANGE', '87,09', 11, font=MONO); y += 30
+    row(svg, 34, 266, y, 'ITEMS: 8', '', 11, font=MONO); y += 24
+    row(svg, 34, 266, y, 'VAT INCLUDED @ 15%', '42,77', 11, font=MONO); y += 20
+    row(svg, 34, 266, y, 'Z = ZERO-RATED (NO VAT)', '', 10, font=MONO, colour=DOCGREY); y += 30
+    svg.text(150, y, '08 MAR  10:42  TILL 3', 10, DOCGREY, 'middle', 400, MONO); y += 24
+    svg.text(150, y, 'THANK YOU - SALA KAHLE', 11, DOCINK, 'middle', 600, MONO)
+    svg.save()
+
+
+def store_statement():
+    svg = doc('storestatement', 560, 380, 'Thread & Co store account statement: opening balance R1 450,00, a purchase, a payment, interest, closing balance R1 773,50, minimum payment R265,00')
+    svg.text(28, 44, 'Thread & Co', 22, '#8a2b4b', 'start', 800, DOC)
+    svg.text(532, 40, 'STORE ACCOUNT STATEMENT', 12, DOCINK, 'end', 700, DOC)
+    svg.text(532, 58, 'Mrs N Nkosi   Account 7781 2290', 11, DOCGREY, 'end', 400, DOC)
+    y = 96
+    svg.add(f'<rect x="28" y="{y - 16}" width="504" height="24" fill="#f6eef1"/>')
+    for x, t, a in [(36, 'Date', 'start'), (110, 'Description', 'start'), (524, 'Amount', 'end')]:
+        svg.text(x, y, t, 11, DOCINK, a, 700, DOC)
+    for d, t, amt in [('1 Mar', 'Opening balance', 'R1 450,00'), ('3 Mar', 'Purchase - school shoes and jersey', 'R899,00'),
+                      ('10 Mar', 'Payment received - thank you', '-R600,00'), ('28 Mar', 'Interest on balance', 'R24,50')]:
+        y += 26
+        svg.text(36, y, d, 12, DOCINK, 'start', 400, DOC); svg.text(110, y, t, 12, DOCINK, 'start', 400, DOC); svg.text(524, y, amt, 12, DOCINK, 'end', 400, DOC)
+        hline(svg, 28, 532, y + 8)
+    y += 32
+    row(svg, 36, 524, y, 'Closing balance', 'R1 773,50', 14, True)
+    y += 40
+    svg.add(f'<rect x="28" y="{y - 18}" width="504" height="66" rx="4" fill="#f6eef1" stroke="#8a2b4b"/>')
+    row(svg, 40, 520, y, 'Minimum payment due', 'R265,00', 13, True)
+    row(svg, 40, 520, y + 22, 'Payment due by', '5 April', 12)
+    svg.text(40, y + 40, 'Interest is charged on any amount not paid in full.', 11, DOCGREY, 'start', 400, DOC)
+    svg.save()
+
+
+def bank_statement(blank=False):
+    name = 'bankstatement' + ('-blank' if blank else '')
+    svg = doc(name, 640, 560, 'Khaya Bank statement for Mrs N Nkosi, 1 to 31 March: opening balance R2 140,35, credits, debits, fees, closing balance R2 960,21' + (' - some balances left blank' if blank else ''))
+    svg.add(f'<rect x="8" y="8" width="624" height="58" fill="#0f5c4d"/>')
+    svg.text(28, 44, 'KHAYA BANK', 20, WHITE, 'start', 800, DOC)
+    svg.text(612, 34, 'Savings and transaction account', 11, '#cfe9e2', 'end', 400, DOC)
+    svg.text(612, 52, 'Mrs N Nkosi   Account 6201 4477 3150   1 - 31 March', 11, '#cfe9e2', 'end', 400, DOC)
+    y = 98
+    svg.add(f'<rect x="20" y="{y - 16}" width="600" height="24" fill="#e8f2ef"/>')
+    cols = [(28, 'Date', 'start'), (84, 'Description', 'start'), (420, 'Debit', 'end'), (510, 'Credit', 'end'), (612, 'Balance', 'end')]
+    for x, t, a in cols:
+        svg.text(x, y, t, 11, DOCINK, a, 700, DOC)
+    lines = [('01 Mar', 'Opening balance', '', '', '2 140,35'), ('01 Mar', 'Pension payment', '', '2 890,00', '5 030,35'),
+             ('02 Mar', 'Rent received - backroom', '', '2 500,00', '7 530,35'), ('03 Mar', 'Debit order - Thuthuka funeral policy', '185,00', '', '7 345,35'),
+             ('05 Mar', 'ATM withdrawal', '800,00', '', '6 545,35'), ('05 Mar', 'ATM withdrawal fee', '12,50', '', '6 532,85'),
+             ('08 Mar', 'Card purchase - Ubuntu Foods', '512,91', '', '6 019,94'), ('10 Mar', 'Transfer from S Nkosi', '', '1 500,00', '7 519,94'),
+             ('14 Mar', 'Payment - Mzansi Metro', '3 894,73', '', '3 625,21'), ('20 Mar', 'Payment - Thread & Co', '600,00', '', '3 025,21'),
+             ('31 Mar', 'Monthly account fee', '65,00', '', '2 960,21')]
+    hide = {'7 345,35', '6 532,85', '7 519,94', '3 625,21'} if blank else set()
+    for d, t, dr, cr, bal in lines:
+        y += 30
+        svg.text(28, y, d, 12, DOCINK, 'start', 400, DOC); svg.text(84, y, t, 12, DOCINK, 'start', 400, DOC)
+        svg.text(420, y, dr, 12, '#a3271b' if dr else DOCINK, 'end', 400, DOC); svg.text(510, y, cr, 12, '#0f5c4d', 'end', 400, DOC)
+        if bal in hide:
+            svg.add(f'<rect x="530" y="{y - 14}" width="84" height="20" rx="3" fill="#fff6c2" stroke="#e0a43a"/>')
+            svg.text(572, y + 1, '?', 13, '#a36b00', 'middle', 700, DOC)
+        else:
+            svg.text(612, y, bal, 12, DOCINK, 'end', 600 if t in ('Opening balance',) else 400, DOC)
+        hline(svg, 20, 620, y + 10)
+    y += 40
+    row(svg, 28, 612, y, 'Closing balance', 'R2 960,21', 14, True)
+    y += 26
+    svg.text(28, y, 'Fees this month are shown as separate lines. Debits take money out; credits put money in.', 11, DOCGREY, 'start', 400, DOC)
+    svg.save()
+
+
+def collage_bg(name, w, h, label):
+    svg = Svg(name, w, h, label, bg=KRAFT, rx=8)
+    return svg
+
+
+def slip(svg, x, y, w, h, rot, lines=4, fill=PAPER):
+    svg.add(f'<g transform="rotate({rot} {x + w / 2} {y + h / 2})"><rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}" stroke="#b9a07f"/>'
+            + ''.join(f'<path d="M{x + 8} {y + 14 + i * 12} H{x + w - 8 - (i % 3) * 10}" stroke="#9aa5ad" stroke-width="2"/>' for i in range(lines)) + '</g>')
+
+
+def stamp(svg, x, y, word, rot=-12, colour=RED):
+    svg.add(f'<g transform="rotate({rot} {x} {y})"><rect x="{x - 48}" y="{y - 18}" width="96" height="34" rx="4" fill="none" stroke="{colour}" stroke-width="3"/></g>')
+    svg.text(x, y + 6, word, 18, colour, 'middle', extra=f'transform="rotate({rot} {x} {y})"')
+
+
+def paperclip(svg, x, y):
+    svg.add(f'<path d="M{x} {y} v26 a6 6 0 0 0 12 0 v-22 a4 4 0 0 0 -8 0 v20" fill="none" stroke="#7d8790" stroke-width="2.5" stroke-linecap="round"/>')
+
+
+def d_shoebox():
+    svg = collage_bg('shoebox', 330, 210, 'A shoebox stuffed with slips, bills and statements')
+    svg.add(f'<path d="M30 120 h260 l-20 76 h-220z" fill="#e8dcc6" stroke="#8a6a44" stroke-width="3"/><path d="M30 120 h260" stroke="#8a6a44" stroke-width="6"/>')
+    for i, (x, r) in enumerate([(50, -14), (100, 6), (150, -4), (200, 12), (240, -8)]):
+        slip(svg, x, 48 + (i % 2) * 12, 50, 80, r)
+    paperclip(svg, 118, 40)
+    svg.text(160, 168, 'GOGO\'S PAPERS', 15, '#8a6a44', 'middle')
+    svg.save()
+
+
+def d_paid():
+    svg = collage_bg('paid', 320, 200, 'A municipal bill stamped PAID before the due date')
+    slip(svg, 40, 26, 150, 150, -4, 8)
+    stamp(svg, 118, 104, 'PAID')
+    hadi(svg, 196, 96, .95)
+    bubble(svg, 196, 18, 112, ['BEFORE THE', 'DUE DATE!'], 228, 100, size=10)
+    svg.save()
+
+
+def d_magnifier():
+    svg = collage_bg('magnifier', 320, 200, 'A magnifying glass over a till slip, finding the same item charged twice')
+    slip(svg, 40, 20, 110, 160, 3, 10)
+    svg.add(f'<circle cx="160" cy="96" r="44" fill="#ffffff" fill-opacity=".35" stroke="{INK}" stroke-width="5"/><path d="M192 128 L236 172" stroke="{INK}" stroke-width="9" stroke-linecap="round"/>')
+    svg.text(160, 92, 'POLONY', 11, INK, 'middle', 700, MONO)
+    svg.text(160, 108, 'POLONY', 11, RED, 'middle', 700, MONO)
+    svg.text(262, 60, 'TWICE?', 16, RED, 'middle')
+    svg.save()
+
+
+def d_debitcredit():
+    svg = collage_bg('debitcredit', 320, 200, 'Debits take money out of the account, credits put money in')
+    slip(svg, 24, 30, 128, 130, -5, 0, '#fde7e4')
+    slip(svg, 168, 30, 128, 130, 5, 0, '#e4f5ee')
+    svg.text(88, 82, 'DEBIT', 20, '#a3271b', 'middle', extra='transform="rotate(-5 88 95)"')
+    svg.text(88, 112, 'money out', 15, INK, 'middle', font=HAND, extra='transform="rotate(-5 88 95)"')
+    svg.text(232, 82, 'CREDIT', 20, '#0f5c4d', 'middle', extra='transform="rotate(5 232 95)"')
+    svg.text(232, 112, 'money in', 15, INK, 'middle', font=HAND, extra='transform="rotate(5 232 95)"')
+    paperclip(svg, 150, 20)
+    svg.save()
+
+
+def d_jar():
+    svg = collage_bg('jars', 330, 200, 'Money jars labelled for food, transport, electricity and savings - a budget plans where the money goes')
+    for i, (lab, lvl) in enumerate([('FOOD', .8), ('TAXI', .5), ('POWER', .6), ('SAVE', .3)]):
+        x = 18 + i * 78
+        svg.add(f'<path d="M{x + 8} 50 h52 v8 q10 6 10 20 v86 q0 10 -10 10 h-52 q-10 0 -10 -10 v-86 q0 -14 10 -20z" fill="#ffffff" fill-opacity=".5" stroke="{INK}" stroke-width="2.5"/>'
+                f'<rect x="{x + 2}" y="{174 - 110 * lvl}" width="64" height="{110 * lvl - 2}" fill="#e0b84a" opacity=".85"/>'
+                f'<rect x="{x + 6}" y="96" width="56" height="20" fill="{PAPER}" stroke="{INK}"/>')
+        svg.text(x + 34, 111, lab, 10, INK, 'middle')
+    svg.save()
+
+
+def d_jobdone4():
+    svg = Svg('jobdone4', 320, 200, 'Hadi with a JOB DONE stamp after month-end for Gogo', bg=SIGN, rx=8)
+    svg.add(f'<rect x="6" y="6" width="308" height="188" rx="4" fill="none" stroke="{INK}" stroke-width="4"/>')
+    svg.add(f'<g transform="rotate(-12 110 90)"><rect x="34" y="54" width="160" height="70" rx="6" fill="none" stroke="{RED}" stroke-width="5"/>'
+            f'<rect x="42" y="62" width="144" height="54" rx="3" fill="none" stroke="{RED}" stroke-width="2"/></g>')
+    svg.text(116, 90, 'JOB', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    svg.text(116, 114, 'DONE', 26, RED, 'middle', extra='transform="rotate(-12 110 90)"')
+    hadi(svg, 196, 96, 1.05)
+    svg.text(160, 186, 'next stop: Plan Wars', 15, INK, 'middle', font=MARKER)
+    svg.save()
+
+
 if __name__ == '__main__':
+    for o in [(21, 4, 1, 4, 'The municipal bill', 'Read every line before you pay.', ['DUE DATE!', 'SQUAWK!']),
+              (22, 4, 2, 4, 'Till slips and accounts', 'Keep the slip. Check the slip.', ['CHECK', 'THE SLIP']),
+              (23, 4, 3, 4, 'The bank statement', 'Money in, money out, what is left.', ['DEBIT OR', 'CREDIT?']),
+              (24, 4, 4, 4, 'Where does the money go?', 'Plan it before you spend it.', ['BUDGET', 'FIRST!'])]:
+        opener(*o)
+    municipal_bill(); till_slip(); store_statement(); bank_statement(); bank_statement(True)
+    d_shoebox(); d_paid(); d_magnifier(); d_debitcredit(); d_jar(); d_jobdone4()
     openers3 = [
         (14, 3, 1, 5, 'Ask a good question',  'Ask it fair, or the answers lie.', ['NO LEADING', 'QUESTIONS!']),
         (15, 3, 2, 5, 'Collecting it',        'Taste the soup: one well-stirred spoon.', ['WHO DO', 'WE ASK?']),
