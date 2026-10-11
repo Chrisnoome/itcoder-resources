@@ -60,6 +60,7 @@ LOOKS = {
     "tuckshop":      "a board-game token badge in bright red and lime green enamel with a dark green rim, a little striped shop awning across the top",
     "machine":       "a square chip-shaped badge in dark green circuit-board enamel with gold copper tracks and a silver centre, gold pins around the edge",
     "factfake":      "a rounded speech-bubble-shaped badge in chat green enamel with a cyan scanner-bracket rim and a small magnifying glass at the top",
+    "botmaze":       "a square badge made of brown cardboard with masking-tape corners, a red felt-pen rim and a small grey robot head with one orange eye at the top",
 }
 
 # Each achievement's picture, without text.

@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-11-botmaze-badges",
+  "kind": "script",
+  "from": "the General Computing courses chat (Bolt's maze)",
+  "added": "2026-10-11",
+  "status": "waiting",
+  "command": "python tools/badge-art/make_badges.py",
+  "cwd": "AIResources",
+  "minutes": 15,
+  "why": "Chris, 10 October 2026: \"add level and achievement icons to the art queue\". The achievement badges for the new Grade 7 course Bolt's maze (botmaze, about 21): its look is in LOOKS in make_badges.py (a card-and-tape badge with a red felt-pen rim and a small robot head). Only missing badges are made, straight into public/assets/badges/botmaze/. Its level emblems are in 2026-10-11-botmaze-emblems."
+}

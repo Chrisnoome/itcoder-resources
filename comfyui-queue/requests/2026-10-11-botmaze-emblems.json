@@ -1,0 +1,196 @@
+{
+  "id": "2026-10-11-botmaze-emblems",
+  "kind": "items",
+  "from": "the General Computing courses chat (levels)",
+  "added": "2026-10-11",
+  "status": "waiting",
+  "why": "Chris, 10 October 2026: \"each course must get its own level names\". Level emblems for two Grade 7/8 courses, nine each (lib/practice.php PracticeRanks()), the frame bronze to silver to gold as in 2026-10-10-gc-rank-emblems. Fact or fake (factfake: Scroller to Truth Keeper) was added to that request on 10 October but its items are not in it now, so they are asked for again here. Bolt's maze (botmaze: Lost Bolt to Chief Programmer) is new, 11 October 2026. PracticeRankEmblem() draws the old emblem until the files exist. Do not run while the GPU is busy with videos (Chris).",
+  "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 2,
+  "items": [
+    {
+      "name": "factfake-0",
+      "prompt": "a phone showing a chat bubble, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-1",
+      "prompt": "a pause button, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-2",
+      "prompt": "a search bar with a magnifying glass, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-3",
+      "prompt": "a small detective magnifying glass, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-4",
+      "prompt": "three overlapping browser windows, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-5",
+      "prompt": "a photo with a circular arrow around it, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-6",
+      "prompt": "a robot face with a question mark, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-7",
+      "prompt": "a green tick inside a speech bubble, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "factfake-8",
+      "prompt": "a shining shield with a magnifying glass on it, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/factfake/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-0",
+      "prompt": "a small grey robot head with one orange eye and two antennae, looking lost, set on a plain round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/0.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-1",
+      "prompt": "a single footprint on a square floor tile, set on a round bronze medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/1.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-2",
+      "prompt": "a curved arrow turning right on a floor tile, set on a bronze medal frame with a small ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/2.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-3",
+      "prompt": "a small purple bug with a magnifying glass over it, set on a round silver medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/3.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-4",
+      "prompt": "a circular looping arrow, set on a silver medal frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/4.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-5",
+      "prompt": "a robot eye with dotted sensor lines looking ahead, set on a silver star-shaped frame",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/5.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-6",
+      "prompt": "a hand resting on a brick wall with an arrow along it, set on a round gold medal frame",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/6.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-7",
+      "prompt": "a battery with a lightning bolt inside a maze, set on a gold star-shaped frame with a ribbon",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/7.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    },
+    {
+      "name": "botmaze-8",
+      "prompt": "a glowing robot head with a crown and two antennae, set on a jewelled gold starburst frame with a soft glow",
+      "out": "AIPascalCourse/public/assets/rank-art/botmaze/8.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
+  ]
+}

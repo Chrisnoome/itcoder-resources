@@ -1,0 +1,26 @@
+{
+  "id": "2026-10-11-botmaze-icon",
+  "kind": "items",
+  "from": "the General Computing courses chat (Bolt's maze)",
+  "added": "2026-10-11",
+  "status": "waiting",
+  "why": "Chris, 10 October 2026: \"add level and achievement icons to the art queue\". The home page icon for the new Grade 7 course Bolt's maze (botmaze), in its colours (lib/home.php HomeCourseLook(): felt-pen red #c0392b to card brown #6e4c2a). Same style as 2026-10-10-tuckshop-icon.",
+  "style": "A glossy 3D icon object, smooth shiny plastic and enamel, soft studio light, like a premium app icon. The whole object centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
+  "size": [
+    1024,
+    1024
+  ],
+  "variants": 3,
+  "items": [
+    {
+      "name": "botmaze",
+      "prompt": "A small grey toy robot with one big orange eye and two antennae standing in a little brown cardboard maze, a red arrow on the floor",
+      "out": "AIPascalCourse/public/assets/course-art/botmaze.png",
+      "outSize": [
+        256,
+        256
+      ],
+      "transparent": true
+    }
+  ]
+}
