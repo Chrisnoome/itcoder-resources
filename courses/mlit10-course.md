@@ -5,7 +5,7 @@
 show as "coming soon"), with its art from `tools/mlit10/make_art.py`, `caps.php`,
 `sags.php` and `glossary.php`. Every numeric answer was tried on the testbed with lenient
 typings (R 33, 2.5m, 3¾, R135 per kg, 2h30). The numeric answer type is built
-(platform.md, "Typed answers"). The Term 1 assessment lessons (investigation workshop, Term 1 test) are written too, so Term 1 (20 lessons) is complete. Batch 4, Gogo's Shoebox (4 lessons, financial documents drawn by `make_art.py` as plain realistic documents of fictional organisations - Mzansi Metro, Ubuntu Foods, Thread & Co, Khaya Bank - with fixed fictional tariffs so they never go stale), is written. Batch 5, Plan Wars (4 lessons on tariffs, 3 graph blocks), is written. Batch 6, The Great Bake-Off (6 lessons on measurement; art in `tools/mlit10/make_batch6.py`), is written. Batch 7, Matchday (4 lessons on scale, maps, seating plans and directions; art in `tools/mlit10/make_batch7.py`; distances measured by counting the maps' 1 cm grid squares, since there is no on-screen ruler yet), is written. Next: batch 8, Games Night. Joke drawings and every margin doodle/note go at the START of their block (`tools/mlit10/make_jokes.py`). The course row is `open`, so it shows on the site once published.
+(platform.md, "Typed answers"). The Term 1 assessment lessons (investigation workshop, Term 1 test) are written too, so Term 1 (20 lessons) is complete. Batch 4, Gogo's Shoebox (4 lessons, financial documents drawn by `make_art.py` as plain realistic documents of fictional organisations - Mzansi Metro, Ubuntu Foods, Thread & Co, Khaya Bank - with fixed fictional tariffs so they never go stale), is written. Batch 5, Plan Wars (4 lessons on tariffs, 3 graph blocks), is written. Batch 6, The Great Bake-Off (6 lessons on measurement; art in `tools/mlit10/make_batch6.py`), is written. Batch 7, Matchday (4 lessons on scale, maps, seating plans and directions; art in `tools/mlit10/make_batch7.py`; distances measured by counting the maps' 1 cm grid squares, since there is no on-screen ruler yet), is written. Batch 8, Games Night (3 lessons on probability; art in `tools/mlit10/make_batch8.py`; the `chanceLab` dice/spinner try-it in `public/assets/mlit-tryit.js`, with an optional hidden bias for the rigged-spinner Job), is written, so Term 2's teaching is complete. Next: the Term 2 assessment lessons (assign2, exam2). Joke drawings and every margin doodle/note go at the START of their block (`tools/mlit10/make_jokes.py`). The course row is `open`, so it shows on the site once published.
 
 Chris, 10 October 2026: "maths lit lends itself to different scenarios and graphical
 themes. plan out a course for grade 10 that covers caps and sags grade 10 over a normal
@@ -274,8 +274,8 @@ Add `mlit10` to the per-course list in `RankFamily()` (`lib/practice.php`) and g
 4. **Job block.** A multi-part, step-marked task in the style of pascal9's `mission`, with
    memo codes and Jev per step.
 5. **On-screen ruler** (batch 7) and **label-the-figure answers** (batches 7 and 8).
-6. **Try-its:** recipe scaler, tariff slider, dice simulator, interest table, room
-   planner.
+6. **Try-its:** recipe scaler, tariff slider, dice simulator (done: `chanceLab` in
+   `public/assets/mlit-tryit.js`), interest table, room planner.
 7. **Year-dated figure checker:** VAT, tariffs and fees, refreshed each March.
 
 ## Still open
