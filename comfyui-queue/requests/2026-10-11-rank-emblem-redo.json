@@ -3,7 +3,7 @@
   "kind": "items",
   "from": "the art chat (Chris's picks of 2026-10-10-gc-rank-emblems)",
   "added": "2026-10-11",
-  "status": "waiting",
+  "status": "made",
   "why": "Chris, 11 October 2026, picking the level emblems: four first-rank or rhino emblems to make again - clubweb 0 and catword 0 were a blank white page, sql9 0 carried text and sql9 3 was a paw print instead of a rhino's three-toed track.",
   "style": "A glossy 3D game rank emblem, smooth shiny enamel and metal, soft studio light, like a reward in a mobile game. The whole emblem centred on a plain pure white background with space all around it. No text, no letters, no numbers, no words, no logos anywhere.",
   "size": [
@@ -20,7 +20,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "sql9-3",
@@ -40,7 +41,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     },
     {
       "name": "catword-0",
@@ -50,7 +52,8 @@
         256,
         256
       ],
-      "transparent": true
+      "transparent": true,
+      "picked": 1
     }
   ]
 }
