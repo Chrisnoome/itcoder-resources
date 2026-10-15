@@ -1,6 +1,6 @@
 # Numbered blocks: design (agreed with Chris, 15 Oct 2026)
 
-Status: Phases 1+2 built 15 Oct 2026 (AIPascalCourse 8de1065..306163f, not published; 37 lessons whose return is not a list still unnumbered). Phase 3 built 15 Oct 2026 (AIPascalCourse d46cf32, not published; keys not yet set on test/live: run `tools/control-centre/set-block-requests-key.ps1` when publishing). Phase 4 (gating) built 15 Oct 2026, not published: blockGates overrides, read gates with Continue (`api/gate-read.php`), Gate here in Edit view (`api/block-gate.php`), teacher gate mode `gateMode` (lib/schoolrules.php). 'always' equals 'default' until a course sets `'gates' => false` in CourseIndex() (none does: every course applies its gates today). Code lives in `Projects/AIPascalCourse`.
+Status: Phases 1+2 built 15 Oct 2026 (AIPascalCourse 8de1065..306163f, not published; 37 lessons whose return is not a list still unnumbered). Phase 3 built 15 Oct 2026 (AIPascalCourse d46cf32, not published; keys not yet set on test/live: run `tools/control-centre/set-block-requests-key.ps1` when publishing). Phase 4 (gating) built 15 Oct 2026, not published: blockGates overrides, read gates with Continue (`api/gate-read.php`), Gate here in Edit view (`api/block-gate.php`), teacher gate mode `gateMode` (lib/schoolrules.php). Course default gates only in sequential courses (Decision 7). Code lives in `Projects/AIPascalCourse`.
 open-items.md bullet "Block sections" (area content, p1); works with
 "Per-teacher gated courses setting" (area teacher).
 
@@ -59,8 +59,11 @@ file.
    shows "I've read this - Continue"; the blocks after it stay held until it
    is clicked.
 7. **Per-teacher setting: Course default / Always gate / Never gate**
-   (teacher settings). Pupils with no teacher get the course default. Nothing
-   changes for current pupils until a teacher picks otherwise.
+   (teacher settings). Pupils with no teacher get the course default.
+   Course default (Chris, 15 Oct 2026): block gates apply only in sequential
+   courses; in a non-sequential course no file, admin or guided try-it gate
+   holds anything unless the teacher picks Always gate. Never gate drops
+   every gate; the lesson order of a sequential course stays.
 8. **Pilot course: pascal9.** Then the other 27 courses at once by script.
 9. **Migration check: script plus a rendered-page diff.** Every lesson is
    rendered before and after with edit view off; the HTML must match apart

@@ -2370,8 +2370,10 @@ api/sql-run.php.
   deadlines; pupils follow their teacher, no teacher = course default):
   Never drops every gate (the lesson order stays, a separate setting),
   Always keeps the file and admin gates in any course, Course default
-  follows the course (`GatesOff()`; every course gates today, so Always
-  differs only once a course sets `'gates' => false`). LessonComplete(),
+  gates only in a sequential course (Chris, 15 Oct 2026: in ai, pascal,
+  java, sql, theory ... no file, admin or guided try-it gate holds anything
+  unless the teacher picks Always; a guided try-it keeps its own steps,
+  hints and model query) - `GatesOff()`. LessonComplete(),
   ApiRequireUngated() and sql-run.php all go through the same functions.
 - Check: `php tests/sequence.test.php` (its own throwaway database; with the
   local SQL runner running it also runs real SQLite and Java DB errors). Its
