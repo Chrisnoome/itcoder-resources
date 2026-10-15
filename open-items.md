@@ -548,7 +548,7 @@ Details live in the linked files.
 - **Jev-only "Do this" checks** (English helpers) must fall back to Claude when Jev is unsure, per the Jev-first rule; false "missing" results seen on eng10. (from chat 'General computing courses', harvested 15 Oct 2026) {area: marking; p: 2; status: open}
 - **Add Jev calls to the AI usage log** in `lib/jev.php`, then cost Jev in `costs-research.md`. (from chat 'Course development research', harvested 15 Oct 2026) {area: admin; p: 3; status: open}
 - **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
-- **Daily-limit fix and per-pupil limit of 150** await a publish and `setup.php`. (from chat 'Marking issues', harvested 15 Oct 2026) {area: marking; p: 1; status: open}
+- **Daily-limit fix and per-pupil limit of 150** await a publish and `setup.php`. (from chat 'Marking issues', harvested 15 Oct 2026) {area: marking; p: 1; status: done}
 
 ## Security review (2026-09-28)
 
@@ -735,5 +735,5 @@ Still open:
 - **YouTube:** Chris deletes the seven old uploads (3Kh5JXDrJEE, PoP4TPoW0PM, sLMHjwsVgvM, GgEOY8EcL4A, W5p4d9uG0og, JwcwT3DLynQ, rrKfSqYQ6_U); recheck the 7.2 public thumbnail; Chris sets `youtubeApiKey` (set-server-config.py); publish Monitor rebuild 4af915b. (from chat 'YouTube management', harvested 15 Oct 2026) {area: admin; p: 3; status: open}
 - **Office/Access install video** needs Chris's M365 sign-in; unload the Qwen3 server (pid 67268). (from chat 'Database planning: caps and sags (install-video work)', harvested 15 Oct 2026) {area: content; p: 3; status: open}
 - **Business:** De La Salle IP acknowledgement letter (business/ .docx) awaits letterhead and signature; accountant, CIPC trade mark, publisher contract check; move lesson 17 to Term 3. (from chat 'Site commercialisation', harvested 15 Oct 2026) {area: commercialisation; p: 2; status: open}
-- **Publish pending commits** (dismiss, Remove course, View the log, home scroller, mlit10), and confirm the joke-redraw deploy was wanted. (from chat 'Site design alternatives and mockups' and 'Redraw labelled jokes in other courses', harvested 15 Oct 2026) {area: admin; p: 2; status: open}
 - **Check in a browser:** the teacher "Your IT periods" settings form and the checklist page (needs teacher sign-in). (from chat 'Site review tool' and 'Remediation strategies / Checklist', harvested 15 Oct 2026) {area: testing; p: 2; status: open}
+- **Publish pending commits** (dismiss, Remove course, View the log, home scroller, mlit10), and confirm the joke-redraw deploy was wanted. (from chat 'Site design alternatives and mockups' and 'Redraw labelled jokes in other courses', harvested 15 Oct 2026) {area: admin; p: 2; status: done}
