@@ -12,7 +12,7 @@ Secrets: the platform status key comes from the env var BESTLESSONS_STATUS_KEY
 never logged or returned.
 """
 import concurrent.futures, glob, hashlib, json, os, re, subprocess, sys, threading, time
-import urllib.error, urllib.request
+import urllib.error, urllib.parse, urllib.request
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -185,7 +185,37 @@ def queue_task(tid):
                       "manager_decides": pick.get("manager_decides", True), "queued": now_iso()})
             write_json(RUN_QUEUE, q)
         T.set_tag(tid, {"status": "queued"})
-    return {"queued": True, "queue_length": len(q), "task": T.public(find_task(tid))}
+    opened = open_in_app(tid, t, pick)
+    return {"queued": True, "opened": opened, "queue_length": len(q), "task": T.public(find_task(tid))}
+
+
+# Run opens a new Code-tab session with the task as its prompt (Chris, 15 Oct 2026).
+# The documented link claude://code/new?q=&folder= only prefills: Chris presses
+# Enter in the new session. It takes no model or effort, so the prompt carries
+# Jev's pick and the session delegates to the matching helper-* agent.
+def open_in_app(tid, t, pick):
+    model = pick.get("model") or "manager decides"
+    effort = pick.get("effort") or "manager decides"
+    prompt = (
+        "Task from the control centre (id %s, area %s, p%s). Jev's pick: model %s, effort %s.\n"
+        "Read D:\\DB Sync\\Dropbox\\Projects\\AIResources\\CLAUDE.md first. If the task is large or unclear, "
+        "ask me with AskUserQuestion before building. Delegate bulk work to the helper-%s agent. "
+        "When it is finished, set this task's open-items.md tag to status: done (small exact edit) "
+        "and commit only your own files.\n\nTask:\n%s"
+        % (tid, t["area"], t["p"], model, effort,
+           model if model in ("haiku", "sonnet", "opus", "fable") else "sonnet",
+           (t["brief"] or t["title"])[:3500]))
+    url = "claude://code/new?" + urllib.parse.urlencode(
+        {"q": prompt, "folder": ROOT}, quote_via=urllib.parse.quote)
+    try:
+        os.startfile(url)
+    except Exception:
+        return False
+    with WRITE_LOCK:
+        q = read_json(RUN_QUEUE, [])
+        write_json(RUN_QUEUE, [e for e in q if e.get("id") != tid] if isinstance(q, list) else [])
+        T.set_tag(tid, {"status": "running", "session": "app"})
+    return True
 
 
 # ---------------- monitor ----------------

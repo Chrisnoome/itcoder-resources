@@ -44,14 +44,19 @@ mode; the page sets `color-scheme: light`.
 
 ## Run flow
 
-1. Chris opens a task. The page asks Jev for a model and effort (`tools/jev-route.py`) and
-   shows the pick.
-2. **Run** adds the task to `logs/run-queue.json` and sets its status to queued.
-3. The bar mod sees the queue and shows **Start: <task>**. One click fills the manager's
-   prompt with "Start queued task <id>".
-4. The manager starts a side session with the task as its brief and the Jev-picked model and
-   effort. It records `status: running; session: <id>` and the router outcome when the work
-   is checked.
+Changed on 15 October 2026 at Chris's request, so that Run works without going back to the
+manager chat:
+
+1. Chris opens a task. The page asks Jev for a model and effort and shows the pick.
+2. **Run** opens a new Code-tab session through the documented link
+   `claude://code/new?q=<prompt>&folder=<AIResources>`. The prompt holds the brief, Jev's pick,
+   and an instruction to delegate to the matching `helper-*` agent, set the open-items tag to
+   done when finished, and ask before building anything large. Chris presses Enter in the new
+   session, because the app only fills the prompt in; it doesn't send it. The link can't set
+   the model or effort.
+3. The task's tag becomes `status: running; session: app`.
+4. Fallback: if the link can't be opened, the task stays queued, and the bar's
+   **Start: <task>** hands it to the manager.
 
 ## Pieces
 
