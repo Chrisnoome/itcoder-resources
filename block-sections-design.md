@@ -71,6 +71,11 @@ file.
 - **In the lesson file:** every block gets `'n' => <int>`, unique within the
   lesson, written as the first key so a tool can find it by text. Questions
   keep their `id`; `n` is an extra handle, not a replacement.
+- **Helper-built blocks** (Chris, 15 Oct 2026): a helper call in the list
+  gets one number through a wrapper, `...Numbered(7, Scenario(...))` for a
+  call that builds several blocks, `NumberedBlock(7, Helper(...))` for one
+  (lib/content.php). Every part it builds carries n 7; a correction to #7
+  edits that one call. In the source each n still appears once.
 - **Next free number:** the highest `n` ever used, kept as a comment line at
   the top of the lesson file (`// blocks-next: 27`), so a number freed by a
   deletion is never reused. `bin/check-blocks.php` fails if `n` is missing,
