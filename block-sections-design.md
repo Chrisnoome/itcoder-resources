@@ -99,6 +99,9 @@ file.
   for every course): a small number tab in the left margin of each block
   (`#12`, plus the question id if any), a thin outline on hover, a pencil and a
   gate icon. No layout shift when off.
+- The pencil stays small (26x22 px; Chris, 15 Oct 2026): Edit view is an
+  admin-only tool, an exception to the 36px control rule, so the tab does not
+  cover the block above.
 - Gates show in edit view as a bar under the gate block (file gate, admin
   gate, or removed), so Chris sees where pupils stop.
 - Open requests show a dot on their block, so a block is not reported twice.
