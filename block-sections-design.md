@@ -167,9 +167,13 @@ file.
   endpoint, the control centre's Corrections area, `tools/block.py get/put/list`.
 - **Phase 4: gating.** `blockGates`, "Gate here" in edit view, read gates with
   Continue, the teacher's gateMode (closes the per-teacher open item), tests.
-- **Phase 5: split long prose.** Course by course, Claude splits blocks over
-  ~3 KB at sub-headings (new numbers from `blocks-next`), render checked by
-  eye. Biggest files first (java, pascal, sql lessonNN).
+- **Phase 5: split long prose when corrected, never in bulk** (Chris, 15 Oct
+  2026). 635 prose blocks are over ~3 KB (java 116, pascal 109, theory10-12
+  226, cattheory10-12 163, others 21; largest ~12 KB). A bulk split was
+  estimated at 4-6% of a week's usage for a small extra saving (a correction
+  already reads one block, not the lesson), so a correction session that
+  touches a prose block over ~3 KB splits it at a sub-heading with
+  `tools/block.py put --split` (new parts take numbers from `blocks-next`).
 - **Phase 6: generation rules** written into the lesson briefs and checklist
   (can go with phase 1).
 
