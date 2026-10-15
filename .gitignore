@@ -3,3 +3,6 @@
 
 # Claude Code worktrees (full repo copies)
 /.claude/worktrees/
+
+# Job briefs (jev-route.py)
+logs/

@@ -72,7 +72,10 @@ Paths are relative to this folder. For platform.md (235 KB) never read it whole:
 Agreed with Chris, 15 Oct 2026 (`workflow-plan.md`).
 
 - The main session is a manager on Opus 5.5, medium effort: it plans, routes, checks and makes small edits. Bulk reading, builds and bulk edits go to subagents or side sessions. Model is fixed per session because the cache is per model; effort may change mid-task.
-- Before delegating, route model and effort through Jev; below 0.6 confidence Claude decides. Details: see `.claude/agents` and `tools/jev-route` (being built). The key lives in the user env var `TYPESAFE_ROUTER_KEY`, never in chat or the repo.
+- Before delegating, route model and effort through Jev; below 0.6 confidence Claude decides. Details:
+  1. Before each Agent/start_session delegation run `python tools/jev-route.py "<brief>"` (output `JEV: model=... effort=...`; "manager decides" means pick yourself).
+  2. Pass the picked model to the matching `helper-*` agent (or set the side session's model/effort).
+  3. When the job is checked, record it: `python tools/jev-route.py --outcome <id> <model> ok|redo`. Helpers are user-level in `~/.claude/agents`. The key lives in the user env var `TYPESAFE_ROUTER_KEY`, never in chat or the repo.
 - Helpers are `helper-haiku`, `helper-sonnet`, `helper-opus`, `helper-fable` in `.claude/agents/`.
 - A subagent gets a scoped brief and returns a summary, never file dumps. Because it knows nothing else, state the goal, what is ruled out, and the files to read.
 - One task per session. `/clear` between unrelated tasks, `/btw` for side questions.
