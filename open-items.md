@@ -377,10 +377,11 @@ Details live in the linked files.
   to test or live - Chris runs publish-test.py, looks at the test site, then
   deploy-live.py (publishing.md). The nginx hardening that held this back is
   finished (vps-access.md). {area: fun; p: 2; status: open}
-- **Decided 28 Sep (Chris), being built:** (1) second-attempt marks - fix (a):
+- **Decided 28 Sep (Chris), all built:** (1) second-attempt marks - fix (a):
   store which lines were right on the first try; they keep 2 marks, lines
   fixed on the second try get 1 (old answers, with no first try stored, keep
-  their marks). (2) Naming checks before a program runs, Pascal and Java -
+  their marks). **Built 28 Sep** (AIPascalCourse 236431c: LineMarksEarned(),
+  PerLineRightKeys() in lib/content.php, quizResponses.firstResponse). (2) Naming checks before a program runs, Pascal and Java -
   keyword case, procedure/function/class/variable/parameter names - **stop
   the run** like the layout checks (console always; exercises from the lesson
   that teaches naming). **Built 28 Sep** (`naming` rule, lib/naming.php;
@@ -392,7 +393,7 @@ Details live in the linked files.
   (D:\ComfyUI App, models in D:\ComfyUIModels - Flux, Qwen-Image, Z-Image),
   **mixed styles for variety: realistic, cartoon like the No Single Letters
   characters, stylised, illustrated** - for the dilemmas and for better
-  memory match cards. {area: marking; p: 2; status: open}
+  memory match cards. {area: marking; p: 2; status: done}
 - **H5P rollout - where it stopped (1 Oct 2026, Chris: "pause activites and
   publish live")**: part 1 is committed and live - 403 activities, Pascal
   complete; Java, SQL and IT Theory 10-12 stopped part-way (each lesson's
