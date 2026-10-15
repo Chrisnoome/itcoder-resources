@@ -1,0 +1,8 @@
+{
+  "name": "bestlessons-bar",
+  "version": "0.1.0",
+  "description": "Chris's workflow band above the prompt: session, cost, skill and project buttons, context/usage/cache meters, cold-cache hold and a Jev off-topic nudge.",
+  "author": {
+    "name": "Chris Noome"
+  }
+}

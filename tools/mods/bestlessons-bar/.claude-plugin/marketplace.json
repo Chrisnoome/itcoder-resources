@@ -1,0 +1,5 @@
+{
+  "name": "bestlessons",
+  "owner": { "name": "Chris Noome" },
+  "plugins": [{ "name": "bestlessons-bar", "source": "./" }]
+}
