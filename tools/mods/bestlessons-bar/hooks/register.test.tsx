@@ -97,4 +97,6 @@ test('/clear + resume runs /clear, then sends the manager resume prompt', async 
   expect(filled).toEqual([])
   expect(sent.length).toBe(1)
   expect(sent[0]).toMatch(/^manager continue/)
+  await ui.press({ key: 'pause' })
+  expect(sent[1]).toMatch(/^manager pause/)
 })

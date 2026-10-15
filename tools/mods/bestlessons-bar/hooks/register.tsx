@@ -32,12 +32,26 @@ const KEEP_LIST =
 // After /clear the manager picks its work back up (Chris, 15 Oct 2026).
 const RESUME_PROMPT =
   'manager continue: list your linked sessions (list_sessions linked) and the run queue (logs/run-queue.json), ' +
-  'say in a line or two what each is doing or waiting on, and carry on monitoring.'
+  'say in a line or two what each is doing or waiting on, and carry on monitoring. ' +
+  'If logs/pause-note.md exists, read it first, resume from it, then delete it.'
+
+// Before Chris shuts the laptop down (Chris, 15 Oct 2026).
+const PAUSE_PROMPT =
+  'manager pause: I am shutting down. Tell every linked session that is working to stop at a safe point and commit ' +
+  'what is complete; stop background runs that cannot survive (note any publish or VM job and where its log is); ' +
+  'commit loose doc edits; write logs/pause-note.md (what each session was doing, what waits on me, how to resume); ' +
+  'then tell me when it is safe to shut down.'
 
 // Buttons. `fill` puts text in the prompt box (Chris presses Enter);
 // `run` runs a no-argument command at once, falling back to fill;
 // `clear` runs /clear and then sends RESUME_PROMPT.
-type Act = { kind: 'fill'; text: string } | { kind: 'run'; command: string } | { kind: 'jev' } | { kind: 'clear' }
+// `send` submits the text at once.
+type Act =
+  | { kind: 'fill'; text: string }
+  | { kind: 'send'; text: string }
+  | { kind: 'run'; command: string }
+  | { kind: 'jev' }
+  | { kind: 'clear' }
 type Btn = { key: string; label: string; act: Act; needs?: string }
 const GROUPS: { name: string; buttons: Btn[] }[] = [
   {
@@ -45,6 +59,7 @@ const GROUPS: { name: string; buttons: Btn[] }[] = [
     buttons: [
       { key: 'compact', label: '/compact', act: { kind: 'fill', text: `/compact ${KEEP_LIST}` } },
       { key: 'clear', label: '/clear + resume', act: { kind: 'clear' } },
+      { key: 'pause', label: '/pause', act: { kind: 'send', text: PAUSE_PROMPT } },
       { key: 'rewind', label: '/rewind', act: { kind: 'fill', text: '/rewind' } },
       { key: 'btw', label: '/btw', act: { kind: 'fill', text: '/btw ' } },
       { key: 'resume', label: '/resume', act: { kind: 'fill', text: '/resume' } },
@@ -126,6 +141,10 @@ async function fill($: EngineInterface, text: string) {
 
 async function press($: EngineInterface, b: Btn) {
   if (b.act.kind === 'fill') return fill($, b.act.text)
+  if (b.act.kind === 'send') {
+    await $.prompt.submit({ text: b.act.text, asUser: true })
+    return
+  }
   if (b.act.kind === 'clear') {
     try {
       await $.command.run({ command: 'clear' })
