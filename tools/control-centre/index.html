@@ -505,8 +505,10 @@ function renderJev(t) {
 async function runTask(t) {
   const b = $("#runBtn"); b.disabled = true;
   try {
-    await api("POST", `/api/tasks/${encodeURIComponent(t.id)}/run`, {});
-    toast("Queued. The bar shows Start: " + t.title.slice(0, 40));
+    const r = await api("POST", `/api/tasks/${encodeURIComponent(t.id)}/run`, {});
+    let copied = false;
+    try { await navigator.clipboard.writeText(r.handoff); copied = true; } catch (e) { /* clipboard blocked */ }
+    toast((copied ? "Copied" : "Queued. Paste") + ` "${r.handoff}" into the manager session.`);
     await loadTasks(); loadMonitor(true);
   } catch (e) { b.disabled = false; toast("Not queued: " + e.message, true); }
 }

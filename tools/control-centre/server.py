@@ -185,44 +185,13 @@ def queue_task(tid):
                       "manager_decides": pick.get("manager_decides", True), "queued": now_iso()})
             write_json(RUN_QUEUE, q)
         T.set_tag(tid, {"status": "queued"})
-    opened = open_in_app(tid, t, pick)
-    return {"queued": True, "opened": opened, "queue_length": len(q), "task": T.public(find_task(tid))}
+    # Run only queues (Chris, 15 Oct 2026): a claude://code/new link cannot set
+    # model or effort, and the app ignores effortLevel in settings.json, so Run
+    # sessions opened on Opus high/xhigh. Chris pastes the handoff line into the
+    # manager session, which starts the task with start_session at Jev's pick.
+    return {"queued": True, "handoff": "manager run %s" % tid, "queue_length": len(q),
+            "task": T.public(find_task(tid))}
 
-
-# Run opens a new Code-tab session with the task as its prompt (Chris, 15 Oct 2026).
-# The documented link claude://code/new?q=&folder= only prefills: Chris presses
-# Enter in the new session. It takes no model or effort, so the session opens on
-# the app default (effortLevel medium in ~/.claude/settings.json, Chris 15 Oct
-# 2026) and acts as manager only: the work goes to helper-<model> at Jev's effort.
-def open_in_app(tid, t, pick):
-    model = pick.get("model") if not pick.get("manager_decides") else None
-    effort = pick.get("effort") if not pick.get("manager_decides") else None
-    if model and effort:
-        route = ("Jev's pick: model %s, effort %s. Delegate the work with the Agent tool to helper-%s "
-                 "with effort=%s (Chris asked for Jev's effort on every delegation)." % (model, effort, model, effort))
-    else:
-        route = ("Jev was unsure (%s / %s): you pick the helper-* agent and its effort, and say which and why."
-                 % (pick.get("model") or "?", pick.get("effort") or "?"))
-    prompt = (
-        "Task from the control centre (id %s, area %s, p%s).\n"
-        "You are the manager for this task (Opus, medium effort): plan, ask, check, small edits only. "
-        "Do not do bulk reading or building yourself. %s\n"
-        "Read D:\\DB Sync\\Dropbox\\Projects\\AIResources\\CLAUDE.md first. If the task is large or unclear, "
-        "ask me with AskUserQuestion before building. "
-        "When it is finished, set this task's open-items.md tag to status: done (small exact edit) "
-        "and commit only your own files.\n\nTask:\n%s"
-        % (tid, t["area"], t["p"], route, (t["brief"] or t["title"])[:3500]))
-    url = "claude://code/new?" + urllib.parse.urlencode(
-        {"q": prompt, "folder": ROOT}, quote_via=urllib.parse.quote)
-    try:
-        os.startfile(url)
-    except Exception:
-        return False
-    with WRITE_LOCK:
-        q = read_json(RUN_QUEUE, [])
-        write_json(RUN_QUEUE, [e for e in q if e.get("id") != tid] if isinstance(q, list) else [])
-        T.set_tag(tid, {"status": "running", "session": "app"})
-    return True
 
 
 # ---------------- monitor ----------------
