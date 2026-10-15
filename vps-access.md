@@ -60,6 +60,11 @@ print(vps.run('nginx -t'))
   `tools/set-test-password.py`. Plain http, so the password must not be used
   anywhere else. Teardown commands in [open-items.md](open-items.md) (also
   remove the htpasswd file).
+  **One URL skips the password** (Chris, 15 Oct 2026): `location =
+  /admin/block-requests.json.php` has `auth_basic off; allow all;` so the
+  control centre's Corrections feed gets through; that endpoint demands its own
+  test key (`X-Block-Requests-Key`). Backup of the block before the edit:
+  `/root/itcoder-v2-test.nginx.bak-20261015`.
 - `/var/www/marking-app` - a separate tool, nginx symlink disabled on purpose;
   its server block still names itcoder.co.za. Don't delete, re-enable or touch
   its database.
