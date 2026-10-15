@@ -59,7 +59,11 @@ print(vps.run('nginx -t'))
   `/etc/nginx/itcoder-test.htpasswd` (root:www-data 640), set by
   `tools/set-test-password.py`. Plain http, so the password must not be used
   anywhere else. Teardown commands in [open-items.md](open-items.md) (also
-  remove the htpasswd file).
+  remove the htpasswd file). **Admin by dev login** (Chris, 15 Oct 2026):
+  test's config has `'allowDevAdmin' => true`, so the name-only login
+  (`/auth.php`, "Continue without Google") with an admin email is admin there;
+  Google cannot sign in at a bare IP. Never set it on live (`IsAdmin()`,
+  lib/auth.php).
   **One URL skips the password** (Chris, 15 Oct 2026): `location =
   /admin/block-requests.json.php` has `auth_basic off; allow all;` so the
   control centre's Corrections feed gets through; that endpoint demands its own
