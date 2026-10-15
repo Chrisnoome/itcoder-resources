@@ -1,5 +1,11 @@
 # Open items
 
+## Urgent (harvested 15 Oct 2026)
+
+- Rotate the secret exposed in the Compiler prep chat (Security review, below).
+- Check whether the itcoder-cat VM is still running; stop it if idle (Operations, Video queue).
+- The marking daily-limit fix and the limit of 150 are unpublished. Open question: how another chat's code reached live outside the publish scripts (commit b116c0b, Security review).
+
 The backlog. Delete an item when it is done; add one with the date when found.
 Details live in the linked files.
 
@@ -536,6 +542,13 @@ Details live in the linked files.
 - Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.)
 - PDF icon (`public/assets/icons/pdf.png`) was derived from `txt.png`; swap in
   a real one if found.
+- **Login page still says "itcoder"**; it should say BestLessons. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026)
+- **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026)
+- **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026)
+- **Jev-only "Do this" checks** (English helpers) must fall back to Claude when Jev is unsure, per the Jev-first rule; false "missing" results seen on eng10. (from chat 'General computing courses', harvested 15 Oct 2026)
+- **Add Jev calls to the AI usage log** in `lib/jev.php`, then cost Jev in `costs-research.md`. (from chat 'Course development research', harvested 15 Oct 2026)
+- **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026)
+- **Daily-limit fix and per-pupil limit of 150** await a publish and `setup.php`. (from chat 'Marking issues', harvested 15 Oct 2026)
 
 ## Security review (2026-09-28)
 
@@ -596,6 +609,8 @@ Still open:
   logs); the install kit has no SSH-hardening step; group membership gives
   Full access to every paid course (matters once teacher plans are sold); a
   `/live/` handshake rate limit (the daemon's own caps hold for now).
+- **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026)
+- **Rotate the exposed secret** noted in the compiler-work chat, if not already done. (from chat 'Compiler work preparation', harvested 15 Oct 2026)
 
 ## Content
 
@@ -681,6 +696,11 @@ Still open:
   Paper 1 memo - different bytes, identical extracted text, both headed
   "P1", both carrying the P1 totals. The 2023 Paper 2 analysis in
   `cat-caps-exam-analysis.md` therefore rests on the question paper alone.
+- **eng10 voice review** ("way too many AI tells", SA-teen register, quoted text in a box), then redeploy the example-answer marks and text-window changes. (from chat 'English courses', harvested 15 Oct 2026)
+- **Decide whether the validation-checks table** in Pascal lesson 18 replaces its Learn/Memorise box. (from chat 'Lesson 18: Error handling', harvested 15 Oct 2026)
+- **Pictures for the other ~60 processSteppers**; publish the agent-loop stepper pictures and the My marks link. (from chat 'Lesson corrections', harvested 15 Oct 2026)
+- **Left Gets Right karaoke video** parked: the karaoke is really Match The Types, and there are two versions of the song. (from chat 'Pascal assignment statement video', harvested 15 Oct 2026)
+- **Rhino-print ControlNet choice** for the Maths Lit art: Chris to pick from the 12 tries. (from chat 'Art chat', harvested 15 Oct 2026)
 
 ## Operations and housekeeping
 
@@ -710,3 +730,10 @@ Still open:
       crontab -u www-data -l | grep -v itcoder-v2-test | crontab -u www-data -
       rm -f /var/log/itcoder-v2-test-marking.log /var/log/itcoder-v2-test-compile.log
       rm -f /etc/nginx/itcoder-test.htpasswd
+
+- **Video queue resume:** restart take loops on current code (mark videos done only when something is recorded); re-record Pascal 15.6, 18.1, 18.2, 18.3; test the 18.x exception-box step; commit `thumbs-java.json` and `thumbs-pascal.json`; wait for the Art chat's "GPU free" before restarting voice servers; stop the itcoder-cat VM when CAT is done. (from chat 'Video production', harvested 15 Oct 2026)
+- **YouTube:** Chris deletes the seven old uploads (3Kh5JXDrJEE, PoP4TPoW0PM, sLMHjwsVgvM, GgEOY8EcL4A, W5p4d9uG0og, JwcwT3DLynQ, rrKfSqYQ6_U); recheck the 7.2 public thumbnail; Chris sets `youtubeApiKey` (set-server-config.py); publish Monitor rebuild 4af915b. (from chat 'YouTube management', harvested 15 Oct 2026)
+- **Office/Access install video** needs Chris's M365 sign-in; unload the Qwen3 server (pid 67268). (from chat 'Database planning: caps and sags (install-video work)', harvested 15 Oct 2026)
+- **Business:** De La Salle IP acknowledgement letter (business/ .docx) awaits letterhead and signature; accountant, CIPC trade mark, publisher contract check; move lesson 17 to Term 3. (from chat 'Site commercialisation', harvested 15 Oct 2026)
+- **Publish pending commits** (dismiss, Remove course, View the log, home scroller, mlit10), and confirm the joke-redraw deploy was wanted. (from chat 'Site design alternatives and mockups' and 'Redraw labelled jokes in other courses', harvested 15 Oct 2026)
+- **Check in a browser:** the teacher "Your IT periods" settings form and the checklist page (needs teacher sign-in). (from chat 'Site review tool' and 'Remediation strategies / Checklist', harvested 15 Oct 2026)
