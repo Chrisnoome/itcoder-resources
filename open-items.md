@@ -2,12 +2,13 @@
 
 ## Urgent (harvested 15 Oct 2026)
 
-- Rotate the secret exposed in the Compiler prep chat (Security review, below). {area: admin; p: 1; status: open}
-- Check whether the itcoder-cat VM is still running; stop it if idle (Operations, Video queue). {area: admin; p: 1; status: open}
-- The marking daily-limit fix and the limit of 150 are unpublished. Open question: how another chat's code reached live outside the publish scripts (commit b116c0b, Security review). {area: marking; p: 1; status: open}
+- The marking daily-limit fix and the limit of 150 are unpublished. Open question: how another chat's code reached live outside the publish scripts (commit b116c0b, Security review). {area: marking; p: 1; status: running; session: app}
 
 The backlog. Delete an item when it is done; add one with the date when found.
 Details live in the linked files.
+
+- Rotate the secret exposed in the Compiler prep chat (Security review, below). {area: admin; p: 1; status: done}
+- Check whether the itcoder-cat VM is still running; stop it if idle (Operations, Video queue). {area: admin; p: 1; status: done}
 
 ## Platform
 
@@ -199,7 +200,7 @@ Details live in the linked files.
   Part 1: LeftStr/RightStr and StrUtils in Pascal lesson 13; the SQL B9
   slider cuts through a row; gCapsButtonsAccess teaches a tendency;
   lc38KotaParts tests a Good to Know box; tl30ChatHistory's dates are in
-  margin notes; the Eagle icons in mp40. Delete each as Chris decides. {area: content; p: 2; status: open}
+  margin notes; the Eagle icons in mp40. Delete each as Chris decides. {area: content; p: 2; status: running; session: app}
 - **Level emblems: IT Theory 5 and 6 to redo** (2026-10-01): Laptop and
   Smartphone hide their device behind the medal; queue new seeds or a
   clearer prompt (comfyui-queue). The other 34 are live. {area: fun; p: 3; status: open}
@@ -610,7 +611,7 @@ Still open:
   Full access to every paid course (matters once teacher plans are sold); a
   `/live/` handshake rate limit (the daemon's own caps hold for now). {area: admin; p: 3; status: open}
 - **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026) {area: admin; p: 1; status: open}
-- **Rotate the exposed secret** noted in the compiler-work chat, if not already done. (from chat 'Compiler work preparation', harvested 15 Oct 2026) {area: admin; p: 1; status: open}
+- **Rotate the exposed secret** noted in the compiler-work chat, if not already done. (from chat 'Compiler work preparation', harvested 15 Oct 2026) {area: admin; p: 1; status: done}
 
 ## Content
 
@@ -701,6 +702,7 @@ Still open:
 - **Pictures for the other ~60 processSteppers**; publish the agent-loop stepper pictures and the My marks link. (from chat 'Lesson corrections', harvested 15 Oct 2026) {area: content; p: 3; status: open}
 - **Left Gets Right karaoke video** parked: the karaoke is really Match The Types, and there are two versions of the song. (from chat 'Pascal assignment statement video', harvested 15 Oct 2026) {area: fun; p: 3; status: open}
 - **Rhino-print ControlNet choice** for the Maths Lit art: Chris to pick from the 12 tries. (from chat 'Art chat', harvested 15 Oct 2026) {area: fun; p: 3; status: open}
+- **Block sections** - We need to restructure how a page is designed - it must consist of blocks (they need not be visible - current appearance is good. admin can turn on edit view when looking at the site. this dsiplays a blocks number. admin can then use this to specify changes / corrections needed for the block so that you can make changes without having to ingest and recreate a whole page each time. this should also simplify gating so that you can choose where to gate (at which block). this change works together with the gating task in teacher features. course generation will need to be modified so that it follows this process and existing courses will need to be broken into blocks as well. this is a large site design and structure overhaul that will hopefully reduce token usage in site review and corrections later. {area: content; p: 1; status: running; session: local_85d7b724-5502-4ea1-b8ae-4a2ec25e29fb}
 
 ## Operations and housekeeping
 

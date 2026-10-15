@@ -675,6 +675,17 @@ cond, body]` (a For = While with the counter set before and increased at the
 end), `['repeat', body, cond]`, nestable, optional `'id'`. Look at every new
 chart rendered.
 
+## 7f. Every block is numbered (Chris, 15 Oct 2026)
+
+Every top-level block starts with `'n' =>`, numbered 1.. in page order, and the
+file starts with `// blocks-next: <highest n + 1>` right after `<?php`. A new
+block takes `blocks-next` (then raise it); a deleted block's number is never
+used again, so a correction request ("pascal9 wakeup #12") always points at the
+same block. Never renumber, and never change a question's `'id'`. Keep a prose
+block under ~3 KB of source: split a longer one at a sub-heading. Corrections
+and reviews read one block at a time, not the whole file. Check with
+`php bin/check-blocks.php <course>`. Design: block-sections-design.md.
+
 ## 8. Lesson checklist
 
 - [ ] Voice: short sentences, "you", hyphens, SA examples, SA English spelling, banned words
@@ -716,6 +727,7 @@ chart rendered.
 - [ ] Videos only where vetted - no Pascal placeholders
 - [ ] **Jev** (§4b): every written question has `'points'`; an own-words
       reveal where an explanation is asked for; `bin/check-jev.php` run on the lesson
+- [ ] Every block numbered: `'n'` first, `// blocks-next:` line, prose blocks under ~3 KB (§7f; `bin/check-blocks.php`)
 - [ ] A `study` block (Pascal); SAGs coverage in `content/<course>/sags.php` and
       CAPS coverage in `caps.php`, or `'enrichment' => true` (`php bin/check-sags.php`)
 - [ ] Run the checks in platform.md, "Checks to run"
