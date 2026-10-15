@@ -504,7 +504,6 @@ Still open:
   logs); the install kit has no SSH-hardening step; group membership gives
   Full access to every paid course (matters once teacher plans are sold); a
   `/live/` handshake rate limit (the daemon's own caps hold for now). {area: admin; p: 3; status: open}
-- **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026) {area: admin; p: 1; status: running; session: app}
 
 ## Content
 
