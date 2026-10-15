@@ -488,16 +488,6 @@ Details live in the linked files.
   whether they block Tor exits or proxy ranges. A school's web filter is a
   different thing: it shows its own block page; ask its vendor to class
   bestlessons.co.za and itcoder.co.za as Education. {area: content; p: 2; status: open}
-- **Second-attempt marks under-count - FIXED 28 Sep** (fix (a):
-  LineMarksEarned(), lib/content.php, from quizResponses.firstResponse; tested:
-  a hotspot 7 right both times is 14 of 16, a match with 2 right both times
-  and 1 fixed is 5 of 10, reload and totals agree). The old note: match and picture questions say "each line/part is marked on its
-  own - 2 marks right first time, 1 if it takes the second attempt", but
-  `MatchMarkEarned()` (lib/content.php, removed 1 October 2026) gave every right line 1 mark once a
-  second attempt is used, even the lines that were right the first time (7
-  parts right first time, 1 still wrong after the second try: 7 of 16, not
-  14). Either store which lines were right the first time and mark them x2,
-  or change the wording. {area: marking; p: 3; status: done}
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
@@ -547,10 +537,20 @@ Details live in the linked files.
 - **Login page still says "itcoder"**; it should say BestLessons. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
 - **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 2; status: open}
 - **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 3; status: open}
-- **Jev-only "Do this" checks** (English helpers) must fall back to Claude when Jev is unsure, per the Jev-first rule; false "missing" results seen on eng10. (from chat 'General computing courses', harvested 15 Oct 2026) {area: marking; p: 2; status: open}
+- **Jev-only "Do this" checks** (English helpers) must fall back to Claude when Jev is unsure, per the Jev-first rule; false "missing" results seen on eng10. (from chat 'General computing courses', harvested 15 Oct 2026) {area: marking; p: 2; status: running; session: manager}
 - **Add Jev calls to the AI usage log** in `lib/jev.php`, then cost Jev in `costs-research.md`. (from chat 'Course development research', harvested 15 Oct 2026) {area: admin; p: 3; status: open}
 - **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
 - **Daily-limit fix and per-pupil limit of 150** await a publish and `setup.php`. (from chat 'Marking issues', harvested 15 Oct 2026) {area: marking; p: 1; status: done}
+- **Second-attempt marks under-count - FIXED 28 Sep** (fix (a):
+  LineMarksEarned(), lib/content.php, from quizResponses.firstResponse; tested:
+  a hotspot 7 right both times is 14 of 16, a match with 2 right both times
+  and 1 fixed is 5 of 10, reload and totals agree). The old note: match and picture questions say "each line/part is marked on its
+  own - 2 marks right first time, 1 if it takes the second attempt", but
+  `MatchMarkEarned()` (lib/content.php, removed 1 October 2026) gave every right line 1 mark once a
+  second attempt is used, even the lines that were right the first time (7
+  parts right first time, 1 still wrong after the second try: 7 of 16, not
+  14). Either store which lines were right the first time and mark them x2,
+  or change the wording. {area: marking; p: 3; status: done}
 
 ## Security review (2026-09-28)
 
@@ -611,7 +611,7 @@ Still open:
   logs); the install kit has no SSH-hardening step; group membership gives
   Full access to every paid course (matters once teacher plans are sold); a
   `/live/` handshake rate limit (the daemon's own caps hold for now). {area: admin; p: 3; status: open}
-- **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026) {area: admin; p: 1; status: open}
+- **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026) {area: admin; p: 1; status: running; session: app}
 - **Rotate the exposed secret** noted in the compiler-work chat, if not already done. (from chat 'Compiler work preparation', harvested 15 Oct 2026) {area: admin; p: 1; status: done}
 
 ## Content
