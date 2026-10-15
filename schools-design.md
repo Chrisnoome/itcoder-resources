@@ -274,8 +274,8 @@ Every group becomes a class; groups of the same school, grade, subject and
 year become one cohort (TIC = owner of the oldest group); members stay
 accepted; groups with no grade are matched by name or pupils' class, the rest
 listed for the admin. Planner orders, completion dates and progress rules
-move to the cohort. **The De La Salle class picker retires** once its classes
-exist. Licences: linked to the school only; what a licence unlocks comes later
+move to the cohort. **The De La Salle class picker is retired** (Chris, 15 Oct
+2026: real classes replace it; platform.md, "Class"). Licences: linked to the school only; what a licence unlocks comes later
 with billing.
 
 ## Build order

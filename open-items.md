@@ -411,7 +411,7 @@ Details live in the linked files.
   2026 it still says "ITCoder" and links to itcoder.co.za). {area: admin; p: 3; status: open}
 - **The E look** (2026-09-25, live - platform.md decision 27): admin and
   teacher pages still have the old look; `?design=classic` (the old look for
-  one browser) can go once nobody needs it. {area: teacher; p: 3; status: open}
+  one browser) can go once nobody needs it. {area: teacher; p: 3; status: done}
 - **Fork-bomb / `TasksMax=` test** - Chris runs it himself (the permission
   classifier refuses it); command in
   [compile-subsystem-design.md](compile-subsystem-design.md). Concurrency under
@@ -436,13 +436,13 @@ Details live in the linked files.
   Claude; read one against a real pupil's marks. {area: marking; p: 3; status: open}
 - **Marked code questions** - `code` blocks are unmarked by design; no scoring
   shape built. {area: marking; p: 3; status: open}
-- **Teacher dashboard: per-question view across a class.** {area: teacher; p: 3; status: open}
-- **Confirm `ClassList()` labels** with Chris. {area: teacher; p: 3; status: open}
+- **Teacher dashboard: per-question view across a class.** {area: teacher; p: 3; status: done}
+- **Confirm `ClassList()` labels** with Chris. Done 15 Oct 2026: real classes replace it (lib/classfilter.php, AIPascalCourse fc13e83, not published). {area: teacher; p: 3; status: done; session: manager}
 - Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.) {area: testing; p: 3; status: open}
 - PDF icon (`public/assets/icons/pdf.png`) was derived from `txt.png`; swap in
   a real one if found. {area: pupil; p: 3; status: open}
 - **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) (built as gate mode Course default/Always/Never, block-sections-design.md Phase 4, 15 Oct 2026) {area: teacher; p: 2; status: done}
-- **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 3; status: open}
+- **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 3; status: done}
 - **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
 
 ## Security review (2026-09-28)

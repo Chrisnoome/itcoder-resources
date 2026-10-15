@@ -2717,12 +2717,19 @@ margin so they can **never push the text apart** (rules:
 content-voice-and-pedagogy.md §5b). Layout follows a container query on the
 space the lesson really has (an open console counts): outline + text + margin
 from 1188px, text + margin from 944px, text only below. The block colours keep
-their meanings. `?design=classic` shows the old look to one browser for now.
+their meanings. There is no old look any more (`?design=classic` dropped, Chris,
+15 October 2026; `DesignEOn()` is always true).
 **The pupil pages have it too** (home, sign-in, subjects, courses, a course's
 lesson list, marks, account, notifications, glossary, privacy, terms): they
 call `DesignHeadHtml()` in the head and `DesignBodyAttr()` on the body
-(`body.e-page`, rules under "THE OTHER PAGES" in design-e.css). Admin and
-teacher pages keep the old look. **The bottom bar is style B's** (Chris, 25
+(`body.e-page`, rules under "THE OTHER PAGES" in design-e.css). **So do
+admin, teacher and school pages** (Chris, 15 October 2026): they pass
+`'e-staff'` to `DesignBodyAttr()` and keep their width (1200px, admin 1400px,
+the marks grids the whole window; "STAFF PAGES" in design-e.css). **A grid
+wider than its box gets a second scrollbar on top** (Chris, 15 October 2026:
+`wide-scroll.js`, loaded by `DesignHeadHtml()`, for `.table-scroll`,
+`.admin-scroll`, `.table-wrap`, `.heat-scroll`); a new wide grid goes in one
+of those boxes. **The bottom bar is style B's** (Chris, 25
 September 2026): TOTAL and the marks, one small square per question filled as
 questions are answered (`design-e.js` builds `.e-grid`), the answered count,
 and - for a pupil who may use AI marking - "AI marking: n left today" (3 Oct 2026; was "AI: n of cap today")
@@ -3131,8 +3138,16 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   Sep 2026: "only pupils with AI marking"); running code stays open to every
   enrolled pupil. The same program from the same pupil in the same lesson
   reuses the last comment instead of a new call.
-- **Class and year:** `ClassList()` (`9C 9J 9R 9L Gr 10 Gr 11 Gr 12 Staff
-  Other`), stored with the year; asked again each January.
+- **Class (Chris, 15 Oct 2026: "Use real classes instead"):** nobody picks a
+  class at sign-in; a pupil's class is the class they joined (code,
+  invitation, or at once - schools-design.md), and a pupil with no school is
+  asked nothing. Class filters (Admin > People, Admin > Activity, Class
+  results, Progress check) list each school's own classes
+  (`lib/classfilter.php`; a teacher only their own schools', an admin all),
+  plus Teachers and In no class (Staff and Other are gone). The old
+  `pupils.className`/`classYear` labels (9C ... Gr 12) are kept unchanged: a
+  pupil in a real class is found by it, one in none by the old label under
+  "Before classes". Check: `bin/check-classfilter.php`.
 - **Backups leave South Africa** (Chris's machine, Dropbox); `privacy.php` says
   so. See [backups.md](backups.md).
 
