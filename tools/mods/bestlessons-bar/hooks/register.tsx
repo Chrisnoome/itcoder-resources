@@ -100,11 +100,18 @@ async function fill($: EngineInterface, text: string) {
 async function press($: EngineInterface, b: Btn) {
   if (b.act.kind === 'fill') return fill($, b.act.text)
   if (b.act.kind === 'run') {
-    const text = `/${b.act.command}`
+    // /usage and /context are terminal dialogs that the desktop Code tab does not run,
+    // so the button shows the same numbers from the session's own usage data.
     try {
-      await $.command.run({ command: b.act.command, args: '' })
+      const u = await $.session.usage()
+      const c = u.context
+      const ctx = `Context: ${c.percent ?? '?'}% of ${Math.round((c.window || 0) / 1000)}k` +
+        (c.tokens ? ` (${Math.round(c.tokens / 1000)}k tokens)` : '')
+      const lim = u.rateLimits.map(r => `${r.kind === 'five_hour' ? '5-hour' : r.kind === 'seven_day' ? 'Week' : r.kind}: ${r.percentUsed}%${resetText(r.resetsAt, r.kind !== 'five_hour')}`)
+      const msg = b.act.command === 'context' ? ctx : [ctx, ...lim].join(' | ')
+      $.ui.toast(msg, { timeoutMs: 12000 })
     } catch {
-      await fill($, text)
+      await fill($, `/${b.act.command}`)
     }
     return
   }

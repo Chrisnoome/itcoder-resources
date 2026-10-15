@@ -57,7 +57,7 @@ test('context at 60% says compact now', async ($, on) => {
   expect(await ui.find({ type: 'Text', text: /63% compact now/ })).toBeDefined()
 })
 
-test('compact fills the keep-list; usage runs', async ($, on) => {
+test('compact fills the keep-list; usage shows numbers without running the terminal dialog', async ($, on) => {
   const { filled, ran } = engine(on, 10)
   const ui = await $.ui.mount({ plugin: 'bestlessons-bar', surface: 'desktop', ...BAND })
   await ui.press({ key: 'compact' })
@@ -65,7 +65,7 @@ test('compact fills the keep-list; usage runs', async ($, on) => {
     '/compact keep the current task and done-criteria, decisions with Chris, files touched, open questions, pending approvals',
   )
   await ui.press({ key: 'usage' })
-  expect(ran).toEqual(['usage'])
+  expect(ran).toEqual([])
   await ui.press({ key: 'publish' })
   expect(filled[1]).toBe('/publish ')
 })
