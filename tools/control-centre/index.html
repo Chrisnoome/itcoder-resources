@@ -215,6 +215,17 @@ textarea { resize: vertical; line-height: 1.5; }
 .updot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; background: var(--text-3); }
 .updot.up { background: #3ca26a; }
 .updot.down { background: var(--bad); }
+.corr-site { display: flex; align-items: baseline; gap: 8px; font-size: 12.5px; font-weight: 650; margin: 8px 0 4px; }
+.corr-site:first-child { margin-top: 0; }
+.corr-site .tag { margin-left: auto; font-weight: 500; color: var(--text-3); font-size: 11px; }
+.corr { list-style: none; margin: 0; padding: 0; font-size: 12.5px; }
+.corr li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 6px 0; border-top: 1px dashed var(--line); }
+.corr li:first-child { border-top: 0; }
+.corr .where { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.corr .where .n { font-family: var(--mono); color: var(--text-2); }
+.corr .note-text { grid-column: 1 / -1; color: var(--text-2); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 6.5em; overflow: auto; }
+.corr .gone { grid-column: 1 / -1; color: var(--warn); font-size: 11.5px; }
+.corr .btn { align-self: start; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
 </head>
@@ -266,6 +277,7 @@ textarea { resize: vertical; line-height: 1.5; }
 
   <!-- RIGHT: monitor -->
   <aside class="col col-right" aria-label="Monitor">
+    <div class="card mcard" id="m-corrections"><h3>Corrections <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
     <div class="card mcard" id="m-sessions"><h3>Sessions &amp; queue <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
     <div class="card mcard" id="m-jev"><h3>Jev router <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
     <div class="card mcard" id="m-site"><h3>Site &amp; git <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
@@ -589,6 +601,43 @@ function renderClaude(d) {
     + kv([["ComfyUI queue", c ? `${c.waiting} waiting${c.made ? `, ${c.made} to pick` : ""}` : "not available", c ? (c.waiting ? "warn" : "good") : "muted"]].concat(vms));
 }
 
+/* Corrections: block correction requests from the sites (block-sections-design.md,
+   Phase 3). Run queues one like a task; the manager starts it from the handoff line. */
+let CORR = { queued: [] };
+function renderCorrections(d) {
+  CORR = d;
+  const total = d.sites.reduce((a, s) => a + s.requests.length, 0);
+  const html = d.sites.map(s => {
+    const name = s.site === "live" ? "Live site" : s.site === "test" ? "Test site" : "Local testbed";
+    if (!s.available) return `<div class="corr-site">${name}</div><div class="na">Not available: ${esc(s.reason)}</div>`;
+    if (!s.requests.length) return `<div class="corr-site">${name}<span class="tag">none open</span></div>`;
+    const items = s.requests.map(r => {
+      const qid = `fix-${s.site}-${r.id}`, queued = d.queued.includes(qid), running = r.status === "running";
+      return `<li><span class="where">${esc(r.courseId)} / ${esc(r.lessonTitle || r.lessonId)} <span class="n">#${esc(r.n)}</span>
+        ${running ? `<span class="status-pill running">running</span>` : queued ? `<span class="status-pill queued">queued</span>` : ""}</span>
+        <button class="btn small primary" data-corr-site="${esc(s.site)}" data-corr-id="${esc(r.id)}" ${queued || running ? "disabled" : ""}
+          aria-label="Run correction ${esc(r.courseId)} ${esc(r.lessonId)} block ${esc(r.n)}">Run</button>
+        <span class="note-text">${esc(r.note)}</span>
+        ${r.blockExists === false ? `<span class="gone">Block gone from the lesson: drop this request by hand.</span>` : ""}</li>`;
+    }).join("");
+    return `<div class="corr-site">${name}<span class="tag">${s.requests.length} open</span></div><ul class="corr">${items}</ul>`;
+  }).join("");
+  return html + (total || !d.sites.some(s => s.available) ? "" : `<div class="note">No corrections waiting.</div>`);
+}
+async function loadCorrections(refresh) {
+  try { card("m-corrections", await api("GET", "/api/corrections" + (refresh ? "?refresh=1" : "")), renderCorrections); }
+  catch (e) { card("m-corrections", { available: false, reason: "server not answering" }); }
+}
+$("#m-corrections").addEventListener("click", async e => {
+  const b = e.target.closest("[data-corr-id]"); if (!b) return;
+  b.disabled = true;
+  try {
+    const r = await api("POST", `/api/corrections/${encodeURIComponent(b.dataset.corrSite)}/${encodeURIComponent(b.dataset.corrId)}/run`, {});
+    toast((r.copied ? "Copied" : "Queued. Paste") + ` "${r.handoff}" into the manager session.`);
+    loadCorrections(); loadMonitor(true);
+  } catch (err) { b.disabled = false; toast("Not queued: " + err.message, true); }
+});
+
 let monTimer, platTimer;
 async function loadMonitor(refresh) {
   try {
@@ -628,12 +677,12 @@ document.addEventListener("keydown", e => {
     nb?.focus(); nb?.scrollIntoView({ block: "nearest" });
   }
 });
-$("#reloadBtn").onclick = () => { loadTasks(); loadMonitor(true); loadPlatform(); };
+$("#reloadBtn").onclick = () => { loadTasks(); loadMonitor(true); loadPlatform(); loadCorrections(true); };
 
 /* ---------------- start ---------------- */
-loadTasks(); loadMonitor(); loadPlatform();
+loadTasks(); loadMonitor(); loadPlatform(); loadCorrections();
 monTimer = setInterval(() => { if (!document.hidden) { loadMonitor(); if (!S.editing) loadTasks(); } }, 30000);
-platTimer = setInterval(() => { if (!document.hidden) loadPlatform(); }, 300000);
+platTimer = setInterval(() => { if (!document.hidden) { loadPlatform(); loadCorrections(); } }, 300000);
 </script>
 </body>
 </html>

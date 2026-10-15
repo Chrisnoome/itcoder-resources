@@ -3,7 +3,8 @@
 Run in the control centre only queues. Chris pastes "manager run <id>" into the
 manager session, which runs this script, then starts the task with start_session
 at the printed model and effort. The script prints the queue entry as JSON,
-drops it from the queue and tags the task running.
+drops it from the queue and tags the task running. A block correction (id
+fix-<site>-<request>, kind "correction") is marked running on its site instead.
 
     python tools/control-centre/handoff.py <id>
 """
@@ -15,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import tasks as T  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-RUN_QUEUE = os.path.join(ROOT, "logs", "run-queue.json")
+RUN_QUEUE = os.path.join(os.environ.get("CONTROL_CENTRE_LOGS") or os.path.join(ROOT, "logs"), "run-queue.json")  # as server.py
 
 
 def main():
@@ -32,7 +33,15 @@ def main():
         sys.exit("task %s is not in the run queue" % tid)
     with open(RUN_QUEUE, "w", encoding="utf-8") as f:
         json.dump([e for e in q if e.get("id") != tid], f, indent=1)
-    T.set_tag(tid, {"status": "running", "session": "manager"})
+    if entry.get("kind") == "correction":
+        # A block correction (corrections.py) is not in open-items.md: mark it
+        # running on its site instead. A failure is said, not fatal.
+        import corrections as C
+        err = C.set_status(entry["site"], entry["request"], "running")
+        if err:
+            print("note: could not mark request %s running on %s: %s" % (entry["request"], entry["site"], err), file=sys.stderr)
+    else:
+        T.set_tag(tid, {"status": "running", "session": "manager"})
     print(json.dumps(entry, indent=1, ensure_ascii=False))
 
 

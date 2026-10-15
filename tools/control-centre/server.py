@@ -7,9 +7,10 @@ Binds to 127.0.0.1 only and refuses other Host headers (DNS rebinding) and
 non-JSON writes (cross-site form posts). Tasks live in open-items.md
 (tasks.py); the run queue in logs/run-queue.json (gitignored).
 
-Secrets: the platform status key comes from the env var BESTLESSONS_STATUS_KEY
-(user env var on Windows is read from the registry if the shell lacks it). It is
-never logged or returned.
+Secrets: the platform status key comes from the env var BESTLESSONS_STATUS_KEY,
+the block correction keys from BESTLESSONS_BLOCKS_KEY_<SITE> (corrections.py;
+user env vars on Windows are read from the registry if the shell lacks them).
+They are never logged or returned.
 """
 import concurrent.futures, glob, hashlib, json, os, re, subprocess, sys, threading, time
 import urllib.error, urllib.parse, urllib.request
@@ -20,6 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.dont_write_bytecode = True  # no __pycache__ in the repo
 sys.path.insert(0, HERE)
 import tasks as T  # noqa: E402
+import corrections as C  # noqa: E402
 
 ROOT = T.ROOT
 PLATFORM_REPO = os.path.normpath(os.path.join(ROOT, "..", "AIPascalCourse"))
@@ -374,6 +376,58 @@ def platform(refresh=False):
     return cached("platform", 300, platform_fetch)
 
 
+# ---------------- corrections ----------------
+# Block correction requests from test and live (block-sections-design.md, Phase 3,
+# 15 Oct 2026). Run queues one like a task: the manager starts it from the handoff
+# line, and handoff.py marks it running on its site.
+
+def corrections_fetch():
+    sites = C.configured_sites()
+    with concurrent.futures.ThreadPoolExecutor(len(sites)) as ex:
+        out = list(ex.map(C.fetch, sites))
+    q = read_json(RUN_QUEUE, [])
+    queued = [e.get("id") for e in (q if isinstance(q, list) else []) if e.get("kind") == "correction"]
+    return {"available": True, "updated": now_iso(), "sites": out, "queued": queued}
+
+
+def corrections(refresh=False):
+    if refresh:
+        with CACHE_LOCK:
+            CACHE.pop("corrections", None)
+    return cached("corrections", 120, corrections_fetch)
+
+
+def queue_correction(site, rid):
+    if site not in C.SITES:
+        raise ValueError("unknown site")
+    got = C.fetch(site)
+    if not got["available"]:
+        raise ValueError("%s site: %s" % (site, got["reason"]))
+    r = next((x for x in got["requests"] if str(x.get("id")) == str(rid)), None)
+    if not r:
+        raise T.NotFound("request %s on %s" % (rid, site))
+    qid = "fix-%s-%s" % (site, r["id"])
+    with WRITE_LOCK:
+        q = read_json(RUN_QUEUE, [])
+        if not isinstance(q, list):
+            q = []
+        if not any(e.get("id") == qid for e in q):
+            q.append({"id": qid, "kind": "correction", "site": site, "request": r["id"],
+                      "title": "Correction: %s/%s #%s" % (r["courseId"], r["lessonId"], r["n"]),
+                      "brief": C.brief(site, r), "area": "content", "p": None,
+                      "model": None, "effort": None, "manager_decides": True, "queued": now_iso()})
+            write_json(RUN_QUEUE, q)
+    with CACHE_LOCK:
+        CACHE.pop("corrections", None)
+    handoff = "manager run %s" % qid
+    try:
+        subprocess.run(["clip"], input=handoff.encode("utf-16-le"), timeout=5, check=True)
+        copied = True
+    except Exception:  # noqa: BLE001
+        copied = False
+    return {"queued": True, "handoff": handoff, "copied": copied, "queue_length": len(q)}
+
+
 # ---------------- http ----------------
 
 class Handler(BaseHTTPRequestHandler):
@@ -442,6 +496,11 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send(200, cached("monitor", 20, monitor) if "refresh" not in query else monitor())
             if method == "GET" and parts == ["api", "platform"]:
                 return self.send(200, platform(refresh="refresh" in query))
+            if method == "GET" and parts == ["api", "corrections"]:
+                return self.send(200, corrections(refresh="refresh" in query))
+            if len(parts) == 5 and parts[1] == "corrections" and method == "POST" and parts[4] == "run":
+                self.body()
+                return self.send(200, queue_correction(parts[2], parts[3]))
             return self.send(404, {"error": "not found"})
         except T.Conflict as e:
             return self.send(409, {"error": str(e)})
