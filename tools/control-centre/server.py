@@ -189,7 +189,15 @@ def queue_task(tid):
     # model or effort, and the app ignores effortLevel in settings.json, so Run
     # sessions opened on Opus high/xhigh. Chris pastes the handoff line into the
     # manager session, which starts the task with start_session at Jev's pick.
-    return {"queued": True, "handoff": "manager run %s" % tid, "queue_length": len(q),
+    handoff = "manager run %s" % tid
+    # The app's browser pane blocks navigator.clipboard, so the server (on
+    # Chris's PC) copies the line itself.
+    try:
+        subprocess.run(["clip"], input=handoff.encode("utf-16-le"), timeout=5, check=True)
+        copied = True
+    except Exception:  # noqa: BLE001
+        copied = False
+    return {"queued": True, "handoff": handoff, "copied": copied, "queue_length": len(q),
             "task": T.public(find_task(tid))}
 
 

@@ -506,8 +506,7 @@ async function runTask(t) {
   const b = $("#runBtn"); b.disabled = true;
   try {
     const r = await api("POST", `/api/tasks/${encodeURIComponent(t.id)}/run`, {});
-    let copied = false;
-    try { await navigator.clipboard.writeText(r.handoff); copied = true; } catch (e) { /* clipboard blocked */ }
+    const copied = r.copied;
     toast((copied ? "Copied" : "Queued. Paste") + ` "${r.handoff}" into the manager session.`);
     await loadTasks(); loadMonitor(true);
   } catch (e) { b.disabled = false; toast("Not queued: " + e.message, true); }
