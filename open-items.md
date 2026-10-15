@@ -322,6 +322,53 @@ Details live in the linked files.
   software simulations for working with word, excel, access & powerpoint and
   file explorer"): not started - plan first (what a pupil does in each, how
   it is marked, real screenshots vs a drawn copy of the program), and ask. {area: content; p: 3; status: open}
+- **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
+  (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
+  lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
+  and www -> 102.214.9.207 (Absolute Hosting DNS Manager), certificate
+  (renewal dry run passed) and nginx 80/443 blocks - https://bestlessons.co.za
+  serves the site; Google OAuth takes both redirects; both domains verified in
+  Search Console and branding submitted for review; brand code live and the
+  live console accepts both addresses. **Left:** Google's branding review
+  result. Later: home
+  page, terms and privacy text written for pupils outside De La Salle; the
+  OAuth consent screen's app name (one name shows on both addresses; on 15 Oct
+  2026 it still says "ITCoder" and links to itcoder.co.za). {area: admin; p: 3; status: open}
+- **The E look** (2026-09-25, live - platform.md decision 27): admin and
+  teacher pages still have the old look; `?design=classic` (the old look for
+  one browser) can go once nobody needs it. {area: teacher; p: 3; status: done}
+- **Fork-bomb / `TasksMax=` test** - Chris runs it himself (the permission
+  classifier refuses it); command in
+  [compile-subsystem-design.md](compile-subsystem-design.md). Concurrency under
+  a lockstep class burst is still unmeasured. {area: testing; p: 3; status: open}
+- **Readln and ReadKey under `--tty`** time out in `sandbox-check.php` (NOTE
+  lines). No lesson depends on them. {area: testing; p: 3; status: open}
+- **Server locale unchecked** (2026-09-13): `FloatToStr`/`Format` printed a
+  comma on the Windows testbed. Lesson 7 teaches the `TFormatSettings` fix and
+  never asks pupils to predict the default. Check what the server prints. {area: testing; p: 3; status: open}
+- **Dev login is on for the public test site** (8082): anyone can sign in as
+  any of its 19 people (real addresses). Chris chose a password (28 Sep 2026):
+  **Chris runs `tools/set-test-password.py`** (PowerShell:
+  `& "C:\Python314\python.exe" -X utf8 "D:/DB Sync/Dropbox/Projects/AIResources/tools/set-test-password.py"`),
+  then checks the live console still connects on test. Delete this item then. {area: admin; p: 2; status: open}
+- **Subscription purchase flow** - gating exists, dates are set by hand. {area: commercialisation; p: 2; status: open}
+- **Google OAuth** - consent screen External; **Publish app** to lift the
+  100-test-user cap (branding submitted for review 26 Sep 2026). {area: admin; p: 2; status: open}
+- **API spend limit** - set one on the Anthropic workspace (Console - Limits),
+  e.g. US$50 a month. The site now stops itself at $5 a day (AiSpendGuard,
+  platform.md), but only the workspace limit also covers a leaked key. {area: admin; p: 2; status: open}
+- **Review voice** - the "evaluate my performance" review has only been read by
+  Claude; read one against a real pupil's marks. {area: marking; p: 3; status: open}
+- **Marked code questions** - `code` blocks are unmarked by design; no scoring
+  shape built. {area: marking; p: 3; status: open}
+- **Teacher dashboard: per-question view across a class.** {area: teacher; p: 3; status: done}
+- **Confirm `ClassList()` labels** with Chris. Done 15 Oct 2026: real classes replace it (lib/classfilter.php, AIPascalCourse fc13e83, not published). {area: teacher; p: 3; status: done; session: manager}
+- Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.) {area: testing; p: 3; status: open}
+- PDF icon (`public/assets/icons/pdf.png`) was derived from `txt.png`; swap in
+  a real one if found. {area: pupil; p: 3; status: open}
+- **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) (built as gate mode Course default/Always/Never, block-sections-design.md Phase 4, 15 Oct 2026) {area: teacher; p: 2; status: done}
+- **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 3; status: done}
+- **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
 - **Chris's list, 1 Oct 2026** (the H5P chat is working through it; the
   video items go to the install-videos chat). Decided the same day:
   - **Weighted mark** = written work 50%, other questions 50% - **the main
@@ -396,54 +443,7 @@ Details live in the linked files.
   log - so Tor is filtered upstream by the host (Absolute Hosting): ask them
   whether they block Tor exits or proxy ranges. A school's web filter is a
   different thing: it shows its own block page; ask its vendor to class
-  bestlessons.co.za and itcoder.co.za as Education. {area: content; p: 2; status: open}
-- **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
-  (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
-  lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
-  and www -> 102.214.9.207 (Absolute Hosting DNS Manager), certificate
-  (renewal dry run passed) and nginx 80/443 blocks - https://bestlessons.co.za
-  serves the site; Google OAuth takes both redirects; both domains verified in
-  Search Console and branding submitted for review; brand code live and the
-  live console accepts both addresses. **Left:** Google's branding review
-  result. Later: home
-  page, terms and privacy text written for pupils outside De La Salle; the
-  OAuth consent screen's app name (one name shows on both addresses; on 15 Oct
-  2026 it still says "ITCoder" and links to itcoder.co.za). {area: admin; p: 3; status: open}
-- **The E look** (2026-09-25, live - platform.md decision 27): admin and
-  teacher pages still have the old look; `?design=classic` (the old look for
-  one browser) can go once nobody needs it. {area: teacher; p: 3; status: done}
-- **Fork-bomb / `TasksMax=` test** - Chris runs it himself (the permission
-  classifier refuses it); command in
-  [compile-subsystem-design.md](compile-subsystem-design.md). Concurrency under
-  a lockstep class burst is still unmeasured. {area: testing; p: 3; status: open}
-- **Readln and ReadKey under `--tty`** time out in `sandbox-check.php` (NOTE
-  lines). No lesson depends on them. {area: testing; p: 3; status: open}
-- **Server locale unchecked** (2026-09-13): `FloatToStr`/`Format` printed a
-  comma on the Windows testbed. Lesson 7 teaches the `TFormatSettings` fix and
-  never asks pupils to predict the default. Check what the server prints. {area: testing; p: 3; status: open}
-- **Dev login is on for the public test site** (8082): anyone can sign in as
-  any of its 19 people (real addresses). Chris chose a password (28 Sep 2026):
-  **Chris runs `tools/set-test-password.py`** (PowerShell:
-  `& "C:\Python314\python.exe" -X utf8 "D:/DB Sync/Dropbox/Projects/AIResources/tools/set-test-password.py"`),
-  then checks the live console still connects on test. Delete this item then. {area: admin; p: 2; status: open}
-- **Subscription purchase flow** - gating exists, dates are set by hand. {area: commercialisation; p: 2; status: open}
-- **Google OAuth** - consent screen External; **Publish app** to lift the
-  100-test-user cap (branding submitted for review 26 Sep 2026). {area: admin; p: 2; status: open}
-- **API spend limit** - set one on the Anthropic workspace (Console - Limits),
-  e.g. US$50 a month. The site now stops itself at $5 a day (AiSpendGuard,
-  platform.md), but only the workspace limit also covers a leaked key. {area: admin; p: 2; status: open}
-- **Review voice** - the "evaluate my performance" review has only been read by
-  Claude; read one against a real pupil's marks. {area: marking; p: 3; status: open}
-- **Marked code questions** - `code` blocks are unmarked by design; no scoring
-  shape built. {area: marking; p: 3; status: open}
-- **Teacher dashboard: per-question view across a class.** {area: teacher; p: 3; status: done}
-- **Confirm `ClassList()` labels** with Chris. Done 15 Oct 2026: real classes replace it (lib/classfilter.php, AIPascalCourse fc13e83, not published). {area: teacher; p: 3; status: done; session: manager}
-- Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.) {area: testing; p: 3; status: open}
-- PDF icon (`public/assets/icons/pdf.png`) was derived from `txt.png`; swap in
-  a real one if found. {area: pupil; p: 3; status: open}
-- **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) (built as gate mode Course default/Always/Never, block-sections-design.md Phase 4, 15 Oct 2026) {area: teacher; p: 2; status: done}
-- **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 3; status: done}
-- **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
+  bestlessons.co.za and itcoder.co.za as Education. {area: content; p: 2; status: done}
 
 ## Security review (2026-09-28)
 
@@ -535,10 +535,6 @@ Still open:
   3. The tutorial video: queued with the video-production chat (told 10 Oct
      2026); embed it in the guide once it is on YouTube. {area: content; p: 2; status: open}
 
-- **AI lesson 9's isiZulu prompt** (1 Oct 2026) - written by Claude; a fluent
-  speaker must check it (the lesson's `everySubject` card and its study
-  block) before lesson 9 is published. {area: content; p: 2; status: open}
-
 - **AI course restyle** - lessons are still v1's copy (no popups, reveals,
   mixed question types). Also worksheets, teacher pack, assessment weight,
   lesson 8 timing. See [courses/ai-course.md](courses/ai-course.md). {area: content; p: 3; status: open}
@@ -589,12 +585,15 @@ Still open:
   Paper 1 memo - different bytes, identical extracted text, both headed
   "P1", both carrying the P1 totals. The 2023 Paper 2 analysis in
   `cat-caps-exam-analysis.md` therefore rests on the question paper alone. {area: content; p: 3; status: open}
-- **eng10 voice review** ("way too many AI tells", SA-teen register, quoted text in a box), then redeploy the example-answer marks and text-window changes. (from chat 'English courses', harvested 15 Oct 2026) {area: content; p: 2; status: open}
 - **Decide whether the validation-checks table** in Pascal lesson 18 replaces its Learn/Memorise box. (from chat 'Lesson 18: Error handling', harvested 15 Oct 2026) {area: content; p: 3; status: open}
 - **Pictures for the other ~60 processSteppers**; publish the agent-loop stepper pictures and the My marks link. (from chat 'Lesson corrections', harvested 15 Oct 2026) {area: content; p: 3; status: open}
 - **Left Gets Right karaoke video** parked: the karaoke is really Match The Types, and there are two versions of the song. (from chat 'Pascal assignment statement video', harvested 15 Oct 2026) {area: fun; p: 3; status: open}
 - **Rhino-print ControlNet choice** for the Maths Lit art: Chris to pick from the 12 tries. (from chat 'Art chat', harvested 15 Oct 2026) {area: fun; p: 3; status: open}
 - **Block sections** - We need to restructure how a page is designed - it must consist of blocks (they need not be visible - current appearance is good. admin can turn on edit view when looking at the site. this dsiplays a blocks number. admin can then use this to specify changes / corrections needed for the block so that you can make changes without having to ingest and recreate a whole page each time. this should also simplify gating so that you can choose where to gate (at which block). this change works together with the gating task in teacher features. course generation will need to be modified so that it follows this process and existing courses will need to be broken into blocks as well. this is a large site design and structure overhaul that will hopefully reduce token usage in site review and corrections later. {area: content; p: 1; status: running; session: local_85d7b724-5502-4ea1-b8ae-4a2ec25e29fb}
+- **eng10 voice review** ("way too many AI tells", SA-teen register, quoted text in a box), then redeploy the example-answer marks and text-window changes. (from chat 'English courses', harvested 15 Oct 2026) {area: content; p: 2; status: done}
+- **AI lesson 9's isiZulu prompt** (1 Oct 2026) - written by Claude; a fluent
+  speaker must check it (the lesson's `everySubject` card and its study
+  block) before lesson 9 is published. {area: content; p: 2; status: done}
 
 ## Operations and housekeeping
 
