@@ -131,8 +131,9 @@ US$1.29 (35 pupils), Theory 10/11 US$0.02.
   structured JSON output; one `cache_control` breakpoint on the question +
   rubric block (`markqueue.php` line 631).
 - **Jev (TypeSafe)** judges typed-answer marking points first; Claude marks only
-  the unsure ones (`lib/jev.php`, key set on live). Jev's cost is **not** in
-  `aiUsage` and was not researched: **UNVERIFIED, add its bill.**
+  the unsure ones (`lib/jev.php`, key set on live). Jev calls are logged to
+  `aiUsage` (lib/jev.php calls `RecordAiUsage`). Measured 15 Oct 2026: about
+  R0.0004 per Jev check, and about R0.006 per Claude fallback on Haiku 5.5.
 - Speech practice uses whisper.cpp on the server: no API cost.
 - **Batch API: not used.** All calls are synchronous (`CallClaude()`), though
   marking already runs from a queue (`bin/markqueue.php`, cron every minute).
@@ -261,7 +262,8 @@ R99.
 
 - Admin re-marks: the 1 Oct re-mark cost US$3.31 (R55) for 826 calls. Budget
   for one after each big rubric change; use the Batch API for these (50% off).
-- Jev: not costed (UNVERIFIED).
+- Jev: about R0.0004 per check, plus about R0.006 per Claude fallback on
+  Haiku 5.5 (15 Oct 2026; logged to `aiUsage`).
 
 ### 3.6 The site-wide budget will block growth
 
@@ -570,7 +572,8 @@ figures before dividends tax are only what stays in the company.
 
 1. Which Absolute Hosting plan GnomeMedia is on, its exact price, and whether
    Absolute's prices include VAT (check the invoice).
-2. Jev (TypeSafe) pricing and monthly bill: not in `aiUsage`.
+2. Jev (TypeSafe) monthly bill: per-check cost is in `aiUsage` (about R0.0004,
+   15 Oct 2026); check TypeSafe's own invoice against it.
 3. Whether Anthropic (and Brevo) charge SA VAT on invoices; if not, possible
    imported-services VAT on past invoices over R100 (accountant).
 4. Brevo prices above 5,000 emails a month.

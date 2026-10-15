@@ -2,13 +2,8 @@
 
 ## Urgent (harvested 15 Oct 2026)
 
-- The marking daily-limit fix and the limit of 150 are unpublished. Open question: how another chat's code reached live outside the publish scripts (commit b116c0b, Security review). {area: marking; p: 1; status: running; session: app}
-
 The backlog. Delete an item when it is done; add one with the date when found.
 Details live in the linked files.
-
-- Rotate the secret exposed in the Compiler prep chat (Security review, below). {area: admin; p: 1; status: done}
-- Check whether the itcoder-cat VM is still running; stop it if idle (Operations, Video queue). {area: admin; p: 1; status: done}
 
 ## Platform
 
@@ -104,77 +99,8 @@ Details live in the linked files.
   before setup.php ran - harmless, the page carried on). lib/notes.php's two
   reads now return nothing until the table exists (live 3 Oct with phase 3).
   Any new table read by a page every pupil opens: the same. {area: admin; p: 2; status: open}
-- **Committed code calls functions that are not committed** (found
-  2026-10-01 with `tools/undefined-calls.php`, platform.md "Checks to run").
-  TypedRules() is called by commit 236431c (28 Sep) and defined only in the
-  uncommitted typed-rules work in lib/content.php (MarkTypedByRules() and the
-  rest, with bin/check-typed-rules.php); check-groups' "newcomer finds the
-  waiting invitation" needs uncommitted invitation code. Live is fine
-  (publishing uploads the working tree); the chat that owns each piece
-  commits it. Delete when the staged-tree scan is clean. {area: testing; p: 2; status: open}
-- **Weighted mark ratio set by the teacher, per course** (Chris, 3 Oct 2026:
-  "for all courses the teacher gets to set the weighted mark ratio - a teacher
-  may get to teach more than one course ... default ratio change to 70
-  written, 30 other. the weighted gauge must explain this ratio"). Now part
-  of the **schools, cohorts and classes redesign** (Chris, 3 Oct 2026:
-  schools with several teachers, a cohort per grade and subject split into
-  named classes, a TIC who sets the weighting and the term lessons, subject
-  x grade course checklists, year plans per subject, admin fixing,
-  home-schooling parents as teachers, a pain-free wizard). Design with 9
-  questions for Chris: https://claude.ai/code/artifact/6dea2b45-17ce-41b7-95a4-3f1b96b2ddd8
-  - agreed 3 Oct (all 9 answered; schools-design.md). **Phase 1 built,
-  reviewed (10 findings fixed) and LIVE 3 Oct ~07:05 SAST** (test then live,
-  Chris's go-ahead with the new privacy wording; ALL STEPS OK both; live: De
-  La Salle school, "Grd 10 IT" -> cohort Grade 10 IT 2026, IEB, Pascal, TIC
-  Chris; no members yet). Chris, 3 Oct: messages and mark queries stay with
-  each class's own teacher, not the TIC. **Phase 2 LIVE 3 Oct ~12:45 SAST** (test then
-  live, Chris's go-ahead; ALL STEPS OK both; reviewed first - 13 findings
-  fixed with Chris's rule "see work only after approval"; live: De La Salle's
-  addresses split, students.dlshcch.co.za pupils / dlshcch.co.za staff).
-  **Phase 3 (term marks) LIVE 3 Oct ~16:20 SAST** (test then live, Chris's
-  go-ahead; ALL STEPS OK both; reviewed first, Chris's rule "show coverage,
-  zero after term"; live: no term ticks yet, so the first real term end is
-  the first live test of the zero rule). **Phase 4 (year planner per grade,
-  school calendars) LIVE 3 Oct ~18:30 SAST** (test then live, Chris's
-  go-ahead; ALL STEPS OK both; reviewed first, 13 findings fixed; live: De
-  La Salle's one staff teacher, Chris, is its school admin). **Phase 5
-  (Admin > Schools) LIVE 3 Oct evening** (test then live, Chris's go-ahead;
-  ALL STEPS OK both; reviewed first, 8 findings fixed). All five phases of
-  the schools design are live. Open: the privacy policy now says the site's
-  admin can move a pupil between their school's classes - an attorney
-  question in popia-checklist.md.
-  **POPIA:** popia-checklist.md is a draft for Chris to take to an attorney
-  before self-sign-up is opened to the public (operator agreement for
-  schools, parental consent outside schools, Information Officer,
-  cross-border);
-  phases 3-5 (wizard, marks views, planner per cohort, admin Schools page) to build. Decided so far: default 70
-  written / 30 other; the ratio in steps of 5%; the weighted dial says the
-  ratio. Today WeightedPercent() (lib/content.php) is a fixed 50/50 with 11
-  callers, the lesson badge tiers among them; a teacher's courses come only
-  from their groups (no admin list). {area: teacher; p: 2; status: open}
-- **Message my teacher, My progress for everyone, the menu, the query page,
-  the music-video tab** - live 2 Oct 2026 21:2x-21:4x (Chris: "install gd
-  and publish"; php8.3-gd installed, all steps OK), not committed. Still
-  open: **free lessons** - only the AI course and 3 Pascal lessons are marked
-  Free on live, so an unsubscribed pupil can open nothing else (mark more in
-  Manage courses); **bin/check-notifications.php's guard** now refuses a
-  server database (it ran once on live from a server check, inside its
-  rolled-back transaction, nothing left behind) - live since 3 Oct. {area: pupil; p: 2; status: open}
-- **Live is ahead of git: commit the refactor and the video page** (2026-10-02;
-  Chris, 1 Oct 23:30: "publish live when ready, monitor the code review and
-  publish that when its done"). Published to test and live 2 Oct 01:31-06:00
-  (all steps OK): the Code review chat's modular refactor (lib/jobqueue.php,
-  public/assets/itc-core.js, the markChanges table), the video's own page
-  (lesson.php?watch=N; lib/videoquestions.php, videoq.js, videoq.css), the
-  Mission: Algorithm swap (9ce1ab7) and the first 520 collectable pictures.
-  None of the refactor or the video page is committed: 41 of the refactor's
-  files are tangled with other chats' uncommitted hunks, and the video page
-  needs itc-core.js. Chris decides how to commit (2 October: "leave it
-  uncommitted" for now). Published again 2 Oct 05:18-06:10 (all steps OK, on
-  Chris's word): the follow-ups too - archived groups hidden everywhere
-  (TeachingLinkSql), form tokens on 13 more pages, one leaderboard rule,
-  written work counted for whoever can hand it in (CanHandInWritten). Still
-  uncommitted. Delete when committed. {area: admin; p: 2; status: open}
+- **Weighted mark ratio: two parts unbuilt** (Chris, 3 Oct 2026: "for all courses the teacher gets to set the weighted mark ratio - a teacher may get to teach more than one course ... the weighted gauge must explain this ratio"). Built: the ratio is set per cohort (`writtenWeight`, default 70 written / 30 other, steps of 5%; lib/termmarks.php, schools-design.md). Left: a ratio per course rather than per cohort, and the weighted gauge saying the ratio. {area: teacher; p: 2; status: open}
+- **Free lessons** (left over from the Message my teacher / My progress release, live 2 Oct 2026): only the AI course and 3 Pascal lessons are marked Free on live, so an unsubscribed pupil can open nothing else. Mark more in Manage courses. {area: pupil; p: 2; status: open}
 - **Publishing over a busy line** (2026-10-02): with the home line full
   (OpenAudible downloading ~5 MB/s; ~500 ms round trips, 10% loss) the
   file-by-file upload took 2 hours a site and dropped mid-upload twice; a
@@ -377,23 +303,6 @@ Details live in the linked files.
   to test or live - Chris runs publish-test.py, looks at the test site, then
   deploy-live.py (publishing.md). The nginx hardening that held this back is
   finished (vps-access.md). {area: fun; p: 2; status: open}
-- **Decided 28 Sep (Chris), all built:** (1) second-attempt marks - fix (a):
-  store which lines were right on the first try; they keep 2 marks, lines
-  fixed on the second try get 1 (old answers, with no first try stored, keep
-  their marks). **Built 28 Sep** (AIPascalCourse 236431c: LineMarksEarned(),
-  PerLineRightKeys() in lib/content.php, quizResponses.firstResponse). (2) Naming checks before a program runs, Pascal and Java -
-  keyword case, procedure/function/class/variable/parameter names - **stop
-  the run** like the layout checks (console always; exercises from the lesson
-  that teaches naming). **Built 28 Sep** (`naming` rule, lib/naming.php;
-  pascal-house-style.md and java-house-style.md §2, live-console-design.md).
-  (3) **Built 28 Sep** (lib/dilemma.php's look, tools/dilemma-art and
-  tools/match-art; content-voice §dilemmas, platform.md memory match):
-  Dilemmas get scene backgrounds, character avatars,
-  phone and chat screens and pop-up screens; pictures made with ComfyUI
-  (D:\ComfyUI App, models in D:\ComfyUIModels - Flux, Qwen-Image, Z-Image),
-  **mixed styles for variety: realistic, cartoon like the No Single Letters
-  characters, stylised, illustrated** - for the dilemmas and for better
-  memory match cards. {area: marking; p: 2; status: done}
 - **H5P rollout - where it stopped (1 Oct 2026, Chris: "pause activites and
   publish live")**: part 1 is committed and live - 403 activities, Pascal
   complete; Java, SQL and IT Theory 10-12 stopped part-way (each lesson's
@@ -511,9 +420,6 @@ Details live in the linked files.
 - **Server locale unchecked** (2026-09-13): `FloatToStr`/`Format` printed a
   comma on the Windows testbed. Lesson 7 teaches the `TFormatSettings` fix and
   never asks pupils to predict the default. Check what the server prints. {area: testing; p: 3; status: open}
-- **Failed written answers from before 17 Sep 2026** (8, mostly AI lesson 1-2)
-  - re-mark from `/admin.php` ("Re-mark all failed", "Retry failed reviews")
-  if not yet done. {area: marking; p: 2; status: open}
 - **Dev login is on for the public test site** (8082): anyone can sign in as
   any of its 19 people (real addresses). Chris chose a password (28 Sep 2026):
   **Chris runs `tools/set-test-password.py`** (PowerShell:
@@ -534,23 +440,9 @@ Details live in the linked files.
 - Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.) {area: testing; p: 3; status: open}
 - PDF icon (`public/assets/icons/pdf.png`) was derived from `txt.png`; swap in
   a real one if found. {area: pupil; p: 3; status: open}
-- **Login page still says "itcoder"**; it should say BestLessons. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
 - **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 2; status: open}
 - **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 3; status: open}
-- **Jev-only "Do this" checks** (English helpers) must fall back to Claude when Jev is unsure, per the Jev-first rule; false "missing" results seen on eng10. (from chat 'General computing courses', harvested 15 Oct 2026) {area: marking; p: 2; status: running; session: manager}
-- **Add Jev calls to the AI usage log** in `lib/jev.php`, then cost Jev in `costs-research.md`. (from chat 'Course development research', harvested 15 Oct 2026) {area: admin; p: 3; status: open}
 - **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
-- **Daily-limit fix and per-pupil limit of 150** await a publish and `setup.php`. (from chat 'Marking issues', harvested 15 Oct 2026) {area: marking; p: 1; status: done}
-- **Second-attempt marks under-count - FIXED 28 Sep** (fix (a):
-  LineMarksEarned(), lib/content.php, from quizResponses.firstResponse; tested:
-  a hotspot 7 right both times is 14 of 16, a match with 2 right both times
-  and 1 fixed is 5 of 10, reload and totals agree). The old note: match and picture questions say "each line/part is marked on its
-  own - 2 marks right first time, 1 if it takes the second attempt", but
-  `MatchMarkEarned()` (lib/content.php, removed 1 October 2026) gave every right line 1 mark once a
-  second attempt is used, even the lines that were right the first time (7
-  parts right first time, 1 still wrong after the second try: 7 of 16, not
-  14). Either store which lines were right the first time and mark them x2,
-  or change the wording. {area: marking; p: 3; status: done}
 
 ## Security review (2026-09-28)
 
@@ -612,7 +504,6 @@ Still open:
   Full access to every paid course (matters once teacher plans are sold); a
   `/live/` handshake rate limit (the daemon's own caps hold for now). {area: admin; p: 3; status: open}
 - **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026) {area: admin; p: 1; status: running; session: app}
-- **Rotate the exposed secret** noted in the compiler-work chat, if not already done. (from chat 'Compiler work preparation', harvested 15 Oct 2026) {area: admin; p: 1; status: done}
 
 ## Content
 
@@ -707,11 +598,6 @@ Still open:
 
 ## Operations and housekeeping
 
-- **The school calendar cron line on live** (2026-10-11): `15 1 * * *` `bin/school-calendars.php` ->
-  `/var/log/itcoder-school-calendars.log`. deploy-live.py now adds it (Chris, 11 Oct 2026); the code
-  went live that day without it, so it arrives with the **next** live publish - check `crontab -u
-  www-data -l` then and remove this item. Until then a link is read only when its school's admin
-  saves it. Live only, like the reminder emails. {area: admin; p: 2; status: open}
 - **Deploy order: new tables after new code** (2026-10-01). deploy-live.py uploads all of the code (step 3) and
   only then runs setup.php (step 6): for about 90 seconds on 1 Oct, pages that read the new pasteAllowed table
   failed (10 "no such table" errors in nginx's log, none after setup). Run setup.php right after lib/ and
@@ -723,7 +609,6 @@ Still open:
 - **`AIWebCourse` root:** two copies of the Google `client_secret_*.json` (live
   credentials, already in config.php) - delete; `student_emails.csv` (pupils'
   emails) - keep only if needed; `tools/__pycache__` - delete with the stand-in. {area: admin; p: 2; status: open}
-- **nginx `server_tokens off`** (the Server header shows the version). {area: admin; p: 3; status: open}
 - **Test site teardown** - only if publishing stops needing it: {area: admin; p: 3; status: open}
 
       rm -rf /var/www/itcoder-v2-test
@@ -739,4 +624,3 @@ Still open:
 - **Office/Access install video** needs Chris's M365 sign-in; unload the Qwen3 server (pid 67268). (from chat 'Database planning: caps and sags (install-video work)', harvested 15 Oct 2026) {area: content; p: 3; status: open}
 - **Business:** De La Salle IP acknowledgement letter (business/ .docx) awaits letterhead and signature; accountant, CIPC trade mark, publisher contract check; move lesson 17 to Term 3. (from chat 'Site commercialisation', harvested 15 Oct 2026) {area: commercialisation; p: 2; status: open}
 - **Check in a browser:** the teacher "Your IT periods" settings form and the checklist page (needs teacher sign-in). (from chat 'Site review tool' and 'Remediation strategies / Checklist', harvested 15 Oct 2026) {area: testing; p: 2; status: open}
-- **Publish pending commits** (dismiss, Remove course, View the log, home scroller, mlit10), and confirm the joke-redraw deploy was wanted. (from chat 'Site design alternatives and mockups' and 'Redraw labelled jokes in other courses', harvested 15 Oct 2026) {area: admin; p: 2; status: done}
