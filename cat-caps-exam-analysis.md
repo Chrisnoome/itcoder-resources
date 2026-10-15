@@ -1,7 +1,7 @@
 # CAPS (DBE) CAT exams - analysis of Paper 1 and Paper 2
 
 Built from every DBE NSC Computer Applications Technology paper and memo in
-`sources/cat/caps/`: **November 2023, 2024 and 2025**, Paper 1 (practical)
+`exams/cat/caps/`: **November 2023, 2024 and 2025**, Paper 1 (practical)
 and Paper 2 (theory) - **six papers**. Read with `pdftotext -layout`, with
 pages rendered as images where a table or a mark allocation mattered, and
 the Paper 1 data files opened with `openpyxl`, `python-docx` and `mdbtools`.
@@ -13,7 +13,7 @@ Paper 2 memo: it is a second copy of the November 2023 **Paper 1** marking
 guidelines. The two 2023 memo PDFs are different files byte for byte, but
 `pdftotext` gives identical text - both open "COMPUTER APPLICATIONS
 TECHNOLOGY **P1** / NOVEMBER 2023 / MARKING GUIDELINES" and both carry the
-P1 question totals 24-21-17-23-35-15-15. `sources/cat/SOURCES.md` noticed
+P1 question totals 24-21-17-23-35-15-15. `exams/cat/SOURCES.md` noticed
 the identical file sizes without spotting why. So **every marking claim
 below about Paper 2 rests on the 2024 and 2025 memos only**, and the 2023 P2
 memo must be re-downloaded before anyone relies on this file for that year

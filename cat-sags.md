@@ -2,7 +2,7 @@
 
 **Source:** IEB *Computer Applications Technology (CAT) Subject Assessment
 Guidelines (SAGs)*, updated November 2023 -
-`sources/cat/ieb/IEB_CAT_SAGS_2025.pdf`, section 5 of the IEB's National
+`exams/cat/ieb/IEB_CAT_SAGS_2025.pdf`, section 5 of the IEB's National
 Senior Certificate Handbook (pages numbered 5/1 to 5/72). Extracted with
 `pdftotext -layout`; the two analysis grids (Appendices G and H) were read
 as rendered pages, because their column headings are rotated and the text

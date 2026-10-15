@@ -1,7 +1,7 @@
 # IEB IT practical exam - analysis for lesson 24
 
 Built 24 September 2026 from every IEB practical paper, memo, analysis grid
-and teacher instruction in `IEB/` (2009-2025 November, May/supplementary
+and teacher instruction in `exams/it/ieb/<year>/` (2009-2025 November, May/supplementary
 2021-2026). **Detailed analysis covers the ten papers in the current
 format:** November 2021-2025 and May 2022-2026. Source of truth for the
 syllabus stays [sags-2025.md](sags-2025.md) and

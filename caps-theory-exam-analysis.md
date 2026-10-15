@@ -1,8 +1,8 @@
 # CAPS (DBE) IT theory exam (Paper 2) - analysis for question writing
 
 Built 25 September 2026 from every DBE NSC Information Technology Paper 2
-and memo in `CAPS/past papers/` (`NSC_IT_<year>_<session>_P2.pdf`,
-`..._P2_Memo.pdf`): **23 papers** - Feb/Mar, May/Jun and Nov 2016-2018,
+and memo in `exams/it/caps/<year>/` (`<session>_P2.pdf`,
+`<session>_P2_Memo.pdf`): **23 papers** - Feb/Mar, May/Jun and Nov 2016-2018,
 May/Jun and Nov 2019, Nov 2020, May/Jun and Nov 2021-2025, May/Jun 2026.
 All readable (`pdftotext -layout`; pictures checked on rendered pages).
 For the theory courses' questions ([courses/theory-course.md](courses/theory-course.md));

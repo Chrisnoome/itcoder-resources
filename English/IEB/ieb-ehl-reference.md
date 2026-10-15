@@ -1,6 +1,6 @@
 # IEB English Home Language: reference (from the sources in English/IEB)
 
-Compiled from: SAGs/IEB_EHL_SAGs_2026.pdf, Prescribed-works/*.pdf, Past-papers/2023-2025 (P1, P1 Insert, P1 Memo, P2, P2 Memo), User-group-2026/*. Quotes in "..." are the sources' own wording. "Not in sources" means the files don't say it.
+Compiled from: SAGs/IEB_EHL_SAGs_2026.pdf, Prescribed-works/*.pdf, ../../exams/english-hl/ieb/2023-2025 (P1, P1 Insert, P1 Memo, P2, P2 Memo), User-group-2026/*. Quotes in "..." are the sources' own wording. "Not in sources" means the files don't say it.
 
 ## 0. Caveats about the sources
 - The SAG file is named 2026, but every page footer says "IMPLEMENTATION DATE: GRADE 12, 2025", page 11/1 says "(Updated March 2021)", and the copyright line reads 2014–2025. It is the **Grade 12 NSC handbook section** (pages 11/1–11/71).

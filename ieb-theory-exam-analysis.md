@@ -1,8 +1,8 @@
 # IEB IT theory exam - analysis for question writing
 
 Built 25 September 2026 from every IEB theory paper, memo and analysis grid
-in `IEB/theory papers/`: November 2009-2020 (a folder per year) and the
-2019 supplementary and May 2021 papers (`Supplementary/`) - **14 papers**,
+in `exams/it/ieb/<year>/` (theory is P1 there): November 2009-2020 and the
+2019 supplementary (`FebMar_`) and May 2021 (`May_P1`) papers - **14 papers**,
 read in full, pictures included. Nothing later is in the folder. For the
 theory courses' questions ([courses/theory-course.md](courses/theory-course.md));
 the syllabus source of truth stays [sags-2025.md](sags-2025.md).

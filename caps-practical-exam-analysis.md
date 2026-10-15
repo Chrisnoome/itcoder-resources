@@ -1,7 +1,7 @@
 # CAPS (DBE) IT practical exam - analysis, Pascal only
 
 Built 24 September 2026 from every DBE NSC Information Technology Paper 1
-and memo in `CAPS/past papers` (2016-2026, November and
+and memo in `exams/it/caps/<year>/` (2016-2026, November and
 Feb/March and May/June). The twin of
 [ieb-practical-exam-analysis.md](ieb-practical-exam-analysis.md).
 **Pascal only (Chris, 24 September 2026): Question 2 (database and SQL,

@@ -2,12 +2,12 @@
 
 **Source:** DBE *Curriculum and Assessment Policy Statement (CAPS), FET
 Computer Applications Technology Grades 10-12* -
-`sources/cat/caps/CAPS_FET_CAT_Gr10-12.pdf` (the 2011 original, 60 pages)
-and `sources/cat/caps/CAPS_CAT_Amendment_2024_Section3.pdf` (the 2024
+`exams/cat/caps/CAPS_FET_CAT_Gr10-12.pdf` (the 2011 original, 60 pages)
+and `exams/cat/caps/CAPS_CAT_Amendment_2024_Section3.pdf` (the 2024
 amendment, 53 pages). Extracted with `pdftotext -layout`.
 
 **The amendment replaces more than its title says.** It is filed on the DBE
-site as "Amendment: CAT CAPS 2024 - Section 3", and `sources/cat/SOURCES.md`
+site as "Amendment: CAT CAPS 2024 - Section 3", and `exams/cat/SOURCES.md`
 records it that way (see [course-plan.md](course-plan.md) §6 note 2), but the
 file itself runs from "SECTION 3 - OVERVIEW OF
 CONTENT AND SCOPE PER TOPIC" through the **whole of Section 4 (assessment,

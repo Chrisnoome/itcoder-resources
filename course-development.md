@@ -73,7 +73,7 @@ boards, every sitting from 2020 (exams/README.md; Chris, 15 Oct 2026).
   `itcoder-coursedev/pilot-cat/` (unreviewed).
 
 - CAT: sources collected 25 September 2026 (17 DBE files, 22 IEB files) in
-  `itcoder-coursedev/sources/cat/`. Analysis running in cloud session
+  `exams/cat/`. Analysis running in cloud session
   `session_015VWnWKuzaNEuhH2epRt1S5` (started 26 September 2026); it
   returns a pull request from branch `cat-analysis`, ending with "Notes on
   the brief" to fix CLAUDE.md before the other nine subjects.

@@ -1,7 +1,7 @@
 # IEB CAT exams - analysis of Paper I and Paper II
 
 Built from every IEB paper, memo, insert and teacher instruction in
-`sources/cat/ieb/`: **November 2023, 2024 and 2025**, Paper I (practical)
+`exams/cat/ieb/`: **November 2023, 2024 and 2025**, Paper I (practical)
 and Paper II (theory) - **six papers**, with the three practical inserts,
 the three "Instructions to Teachers" and the three data-file zips.
 Read with `pdftotext -layout`; the data files were extracted to a temporary

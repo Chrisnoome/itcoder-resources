@@ -76,7 +76,7 @@ questions count for everyone, since both boards examine it.
   [../sags-2025.md](../sags-2025.md),
   [../sags-topic4-syllabus.md](../sags-topic4-syllabus.md).
 - **Past theory papers:** CAPS Paper 2 2016-2026 with memos in
-  `../CAPS/past papers/`; IEB Paper 2 2009-2020 in `../IEB/theory papers/`
+  `../exams/it/caps/`; IEB Paper 2 2009-2020 in `../exams/it/ieb/`
   (none after 2020).
 
 ## How the boards compare (for flagging)

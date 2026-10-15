@@ -840,7 +840,7 @@ is right, and was used thirty-three times across this session.
 
 2. **Say what to do when a source is missing or wrong.** The DBE's 2023
    Paper 2 memo is not the 2023 Paper 2 memo, and the 2024 amendment
-   replaces more than `sources/cat/SOURCES.md` says. "Be exact ... never
+   replaces more than `exams/cat/SOURCES.md` says. "Be exact ... never
    fill a gap with a guess" covers the first half; it does not say *where*
    to record it. Add: *"Record a missing, wrong or mislabelled source at the
    top of the file that would have used it, and raise it as a question for
@@ -849,7 +849,7 @@ is right, and was used thirty-three times across this session.
 
 3. **`kit/`'s internal links are dead** and nothing warns a reader. Files in
    the kit link to `open-items.md`, `sags-topic4-syllabus.md`,
-   `sql-course.md`, `courses/pascal-course.md`, `../CAPS/past papers/` and
+   `sql-course.md`, `courses/pascal-course.md`, `../exams/it/caps/` and
    a dozen more that were not copied. Either copy them, or add one line to
    `kit/README.md`: *"These are snapshots. Links to files not in this table
    point at AIResources and will not resolve here."*

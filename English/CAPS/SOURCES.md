@@ -31,24 +31,24 @@ Collected 2026-10-11. Official sources only: DBE (education.gov.za) and WCED (we
 | Assessment/Lit-assignment-exemplars-2025/DBE_2025_Lit_Assignment_English_HL_Gr11_Project.pdf | Gr 11 English HL literature project | https://www.education.gov.za/LinkClick.aspx?fileticket=xyTUGazGk-g%3d&tabid=5331&portalid=0&mid=14013 | 2025 |
 | Assessment/Lit-assignment-exemplars-2025/DBE_2025_Lit_Assignment_English_HL_Extra_Option1.pdf | English HL extra assignment, option 1 | https://www.education.gov.za/LinkClick.aspx?fileticket=xSYdaAGuhC4%3d&tabid=5331&portalid=0&mid=14013 | 2025 |
 | Assessment/Lit-assignment-exemplars-2025/DBE_2025_Lit_Assignment_English_HL_Extra_Option2.pdf | English HL extra assignment, option 2 | https://www.education.gov.za/LinkClick.aspx?fileticket=q-fuK2_8Pf0%3d&tabid=5331&portalid=0&mid=14013 | 2025 |
-| Past-papers/2023/NSC_Nov2023_English_HL_P1.pdf | NSC Nov 2023 English HL P1 | https://www.education.gov.za/LinkClick.aspx?fileticket=TbjDznPFtSA%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
-| Past-papers/2023/NSC_Nov2023_English_HL_P1_memo.pdf | P1 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=KWZLnDejQBg%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
-| Past-papers/2023/NSC_Nov2023_English_HL_P2.pdf | P2 | https://www.education.gov.za/LinkClick.aspx?fileticket=KLPJighLTHA%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
-| Past-papers/2023/NSC_Nov2023_English_HL_P2_memo.pdf | P2 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=y6cq68rSCFw%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
-| Past-papers/2023/NSC_Nov2023_English_HL_P3.pdf | P3 | https://www.education.gov.za/LinkClick.aspx?fileticket=wwZ88J_HrGE%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
-| Past-papers/2023/NSC_Nov2023_English_HL_P3_memo.pdf | P3 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=nXCgrLfFghI%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
-| Past-papers/2024/NSC_Nov2024_English_HL_P1.pdf | NSC Nov 2024 English HL P1 | https://www.education.gov.za/LinkClick.aspx?fileticket=de2qPWCUDzw%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
-| Past-papers/2024/NSC_Nov2024_English_HL_P1_memo.pdf | P1 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=9Vp_4NM3560%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
-| Past-papers/2024/NSC_Nov2024_English_HL_P2.pdf | P2 | https://www.education.gov.za/LinkClick.aspx?fileticket=22HdBbdLTxU%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
-| Past-papers/2024/NSC_Nov2024_English_HL_P2_memo.pdf | P2 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=WKoPvyGnomY%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
-| Past-papers/2024/NSC_Nov2024_English_HL_P3.pdf | P3 | https://www.education.gov.za/LinkClick.aspx?fileticket=FxQD3wruMb4%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
-| Past-papers/2024/NSC_Nov2024_English_HL_P3_memo.pdf | P3 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=LiIPgUlKNuU%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
-| Past-papers/2025/NSC_Nov2025_English_HL_P1.pdf | NSC Nov 2025 English HL P1 | https://www.education.gov.za/LinkClick.aspx?fileticket=lBjX_BhxfDo%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
-| Past-papers/2025/NSC_Nov2025_English_HL_P1_memo.pdf | P1 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=4uUJDTNayWI%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
-| Past-papers/2025/NSC_Nov2025_English_HL_P2.pdf | P2 | https://www.education.gov.za/LinkClick.aspx?fileticket=yLAaz79PEc0%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
-| Past-papers/2025/NSC_Nov2025_English_HL_P2_memo.pdf | P2 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=8rX5pa7hTZc%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
-| Past-papers/2025/NSC_Nov2025_English_HL_P3.pdf | P3 | https://www.education.gov.za/LinkClick.aspx?fileticket=WOd99ySX9PI%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
-| Past-papers/2025/NSC_Nov2025_English_HL_P3_memo.pdf | P3 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=sBDykKG2NIE%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
+| ../../exams/english-hl/caps/2023/Nov_P1.pdf | NSC Nov 2023 English HL P1 | https://www.education.gov.za/LinkClick.aspx?fileticket=TbjDznPFtSA%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
+| ../../exams/english-hl/caps/2023/Nov_P1_Memo.pdf | P1 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=KWZLnDejQBg%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
+| ../../exams/english-hl/caps/2023/Nov_P2.pdf | P2 | https://www.education.gov.za/LinkClick.aspx?fileticket=KLPJighLTHA%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
+| ../../exams/english-hl/caps/2023/Nov_P2_Memo.pdf | P2 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=y6cq68rSCFw%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
+| ../../exams/english-hl/caps/2023/Nov_P3.pdf | P3 | https://www.education.gov.za/LinkClick.aspx?fileticket=wwZ88J_HrGE%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
+| ../../exams/english-hl/caps/2023/Nov_P3_Memo.pdf | P3 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=nXCgrLfFghI%3d&tabid=4682&portalid=0&mid=12648 | Nov 2023 |
+| ../../exams/english-hl/caps/2024/Nov_P1.pdf | NSC Nov 2024 English HL P1 | https://www.education.gov.za/LinkClick.aspx?fileticket=de2qPWCUDzw%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
+| ../../exams/english-hl/caps/2024/Nov_P1_Memo.pdf | P1 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=9Vp_4NM3560%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
+| ../../exams/english-hl/caps/2024/Nov_P2.pdf | P2 | https://www.education.gov.za/LinkClick.aspx?fileticket=22HdBbdLTxU%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
+| ../../exams/english-hl/caps/2024/Nov_P2_Memo.pdf | P2 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=WKoPvyGnomY%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
+| ../../exams/english-hl/caps/2024/Nov_P3.pdf | P3 | https://www.education.gov.za/LinkClick.aspx?fileticket=FxQD3wruMb4%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
+| ../../exams/english-hl/caps/2024/Nov_P3_Memo.pdf | P3 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=LiIPgUlKNuU%3d&tabid=5193&portalid=0&mid=13691 | Nov 2024 |
+| ../../exams/english-hl/caps/2025/Nov_P1.pdf | NSC Nov 2025 English HL P1 | https://www.education.gov.za/LinkClick.aspx?fileticket=lBjX_BhxfDo%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
+| ../../exams/english-hl/caps/2025/Nov_P1_Memo.pdf | P1 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=4uUJDTNayWI%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
+| ../../exams/english-hl/caps/2025/Nov_P2.pdf | P2 | https://www.education.gov.za/LinkClick.aspx?fileticket=yLAaz79PEc0%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
+| ../../exams/english-hl/caps/2025/Nov_P2_Memo.pdf | P2 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=8rX5pa7hTZc%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
+| ../../exams/english-hl/caps/2025/Nov_P3.pdf | P3 | https://www.education.gov.za/LinkClick.aspx?fileticket=WOd99ySX9PI%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
+| ../../exams/english-hl/caps/2025/Nov_P3_Memo.pdf | P3 marking guidelines | https://www.education.gov.za/LinkClick.aspx?fileticket=sBDykKG2NIE%3d&tabid=5742&portalid=0&mid=14813 | Nov 2025 |
 
 Past-paper index pages: 2025 `…/NationalSeniorCertificate(NSC)Examinations/2025NovemberExamPapers.aspx`, 2024 `education.gov.za/2024NSCNovemberpastpapers.aspx`, 2023 `…/2023NSCNovemberpastpapers.aspx`.
 

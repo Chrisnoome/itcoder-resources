@@ -44,17 +44,68 @@ exams/<subject>/<board>/<year>/<Sitting>_<Paper>[_Kind].<ext>
   P2 before 2021 and P1 from 2021; say so in the gap list, don't rename)
 - Kind: none for the question paper, then `Memo`, `DataFiles`, `Solutions`,
   `AnalysisGrid`, `TeacherInstructions`, `Insert`, `AnswerSheet`,
-  `Appendix`, `MarkSheet`
+  `Appendix`, `MarkSheet`; also `ContentCoverage` (IEB 2014-15), `Addendum`
+  and `AnswerBook` (DBE Maths Lit). A second version of a file gets a suffix
+  (`Memo_Final`, `MarkSheet_FinalPremarking`). IEB's one March supplementary
+  before the May ones (IT 2019) uses `FebMar`.
 - Data files: keep the zip/exe as downloaded, and extract it beside it in
   `<Sitting>_<Paper>_DataFiles/` (DBE CAT `.exe` files are password
   7-Zip archives: extract with a 7-Zip library, never run them).
 
 Example: `exams/it/caps/2024/Nov_P1_DataFiles.zip`.
 
+Passwords for the DBE `.exe` archives are printed on the instruction page of
+that sitting's P1 paper (CAT: see `cat/SOURCES.md`). Nested archives inside an
+extracted IT data folder (`DataENG...exe`) are extracted beside the exe into
+`<name>_extracted/`. Moved in from the old `CAPS/past papers`, `IEB/ieb prac
+exams`, `IEB/theory papers`, `English/*/Past-papers` and
+`itcoder-coursedev/sources/` (cat, maths-lit papers) on 15 Oct 2026.
+
 ## Gaps
 
-Kept by whoever fills the library; one line per missing file, with why
-(not published, login needed, wrong file on the site).
+Kept by whoever fills the library; one line per missing set of files, with
+why. State on 15 Oct 2026; scope 2020 to May/June 2026 (paper, memo and, for
+practical papers, data files; the IEB extras are not chased). Counted: **285
+missing files**. Delete a line when its files are in.
 
+Sittings that do not exist: DBE had no May/June 2020 (Covid) and IEB no May 2020.
+Not sure whether they exist, so not listed: DBE Feb/Mar 2020 and 2021
+supplementaries, IEB March 2021; check the boards' sites once.
+
+### it (Information Technology)
+
+Paper numbers: DBE P1 = practical, P2 = theory. IEB practical is P2 up to
+Nov 2020 and May 2021, P1 from Nov 2021; IEB theory is P1 up to May 2021, P2
+after (so a missing IEB "P2" below is the theory paper from 2021).
+
+- it/caps Nov 2021-2025: P1_DataFiles (zip/exe on the DBE page, not yet fetched)
+- it/caps MayJun 2021-2025: P1_DataFiles
+- it/ieb Nov 2021-2025: P2 and P2_Memo (theory; members' site, login needed)
+- it/ieb May 2022, 2023, 2026: P1_DataFiles, P2, P2_Memo (theory)
+- it/ieb May 2024, 2025: P2, P2_Memo (theory)
+
+### cat (Computer Applications Technology)
+
+Only Nov 2023-2025 are on disk, so everything else for 2020 to May/June 2026
+is missing: P1, P1_Memo, P1_DataFiles, P2, P2_Memo for each sitting.
+
+- cat/caps Nov 2020-2022; MayJun 2021-2026 (DBE data files are password .exe)
+- cat/ieb Nov 2020-2022; May 2021-2026 (IEB members' site)
 - cat/caps/2023/Nov_P2_Memo.pdf: the file we had was a copy of the P1 memo;
-  re-download.
+  re-download (in addition to the above).
+
+### english-hl (English Home Language)
+
+Only Nov 2023-2025 are on disk. Missing for each sitting: P1, P1_Memo, P2,
+P2_Memo (DBE also P3, P3_Memo).
+
+- english-hl/caps Nov 2020-2022; MayJun 2021-2026
+- english-hl/ieb Nov 2020-2022; May 2021-2026
+
+### maths-lit (Mathematical Literacy)
+
+Only Nov 2023-2025 are on disk. Missing for each sitting: P1, P1_Memo, P2,
+P2_Memo (plus Addendum / AnswerBook / Insert where the sitting has one).
+
+- maths-lit/caps Nov 2020-2022; MayJun 2021-2026
+- maths-lit/ieb Nov 2020-2022; May 2021-2026
