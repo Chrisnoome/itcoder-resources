@@ -1,6 +1,6 @@
 # Numbered blocks: design (agreed with Chris, 15 Oct 2026)
 
-Status: Phases 1+2 built 15 Oct 2026 (AIPascalCourse 8de1065..306163f, not published; 37 lessons whose return is not a list still unnumbered). Phase 3 built 15 Oct 2026 (AIPascalCourse d46cf32, not published; keys not yet set on test/live: run `tools/control-centre/set-block-requests-key.ps1` when publishing). Next: Phase 4. Code lives in `Projects/AIPascalCourse`.
+Status: Phases 1+2 built 15 Oct 2026 (AIPascalCourse 8de1065..306163f, not published; 37 lessons whose return is not a list still unnumbered). Phase 3 built 15 Oct 2026 (AIPascalCourse d46cf32, not published; keys not yet set on test/live: run `tools/control-centre/set-block-requests-key.ps1` when publishing). Phase 4 (gating) built 15 Oct 2026, not published: blockGates overrides, read gates with Continue (`api/gate-read.php`), Gate here in Edit view (`api/block-gate.php`), teacher gate mode `gateMode` (lib/schoolrules.php). 'always' equals 'default' until a course sets `'gates' => false` in CourseIndex() (none does: every course applies its gates today). Code lives in `Projects/AIPascalCourse`.
 open-items.md bullet "Block sections" (area content, p1); works with
 "Per-teacher gated courses setting" (area teacher).
 

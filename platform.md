@@ -2355,6 +2355,24 @@ api/sql-run.php.
   finish Lesson N"), `ApiRequireLesson()`, sql-run.php, study notes, the
   Index search and the dashboard's next lesson. Teachers and admins skip it
   all (`SequenceExempt()`).
+- **Block gates, read gates, gate mode** (Chris, 15 Oct 2026;
+  block-sections-design.md Phase 4). An admin's "Gate here" in Edit view
+  (a toggle on each block's tab, `api/block-gate.php`) saves an override in
+  `blockGates` (1 adds a gate at n, 0 removes the file's); a bar under the
+  block says file gate, admin gate or removed (crossed out). `GateBlocks()`
+  is the lesson with overrides applied; every gate function reads it. A gate
+  on a block with nothing to answer (prose, video, free SQL box) is a READ
+  gate: "I've read this - Continue" under it, `api/gate-read.php` records
+  `read:<n>` in sqlSteps (`GateStepSolved()`), refused while an earlier gate
+  holds it. A gate on a `Numbered()` helper sits after its last part. Held
+  blocks are keyed by n (`n12`); lessons with no n keep the gate's id. The
+  teacher's gate mode (rule `gateMode`, Teacher settings > Marking and
+  deadlines; pupils follow their teacher, no teacher = course default):
+  Never drops every gate (the lesson order stays, a separate setting),
+  Always keeps the file and admin gates in any course, Course default
+  follows the course (`GatesOff()`; every course gates today, so Always
+  differs only once a course sets `'gates' => false`). LessonComplete(),
+  ApiRequireUngated() and sql-run.php all go through the same functions.
 - Check: `php tests/sequence.test.php` (its own throwaway database; with the
   local SQL runner running it also runs real SQLite and Java DB errors). Its
   quiz, code, mission and written gates sit in a made-up course written into

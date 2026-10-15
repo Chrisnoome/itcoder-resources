@@ -236,3 +236,4 @@ pre-compaction files).
 - 2026-10-15: Own-words checks ("Do this" box on reveals, Practice definitions) are Jev first, Claude for unsure ideas (JevOwnWords, lib/jev.php). Jev-only had told eng10 pupils "not yet" for right answers.
 - 2026-10-15: open-items cleanup: done items deleted, partly-done ones cut to what is left, three live checks closed (see commit).
 - 2026-10-15: Block corrections (block-sections-design.md Phase 3): Edit view pencil saves a note per block (blockRequests); control centre Corrections card lists them from test/live (keys BESTLESSONS_BLOCKS_KEY_LIVE/_TEST, set-block-requests-key.ps1); Run sessions edit one block with tools/block.py get/put.
+- 2026-10-15: Block gates (block-sections-design.md Phase 4): admin Gate here overrides (blockGates), read gates with "I've read this - Continue" (sqlSteps read:<n>), held blocks keyed by n, teacher gate mode Course default/Always/Never (rule gateMode).
