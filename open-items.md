@@ -407,7 +407,8 @@ Details live in the linked files.
   live console accepts both addresses. **Left:** Google's branding review
   result. Later: home
   page, terms and privacy text written for pupils outside De La Salle; the
-  OAuth consent screen's app name (one name shows on both addresses). {area: admin; p: 3; status: open}
+  OAuth consent screen's app name (one name shows on both addresses; on 15 Oct
+  2026 it still says "ITCoder" and links to itcoder.co.za). {area: admin; p: 3; status: open}
 - **The E look** (2026-09-25, live - platform.md decision 27): admin and
   teacher pages still have the old look; `?design=classic` (the old look for
   one browser) can go once nobody needs it. {area: teacher; p: 3; status: open}
