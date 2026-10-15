@@ -63,6 +63,7 @@ Paths are relative to this folder. For platform.md (235 KB) never read it whole:
 | Art for a course, logos, YouTube | `brand/<course>-art-style.md`, `brand/bestlessons/README.md`, `youtube-channels.md`, `comfyui-queue/README.md` |
 | Real program screenshots | `tools/sim-screens/README.md` (VM first; hands off the keyboard while it runs), `tools/access-screens/`, `tools/ui-screens/` |
 | Year planning, school calendars | `planning/README.md` |
+| Numbered lesson blocks, edit view, block corrections, block gates | `block-sections-design.md` |
 | Checklists, remediation | `checklists/`, `remediation.md`, `remediation-checklist.md` (publish as OK / Needs-fixing pages) |
 | Market, pricing, costs | `market-research.md`, `pricing-suggestions.md`, `costs-research.md`, `payments-research.md`, `competitor-review.md` |
 | Workflow and manager setup | `workflow-plan.md` |
