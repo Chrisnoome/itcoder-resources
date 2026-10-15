@@ -5,7 +5,7 @@ instead of a whole lesson file.
 
     python tools/block.py list <course> <lesson>
     python tools/block.py get  <course> <lesson> <n> [--out FILE]
-    python tools/block.py put  <course> <lesson> <n> FILE [--dry]
+    python tools/block.py put  <course> <lesson> <n> FILE [--dry] [--split]
     python tools/block.py status <live|test|local> <request id> <running|done|dropped> [commit]
 
 The parsing is PHP's own tokenizer: bin/block-tool.php in AIPascalCourse (the
@@ -14,6 +14,15 @@ titles of the blocks around it, and writes the source to a file to edit; put
 writes it back and refuses when the lesson changed since get, when 'n' or any
 question 'id' changed, when php -l fails, or when any other block of the loaded
 lesson came out different. --dry runs every check and writes nothing.
+
+put --split replaces the block with 2 or more prose blocks (a long block split
+at a sub-heading; only when a correction touches it, Chris 15 Oct 2026). The
+first part keeps n; the later parts must carry 'n' => blocks-next,
+blocks-next+1, ... in order (the tool CHECKS these, it does not fill them in;
+the lesson's `// blocks-next` line is raised for you). Question ids, every
+other block, php -l and the get hash are checked as for put; also the parts'
+text (headings and tags stripped) must equal the old block's and every
+Doodle/Gloss/Figure call must be kept. Give each part a 'title' (<= 55 chars).
 
 status sets a correction request's status on a site (keys from env vars:
 tools/control-centre/corrections.py). Never prints a key.
@@ -102,16 +111,17 @@ def main(argv):
         return 0
 
     if cmd == "put" and len(args) == 4:
-        code, d = php(["put"] + args[:3] + [os.path.abspath(args[3])] + (["--dry"] if "--dry" in flags else []))
+        code, d = php(["put"] + args[:3] + [os.path.abspath(args[3])] + [f for f in ("--dry", "--split") if f in flags])
         if code or not d.get("ok"):
             print("Refused: " + str(d.get("error")), file=sys.stderr)
             return 1
         if not d.get("changed"):
             print("No change: " + d.get("note", ""))
         elif d.get("dry"):
-            print("Dry run: block #%s passes every check (%d -> %d bytes). Nothing written." % (d["n"], d["bytesBefore"], d["bytesAfter"]))
+            print("Dry run: block #%s passes every check (%d -> %d bytes%s). Nothing written." % (d["n"], d["bytesBefore"], d["bytesAfter"], ", %d parts" % d["parts"] if d.get("parts", 1) > 1 else ""))
         else:
-            print("Block #%s written (%d -> %d bytes): %s" % (d["n"], d["bytesBefore"], d["bytesAfter"], d["file"]))
+            print("Block #%s written (%d -> %d bytes%s): %s" % (d["n"], d["bytesBefore"], d["bytesAfter"],
+                  ", split into %d parts" % d["parts"] if d.get("parts", 1) > 1 else "", d["file"]))
         return 0
 
     print(__doc__, file=sys.stderr)

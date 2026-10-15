@@ -6,7 +6,7 @@ writes it: every put here is refused, a --dry run, or the same source. Each
 test checks the lesson file's bytes are unchanged afterwards. Temp files go
 in AIPascalCourse/data/block-tool (gitignored, on D:).
 """
-import hashlib, os, shutil, subprocess, sys, tempfile, unittest
+import hashlib, os, re, shutil, subprocess, sys, tempfile, unittest
 
 sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -111,6 +111,81 @@ class PutRefusals(unittest.TestCase):
         code, out = self.put(self.source.replace("Programs have to be exact.", "Programs must be exact."), "--dry")
         self.assertEqual(code, 0, out)
         self.assertIn("passes every check", out)
+
+
+class SplitPut(unittest.TestCase):
+    """put --split on pascal9/wakeup block #3 (prose). Always --dry or refused."""
+    N3 = "3"
+
+    def setUp(self):
+        os.makedirs(STATE, exist_ok=True)
+        self.tmp = tempfile.mkdtemp(dir=STATE, prefix="test-")
+        self.before = sha(LESSON_FILE)
+        self.edit = os.path.join(self.tmp, "block.php")
+        code, out = run("get", COURSE, LESSON, self.N3, "--out", self.edit)
+        self.assertEqual(code, 0, out)
+        with open(self.edit, encoding="utf-8", newline="") as f:
+            self.source = f.read()
+        with open(LESSON_FILE, encoding="utf-8", newline="") as f:
+            m = re.search(r"blocks-next:\s*(\d+)", f.read())
+        self.next = int(m.group(1))
+        self.cut = self.source.index("<p><strong>Exactly</strong>")
+
+    def tearDown(self):
+        self.assertEqual(sha(LESSON_FILE), self.before, "the lesson file must not change")
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def split_text(self, n2=None, extra=""):
+        n2 = self.next if n2 is None else n2
+        nl = chr(10)
+        head = self.source[:self.cut].rstrip() + nl + "HTML" + nl + "]"
+        head = head.replace("'n' => 3,", "'n' => 3," + extra, 1)
+        mid = "," + nl + "['n' => %d, 'type' => 'prose', 'title' => 'Exactly'," % n2 + nl + "    'html' => <<<'HTML'" + nl
+        return head + mid + self.source[self.cut:]
+
+    def put(self, text, *flags):
+        with open(self.edit, "w", encoding="utf-8", newline="") as f:
+            f.write(text)
+        return run("put", COURSE, LESSON, self.N3, self.edit, *flags)
+
+    def test_good_split(self):
+        code, out = self.put(self.split_text(), "--split", "--dry")
+        self.assertEqual(code, 0, out)
+        self.assertIn("2 parts", out)
+
+    def test_split_needs_the_flag(self):
+        code, out = self.put(self.split_text(), "--dry")
+        self.assertEqual(code, 1)
+        self.assertIn("--split", out)
+
+    def test_wrong_n(self):
+        code, out = self.put(self.split_text(n2=self.next + 1), "--split", "--dry")
+        self.assertEqual(code, 1)
+        self.assertIn("must be %d" % self.next, out)
+
+    def test_changed_id(self):
+        code, out = self.put(self.split_text(extra=" 'id' => 'zzNew',"), "--split", "--dry")
+        self.assertEqual(code, 1)
+        self.assertIn("question id", out)
+
+    def test_stale_hash(self):
+        with open(os.path.join(STATE, "%s.%s.%s.sha256" % (COURSE, LESSON, self.N3)), "w") as f:
+            f.write("0" * 64)
+        code, out = self.put(self.split_text(), "--split", "--dry")
+        self.assertEqual(code, 1)
+        self.assertIn("changed since get", out)
+
+    def test_text_changed(self):
+        code, out = self.put(self.split_text().replace("very fast and very stupid", "very fast"), "--split", "--dry")
+        self.assertEqual(code, 1)
+        self.assertIn("text of the parts", out)
+
+    def test_helper_call_dropped(self):
+        t = self.split_text()
+        i = t.rindex("Gloss ('compiler'")
+        j = t.index(chr(10), i)
+        code, out = self.put(t[:i] + t[j:], "--split", "--dry")
+        self.assertEqual(code, 1)
 
 
 if __name__ == "__main__":
