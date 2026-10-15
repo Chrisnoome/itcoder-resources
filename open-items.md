@@ -2,9 +2,9 @@
 
 ## Urgent (harvested 15 Oct 2026)
 
-- Rotate the secret exposed in the Compiler prep chat (Security review, below).
-- Check whether the itcoder-cat VM is still running; stop it if idle (Operations, Video queue).
-- The marking daily-limit fix and the limit of 150 are unpublished. Open question: how another chat's code reached live outside the publish scripts (commit b116c0b, Security review).
+- Rotate the secret exposed in the Compiler prep chat (Security review, below). {area: admin; p: 1; status: open}
+- Check whether the itcoder-cat VM is still running; stop it if idle (Operations, Video queue). {area: admin; p: 1; status: open}
+- The marking daily-limit fix and the limit of 150 are unpublished. Open question: how another chat's code reached live outside the publish scripts (commit b116c0b, Security review). {area: marking; p: 1; status: open}
 
 The backlog. Delete an item when it is done; add one with the date when found.
 Details live in the linked files.
@@ -24,7 +24,7 @@ Details live in the linked files.
   Billing once plans exist; a school's shared AI budget; checkout must make
   the parent the buyer and show the ECT Act s43 information; Chris: Paystack
   sign-up (sole proprietorship), an accountant (VAT, entity, imported-services
-  VAT on Anthropic and Brevo invoices).
+  VAT on Anthropic and Brevo invoices). {area: commercialisation; p: 2; status: open}
 
 - **Site review fixes** (3 Oct 2026: a review of the local site as a slow pupil,
   a strong pupil and a teacher, in
@@ -88,7 +88,7 @@ Details live in the linked files.
 
   **Left as is:** 15 (outline the wrong card in place), 18 (a fast lane for
   strong pupils). Not tried hands-on: the teacher pages (no test teacher
-  account on localhost) and a paid course's lessons.
+  account on localhost) and a paid course's lessons. {area: pupil; p: 2; status: open}
 
 - **The server's own names still say itcoder** (3 Oct 2026, Chris chose to
   rename everything else - platform.md, "The site is BestLessons"):
@@ -96,13 +96,13 @@ Details live in the linked files.
   backups, the MySQL user, the compile sandbox and the install kit. Renaming
   them would be a planned server move with a short outage - only if Chris
   wants it. (Mail: decided 3 Oct 2026 - it comes from bestlessons.co.za,
-  already set up in Brevo; platform.md, "Email".)
+  already set up in Brevo; platform.md, "Email".) {area: admin; p: 3; status: open}
 
 - **New tables read on every page need a deploy-window guard** (found 3 Oct
   2026: one lesson page hit "no such table: questionNotes" in the minutes
   before setup.php ran - harmless, the page carried on). lib/notes.php's two
   reads now return nothing until the table exists (live 3 Oct with phase 3).
-  Any new table read by a page every pupil opens: the same.
+  Any new table read by a page every pupil opens: the same. {area: admin; p: 2; status: open}
 - **Committed code calls functions that are not committed** (found
   2026-10-01 with `tools/undefined-calls.php`, platform.md "Checks to run").
   TypedRules() is called by commit 236431c (28 Sep) and defined only in the
@@ -110,7 +110,7 @@ Details live in the linked files.
   rest, with bin/check-typed-rules.php); check-groups' "newcomer finds the
   waiting invitation" needs uncommitted invitation code. Live is fine
   (publishing uploads the working tree); the chat that owns each piece
-  commits it. Delete when the staged-tree scan is clean.
+  commits it. Delete when the staged-tree scan is clean. {area: testing; p: 2; status: open}
 - **Weighted mark ratio set by the teacher, per course** (Chris, 3 Oct 2026:
   "for all courses the teacher gets to set the weighted mark ratio - a teacher
   may get to teach more than one course ... default ratio change to 70
@@ -150,7 +150,7 @@ Details live in the linked files.
   written / 30 other; the ratio in steps of 5%; the weighted dial says the
   ratio. Today WeightedPercent() (lib/content.php) is a fixed 50/50 with 11
   callers, the lesson badge tiers among them; a teacher's courses come only
-  from their groups (no admin list).
+  from their groups (no admin list). {area: teacher; p: 2; status: open}
 - **Message my teacher, My progress for everyone, the menu, the query page,
   the music-video tab** - live 2 Oct 2026 21:2x-21:4x (Chris: "install gd
   and publish"; php8.3-gd installed, all steps OK), not committed. Still
@@ -158,7 +158,7 @@ Details live in the linked files.
   Free on live, so an unsubscribed pupil can open nothing else (mark more in
   Manage courses); **bin/check-notifications.php's guard** now refuses a
   server database (it ran once on live from a server check, inside its
-  rolled-back transaction, nothing left behind) - live since 3 Oct.
+  rolled-back transaction, nothing left behind) - live since 3 Oct. {area: pupil; p: 2; status: open}
 - **Live is ahead of git: commit the refactor and the video page** (2026-10-02;
   Chris, 1 Oct 23:30: "publish live when ready, monitor the code review and
   publish that when its done"). Published to test and live 2 Oct 01:31-06:00
@@ -173,14 +173,14 @@ Details live in the linked files.
   Chris's word): the follow-ups too - archived groups hidden everywhere
   (TeachingLinkSql), form tokens on 13 more pages, one leaderboard rule,
   written work counted for whoever can hand it in (CanHandInWritten). Still
-  uncommitted. Delete when committed.
+  uncommitted. Delete when committed. {area: admin; p: 2; status: open}
 - **Publishing over a busy line** (2026-10-02): with the home line full
   (OpenAudible downloading ~5 MB/s; ~500 ms round trips, 10% loss) the
   file-by-file upload took 2 hours a site and dropped mid-upload twice; a
   drop on live leaves it half-updated. Until Chris decides: pause big
   downloads before publishing. Proposed, waiting for Chris: vps.put_tree
   sends each folder as one archive, unpacked on the server only once it has
-  all arrived (minutes on a slow line, never half-uploaded).
+  all arrived (minutes on a slow line, never half-uploaded). {area: admin; p: 3; status: open}
 - **H5P rollout - Chris's decisions** (2026-10-01; committed fc36005, live with
   the evening publish). Theory 10: the satellite drawing says 550 km, media's prose says
   Starlink is about 500 km; the coaxial-cable photo shows a stranded core
@@ -199,10 +199,10 @@ Details live in the linked files.
   Part 1: LeftStr/RightStr and StrUtils in Pascal lesson 13; the SQL B9
   slider cuts through a row; gCapsButtonsAccess teaches a tendency;
   lc38KotaParts tests a Good to Know box; tl30ChatHistory's dates are in
-  margin notes; the Eagle icons in mp40. Delete each as Chris decides.
+  margin notes; the Eagle icons in mp40. Delete each as Chris decides. {area: content; p: 2; status: open}
 - **Level emblems: IT Theory 5 and 6 to redo** (2026-10-01): Laptop and
   Smartphone hide their device behind the medal; queue new seeds or a
-  clearer prompt (comfyui-queue). The other 34 are live.
+  clearer prompt (comfyui-queue). The other 34 are live. {area: fun; p: 3; status: open}
 
 - **Lost work and lost second tries - repair after publishing** (Chris,
   2026-10-01; platform.md 6a, 6c, "Allow pasting"). Built and checked on the
@@ -213,7 +213,7 @@ Details live in the linked files.
   (2) answer the two open queries from the same pupil on Pupil queries:
   the cut program with **Reset the question** + **Allow pasting** ticked,
   and the lost second try (the script gives it back) with a reply saying so.
-  Delete this item when done.
+  Delete this item when done. {area: pupil; p: 2; status: open}
 - **Remediation: flaw log, diagnosis, accessibility** (Chris, 2026-10-01,
   still being discussed; the reset built, live and verified on test 1 Oct;
   all of it live 1 Oct (reset, reading options, spelling concession, colour
@@ -247,14 +247,14 @@ Details live in the linked files.
     "The mark is correct" and "New mark"). Every reset - there and on
     pupil-work.php, which today deletes the row - **archives** the old
     answer, mark and flaw entries (teacher-only history) instead of
-    deleting them; the question goes back to not done.
+    deleting them; the question goes back to not done. {area: pupil; p: 2; status: open}
 
 - **Question review** (2026-09-28): questions the hint writers found wrong or
-  arguable - [question-review.md](question-review.md). Fix the wrong keys first.
+  arguable - [question-review.md](question-review.md). Fix the wrong keys first. {area: content; p: 2; status: open}
 - **Email addresses** for the gateway (Chris asked, 2026-09-28): noreply@
   (reply-to support@), support@, billing@, admin@, privacy@ (POPIA information
   officer), schools@, postmaster@, abuse@, dmarc@ - all may forward to one
-  inbox. Then set supportEmail with tools/set-server-config.py mail.
+  inbox. Then set supportEmail with tools/set-server-config.py mail. {area: admin; p: 3; status: open}
 
 - **H5P-style activities and the memory match** (Chris, 2026-09-28): "investigate
   h5p for their range of activities. lets brainstorm what can be added to
@@ -375,7 +375,7 @@ Details live in the linked files.
   error. The permission classifier refused publish-test.py, so nothing went
   to test or live - Chris runs publish-test.py, looks at the test site, then
   deploy-live.py (publishing.md). The nginx hardening that held this back is
-  finished (vps-access.md).
+  finished (vps-access.md). {area: fun; p: 2; status: open}
 - **Decided 28 Sep (Chris), being built:** (1) second-attempt marks - fix (a):
   store which lines were right on the first try; they keep 2 marks, lines
   fixed on the second try get 1 (old answers, with no first try stored, keep
@@ -391,7 +391,7 @@ Details live in the linked files.
   (D:\ComfyUI App, models in D:\ComfyUIModels - Flux, Qwen-Image, Z-Image),
   **mixed styles for variety: realistic, cartoon like the No Single Letters
   characters, stylised, illustrated** - for the dilemmas and for better
-  memory match cards.
+  memory match cards. {area: marking; p: 2; status: open}
 - **H5P rollout - where it stopped (1 Oct 2026, Chris: "pause activites and
   publish live")**: part 1 is committed and live - 403 activities, Pascal
   complete; Java, SQL and IT Theory 10-12 stopped part-way (each lesson's
@@ -406,11 +406,11 @@ Details live in the linked files.
   16 video questions on another chat's uncommitted videos (theory10
   internet/urls/www, theory11 addressing/protocolswan, theory12
   cloudcomputing) are in the files but not committed - commit them with
-  those videos.
+  those videos. {area: content; p: 2; status: open}
 - **Software simulations** (Chris, 1 Oct 2026: "we also need to look at
   software simulations for working with word, excel, access & powerpoint and
   file explorer"): not started - plan first (what a pupil does in each, how
-  it is marked, real screenshots vs a drawn copy of the program), and ask.
+  it is marked, real screenshots vs a drawn copy of the program), and ask. {area: content; p: 3; status: open}
 - **Chris's list, 1 Oct 2026** (the H5P chat is working through it; the
   video items go to the install-videos chat). Decided the same day:
   - **Weighted mark** = written work 50%, other questions 50% - **the main
@@ -485,7 +485,7 @@ Details live in the linked files.
   log - so Tor is filtered upstream by the host (Absolute Hosting): ask them
   whether they block Tor exits or proxy ranges. A school's web filter is a
   different thing: it shows its own block page; ask its vendor to class
-  bestlessons.co.za and itcoder.co.za as Education.
+  bestlessons.co.za and itcoder.co.za as Education. {area: content; p: 2; status: open}
 - **Second-attempt marks under-count - FIXED 28 Sep** (fix (a):
   LineMarksEarned(), lib/content.php, from quizResponses.firstResponse; tested:
   a hotspot 7 right both times is 14 of 16, a match with 2 right both times
@@ -495,7 +495,7 @@ Details live in the linked files.
   second attempt is used, even the lines that were right the first time (7
   parts right first time, 1 still wrong after the second try: 7 of 16, not
   14). Either store which lines were right the first time and mark them x2,
-  or change the wording.
+  or change the wording. {area: marking; p: 3; status: open}
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
@@ -506,49 +506,49 @@ Details live in the linked files.
   live console accepts both addresses. **Left:** Google's branding review
   result. Later: home
   page, terms and privacy text written for pupils outside De La Salle; the
-  OAuth consent screen's app name (one name shows on both addresses).
+  OAuth consent screen's app name (one name shows on both addresses). {area: admin; p: 3; status: open}
 - **The E look** (2026-09-25, live - platform.md decision 27): admin and
   teacher pages still have the old look; `?design=classic` (the old look for
-  one browser) can go once nobody needs it.
+  one browser) can go once nobody needs it. {area: teacher; p: 3; status: open}
 - **Fork-bomb / `TasksMax=` test** - Chris runs it himself (the permission
   classifier refuses it); command in
   [compile-subsystem-design.md](compile-subsystem-design.md). Concurrency under
-  a lockstep class burst is still unmeasured.
+  a lockstep class burst is still unmeasured. {area: testing; p: 3; status: open}
 - **Readln and ReadKey under `--tty`** time out in `sandbox-check.php` (NOTE
-  lines). No lesson depends on them.
+  lines). No lesson depends on them. {area: testing; p: 3; status: open}
 - **Server locale unchecked** (2026-09-13): `FloatToStr`/`Format` printed a
   comma on the Windows testbed. Lesson 7 teaches the `TFormatSettings` fix and
-  never asks pupils to predict the default. Check what the server prints.
+  never asks pupils to predict the default. Check what the server prints. {area: testing; p: 3; status: open}
 - **Failed written answers from before 17 Sep 2026** (8, mostly AI lesson 1-2)
   - re-mark from `/admin.php` ("Re-mark all failed", "Retry failed reviews")
-  if not yet done.
+  if not yet done. {area: marking; p: 2; status: open}
 - **Dev login is on for the public test site** (8082): anyone can sign in as
   any of its 19 people (real addresses). Chris chose a password (28 Sep 2026):
   **Chris runs `tools/set-test-password.py`** (PowerShell:
   `& "C:\Python314\python.exe" -X utf8 "D:/DB Sync/Dropbox/Projects/AIResources/tools/set-test-password.py"`),
-  then checks the live console still connects on test. Delete this item then.
-- **Subscription purchase flow** - gating exists, dates are set by hand.
+  then checks the live console still connects on test. Delete this item then. {area: admin; p: 2; status: open}
+- **Subscription purchase flow** - gating exists, dates are set by hand. {area: commercialisation; p: 2; status: open}
 - **Google OAuth** - consent screen External; **Publish app** to lift the
-  100-test-user cap (branding submitted for review 26 Sep 2026).
+  100-test-user cap (branding submitted for review 26 Sep 2026). {area: admin; p: 2; status: open}
 - **API spend limit** - set one on the Anthropic workspace (Console - Limits),
   e.g. US$50 a month. The site now stops itself at $5 a day (AiSpendGuard,
-  platform.md), but only the workspace limit also covers a leaked key.
+  platform.md), but only the workspace limit also covers a leaked key. {area: admin; p: 2; status: open}
 - **Review voice** - the "evaluate my performance" review has only been read by
-  Claude; read one against a real pupil's marks.
+  Claude; read one against a real pupil's marks. {area: marking; p: 3; status: open}
 - **Marked code questions** - `code` blocks are unmarked by design; no scoring
-  shape built.
-- **Teacher dashboard: per-question view across a class.**
-- **Confirm `ClassList()` labels** with Chris.
-- Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.)
+  shape built. {area: marking; p: 3; status: open}
+- **Teacher dashboard: per-question view across a class.** {area: teacher; p: 3; status: open}
+- **Confirm `ClassList()` labels** with Chris. {area: teacher; p: 3; status: open}
+- Optional: log `SQLITE_BUSY` if it appears. (Parallel marking done 25 September 2026 - platform.md decision 1.) {area: testing; p: 3; status: open}
 - PDF icon (`public/assets/icons/pdf.png`) was derived from `txt.png`; swap in
-  a real one if found.
-- **Login page still says "itcoder"**; it should say BestLessons. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026)
-- **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026)
-- **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026)
-- **Jev-only "Do this" checks** (English helpers) must fall back to Claude when Jev is unsure, per the Jev-first rule; false "missing" results seen on eng10. (from chat 'General computing courses', harvested 15 Oct 2026)
-- **Add Jev calls to the AI usage log** in `lib/jev.php`, then cost Jev in `costs-research.md`. (from chat 'Course development research', harvested 15 Oct 2026)
-- **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026)
-- **Daily-limit fix and per-pupil limit of 150** await a publish and `setup.php`. (from chat 'Marking issues', harvested 15 Oct 2026)
+  a real one if found. {area: pupil; p: 3; status: open}
+- **Login page still says "itcoder"**; it should say BestLessons. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
+- **Per-teacher "gated courses" setting** in teacher settings, off by default; when on, all that teacher's pupils see gated courses. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 2; status: open}
+- **"Login times" heatmap tab** on the pupil activity page and in the teacher's view of the pupil. (from chat 'Site design alternatives and mockups', harvested 15 Oct 2026) {area: teacher; p: 3; status: open}
+- **Jev-only "Do this" checks** (English helpers) must fall back to Claude when Jev is unsure, per the Jev-first rule; false "missing" results seen on eng10. (from chat 'General computing courses', harvested 15 Oct 2026) {area: marking; p: 2; status: open}
+- **Add Jev calls to the AI usage log** in `lib/jev.php`, then cost Jev in `costs-research.md`. (from chat 'Course development research', harvested 15 Oct 2026) {area: admin; p: 3; status: open}
+- **Graph block:** keyboard-only drawing; `bin/check-jev.php` does not yet catch graph hints that give the answer away. (from chat 'Graph-and-grid engine (Maths Lit)', harvested 15 Oct 2026) {area: pupil; p: 3; status: open}
+- **Daily-limit fix and per-pupil limit of 150** await a publish and `setup.php`. (from chat 'Marking issues', harvested 15 Oct 2026) {area: marking; p: 1; status: open}
 
 ## Security review (2026-09-28)
 
@@ -608,21 +608,21 @@ Still open:
   0; fail2ban not installed (SSH is key-only, so it would mostly quieten the
   logs); the install kit has no SSH-hardening step; group membership gives
   Full access to every paid course (matters once teacher plans are sold); a
-  `/live/` handshake rate limit (the daemon's own caps hold for now).
-- **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026)
-- **Rotate the exposed secret** noted in the compiler-work chat, if not already done. (from chat 'Compiler work preparation', harvested 15 Oct 2026)
+  `/live/` handshake rate limit (the daemon's own caps hold for now). {area: admin; p: 3; status: open}
+- **Find out how commit `b116c0b` reached live** without its database step (only the publish scripts may upload). (from chat 'Marking issues', harvested 15 Oct 2026) {area: admin; p: 1; status: open}
+- **Rotate the exposed secret** noted in the compiler-work chat, if not already done. (from chat 'Compiler work preparation', harvested 15 Oct 2026) {area: admin; p: 1; status: open}
 
 ## Content
 
 - **Java course: open and live** (26 Sep 2026, Java in the live console -
   courses/java-course.md). For Chris: check the glossary's grades and
   plum marks (a script's first draft); IDE screenshots (lesson 3) and the
-  NetBeans GUI-builder wording (lessons 24, 25, 28 - no IDEs on the testbed).
+  NetBeans GUI-builder wording (lessons 24, 25, 28 - no IDEs on the testbed). {area: content; p: 2; status: open}
 
 - **WHEN DELPHI IS RUNNING: Delphi GUI lessons, simulations and CAPS GUI
   tutorials** (Chris, 4 Oct 2026) - plan and trigger in
   [courses/delphi-gui.md](courses/delphi-gui.md). Ask Chris its four
-  questions first.
+  questions first. {area: content; p: 3; status: open}
 
 - **Lazarus formats code - pictures, an IDE run and the video** (Chris, 9 Oct
   2026: "add a lesson to pascal - customizing how lazarus formats its code
@@ -640,67 +640,67 @@ Still open:
      JCF Format Settings (Capitalisation, Spaces) and Codetools (Words,
      Space) pages - check the guide's names against them.
   3. The tutorial video: queued with the video-production chat (told 10 Oct
-     2026); embed it in the guide once it is on YouTube.
+     2026); embed it in the guide once it is on YouTube. {area: content; p: 2; status: open}
 
 - **AI lesson 9's isiZulu prompt** (1 Oct 2026) - written by Claude; a fluent
   speaker must check it (the lesson's `everySubject` card and its study
-  block) before lesson 9 is published.
+  block) before lesson 9 is published. {area: content; p: 2; status: open}
 
 - **AI course restyle** - lessons are still v1's copy (no popups, reveals,
   mixed question types). Also worksheets, teacher pack, assessment weight,
-  lesson 8 timing. See [courses/ai-course.md](courses/ai-course.md).
+  lesson 8 timing. See [courses/ai-course.md](courses/ai-course.md). {area: content; p: 3; status: open}
 - **Pascal lessons 28+** (the CAPS tasks - proposal in [caps-tasks.md](caps-tasks.md),
   Chris to decide; 24-27 are BUILT and live) - what each must
   cover is in [courses/pascal-course.md](courses/pascal-course.md), "Lessons
-  still to come". Build only when Chris asks.
+  still to come". Build only when Chris asks. {area: content; p: 2; status: open}
 - **For the chat building lesson 18:** the SAGs check (23 Sep 2026) assigned
   testing and validation to it - see that plan (test data, trace tables,
-  syntax/runtime/logic errors, debugger, validation checks, exceptions).
+  syntax/runtime/logic errors, debugger, validation checks, exceptions). {area: content; p: 3; status: open}
 - **Review and publish the syllabus gap additions** (built 25 Sep 2026 in
   lessons 1, 4, 7, 8, 12, 13, 14, 15, 16, 19 and 23 - list in
   [courses/pascal-course.md](courses/pascal-course.md), "Gap additions").
-  The new glossary rows' grades are a first draft too.
+  The new glossary rows' grades are a first draft too. {area: content; p: 2; status: open}
 - **CAPS PAT lessons:** the Grade 10 2026 theme ("technology and education")
   is only partly verified and the Grade 11 one ("Smart Restaurant Solution")
   from secondary sources - Chris to check against the DBE PAT documents
-  (`content/pascal/capspat10.php`, `capspat11.php`).
+  (`content/pascal/capspat10.php`, `capspat11.php`). {area: content; p: 3; status: open}
 - **Theory course:** plan and Chris's questions in
   [courses/theory-course.md](courses/theory-course.md) (25 Sep 2026). SAGs
   4.2 data representation (binary, hex, bits, signed/unsigned, overflow, Real
-  storage) belongs there, not in Pascal.
+  storage) belongs there, not in Pascal. {area: content; p: 3; status: open}
 - **IEB theory Paper 2s 2022-2025** (27 Sep 2026): Chris will add the papers
   and their memos to `AIResources/IEB`; then re-check Grade 12 lesson 27
   (`examieb`) against them - its layout wording is hedged until then
-  ([courses/theory-review-queue.md](courses/theory-review-queue.md)).
+  ([courses/theory-review-queue.md](courses/theory-review-queue.md)). {area: content; p: 3; status: open}
 - Anonymous quotes (AI lessons 4, 5, 7) keep the question-mark placeholder
-  portrait permanently, unless an attributed quote replaces them.
+  portrait permanently, unless an attributed quote replaces them. {area: content; p: 3; status: open}
 - **CAT bundle pricing.** Grade 12 carries three years of content and Grade
   10 one, so the three CAT bundles need different prices. Deferred on
   purpose: the courses go up free for De La Salle pupils while real AI costs
   are tracked (`aiUsage`, Admin > Billing's per-person figures and monthly
   CSV), and prices are set from those. The `plans` rows wait on a number
-  from Chris. (`courses/cat-course.md` §5 q33.)
+  from Chris. (`courses/cat-course.md` §5 q33.) {area: commercialisation; p: 3; status: open}
 - **Verify `mdbtools` against a real Grade 12 Access database** before the
   upload marker is built. It read the boards' own `.accdb` files cleanly
   during the CAT analysis - `mdb-tables` and `mdb-schema` both - but only
   the schema read is proven. Test queries, calculated fields and a
   relationship. `.mdb` is the documented fallback, at the cost of four data
   types the SAGs names (Large Number, Rich Text, Attachment, Calculated
-  Field).
+  Field). {area: testing; p: 3; status: open}
 - **Check whether Microsoft's terms allow its UI screenshots to be
   redistributed in a paid course.** The five CAT application courses need
   3-10 screenshots a lesson. Worth settling before the first capture rather
-  than after 500 of them.
+  than after 500 of them. {area: commercialisation; p: 2; status: open}
 - **Re-download the DBE's November 2023 CAT Paper 2 memo.** The file
   published under that name on the DBE site is a second copy of the 2023
   Paper 1 memo - different bytes, identical extracted text, both headed
   "P1", both carrying the P1 totals. The 2023 Paper 2 analysis in
-  `cat-caps-exam-analysis.md` therefore rests on the question paper alone.
-- **eng10 voice review** ("way too many AI tells", SA-teen register, quoted text in a box), then redeploy the example-answer marks and text-window changes. (from chat 'English courses', harvested 15 Oct 2026)
-- **Decide whether the validation-checks table** in Pascal lesson 18 replaces its Learn/Memorise box. (from chat 'Lesson 18: Error handling', harvested 15 Oct 2026)
-- **Pictures for the other ~60 processSteppers**; publish the agent-loop stepper pictures and the My marks link. (from chat 'Lesson corrections', harvested 15 Oct 2026)
-- **Left Gets Right karaoke video** parked: the karaoke is really Match The Types, and there are two versions of the song. (from chat 'Pascal assignment statement video', harvested 15 Oct 2026)
-- **Rhino-print ControlNet choice** for the Maths Lit art: Chris to pick from the 12 tries. (from chat 'Art chat', harvested 15 Oct 2026)
+  `cat-caps-exam-analysis.md` therefore rests on the question paper alone. {area: content; p: 3; status: open}
+- **eng10 voice review** ("way too many AI tells", SA-teen register, quoted text in a box), then redeploy the example-answer marks and text-window changes. (from chat 'English courses', harvested 15 Oct 2026) {area: content; p: 2; status: open}
+- **Decide whether the validation-checks table** in Pascal lesson 18 replaces its Learn/Memorise box. (from chat 'Lesson 18: Error handling', harvested 15 Oct 2026) {area: content; p: 3; status: open}
+- **Pictures for the other ~60 processSteppers**; publish the agent-loop stepper pictures and the My marks link. (from chat 'Lesson corrections', harvested 15 Oct 2026) {area: content; p: 3; status: open}
+- **Left Gets Right karaoke video** parked: the karaoke is really Match The Types, and there are two versions of the song. (from chat 'Pascal assignment statement video', harvested 15 Oct 2026) {area: fun; p: 3; status: open}
+- **Rhino-print ControlNet choice** for the Maths Lit art: Chris to pick from the 12 tries. (from chat 'Art chat', harvested 15 Oct 2026) {area: fun; p: 3; status: open}
 
 ## Operations and housekeeping
 
@@ -708,20 +708,20 @@ Still open:
   `/var/log/itcoder-school-calendars.log`. deploy-live.py now adds it (Chris, 11 Oct 2026); the code
   went live that day without it, so it arrives with the **next** live publish - check `crontab -u
   www-data -l` then and remove this item. Until then a link is read only when its school's admin
-  saves it. Live only, like the reminder emails.
+  saves it. Live only, like the reminder emails. {area: admin; p: 2; status: open}
 - **Deploy order: new tables after new code** (2026-10-01). deploy-live.py uploads all of the code (step 3) and
   only then runs setup.php (step 6): for about 90 seconds on 1 Oct, pages that read the new pasteAllowed table
   failed (10 "no such table" errors in nginx's log, none after setup). Run setup.php right after lib/ and
-  bin/ go up, before content/ and public/ - in both scripts, proved on test (publishing.md).
+  bin/ go up, before content/ and public/ - in both scripts, proved on test (publishing.md). {area: admin; p: 2; status: open}
 - **Re-point the backup task** (admin PowerShell), then delete the stand-in -
-  [backups.md](backups.md).
+  [backups.md](backups.md). {area: admin; p: 2; status: open}
 - **Backup encryption** - built; Chris runs setup-backup-encryption.py
-  (Security review, above; [backups.md](backups.md)).
+  (Security review, above; [backups.md](backups.md)). {area: admin; p: 2; status: open}
 - **`AIWebCourse` root:** two copies of the Google `client_secret_*.json` (live
   credentials, already in config.php) - delete; `student_emails.csv` (pupils'
-  emails) - keep only if needed; `tools/__pycache__` - delete with the stand-in.
-- **nginx `server_tokens off`** (the Server header shows the version).
-- **Test site teardown** - only if publishing stops needing it:
+  emails) - keep only if needed; `tools/__pycache__` - delete with the stand-in. {area: admin; p: 2; status: open}
+- **nginx `server_tokens off`** (the Server header shows the version). {area: admin; p: 3; status: open}
+- **Test site teardown** - only if publishing stops needing it: {area: admin; p: 3; status: open}
 
       rm -rf /var/www/itcoder-v2-test
       rm /etc/nginx/sites-enabled/itcoder-v2-test /etc/nginx/sites-available/itcoder-v2-test
@@ -731,9 +731,9 @@ Still open:
       rm -f /var/log/itcoder-v2-test-marking.log /var/log/itcoder-v2-test-compile.log
       rm -f /etc/nginx/itcoder-test.htpasswd
 
-- **Video queue resume:** restart take loops on current code (mark videos done only when something is recorded); re-record Pascal 15.6, 18.1, 18.2, 18.3; test the 18.x exception-box step; commit `thumbs-java.json` and `thumbs-pascal.json`; wait for the Art chat's "GPU free" before restarting voice servers; stop the itcoder-cat VM when CAT is done. (from chat 'Video production', harvested 15 Oct 2026)
-- **YouTube:** Chris deletes the seven old uploads (3Kh5JXDrJEE, PoP4TPoW0PM, sLMHjwsVgvM, GgEOY8EcL4A, W5p4d9uG0og, JwcwT3DLynQ, rrKfSqYQ6_U); recheck the 7.2 public thumbnail; Chris sets `youtubeApiKey` (set-server-config.py); publish Monitor rebuild 4af915b. (from chat 'YouTube management', harvested 15 Oct 2026)
-- **Office/Access install video** needs Chris's M365 sign-in; unload the Qwen3 server (pid 67268). (from chat 'Database planning: caps and sags (install-video work)', harvested 15 Oct 2026)
-- **Business:** De La Salle IP acknowledgement letter (business/ .docx) awaits letterhead and signature; accountant, CIPC trade mark, publisher contract check; move lesson 17 to Term 3. (from chat 'Site commercialisation', harvested 15 Oct 2026)
-- **Publish pending commits** (dismiss, Remove course, View the log, home scroller, mlit10), and confirm the joke-redraw deploy was wanted. (from chat 'Site design alternatives and mockups' and 'Redraw labelled jokes in other courses', harvested 15 Oct 2026)
-- **Check in a browser:** the teacher "Your IT periods" settings form and the checklist page (needs teacher sign-in). (from chat 'Site review tool' and 'Remediation strategies / Checklist', harvested 15 Oct 2026)
+- **Video queue resume:** restart take loops on current code (mark videos done only when something is recorded); re-record Pascal 15.6, 18.1, 18.2, 18.3; test the 18.x exception-box step; commit `thumbs-java.json` and `thumbs-pascal.json`; wait for the Art chat's "GPU free" before restarting voice servers; stop the itcoder-cat VM when CAT is done. (from chat 'Video production', harvested 15 Oct 2026) {area: content; p: 3; status: open}
+- **YouTube:** Chris deletes the seven old uploads (3Kh5JXDrJEE, PoP4TPoW0PM, sLMHjwsVgvM, GgEOY8EcL4A, W5p4d9uG0og, JwcwT3DLynQ, rrKfSqYQ6_U); recheck the 7.2 public thumbnail; Chris sets `youtubeApiKey` (set-server-config.py); publish Monitor rebuild 4af915b. (from chat 'YouTube management', harvested 15 Oct 2026) {area: admin; p: 3; status: open}
+- **Office/Access install video** needs Chris's M365 sign-in; unload the Qwen3 server (pid 67268). (from chat 'Database planning: caps and sags (install-video work)', harvested 15 Oct 2026) {area: content; p: 3; status: open}
+- **Business:** De La Salle IP acknowledgement letter (business/ .docx) awaits letterhead and signature; accountant, CIPC trade mark, publisher contract check; move lesson 17 to Term 3. (from chat 'Site commercialisation', harvested 15 Oct 2026) {area: commercialisation; p: 2; status: open}
+- **Publish pending commits** (dismiss, Remove course, View the log, home scroller, mlit10), and confirm the joke-redraw deploy was wanted. (from chat 'Site design alternatives and mockups' and 'Redraw labelled jokes in other courses', harvested 15 Oct 2026) {area: admin; p: 2; status: open}
+- **Check in a browser:** the teacher "Your IT periods" settings form and the checklist page (needs teacher sign-in). (from chat 'Site review tool' and 'Remediation strategies / Checklist', harvested 15 Oct 2026) {area: testing; p: 2; status: open}
