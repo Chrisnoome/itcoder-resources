@@ -248,3 +248,4 @@ pre-compaction files).
 - 2026-10-15: The site admin may be signed in in several places at once (ManySessionsAllowed(), lib/auth.php); one account, one session still holds for everyone else (Chris). AIPascalCourse, expansion, not published.
 - 2026-10-15: Test site: allowDevAdmin in its config lets a name-only login with an admin email be admin (Google cannot sign in at its bare IP; test is behind the nginx password). Never on live.
 - 2026-10-15: Bar buttons /pause (before a shutdown: sessions stop at a safe point, logs/pause-note.md lists them) and /clear + resume (manager continue restarts every paused session and background run, then deletes the note).
+- 2026-10-15: Course choice is a shared tree picker (Grade > Subject > Course, type-ahead, My courses first; CourseSelectHtml(), lib/coursepicker.php) on every staff course select (Chris: a single dropdown will not scale). AIPascalCourse, expansion, b4fb72d, not published.
