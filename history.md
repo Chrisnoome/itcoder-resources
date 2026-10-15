@@ -230,3 +230,4 @@ pre-compaction files).
 - 2026-10-15: Read-only status endpoint public/admin/status.json.php (X-Status-Key = config STATUS_KEY; counts only) for Chris's dashboard.
 - 2026-10-15: Claude calls on 5-family models get max_tokens >= 16000 (Haiku 5.5 thinking counts against the cap), quick checks at effort low, marking 120 s; token-cap failures requeued (AIPascalCourse 2f7d13c).
 - 2026-10-15: Numbered lesson blocks designed (block-sections-design.md): stable never-reused 'n' per block, admin edit view, correction requests queued on the server for the control centre, block-level and read gates, per-teacher gate mode; pilot pascal9. Not built.
+- 2026-10-15: Numbered blocks Phases 1+2 built (AIPascalCourse 8de1065..306163f, not published): 537 lessons / 13,930 blocks carry 'n' (helper calls via Numbered()/NumberedBlock()), bin/block-number|block-verify|check-blocks.php, admin Edit view toggle; 37 non-list lessons skipped.

@@ -1,6 +1,6 @@
 # Numbered blocks: design (agreed with Chris, 15 Oct 2026)
 
-Status: spec approved by Chris 15 Oct 2026; build Phases 1+2 together first (all courses numbered once the pascal9 diff passes). Nothing built yet. Code lives in `Projects/AIPascalCourse`.
+Status: Phases 1+2 built 15 Oct 2026 (AIPascalCourse 8de1065..306163f, not published; 37 lessons whose return is not a list still unnumbered). Next: Phase 3. Code lives in `Projects/AIPascalCourse`.
 open-items.md bullet "Block sections" (area content, p1); works with
 "Per-teacher gated courses setting" (area teacher).
 
