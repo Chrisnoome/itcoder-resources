@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Control centre</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f7f4ee;
+  --bg-deep: #efeae1;
+  --card: #ffffff;
+  --line: #e4ded3;
+  --line-strong: #d3cbbd;
+  --text: #2e2f33;
+  --text-2: #5d6068;
+  --text-3: #8a8d94;
+  --focus: #3b6fd8;
+  --ok: #2f7d4f;
+  --warn: #a8620f;
+  --bad: #b23b3b;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgba(60, 50, 30, .06), 0 2px 8px rgba(60, 50, 30, .04);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+  /* one soft accent per area: [tint, ink] */
+  --a-commercialisation: #f6e7cc; --i-commercialisation: #8a5a12;
+  --a-marking: #d9e8f7; --i-marking: #2a5d96;
+  --a-content: #dcefdf; --i-content: #2d6e46;
+  --a-teacher: #e7def6; --i-teacher: #5d3fa6;
+  --a-pupil: #f8dde6; --i-pupil: #9a2e66;
+  --a-testing: #d8eff0; --i-testing: #276a6b;
+  --a-fun: #fde6cf; --i-fun: #a4501a;
+  --a-admin: #e6e7eb; --i-admin: #474d5a;
+  --a-inbox: #eeebe5; --i-inbox: #6b6458;
+  --a-urgent: #fbe1dc; --i-urgent: #a8382a;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+a { color: #2c5fb3; }
+
+/* ---------- top bar ---------- */
+.top {
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px 24px; border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky; top: 0; z-index: 5;
+}
+.top h1 { font-size: 16px; font-weight: 650; margin: 0; letter-spacing: .1px; }
+.top .sub { color: var(--text-3); font-size: 12px; }
+.top .spacer { flex: 1; }
+.top .keys { color: var(--text-3); font-size: 12px; }
+kbd {
+  font: 11px var(--mono); background: var(--card); border: 1px solid var(--line-strong);
+  border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; color: var(--text-2);
+}
+
+/* ---------- layout ---------- */
+.cols {
+  display: grid; grid-template-columns: minmax(280px, 340px) minmax(0, 1fr) minmax(280px, 360px);
+  gap: 16px; padding: 16px 24px 32px; align-items: start;
+}
+.col { min-width: 0; }
+.col-left, .col-right { position: sticky; top: 64px; max-height: calc(100vh - 80px); overflow: auto; padding: 2px; }
+@media (max-width: 900px) {
+  .cols { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+  .col-left, .col-right { position: static; max-height: none; overflow: visible; }
+  .top { padding: 12px 16px; }
+  .top .keys { display: none; }
+}
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 16px; margin-bottom: 16px;
+}
+.label { font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .6px; color: var(--text-3); }
+
+/* ---------- buttons and fields ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px;
+  border: 1px solid var(--line-strong); background: var(--card); border-radius: 6px; cursor: pointer;
+  font-weight: 550; white-space: nowrap;
+}
+.btn:hover { background: #faf8f4; border-color: #c5bcac; }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn.primary { background: #2e2f33; border-color: #2e2f33; color: #fff; }
+.btn.primary:hover { background: #45474d; }
+.btn.ghost { border-color: transparent; background: transparent; color: var(--text-2); }
+.btn.ghost:hover { background: var(--bg-deep); }
+.btn.small { height: 24px; padding: 0 8px; font-size: 12px; }
+.btn.confirm { background: var(--a-urgent); border-color: #e6b6ac; color: var(--i-urgent); }
+.field { display: grid; gap: 4px; margin-bottom: 8px; }
+.field > span { font-size: 12px; color: var(--text-2); font-weight: 550; }
+input[type=text], input[type=search], select, textarea {
+  width: 100%; border: 1px solid var(--line-strong); border-radius: 6px; background: #fff;
+  padding: 6px 8px; min-height: 32px;
+}
+textarea { resize: vertical; line-height: 1.5; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.row > .field { flex: 1; min-width: 96px; }
+
+/* ---------- left: tasks ---------- */
+.add > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
+  font-weight: 650; padding: 4px 0;
+}
+.add > summary::-webkit-details-marker { display: none; }
+.add > summary .plus {
+  width: 24px; height: 24px; border-radius: 6px; display: grid; place-items: center;
+  background: #2e2f33; color: #fff; font-size: 16px; line-height: 1;
+}
+.add[open] > summary { margin-bottom: 8px; }
+.tools { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.tools input[type=search] { flex: 1; }
+.toggle { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-2); cursor: pointer; white-space: nowrap; }
+.group { border-radius: var(--radius); margin-bottom: 8px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
+.group > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; font-weight: 600; user-select: none;
+}
+.group > summary::-webkit-details-marker { display: none; }
+.group > summary .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.group > summary .count {
+  margin-left: auto; font-size: 12px; font-weight: 600; min-width: 24px; text-align: center;
+  border-radius: 10px; padding: 0 8px;
+}
+.group > summary .chev { color: var(--text-3); transition: transform .15s; font-size: 10px; }
+.group[open] > summary .chev { transform: rotate(90deg); }
+.group.empty > summary { color: var(--text-3); font-weight: 500; }
+.group.urgent { border-color: #efc4bb; }
+.group.urgent > summary { background: var(--a-urgent); color: var(--i-urgent); }
+.tlist { list-style: none; margin: 0; padding: 0 4px 4px; }
+.titem {
+  display: flex; gap: 8px; align-items: baseline; width: 100%; text-align: left;
+  background: none; border: 0; border-radius: 6px; padding: 6px 8px; cursor: pointer; line-height: 1.35;
+}
+.titem:hover { background: #f8f6f1; }
+.titem[aria-current=true] { background: var(--bg-deep); box-shadow: inset 3px 0 0 var(--ink, #2e2f33); }
+.titem .ttl { flex: 1; min-width: 0; }
+.titem .meta { font-size: 11px; color: var(--text-3); white-space: nowrap; }
+.titem.done .ttl { color: var(--text-3); text-decoration: line-through; }
+.pchip { font-size: 10px; font-weight: 700; border-radius: 4px; padding: 0 4px; line-height: 16px; flex: none; }
+.pchip.p1 { background: var(--a-urgent); color: var(--i-urgent); }
+.pchip.p2 { background: #f1ede5; color: #6b6458; }
+.pchip.p3 { background: transparent; color: var(--text-3); border: 1px solid var(--line); }
+.status-pill { font-size: 11px; border-radius: 10px; padding: 0 8px; line-height: 18px; font-weight: 600; }
+.status-pill.queued { background: #fff2cf; color: #8a6200; }
+.status-pill.running { background: #dff1e6; color: var(--ok); }
+.status-pill.done { background: #ecebe8; color: var(--text-3); }
+.status-pill.open { background: #eef2f8; color: #3c5378; }
+.none { color: var(--text-3); font-size: 12px; padding: 4px 12px 8px; }
+
+/* ---------- middle: detail ---------- */
+.detail { min-height: 320px; }
+.detail .empty-state { color: var(--text-3); text-align: center; padding: 64px 16px; }
+.detail .empty-state b { display: block; color: var(--text-2); font-size: 16px; margin-bottom: 8px; }
+.detail h2 { font-size: 20px; line-height: 1.3; margin: 8px 0 8px; font-weight: 650; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { font-size: 12px; border-radius: 12px; padding: 2px 10px; font-weight: 600; }
+.chip.plain { background: #f3f0ea; color: var(--text-2); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.brief {
+  white-space: pre-wrap; overflow-wrap: anywhere; border-top: 1px solid var(--line);
+  padding-top: 16px; margin-top: 8px; color: var(--text); line-height: 1.6;
+}
+.brief code { font: 12.5px var(--mono); background: #f3f0ea; border-radius: 4px; padding: 1px 4px; }
+.editor textarea { min-height: 220px; font-size: 13.5px; }
+.editor .hint { font-size: 12px; color: var(--text-3); }
+.panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; margin-top: 16px; background: #fcfbf8; }
+.panel h3 { margin: 0 0 8px; font-size: 13px; font-weight: 650; display: flex; align-items: center; gap: 8px; }
+.pick { display: grid; grid-template-columns: 64px 1fr auto; gap: 8px 12px; align-items: center; }
+.pick .k { font-size: 12px; color: var(--text-2); }
+.pick .v { font-weight: 650; }
+.bar { height: 6px; background: #ece7de; border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.bar > i { display: block; height: 100%; background: var(--ok); border-radius: 3px; }
+.bar.low > i { background: #d39b45; }
+.note { font-size: 12px; color: var(--text-2); margin-top: 8px; }
+.note.warn { color: var(--warn); }
+.mover { display: none; gap: 8px; flex-wrap: wrap; align-items: end; margin-top: 8px; }
+.mover.show { display: flex; }
+.mover .field { margin: 0; min-width: 140px; }
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  background: #2e2f33; color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.15); opacity: 0; transition: opacity .2s; pointer-events: none; max-width: 90vw;
+}
+.toast.show { opacity: 1; }
+.toast.err { background: var(--bad); }
+
+/* ---------- right: monitor ---------- */
+.mcard h3 { display: flex; align-items: baseline; gap: 8px; margin: 0 0 8px; font-size: 13px; font-weight: 650; }
+.mcard h3 .upd { margin-left: auto; font-size: 11px; color: var(--text-3); font-weight: 500; }
+.mcard .na { color: var(--text-3); font-size: 12.5px; background: #f6f4f0; border-radius: 6px; padding: 8px 12px; }
+.kv { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 13px; }
+.kv .k { color: var(--text-2); }
+.kv .v { font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.kv .v.good { color: var(--ok); }
+.kv .v.warn { color: var(--warn); }
+.kv .v.bad { color: var(--bad); }
+.kv .v.muted { color: var(--text-3); font-weight: 500; }
+.sep { border: 0; border-top: 1px solid var(--line); margin: 8px 0; }
+.mini { list-style: none; margin: 0; padding: 0; font-size: 12.5px; }
+.mini li { display: flex; gap: 8px; padding: 4px 0; border-top: 1px dashed var(--line); align-items: baseline; }
+.mini li:first-child { border-top: 0; }
+.mini .grow { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini .tag { font-size: 11px; color: var(--text-2); white-space: nowrap; }
+.updot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; background: var(--text-3); }
+.updot.up { background: #3ca26a; }
+.updot.down { background: var(--bad); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Control centre</h1>
+  <span class="sub" id="fileState">open-items.md</span>
+  <span class="spacer"></span>
+  <span class="keys"><kbd>/</kbd> search &nbsp; <kbd>N</kbd> new task &nbsp; <kbd>J</kbd>/<kbd>K</kbd> next / previous &nbsp; <kbd>E</kbd> edit</span>
+  <button class="btn ghost small" id="reloadBtn" title="Reload tasks and monitor">Reload</button>
+</header>
+
+<main class="cols">
+  <!-- LEFT: tasks -->
+  <section class="col col-left" aria-label="Tasks">
+    <div class="card">
+      <details class="add" id="addBox">
+        <summary><span class="plus" aria-hidden="true">+</span> Add task</summary>
+        <form id="addForm" autocomplete="off">
+          <label class="field"><span>Title</span><input type="text" name="title" required maxlength="200" placeholder="What needs doing"></label>
+          <div class="row">
+            <label class="field"><span>Area</span><select name="area" id="addArea"></select></label>
+            <label class="field"><span>Priority</span>
+              <select name="p"><option value="1">1 - urgent</option><option value="2" selected>2 - soon</option><option value="3">3 - later</option></select>
+            </label>
+          </div>
+          <label class="field"><span>Brief</span><textarea name="brief" rows="4" placeholder="Goal, files, what done looks like"></textarea></label>
+          <div class="row" style="justify-content: space-between">
+            <span class="note" id="addWhere"></span>
+            <button class="btn primary" type="submit">Add</button>
+          </div>
+        </form>
+      </details>
+    </div>
+    <div class="tools">
+      <label class="sr" for="search">Search tasks</label>
+      <input type="search" id="search" placeholder="Search tasks">
+      <label class="toggle"><input type="checkbox" id="showDone"> show done</label>
+    </div>
+    <div id="groups"></div>
+  </section>
+
+  <!-- MIDDLE: detail -->
+  <section class="col" aria-label="Task detail">
+    <div class="card detail" id="detail" aria-live="polite">
+      <div class="empty-state"><b>Pick a task</b>Choose one on the left to see its brief, Jev's pick and the actions.</div>
+    </div>
+  </section>
+
+  <!-- RIGHT: monitor -->
+  <aside class="col col-right" aria-label="Monitor">
+    <div class="card mcard" id="m-sessions"><h3>Sessions &amp; queue <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
+    <div class="card mcard" id="m-jev"><h3>Jev router <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
+    <div class="card mcard" id="m-site"><h3>Site &amp; git <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
+    <div class="card mcard" id="m-platform"><h3>Platform signals <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
+    <div class="card mcard" id="m-claude"><h3>Claude &amp; schedule <span class="upd"></span></h3><div class="body"><div class="na">Loading...</div></div></div>
+  </aside>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+"use strict";
+const AREAS = [
+  ["commercialisation", "Commercialisation"], ["marking", "Marking"], ["content", "Content"],
+  ["teacher", "Teacher features"], ["pupil", "Pupil features"], ["testing", "Testing"],
+  ["fun", "Fun"], ["admin", "Administration"]
+];
+const AREA_NAME = Object.fromEntries(AREAS.concat([["inbox", "Inbox"]]));
+const S = { tasks: [], sections: [], selected: null, open: loadOpen(), routes: {}, editing: false };
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const tint = a => `var(--a-${a || "inbox"})`, ink = a => `var(--i-${a || "inbox"})`;
+
+function loadOpen() { try { return JSON.parse(localStorage.getItem("cc-open") || "null") || { urgent: true }; } catch { return { urgent: true }; } }
+function saveOpen() { try { localStorage.setItem("cc-open", JSON.stringify(S.open)); } catch {} }
+
+async function api(method, url, body) {
+  const opt = { method, headers: {} };
+  if (body !== undefined) { opt.headers["Content-Type"] = "application/json"; opt.body = JSON.stringify(body); }
+  const r = await fetch(url, opt);
+  let d = null; try { d = await r.json(); } catch {}
+  if (!r.ok) { const e = new Error((d && d.error) || ("HTTP " + r.status)); e.status = r.status; throw e; }
+  return d;
+}
+let toastTimer;
+function toast(msg, err) {
+  const t = $("#toast"); t.textContent = msg; t.className = "toast show" + (err ? " err" : "");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.className = "toast", err ? 5000 : 2600);
+}
+function hhmm(iso) {
+  if (!iso) return "";
+  const d = new Date(iso); if (isNaN(d)) return "";
+  return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+}
+function ago(iso) {
+  const d = new Date(iso); if (!iso || isNaN(d)) return "-";
+  const s = (Date.now() - d) / 1000;
+  if (s < 90) return "just now";
+  if (s < 3600) return Math.round(s / 60) + " min ago";
+  if (s < 86400 * 2) return Math.round(s / 3600) + " h ago";
+  return Math.round(s / 86400) + " days ago";
+}
+function inline(s) {
+  // escape first, then a few safe markdown bits
+  let h = esc(s);
+  h = h.replace(/`([^`\n]+)`/g, "<code>$1</code>");
+  h = h.replace(/\*\*([^*\n][^*]*?)\*\*/g, "<b>$1</b>");
+  h = h.replace(/\[([^\]\n]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, "$1");
+  h = h.replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>');
+  return h;
+}
+
+/* ---------------- tasks ---------------- */
+async function loadTasks(keepSel = true) {
+  try {
+    const d = await api("GET", "/api/tasks");
+    S.tasks = d.tasks; S.sections = d.sections;
+    $("#fileState").textContent = `open-items.md - ${d.tasks.filter(t => t.status !== "done").length} open - read ${hhmm(d.updated)}`;
+    if (keepSel && S.selected && !S.tasks.find(t => t.id === S.selected)) S.selected = null;
+    renderGroups();
+    if (!S.editing) renderDetail();
+  } catch (e) { toast("Could not read tasks: " + e.message, true); }
+}
+
+function visible(t) {
+  const q = $("#search").value.trim().toLowerCase();
+  if (!$("#showDone").checked && t.status === "done") return false;
+  if (q && !(t.title + " " + t.brief + " " + t.section).toLowerCase().includes(q)) return false;
+  return true;
+}
+function sortTasks(a, b) { return (a.status === "done") - (b.status === "done") || (a.p || 9) - (b.p || 9) || a.start - b.start; }
+
+function groupHtml(key, label, list, opts = {}) {
+  const open = list.filter(t => t.status !== "done").length;
+  const isOpen = $("#search").value.trim() ? list.length > 0 : (S.open[key] ?? false);
+  const cls = ["group", opts.cls || "", list.length ? "" : "empty"].join(" ");
+  const a = opts.area || key;
+  const items = list.length ? list.map(t => itemHtml(t, opts.showArea)).join("") : `<div class="none">${opts.emptyText || "Nothing here."}</div>`;
+  return `<details class="${cls}" data-key="${key}" ${isOpen ? "open" : ""}>
+    <summary><span class="chev" aria-hidden="true">&#9654;</span><span class="dot" style="background:${opts.dot || ink(a)}"></span>${esc(label)}
+      <span class="count" style="background:${opts.countBg || tint(a)};color:${opts.countInk || ink(a)}" aria-label="${open} open">${open}</span></summary>
+    <ul class="tlist">${items}</ul></details>`;
+}
+function itemHtml(t, showArea) {
+  const cur = t.id === S.selected;
+  const st = t.status !== "open" && t.status !== "done" ? `<span class="status-pill ${t.status}">${t.status}</span>` : "";
+  const area = showArea && t.area !== "inbox" ? `<span class="meta" style="color:${ink(t.area)}">${esc(AREA_NAME[t.area] || t.area)}</span>` : "";
+  return `<li><button class="titem ${t.status === "done" ? "done" : ""}" data-id="${t.id}" aria-current="${cur}" style="--ink:${ink(t.area)}">
+    ${t.p ? `<span class="pchip p${t.p}">P${t.p}</span>` : ""}<span class="ttl">${esc(t.title)}</span>${st}${area}</button></li>`;
+}
+function renderGroups() {
+  const vis = S.tasks.filter(visible).sort(sortTasks);
+  let html = groupHtml("urgent", "Urgent", vis.filter(t => t.p === 1 && t.status !== "done"),
+    { cls: "urgent", area: "urgent", showArea: true, dot: "var(--i-urgent)", emptyText: "Nothing urgent." });
+  for (const [k, label] of AREAS) html += groupHtml(k, label, vis.filter(t => t.area === k));
+  html += groupHtml("inbox", "Inbox - to sort", vis.filter(t => t.area === "inbox"), { emptyText: "Everything is sorted." });
+  $("#groups").innerHTML = html;
+}
+$("#groups").addEventListener("toggle", e => {
+  const d = e.target.closest("details"); if (!d || $("#search").value.trim()) return;
+  S.open[d.dataset.key] = d.open; saveOpen();
+}, true);
+$("#groups").addEventListener("click", e => {
+  const b = e.target.closest(".titem"); if (!b) return;
+  select(b.dataset.id);
+});
+$("#search").addEventListener("input", renderGroups);
+$("#showDone").addEventListener("change", renderGroups);
+
+function select(id, focusDetail) {
+  S.selected = id; S.editing = false;
+  document.querySelectorAll(".titem").forEach(b => b.setAttribute("aria-current", String(b.dataset.id === id)));
+  renderDetail();
+  const t = cur(); if (t) askJev(t);
+  if (focusDetail) $("#detail h2")?.focus();
+}
+const cur = () => S.tasks.find(t => t.id === S.selected);
+
+/* ---------------- detail ---------------- */
+function renderDetail() {
+  const t = cur(), el = $("#detail");
+  if (!t) { el.innerHTML = `<div class="empty-state"><b>Pick a task</b>Choose one on the left to see its brief, Jev's pick and the actions.</div>`; return; }
+  const areaOpts = AREAS.concat([["inbox", "Inbox"]]).map(([k, l]) => `<option value="${k}" ${k === t.area ? "selected" : ""}>${l}</option>`).join("");
+  const pOpts = [["", "-"], ["1", "1 - urgent"], ["2", "2 - soon"], ["3", "3 - later"]].map(([k, l]) => `<option value="${k}" ${String(t.p || "") === k ? "selected" : ""}>${l}</option>`).join("");
+  const done = t.status === "done";
+  el.innerHTML = `
+    <div class="chips">
+      <span class="chip" style="background:${tint(t.area)};color:${ink(t.area)}">${esc(AREA_NAME[t.area] || t.area)}</span>
+      ${t.p ? `<span class="pchip p${t.p}" style="font-size:12px;line-height:20px;padding:0 8px">Priority ${t.p}</span>` : `<span class="chip plain">No priority</span>`}
+      <span class="status-pill ${t.status}">${t.status}${t.session ? " - " + esc(t.session) : ""}</span>
+      <span class="chip plain" title="Source">${esc(t.section)} - lines ${t.start}-${t.end}</span>
+      ${t.tagged ? "" : `<span class="chip plain" title="No tag in open-items.md yet">untagged</span>`}
+    </div>
+    <h2 tabindex="-1">${esc(t.title)}</h2>
+    <div class="actions">
+      <button class="btn primary" id="runBtn" ${done || t.status === "queued" || t.status === "running" ? "disabled" : ""}>Run</button>
+      <button class="btn" id="doneBtn" ${done ? "disabled" : ""}>Done</button>
+      <button class="btn" id="editBtn">Edit</button>
+      <button class="btn" id="moveBtn" aria-expanded="false" aria-controls="mover">Move area</button>
+      ${done ? `<button class="btn ghost" id="reopenBtn">Reopen</button>` : ""}
+    </div>
+    <div class="mover" id="mover">
+      <label class="field"><span>Area</span><select id="mvArea">${areaOpts}</select></label>
+      <label class="field"><span>Priority</span><select id="mvP">${pOpts}</select></label>
+      <button class="btn primary" id="mvSave">Save</button>
+      <button class="btn ghost" id="mvCancel">Cancel</button>
+    </div>
+    <div id="briefBox"><div class="brief">${inline(t.brief)}</div></div>
+    <div class="panel" id="jevPanel"><h3>Jev's pick</h3><div class="note">Asking Jev...</div></div>`;
+  renderJev(t);
+  $("#runBtn").onclick = () => runTask(t);
+  $("#doneBtn").onclick = e => confirmThen(e.currentTarget, "Confirm done", () => patch(t, { status: "done" }, "Marked done; moved to the end of its section."));
+  $("#editBtn").onclick = () => startEdit(t);
+  $("#moveBtn").onclick = e => { const m = $("#mover"); const on = !m.classList.contains("show"); m.classList.toggle("show", on); e.currentTarget.setAttribute("aria-expanded", on); if (on) $("#mvArea").focus(); };
+  $("#mvCancel").onclick = () => { $("#mover").classList.remove("show"); $("#moveBtn").focus(); };
+  $("#mvSave").onclick = () => {
+    const body = { area: $("#mvArea").value, p: $("#mvP").value || null };
+    if (t.status === "open" && !t.tagged) body.status = "open";
+    patch(t, body, "Saved.");
+  };
+  const ro = $("#reopenBtn"); if (ro) ro.onclick = () => patch(t, { status: "open" }, "Reopened.");
+}
+
+function confirmThen(btn, label, fn) {
+  if (btn.dataset.armed) { delete btn.dataset.armed; fn(); return; }
+  const old = btn.textContent; btn.dataset.armed = "1"; btn.textContent = label; btn.classList.add("confirm");
+  setTimeout(() => { if (btn.isConnected && btn.dataset.armed) { delete btn.dataset.armed; btn.textContent = old; btn.classList.remove("confirm"); } }, 3000);
+}
+
+async function patch(t, body, okMsg) {
+  try {
+    const nt = await api("PATCH", "/api/tasks/" + encodeURIComponent(t.id), Object.assign({ expect: t.hash }, body));
+    S.selected = nt.id; S.editing = false;
+    toast(okMsg);
+    await loadTasks();
+    return nt;
+  } catch (e) {
+    if (e.status === 409 || e.status === 404) { toast("open-items.md changed elsewhere - reloaded. Try again.", true); S.editing = false; await loadTasks(); }
+    else toast("Not saved: " + e.message, true);
+  }
+}
+
+function startEdit(t) {
+  S.editing = true;
+  $("#briefBox").innerHTML = `<div class="editor">
+    <label class="field"><span>Brief (the first line is the title line in open-items.md)</span>
+    <textarea id="briefText">${esc(t.brief)}</textarea></label>
+    <div class="row" style="justify-content:space-between"><span class="hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels. Only these lines change.</span>
+    <span class="row"><button class="btn ghost" id="edCancel">Cancel</button><button class="btn primary" id="edSave">Save brief</button></span></div></div>`;
+  const ta = $("#briefText"); ta.focus(); ta.setSelectionRange(0, 0);
+  const save = () => { const v = ta.value.trim(); if (!v) return toast("The brief cannot be empty.", true); if (v === t.brief) { S.editing = false; renderDetail(); return; } patch(t, { brief: v }, "Brief saved."); };
+  const cancel = () => { S.editing = false; renderDetail(); $("#editBtn")?.focus(); };
+  $("#edSave").onclick = save; $("#edCancel").onclick = cancel;
+  ta.addEventListener("keydown", e => {
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); save(); }
+    if (e.key === "Escape") { e.preventDefault(); cancel(); }
+  });
+}
+
+async function askJev(t, refresh) {
+  const key = t.id;
+  if (S.routes[key] && !refresh && S.routes[key].brief === t.brief) return renderJev(t);
+  S.routes[key] = { loading: true, brief: t.brief }; renderJev(t);
+  try { S.routes[key] = Object.assign(await api("POST", `/api/tasks/${encodeURIComponent(key)}/route`, { refresh: !!refresh }), { brief: t.brief }); }
+  catch (e) { S.routes[key] = { available: false, reason: e.message, brief: t.brief }; }
+  if (S.selected === key) renderJev(t);
+}
+function confRow(label, val, conf) {
+  const pct = Math.round((conf || 0) * 100);
+  return `<span class="k">${label}</span><div><span class="v">${esc(val)}</span>
+    <div class="bar ${conf < 0.6 ? "low" : ""}" role="img" aria-label="confidence ${pct}%"><i style="width:${pct}%"></i></div></div>
+    <span class="k">${pct}%</span>`;
+}
+function renderJev(t) {
+  const p = $("#jevPanel"); if (!p || S.selected !== t.id) return;
+  const r = S.routes[t.id];
+  let body;
+  if (!r || r.loading) body = `<div class="note">Asking Jev...</div>`;
+  else if (!r.available) body = `<div class="na" style="color:var(--text-3)">Jev is not available (${esc(r.reason || "no answer")}). Manager decides.</div>`;
+  else body = `<div class="pick">${confRow("Model", r.model, r.model_conf)}${confRow("Effort", r.effort, r.effort_conf)}</div>
+    ${r.manager_decides ? `<div class="note warn">Confidence under 0.6: manager decides.</div>` : `<div class="note">The manager starts it on this model and effort.</div>`}
+    <div class="note">${r.cached ? "Cached pick" : "Asked"} ${ago(r.at)} - cost $${(r.cost || 0).toFixed(5)}</div>`;
+  p.innerHTML = `<h3>Jev's pick <button class="btn ghost small" id="reAsk" style="margin-left:auto">Ask again</button></h3>${body}`;
+  $("#reAsk").onclick = () => askJev(t, true);
+}
+
+async function runTask(t) {
+  const b = $("#runBtn"); b.disabled = true;
+  try {
+    await api("POST", `/api/tasks/${encodeURIComponent(t.id)}/run`, {});
+    toast("Queued. The bar shows Start: " + t.title.slice(0, 40));
+    await loadTasks(); loadMonitor(true);
+  } catch (e) { b.disabled = false; toast("Not queued: " + e.message, true); }
+}
+
+/* ---------------- add ---------------- */
+$("#addArea").innerHTML = AREAS.map(([k, l]) => `<option value="${k}">${l}</option>`).join("") + `<option value="inbox">Inbox (sort later)</option>`;
+function addWhere() {
+  const a = $("#addArea").value;
+  const sec = a === "content" || a === "fun" ? "Content" : a === "admin" ? "Operations" : "Platform";
+  $("#addWhere").textContent = "Goes to the end of " + sec + " in open-items.md";
+}
+$("#addArea").addEventListener("change", addWhere); addWhere();
+$("#addForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = e.currentTarget, data = Object.fromEntries(new FormData(f));
+  if (!data.title.trim()) return;
+  try {
+    const t = await api("POST", "/api/tasks", data);
+    f.reset(); addWhere(); toast("Added.");
+    S.open[t.area] = true; saveOpen();
+    S.selected = t.id; await loadTasks(); select(t.id);
+  } catch (err) { toast("Not added: " + err.message, true); }
+});
+
+/* ---------------- monitor ---------------- */
+function card(id, data, render) {
+  const el = $("#" + id);
+  $(".upd", el).textContent = data && data.updated ? "updated " + hhmm(data.updated) : "";
+  $(".body", el).innerHTML = !data || data.available === false
+    ? `<div class="na">Not available${data && data.reason ? ": " + esc(data.reason) : ""}</div>`
+    : render(data);
+}
+const kv = rows => `<div class="kv">${rows.map(([k, v, c]) => `<span class="k">${k}</span><span class="v ${c || ""}">${v}</span>`).join("")}</div>`;
+const NA = `<span class="v muted">-</span>`;
+
+function renderSessions(d) {
+  const run = d.running.length ? `<ul class="mini">${d.running.map(r => `<li><span class="status-pill running">running</span><span class="grow">${esc(r.title)}</span><span class="tag">${esc(r.session || "")}</span></li>`).join("")}</ul>` : `<div class="note">No sessions running.</div>`;
+  const q = d.queue.length ? `<ul class="mini">${d.queue.map(r => `<li><span class="status-pill queued">queued</span><span class="grow" title="${esc(r.title)}">${esc(r.title)}</span><span class="tag">${esc(r.model || "manager")}${r.effort ? " / " + esc(r.effort) : ""}</span></li>`).join("")}</ul>` : `<div class="note">The run queue is empty.</div>`;
+  return run + `<hr class="sep">` + q;
+}
+function renderJevCard(d) {
+  const rr = d.redo_rate == null ? "-" : Math.round(d.redo_rate * 100) + "%";
+  const last = d.last.length ? `<ul class="mini">${d.last.map(r => `<li><span class="grow" title="${esc(r.brief)}">${esc(r.brief)}</span><span class="tag" style="${r.conf < 0.6 ? "color:var(--warn)" : ""}">${esc(r.model)} / ${esc(r.effort)}</span></li>`).join("")}</ul>` : "";
+  return kv([["Routings", d.routings], ["Redo rate", rr, d.redo_rate > 0.25 ? "warn" : ""], ["Outcomes", `ok ${d.ok} / redo ${d.redo}`], ["Total cost", "$" + d.cost.toFixed(5)]])
+    + (last ? `<hr class="sep"><div class="label" style="margin-bottom:4px">Last picks</div>` + last : "");
+}
+function renderSite(d) {
+  const sites = Object.entries(d.sites).map(([n, s]) => [n === "live" ? "Live site" : "Test site",
+    s.up ? `<span class="updot up"></span>up${s.ms ? ` <span style="color:var(--text-3);font-weight:500">${s.ms} ms</span>` : ""}` : `<span class="updot down"></span>down`, s.up ? "good" : "bad"]);
+  const repos = d.repos.map(r => r.available === false ? [esc(r.name), "not available", "muted"]
+    : [esc(r.name) + ` <span style="color:var(--text-3)">(${esc(r.branch)})</span>`, r.unpublished == null ? "-" : r.unpublished + " unpublished", r.unpublished > 0 ? "warn" : "good"]);
+  const lastC = d.repos.filter(r => r.available !== false).map(r => `<li><span class="grow" title="${esc(r.last_commit)}">${esc(r.name)}: ${esc(r.last_commit)}</span><span class="tag">${ago(r.last_commit_at)}</span></li>`).join("");
+  return kv(sites) + `<hr class="sep">` + kv(repos)
+    + `<div class="note">Commits ahead of origin/main.</div>`
+    + (d.last_publish ? kv([["Last publish", ago(d.last_publish)]]) : `<div class="note" style="color:var(--text-3)">Last publish: not logged locally.</div>`)
+    + (lastC ? `<hr class="sep"><ul class="mini">${lastC}</ul>` : "");
+}
+function renderPlatform(d) {
+  const m = d.marking || {}, q = d.queries || {}, s = d.signups || {}, b = d.backup || {}, sv = d.server || {};
+  const n = v => v == null ? "-" : esc(v);
+  return kv([
+    ["Marking queue", n(m.queue), m.queue > 20 ? "warn" : ""],
+    ["Failed marks today", n(m.failedToday), m.failedToday > 0 ? "bad" : ""],
+    ["Jev unsure (7 days)", m.jevUnsurePct7d == null ? "-" : esc(m.jevUnsurePct7d) + "%"],
+    ["Pupil queries waiting", n(q.waiting), q.waiting > 0 ? "warn" : ""],
+    ["Sign-ups today", n(s.today)],
+    ["Last backup", b.last ? (b.ok === false ? "failed " : "") + ago(b.last) : "-", b.ok === false ? "bad" : "good"],
+    ["Disk free", sv.diskFreePct == null ? "-" : esc(sv.diskFreePct) + "%", sv.diskFreePct < 15 ? "bad" : ""],
+  ]) + (d.generated ? `<div class="note">Platform time ${hhmm(d.generated)}</div>` : "");
+}
+function renderClaude(d) {
+  const sched = d.scheduled.length ? `<ul class="mini">${d.scheduled.map(s => `<li><span class="grow" title="${esc(s.description)}">${esc(s.name)}</span><span class="tag">${s.cron ? esc(s.cron) : "set in the app"}</span></li>`).join("")}</ul>` : `<div class="note">No scheduled tasks.</div>`;
+  const c = d.comfyui;
+  const vms = d.vms == null ? [["VMs running", "not available", "muted"]]
+    : [["VMs running", d.vms.length ? esc(d.vms.join(", ")) : "none", d.vms.length ? "warn" : "good"]];
+  return kv([["5-hour / weekly usage", "not available", "muted"]])
+    + `<div class="note" style="color:var(--text-3)">Only the app shows usage (/usage).</div><hr class="sep">`
+    + `<div class="label" style="margin-bottom:4px">Routines</div>` + sched + `<hr class="sep">`
+    + kv([["ComfyUI queue", c ? `${c.waiting} waiting${c.made ? `, ${c.made} to pick` : ""}` : "not available", c ? (c.waiting ? "warn" : "good") : "muted"]].concat(vms));
+}
+
+let monTimer, platTimer;
+async function loadMonitor(refresh) {
+  try {
+    const d = await api("GET", "/api/monitor" + (refresh ? "?refresh=1" : ""));
+    card("m-sessions", d.sessions, renderSessions);
+    card("m-jev", d.jev, renderJevCard);
+    card("m-site", d.site, renderSite);
+    card("m-claude", d.claude, renderClaude);
+  } catch (e) {
+    for (const id of ["m-sessions", "m-jev", "m-site", "m-claude"]) card(id, { available: false, reason: "server not answering" });
+  }
+}
+async function loadPlatform() {
+  try { card("m-platform", await api("GET", "/api/platform"), renderPlatform); }
+  catch (e) { card("m-platform", { available: false, reason: "server not answering" }); }
+}
+
+/* ---------------- keyboard ---------------- */
+document.addEventListener("keydown", e => {
+  const tag = (e.target.tagName || "").toLowerCase();
+  const typing = tag === "input" || tag === "textarea" || tag === "select";
+  if (typing || e.ctrlKey || e.metaKey || e.altKey) { if (e.key === "Escape" && tag === "input") e.target.blur(); return; }
+  if (e.key === "/") { e.preventDefault(); $("#search").focus(); }
+  else if (e.key === "n" || e.key === "N") { e.preventDefault(); $("#addBox").open = true; $("#addForm [name=title]").focus(); }
+  else if (e.key === "e" || e.key === "E") { const t = cur(); if (t && !S.editing) { e.preventDefault(); startEdit(t); } }
+  else if ("jkJK".includes(e.key) || e.key === "ArrowDown" || e.key === "ArrowUp") {
+    if (e.key.startsWith("Arrow") && !e.target.closest?.("#groups")) return;
+    const items = [...document.querySelectorAll("#groups details[open] .titem")];
+    if (!items.length) return;
+    e.preventDefault();
+    let i = items.findIndex(b => b.dataset.id === S.selected && b === document.activeElement);
+    if (i < 0) i = items.findIndex(b => b.dataset.id === S.selected);
+    const down = e.key === "j" || e.key === "J" || e.key === "ArrowDown";
+    i = i < 0 ? 0 : Math.max(0, Math.min(items.length - 1, i + (down ? 1 : -1)));
+    select(items[i].dataset.id);
+    const nb = [...document.querySelectorAll("#groups details[open] .titem")].find(b => b.dataset.id === S.selected);
+    nb?.focus(); nb?.scrollIntoView({ block: "nearest" });
+  }
+});
+$("#reloadBtn").onclick = () => { loadTasks(); loadMonitor(true); loadPlatform(); };
+
+/* ---------------- start ---------------- */
+loadTasks(); loadMonitor(); loadPlatform();
+monTimer = setInterval(() => { if (!document.hidden) { loadMonitor(); if (!S.editing) loadTasks(); } }, 30000);
+platTimer = setInterval(() => { if (!document.hidden) loadPlatform(); }, 300000);
+</script>
+</body>
+</html>
