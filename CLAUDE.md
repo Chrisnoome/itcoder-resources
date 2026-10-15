@@ -66,6 +66,7 @@ Paths are relative to this folder. For platform.md (235 KB) never read it whole:
 | Checklists, remediation | `checklists/`, `remediation.md`, `remediation-checklist.md` (publish as OK / Needs-fixing pages) |
 | Market, pricing, costs | `market-research.md`, `pricing-suggestions.md`, `costs-research.md`, `payments-research.md`, `competitor-review.md` |
 | Workflow and manager setup | `workflow-plan.md` |
+| Control centre (task list by area, Run, monitoring) | `control-centre-design.md`; `tools/control-centre/` (http://127.0.0.1:8787); tasks are `{area; p; status}` tags in `open-items.md` |
 
 ## Manager rules
 
