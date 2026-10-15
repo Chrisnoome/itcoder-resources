@@ -109,3 +109,41 @@ P2_Memo (plus Addendum / AnswerBook / Insert where the sitting has one).
 
 - maths-lit/caps Nov 2020-2022; MayJun 2021-2026
 - maths-lit/ieb Nov 2020-2022; May 2021-2026
+
+### mathematics, physical-sciences, life-sciences, accounting, geography, history (caps)
+
+DBE half filled 15 Oct 2026 from education.gov.za (English only; Afrikaans
+skipped). Sittings: Nov 2020-2025 and MayJun 2021-2026 (all on the site).
+Kinds: the DBE "Addendum"/"Annexure" is saved as `_Addendum`; Maths P1/P2
+memos on the site are bilingual files. Accounting 2020 "Senior Certificate"
+(SC) papers were not taken (NSC only).
+
+- all six subjects, FebMar 2020-2026: the DBE site lists no Feb/Mar
+  supplementary papers after 2018, so none exist to download.
+- physical-sciences/caps/2026/MayJun_P2.pdf: site link for P2 serves the P1
+  file (same ticket); re-check later. (P2 memo is in.)
+- life-sciences/caps/2024/MayJun_P1.pdf: site link for the paper serves the
+  P1 memo; the paper itself is missing (memo is in).
+- geography/caps/2026/MayJun_P1_Memo.pdf and MayJun_P2_Memo.pdf: site links
+  serve the History 2026 memos; re-check later.
+- accounting/caps/docs/ExamGuidelines_2021.pdf: the site's second
+  "Accounting (English)" guideline is really Agricultural Sciences; not kept.
+- mathematics/caps/2023 and 2024 MayJun_P2_Addendum.pdf: the site calls it
+  "Paper 2 Addendum"; it is probably the answer book (not opened).
+- Mathematics answer books exist for P2 only; the site has none for P1.
+- history/caps/docs: CAPS.pdf is the 2011 CAPS (not on the main CAPS list;
+  found by direct link); CAPS_Amended_Draft_Gr10-12.pdf is DBE's draft
+  amended History CAPS (call for comment), not final.
+- History has no Mind the Gap guide on the DBE site; physical-sciences has
+  Physics and Chemistry separately, geography has its 3 map books.
+- Exam guidelines: only the 2021 set exists; the DBE says it stays valid for
+  2026 and a revision comes for 2027. No DBE national Gr 12 ATP after
+  2023/24 (Circular S19 of 2025 keeps them); physical-sciences also has the
+  2024 version.
+- Diagnostic reports: not split per subject. The content-subject volume of
+  each year is in `exams/_dbe/<year>/` (2020 Part1ContentSubjects, 2021
+  Part1ContentSubjects, 2022 PART1Nonlanguages, 2023-2025 Book1), which holds
+  all six subjects. The other volumes (languages, technology) are there too.
+  Nothing for 2026 yet (published after results).
+- CAPS_Errata_Gr12.pdf is the one DBE Grade 12 errata file, copied into each
+  subject's docs.
