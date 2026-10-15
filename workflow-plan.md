@@ -7,7 +7,7 @@ current setup. Branch: `workflow-setup`.
 
 | Area | Decision |
 |---|---|
-| Main session | Strict manager on **Opus 5.5, medium effort**. It plans, routes, checks and makes small edits. Bulk reading, builds and bulk edits go to subagents or side sessions. Model is fixed per session because the cache is per model; effort may change mid-task. |
+| Main session | Strict manager on **Opus 5.5, medium effort**. It plans, routes, checks and makes small edits. Bulk reading, builds and bulk edits go to subagents or side sessions. Model is fixed per session because the cache is per model; effort may change mid-task. The default effort for every new session is medium (`effortLevel` in `~/.claude/settings.json`, 15 Oct 2026): a `claude://code/new` link (control-centre Run) cannot set model or effort, and the app default had been xhigh. |
 | Jev routing | **At spawn time.** Before delegating, Jev answers two `choice` questions: model (haiku / sonnet / opus / fable) and effort (low / medium / high / xhigh). Below 0.6 confidence, Claude decides. Every pick is logged with its cost. |
 | Jev access | **TypeSafe direct** (api.typesafe.ai), the same provider the platform uses, not OpenRouter. Separate key named "ClaudeDesktop", stored in the user env var `TYPESAFE_ROUTER_KEY`. The key never goes in chat or the repo. If the key is missing or Jev fails, the router stays silent. |
 | Helpers | Four pinned subagents in `.claude/agents/`: `helper-haiku`, `helper-sonnet`, `helper-opus`, `helper-fable`. Each ends its reply with a line naming the model that did the work. |
