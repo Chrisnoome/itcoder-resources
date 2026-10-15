@@ -42,7 +42,7 @@ Java 21 (LTS) on the server and in the lessons.
 | Methods | camelCase, lower-case first letter | `getName`, `calcTotal` |
 | Fields and variables, loop counters too | camelCase, meaningful - **never a single letter** (not `i`, `j`, `k`) | `index`, `outer`, `inner` |
 | Parameters | `a` + name (Chris, 25 September 2026) | `aName`, `aMark` |
-| Constants | `static final`, UPPER_SNAKE_CASE | `MAX_PUPILS` |
+| Constants - every `final`, static or local (Chris, 4 October 2026) | SCREAMING_SNAKE_CASE (UPPER_SNAKE_CASE); checked before a run (`lib/naming.php`) | `MAX_PUPILS`, `final int PASS_MARK = 50;` |
 
 **Checked before a program runs** (Chris, 28 September 2026 - the `naming`
 rule, `lib/naming.php` via `lib/javastyle.php`; it stops the run like the

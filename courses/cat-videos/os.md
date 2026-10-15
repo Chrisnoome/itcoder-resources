@@ -98,7 +98,7 @@ reasons to install updates.
    bugs, brings new drivers, adds improvements. The costs: a restart at a bad
    time, data (use Wi-Fi), now and then a new problem. Active hours. When
    updates stop: Windows 10 ended on 14 October 2025 (home users could get
-   one more year of security updates, to October 2026); an old device becomes an easy
+   extra security updates, to October 2027); an old device becomes an easy
    target.
    > Screen: Settings > Windows Update; then Advanced options > Active hours.
    > Board: a fence with a hole; an update patching it.

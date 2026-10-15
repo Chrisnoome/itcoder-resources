@@ -224,6 +224,16 @@ scenario.php link the pictures to download.
   labelcode use 'text'.
 - The preview opens no links except #bookmarks (said in links.php #a).
 
+**Since filled (9 October 2026):** the html rule gaps above are closed in
+lib/html.php ('any'/'all'/'not', 'comment', 'first'/'last',
+'before'/'after', 'order', 'typedOrder', rules inside 'parent'/'inside').
+Now rules, no Jev: htmlQuickAlign 1 and 3, htmlImagesBuild 3,
+htmlScenarioFarewell 3 and 10, htmlFixingTest 6, htmlFormatBuild 4;
+htmlFormatBuild 5 accepts valign on the rows or on every platter cell. `html`
+is a code-question language, and every markwords/dragwords/labelcode here
+uses it. Still no caption check (no block's task has a caption; a
+'first' rule would do it).
+
 ## 10. Checks run
 
 - `php -l` on all ten lessons, index.php, caps.php, sags.php and

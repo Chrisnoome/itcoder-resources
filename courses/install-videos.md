@@ -105,7 +105,7 @@ sketch note shows; Office's from the raw take with the initials blurred), held
 3 s over the start with a 0.4 s fade, the narration under it (YouTube chat,
 confirmed by Chris). `python tools\title.py NN-name` (or `all`) writes
 `out\final\NN-name.mp4` + `.srt`; `out\NN-name.mp4` stays the plain master that
-compose, check_video and resign work on. **`out\final\` is what gets uploaded.**
+compose, check_video and resign work on. **`out\final\` is what gets uploaded.** From 6 October 2026 a finished install video also goes into `E:\itcoder-videos\for upload\` (see tutorial-videos.md, "For upload / uploaded"); Chris moves it to `uploaded\` after uploading.
 
 **Browser videos** (Chris, 3 October 2026: "do the browser videos - chrome,
 firefox (edge is already installed by default)"): 18 Edge - settings only, no

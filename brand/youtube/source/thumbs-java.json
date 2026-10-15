@@ -34,5 +34,247 @@
   "frameAt": 289.8,
   "ytTitle": "How to install NetBeans 31 on Windows (free Java IDE)",
   "desc": "Install Apache NetBeans 31 on Windows and run your first Java program. The Codelerity installer has Java inside, so you need nothing else. For South African IT pupils and teachers.\n\nIn this video:\n- Finding the Codelerity Windows installer from netbeans.apache.org\n- Installing it with a desktop shortcut\n- Making a Java with Ant project\n- Saving the project in your cloud-synced Coding\\Java folder\n- Running Hello from NetBeans! with F6\n\n0:00 Intro\n0:18 Go to netbeans.apache.org\n0:50 The Codelerity installer\n1:28 Save the installer to Downloads\\Installs\n2:06 Run the installer\n3:04 First start\n3:15 A new Java project\n3:37 Save it in your Coding folder\n4:42 Type and run it\n5:04 Done\n\nGoes with lesson 3 of the Java course, the Java DB setup lesson in the SQL course, and the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#NetBeans #Java #ITGrade10"
+ },
+ {
+  "id": "tut-java-2.1-your-first-program",
+  "tag": "JAVA 2.1 · OUTPUT",
+  "title": [
+   "Your First",
+   "*Program*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 2.1 - Your First Program: Hello, world, println and print",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-2.2-reading-compiler-errors",
+  "tag": "JAVA 2.2 · OUTPUT",
+  "title": [
+   "Reading",
+   "*Compiler Errors*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 2.2 - Reading compiler errors",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-2.3-joining-with-plus",
+  "tag": "JAVA 2.3 · OUTPUT",
+  "title": [
+   "Joining",
+   "*with +*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 2.3 - Joining with +: a till slip",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-3.1-what-run-really-does",
+  "tag": "JAVA 3.1 · IDEs",
+  "title": [
+   "What Run",
+   "*really does*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 3.1 - What Run Really Does: javac, java, Projects and the Package Line",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-3.2-the-debugger",
+  "tag": "JAVA 3.2 · IDEs",
+  "title": [
+   "The",
+   "*Debugger*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 3.2 - The Debugger: Breakpoints, Stepping and the Variables Window in NetBeans",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-4.1-clean-screen-and-colour",
+  "tag": "JAVA 4.1 · MAKING IT PRETTY",
+  "title": [
+   "Clean screen",
+   "and *colour*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 4.1 - Making it Pretty: a Clean Screen and Colour with ANSI Escape Codes",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-4.2-moving-the-cursor-and-pausing",
+  "tag": "JAVA 4.2 · MAKING IT PRETTY",
+  "title": [
+   "Moving the",
+   "*cursor*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 4.2 - Moving the Cursor and Pausing: ANSI Cursor Codes and Thread.sleep",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-5.1-variables",
+  "tag": "JAVA 5.1 · VARIABLES",
+  "title": [
+   "*Variables*",
+   "Boxes with a Type"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 5.1 - Variables: boxes with a name and a type",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-5.2-changing-the-boxes",
+  "tag": "JAVA 5.2 · VARIABLES",
+  "title": [
+   "Changing",
+   "*the Boxes*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 5.2 - Changing the boxes: assignment, ++, -- and a swap",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-5.3-sums-and-constants",
+  "tag": "JAVA 5.3 · VARIABLES",
+  "title": [
+   "Sums and",
+   "*Constants*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 5.3 - Sums and constants: a tuck shop order",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-5.4-random-numbers",
+  "tag": "JAVA 5.4 · VARIABLES",
+  "title": [
+   "*Random*",
+   "Numbers"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 5.4 - Random numbers: rolling dice",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-6.1-asking-with-a-scanner",
+  "tag": "JAVA 6.1 · INPUT",
+  "title": [
+   "Asking with",
+   "a *Scanner*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 6.1 - Asking with a Scanner",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-6.2-the-nextint-trap",
+  "tag": "JAVA 6.2 · INPUT",
+  "title": [
+   "The *nextInt*",
+   "Trap"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 6.2 - The nextInt trap",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-7.1-doing-the-maths",
+  "tag": "JAVA 7.1 · MATHS",
+  "title": [
+   "Doing",
+   "the *Maths*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 7.1 - Doing the maths: BODMAS, / and %",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-7.2-rounding",
+  "tag": "JAVA 7.2 · MATHS",
+  "title": [
+   "*Rounding*",
+   "Math.round, (int)"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 7.2 - Rounding: Math.round, (int) and the Math class",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-8.1-numbers-and-text",
+  "tag": "JAVA 8.1 · CONVERSION",
+  "title": [
+   "Numbers",
+   "and *Text*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 8.1 - Numbers and text: parseInt and valueOf",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-8.2-char-codes",
+  "tag": "JAVA 8.2 · CONVERSION",
+  "title": [
+   "*char*",
+   "Codes"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 8.2 - Char codes: (int) and (char)",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-8.3-rounding-up-and-down",
+  "tag": "JAVA 8.3 · CONVERSION",
+  "title": [
+   "Rounding",
+   "*Up and Down*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 8.3 - Rounding up and down: Math.ceil and Math.floor",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-9.1-if-and-else",
+  "tag": "JAVA 9.1 · DECISIONS",
+  "title": [
+   "*if*",
+   "and *else*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 9.1 - If and else",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-9.2-else-if",
+  "tag": "JAVA 9.2 · DECISIONS",
+  "title": [
+   "More Paths:",
+   "*else if*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 9.2 - More than two paths: else if",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-9.3-and-or-not",
+  "tag": "JAVA 9.3 · DECISIONS",
+  "title": [
+   "*&& || !*",
+   "And, Or, Not"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 9.3 - And, or, not",
+  "desc": "(filled in from youtube.md)"
+ },
+ {
+  "id": "tut-java-9.4-switch",
+  "tag": "JAVA 9.4 · DECISIONS",
+  "title": [
+   "One Value:",
+   "*switch*"
+  ],
+  "pos": "90% 20%",
+  "ytTitle": "Java 9.4 - switch",
+  "desc": "(filled in from youtube.md)"
  }
 ]

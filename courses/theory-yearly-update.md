@@ -17,7 +17,9 @@ fix the lesson (and its glossary line or study block if they repeat it),
 update "Last checked", and note any change in [../history.md](../history.md).
 
 Lesson files are `AIPascalCourse/content/theory10/<lessonId>.php`; the
-anchor is the section (`#anchor`).
+anchor is the section (`#anchor`). The CAT Theory lessons
+(`cattheory10`, `cattheory11`, `cattheory12`) have their own section at the
+end, [CAT Theory](#cat-theory).
 
 ## Grade 10
 
@@ -1391,3 +1393,680 @@ Lesson file: `content/theory11/blockchain.php`.
 | `#traceTables` | Exam trace tables give the columns and first row; you add rows | Recent papers | 2026-09-26 |
 | `#userInterface` | The IEB's six interface principles; CAPS's HCI points (grouping, panels or tabs) | The current SAGs and CAPS | 2026-09-26 |
 | `#testing` | Test data names: normal/standard, extreme/boundary, erroneous/abnormal | What the newest papers call them | 2026-09-26 |
+
+## CAT Theory
+
+The CAT Theory lessons are `AIPascalCourse/content/cattheory10/<lessonId>.php`,
+`cattheory11/<lessonId>.php` and `cattheory12/<lessonId>.php`; the anchor is the
+section (`#anchor`), and "questions" means the question blocks or scenario after
+it. The CAT lessons were written on 6-8 October 2026, most of them from the IT
+Theory lessons above, so many claims here (VAT, prepaid, Android's share, free
+cloud space, the digital-divide figures, SABRIC, e-waste, Starlink, the AI
+policy) are the same facts as an IT row: a fact checked and fixed in an IT row
+must be fixed in the CAT lesson too, and the other way round. The rand prices
+are round, VAT included, and were set for late 2026; several lessons quote the
+same thing (a 2 TB drive, a UPS, a cloud plan), so keep them in step.
+
+### Grade 10
+
+#### Lesson 1 - What a computer is, and the IPO model (`computer`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#storage` (margin), `#why`, questions | Load shedding as the everyday power cut that loses unsaved work and stops a computerised system (the load-shedding-ram doodle; the clinic question's rubric) | Whether load shedding is still the example pupils know; if not, say "a power cut" | 2026-10-09 |
+
+#### Lesson 2 - Kinds of computing devices (`devices`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#multipurpose`, study | For most South Africans the phone is the main computer - often the only one | Stats SA / GSMA figures (as the IT row for `kindsofcomputers` `#mobile`) | 2026-10-09 |
+
+#### Lesson 4 - ICT systems around you (`ictsystems`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#till`, study, glossary (VAT) | VAT is 15% on most goods and services; shelf prices must include it | The VAT rate (Budget speech each February) | 2026-10-09 |
+| `#till` (try-it) | Example selling price R16.10, VAT included | Still a believable shop price | 2026-10-09 |
+| `#cellphone`, study | Most South Africans are on prepaid; a contract bill adds the monthly fee, extra use and VAT; a WhatsApp voice note comes off the data bundle | ICASA / network figures; billing practice | 2026-10-09 |
+| `#whyuse` | Load shedding as one cause of a power cut that stops card payments | As lesson 1 | 2026-10-09 |
+
+#### Lesson 5 - Inside the box (`systemunit`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#cpu` | Most laptops and phones run at about 2 to 5 GHz; most phones have 8 cores, most laptops and desktops 4 to 16 | Typical new devices | 2026-10-09 |
+| `#ram`, questions | Load shedding loses the paragraph you never saved; the bakery order question and its UPS / inverter answer | As lesson 1 | 2026-10-09 |
+| `#memVsStorage` (try-it) | Windows 11 path: Start, Settings, System, About (Processor, Installed RAM), then System, Storage; on a phone Settings, About phone | Still the Windows 11 names | 2026-10-09 |
+| `#memVsStorage` questions | Laptop advert: 8 cores up to 4.4 GHz, 16 GB RAM, 512 GB SSD, R12 999 | A believable advert and price | 2026-10-09 |
+
+#### Lesson 6 - Input devices - keyboards and pointing (`input`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#mouse` | Pairing a Bluetooth mouse in Windows: Settings, Bluetooth & devices, Add device | Still the Windows 11 names | 2026-10-09 |
+
+#### Lesson 7 - Scanning and reading devices (`scanning`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#barcode` | Example price: "Brown bread, R19.99" | Still a believable bread price | 2026-10-09 |
+| `#qr`, questions, study | Paying by QR code with SnapScan, Zapper or a bank's app; linking WhatsApp to a computer with a QR code | Still the QR payment apps used in South Africa | 2026-10-09 |
+| `#scanners` | Most people now scan with their phone | Still true | 2026-10-09 |
+
+#### Lesson 8 - Cameras, microphones and biometrics (`cameras`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#cameraSpecs`, questions | Most cheap phones have digital zoom only; a 50-megapixel phone camera as the example | Whether budget phones now have optical zoom; typical megapixels | 2026-10-09 |
+| `#webcam` | Most laptops have a webcam above the screen with a light; camera permissions in Settings, Privacy & security, Camera | Still true; the Windows 11 names | 2026-10-09 |
+
+#### Lesson 9 - Output - screens and projectors (`screens`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#resolution`, study | 4K for TVs and expensive monitors; a 24-inch Full HD monitor costs about R2 000 | Prices; whether QHD or 4K has become the normal monitor | 2026-10-09 |
+| `#projectors` | A data projector about R8 000 to R12 000; a 65-inch TV about R12 000; an interactive panel R40 000 or more; Windows key + P, Duplicate | Prices; the Windows shortcut | 2026-10-09 |
+| `#visualisers` questions, study | R12 000 buys a Full HD projector of 3 600 lumens or a 65-inch TV; the No Signal fix uses Windows key + P | Prices (keep in step with `#projectors`) | 2026-10-09 |
+
+#### Lesson 10 - Output - printers (`printers`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#costs` reveal and doodle | Mr Botha's inkjet cost R900; R7 200 a year on ink | Prices | 2026-10-09 |
+| `#inkjet`, `#laser`, `#printing3d`, questions | An inkjet from about R1 200; an ink tank printer about R3 500, popular in South African homes and small offices; a mono laser about R2 500, a colour laser about R5 000; a school 3D printer about R5 000 | Prices (rand, VAT included) | 2026-10-09 |
+| `#costs`, questions | Inkjet cartridge R300 for 200 pages (R1.50 a page); laser toner R1 200 for 1 600 pages (75c); ink tank bottle R150 for 4 500 pages (about 3c); "a mono laser (about R2 500) costs about R1 600 more than his R900 inkjet" | Cartridge prices and page yields; keep the R1 600 in step with the printer prices | 2026-10-09 |
+| `#printQueue`, questions, study | Windows 11 paths: Settings (Windows key + I), Bluetooth & devices, Printers & scanners, the printer, Open print queue; "Let Windows manage my default printer" | Still the Windows 11 names | 2026-10-09 |
+
+#### Lesson 11 - Storage devices and media (`storage`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#hdd`, `#flash` | A 2 TB external hard drive costs about R1 400; a 64 GB flash drive about R120 | Prices (keep in step with CAT 11 `storagecloud`, `protecting` and CAT 12 `securityplan`) | 2026-10-09 |
+| `#optical` | Most new laptops have no optical drive | Still true | 2026-10-09 |
+| `#cloud`, study | Google Drive, OneDrive, iCloud and Dropbox; free space: Google 15 GB, OneDrive and iCloud 5 GB; about R40 a month for 100 GB | Free space and prices | 2026-10-09 |
+| `#choosing` questions | R1 500 buys a 1 or 2 TB external hard drive for 300 GB of photos | Prices | 2026-10-09 |
+
+#### Lesson 12 - Ports, connectors and peripherals (`ports`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#usb`, study | USB 2 slow, USB 3 fast, USB4 fastest (USB-C only); USB-C is taking over - EU phones since the end of 2024, iPhones since 2023; "one charger now fits almost everything" | New USB versions; how far USB-C has spread | 2026-10-09 |
+| `#plugPlay`, study | Adding a wireless printer or Bluetooth mouse: Settings, Bluetooth & devices, Add device (or Printers & scanners, Add device) | Still the Windows 11 names | 2026-10-09 |
+
+#### Lesson 13 - What software is, and the GUI (`software`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#kinds`, `#otherUis`, questions | Windows on most laptops, Android on most phones; Windows 11 as the example OS; WhatsApp as the example app throughout | StatCounter (as the IT row for `oscompared`); still the app pupils use | 2026-10-09 |
+
+#### Lesson 14 - The operating system (`os`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#kinds`, study | Windows 11 is the current version; Windows on most laptops and desktops; Android on about three in four phones in South Africa (StatCounter, August 2026), from under R1 000; iPads run iPadOS | StatCounter; a new Windows version; phone prices | 2026-10-09 |
+| `#updates` | Windows 10's support ended on 14 October 2025; home users could sign up for extra security updates, to October 2027 (Microsoft extended them in 2026) | After October 2027 the extra updates are over - reword | 2026-10-09 |
+| `#settings` (IEB), questions, study | The Settings app (Windows key + I) and its Windows 11 categories, with the Windows 10 names beside them (Devices - Bluetooth & devices; Ease of Access - Accessibility; Game DVR - Captures); Windows key + L and + G; Display Scale 125% | Windows 11 Settings names | 2026-10-09 |
+
+#### Lesson 15 - Application software and apps (`apps`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#whatApps`, `#office`, study | Office suites: Microsoft 365 (Word, Excel, PowerPoint, Outlook, Access in some versions), Google Workspace, LibreOffice; Canva for presentations | The suites' names and contents | 2026-10-09 |
+| `#moreKinds` | Chrome, Edge, Safari, Firefox; WhatsApp; Teams, Zoom, Google Meet; Canva; Spotify, YouTube, Netflix; AI chatbots (ChatGPT, Gemini, Copilot) "a newer kind of application" | Still the main names; whether chatbots are still "newer" | 2026-10-09 |
+| `#basicApps`, questions, study | Print Screen opens the Snipping Tool on an up-to-date Windows 11 (older set-ups copy the screen); Windows key + Shift + S | Windows 11 behaviour | 2026-10-09 |
+| `#appStores`, `#universal`, study | Google Play, Apple's App Store (Mac App Store), the Microsoft Store, AppGallery on newer Huawei phones; (IEB) universal apps for Windows 10 and 11 | The stores; whether Microsoft still uses "universal app" | 2026-10-09 |
+
+#### Lesson 16 - Buying and owning software (`licences`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#licence` | A game for R600 | Price | 2026-10-09 |
+| `#openSource`, `#freeShare`, `#piracy` questions, study | WhatsApp, Chrome and Acrobat Reader as freeware; Linux, LibreOffice, Firefox, VLC and GIMP as open source; Android built on open-source code | Licences unchanged | 2026-10-09 |
+| `#subscription`, study, `#subscription` (margin) | Microsoft 365, Adobe Creative Cloud, Canva Pro and Spotify Premium as subscriptions; the worked example (R2 400 to buy, or R150 a month); "most new software is now sold this way"; the gem-shop doodle's R19.99 | Prices; still sold this way | 2026-10-09 |
+
+#### Lesson 17 - Files, folders, drives and paths (`files`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#drives`, `#tree`, study | Cloud drives: OneDrive, Google Drive, iCloud Drive, Dropbox | Still the main services | 2026-10-09 |
+| `#explorer`, questions, study | File Explorer in Windows 11 (the explorer-window figure): command bar, address bar with breadcrumbs, navigation pane with Home, OneDrive, This PC and Network; Windows key + E | Windows 11 File Explorer layout | 2026-10-09 |
+
+#### Lesson 18 - File types and extensions (`filetypes`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#showing`, questions, study | Show extensions: File Explorer, View (command bar) > Show > File name extensions | Windows 11 menus | 2026-10-09 |
+| `#saveas` | With AutoSave on, Microsoft 365 calls Save As "Save a Copy"; File > Export > Create PDF/XPS | Office menu names | 2026-10-09 |
+| `#media` | .mp4 is the most common video file and the one most phones record; .m4a for Apple Music | Still true | 2026-10-09 |
+
+#### Lesson 19 - Managing files (`managefiles`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#selecting`, `#create`, `#rename`, `#copymove`, `#delete`, `#views`, `#compress`, `#keys`, questions | File Explorer's command bar (New, Rename, Copy, Delete, Restore the selected items, View, Sort, Extract all); View > Show > Item check boxes; Sort > Group by; right-click Compress to > ZIP File (some versions: Compress to ZIP file); OneDrive's own recycle bin | Windows 11 File Explorer names | 2026-10-09 |
+
+#### Lesson 20 - File properties (`properties`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#attributes`, `#columns`, questions, study, glossary (hidden file) | View > Show > Hidden items; View > Details; View > Show > Details pane (Alt + Shift + P) | Windows 11 File Explorer names | 2026-10-09 |
+
+#### Lesson 21 - Why networks exist (`whynetworks`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#advantages` | Thirty small inkjets at about R1 500 each (about R45 000) against one good network laser at about R8 000 | Prices (keep in step with lesson 10) | 2026-10-09 |
+| `#disadvantages` | Load shedding as one cause of a network going down | As lesson 1 | 2026-10-09 |
+
+#### Lesson 23 - Network devices and connections (`netdevices`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#pairing`, study | Pairing on a phone or tablet: Settings, Bluetooth | Still the phone menu names | 2026-10-09 |
+
+#### Lesson 24 - The Internet and getting connected (`internet`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#isp` | Mobile ISPs: Vodacom, MTN, Cell C, Telkom, rain; fibre ISPs: Afrihost, Webafrica, Vox | Still the main names | 2026-10-09 |
+| `#connecting`, study | ADSL on its way out as Telkom switches its copper off; 4G and 5G are today's networks; mobile data is the dearest per GB; LTE/5G routers popular | Progress of the copper switch-off; 6G | 2026-10-09 |
+| `#updown` | Most packages give a faster download than upload speed | Still true | 2026-10-09 |
+| `#cloud`, `#goodBad`, questions, study | Data centres owned by Google, Microsoft and Apple; Microsoft 365 (once Office 365) and Google Docs as web apps; load shedding (or a fibre fault) as the reason the cloud is out of reach | Names; as lesson 1 | 2026-10-09 |
+
+#### Lesson 25 - The Web, URLs and websites (`web`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#kinds`, questions, study | Facebook, Instagram and TikTok as social networks; vlogs usually on YouTube; Microsoft 365 (once Office 365), Google Drive and OneDrive as web apps; load shedding as the reason a web app cannot be reached | Still the main names | 2026-10-09 |
+| `#moreKinds`, questions | News24 and the SABC's site; YouTube, Netflix; Takealot and Checkers Sixty60; Home Affairs smart ID appointments booked online | Still operating; still the best examples | 2026-10-09 |
+
+#### Lesson 26 - Browsing and searching well (`searching`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#keywords` (and doodle) | Load shedding as Thabo's project topic ("millions of pages, mostly schedules") | Whether load shedding is still a live topic | 2026-10-09 |
+| `#browsers`, study | Chrome the most used browser; Edge comes with Windows, Safari with Apple devices, Samsung Internet with Samsung phones; Firefox from a non-profit | StatCounter browser share | 2026-10-09 |
+| `#features`, questions | Chrome's home page is set under On startup; Edge calls bookmarks favourites | Browser setting names | 2026-10-09 |
+| `#engines`, study | More than a billion websites; Google, Bing (built into Windows and Edge) and DuckDuckGo | Still true | 2026-10-09 |
+| `#keywords` reveal | SASSA's older persons grant and its December payment dates as the example search | Still the grant's name | 2026-10-09 |
+
+#### Lesson 27 - E-mail (`email`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#attachments`, questions, study | Gmail allows 25 MB per message, attachments included; send a Google Drive or OneDrive link (or YouTube) instead | Gmail's limit | 2026-10-09 |
+
+#### Lesson 28 - Other ways to communicate online (`onlinecomms`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#messaging` | An MMS costs more than an SMS; most people now send photos and videos in a chat app | Still true | 2026-10-09 |
+| `#im`, study | WhatsApp is by far the most used IM app in South Africa; Telegram, Signal and Instagram and TikTok messages; a WhatsApp group holds more than a thousand people; IM replaced SMS for most people | Usage figures; WhatsApp's group size | 2026-10-09 |
+| `#social`, questions | Facebook (and Marketplace), Instagram, TikTok, X (once Twitter), YouTube and LinkedIn, and what each is used for | Names; whether X has been renamed again | 2026-10-09 |
+| `#publishing`, `#location` | Podcasts followed in Spotify; vlogs on YouTube; live location in WhatsApp or Google Maps | Still true | 2026-10-09 |
+| `#meetings`, questions, study | Microsoft Teams, Zoom and Google Meet the best known; load shedding cuts you out of a meeting | Names; as lesson 1 | 2026-10-09 |
+
+#### Lesson 29 - Threats online (`threats`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here | SABRIC, 2025: two bank robberies; more than 110 000 digital banking crimes; about R2.4 billion lost | The newest SABRIC annual crime statistics (as the IT row for `malware`) | 2026-10-09 |
+| `#phishing` | SARS's addresses end in sars.gov.za; SARS never sends links like this | SARS's current advice | 2026-10-09 |
+
+#### Lesson 30 - Staying safe (`safety`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#passwords`, study, glossary (strong password) | 15 characters or more, unique, not personal, changed only for a reason (NIST SP 800-63B, August 2025); computers try billions of guesses a second | NIST guidance (as the IT row for `protecting`) | 2026-10-09 |
+| `#popi`, study | The Information Regulator can fine up to R10 million; adverts by SMS, e-mail or WhatsApp only if you agreed (or are a customer) | The POPI Act and its regulations | 2026-10-09 |
+
+#### Lesson 31 - ICTs in everyday life (`ictlife`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#everyday`, `#lifestyle` | Homework on Google Classroom or Teams; buying prepaid electricity on the phone; groceries arrive in an hour; "now most carry one in a pocket" | Still true | 2026-10-09 |
+| `#divide`, study | About four in five South Africans online at the end of 2025, mostly on a phone; about one household in six with fixed-line Internet; about one in four owns a computer (Stats SA GHS 2024); zero-rated learning and job sites; free Wi-Fi in libraries | The newest GHS and ICASA figures (as the IT rows) | 2026-10-09 |
+| `#crypto`, questions | Bitcoin lost more than half its value between October 2025 and February 2026; not legal tender; a financial product (licensed) since 2022 | Newer swings; the FSCA rules | 2026-10-09 |
+
+#### Lesson 32 - Your body and the planet (`bodyplanet`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#greenUse` reveal | Electricity about R4 a unit (kWh); 73 kWh of standby is about R290 a year | Eskom / municipal tariffs (each July) | 2026-10-09 |
+| `#ewaste` | About 62 million tonnes of e-waste in 2022, about a fifth properly recycled; e-waste bins at many big stores; since 2021 the law makes sellers help collect and recycle | The newest Global E-waste Monitor; drop-off points (as the IT row for `green`) | 2026-10-09 |
+| `#green` (margin) | The upgrade doodle: "same phone, new colour, R20 000" | A flagship phone's price | 2026-10-09 |
+
+#### Lesson 33 - Owning ideas (`ownideas`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#ip`, study | Copyright is automatic; a book is protected until 50 years after its author dies (Copyright Act 98 of 1978) | Whether the Copyright Amendment Bill (which adds fair use) has become law | 2026-10-09 |
+
+#### Lesson 35 - Finding and judging information (`findjudge`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#sifting`, `#notes` questions | "Recent" sources are dated 2024-2026 (a 2025 university study, a 2024 UN report, a 2026 news report in the sift figure); "old" ones 2011-2014 | Move the years on so that the recent ones still read as recent | 2026-10-09 |
+| `#wikipedia` | Millions of volunteers write Wikipedia | Still true | 2026-10-09 |
+
+Nothing dated: `datainfo`, `networkkinds`, `questions`, `reports`.
+
+### Grade 11
+
+#### Lesson 1 - Inside the system unit, a step deeper (`insidedeeper`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#specs`, questions | Advert lines: Intel Core Ultra 5 (12 cores, up to 4.5 GHz) with Intel Arc graphics; NVIDIA RTX 5060 8 GB; AMD Ryzen 7 (8 cores, up to 5.1 GHz) | Current processor and graphics card names | 2026-10-09 |
+| `#trouble` questions | The supplier's desktop: 6 cores, 16 GB DDR4, 512 GB SSD, integrated graphics, R11 499 | A believable spec and price | 2026-10-09 |
+
+#### Lesson 2 - What makes a computer fast (`performance11`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#ram` | 16 GB comfortable for most people; DDR5 faster than DDR4 | Typical new laptops; DDR6 | 2026-10-09 |
+| `#drive` | An SSD, about R600 for 512 GB, is usually the best upgrade for an old laptop | Price | 2026-10-09 |
+| `#running`, questions | Stop start-up programs in Settings, Apps, Startup | Still the Windows 11 names | 2026-10-09 |
+| `#booting` questions | Two laptops at R9 999 and R10 999 | Prices | 2026-10-09 |
+
+#### Lesson 3 - Input and output for everyone (`accessio`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#everyone` | A braille display costs from about R20 000 | Price | 2026-10-09 |
+| `#colourDuty`, study | Typical duty cycles: a small home inkjet about 1 000 to 5 000 pages a month, an office laser 50 000 or more | Typical printers | 2026-10-09 |
+| `#screens`, `#trouble`, `#sound` (IEB), questions, study | Windows 11 paths: Display settings (Settings, System, Display; Scale 125% or 150%); keyboard layout in Settings, Time & language, Language & region; Settings, System, Sound (output, input level bar, volume mixer); Settings, System, Troubleshoot, Other troubleshooters, Audio; Settings, Privacy & security, Microphone | Still the Windows 11 names (checked against Microsoft's sound help, 9 October 2026) | 2026-10-09 |
+| `#sound` questions | Printer quotes: A R2 499, B R6 999; toner 25c against 90c a page | Prices | 2026-10-09 |
+
+#### Lesson 4 - Primary and secondary storage, and the cloud (`storagecloud`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#backup`, `#adverts` | 2 TB external hard drive about R1 400 (advert: 2 TB portable HDD R1 399); 1 TB portable SSD R1 799; 256 GB microSDXC U3 V30 R399; cloud 100 GB for R40 a month or R400 a year; the per-GB sums (70c, R1.80, R4) | Prices (keep in step with CAT 10 `storage`) | 2026-10-09 |
+| `#saas` | Gmail, Canva, Spotify; OneDrive, Google Drive, iCloud | Still the examples | 2026-10-09 |
+| `#trouble`, study | Settings, System, Storage; Storage Sense; OneDrive's "Free up space"; phones: Settings, Storage (Android) or General, iPhone Storage | Windows 11 and phone menu names | 2026-10-09 |
+
+#### Lesson 5 - Installing, updating and uninstalling (`installing`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#where`, questions | A game that costs R900 in the shops | Price | 2026-10-09 |
+| `#activation` | Settings, System, Activation; most new laptops come activated with a digital licence; Microsoft 365 and most phone apps activate by signing in | Still true | 2026-10-09 |
+| `#updates`, questions, study | WhatsApp 2.26.4 as the version example; Windows 10 and 11 get a monthly bundle instead of service packs; Windows 10 to 11 as the upgrade example; Settings, Windows Update, Check for updates; metered connection in Settings, Network & internet | The WhatsApp version number; Windows' update model | 2026-10-09 |
+| `#uninstalling`, `#driversIeb`, questions, study | Settings, Apps, Installed apps (three dots, Uninstall); Settings, Windows Update, Advanced options, Optional updates; the Task Scheduler | Still the Windows 11 names | 2026-10-09 |
+
+#### Lesson 6 - Cloud applications and working together (`cloudapps`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#suites`, `#google`, study | Microsoft 365 (Word, Excel, PowerPoint, Outlook, OneDrive, Teams), the web versions free with a Microsoft account, AutoSave to OneDrive; Google Workspace (Docs, Sheets, Slides, Gmail, Drive, Meet, Classroom); OneDrive 5 GB and Google Drive 15 GB free; Google Docs offline in Chrome | Suite contents and free space (as CAT 10 `storage` `#cloud`) | 2026-10-09 |
+| `#sharing`, `#together`, questions | Word for the web and Google Docs: Share, Copy link, Can edit / Can view, Viewer / Commenter / Editor, "Anyone with the link", version history newest first; Teams and Google Classroom as collaboration software | Menu names | 2026-10-09 |
+
+#### Lesson 7 - Software for users with disabilities (`assistive`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#seeing`, `#hearing`, `#moving`, `#settings`, study | Windows 11 shortcuts: Narrator Windows key + Ctrl + Enter; Magnifier Windows key + plus (+ Esc closes); live captions Windows key + Ctrl + L; voice typing Windows key + H; on-screen keyboard Windows key + Ctrl + O; Sticky Keys by pressing Shift five times; Voice access (Windows Speech Recognition removed in 24H2); Read Aloud in Word (Review) and Edge | Still the Windows 11 shortcuts and names | 2026-10-09 |
+| `#settings`, questions, study | Settings, Accessibility (Windows 10: Ease of Access) - Vision, Hearing, Interaction; Text size; phones: Settings, Accessibility (TalkBack, Live Caption; VoiceOver, Zoom, Voice Control) | Windows 11 and phone menu names | 2026-10-09 |
+
+#### Lesson 8 - System requirements and a slow computer (`sysreqs`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#compatible` (margin), `#requirements` | Windows 11's own requirements (a recent processor on Microsoft's list, 4 GB RAM, 64 GB storage); Windows 10 support ended on 14 October 2025 | Windows' requirements; a new Windows version | 2026-10-09 |
+| `#checking`, `#slow`, `#fixes`, questions, study | Settings, System, About (Windows key + Pause) - Processor, Installed RAM, Edition, Version; Settings, System, Storage; Settings, Apps, Startup; Windows Security, Virus & threat protection, Protection updates; Task Manager (Ctrl + Shift + Esc), Performance; Disk Clean-up; phone Settings, About phone | Still the Windows 11 names | 2026-10-09 |
+
+#### Lesson 9 - Managing files properly (`filesproper`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#setup`, `#group`, `#search`, questions, study | File Explorer: View > Show > File name extensions, Hidden items, Preview pane (Alt + P), Details pane; Sort > Group by > (None); Search options > Advanced options > File contents; date filters | Windows 11 File Explorer names | 2026-10-09 |
+| `#import`, `#details` | Office paths: Access External Data > New Data Source > From File > Text File; Word Insert > Object > Text from File; Excel File > Save As (or Save a Copy) > CSV (Comma delimited); File > Info | Office menu names | 2026-10-09 |
+
+#### Lesson 11 - Topologies and cables (`topologies`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#cables` (margin) | Copper cable theft is one reason Telkom is replacing its copper lines with fibre | Progress of the copper switch-off | 2026-10-09 |
+| `#moreCables` | UTP Cat 5e (1 Gbps) in most homes, schools and offices | Still the usual cable | 2026-10-09 |
+
+#### Lesson 12 - Wired or wireless, and how fast (`wiredwireless`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#adverts`, questions | Fibre up to 100 Mbps (100/50) for R799 a month, month-to-month, free installation; some packages lock you in for 24 months; Advert A fibre 50/50 R699, Advert B 5G up to 300 Mbps R599 | Fibre and 5G prices | 2026-10-09 |
+| `#speed` | Home Internet sold as 25, 50 or 100 Mbps; 5G on a phone often 100 Mbps or more | Typical packages | 2026-10-09 |
+| `#routerBox`, study | Wi-Fi 6 on the router box (newer than Wi-Fi 5); WPA3 the newest Wi-Fi security | Wi-Fi 7 in ordinary routers; a newer WPA | 2026-10-09 |
+
+#### Lesson 14 - Mobile Internet - hotspots, 4G and 5G (`mobileinternet`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#generations`, study | Most of South Africa has 4G; 3G is being switched off; 4G 10 to 50 Mbps, 5G often 100 Mbps or more | 3G switch-off (done?); coverage figures | 2026-10-09 |
+| `#fiveG`, questions | 5G built in cities first, small towns and rural areas still on 4G; any smartphone today does 4G | 5G coverage | 2026-10-09 |
+| `#wimax` (IEB), study | WiMAX mostly replaced by LTE and 5G | Still true | 2026-10-09 |
+| `#dataService`, study | Worked example: 1 GB for R89, 49c a MB out of bundle; app and night bundles; zero-rated sites | Bundle and out-of-bundle prices | 2026-10-09 |
+| `#dataUse` | Data per activity (a WhatsApp text a few KB, a photo 0.1 to 0.5 MB, and so on) | Still about right | 2026-10-09 |
+| `#personalHotspot`, `#dataUse`, `#savingData`, questions | Phone paths: Settings, Network & internet (Samsung: Connections), Hotspot & tethering; iPhone Settings, Personal Hotspot; Data usage; Data Saver (iPhone: Low Data Mode) | Android and iPhone menu names | 2026-10-09 |
+
+#### Lesson 15 - E-mail at work, VoIP and video calls (`voipvideo`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#signature` | Outlook: Settings > Mail > Compose and reply; Gmail: Settings > General > Signature | Menu names | 2026-10-09 |
+| `#voip` (margin), `#voip`, study | Telkom is switching off copper; many landline numbers now run over fibre or wireless as VoIP; WhatsApp, Teams, Zoom, Google Meet, FaceTime calls | Progress of the copper switch-off | 2026-10-09 |
+| `#videoConf`, `#goodPractice`, questions, study | Load shedding cuts people out of a meeting; "check the load-shedding schedule"; meet outside load-shedding slots | As CAT 10 lesson 1 | 2026-10-09 |
+| `#fileSharing` questions | The e-mail attachment limit is about 25 MB | Still true | 2026-10-09 |
+| `#online`, `#online` (margin), study | Takealot, Checkers Sixty60, Woolworths; Mr D, Uber Eats; Facebook Marketplace, Gumtree; SARS eFiling and the SARS app; Home Affairs smart ID bookings; most tax returns sent online; TV licence and voter registration online | Still operating; still the best examples | 2026-10-09 |
+
+#### Lesson 16 - The Internet of Things (`iot`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#goodBad` questions | Load shedding as the scenario (the freezer alert at 02:14; "load shedding is common in her area") | As CAT 10 lesson 1 | 2026-10-09 |
+| `#home` | Many homes have solar inverters and batteries "since the years of load shedding"; Google Home and Amazon Alexa | Product names | 2026-10-09 |
+| `#meters` | Most South African homes have a prepaid meter with a keypad and a 20-digit token | Still true | 2026-10-09 |
+| `#health` | Discovery Vitality rewards steps and workouts | Still running | 2026-10-09 |
+
+#### Lesson 17 - The Fourth Industrial Revolution, VR and AR (`fourir`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#ar` | Most people meet AR on a phone; filters on Snapchat, Instagram and TikTok | Still true | 2026-10-09 |
+| `#difference`, `#prosCons` | A good VR headset costs about as much as a mid-range phone; PC VR also needs a gaming computer | Headset prices | 2026-10-09 |
+
+#### Lesson 18 - Judging a website and its usability (`usability`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#mobile` | Most South Africans visit websites on a phone | StatCounter mobile share | 2026-10-09 |
+| `#navigation` questions | The breadcrumb example Home > Phones > Samsung > Galaxy A16 | A current phone model | 2026-10-09 |
+
+#### Lesson 19 - Threats to a computer and its data (`threats11`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#whatThreat` | Thabo's laptop cost R8 000 | Price | 2026-10-09 |
+| `#misuse`, study | The Cybercrimes Act (2020) makes most of these crimes | Still in force; amendments | 2026-10-09 |
+| `#theft`, questions, study | Find Hub on Android (Google's name since May 2025), Find My on Apple devices | The services' names | 2026-10-09 |
+| Start here, `#power`, `#powerFix`, `#summary` | Load shedding as a cause of power cuts and the surge after; thousands of homes and businesses put in inverters during the years of heavy load shedding | As CAT 10 lesson 1 | 2026-10-09 |
+| `#powerFix` | Rough prices: surge protector R250 to R500; UPS R700 (router) to R3 000; inverter and batteries R15 000 and up; generator R5 000 and up; a UPS lasts minutes, a router UPS hours | Prices (keep in step with CAT 12 `securityplan` `#power`) | 2026-10-09 |
+
+#### Lesson 20 - Social engineering, phishing and pharming (`socialeng`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#phishing`, `#scams`, study | The WhatsApp code takeover as the common scam; two-step verification in WhatsApp's Settings, Account, Two-step verification | WhatsApp's menu names; the commonest scams | 2026-10-09 |
+| `#identity`, study | SAFPS Protective Registration is free | Still free | 2026-10-09 |
+| `#scams` questions | AnyDesk as the remote-access app in the "bank's fraud department" call | Still the app criminals use | 2026-10-09 |
+
+#### Lesson 21 - Protecting yourself online (`protecting`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#antiMalware`, `#firewall` | Microsoft Defender in the Windows Security app, enough for most people; Firewall & network protection | Still built in | 2026-10-09 |
+| `#mfa`, `#permissions`, study | Many South African banks now ask you to approve in the app; WhatsApp: Settings, Account, Two-step verification; the phone's permission manager in Settings | Bank practice; menu names | 2026-10-09 |
+| `#https` (margin) | Chrome replaced the padlock with a settings icon in 2023; TLS is the newer SSL | Browser icons | 2026-10-09 |
+| `#backups` | An external drive about R1 400 for 2 TB, or a monthly cloud fee; phone backup to Google or iCloud | Price (keep in step with CAT 10 `storage` and `storagecloud`) | 2026-10-09 |
+| `#backupDrive` (IEB) | File History: Control Panel > System and Security > File History; Select drive; Turn on; every hour by default; Restore personal files | Still in Windows 11 (checked 9 October 2026) | 2026-10-09 |
+
+#### Lesson 22 - Work in a digital world (`digitalwork`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#gig` | E-hailing (Uber, Bolt) and delivery riders (Mr D, Uber Eats); the app keeps often 20% or more | Names; the platforms' share | 2026-10-09 |
+| `#remote` | Load shedding as the example power cut that stops remote work | As CAT 10 lesson 1 | 2026-10-09 |
+
+#### Lesson 23 - Artificial intelligence (`ai`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#meetAi`, `#chatbots` | ChatGPT, Gemini, Copilot and Claude as chatbots; TikTok, YouTube and Instagram feeds; AI reading X-rays for TB | Still the main names (as the IT row for `ai12`) | 2026-10-09 |
+| `#honest` (margin) | South Africa's draft national AI policy was withdrawn in April 2026 | Whether a new policy has been published (as the IT row for `ai12` `#society`) | 2026-10-09 |
+
+#### Lesson 24 - Big data (`bigdata`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#who` | Loyalty cards: Checkers Xtra Savings, Pick n Pay Smart Shopper, Clicks ClubCard; TikTok, Instagram, Google; Discovery Vitality | Programme names | 2026-10-09 |
+
+#### Lesson 25 - When computers get it wrong (`whenwrong`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#hardware` (margin) | About 1 or 2 hard drives in every 100 fail each year (Backblaze, 2023-2025) | The newest Backblaze drive report | 2026-10-09 |
+| `#validation` | Excel: Data > Data Validation; Access: Validation Rule and Validation Text | Office names | 2026-10-09 |
+
+#### Lesson 27 - Judging sources - and AI as a source (`judgingai`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here | The draft national AI policy published and withdrawn in April 2026 | Whether a new policy has been published; reword "In April 2026" as time passes | 2026-10-09 |
+| `#hallucinate`, `#aicheck` | South Africa's driving ages: a learner's licence at 17, a driving licence at 18 | Still the law | 2026-10-09 |
+| `#aiwhat` | ChatGPT, Gemini, Copilot and Meta AI in WhatsApp | Still the main names | 2026-10-09 |
+| `#aihonest` | The Harvard example for a chatbot: OpenAI (2026) ChatGPT, chatgpt.com, accessed 14 May 2026 | The URL; move the year on | 2026-10-09 |
+
+#### Lesson 28 - Processing data in a spreadsheet and a database (`processingdata`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#database` (margin) | An Excel worksheet has 1 048 576 rows and 16 384 columns, unchanged since Excel 2007 | Still the limit | 2026-10-09 |
+
+Nothing dated: `lanwlan`, `netsafety`, `writequestions`.
+
+### Grade 12
+
+#### Lesson 1 - Choosing a computer for a job (`choosing`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#sideBySide`, questions | Laptop A R6 499 (Intel N150, 4 cores; 8 GB soldered RAM; 128 GB eMMC; HD 1366 x 768; Windows 11 Home in S mode); Laptop B R13 999 (AMD Ryzen 5, 6 cores); a R14 000 budget; the R7 500 difference | Realistic South African prices and specs (set for late 2026) | 2026-10-09 |
+| `#adLines`, study | Intel's N series as budget chips; Windows 11 Home or Pro, macOS, ChromeOS; S mode can be switched off free in Settings; 4K only on expensive screens | Processor names; whether S mode still exists | 2026-10-09 |
+| `#smallPrint` | "Free Microsoft 365" often for one year only; a R6 000 laptop replaced after two years against a R12 000 one that lasts five | Offers and prices | 2026-10-09 |
+| `#match` questions | Laptops C and D: R14 499 (Intel Core 5, 10 cores, Windows 11 Pro) and R12 999 (AMD Ryzen 5, 6 cores); a R15 000 school budget; a USB-C to HDMI adapter about R250; "find two laptops between R8 000 and R12 000" | Prices and names | 2026-10-09 |
+
+#### Lesson 2 - What really affects performance (`performance`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, questions | A R14 000 laptop with a 4.8 GHz processor; a second stick of RAM about R600; an SSD about R600 to R900; R1 500 for each lab computer | Prices | 2026-10-09 |
+| `#cacheSize`, `#ramSpeed` | "Intel Core 5, 10 cores, up to 4.6 GHz, 12 MB cache"; DDR4-3200 and DDR5-5600 | Current names and speeds | 2026-10-09 |
+| `#findIt`, `#box`, study | Task Manager's Performance page (CPU Utilization, Memory In use, Disk Active time, SSD or HDD); Power mode in Settings, System, Power & battery (Best power efficiency, Balanced, Best performance) | Windows 11 names | 2026-10-09 |
+| `#upgrade` (margin) | The upgrade doodle: "same phone, new colour, R20 000" | A flagship phone's price | 2026-10-09 |
+
+#### Lesson 3 - Recommending a system (`recommending`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#home`, `#soho`, `#power` | A R15 000 laptop special; budgets: home roughly R8 000 to R12 000, a small office R12 000 to R18 000 plus printer and UPS, a video editor R40 000 and up with 32 to 64 GB RAM | Prices; typical RAM | 2026-10-09 |
+| `#disability`, `#recommend` (margin) | Windows 11 live captions (Windows key + Ctrl + L, even with no Internet); Narrator, Magnifier, contrast themes, Voice Access built in; NVDA free | Windows features | 2026-10-09 |
+| `#soho` | WhatsApp Business for the bakery | Still offered | 2026-10-09 |
+| `#recommend` questions | The office computer: Intel Core 3, 4 cores, up to 4.3 GHz | Processor name | 2026-10-09 |
+
+#### Lesson 4 - What the operating system does all day (`osallday`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#taskManager`, `#endTask`, questions, study | Task Manager opens with Ctrl + Shift + Esc (or right-click Start, or Ctrl + Alt + Delete); its pages Processes, Performance, App history, Startup apps, Users, Details, Services; End task | Windows 11 names | 2026-10-09 |
+
+#### Lesson 5 - Utilities, housekeeping and troubleshooting (`utilities`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#space`, study | Storage Sense and Cleanup recommendations in Settings, System, Storage; Disk Clean-up from the Start search, Clean up system files | Windows 11 names | 2026-10-09 |
+| `#optimise` | Optimize Drives runs weekly by default and sends TRIM to an SSD instead of defragmenting | Still true | 2026-10-09 |
+| `#restore` | Windows Backup to OneDrive; Google One backup and iCloud Backup; WhatsApp backs up its chats separately; Settings, System, Recovery, Reset this PC | Names | 2026-10-09 |
+| `#problems`, questions, study | Settings, System, Display (Recommended resolution); Settings, System, Troubleshoot, Other troubleshooters; Windows key + P | Windows 11 names | 2026-10-09 |
+
+#### Lesson 6 - Web-based or installed software (`webvsinstalled`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#choosing` questions | Online accounting R450 a month; a booking and accounts app R250 a month | Prices | 2026-10-09 |
+| `#twoKinds`, study | Google Docs; Word, Excel and PowerPoint for the web; Canva; online banking; SARS eFiling | Still the examples | 2026-10-09 |
+| `#between`, study | Microsoft 365's installed apps must go online about once a month; Google Docs can work offline in Chrome or Edge | Microsoft's and Google's rules | 2026-10-09 |
+
+#### Lesson 7 - Metadata, converting files and searching (`metadata`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#documents`, `#gps`, `#converting` | Office paths: File > Info (Title, Tags); File > Info > Check for Issues > Inspect Document; File > Save As (or Save a Copy); File > Export > Create PDF/XPS; Word warns when it opens a PDF | Office menu names | 2026-10-09 |
+| `#gps`, questions, study | Most social media apps, and WhatsApp's normal photo send, remove the location; a photo sent as a document keeps it; iPhone: Settings > Privacy & Security > Location Services > Camera > Never; iPhone Settings > Camera > Formats > Most Compatible | What the apps strip; iPhone menu names | 2026-10-09 |
+| `#search` | Search options on File Explorer's command bar (Windows 10: the Search tab); kind:, size: and datemodified: | Windows 11 names | 2026-10-09 |
+
+#### Lesson 8 - Sharing, permissions and passwords (`sharing`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#network`, study | Sharing a folder: right-click > Properties > Sharing > Share (Read, Read/Write); Advanced Sharing (Read, Change, Full Control) | Windows 11 names | 2026-10-09 |
+| `#permissions`, `#cloud`, questions | OneDrive Can view / Can edit; Google Drive Viewer / Commenter / Editor; Share, Send, Copy link | Names | 2026-10-09 |
+| `#passwords`, questions | Word: File > Info > Protect Document > Encrypt with Password; File > Save As > Tools > General Options; Review > Restrict Editing | Office menu names | 2026-10-09 |
+| `#zip` | 7-Zip > Add to archive (on Windows 11 first Show more options); 7-Zip > Extract Here | Windows 11 right-click menu | 2026-10-09 |
+| `#versions`, study | Version history: OneDrive right-click Version history; File > Info > Version History; Google Docs File > Version history > See version history | Names | 2026-10-09 |
+
+#### Lesson 10 - Internet services (`netservices`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#im` (margin), questions | WhatsApp passed three billion users a month in 2025 and is on almost every South African smartphone; WhatsApp Business catalogues | Newer user figures | 2026-10-09 |
+| `#voip`, study | Many businesses use VoIP desk phones instead of a Telkom landline, which is being switched off in many areas | Progress of the copper switch-off | 2026-10-09 |
+| `#streaming`, study | YouTube, Netflix, Showmax, Spotify and the DStv app; data per hour - music 50 to 150 MB, low-quality video 300 MB to 1 GB, HD 3 GB, 4K 7 GB or more; downloads inside Netflix, Spotify and YouTube Premium | Services still operating; data figures | 2026-10-09 |
+| `#cloud` | Amazon, Microsoft and Google all have data centres in South Africa; Google Docs, Microsoft 365, Canva, Gmail | New regions (as the IT row for `kindsofcomputers` `#bigOnes`) | 2026-10-09 |
+| `#fileSharing` questions | Many e-mail attachments stop at about 25 MB | Still true | 2026-10-09 |
+
+#### Lesson 11 - Buying Internet access (`buyinginternet`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#connection` (margin), `#connection`, study | Telkom is switching off its copper lines and ADSL with them; 5G mostly in cities and big towns | Progress of the copper switch-off; 5G coverage | 2026-10-09 |
+| `#connection` | Low satellites fly about 500 km up; Starlink is the best known, and in 2026 still not licensed in South Africa | ICASA licensing (as the IT Starlink rows) | 2026-10-09 |
+| `#caps`, `#fairUse`, study | Most fibre packages are uncapped; a typical fair usage policy: after 300 GB, 2 Mbps until the next month; data per activity (HD video 1.5 to 3 GB an hour, a WhatsApp call 30 to 45 MB an hour) | Typical packages | 2026-10-09 |
+| `#compare`, questions | SkyWave LTE R449 a month; BrightLine Fibre R649 a month plus R999 once-off; R100 a month less on a 24-month contract | Prices | 2026-10-09 |
+
+#### Lesson 12 - Browser features worth knowing (`browserfeatures`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#basics`, questions, study | Chrome's home page: three dots, Settings, On startup; Edge: Start, home, and new tabs; Edge calls bookmarks favourites | Browser setting names | 2026-10-09 |
+| `#private` (margin), `#private` | Incognito (Ctrl + Shift + N) in Chrome, InPrivate (Ctrl + Shift + P) in Edge, a Private Window in Safari and Firefox | Names and shortcuts | 2026-10-09 |
+| `#passwords`, `#extensions` | Signing in to the browser with a Google or Microsoft account; the Chrome Web Store and Edge Add-ons | Names | 2026-10-09 |
+| `#padlock` (margin) | Chrome replaced the padlock with a site-settings icon in 2023 | Browser icons | 2026-10-09 |
+
+#### Lesson 13 - Searching better, and SEO (`seo`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#operators`, `#summary`, questions | before: and after: "work on Google today"; "only this year's: add after:2026-01-01"; Mr Botha's reviews "from this year, 2026" | That the operators still work; move the year on | 2026-10-09 |
+| `#tools` | Google's Tools filter and the News tab; the margin's "about 15% of searches have never been typed before" | Google's interface; the figure | 2026-10-09 |
+| `#images`, questions, study | Reverse image search: right-click, Search with Google Lens; Google Images' camera icon; TinEye; Bing Visual Search | Names | 2026-10-09 |
+
+#### Lesson 15 - Computer crime and the criminals (`compcrime`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#theft`, questions | A stolen laptop costs R9 000 to replace | Price | 2026-10-09 |
+| `#scams` | Online fraud is the computer crime most South Africans actually meet; selling on Marketplace | SABRIC / SAPS figures | 2026-10-09 |
+| `#scams` questions | The newest iPhone for R6 999 on a scam site, R25 000 everywhere else | The iPhone's price | 2026-10-09 |
+| `#victims`, study, glossary (Cybercrimes Act) | Cybercrimes Act 19 of 2020, mostly in force since 1 December 2021 | Still in force; amendments | 2026-10-09 |
+
+#### Lesson 16 - Malware in depth, and the warning signs (`malwaredepth`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#cleanup`, study | Windows Security: Virus & threat protection - Scan options - Microsoft Defender Antivirus (offline scan); Settings - Apps; Settings - System - Recovery - Reset this PC; Android: Play Protect, and safe mode by holding Power off | Windows 11 and Android menu names | 2026-10-09 |
+
+#### Lesson 17 - Keeping data safe - a checklist (`securityplan`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here | The laptop itself costs about R9 000 | Price | 2026-10-09 |
+| `#physical` | Theft is the most likely threat for most South African homes and small businesses | Crime figures | 2026-10-09 |
+| `#backups` | A 1 TB external hard drive about R1 000; cloud storage about R40 a month for 100 GB | Prices (keep in step with CAT 10 `storage` and CAT 11 `storagecloud`) | 2026-10-09 |
+| `#power`, questions | A UPS for a router about R800, for a desktop about R1 500; load shedding as the example power cut; a R3 000 budget | Prices (keep in step with CAT 11 `threats11` `#powerFix`) | 2026-10-09 |
+
+#### Lesson 18 - Social media and its consequences (`socialmedia12`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#influence` | TikTok, Instagram and YouTube feeds picked by an algorithm; a WhatsApp Business status | Names | 2026-10-09 |
+| `#crowdfunding` | BackaBuddy and Thundafund as South African crowdfunding websites; a laptop and a first month's food for R12 000 | Still operating; price | 2026-10-09 |
+| `#fakenews` | WhatsApp marks messages "Forwarded many times" | Still true | 2026-10-09 |
+| `#wellbeing` (margin) | Australia's ban on social media accounts for under-16s from 10 December 2025 | Whether other countries (or South Africa) have followed | 2026-10-09 |
+
+#### Lesson 19 - The law and your rights (`lawrights`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#popi` | Direct marketing by SMS, e-mail, WhatsApp or phone only if the person opted in (or is a customer) | POPIA regulations | 2026-10-09 |
+| `#regulator`, questions, study | The Information Regulator can fine up to R10 million; the most serious offences up to ten years in prison; complaints on the Regulator's website form | The Act; the Regulator's process | 2026-10-09 |
+| `#copyright`, questions, study, glossary (fair dealing) | Copyright lasts until 50 years after the creator dies; fair dealing ("fair use in America") allows a small part for study, review or news; a song from Instagram's own music library is allowed in a reel | Whether the Copyright Amendment Bill (which adds fair use) has become law; Instagram's music licence | 2026-10-09 |
+| `#defamation` | Since December 2021 it is a crime to send a message threatening violence or damage to property | Still in force | 2026-10-09 |
+| `#identity`, questions | SAFPS protective registration; a new ID from Home Affairs | Still the steps | 2026-10-09 |
+
+#### Lesson 20 - Technology and the world's big problems (`bigproblems`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#divide`, study | ITU 2024: about 38% of people in Africa online, about 91% in Europe; the SRD grant applied for only online since 2020; zero-rated learning and job sites | The newest ITU figures; the SRD grant (as the IT row for `bigproblems`) | 2026-10-09 |
+| `#green`, study | Data centres used about 1.5% of the world's electricity in 2024; about 62 million tonnes of e-waste in 2022, less than a quarter recycled; South Africa's power mostly coal; a refurbished laptop from about R4 000; more than 8 GW of rooftop solar by 2026 | The newest IEA, Global E-waste Monitor and rooftop-solar figures; price | 2026-10-09 |
+| `#health` (margin) | MomConnect sends free health messages by SMS and WhatsApp | Still running | 2026-10-09 |
+
+#### Lesson 21 - Cryptocurrency, drones and what comes next (`crypto`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#cryptoRecap` | Most South Africans who own crypto buy it with rands on an exchange | Still true | 2026-10-09 |
+| `#cryptoPeople`, study | Bitcoin lost more than half its value between October 2025 and February 2026; profits must be declared to SARS | Newer swings; SARS rules | 2026-10-09 |
+| `#cryptoSociety`, questions, study | Crypto a financial product since October 2022 (FSCA licence); FIC Act duties since December 2022 | The FSCA and FIC rules (as CAT 10 `ictlife`) | 2026-10-09 |
+| `#drones` | A small camera drone from about R6 000 | Price | 2026-10-09 |
+| `#droneWork` | Drones have delivered blood and medicine in Rwanda since 2016 and Ghana since 2019 | Still running | 2026-10-09 |
+| `#droneRules`, questions, study | SACAA: work drones need a licensed pilot and an operator's certificate; not near airports or over crowds; keep it in sight | The SACAA rules | 2026-10-09 |
+| `#chatbots` | ChatGPT, Gemini, Copilot and Claude as AI chatbots; Vodacom's TOBi | Names (as the IT row for `ai12` `#uses`) | 2026-10-09 |
+
+#### Lesson 23 - Writing a professional report (`report`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#fcr` | A 5 000-litre water tank with stand and plumbing about R15 000; a plumber's quote of R2 400 for three toilets | Prices | 2026-10-09 |
+
+#### Lesson 25 - The CAPS practical paper (Paper 1) (`capsp1`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#paper` (margin) and the whole guide | The paper's shape from the November 2023, 2024 and 2025 papers (word processing 45, spreadsheets 40, database 35, HTML 15) | Each new November paper and memo (from November 2026) | 2026-10-09 |
+
+#### Lesson 26 - The CAPS theory paper (Paper 2) (`capsp2`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#paper` (margin), `#twoFacts` (margin) and the whole guide | The same ten questions and marks in 2023, 2024 and 2025; TWO in 96 of the 223 parts of Sections B and C, none worth more than 3 | Each new November paper and memo | 2026-10-09 |
+
+#### Lesson 27 - The IEB practical paper (Paper I) (`iebp1`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#paper` (margin) and the whole guide | Question 7 worth exactly 5 marks in 2023, 2024 and 2025; the papers' shape | Each new November paper and memo | 2026-10-09 |
+
+#### Lesson 28 - The IEB theory paper (Paper II) (`iebp2`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#paper` (margin) and the whole guide | 86% of mark slots worth one mark in 2023-2025, nothing worth more than 5 | Each new November paper and memo | 2026-10-09 |
+| `#scenario` | Data packages: Lite 10 GB R149, Home 50 GB R349, Max uncapped R799 | Prices | 2026-10-09 |
+
+#### Lesson 29 - The CAPS PAT: how it works (`patcaps`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| `#what`, questions, study | In Grade 12 the PAT is 25% (as much as each paper; school-based assessment 25%); 20% in Grades 10 and 11 | The current CAPS PAT guidelines | 2026-10-09 |
+| `#phases`, `#year`, questions, study | Phase 1 due at the end of Term 1, Phase 2 at the end of Term 2, Phase 3 before the prelim in Term 3 | The year's PAT document | 2026-10-09 |
+| `#phases`, `#tool`, study | 2026's marks: Phase 1 32, Phase 2 44, Phase 3 70 + 4 general = 150 | The DBE's CAT Learner Guidelines for PATs, Grade 12, of the new year (education.gov.za, Grade 12 PATs) | 2026-10-09 |
+| `#phase1`-`#phase3`, `#evidence`, questions, study | Phase 1: ONE focus question, at least 10 research questions (3 of 4 levels, 3 categories), at least two websites + one other source; Phase 2: one-page questionnaire, at least 5 questions, at least 25 respondents; spreadsheet (survey and other data, 4 function levels, 2 graphs); database not a copy of the spreadsheet (5 fields, 20 records, validation rule, list box, input mask, 3 queries, a grouped report); Phase 3: report (1 600-2 000 words, 6-8 pages, abstract, 3+ findings) AND a website (home page + 2 pages); declaration asks for help received, AI included; moderation by subject advisors and Umalusi; no PAT mark = no CAT result | The new year's DBE learner guidelines (they change yearly) | 2026-10-09 |
+
+#### Lesson 30 - The IEB PAT: how it works (`patieb`)
+
+| Where | The claim | Check | Last checked |
+|---|---|---|---|
+| Start here, `#what`, `#p1t1`, `#moderation`, study | The rubric is 170 marks converted to 100; at least 15 questions in Phase 1; the moderator checks a 10% sample (at least five) | The current SAGs, Appendix N | 2026-10-09 |
+
+Nothing dated: `wan`, `deepdark`, `reformulating`, `normalising`.

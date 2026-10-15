@@ -259,8 +259,13 @@ doing when Jev answers (the three Jev checks were marked by Claude).
 - **The CAT VM:** Word's SaveAs2 hangs (from about 17:30 on 8 October);
   hung jobs block every later run; the vm-shots lock is not first come,
   first served. Restart Word or reboot the VM before the next Word run.
-- **Simulations lack** a triple-click step, a drag step, and a type step
-  that does not end with Enter.
+- **Simulations lacked** a triple-click step, a drag step, and a type step
+  that does not end with Enter - **all three exist since 9 October 2026**
+  (`'button' => 'triple'`, `'drag' => ['from', 'to']`, `'enter' => false`;
+  platform.md). Used where the screens already allowed: catword editing
+  simMoveSlip (triple-click), catexcel graphs simDragSeries (new, a drag),
+  and 'enter' => false on 17 typing steps in dialog boxes, a comment and a
+  header. The rest need new screens (see that day's list).
 - **The VM's Office is signed in with Chris's school account**: Backstage
   and file dialogs show it; every writer cropped or painted it out - worth
   checking each new screen.

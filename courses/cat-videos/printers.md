@@ -48,7 +48,7 @@ screen being talked about. Everything below is in the lesson text.
    > Board: two price tags, "once" (pink) and "again and again" (yellow).
 3. **Cost per page (1:30-3:00).** Three steps: the price of the cartridge, the pages it prints (the page yield, on the box), divide. Inkjet: R300 ÷ 200 = R1.50. Laser: R1 200 ÷ 1 600 = 75c. Ink tank: R150 ÷ 4 500 = about 3c.
    > Board: the lesson's three-row table written out, each division done on a sticky note.
-4. **Mr Botha's year (3:00-4:00).** 400 pages a month is 4 800 a year. Inkjet: 4 800 x R1.50 = R7 200. Laser: 4 800 x 75c = R3 600. The laser costs R1 300 more to buy and saves R3 600 in the first year.
+4. **Mr Botha's year (3:00-4:00).** 400 pages a month is 4 800 a year. Inkjet: 4 800 x R1.50 = R7 200. Laser: 4 800 x 75c = R3 600. A mono laser (about R2 500) costs R1 600 more than his R900 inkjet and saves R3 600 in the first year.
    > Board: the two sums side by side; pink highlighter on the saving.
 5. **Choosing (4:00-4:50).** What will I print, how much, how often, how fast, and what can I spend - to buy and to run? Text and lots of it: laser. Photos: inkjet or ink tank. Objects: 3D. And before any of it: do I need to print at all?
    > Board: the five questions on a sticky note; the printer-paperless joke drawn in the corner.

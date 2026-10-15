@@ -53,6 +53,22 @@ state only.
 
 ## Status
 
+- **Eight more subjects, feasibility pass (5 October 2026):** Chris asked
+  for Mathematics, Mathematical Literacy, Physical Sciences, Life Sciences,
+  History, Geography, Sport and Exercise Science and Visual Arts (theory).
+  Both boards' sources are in `itcoder-coursedev/sources/<subject>/`
+  (DBE public; IEB through Chris's Chrome login). Each subject has a
+  `course-plan.md` only. `subjects/OVERVIEW.md` compares all eight. All
+  eight rate "partial", and all depend on the same shared engines: numeric
+  answers, AI marking against the boards' rubrics, graphs/diagrams and a
+  source panel. Sport and Exercise Science is examined by the IEB only. The
+  work is on branch `subjects-research`, which is not pushed. The full
+  caps/sags/exam analyses are still to do.
+- **CAT outcome:** the cloud session could not push (no remote), but its
+  findings were merged into AIResources on 27 September (`cat-*.md`,
+  `bundle-design.md`). Its unmerged pilot lesson is in
+  `itcoder-coursedev/pilot-cat/` (unreviewed).
+
 - CAT: sources collected 25 September 2026 (17 DBE files, 22 IEB files) in
   `itcoder-coursedev/sources/cat/`. Analysis running in cloud session
   `session_015VWnWKuzaNEuhH2epRt1S5` (started 26 September 2026); it

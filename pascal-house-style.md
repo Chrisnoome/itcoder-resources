@@ -33,12 +33,15 @@ curriculum calls for them. The console's layout check (`lib/codestyle.php`,
 | Variables, including loop counters | camelCase, meaningful - **never a single letter** (not `i`, `j`, `k`) | `index`, `outer`, `inner` |
 | Parameters | `a` + name, no `const` | `aSeconds`, `aStudentRecord` |
 | Classes | `T` prefix | `TStopwatch` |
+| Constants (`Const`) | SCREAMING_SNAKE_CASE (Chris, 4 October 2026) - capitals, words joined by `_`; the same in Java | `MAX_PUPILS`, `VAT_RATE` |
 | Reserved words | Capitalised | `Begin`, `End`, `If`, `Then`, `Div`, `Mod` |
 
 **Checked before a program runs** (Chris, 28 September 2026 - the `naming`
 rule, `lib/naming.php`; it stops the run like the layout checks): variables and
 fields camelCase with no `_`, parameters `aName`, procedures and functions
-capitalised, classes `TName`, the program's name capitalised, Pascal's own
+capitalised, classes `TName`, the program's name capitalised, constants
+SCREAMING_SNAKE_CASE (since 4 October 2026 - `Const` in the program, a
+routine or a class, typed constants too; their `_` is fine), Pascal's own
 words (reserved words, types, built-in routines, the units) with the capitals
 the editor offers (`Writeln`, `Integer`, `GotoXY`; `Downto` and `DownTo` both
 pass), and every name with the same capitals everywhere as where it was

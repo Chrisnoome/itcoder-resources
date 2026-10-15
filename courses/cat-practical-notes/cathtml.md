@@ -234,6 +234,15 @@ the screen script. If a block's starter changes, change its file too.
   pairing. The fix-its use mistakes the rules can see (unclosed, crossed,
   in the wrong parent, misspelt attributes).
 
+**Since filled (9 October 2026):** lib/html.php's rules now have 'any',
+'all' and 'not', 'comment' rules, 'first'/'last', 'before'/'after',
+'order', 'typedOrder' (the order as typed), a rule inside 'parent'/'inside',
+a tag list and 'textContains' with a list; `html` is a code-question
+language (markwords, dragwords and labelcode here now use it). Changed:
+htmlTextFindUs 4 (rules: the times in a p with no Church Street - no Jev),
+htmlFormattingBuild 3 and 4 (rules - no Jev), htmlStructureFix 2 (+ </head>
+typed before <body>), htmlGoodFix 6 (+ no link says click here).
+
 ## 10. Checks run
 
 - `php -l` on all five lessons: clean.

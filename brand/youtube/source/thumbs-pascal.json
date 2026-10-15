@@ -1,37 +1,829 @@
 [
- {
-  "id": "install-01-lazarus",
-  "tag": "INSTALL · PASCAL",
-  "title": [
-   "Install",
-   "*Lazarus*"
-  ],
-  "video": "E:/itcoder-videos/out/01-lazarus.mp4",
-  "frameAt": 338.5,
-  "ytTitle": "How to install Lazarus on Windows (free Pascal IDE)",
-  "desc": "Install Lazarus 4.8 with Free Pascal 3.2.2 on Windows, step by step, and run your first Pascal program. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading the 64-bit Windows installer from lazarus-ide.org\n- Installing to C:\\lazarus - a short path with no spaces\n- Choosing the Modern, single-window layout at the first start\n- Saving a first program in your cloud-synced Coding folder\n- Running Hello from Lazarus! with F9\n\n0:00 Intro\n0:22 Download Lazarus\n1:07 Save the installer to Downloads\\Installs\n1:44 Run the installer\n2:23 Keep the folder C:\\lazarus\n3:14 First start: the Modern layout\n3:49 A new program\n4:06 Save it in your Coding folder\n5:12 Run it with F9\n5:41 Done\n\nGoes with the Pascal course lesson \"Where you write Pascal - Lazarus and Delphi\", and the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#Lazarus #Pascal #ITGrade10"
- },
- {
-  "id": "tut-01-creating-a-class",
-  "tag": "PASCAL · CLASSES",
-  "title": [
-   "Creating a",
-   "*Class*"
-  ],
-  "pos": "50% 30%",
-  "ytTitle": "Creating a Class in Pascal - plan it in UML, code it in Lazarus",
-  "desc": "See E:/itcoder-videos/tutorials/01-creating-a-class/youtube.md"
- },
- {
-  "id": "tut-02-array-manager",
-  "tag": "PASCAL · OOP",
-  "title": [
-   "An Array",
-   "*Manager*",
-   "Class"
-  ],
-  "pos": "50% 30%",
-  "ytTitle": "An Array Manager Class in Pascal - a whole shelf of objects in one object",
-  "desc": "See E:/itcoder-videos/tutorials/02-array-manager/youtube.md"
- }
+  {
+    "id": "install-01-lazarus",
+    "tag": "INSTALL · PASCAL",
+    "title": [
+      "Install",
+      "*Lazarus*"
+    ],
+    "video": "E:/itcoder-videos/out/01-lazarus.mp4",
+    "frameAt": 338.5,
+    "ytTitle": "How to install Lazarus on Windows (free Pascal IDE)",
+    "desc": "Install Lazarus 4.8 with Free Pascal 3.2.2 on Windows, step by step, and run your first Pascal program. For South African IT pupils and teachers.\n\nIn this video:\n- Downloading the 64-bit Windows installer from lazarus-ide.org\n- Installing to C:\\lazarus - a short path with no spaces\n- Choosing the Modern, single-window layout at the first start\n- Saving a first program in your cloud-synced Coding folder\n- Running Hello from Lazarus! with F9\n\n0:00 Intro\n0:22 Download Lazarus\n1:07 Save the installer to Downloads\\Installs\n1:44 Run the installer\n2:23 Keep the folder C:\\lazarus\n3:14 First start: the Modern layout\n3:49 A new program\n4:06 Save it in your Coding folder\n5:12 Run it with F9\n5:41 Done\n\nGoes with the Pascal course lesson \"Where you write Pascal - Lazarus and Delphi\", and the first lesson, \"Getting your computer set up to study programming\", at https://bestlessons.co.za\n\n#Lazarus #Pascal #ITGrade10"
+  },
+  {
+    "id": "tut-01-creating-a-class",
+    "tag": "PASCAL 16.1 · CLASSES",
+    "title": [
+      "Creating a",
+      "*Class*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 16.1 - Creating a Class: plan it in UML, code it in Lazarus",
+    "desc": "What is a class, and why does your program want one? Starting from one game in a library of games, we work out what we need to know about it and what we want to do with it, plan the class in UML, then code it in Lazarus with the plan beside the code - typing every End straight away and every function's Result := first.\n\nDownload the code (Lazarus project, zip):\nhttps://bestlessons.co.za/downloads/tutorials/pascal-16.1-creating-a-class.zip\n\nIn this video:\n- A class = data + the procedures and functions that work on it (methods)\n- Access modifiers: private and public\n- Planning the class as a UML class diagram\n- Constructor, destructor, getters and setters, ToString and a helper method\n- The class in its own unit (uClassGame), and Ctrl+Shift+C\n- Objects, dot notation, and why private really is private\n\n0:00 Intro\n0:21 One game, and what we need to know about it\n1:06 Why separate variables don't work\n1:33 A class: data and methods together\n2:00 Class and object\n2:50 Access modifiers\n3:30 Planning the class in UML\n4:53 Constructor and destructor\n5:55 Getters and setters\n6:33 ToString, IsBargain and a helper method\n7:37 Coding it: a new project on Google Drive\n9:10 The unit and its name\n10:24 The class, End first\n11:31 Forward declaration not solved, and Ctrl+Shift+C\n13:19 Filling in the methods\n15:28 The main program and dot notation\n16:29 Running it\n16:59 Private is private\n17:25 Recap\n\nNext: Pascal 20.1, an array manager class - a whole shelf of objects in one object.\n\nGoes with the Pascal course lesson 16, \"Classes and objects\", at https://bestlessons.co.za\n\n#Pascal #Lazarus #OOP"
+  },
+  {
+    "id": "tut-02-array-manager",
+    "tag": "PASCAL 20.1 · OOP",
+    "title": [
+      "An Array",
+      "*Manager*",
+      "Class"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 20.1 - An Array Manager Class: think it, plan it, code it (search, best, total, sort)",
+    "desc": "A whole library of games in one object. We plan an array manager class in UML, then work out each job by hand - adding, searching, the best, the total, swapping and a selection sort - draw it as a flowchart, and turn each flowchart into code in Lazarus, with the flowchart beside the code.\n\nDownload the code (Lazarus project, zip):\nhttps://bestlessons.co.za/downloads/tutorials/pascal-20.1-array-manager.zip\n\nIn this video:\n- An array manager: the array, the number of objects in it, and the methods that look after them\n- Who owns the objects - and freeing them all in the destructor\n- A constant for the array's size (MAX_GAMES)\n- Adding, with a check for a full shelf\n- A linear search that stops when it finds the game, ignoring capitals\n- Finding the best, and adding up a total\n- Swapping two objects, and a selection sort\n- The main program that uses the shelf\n\n0:00 Intro\n0:32 A library of games\n2:12 Planning the class in UML\n3:59 A new project and unit\n6:55 The class, from the plan\n9:17 Adding a game\n10:51 Finding a game\n13:15 The best game\n14:50 The total value\n15:36 Swapping two games\n16:54 Sorting: a selection sort\n19:38 ToString\n20:11 Using the shelf\n21:19 Running it\n22:15 Recap\n\nBefore this: Pascal 16.1, Creating a Class - https://youtu.be/GgEOY8EcL4A\n\nGoes with the Pascal course lesson 20, \"Array manager class\", at https://bestlessons.co.za\n\n#Pascal #Lazarus #OOP"
+  },
+  {
+    "id": "tut-03-text-files",
+    "tag": "PASCAL 17.1 · FILES",
+    "title": [
+      "Text File",
+      "*Basics*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 17.1 - Text File Basics: write, add to and read a text file",
+    "desc": "Programs forget everything when they close - unless they write it to a file. We work out what a text file is, plan writing and reading as flowcharts, then code it in Lazarus: AssignFile, Rewrite, Append, Reset, Readln while Not Eof, FileExists, and why CloseFile matters.\n\nDownload the code (Lazarus project, zip):\nhttps://bestlessons.co.za/downloads/tutorials/pascal-17.1-text-files.zip\n\nIn this video:\n- Why variables forget, and what persistence means\n- A TextFile variable, tied to a name with AssignFile\n- Rewrite, Append and Reset - three ways to open a file\n- Why CloseFile matters: the buffer\n- Reading to the end of the file with Eof\n- Checking the file is there with FileExists\n\n0:00 Intro\n0:21 Why programs forget\n1:07 What a text file is\n1:50 Three ways to open a file\n2:19 Writing: the plan\n2:34 Why close it?\n3:04 Writing: the code\n5:34 Looking inside the file\n6:37 Adding to the end\n7:07 Reading: the plan\n8:09 If the file isn't there\n8:28 Reading: the code\n9:35 Running it again\n10:03 Recap\n\nNext: Pascal 17.2, Where's the file?\n\nGoes with the Pascal course lesson 17, \"Persistence - text files\", at https://bestlessons.co.za\n\n#Pascal #Lazarus #TextFiles\n\n**Cards:** none needed (no other video is named in it). Once 17.2 is up, the end screen can point to it."
+  },
+  {
+    "id": "tut-04-where-is-the-file",
+    "tag": "PASCAL 17.2 · FILES",
+    "title": [
+      "Where's the",
+      "*File?*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 17.2 - Where's the File? Runtime error 2, hidden extensions and the program's folder",
+    "desc": "\"Runtime error 2 - file not found\" - but the file is right there! The three usual reasons: the wrong folder, a hidden extension (games.txt.txt), and a program started from somewhere else. We plan a program that checks first, make the file, find the hidden extension, and use ExtractFilePath (ParamStr (0)) to find files next to the program.\n\nDownload the code (Lazarus project, zip):\nhttps://bestlessons.co.za/downloads/tutorials/pascal-17.2-where-is-the-file.zip\n\nIn this video:\n- A file name with no folder means the current folder\n- From Lazarus, that's the project's folder\n- FileExists before you read\n- Hidden extensions, and how to switch them on\n- ExtractFilePath (ParamStr (0)): the program's own folder\n\n0:00 Intro\n0:16 \"It's not there!\"\n0:43 The current folder\n1:09 The plan\n1:28 The project and the code\n3:34 Run it: not there\n4:02 Making the file\n5:21 Hidden extensions\n6:02 Showing extensions\n6:58 Started from somewhere else\n7:37 The program's own folder\n8:18 Recap\n\nBefore this: Pascal 17.1, Text File Basics. Next: Pascal 17.3, Cutting up a line.\n\nGoes with the Pascal course lesson 17, \"Persistence - text files\", at https://bestlessons.co.za\n\n#Pascal #Lazarus #TextFiles\n\n**Cards:** none needed (no other video is named in it)."
+  },
+  {
+    "id": "tut-05-cutting-up-a-line",
+    "tag": "PASCAL 17.3 · FILES",
+    "title": [
+      "Cutting Up",
+      "a *Line*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 17.3 - Cutting Up a Line: parsing CSV with Pos, Copy and Delete",
+    "desc": "One line in the file, a whole game in it: title, platform, price and rating, with commas between. We cut a line up by hand, meet the three tools that do it - Pos, Copy and Delete - plan the program as a flowchart, then code it in Lazarus: read every game, cut it into its parts, change the numbers with StrToFloat and StrToInt, and add up what the games are worth.\n\nDownload the code (Lazarus project, zip):\nhttps://bestlessons.co.za/downloads/tutorials/pascal-17.3-cutting-up-a-line.zip\n\nIn this video:\n- CSV files: one record per line, commas between the fields\n- Parsing by hand: find the comma, copy what's before it, cut both off\n- Pos, Copy and Delete\n- Text from a file is text: StrToFloat and StrToInt\n- Why there must be no spaces around the commas\n\n0:00 Intro\n0:19 More than one thing on a line\n0:57 Cutting by hand\n1:35 Pos, Copy and Delete\n2:18 Numbers\n2:44 The plan\n3:18 The project and the file\n5:47 The code: reading\n6:46 The code: cutting\n7:30 Showing and adding up\n7:47 Running it\n8:07 No spaces!\n8:50 Recap\n\nBefore this: Pascal 17.2, Where's the File? Next: Pascal 17.4, A Game on a Line.\n\nGoes with the Pascal course lesson 17, \"Persistence - text files\", at https://bestlessons.co.za\n\n#Pascal #Lazarus #CSV\n\n**Cards:** none needed (no other video is named in it)."
+  },
+  {
+    "id": "tut-06-a-game-on-a-line",
+    "tag": "PASCAL 17.4 · FILES",
+    "title": [
+      "A Game on",
+      "a *Line*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 17.4 - A Game on a Line: Create (aLine) and StringForFile",
+    "desc": "A class should know its own format. We give the game class from Pascal 16.1 two new jobs: a second constructor, Create (aLine), that fills a game in from one line of a file (through a private ParseLine helper and the setters), and StringForFile, which gives the game back as one line for the file. Then a test program writes two games to a file and reads them back.\n\nDownload the code (Lazarus project, zip):\nhttps://bestlessons.co.za/downloads/tutorials/pascal-17.4-a-game-on-a-line.zip\n\nIn this video:\n- Why the parsing goes in the class\n- Two directions: a line becomes a game, a game becomes a line\n- StringForFile is not ToString\n- Two constructors with one name: Overload\n- A private helper, ParseLine, that uses the setters\n- Ctrl + click to jump to where something is made\n\n0:00 Intro\n0:20 Whose job is it?\n0:55 Two directions\n1:19 StringForFile is not ToString\n1:42 Two constructors\n2:03 The plan\n2:35 The project from Pascal 16.1\n3:01 The declarations\n3:23 Create (aLine)\n3:53 ParseLine\n4:43 StringForFile\n5:27 The test program\n6:52 Running it\n7:20 Recap\n\nBefore this: Pascal 16.1, Creating a Class - https://youtu.be/GgEOY8EcL4A - and Pascal 17.3, Cutting up a line. Next: Pascal 20.2, Saving and loading the shelf.\n\nGoes with the Pascal course lesson 17, \"Persistence - text files\", at https://bestlessons.co.za\n\n#Pascal #Lazarus #OOP"
+  },
+  {
+    "id": "tut-07-saving-the-shelf",
+    "tag": "PASCAL 20.2 · FILES",
+    "title": [
+      "Saving the",
+      "*Shelf*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 20.2 - Saving and Loading the Shelf: SaveToFile and LoadFromFile",
+    "desc": "A shelf of games that remembers. Our array manager forgets everything when the program closes, so we give it two new methods: SaveToFile, which writes one line for every game, and LoadFromFile, which reads the file back and makes a game from each line. We plan the file first, work out each job on the board, draw it as a flowchart, then code it in Lazarus with the flowchart beside the code. Then we add a game to the file by hand and load it.\n\nDownload the code (Lazarus project, zip):\nhttps://bestlessons.co.za/downloads/tutorials/pascal-20.2-saving-the-shelf.zip\n\nIn this video:\n- Planning the file: one game on each line, its fields separated by commas\n- Who makes the line? The game does (StringForFile)\n- SaveToFile: Rewrite, a loop, CloseFile\n- LoadFromFile: a Boolean answer - was the file there?\n- Each line becomes a game (Create with a line), with Trim and a check for empty lines\n- A program that loads, sorts, shows and saves the shelf\n- Adding a game to the file by hand\n\n0:00 Intro\n0:30 The shelf forgets\n0:45 One game, one line\n1:03 Saving: who makes the line?\n1:39 Saving: the flowchart\n2:02 The project\n2:24 SaveToFile: the code\n3:37 Loading: a line becomes a game\n4:02 Loading: two things to think about\n4:30 Loading: the flowchart\n5:05 LoadFromFile: the code\n6:34 The program\n8:06 Running it the first time\n9:07 A new game, by hand\n9:41 Running it the second time\n10:18 Recap\n\nBefore this: Pascal 20.1, An Array Manager Class, and Pascal 17.4, A Game on a Line.\n\nGoes with the Pascal course lesson 20, \"Array manager class\", at https://bestlessons.co.za\n\n#Pascal #Lazarus #OOP"
+  },
+  {
+    "id": "tut-08-why-inheritance",
+    "tag": "PASCAL 21.1 · OOP",
+    "title": [
+      "Why",
+      "*Inheritance*?"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 21.1 - Why Inheritance? A junior is a member",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-09-a-descendant-of-its-own",
+    "tag": "PASCAL 21.2 · OOP",
+    "title": [
+      "A Descendant",
+      "of its *Own*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 21.2 - A Descendant of its Own: fields, a constructor and Inherited Create",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-10-changing-an-inherited-method",
+    "tag": "PASCAL 21.3 · OOP",
+    "title": [
+      "Changing an",
+      "*Inherited* Method"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 21.3 - Changing an Inherited Method: Virtual, Override and Inherited",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-11-one-array-two-kinds",
+    "tag": "PASCAL 21.4 · OOP",
+    "title": [
+      "One Array,",
+      "Two *Kinds*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 21.4 - One Array, Two Kinds: polymorphism, Is and As",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-12-two-kinds-of-line",
+    "tag": "PASCAL 21.5 · FILES",
+    "title": [
+      "Two Kinds",
+      "of *Line*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 21.5 - A File with Two Kinds of Line: protected, Try and Except",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-13-the-full-exam-example",
+    "tag": "PASCAL 21.6 · EXAM",
+    "title": [
+      "The Full",
+      "*Exam* Example"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 21.6 - The Full Exam Example: a class, its descendant and a manager",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-14-your-first-program",
+    "tag": "PASCAL 2.1 · OUTPUT",
+    "title": [
+      "Your First",
+      "*Program*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 2.1 - Your First Program: Hello, world, Writeln and Write",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-15-reading-compiler-errors",
+    "tag": "PASCAL 2.2 · ERRORS",
+    "title": [
+      "Reading",
+      "Compiler *Errors*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 2.2 - Reading Compiler Errors: break it, read it, fix it",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-16-more-from-writeln",
+    "tag": "PASCAL 2.3 · OUTPUT",
+    "title": [
+      "More from",
+      "*Writeln*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 2.3 - More from Writeln: a till slip with numbers, :0:2 and an apostrophe",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-17-making-it-pretty",
+    "tag": "PASCAL 3.1 · CRT",
+    "title": [
+      "Making it",
+      "*Pretty*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 3.1 - Making it Pretty: colour and position with Crt",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-18-variables",
+    "tag": "PASCAL 4.1 · VARIABLES",
+    "title": [
+      "*Variables*",
+      "Boxes with Names"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 4.1 - Variables: boxes with a name and a type",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-19-changing-the-boxes",
+    "tag": "PASCAL 4.2 · VARIABLES",
+    "title": [
+      "Changing",
+      "the *Boxes*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 4.2 - Changing the Boxes: assignment, Inc and Dec",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-20-sums-and-constants",
+    "tag": "PASCAL 4.3 · CONSTANTS",
+    "title": [
+      "Sums and",
+      "*Constants*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 4.3 - Sums and Constants: a tuck shop order with VAT",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-21-random-numbers",
+    "tag": "PASCAL 4.4 · RANDOM",
+    "title": [
+      "Random",
+      "*Numbers*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 4.4 - Random Numbers: rolling dice with Random and Randomize",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-22-asking-with-readln",
+    "tag": "PASCAL 5.1 · INPUT",
+    "title": [
+      "Asking with",
+      "*Readln*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 5.1 - Asking with Readln: input, processing, output",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-23-one-key-readkey",
+    "tag": "PASCAL 5.2 · INPUT",
+    "title": [
+      "One Key:",
+      "*ReadKey*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 5.2 - One Key: ReadKey and KeyPressed",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-24-doing-the-maths",
+    "tag": "PASCAL 6.1 · MATHS",
+    "title": [
+      "Doing the",
+      "*Maths*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 6.1 - Doing the Maths: BODMAS, divide, Div and Mod",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-25-rounding",
+    "tag": "PASCAL 6.2 · MATHS",
+    "title": [
+      "*Rounding*",
+      "Round and Trunc"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 6.2 - Rounding: Round, Trunc, Abs, Sqr and Sqrt",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-26-numbers-and-text",
+    "tag": "PASCAL 7.1 · CONVERSION",
+    "title": [
+      "Numbers",
+      "and *Text*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 7.1 - Numbers and Text: IntToStr and StrToInt",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-27-ord-and-chr",
+    "tag": "PASCAL 7.2 · CONVERSION",
+    "title": [
+      "*Ord* and",
+      "*Chr*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 7.2 - Every Character Has a Number: Ord and Chr",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-28-rounding-up-and-down",
+    "tag": "PASCAL 7.3 · CONVERSION",
+    "title": [
+      "Rounding",
+      "Up and *Down*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 7.3 - Rounding Up and Down: Ceil and Floor",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-29-if-then-else",
+    "tag": "PASCAL 8.1 · DECISIONS",
+    "title": [
+      "If, Then,",
+      "*Else*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 8.1 - Decisions: If, Then, Else",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-30-else-if",
+    "tag": "PASCAL 8.2 · DECISIONS",
+    "title": [
+      "More Paths:",
+      "*Else If*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 8.2 - More than Two Paths: Else If",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-31-and-or-not",
+    "tag": "PASCAL 8.3 · DECISIONS",
+    "title": [
+      "Two Questions:",
+      "*And, Or, Not*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 8.3 - Joining Questions: And, Or and Not",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-32-case",
+    "tag": "PASCAL 8.4 · DECISIONS",
+    "title": [
+      "One Value,",
+      "Many Paths: *Case*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 8.4 - One Value, Many Paths: Case",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-33-how-many-buses",
+    "tag": "PASCAL 9.1 · DIVISION",
+    "title": [
+      "How Many",
+      "Buses? *Div & Mod*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 9.1 - How Many Buses? Div, Mod and an If",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-34-odd-even-and-factors",
+    "tag": "PASCAL 9.2 · DIVISION",
+    "title": [
+      "Odd, Even",
+      "and *Factors*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 9.2 - Odd or Even, and Factors: Mod at Work",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-35-change-and-time",
+    "tag": "PASCAL 9.3 · DIVISION",
+    "title": [
+      "Change",
+      "and *Time*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 9.3 - Change and Time: Div and Mod at Work",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-36-total-and-average",
+    "tag": "PASCAL 11.1 · LOOPS",
+    "title": [
+      "A Total and",
+      "an *Average*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 11.1 - A Total and an Average: Accumulators in a For Loop",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-37-biggest-and-smallest",
+    "tag": "PASCAL 11.2 · LOOPS",
+    "title": [
+      "The *Biggest*",
+      "and the Smallest"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 11.2 - The Biggest and the Smallest: Finding Them in a Loop",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-38-times-tables-and-factors",
+    "tag": "PASCAL 11.3 · LOOPS",
+    "title": [
+      "Times Tables",
+      "and *Factors*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 11.3 - A Times Table and the Factors: Loops at Work",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-39-drawing-shapes",
+    "tag": "PASCAL 11.4 · LOOPS",
+    "title": [
+      "Drawing Shapes:",
+      "*Nested Loops*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 11.4 - Drawing Shapes: a Loop Inside a Loop",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-44-while-checks-first",
+    "tag": "PASCAL 12.1 · LOOPS",
+    "title": [
+      "*While:*",
+      "Check First"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 12.1 - While: Check First, with a Stop Value",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-45-repeat-checks-last",
+    "tag": "PASCAL 12.2 · LOOPS",
+    "title": [
+      "*Repeat:*",
+      "Check Last"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 12.2 - Repeat Until: Check Last, and Checking Input",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-46-loops-that-never-stop",
+    "tag": "PASCAL 12.3 · LOOPS",
+    "title": [
+      "Loops That",
+      "*Never Stop*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 12.3 - Loops That Never Stop: Infinite Loops, Found and Fixed",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-47-a-menu-loop",
+    "tag": "PASCAL 12.4 · LOOPS",
+    "title": [
+      "A *Menu*",
+      "Loop"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 12.4 - A Menu Loop: Repeat, Case, and Choosing a Loop",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-48-palindromes",
+    "tag": "PASCAL 13.1 · STRINGS",
+    "title": [
+      "Walking a String:",
+      "*Palindromes*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 13.1 - Walking a String: Palindromes, DownTo and UpperCase",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-49-caesar-cipher",
+    "tag": "PASCAL 13.2 · STRINGS",
+    "title": [
+      "Secret Messages:",
+      "*Caesar Cipher*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 13.2 - Secret Messages: the Caesar Cipher with Ord, Chr and Mod",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-50-splitting-a-line",
+    "tag": "PASCAL 13.3 · STRINGS",
+    "title": [
+      "Splitting",
+      "a *Line*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 13.3 - Splitting a Line: Copy, Pos, Delete and Insert",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-51-neat-columns",
+    "tag": "PASCAL 13.4 · STRINGS",
+    "title": [
+      "Neat Columns:",
+      "*Format*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 13.4 - Neat Columns: Format, Widths and a Mark List",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-40-counting-with-for",
+    "tag": "PASCAL 10.1 · LOOPS",
+    "title": [
+      "Counting",
+      "with *For*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 10.1 - Counting with For: To, DownTo and Off by One",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-41-adding-up-as-you-loop",
+    "tag": "PASCAL 10.2 · LOOPS",
+    "title": [
+      "Adding Up",
+      "as You *Loop*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 10.2 - Adding Up as You Loop: the Accumulator",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-42-loops-inside-loops",
+    "tag": "PASCAL 10.3 · LOOPS",
+    "title": [
+      "Loops Inside",
+      "*Loops*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 10.3 - Loops Inside Loops: a Times-Table Grid",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-43-is-it-prime",
+    "tag": "PASCAL 10.4 · LOOPS",
+    "title": [
+      "Is It *Prime*?",
+      "+ the Debugger"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 10.4 - Is It Prime? A Loop, and the Debugger",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-52-keeping-it-dry",
+    "tag": "PASCAL 14.1 · PROCEDURES",
+    "title": [
+      "Keeping it *DRY*:",
+      "Procedures"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 14.1 - Keeping it DRY: Your First Procedure",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-53-parameters",
+    "tag": "PASCAL 14.2 · PROCEDURES",
+    "title": [
+      "*Parameters*:",
+      "Any Line"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 14.2 - Parameters: One Procedure, Any Line",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-54-functions",
+    "tag": "PASCAL 14.3 · FUNCTIONS",
+    "title": [
+      "*Functions*:",
+      "Give Back"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 14.3 - Functions: Commands That Give Back an Answer",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-55-your-own-unit",
+    "tag": "PASCAL 14.4 · UNITS",
+    "title": [
+      "Your Own",
+      "*Unit*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 14.4 - Your Own Unit: a Toolbox for Every Program",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-56-an-array-of-marks",
+    "tag": "PASCAL 15.1 · ARRAYS",
+    "title": [
+      "An *Array*",
+      "of Marks"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 15.1 - An Array of Marks: Fill, Total and Average",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-57-the-biggest-and-where-it-is",
+    "tag": "PASCAL 15.2 · ARRAYS",
+    "title": [
+      "The *Biggest*,",
+      "and Where"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 15.2 - The Biggest and Where It Is: an Array Rarely Full",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-58-parallel-arrays",
+    "tag": "PASCAL 15.3 · ARRAYS",
+    "title": [
+      "*Parallel*",
+      "Arrays"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 15.3 - Parallel Arrays and a Sequential Search",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-59-bubble-sort",
+    "tag": "PASCAL 15.4 · ARRAYS",
+    "title": [
+      "*Bubble*",
+      "Sort"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 15.4 - Bubble Sort, Traced Pass by Pass",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-60-binary-search",
+    "tag": "PASCAL 15.5 · ARRAYS",
+    "title": [
+      "*Binary*",
+      "Search"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 15.5 - Binary Search: Higher or Lower",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-60b-selection-sort",
+    "tag": "PASCAL 15.6 · ARRAYS",
+    "title": [
+      "*Selection*",
+      "Sort"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 15.6 - Selection Sort: Filling the Front First",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-61-a-date-is-a-number",
+    "tag": "PASCAL 19.1 · DATES",
+    "title": [
+      "A Date is",
+      "a *Number*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 19.1 - A Date is a Number: TDateTime and FormatDateTime",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-62-reading-a-date-safely",
+    "tag": "PASCAL 19.2 · DATES",
+    "title": [
+      "Reading a Date",
+      "*Safely*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 19.2 - Reading a Date Safely: TryStrToDate, Leap Years and Days Late",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-63-how-old-exactly",
+    "tag": "PASCAL 19.3 · DATES",
+    "title": [
+      "How Old,",
+      "*Exactly*?"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 19.3 - How Old, Exactly? An Age from an ID Number",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-64-selection-sort",
+    "tag": "PASCAL 15.6 · ARRAYS",
+    "title": [
+      "*Selection*",
+      "Sort"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 15.6 - Selection Sort, Traced Place by Place",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-65-three-kinds-of-error",
+    "tag": "PASCAL 18.1 · ERRORS",
+    "title": [
+      "Three Kinds",
+      "of *Error*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 18.1 - Three Kinds of Error: Syntax, Runtime and Logic",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-66-try-except",
+    "tag": "PASCAL 18.2 · ERRORS",
+    "title": [
+      "*Try*...",
+      "Except"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 18.2 - Try ... Except: Catching a Crash",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-67-a-safe-readint",
+    "tag": "PASCAL 18.3 · ERRORS",
+    "title": [
+      "A Safe",
+      "*ReadInt*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 18.3 - A Safe ReadInt: Input That Can't Crash",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-68-validation-and-test-data",
+    "tag": "PASCAL 18.4 · ERRORS",
+    "title": [
+      "*Validation*",
+      "& Test Data"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 18.4 - Validation and Test Data: Standard, Extreme, Abnormal",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-69-prompts-and-messages",
+    "tag": "PASCAL 22.1 · INTERFACES",
+    "title": [
+      "Prompts and",
+      "*Messages*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 22.1 - Prompts and Messages That Help: a Text User Interface",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-70-a-menu-screen",
+    "tag": "PASCAL 22.2 · INTERFACES",
+    "title": [
+      "A *Menu*",
+      "Screen"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 22.2 - A Menu Screen: ClrScr, GotoXY, Boxes and ReadKey",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-71-keep-the-interface-separate",
+    "tag": "PASCAL 22.3 · INTERFACES",
+    "title": [
+      "Keep the Interface",
+      "*Separate*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 22.3 - Keep the Interface Separate: a Menu over a Class",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-72-your-first-form",
+    "tag": "PASCAL 23.1 · GUI",
+    "title": [
+      "Your First",
+      "*Form*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 23.1 - Your First Form: Components, Properties and Events",
+    "desc": "(filled in from youtube.md)"
+  },
+  {
+    "id": "tut-73-a-form-over-a-class",
+    "tag": "PASCAL 23.2 · GUI",
+    "title": [
+      "A Form over",
+      "a *Class*"
+    ],
+    "pos": "50% 30%",
+    "ytTitle": "Pascal 23.2 - A Form over a Class: Logic out of the Form",
+    "desc": "(filled in from youtube.md)"
+  }
 ]
