@@ -2826,7 +2826,10 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
 
 - **Sign-in is open to any Google account** (Chris has no Workspace admin; the
   consent screen is External).
-- **One account, one session.** `pupils.sessionId` / `sessionSeenAt`.
+- **One account, one session.** `pupils.sessionId` / `sessionSeenAt`. **Except the
+  site admin** (Chris, 15 October 2026: "allow multiple sessions for admin
+  (me)"): `ManySessionsAllowed()` (lib/auth.php, the `AdminEmails()`
+  addresses) is never refused as busy nor signed out by a newer session.
   `SignIn()` refuses a second sign-in while the session is live (`'busy'`,
   shown by `auth.php`); `CurrentPupil()` ends a session the row no longer
   names; `SignOut()` releases. Idle longer than `SessionIdleMinutes()` (config
@@ -3138,10 +3141,16 @@ up before a refactor**: copy every file to `D:\itcoder-backups\<name>-<date>`
   Sep 2026: "only pupils with AI marking"); running code stays open to every
   enrolled pupil. The same program from the same pupil in the same lesson
   reuses the last comment instead of a new call.
-- **Class (Chris, 15 Oct 2026: "Use real classes instead"):** nobody picks a
-  class at sign-in; a pupil's class is the class they joined (code,
-  invitation, or at once - schools-design.md), and a pupil with no school is
-  asked nothing. Class filters (Admin > People, Admin > Activity, Class
+- **Class (Chris, 15 Oct 2026: "Use real classes instead"):** a pupil's class
+  is the class they joined (code, invitation, or at once - schools-design.md),
+  and a pupil with no school is asked nothing. **Until 31 Dec 2026 only**
+  ("let new pupils choose a class till end of year"): a school's pupil
+  address in no class picks one of that school's classes at sign-in, and
+  picking joins it (`ClassPickChoices()`; never over a join link); from 2027,
+  codes only (`CLASS_PICK_UNTIL`). De La Salle's 2026 labels map to its
+  classes ("grade 11 maps to 11 Key X, 10 to 10 Key Z, 12 can stay 12"):
+  `MapOldClassLabels()` on every setup run to the end of 2026 joins those
+  pupils for real; Gr 12, Grade 9, Staff and Other stay old labels. Class filters (Admin > People, Admin > Activity, Class
   results, Progress check) list each school's own classes
   (`lib/classfilter.php`; a teacher only their own schools', an admin all),
   plus Teachers and In no class (Staff and Other are gone). The old
