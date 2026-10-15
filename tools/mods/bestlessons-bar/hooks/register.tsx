@@ -33,13 +33,16 @@ const KEEP_LIST =
 const RESUME_PROMPT =
   'manager continue: list your linked sessions (list_sessions linked) and the run queue (logs/run-queue.json), ' +
   'say in a line or two what each is doing or waiting on, and carry on monitoring. ' +
-  'If logs/pause-note.md exists, read it first, resume from it, then delete it.'
+  'If logs/pause-note.md exists, read it first and restart every session it lists under "Paused": send each one ' +
+  '"Resume: carry on from where you stopped before the shutdown" (SendMessage to its session id), restart the ' +
+  'control centre and any background run it lists, then delete the note.'
 
 // Before Chris shuts the laptop down (Chris, 15 Oct 2026).
 const PAUSE_PROMPT =
   'manager pause: I am shutting down. Tell every linked session that is working to stop at a safe point and commit ' +
   'what is complete; stop background runs that cannot survive (note any publish or VM job and where its log is); ' +
-  'commit loose doc edits; write logs/pause-note.md (what each session was doing, what waits on me, how to resume); ' +
+  'commit loose doc edits; write logs/pause-note.md with a "Paused" list (each stopped session: full session id, ' +
+  'what it was doing, what is left), what waits on me, and the background runs to restart; ' +
   'then tell me when it is safe to shut down.'
 
 // Buttons. `fill` puts text in the prompt box (Chris presses Enter);
