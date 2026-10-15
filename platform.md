@@ -3185,6 +3185,15 @@ Secrets live in `config/config.php` per project, never here.
   the verification (and the branding check that needs it) lapses. Branding
   submitted for Google's review 26 September 2026 (home, privacy and terms on
   itcoder.co.za).
+- **Status endpoint** (Chris, 15 Oct 2026; `public/admin/status.json.php`): read-only
+  counts for his own dashboard - marking queue, failed today, Jev unsure % (7 days),
+  waiting queries (open Message threads whose last word is the pupil's + open mark
+  queries), sign-ups today, newest backup, disk free %. GET with header
+  `X-Status-Key` equal to config `STATUS_KEY`; no key set, wrong key or other
+  method is a bare 403. No names, e-mails, text or ids. A value it cannot work
+  out is null. Set the real key with `tools/set-server-config.py STATUS_KEY`
+  (live; `--site test` for test); the caller keeps the same value in the Windows
+  user env var `BESTLESSONS_STATUS_KEY`. Never in the repo.
 - **Server:** [vps-access.md](vps-access.md).
 - **GitHub (`Chrisnoome`):** private repos `itcoder-platform` (AIPascalCourse)
   and `itcoder-resources` (this folder, deliberately including vps-access.md).

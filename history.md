@@ -227,3 +227,4 @@ pre-compaction files).
 - 2026-10-11: Admin can Remove a course (visibility 'removed', out of CourseIndex() everywhere, pupils' work kept) and Restore it.
 - 2026-10-11: Mark corrections: Dismiss a question's corrections without changing the marker (DismissCorrections()).
 - 2026-10-15: Workflow restructure (workflow-plan.md): router CLAUDE.md replaces README/platform.md imports, 33 skills archived, Jev spawn-time router (tools/jev-route.py) + helper-* agents, bestlessons-bar mod (tools/mods/bestlessons-bar).
+- 2026-10-15: Read-only status endpoint public/admin/status.json.php (X-Status-Key = config STATUS_KEY; counts only) for Chris's dashboard.
