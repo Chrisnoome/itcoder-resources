@@ -29,16 +29,22 @@ const OFFTOPIC_MIN_CONF = 0.7
 const KEEP_LIST =
   'keep the current task and done-criteria, decisions with Chris, files touched, open questions, pending approvals'
 
+// After /clear the manager picks its work back up (Chris, 15 Oct 2026).
+const RESUME_PROMPT =
+  'manager continue: list your linked sessions (list_sessions linked) and the run queue (logs/run-queue.json), ' +
+  'say in a line or two what each is doing or waiting on, and carry on monitoring.'
+
 // Buttons. `fill` puts text in the prompt box (Chris presses Enter);
-// `run` runs a no-argument command at once, falling back to fill.
-type Act = { kind: 'fill'; text: string } | { kind: 'run'; command: string } | { kind: 'jev' }
+// `run` runs a no-argument command at once, falling back to fill;
+// `clear` runs /clear and then sends RESUME_PROMPT.
+type Act = { kind: 'fill'; text: string } | { kind: 'run'; command: string } | { kind: 'jev' } | { kind: 'clear' }
 type Btn = { key: string; label: string; act: Act; needs?: string }
 const GROUPS: { name: string; buttons: Btn[] }[] = [
   {
     name: 'Session',
     buttons: [
       { key: 'compact', label: '/compact', act: { kind: 'fill', text: `/compact ${KEEP_LIST}` } },
-      { key: 'clear', label: '/clear', act: { kind: 'fill', text: '/clear' } },
+      { key: 'clear', label: '/clear + resume', act: { kind: 'clear' } },
       { key: 'rewind', label: '/rewind', act: { kind: 'fill', text: '/rewind' } },
       { key: 'btw', label: '/btw', act: { kind: 'fill', text: '/btw ' } },
       { key: 'resume', label: '/resume', act: { kind: 'fill', text: '/resume' } },
@@ -120,6 +126,15 @@ async function fill($: EngineInterface, text: string) {
 
 async function press($: EngineInterface, b: Btn) {
   if (b.act.kind === 'fill') return fill($, b.act.text)
+  if (b.act.kind === 'clear') {
+    try {
+      await $.command.run({ command: 'clear' })
+    } catch {
+      return fill($, '/clear')
+    }
+    await $.prompt.submit({ text: RESUME_PROMPT, asUser: true })
+    return
+  }
   if (b.act.kind === 'run') {
     // /usage and /context are terminal dialogs that the desktop Code tab does not run,
     // so the button shows the same numbers from the session's own usage data.
@@ -308,10 +323,7 @@ export const register: Register = on => {
               key="queue-start"
               label={`Start: ${clip(first.title, 40)}`}
               onPress={() =>
-                fill(
-                  $,
-                  `Start queued task ${first.id}: start a side session for it (model ${first.model}, effort ${first.effort}), then remove it from logs/run-queue.json and set its open-items.md tag to status: running; session: <session id>.`,
-                )
+                fill($, `manager run ${first.id}`)
               }
             />
             <Button key="queue-clear" label="Clear" dimColor onPress={() => fill($, 'Show the run queue')} />

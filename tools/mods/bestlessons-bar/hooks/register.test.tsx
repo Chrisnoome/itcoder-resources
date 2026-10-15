@@ -79,9 +79,22 @@ test('queued row shows count and fills the start prompt', async ($, on) => {
   const ui = await $.ui.mount({ plugin: 'bestlessons-bar', surface: 'desktop', ...BAND })
   expect(await ui.find({ type: 'Text', text: /Queued: 2/ })).toBeDefined()
   await ui.press({ key: 'queue-start' })
-  expect(filled[0]).toBe(
-    'Start queued task T7: start a side session for it (model sonnet, effort medium), then remove it from logs/run-queue.json and set its open-items.md tag to status: running; session: <session id>.',
-  )
+  expect(filled[0]).toBe('manager run T7')
   await ui.press({ key: 'queue-clear' })
   expect(filled[1]).toBe('Show the run queue')
+})
+
+test('/clear + resume runs /clear, then sends the manager resume prompt', async ($, on) => {
+  const { ran, filled } = engine(on, 10)
+  const sent: string[] = []
+  on('prompt.submit', (_$: any, e: any) => {
+    sent.push(e.text)
+    return { text: e.text }
+  })
+  const ui = await $.ui.mount({ plugin: 'bestlessons-bar', surface: 'desktop', ...BAND })
+  await ui.press({ key: 'clear' })
+  expect(ran).toEqual(['clear'])
+  expect(filled).toEqual([])
+  expect(sent.length).toBe(1)
+  expect(sent[0]).toMatch(/^manager continue/)
 })

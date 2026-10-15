@@ -11,7 +11,7 @@ A band above the prompt (terminal and the desktop Code tab):
 - **Meters:** context fill (amber at 40%, red at 60% with "compact now"), 5-hour and
   weekly usage % with reset time (subscription only), cache age ("warm 12m", "cold"
   after 60 min), and Jev's spend this session.
-- **Buttons:** Session (/compact with the keep-list, /clear, /rewind, /btw, /resume),
+- **Buttons:** Session (/compact with the keep-list, /clear + resume (runs /clear, then sends "manager continue" so the manager picks up its linked sessions and the run queue), /rewind, /btw, /resume),
   Cost (/usage and /context run at once; /jev status; /model and effort fill the
   prompt), Skills (/grilling, /handoff, /skill-audit, /retro, /wait-what, dimmed
   "(soon)" until the command exists), Project (/publish, /checklist, /course-status,
