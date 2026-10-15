@@ -2704,7 +2704,7 @@ site's code - run after publishing a marking change.
 **27. Every lesson page has the "E" look** (Chris, 25 September 2026; every
 course, new ones included - **Pascal, AI, the Java course being built and any
 later course share one design, and every design change applies to all of
-them**; README.md, "Adding a course or a chat"). `lib/design.php` (`DesignEOn()`),
+them**; README.md, "Adding a course or a chat"). `lib/design.php` (`DesignHeadHtml()`),
 `public/assets/design-e.css` loaded after `style.css`/`console.css` with every
 rule under `body.design-e`, `design-e.js`. White page, white masthead, Figtree
 headings over a reading font (Atkinson Hyperlegible Next at line-height 1.5 -
@@ -2718,7 +2718,7 @@ content-voice-and-pedagogy.md §5b). Layout follows a container query on the
 space the lesson really has (an open console counts): outline + text + margin
 from 1188px, text + margin from 944px, text only below. The block colours keep
 their meanings. There is no old look any more (`?design=classic` dropped, Chris,
-15 October 2026; `DesignEOn()` is always true).
+15 October 2026; `DesignEOn()` and its checks removed).
 **The pupil pages have it too** (home, sign-in, subjects, courses, a course's
 lesson list, marks, account, notifications, glossary, privacy, terms): they
 call `DesignHeadHtml()` in the head and `DesignBodyAttr()` on the body
