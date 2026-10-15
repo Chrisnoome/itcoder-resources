@@ -18,8 +18,8 @@ school year. each batch of lessons can follow a scenario - like the games for th
   https://claude.ai/artifact/3f3FzFohjv3KPcuB759Nxy).
 - **Research behind it:** `itcoder-coursedev`, branch `subjects-research`,
   `subjects/mathematical-literacy/course-plan.md`, with the sources in
-  `sources/mathematical-literacy/` (CAPS, the Grade 10 ATP 2023/24, the IEB SAGs 2026; the
-  2023-2025 papers and the SAGs are in `exams/maths-lit/`).
+  `sources/mathematical-literacy/` (CAPS, the Grade 10 ATP 2023/24, the IEB SAGs 2026 and
+  the 2023-2025 papers, all now in `exams/maths-lit/`).
 
 ## Chris's decisions (10 October 2026)
 
