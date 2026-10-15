@@ -35,6 +35,9 @@ state only.
 
 ## Getting the sources
 
+Past papers, memos and data files go in `exams/` to its standard: both
+boards, every sitting from 2020 (exams/README.md; Chris, 15 Oct 2026).
+
 - **DBE:** education.gov.za, "Curriculum > CAPS > CAPS: FET" for the CAPS
   documents and the amendments list; "NSC Past Examination papers" links one
   page per sitting, each listing every subject's papers, memos and data

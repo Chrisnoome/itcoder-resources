@@ -55,6 +55,7 @@ Paths are relative to this folder. For platform.md (235 KB) never read it whole:
 | Marking practicals and code submissions | `marking-house-style.md` |
 | Pascal compile sandbox; SQL runner; live console | `compile-subsystem-design.md`; `sql-runner-design.md`, `sql-dialects.md`; `live-console-design.md` |
 | Syllabus, SAGs, CAPS | `sags-topic4-syllabus.md`, `sags-2025.md`, `caps-2024.md`, `caps-tasks.md`; CAT: `cat-caps.md`, `cat-sags.md` |
+| Past papers, memos, data files (all subjects, both boards, 2020 on) | `exams/README.md` (standard, layout, gap list) |
 | Exam analyses (practical, theory, CAT) | `ieb-` and `caps-practical-exam-analysis.md`, `ieb-` and `caps-theory-exam-analysis.md`, `cat-*-exam-analysis.md` |
 | A specific course | `courses/<course>.md` (ai, pascal, java, sql, theory, delphi-gui, install-videos, tutorial-videos, plus yearly-update files for stale facts) |
 | New subject research | `course-development.md` |

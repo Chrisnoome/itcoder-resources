@@ -6,3 +6,7 @@
 
 # Job briefs (jev-route.py)
 logs/
+
+# Exam library: papers stay in Dropbox only (exams/README.md)
+/exams/*
+!/exams/README.md
