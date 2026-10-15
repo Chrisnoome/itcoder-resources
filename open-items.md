@@ -497,7 +497,7 @@ Details live in the linked files.
   second attempt is used, even the lines that were right the first time (7
   parts right first time, 1 still wrong after the second try: 7 of 16, not
   14). Either store which lines were right the first time and mark them x2,
-  or change the wording. {area: marking; p: 3; status: open}
+  or change the wording. {area: marking; p: 3; status: done}
 - **Rebrand to bestlessons.co.za** (2026-09-26): both addresses, one site
   (platform.md, "Two addresses, one site"). Done 26 Sep: logo files,
   lib/brand.php (on test), name servers ns1-4.mydnscloud.com with A records @
