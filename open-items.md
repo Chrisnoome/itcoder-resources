@@ -126,7 +126,7 @@ Details live in the linked files.
   Part 1: LeftStr/RightStr and StrUtils in Pascal lesson 13; the SQL B9
   slider cuts through a row; gCapsButtonsAccess teaches a tendency;
   lc38KotaParts tests a Good to Know box; tl30ChatHistory's dates are in
-  margin notes; the Eagle icons in mp40. Delete each as Chris decides. {area: content; p: 2; status: running; session: app}
+  margin notes; the Eagle icons in mp40. Delete each as Chris decides. {area: content; p: 2; status: done}
 - **Level emblems: IT Theory 5 and 6 to redo** (2026-10-01): Laptop and
   Smartphone hide their device behind the medal; queue new seeds or a
   clearer prompt (comfyui-queue). The other 34 are live. {area: fun; p: 3; status: open}
