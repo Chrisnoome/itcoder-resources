@@ -228,3 +228,4 @@ pre-compaction files).
 - 2026-10-11: Mark corrections: Dismiss a question's corrections without changing the marker (DismissCorrections()).
 - 2026-10-15: Workflow restructure (workflow-plan.md): router CLAUDE.md replaces README/platform.md imports, 33 skills archived, Jev spawn-time router (tools/jev-route.py) + helper-* agents, bestlessons-bar mod (tools/mods/bestlessons-bar).
 - 2026-10-15: Read-only status endpoint public/admin/status.json.php (X-Status-Key = config STATUS_KEY; counts only) for Chris's dashboard.
+- 2026-10-15: Claude calls on 5-family models get max_tokens >= 16000 (Haiku 5.5 thinking counts against the cap), quick checks at effort low, marking 120 s; token-cap failures requeued (AIPascalCourse 2f7d13c).

@@ -2556,7 +2556,10 @@ and `save-draft.php` refuses to write over anything not already a draft.
 **14. Band-rubric written answers show a band and a reason per criterion.**
 `RubricCriteria()` (on `ParseRubricBlocks()`) extracts criteria; when present,
 `MarkOneAnswer()` asks for `{mark, criteria:[{name, band, why}], feedback}`
-with `max_tokens` 1100 (**not lower** - truncated JSON broke it). Stored in
+with `max_tokens` 1100 (**not lower** - truncated JSON broke it; since 11 Oct 2026
+`CallClaude()` raises every 5-family call to at least 16000 because Haiku 5.5's
+thinking counts against the cap, and calls with a timeout of 30 s or less run at
+effort `low`; marking itself uses 16000 and 120 s). Stored in
 `writtenAnswers.markBreakdown`, rendered as a table in three places kept in
 step: `lesson.php`, `scores.php` ("What the marker said" shows when feedback OR
 a breakdown exists) and `app.js` `PollForFeedback()` (built with
