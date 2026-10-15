@@ -69,3 +69,19 @@ test('compact fills the keep-list; usage shows numbers without running the termi
   await ui.press({ key: 'publish' })
   expect(filled[1]).toBe('/publish ')
 })
+
+test('queued row shows count and fills the start prompt', async ($, on) => {
+  const { filled } = engine(on, 10)
+  on('fs.read', () => ({ value: JSON.stringify([
+    { id: 'T7', title: 'Mark the grade 10 SQL practical with Jev first', brief: 'b', area: 'marking', model: 'sonnet', effort: 'medium', queuedAt: '2026-10-15T08:00:00Z' },
+    { id: 'T8', title: 'Second', brief: '', area: 'content', model: 'haiku', effort: 'low', queuedAt: '2026-10-15T08:01:00Z' },
+  ]) }))
+  const ui = await $.ui.mount({ plugin: 'bestlessons-bar', surface: 'desktop', ...BAND })
+  expect(await ui.find({ type: 'Text', text: /Queued: 2/ })).toBeDefined()
+  await ui.press({ key: 'queue-start' })
+  expect(filled[0]).toBe(
+    'Start queued task T7: start a side session for it (model sonnet, effort medium), then remove it from logs/run-queue.json and set its open-items.md tag to status: running; session: <session id>.',
+  )
+  await ui.press({ key: 'queue-clear' })
+  expect(filled[1]).toBe('Show the run queue')
+})

@@ -7,6 +7,7 @@ import type { EngineInterface, PromptOrigin, Register, SessionUsage } from 'clau
 // through $.ui.invalidate. A hot reload starts them over (cache shows -- until
 // the next turn).
 type Nudge = { text: string; at: number }
+type QueueItem = { id: string; title: string; brief?: string; area?: string; model: string; effort: string; queuedAt?: string }
 const S = {
   lastTurnAt: 0, // $.clock.now() when the last turn completed; 0 = none yet
   coldWarnedFor: 0, // lastTurnAt of the cold spell already warned about
@@ -14,8 +15,12 @@ const S = {
   nudge: null as Nudge | null, // last off-topic nudge, until the next prompt
   jevCost: 0, // Jev's spend this session, US dollars
   commands: [] as string[], // slash command names at session start
+  queue: [] as QueueItem[], // run queue, read from QUEUE_FILE (never written here)
+  queueAt: 0, // $.clock.now() of the last queue read; 0 = never
 }
 
+const QUEUE_FILE = 'D:\DB Sync\Dropbox\Projects\AIResources\logs\run-queue.json'
+const QUEUE_POLL_MS = 15000
 const COLD_MS = 60 * 60 * 1000
 const AMBER = 40
 const RED = 60
@@ -87,6 +92,22 @@ const resetText = (iso: string | undefined, withDay: boolean) => {
   const day = withDay ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][d.getDay()] + ' ' : ''
   return ` (resets ${day}${two(d.getHours())}:${two(d.getMinutes())})`
 }
+
+// Read the run queue (control-centre-design.md, "Run flow"). Read only; a missing
+// or unreadable file is an empty queue. Polled at most every 15 s unless forced.
+async function loadQueue($: EngineInterface, force = false) {
+  const now = await $.clock.now()
+  if (!force && S.queueAt > 0 && now - S.queueAt < QUEUE_POLL_MS) return
+  S.queueAt = now
+  try {
+    const j = JSON.parse(await $.fs.read(QUEUE_FILE))
+    S.queue = Array.isArray(j) ? (j.filter(q => q && q.id && q.title) as QueueItem[]) : []
+  } catch {
+    S.queue = []
+  }
+}
+
+const clip = (t: string, n: number) => (t.length > n ? t.slice(0, n - 1) + '…' : t)
 
 function redraw($: EngineInterface) {
   $.ui.invalidate('ui.render')
@@ -184,6 +205,7 @@ export const register: Register = on => {
   on('turn.complete', async ($, e, next) => {
     const now = await $.clock.now()
     S.lastTurnAt = now
+    await loadQueue($, true)
     redraw($)
     return next(e)
   })
@@ -244,6 +266,9 @@ export const register: Register = on => {
       } catch {}
     }
     const names = S.commands
+    await loadQueue($)
+    const queue = S.queue
+    const first = queue[0]
 
     const pct = usage.context.percent
     const ctxColor = pct === undefined ? undefined : pct >= RED ? 'error' : pct >= AMBER ? 'warning' : 'success'
@@ -274,6 +299,23 @@ export const register: Register = on => {
           <Text key="nudge" color="warning">
             {note.text}
           </Text>
+        ) : null}
+        {first ? (
+          <Box key="queue" flexDirection="row" flexWrap="wrap" columnGap={1}>
+            <Text dimColor>{'Queued'.padEnd(8)}</Text>
+            <Text key="queued-n">Queued: {queue.length}</Text>
+            <Button
+              key="queue-start"
+              label={`Start: ${clip(first.title, 40)}`}
+              onPress={() =>
+                fill(
+                  $,
+                  `Start queued task ${first.id}: start a side session for it (model ${first.model}, effort ${first.effort}), then remove it from logs/run-queue.json and set its open-items.md tag to status: running; session: <session id>.`,
+                )
+              }
+            />
+            <Button key="queue-clear" label="Clear" dimColor onPress={() => fill($, 'Show the run queue')} />
+          </Box>
         ) : null}
         {GROUPS.map(g => (
           <Box key={`g-${g.name}`} flexDirection="row" flexWrap="wrap" columnGap={1}>

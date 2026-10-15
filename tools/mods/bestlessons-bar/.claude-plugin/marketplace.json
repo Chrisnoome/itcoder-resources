@@ -1,5 +1,5 @@
 {
   "name": "bestlessons",
   "owner": { "name": "Chris Noome" },
-  "plugins": [{ "name": "bestlessons-bar", "source": "./" }]
+  "plugins": [{ "name": "bestlessons-bar", "source": "./", "version": "0.2.0" }]
 }
