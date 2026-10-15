@@ -11,6 +11,11 @@ for, in one tree. Courses, exam analyses and question writing read from here.
 - Each sitting has **each paper, its memo, and its data files** (practical
   papers). Keep the IEB extras too: analysis grid, teacher instructions,
   inserts, answer sheets, appendices.
+- Also, per subject and board: the curriculum (CAPS document and
+  amendments; IEB SAGs), DBE examination guidelines, DBE Annual Teaching
+  Plans, DBE study guides (Mind the Gap, self-study/revision books) and
+  the DBE NSC diagnostic reports from 2020.
+- **Grade 12 NSC only, English only** (no Afrikaans versions).
 - Older papers already on disk stay (IEB IT goes back to 2009).
 - A new subject gets its folder and the full set before its course is built
   (course-development.md, "Getting the sources" says how to download).
@@ -22,7 +27,17 @@ for, in one tree. Courses, exam analyses and question writing read from here.
 exams/<subject>/<board>/<year>/<Sitting>_<Paper>[_Kind].<ext>
 ```
 
-- subject: `it`, `cat`, `english-hl`, `maths-lit`
+- subject: `it`, `cat`, `english-hl`, `maths-lit`, `mathematics`,
+  `physical-sciences`, `life-sciences`, `accounting`, `geography`,
+  `history` (Chris added the last six, 15 Oct 2026)
+- Non-exam material sits in `exams/<subject>/<board>/docs/`, named plainly
+  (`CAPS.pdf`, `CAPS_Amendment_2024.pdf`, `ExamGuidelines_2021.pdf`,
+  `ATP_Gr12_2024.pdf`, `MindTheGap_Gr12.pdf`, `SAGs_2025.pdf`); diagnostic
+  reports go in the year folder as `Nov_DiagnosticReport.pdf` (one DBE
+  report often covers many subjects: keep only that subject's pages if
+  they can be split cleanly, else the whole volume once, in
+  `exams/_dbe/<year>/`, and say so here).
+- Answer books and addenda are Kinds too: `AnswerBook`, `Addendum`.
 - board: `caps` (DBE NSC) or `ieb`
 - Sitting: `Nov`, `MayJun` (DBE), `FebMar` (DBE), `May` (IEB supplementary)
 - Paper: `P1`, `P2`, `P3` (the board's own numbering: IEB IT practical is
